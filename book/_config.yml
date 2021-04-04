@@ -39,7 +39,7 @@ sphinx:
 # Launch button settings
 repository:
   url                         : "https://github.com/FireDynamics/LectureFireSimulation"
-  branch		      : main
+  branch                      : main
   path_to_book                : "book"
 
 launch_buttons:
