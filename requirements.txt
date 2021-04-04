@@ -1,0 +1,7 @@
+wheel
+setuptools
+fdsreader
+jupyter-book
+jupyterlab
+typing_extensions
+seaborn
