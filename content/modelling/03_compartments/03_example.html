@@ -52,6 +52,8 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="FDS and SMV" href="../../tools/01_fds_smv/00_overview.html" />
@@ -251,9 +253,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/content/modelling/03_compartments/03_example.md"><button type="button"
+        <a class="dropdown-buttons" href="../../../_sources/content/modelling/03_compartments/03_example.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -268,7 +270,7 @@
     <div class="dropdown-buttons sourcebuttons">
         
         
-        <a class="edit-button" href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/modelling/03_compartments/03_example.md"><button
+        <a class="edit-button" href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/modelling/03_compartments/03_example.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -283,11 +285,94 @@
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/FireDynamics/LectureFireSimulation/main?urlpath=tree/book/content/modelling/03_compartments/03_example.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://io.cce.uni-wuppertal.de/firesim_ss2020//hub/user-redirect/git-pull?repo=https://github.com/FireDynamics/LectureFireSimulation&urlpath=tree/LectureFireSimulation/book/content/modelling/03_compartments/03_example.ipynb&branch=main"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   3.3.1. Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   3.3.2. Setup
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fds-input-file">
+   3.3.3. FDS Input File
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#smv-visualisation">
+   3.3.4. SMV Visualisation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysis">
+   3.3.5. Analysis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#task-i-basics">
+   3.3.6. Task I – Basics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#task-ii-mean-profiles">
+   3.3.7. Task II – Mean Profiles
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#task-iii-soot-production">
+   3.3.8. Task III – Soot Production
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#task-iv-time-dependent-heat-release-rate">
+   3.3.9. Task IV – Time-dependent Heat Release Rate
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#task-v-grid-convergence">
+   3.3.10. Task V – Grid Convergence
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -298,6 +383,168 @@
                 
   <div class="section" id="example-pool-fire">
 <h1><span class="section-number">3.3. </span>Example – Pool Fire<a class="headerlink" href="#example-pool-fire" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2><span class="section-number">3.3.1. </span>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>This example illustrates the setup and analysis of a minimalistic FDS simulation. A simple pool fire with a fixed heat release rate is computed.</p>
+</div>
+<div class="section" id="setup">
+<h2><span class="section-number">3.3.2. </span>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>The scenario is a pool fire with a heat release rate of <span class="math notranslate nohighlight">\(\small\sf 1~MW\)</span> and a surface area of <span class="math notranslate nohighlight">\(\small\sf 1~m^2\)</span> is located centraly at the floor, i.e. <span class="math notranslate nohighlight">\(\small\sf z=0~m\)</span>. The extension of the compuatational domain is</p>
+<div class="math notranslate nohighlight">
+\[\small\sf [-2.5~m, 2.5~m] \times [-2.5~m, 2.5~m] \times [0~m, 10~m]\]</div>
+<p>with a grid resolution of <span class="math notranslate nohighlight">\(\small\sf 0.1~m\)</span>.</p>
+</div>
+<div class="section" id="fds-input-file">
+<h2><span class="section-number">3.3.3. </span>FDS Input File<a class="headerlink" href="#fds-input-file" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">HEAD</span> <span class="n">CHID</span> <span class="o">=</span> <span class="s1">&#39;pool_fire&#39;</span><span class="p">,</span> <span class="n">TITLE</span> <span class="o">=</span> <span class="s1">&#39;Example of a pool fire&#39;</span>  <span class="o">/</span> 
+
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">IJK</span> <span class="o">=</span> <span class="mi">25</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span> <span class="n">XB</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.5</span><span class="p">,</span><span class="mf">2.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.5</span><span class="p">,</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span><span class="mi">10</span> <span class="o">/</span> 
+
+<span class="o">&amp;</span><span class="n">TIME</span> <span class="n">T_END</span> <span class="o">=</span> <span class="mf">30.0</span> <span class="o">/</span> 
+
+<span class="o">&amp;</span><span class="n">REAC</span> <span class="n">FUEL</span> <span class="o">=</span> <span class="s1">&#39;METHANE&#39;</span> <span class="o">/</span>
+
+<span class="o">&amp;</span><span class="n">SURF</span> <span class="n">ID</span> <span class="o">=</span> <span class="s1">&#39;BURNER&#39;</span><span class="p">,</span> <span class="n">HRRPUA</span> <span class="o">=</span> <span class="mf">1000.</span><span class="p">,</span> <span class="n">COLOR</span> <span class="o">=</span> <span class="s1">&#39;RASPBERRY&#39;</span> <span class="o">/</span>
+
+<span class="o">&amp;</span><span class="n">VENT</span> <span class="n">XB</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">SURF_ID</span><span class="o">=</span><span class="s1">&#39;BURNER&#39;</span> <span class="o">/</span>
+
+<span class="o">&amp;</span><span class="n">SLCF</span> <span class="n">PBX</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">QUANTITY</span> <span class="o">=</span> <span class="s1">&#39;TEMPERATURE&#39;</span><span class="p">,</span> <span class="n">CELL_CENTERED</span> <span class="o">=</span> <span class="o">.</span><span class="n">TRUE</span><span class="o">.</span> <span class="o">/</span>
+
+<span class="o">&amp;</span><span class="n">TAIL</span> <span class="o">/</span>
+</pre></div>
+</div>
+<p><strong>TODO:</strong> Description of the input file.</p>
+</div>
+<div class="section" id="smv-visualisation">
+<h2><span class="section-number">3.3.4. </span>SMV Visualisation<a class="headerlink" href="#smv-visualisation" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default" id="fig-pool-fire-smv-plain">
+<a class="reference internal image-reference" href="../../../_images/pool_fire_smv_plain.png"><img alt="../../../_images/pool_fire_smv_plain.png" src="../../../_images/pool_fire_smv_plain.png" style="width: 60%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3.1 </span><span class="caption-text">SMV visualisation of the geometry. The surface patch <code class="docutils literal notranslate"><span class="pre">BURNER</span></code>, which has a <code class="docutils literal notranslate"><span class="pre">HRRPUA</span></code> defined, is colored redish.</span><a class="headerlink" href="#fig-pool-fire-smv-plain" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="fig-pool-fire-smv-grid">
+<a class="reference internal image-reference" href="../../../_images/pool_fire_smv_grid.png"><img alt="../../../_images/pool_fire_smv_grid.png" src="../../../_images/pool_fire_smv_grid.png" style="width: 60%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3.2 </span><span class="caption-text">SMV visualisation of the grid in the y-z-plane.</span><a class="headerlink" href="#fig-pool-fire-smv-grid" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="fig-pool-fire-smv-slcf">
+<a class="reference internal image-reference" href="../../../_images/pool_fire_smv_slcf.png"><img alt="../../../_images/pool_fire_smv_slcf.png" src="../../../_images/pool_fire_smv_slcf.png" style="width: 60%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3.3 </span><span class="caption-text">SMV visualisation of the instanteneous (<span class="math notranslate nohighlight">\(\sf t=19.63~s\)</span>) temperature values in the y-z-slice <span class="math notranslate nohighlight">\(\sf y=0~m\)</span>.</span><a class="headerlink" href="#fig-pool-fire-smv-slcf" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="analysis">
+<h2><span class="section-number">3.3.5. </span>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">¶</a></h2>
+<div class="cell tag_hide_cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fdsreader</span> <span class="k">as</span> <span class="nn">fds</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">150</span>
+
+<span class="n">root</span> <span class="o">=</span> <span class="s1">&#39;../../../../&#39;</span>
+<span class="n">data_root</span> <span class="o">=</span> <span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;data/pool_fire/basic/rundir&#39;</span>
+
+<span class="n">sim</span> <span class="o">=</span> <span class="n">fds</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">data_root</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide_cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">slice</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">slices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">time</span> <span class="o">=</span> <span class="mf">19.63</span>
+<span class="n">time_index</span> <span class="o">=</span> <span class="nb">slice</span><span class="o">.</span><span class="n">get_nearest_timestep</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+
+<span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="nb">slice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">time_index</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> 
+           <span class="n">extent</span><span class="o">=</span><span class="nb">slice</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">extent</span><span class="o">.</span><span class="n">as_list</span><span class="p">(),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Oranges&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;x / m&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;z / m&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Temperature / C&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figs/temperature.svg&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>TODO:</strong> alternative representation with Python.</p>
+<div class="figure align-default" id="fig-pool-fire-temp-slice">
+<a class="reference internal image-reference" href="../../../_images/temperature.svg"><img alt="../../../_images/temperature.svg" src="../../../_images/temperature.svg" width="60%" /></a>
+<p class="caption"><span class="caption-number">Fig. 3.4 </span><span class="caption-text">Visualisation of the instanteneous (<span class="math notranslate nohighlight">\(\sf t=19.63~s\)</span>) temperature values in the y-z-slice <span class="math notranslate nohighlight">\(\sf y=0~m\)</span>.</span><a class="headerlink" href="#fig-pool-fire-temp-slice" title="Permalink to this image">¶</a></p>
+</div>
+<div class="cell tag_hide_cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">hrr</span><span class="p">[</span><span class="s2">&quot;Time&quot;</span><span class="p">],</span> <span class="n">sim</span><span class="o">.</span><span class="n">hrr</span><span class="p">[</span><span class="s2">&quot;HRR&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;simulation&#39;</span><span class="p">)</span>
+<span class="n">t_min_max</span> <span class="o">=</span> <span class="p">[</span><span class="n">sim</span><span class="o">.</span><span class="n">hrr</span><span class="p">[</span><span class="s2">&quot;Time&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">sim</span><span class="o">.</span><span class="n">hrr</span><span class="p">[</span><span class="s2">&quot;Time&quot;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+<span class="n">hrr_prescribed</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_min_max</span><span class="p">,</span> <span class="p">[</span><span class="n">hrr_prescribed</span><span class="p">,</span> <span class="n">hrr_prescribed</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;prescribed&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time / s&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;heat release rate / kW&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figs/pool_fire_hrr.svg&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>TODO:</strong> Discusson of the HRR curve in <a class="reference internal" href="#fig-pool-fire-hrr"><span class="std std-numref">Fig. 3.5</span></a></p>
+<div class="figure align-default" id="fig-pool-fire-hrr">
+<a class="reference internal image-reference" href="../../../_images/pool_fire_hrr.svg"><img alt="../../../_images/pool_fire_hrr.svg" src="../../../_images/pool_fire_hrr.svg" width="80%" /></a>
+<p class="caption"><span class="caption-number">Fig. 3.5 </span><span class="caption-text">Prescribed and modelled heat release rate as a function of time.</span><a class="headerlink" href="#fig-pool-fire-hrr" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="task-i-basics">
+<h2><span class="section-number">3.3.6. </span>Task I – Basics<a class="headerlink" href="#task-i-basics" title="Permalink to this headline">¶</a></h2>
+<p>The goal of this task is to become familiar with basic functions. Use the above listed input file and extend it.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>When adding new diagnostics or other elements, it is useful to reduce the computing time to allow for a fast turn-over-time. This way debugging or adjusting your setup will be more efficient. For pure geometrical checks, the simulaiton time can also be set to zero.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Table 21.3 in the <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">FDS User’s Guide</a> provides a summary of frequently used output quantities.</p>
+</div>
+<p><strong>Useful steps to consider first:</strong></p>
+<ol class="simple">
+<li><p>Reduce the computing time to <span class="math notranslate nohighlight">\(\small\sf t_{end} = 5~s\)</span>.</p></li>
+<li><p>Add a z-velocity slice at <span class="math notranslate nohighlight">\(\small\sf y=0~m\)</span>.</p></li>
+<li><p>Increase the heat release rate to <span class="math notranslate nohighlight">\(\small\sf 5~MW\)</span>.</p></li>
+</ol>
+<p><strong>Task:</strong></p>
+<p>Compare the z-velocity slices for heat release rates of <span class="math notranslate nohighlight">\(\small\sf 100~kW\)</span>, <span class="math notranslate nohighlight">\(\small\sf 1~MW\)</span> and <span class="math notranslate nohighlight">\(\small\sf 10~MW\)</span>. Create snapshots for three points in time, e.g. <span class="math notranslate nohighlight">\(\small\sf 10~s\)</span>, <span class="math notranslate nohighlight">\(\small\sf 75~s\)</span> and <span class="math notranslate nohighlight">\(\small\sf 150~s\)</span>.</p>
+</div>
+<div class="section" id="task-ii-mean-profiles">
+<h2><span class="section-number">3.3.7. </span>Task II – Mean Profiles<a class="headerlink" href="#task-ii-mean-profiles" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>v_z profile along z-axis as function of HRR</p></li>
+<li><p>temperature stratification</p></li>
+<li><p>DEVC, individual, line</p></li>
+<li><p>analysis of SLCF</p></li>
+<li><p>mean + stddev</p></li>
+</ul>
+</div>
+<div class="section" id="task-iii-soot-production">
+<h2><span class="section-number">3.3.8. </span>Task III – Soot Production<a class="headerlink" href="#task-iii-soot-production" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>add a soot yield to the combustion reaction</p></li>
+<li><p>describe the development of the smoke layer</p></li>
+</ul>
+</div>
+<div class="section" id="task-iv-time-dependent-heat-release-rate">
+<h2><span class="section-number">3.3.9. </span>Task IV – Time-dependent Heat Release Rate<a class="headerlink" href="#task-iv-time-dependent-heat-release-rate" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>use the RAMP function to define a time dependent function</p></li>
+<li><p>open boundaries</p></li>
+</ul>
+</div>
+<div class="section" id="task-v-grid-convergence">
+<h2><span class="section-number">3.3.10. </span>Task V – Grid Convergence<a class="headerlink" href="#task-v-grid-convergence" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>pick an observable, e.g. velocity profile</p></li>
+<li><p>increase the grid resolution by factors of 0.5, 2 and 4</p></li>
+<li><p>monitor the computing time, see .out file</p></li>
+<li><p>use a parallel computer for factors of 8 and 16, including multiple meshes</p></li>
+</ul>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
