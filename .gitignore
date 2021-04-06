@@ -3,3 +3,6 @@
 .venv
 *~
 book/_build
+data/**/rundir
+data/**/*log
+data/**/*.zip

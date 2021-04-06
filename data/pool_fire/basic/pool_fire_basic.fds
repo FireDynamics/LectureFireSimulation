@@ -1,0 +1,14 @@
+&HEAD CHID = 'pool_fire', TITLE = 'Example of a pool fire'  / 
+
+&MESH IJK = 25,25,50, XB = -2.5,2.5, -2.5,2.5, 0.0,10 / 
+
+&TIME T_END = 30.0 / 
+
+&REAC FUEL = 'METHANE' /
+
+&SURF ID = 'BURNER', HRRPUA = 1000., COLOR = 'RASPBERRY' /
+&VENT XB = -0.5,0.5, -0.5,0.5, 0.0, 0.0, SURF_ID='BURNER' /
+
+&SLCF PBX = 0, QUANTITY = 'TEMPERATURE', CELL_CENTERED = .TRUE. /
+
+&TAIL /
