@@ -1,4 +1,4 @@
 # Structure 
 
-This script is part of a lecture given at the University of Wuppertal.
+This script is part of a lecture given at the University of Wuppertal, chair Computational Civil Engineering.
 
