@@ -12,29 +12,29 @@ https://firedynamics.github.io/LectureFireSimulation
 ```
 git clone https://github.com/FireDynamics/LectureFireSimulation.git
 ```
-1. Inside the repository, setup a virtual environment for Python
+2. Inside the repository, setup a virtual environment for Python
 ```
 python -m venv .venv
 ```
-1. Activate the virtual environment
+3. Activate the virtual environment
 ```
 source .venv/bin/activate
 ```
-1. Install the required Python packages, needed only once
+4. Install the required Python packages, needed only once
 ```
 pip install -r requirements.txt
 ```
-1. Launch JupyterLab
+5. Launch JupyterLab
 ```
 jupyterlab
 ```
-1. Do some editing. The contents of the book are stored in the `content` folder.
-1. Build a local version of the book
+6. Do some editing. The contents of the book are stored in the `content` folder.
+7. Build a local version of the book
 ```
 cd book
 jupyter-book build .
 ```
-1. If the build is sucessful, the location of the build book is stated. You can open it with a browser.
+8. If the build is sucessful, the location of the build book is stated. You can open it with a browser.
 
 ## Data Repository
 
