@@ -21,6 +21,7 @@ only_build_toc_files : true
 ###############################################################################
 # HTML-specific settings
 html:
+  favicon              : 'cce_logo_standalone_icon.png'
   home_page_in_navbar  : false
   baseurl              : ''
   use_edit_page_button : true

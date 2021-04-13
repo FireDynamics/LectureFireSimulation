@@ -1,11 +1,13 @@
+# dummy file, needed for consisency
+- file: content/overview/00_home
+
 ####################
 # INTRODUCTION 
 
-- file: content/overview/00_overview
 - part: Introduction
   numbered: false
   chapters:
-    - file: content/overview/01_structure
+    - file: content/overview/01_overview
     - file: content/overview/02_team
     - file: content/overview/03_references
 
@@ -13,7 +15,7 @@
 # MODELLING
 
 - part: Modelling
-#   numbered: true
+  numbered: false
   chapters:
     - file: content/modelling/01_general/00_overview
       sections:
@@ -27,7 +29,7 @@
       sections:
         - file: content/modelling/02_fluids/01_fluids
         - file: content/modelling/02_fluids/02_cfd
-        - file: content/modelling/02_fluids/03_turbulence
+#         - file: content/modelling/02_fluids/03_turbulence
 
     - file: content/modelling/03_compartments/00_overview
       sections:
