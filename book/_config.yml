@@ -34,6 +34,12 @@ notebook_interface : "notebook"
 sphinx:
   config:
     html_show_copyright : false
+    
+###############################################################################
+# BibTeX settings
+bibtex_reference_style : author_year
+bibtex_bibfiles        :
+    - content/references.bib
 
 ###############################################################################
 # Launch button settings
