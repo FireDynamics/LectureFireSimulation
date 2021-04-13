@@ -54,6 +54,7 @@
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Fluid Dynamics" href="../02_fluids/00_overview.html" />
@@ -94,8 +95,8 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../../overview/01_structure.html">
-   Structure
+  <a class="reference internal" href="../../overview/01_overview.html">
+   Overview
   </a>
  </li>
  <li class="toctree-l1">
@@ -147,11 +148,6 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../02_fluids/02_cfd.html">
      Computational Fluid Dyamics
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02_fluids/03_turbulence.html">
-     Turbulence
     </a>
    </li>
   </ul>
@@ -365,10 +361,10 @@
 <div class="section" id="performance-based-designs">
 <h2>Performance-Based Designs<a class="headerlink" href="#performance-based-designs" title="Permalink to this headline">¶</a></h2>
 <p><strong>General Approach</strong></p>
-<p>In contrast to the static and general rules of a regulation, the performance-based design follows the idea to create an equivalent level of safety by satisfying protection goals. This process allows the engineers to use multiple approaches, which do also include fire simulations, to iteratively design a safety concept. A scematic flow diagram is shown in <a class="reference internal" href="#fig-performance-based-design"><span class="std std-numref">Fig. 11</span></a>.</p>
+<p>In contrast to the static and general rules of a regulation, the performance-based design follows the idea to create an equivalent level of safety by satisfying protection goals. This process allows the engineers to use multiple approaches, which do also include fire simulations, to iteratively design a safety concept. A scematic flow diagram is shown in <a class="reference internal" href="#fig-performance-based-design"><span class="std std-numref">Fig. 12</span></a>.</p>
 <div class="figure align-default" id="fig-performance-based-design">
 <a class="reference internal image-reference" href="../../../_images/performance_based_design.svg"><img alt="../../../_images/performance_based_design.svg" src="../../../_images/performance_based_design.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Simplified flow diagram of a prescriptive and performance based design.</span><a class="headerlink" href="#fig-performance-based-design" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Simplified flow diagram of a prescriptive and performance based design.</span><a class="headerlink" href="#fig-performance-based-design" title="Permalink to this image">¶</a></p>
 </div>
 <p><strong>Qualitative Analysis</strong></p>
 <p>The protection goals have to be defined to fulfill in a wide range of conceivable scenarios. These definitions must consider:</p>
@@ -429,7 +425,7 @@
 <li><p>the impact of technical measures</p></li>
 <li><p>the influence of firefighting measures</p></li>
 </ul>
-<p>In a fire scenario, the fire development – especially the rate at which it releases heat – must be specified. A common approach is to define a time-dependent heat release rate, <span class="math notranslate nohighlight">\(\small\sf HRR(T)\)</span>, which is based on a so called natural fire. A natural fire curve is an empirical approximation to real compartment fires, see <a class="reference internal" href="#fig-natural-design-fire"><span class="std std-numref">Fig. 12</span></a>, which can be represented in three phases:</p>
+<p>In a fire scenario, the fire development – especially the rate at which it releases heat – must be specified. A common approach is to define a time-dependent heat release rate, <span class="math notranslate nohighlight">\(\small\sf HRR(T)\)</span>, which is based on a so called natural fire. A natural fire curve is an empirical approximation to real compartment fires, see <a class="reference internal" href="#fig-natural-design-fire"><span class="std std-numref">Fig. 13</span></a>, which can be represented in three phases:</p>
 <ol>
 <li><p><strong>Growth</strong>: After ignition, the fire increases the rate at which it releases heat until it reaches the flashover. In this phase the heat release rate follows a quadratic function, i.e.</p>
 <div class="math notranslate nohighlight">
@@ -447,7 +443,7 @@
 </ol>
 <div class="figure align-default" id="fig-natural-design-fire">
 <a class="reference internal image-reference" href="../../../_images/natural_design_fire.svg"><img alt="../../../_images/natural_design_fire.svg" src="../../../_images/natural_design_fire.svg" width="60%" /></a>
-<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Heat release rate curve based on the natural fire approximation.</span><a class="headerlink" href="#fig-natural-design-fire" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">Heat release rate curve based on the natural fire approximation.</span><a class="headerlink" href="#fig-natural-design-fire" title="Permalink to this image">¶</a></p>
 </div>
 <p>Following tables presents selected values for the fire load and fire intensity coefficient, see <span id="id5">[<a class="reference internal" href="../../overview/03_references.html#id4"><span>VDI06</span></a>]</span>.</p>
 <table class="colwidths-auto table" id="tab-alpha">

@@ -54,6 +54,7 @@
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="FDS and SMV" href="../../tools/01_fds_smv/00_overview.html" />
@@ -94,8 +95,8 @@
 </p>
 <ul class="nav sidenav_l1">
  <li class="toctree-l1">
-  <a class="reference internal" href="../../overview/01_structure.html">
-   Structure
+  <a class="reference internal" href="../../overview/01_overview.html">
+   Overview
   </a>
  </li>
  <li class="toctree-l1">
@@ -147,11 +148,6 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../02_fluids/02_cfd.html">
      Computational Fluid Dyamics
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02_fluids/03_turbulence.html">
-     Turbulence
     </a>
    </li>
   </ul>
@@ -414,15 +410,15 @@
 <h2>SMV Visualisation<a class="headerlink" href="#smv-visualisation" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-default" id="fig-pool-fire-smv-plain">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_smv_plain.png"><img alt="../../../_images/pool_fire_smv_plain.png" src="../../../_images/pool_fire_smv_plain.png" style="width: 60%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">SMV visualisation of the geometry. The surface patch <code class="docutils literal notranslate"><span class="pre">BURNER</span></code>, which has a <code class="docutils literal notranslate"><span class="pre">HRRPUA</span></code> defined, is colored redish.</span><a class="headerlink" href="#fig-pool-fire-smv-plain" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">SMV visualisation of the geometry. The surface patch <code class="docutils literal notranslate"><span class="pre">BURNER</span></code>, which has a <code class="docutils literal notranslate"><span class="pre">HRRPUA</span></code> defined, is colored redish.</span><a class="headerlink" href="#fig-pool-fire-smv-plain" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="fig-pool-fire-smv-grid">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_smv_grid.png"><img alt="../../../_images/pool_fire_smv_grid.png" src="../../../_images/pool_fire_smv_grid.png" style="width: 60%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">SMV visualisation of the grid in the y-z-plane.</span><a class="headerlink" href="#fig-pool-fire-smv-grid" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">SMV visualisation of the grid in the y-z-plane.</span><a class="headerlink" href="#fig-pool-fire-smv-grid" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="fig-pool-fire-smv-slcf">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_smv_slcf.png"><img alt="../../../_images/pool_fire_smv_slcf.png" src="../../../_images/pool_fire_smv_slcf.png" style="width: 60%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">SMV visualisation of the instanteneous (<span class="math notranslate nohighlight">\(\sf t=19.63~s\)</span>) temperature values in the y-z-slice <span class="math notranslate nohighlight">\(\sf y=0~m\)</span>.</span><a class="headerlink" href="#fig-pool-fire-smv-slcf" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">SMV visualisation of the instanteneous (<span class="math notranslate nohighlight">\(\sf t=19.63~s\)</span>) temperature values in the y-z-slice <span class="math notranslate nohighlight">\(\sf y=0~m\)</span>.</span><a class="headerlink" href="#fig-pool-fire-smv-slcf" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="analysis">
@@ -464,7 +460,7 @@
 <p><strong>TODO:</strong> alternative representation with Python.</p>
 <div class="figure align-default" id="fig-pool-fire-temp-slice">
 <a class="reference internal image-reference" href="../../../_images/temperature.svg"><img alt="../../../_images/temperature.svg" src="../../../_images/temperature.svg" width="60%" /></a>
-<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">Visualisation of the instanteneous (<span class="math notranslate nohighlight">\(\sf t=19.63~s\)</span>) temperature values in the y-z-slice <span class="math notranslate nohighlight">\(\sf y=0~m\)</span>.</span><a class="headerlink" href="#fig-pool-fire-temp-slice" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">Visualisation of the instanteneous (<span class="math notranslate nohighlight">\(\sf t=19.63~s\)</span>) temperature values in the y-z-slice <span class="math notranslate nohighlight">\(\sf y=0~m\)</span>.</span><a class="headerlink" href="#fig-pool-fire-temp-slice" title="Permalink to this image">¶</a></p>
 </div>
 <div class="cell tag_hide_cell docutils container">
 <div class="cell_input docutils container">
@@ -481,10 +477,10 @@
 </div>
 </div>
 </div>
-<p><strong>TODO:</strong> Discusson of the HRR curve in <a class="reference internal" href="#fig-pool-fire-hrr"><span class="std std-numref">Fig. 17</span></a></p>
+<p><strong>TODO:</strong> Discusson of the HRR curve in <a class="reference internal" href="#fig-pool-fire-hrr"><span class="std std-numref">Fig. 18</span></a></p>
 <div class="figure align-default" id="fig-pool-fire-hrr">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_hrr.svg"><img alt="../../../_images/pool_fire_hrr.svg" src="../../../_images/pool_fire_hrr.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">Prescribed and modelled heat release rate as a function of time.</span><a class="headerlink" href="#fig-pool-fire-hrr" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">Prescribed and modelled heat release rate as a function of time.</span><a class="headerlink" href="#fig-pool-fire-hrr" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="task-i-basics">
