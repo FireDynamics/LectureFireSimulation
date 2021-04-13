@@ -2,6 +2,8 @@
 
 Modelling of fires is one aspect in the broad spectrum of fire safety engineering (FSE). While the engineering topics aim for the practical application, fire models are used for research quations in fire safety science (FSS).
 
+The following sections give only a very brief introduction to the broad topics adressed here. Starting points for further reading in this field are give in {cite}`vfdb-leitfaden:2020`, {cite}`VDI-6019-1`, {cite}`VDI-6019-2` or ,e.g., chapters 37, 38, and 39 of {cite}`sfpe-handbook-5th`.
+
 ## Fire Safety Legislation
 
 The [German constitutional law (Grundgesetz)](https://en.wikipedia.org/wiki/Basic_Law_for_the_Federal_Republic_of_Germany) states that
@@ -117,7 +119,7 @@ In a fire scenario, the fire development – especially the rate at which it rel
 Heat release rate curve based on the natural fire approximation.
 :::
 
-Following tables presents selected values for the fire load and fire intensity coefficient, see **TODO cite VDI 6019**. 
+Following tables presents selected values for the fire load and fire intensity coefficient, see {cite}`VDI-6019-1`. 
 
 
 ```{list-table} Fire intensity coefficients
