@@ -39,7 +39,18 @@ notebook_interface : "notebook"
 sphinx:
   config:
     html_show_copyright : false
-    
+    mathjax_config      :
+      TeX:
+        Macros:
+          "vv": "\\vec{v}"
+          "mf": "\\small\\sf"
+
+###############################################################################
+# parser settings
+# parse:
+#   myst_enable_extensions:
+#     - amsmath
+
 ###############################################################################
 # BibTeX settings
 bibtex_reference_style : author_year
