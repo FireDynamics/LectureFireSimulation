@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fire Safety Engineering &#8212; Fire Simulation Lecture</title>
+    <title>1.2. Fire Safety Engineering &#8212; Fire Simulation Lecture</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -54,15 +54,25 @@
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
     <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/modelling/01_general/02_fse.html" />
     <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Fluid Dynamics" href="../02_fluids/00_overview.html" />
-    <link rel="prev" title="Physical and Chemical Processes" href="01_processes.html" />
+    <link rel="next" title="2. Fluid Dynamics" href="../02_fluids/00_overview.html" />
+    <link rel="prev" title="1.1. Physical and Chemical Processes" href="01_processes.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
 
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://firedynamics.github.io/LectureFireSimulation/content/modelling/01_general/02_fse.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Fire Safety Engineering" />
+<meta property="og:description" content="Fire Safety Engineering  Modelling of fires is one aspect in the broad spectrum of fire safety engineering (FSE). While the engineering topics aim for the pract" />
+<meta property="og:image"       content="https://firedynamics.github.io/LectureFireSimulation/_static/cce_logo.png" />
+
+<meta name="twitter:card" content="summary" />
 
 
   </head>
@@ -88,17 +98,19 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <p class="caption collapsible-parent">
- <span class="caption-text">
-  Introduction
- </span>
-</p>
-<ul class="nav sidenav_l1">
+    <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../../overview/01_overview.html">
    Overview
   </a>
  </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../../overview/02_team.html">
    Team Fire Dynamics
@@ -118,17 +130,17 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="00_overview.html">
-   Modelling Fires
+   1. Modelling Fires
   </a>
   <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="01_processes.html">
-     Physical and Chemical Processes
+     1.1. Physical and Chemical Processes
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Fire Safety Engineering
+     1.2. Fire Safety Engineering
     </a>
    </li>
   </ul>
@@ -137,17 +149,17 @@
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../02_fluids/00_overview.html">
-   Fluid Dynamics
+   2. Fluid Dynamics
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="../02_fluids/01_fluids.html">
-     Fluids
+     2.1. Fluids
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../02_fluids/02_cfd.html">
-     Computational Fluid Dyamics
+     2.2. Computational Fluid Dyamics
     </a>
    </li>
   </ul>
@@ -156,22 +168,22 @@
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../03_compartments/00_overview.html">
-   Compartment Fires
+   3. Compartment Fires
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="../03_compartments/01_fundamentals.html">
-     Fundamentals
+     3.1. Fundamentals
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../03_compartments/02_design_fire.html">
-     Design Fires
+     3.2. Design Fires
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../03_compartments/03_example.html">
-     Example – Pool Fire
+     3.3. Example – Pool Fire
     </a>
    </li>
   </ul>
@@ -259,8 +271,14 @@
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
-        
-        
+        <a class="repository-button"
+            href="https://github.com/FireDynamics/LectureFireSimulation"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/modelling/01_general/02_fse.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         <a class="edit-button" href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/modelling/01_general/02_fse.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
@@ -320,7 +338,7 @@
               <div>
                 
   <div class="section" id="fire-safety-engineering">
-<h1>Fire Safety Engineering<a class="headerlink" href="#fire-safety-engineering" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">1.2. </span>Fire Safety Engineering<a class="headerlink" href="#fire-safety-engineering" title="Permalink to this headline">¶</a></h1>
 <p>Modelling of fires is one aspect in the broad spectrum of fire safety engineering (FSE). While the engineering topics aim for the practical application, fire models are used for research quations in fire safety science (FSS).</p>
 <p>The following sections give only a very brief introduction to the broad topics adressed here. Starting points for further reading in this field are give in <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id2"><span>vfdb20</span></a>]</span>, <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id4"><span>VDI06</span></a>]</span>, <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id5"><span>VDI09</span></a>]</span> or ,e.g., chapters 37, 38, and 39 of <span id="id4">[<a class="reference internal" href="../../overview/03_references.html#id3"><span>SFPE16</span></a>]</span>.</p>
 <div class="section" id="fire-safety-legislation">
@@ -361,10 +379,10 @@
 <div class="section" id="performance-based-designs">
 <h2>Performance-Based Designs<a class="headerlink" href="#performance-based-designs" title="Permalink to this headline">¶</a></h2>
 <p><strong>General Approach</strong></p>
-<p>In contrast to the static and general rules of a regulation, the performance-based design follows the idea to create an equivalent level of safety by satisfying protection goals. This process allows the engineers to use multiple approaches, which do also include fire simulations, to iteratively design a safety concept. A scematic flow diagram is shown in <a class="reference internal" href="#fig-performance-based-design"><span class="std std-numref">Fig. 12</span></a>.</p>
+<p>In contrast to the static and general rules of a regulation, the performance-based design follows the idea to create an equivalent level of safety by satisfying protection goals. This process allows the engineers to use multiple approaches, which do also include fire simulations, to iteratively design a safety concept. A scematic flow diagram is shown in <a class="reference internal" href="#fig-performance-based-design"><span class="std std-numref">Fig. 1.11</span></a>.</p>
 <div class="figure align-default" id="fig-performance-based-design">
 <a class="reference internal image-reference" href="../../../_images/performance_based_design.svg"><img alt="../../../_images/performance_based_design.svg" src="../../../_images/performance_based_design.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Simplified flow diagram of a prescriptive and performance based design.</span><a class="headerlink" href="#fig-performance-based-design" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.11 </span><span class="caption-text">Simplified flow diagram of a prescriptive and performance based design.</span><a class="headerlink" href="#fig-performance-based-design" title="Permalink to this image">¶</a></p>
 </div>
 <p><strong>Qualitative Analysis</strong></p>
 <p>The protection goals have to be defined to fulfill in a wide range of conceivable scenarios. These definitions must consider:</p>
@@ -425,7 +443,7 @@
 <li><p>the impact of technical measures</p></li>
 <li><p>the influence of firefighting measures</p></li>
 </ul>
-<p>In a fire scenario, the fire development – especially the rate at which it releases heat – must be specified. A common approach is to define a time-dependent heat release rate, <span class="math notranslate nohighlight">\(\small\sf HRR(T)\)</span>, which is based on a so called natural fire. A natural fire curve is an empirical approximation to real compartment fires, see <a class="reference internal" href="#fig-natural-design-fire"><span class="std std-numref">Fig. 13</span></a>, which can be represented in three phases:</p>
+<p>In a fire scenario, the fire development – especially the rate at which it releases heat – must be specified. A common approach is to define a time-dependent heat release rate, <span class="math notranslate nohighlight">\(\small\sf HRR(T)\)</span>, which is based on a so called natural fire. A natural fire curve is an empirical approximation to real compartment fires, see <a class="reference internal" href="#fig-natural-design-fire"><span class="std std-numref">Fig. 1.12</span></a>, which can be represented in three phases:</p>
 <ol>
 <li><p><strong>Growth</strong>: After ignition, the fire increases the rate at which it releases heat until it reaches the flashover. In this phase the heat release rate follows a quadratic function, i.e.</p>
 <div class="math notranslate nohighlight">
@@ -443,11 +461,11 @@
 </ol>
 <div class="figure align-default" id="fig-natural-design-fire">
 <a class="reference internal image-reference" href="../../../_images/natural_design_fire.svg"><img alt="../../../_images/natural_design_fire.svg" src="../../../_images/natural_design_fire.svg" width="60%" /></a>
-<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">Heat release rate curve based on the natural fire approximation.</span><a class="headerlink" href="#fig-natural-design-fire" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.12 </span><span class="caption-text">Heat release rate curve based on the natural fire approximation.</span><a class="headerlink" href="#fig-natural-design-fire" title="Permalink to this image">¶</a></p>
 </div>
 <p>Following tables presents selected values for the fire load and fire intensity coefficient, see <span id="id5">[<a class="reference internal" href="../../overview/03_references.html#id4"><span>VDI06</span></a>]</span>.</p>
 <table class="colwidths-auto table" id="tab-alpha">
-<caption><span class="caption-number">Table 1 </span><span class="caption-text">Fire intensity coefficients</span><a class="headerlink" href="#tab-alpha" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 1.1 </span><span class="caption-text">Fire intensity coefficients</span><a class="headerlink" href="#tab-alpha" title="Permalink to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Fire development rate</p></th>
 <th class="head"><p>Fire intensity coefficient, <br><span class="math notranslate nohighlight">\(\small\sf\alpha \ / \ kW/s^2\)</span></p></th>
@@ -469,7 +487,7 @@
 </tbody>
 </table>
 <table class="colwidths-auto table" id="tab-hrr-max">
-<caption><span class="caption-number">Table 2 </span><span class="caption-text">Specific maximal heat release rates</span><a class="headerlink" href="#tab-hrr-max" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 1.2 </span><span class="caption-text">Specific maximal heat release rates</span><a class="headerlink" href="#tab-hrr-max" title="Permalink to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Building or object</p></th>
 <th class="head"><p>Specific maximum heat release rate, <br> <span class="math notranslate nohighlight">\(\small\sf HRR_{max}'' \ / \ kW/m^2\)</span></p></th>
@@ -543,8 +561,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="01_processes.html" title="previous page">Physical and Chemical Processes</a>
-    <a class='right-next' id="next-link" href="../02_fluids/00_overview.html" title="next page">Fluid Dynamics</a>
+    <a class='left-prev' id="prev-link" href="01_processes.html" title="previous page"><span class="section-number">1.1. </span>Physical and Chemical Processes</a>
+    <a class='right-next' id="next-link" href="../02_fluids/00_overview.html" title="next page"><span class="section-number">2. </span>Fluid Dynamics</a>
 
         </div>
         

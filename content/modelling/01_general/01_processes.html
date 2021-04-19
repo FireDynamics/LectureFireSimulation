@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Physical and Chemical Processes &#8212; Fire Simulation Lecture</title>
+    <title>1.1. Physical and Chemical Processes &#8212; Fire Simulation Lecture</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -52,15 +52,25 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/modelling/01_general/01_processes.html" />
     <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Fire Safety Engineering" href="02_fse.html" />
-    <link rel="prev" title="Modelling Fires" href="00_overview.html" />
+    <link rel="next" title="1.2. Fire Safety Engineering" href="02_fse.html" />
+    <link rel="prev" title="1. Modelling Fires" href="00_overview.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
 
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://firedynamics.github.io/LectureFireSimulation/content/modelling/01_general/01_processes.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Physical and Chemical Processes" />
+<meta property="og:description" content="Physical and Chemical Processes  What is a Fire?  In general: A fire is an exothermic chemical reaction.  Technical Combustion – Wanted Fires    In a gas stove," />
+<meta property="og:image"       content="https://firedynamics.github.io/LectureFireSimulation/_static/cce_logo.png" />
+
+<meta name="twitter:card" content="summary" />
 
 
   </head>
@@ -86,17 +96,19 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form>
 <nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <p class="caption collapsible-parent">
- <span class="caption-text">
-  Introduction
- </span>
-</p>
-<ul class="nav sidenav_l1">
+    <ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../../overview/01_overview.html">
    Overview
   </a>
  </li>
+</ul>
+<p class="caption collapsible-parent">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav sidenav_l1">
  <li class="toctree-l1">
   <a class="reference internal" href="../../overview/02_team.html">
    Team Fire Dynamics
@@ -116,17 +128,17 @@
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1 current active collapsible-parent">
   <a class="reference internal" href="00_overview.html">
-   Modelling Fires
+   1. Modelling Fires
   </a>
   <ul class="current collapse-ul">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Physical and Chemical Processes
+     1.1. Physical and Chemical Processes
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="02_fse.html">
-     Fire Safety Engineering
+     1.2. Fire Safety Engineering
     </a>
    </li>
   </ul>
@@ -135,17 +147,17 @@
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../02_fluids/00_overview.html">
-   Fluid Dynamics
+   2. Fluid Dynamics
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="../02_fluids/01_fluids.html">
-     Fluids
+     2.1. Fluids
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../02_fluids/02_cfd.html">
-     Computational Fluid Dyamics
+     2.2. Computational Fluid Dyamics
     </a>
    </li>
   </ul>
@@ -154,22 +166,22 @@
  </li>
  <li class="toctree-l1 collapsible-parent">
   <a class="reference internal" href="../03_compartments/00_overview.html">
-   Compartment Fires
+   3. Compartment Fires
   </a>
   <ul class="collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="../03_compartments/01_fundamentals.html">
-     Fundamentals
+     3.1. Fundamentals
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../03_compartments/02_design_fire.html">
-     Design Fires
+     3.2. Design Fires
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../03_compartments/03_example.html">
-     Example – Pool Fire
+     3.3. Example – Pool Fire
     </a>
    </li>
   </ul>
@@ -257,8 +269,14 @@
     <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
         aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
     <div class="dropdown-buttons sourcebuttons">
-        
-        
+        <a class="repository-button"
+            href="https://github.com/FireDynamics/LectureFireSimulation"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/modelling/01_general/01_processes.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
         <a class="edit-button" href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/modelling/01_general/01_processes.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
@@ -328,24 +346,24 @@
               <div>
                 
   <div class="section" id="physical-and-chemical-processes">
-<h1>Physical and Chemical Processes<a class="headerlink" href="#physical-and-chemical-processes" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">1.1. </span>Physical and Chemical Processes<a class="headerlink" href="#physical-and-chemical-processes" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="what-is-a-fire">
 <h2>What is a Fire?<a class="headerlink" href="#what-is-a-fire" title="Permalink to this headline">¶</a></h2>
 <p>In general: A fire is an exothermic chemical reaction.</p>
 <p><strong>Technical Combustion – Wanted Fires</strong></p>
 <div class="figure align-default" id="fig-wanted-fire">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Gas_flame.jpg/858px-Gas_flame.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Gas_flame.jpg/858px-Gas_flame.jpg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Gas_flame.jpg/858px-Gas_flame.jpg" style="width: 40%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">In a gas stove, a combustible gas is used to generate heat. The geometry and flow properties of the stove allow a controllable flame. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Gas_flame.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-wanted-fire" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.1 </span><span class="caption-text">In a gas stove, a combustible gas is used to generate heat. The geometry and flow properties of the stove allow a controllable flame. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Gas_flame.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-wanted-fire" title="Permalink to this image">¶</a></p>
 </div>
 <p><em>Wanted fires</em>, i.e. technical combustion processes, are <strong>controlled</strong> processes used for e.g. heating or propulsion. Although the term <em>wanted fire</em> is somehow misleading, as the fires are typically not wanted and associated with accidents, a bonfire is one of the fundamental wanted applications of fires.</p>
 <div class="figure align-default" id="fig-bonfire">
 <a class="reference internal image-reference" href="../../../_images/bonfire.png"><img alt="../../../_images/bonfire.png" src="../../../_images/bonfire.png" style="width: 40%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Bonfires are wanted fires, e.g. for preparing a meal.</span><a class="headerlink" href="#fig-bonfire" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.2 </span><span class="caption-text">Bonfires are wanted fires, e.g. for preparing a meal.</span><a class="headerlink" href="#fig-bonfire" title="Permalink to this image">¶</a></p>
 </div>
 <p><strong>Unwanted Fires</strong></p>
 <div class="figure align-default" id="fig-unwanted-fire">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Fire_inside_an_abandoned_convent_in_Massueville%2C_Quebec%2C_Canada.jpg/640px-Fire_inside_an_abandoned_convent_in_Massueville%2C_Quebec%2C_Canada.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Fire_inside_an_abandoned_convent_in_Massueville%2C_Quebec%2C_Canada.jpg/640px-Fire_inside_an_abandoned_convent_in_Massueville%2C_Quebec%2C_Canada.jpg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Fire_inside_an_abandoned_convent_in_Massueville%2C_Quebec%2C_Canada.jpg/640px-Fire_inside_an_abandoned_convent_in_Massueville%2C_Quebec%2C_Canada.jpg" style="width: 40%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">Building fire. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Fire_inside_an_abandoned_convent_in_Massueville,_Quebec,_Canada.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-unwanted-fire" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.3 </span><span class="caption-text">Building fire. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Fire_inside_an_abandoned_convent_in_Massueville,_Quebec,_Canada.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-unwanted-fire" title="Permalink to this image">¶</a></p>
 </div>
 <p>Unwanted fires, are <strong>not controlled and not wanted</strong> processes. These are mostly incidents inside of enclosures and pose danger to wildlife, humans, and property.</p>
 <p><strong>Fire Examples</strong></p>
@@ -375,7 +393,7 @@
 <h2>Processes Overview<a class="headerlink" href="#processes-overview" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-default" id="fig-fire-processes">
 <a class="reference internal image-reference" href="../../../_images/fire_processes.svg"><img alt="../../../_images/fire_processes.svg" src="../../../_images/fire_processes.svg" width="60%" /></a>
-<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Visualisation of the main processes involved in fires.</span><a class="headerlink" href="#fig-fire-processes" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.4 </span><span class="caption-text">Visualisation of the main processes involved in fires.</span><a class="headerlink" href="#fig-fire-processes" title="Permalink to this image">¶</a></p>
 </div>
 <p>Fires involve a complex interaction of a multitude of physical and chemical processes. While most of them take place in the gas phase, e.g. combustion, fires commonly include also processes in the solid or liquid phase, e.g. pyrolysis which generates the fuel for the combustion. The following processes cover the main phenomena.</p>
 <ol class="simple">
@@ -408,29 +426,29 @@
 </div>
 <div class="section" id="turbulent-flows">
 <h2>Turbulent Flows<a class="headerlink" href="#turbulent-flows" title="Permalink to this headline">¶</a></h2>
-<p>Fires induce heat into the gas phase and buoyancy drives a plume. Compartment flows are complex and involve many openings to ambient regions as well as obstructions, see <a class="reference internal" href="#fig-compartment-flow"><span class="std std-numref">Fig. 6</span></a>. Mechanical ventilation or HVAC as well as wind might be included into the evaluation of the dynamics.</p>
+<p>Fires induce heat into the gas phase and buoyancy drives a plume. Compartment flows are complex and involve many openings to ambient regions as well as obstructions, see <a class="reference internal" href="#fig-compartment-flow"><span class="std std-numref">Fig. 1.5</span></a>. Mechanical ventilation or HVAC as well as wind might be included into the evaluation of the dynamics.</p>
 <div class="figure align-default" id="fig-compartment-flow">
 <a class="reference internal image-reference" href="../../../_images/compartment_flow_labeled.svg"><img alt="../../../_images/compartment_flow_labeled.svg" src="../../../_images/compartment_flow_labeled.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Illustration of a potential flow inside a building, driven by the fire. There is an inflow and an outflow, which connect the confined flow to the ambient domain.</span><a class="headerlink" href="#fig-compartment-flow" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.5 </span><span class="caption-text">Illustration of a potential flow inside a building, driven by the fire. There is an inflow and an outflow, which connect the confined flow to the ambient domain.</span><a class="headerlink" href="#fig-compartment-flow" title="Permalink to this image">¶</a></p>
 </div>
 <p>Most fire flows, especially in the flame and plume region, are turbulent. The turbulent mixture process during combustion is crucial and the entrainment of fresh cold air into a plume significantly determines its dynamics. Experimental analysis as well as numerical models must consider the macroscopic effects of turbulence.</p>
 <div class="figure align-default" id="fig-turbulence-transition-candle">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Laminar-turbulent_transition.jpg/466px-Laminar-turbulent_transition.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Laminar-turbulent_transition.jpg/466px-Laminar-turbulent_transition.jpg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Laminar-turbulent_transition.jpg/466px-Laminar-turbulent_transition.jpg" style="width: 40%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Transition from a laminar to a turbulent flow in the plume of a burning candle. The image is captured using <a class="reference external" href="https://en.wikipedia.org/wiki/Schlieren_photography">schlieren photography</a>, which visualises differences in the refraction index. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Laminar-turbulent_transition.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-turbulence-transition-candle" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.6 </span><span class="caption-text">Transition from a laminar to a turbulent flow in the plume of a burning candle. The image is captured using <a class="reference external" href="https://en.wikipedia.org/wiki/Schlieren_photography">schlieren photography</a>, which visualises differences in the refraction index. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Laminar-turbulent_transition.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-turbulence-transition-candle" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="reactive-flows">
 <h2>Reactive Flows<a class="headerlink" href="#reactive-flows" title="Permalink to this headline">¶</a></h2>
 <p>Fires are driven by the energy released by combustion, which is an exothermal chemical process. Two gases, in the simplest case oxygen and fuel, react and release energy. In real fires, there is a zoo of species and reactions involved in a fire. Depending on the concentrations of individual species and their local temperatures, new chemical species can be formed. Thus, the overall spectrum of products, due to the chemical processes during a fire, is rarely simple.</p>
-<p>In contrast to technical combustion, the oxygen and the fuel are typically not mixed. The transition from a non-premixed to a premixed combustion can be well observed with a Bunsen burner, see <a class="reference internal" href="#fig-bunsen-burner"><span class="std std-numref">Fig. 8</span></a>.</p>
+<p>In contrast to technical combustion, the oxygen and the fuel are typically not mixed. The transition from a non-premixed to a premixed combustion can be well observed with a Bunsen burner, see <a class="reference internal" href="#fig-bunsen-burner"><span class="std std-numref">Fig. 1.7</span></a>.</p>
 <div class="figure align-default" id="fig-bunsen-burner">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Bunsen_burner_flame_types.jpg/854px-Bunsen_burner_flame_types.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Bunsen_burner_flame_types.jpg/854px-Bunsen_burner_flame_types.jpg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Bunsen_burner_flame_types.jpg/854px-Bunsen_burner_flame_types.jpg" style="width: 40%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Variable oxygen concentrations in the outflow stream of a Bunsen burner. From left to right: air valve closed, nearly fully closed, valve semi-opened and maximally opened. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Bunsen_burner_flame_types.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-bunsen-burner" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.7 </span><span class="caption-text">Variable oxygen concentrations in the outflow stream of a Bunsen burner. From left to right: air valve closed, nearly fully closed, valve semi-opened and maximally opened. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Bunsen_burner_flame_types.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-bunsen-burner" title="Permalink to this image">¶</a></p>
 </div>
-<p>The time scales at which the chemical reactions take place span multiple orders of magnitude, see <a class="reference internal" href="#fig-chem-time-scales"><span class="std std-numref">Fig. 9</span></a>. Typical combustion processes are much faster than common mass transport processes in fires.</p>
+<p>The time scales at which the chemical reactions take place span multiple orders of magnitude, see <a class="reference internal" href="#fig-chem-time-scales"><span class="std std-numref">Fig. 1.8</span></a>. Typical combustion processes are much faster than common mass transport processes in fires.</p>
 <div class="figure align-default" id="fig-chem-time-scales">
 <a class="reference internal image-reference" href="../../../_images/chemical_timescales.svg"><img alt="../../../_images/chemical_timescales.svg" src="../../../_images/chemical_timescales.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">(Very) Approximate time scales of chemical and physical processes in reactive flows.</span><a class="headerlink" href="#fig-chem-time-scales" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.8 </span><span class="caption-text">(Very) Approximate time scales of chemical and physical processes in reactive flows.</span><a class="headerlink" href="#fig-chem-time-scales" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="heat-transfer">
@@ -444,17 +462,17 @@
 </ul>
 <div class="figure align-default" id="fig-heat-transfer-overview">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/f/f4/Heat-transmittance-means2.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/f/f4/Heat-transmittance-means2.jpg" src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Heat-transmittance-means2.jpg" style="width: 40%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Schematic illustration of the various heat transfer modes. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Heat-transmittance-means2.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-heat-transfer-overview" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.9 </span><span class="caption-text">Schematic illustration of the various heat transfer modes. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Heat-transmittance-means2.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-heat-transfer-overview" title="Permalink to this image">¶</a></p>
 </div>
 <p>All three modes are important for fires. The released chemical energy from combustion locally heats up the gas, which changes its density and is thus affected by buoyancy. Beside the local heating, the hot gas emits thermal radiation in all directions. Thus, in case of a compartment fire, it transfers heat towards the walls or other structures, and e.g. towards the solid, which provides the fuel source for the fire. Thus, the solid’s surface heats up and heat conduction spreads the absorbed energy through the solid.</p>
 </div>
 <div class="section" id="pyrolysis">
 <h2>Pyrolysis<a class="headerlink" href="#pyrolysis" title="Permalink to this headline">¶</a></h2>
 <p>Pyrolysis describes the emission of (potentially combustible) gases out of solid material. In general, this is dependent on the solid’s temperature as the decomposition reactions require energy. For liquids, additional evaporation can take place.</p>
-<p>In case of burning wood, like a match in <a class="reference internal" href="#fig-burning-match"><span class="std std-numref">Fig. 11</span></a>, the solid material itself is not part of the combustion, but delivers only the fuel for the fire. Not all material is gasified and a char residue is left.</p>
+<p>In case of burning wood, like a match in <a class="reference internal" href="#fig-burning-match"><span class="std std-numref">Fig. 1.10</span></a>, the solid material itself is not part of the combustion, but delivers only the fuel for the fire. Not all material is gasified and a char residue is left.</p>
 <div class="figure align-default" id="fig-burning-match">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/a/a3/Streichholz.JPG"><img alt="https://upload.wikimedia.org/wikipedia/commons/a/a3/Streichholz.JPG" src="https://upload.wikimedia.org/wikipedia/commons/a/a3/Streichholz.JPG" style="width: 40%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Burning match, where the fuel for the combustion is emitted by the wood through pyrolysis. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Streichholz.JPG">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-burning-match" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.10 </span><span class="caption-text">Burning match, where the fuel for the combustion is emitted by the wood through pyrolysis. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Streichholz.JPG">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-burning-match" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
@@ -484,8 +502,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="00_overview.html" title="previous page">Modelling Fires</a>
-    <a class='right-next' id="next-link" href="02_fse.html" title="next page">Fire Safety Engineering</a>
+    <a class='left-prev' id="prev-link" href="00_overview.html" title="previous page"><span class="section-number">1. </span>Modelling Fires</a>
+    <a class='right-next' id="next-link" href="02_fse.html" title="next page"><span class="section-number">1.2. </span>Fire Safety Engineering</a>
 
         </div>
         
