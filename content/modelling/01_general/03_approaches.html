@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1. Modelling Fires &#8212; Fire Simulation Lecture</title>
+    <title>1.3. Modelling Approaches &#8212; Fire Simulation Lecture</title>
     
   <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
 
@@ -52,22 +52,24 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/modelling/01_general/00_overview.html" />
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"vv": "\\vec{v}", "mf": "\\small\\sf"}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/modelling/01_general/03_approaches.html" />
     <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="1.1. Physical and Chemical Processes" href="01_processes.html" />
-    <link rel="prev" title="References" href="../../overview/03_references.html" />
+    <link rel="next" title="2. Fluid Dynamics" href="../02_fluids/00_overview.html" />
+    <link rel="prev" title="1.2. Fire Safety Engineering" href="02_fse.html" />
 
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
 
 
 <!-- Opengraph tags -->
-<meta property="og:url"         content="https://firedynamics.github.io/LectureFireSimulation/content/modelling/01_general/00_overview.html" />
+<meta property="og:url"         content="https://firedynamics.github.io/LectureFireSimulation/content/modelling/01_general/03_approaches.html" />
 <meta property="og:type"        content="article" />
-<meta property="og:title"       content="Modelling Fires" />
-<meta property="og:description" content="Modelling Fires  The motivation for this chapter is to provide an overview of the involved phenomena and methods in the modelling of fires. In the first section" />
+<meta property="og:title"       content="Modelling Approaches" />
+<meta property="og:description" content="Modelling Approaches  Fire safety science (FSS) and fire safety engineering (FSE) is not limited to describe fires and their impact on building structures, yet " />
 <meta property="og:image"       content="https://firedynamics.github.io/LectureFireSimulation/_static/cce_logo.png" />
 
 <meta name="twitter:card" content="summary" />
@@ -127,10 +129,10 @@
 </p>
 <ul class="current nav sidenav_l1">
  <li class="toctree-l1 current active collapsible-parent">
-  <a class="current reference internal" href="#">
+  <a class="reference internal" href="00_overview.html">
    1. Modelling Fires
   </a>
-  <ul class="collapse-ul">
+  <ul class="current collapse-ul">
    <li class="toctree-l2">
     <a class="reference internal" href="01_processes.html">
      1.1. Physical and Chemical Processes
@@ -141,8 +143,8 @@
      1.2. Fire Safety Engineering
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="03_approaches.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      1.3. Modelling Approaches
     </a>
    </li>
@@ -259,7 +261,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/content/modelling/01_general/00_overview.md"><button type="button"
+        <a class="dropdown-buttons" href="../../../_sources/content/modelling/01_general/03_approaches.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -279,10 +281,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/modelling/01_general/00_overview.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/modelling/01_general/03_approaches.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/modelling/01_general/00_overview.md"><button
+        <a class="edit-button" href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/modelling/01_general/03_approaches.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -302,6 +304,36 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i>
+            Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#experiments">
+   Experiments
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analytical-models">
+   Analytical Models
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#zone-models">
+   Zone Models
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#field-models">
+   Field Models
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
         </div>
     </div>
 </div>
@@ -310,13 +342,101 @@
         
               <div>
                 
-  <div class="section" id="modelling-fires">
-<h1><span class="section-number">1. </span>Modelling Fires<a class="headerlink" href="#modelling-fires" title="Permalink to this headline">¶</a></h1>
-<p>The motivation for this chapter is to provide an overview of the involved phenomena and methods in the modelling of fires. In the first section a brief summary of the physical and chemical processes is given. As one of the application scenarios for fire simulations is fire safety engineering (FSE), the second section outlines some selected aspects of this field of engineering – especially for those who are not familiar with it.</p>
-<p>There exist multiple ways to modell fires, although this lecutre focuses on field models, i.e. computational fluid dynamics models. In the third section an overview of existing modelling approaches is briefly outlined.</p>
-<!-- TODO: Verification and validation
-TODO: Uncertainties -->
-<div class="toctree-wrapper compound">
+  <div class="section" id="modelling-approaches">
+<h1><span class="section-number">1.3. </span>Modelling Approaches<a class="headerlink" href="#modelling-approaches" title="Permalink to this headline">¶</a></h1>
+<p>Fire safety science (FSS) and fire safety engineering (FSE) is not limited to describe fires and their impact on building structures, yet other topics, like evacuation or risk analysis, are not part of this lecture. The understanding and description of fires allows for technical and organisational (active and preventive) measures to limit or even prevent damage. In general, these descriptions lead to the development of mathematical models, which are validated using physical and chemical experiments. From the practical point of view, these models are applied to design and evaluate safety concepts.</p>
+<p>The development of analytical and numerical models aims to describe processes and / or the impacts related to fires. This is true for compartment as well as wildland fires and covers may aspects, like the height of the hot gas layer, the speed and direction at which flames propagate, the toxicity of smoke or the activation and effectivenes of technical measures.</p>
+<p>Models range from empirical data models to models based on first principles. Yet, mostly experiments are needed to adjust unknown model parameters and to validate the predictive capabilities of a model.</p>
+<p>A brief and by far not complete or accurate overview of the historical time scales of scientific development, which modern day approaches are based on, is give in the following table.</p>
+<table class="colwidths-auto table" id="tab-history-overview">
+<caption><span class="caption-number">Table 1.3 </span><span class="caption-text">Brief historic overview of scientific development</span><a class="headerlink" href="#tab-history-overview" title="Permalink to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Time</p></th>
+<th class="head"><p>Event</p></th>
+<th class="head"><p>Key Initiator</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>∼1650</p></td>
+<td><p>conservation of momentum</p></td>
+<td><p>Newton</p></td>
+</tr>
+<tr class="row-odd"><td><p>1737</p></td>
+<td><p>relationship pressure and velocity in a fluid</p></td>
+<td><p>Bernoulli</p></td>
+</tr>
+<tr class="row-even"><td><p>∼1750</p></td>
+<td><p>conservation of energy</p></td>
+<td><p>Clausius</p></td>
+</tr>
+<tr class="row-odd"><td><p>1807</p></td>
+<td><p>heat conduction equation</p></td>
+<td><p>Fourier</p></td>
+</tr>
+<tr class="row-even"><td><p>1827 / 1845</p></td>
+<td><p>viscous equations of fluid motion</p></td>
+<td><p>Navier &amp; Stokes</p></td>
+</tr>
+<tr class="row-odd"><td><p>1855</p></td>
+<td><p>mass diffusion equation</p></td>
+<td><p>Fick</p></td>
+</tr>
+<tr class="row-even"><td><p>1884</p></td>
+<td><p>temperature dependent chemical reaction rate</p></td>
+<td><p>Arrhenius</p></td>
+</tr>
+<tr class="row-odd"><td><p>~1900</p></td>
+<td><p>thermal radiation</p></td>
+<td><p>Planck</p></td>
+</tr>
+<tr class="row-even"><td><p>1928</p></td>
+<td><p>solution of diffusion flame in a duct</p></td>
+<td><p>Burke &amp; Schumann</p></td>
+</tr>
+<tr class="row-odd"><td><p>∼1930</p></td>
+<td><p>combustion equations with kinetics</p></td>
+<td><p>Semenov</p></td>
+</tr>
+<tr class="row-even"><td><p>∼1950</p></td>
+<td><p>convective burning solutions</p></td>
+<td><p>Emmons &amp; Spalding</p></td>
+</tr>
+<tr class="row-odd"><td><p>∼1960</p></td>
+<td><p>diverse fire phenomena solutions</p></td>
+<td><p>Thomas</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="experiments">
+<h2>Experiments<a class="headerlink" href="#experiments" title="Permalink to this headline">¶</a></h2>
+<p>Models little to no value if they are not supported by experiments. Thus the design and conduction of experiments on various scales is the fundament of fire safety science and engineering. Some experimental aspects in the context of experiments are:</p>
+<ul class="simple">
+<li><p>material flamability tests</p></li>
+<li><p>measurement of quantities like heat release, structural temperatures, heat radiation, toxic gas concentrations, etc.</p></li>
+<li><p>bench-scale experiments for material or building element evaluation, potentially with a separation of effects</p></li>
+<li><p>real-scale experiments aim for the full integration of all interactions in a fire</p></li>
+</ul>
+<div class="figure align-default" id="fig-exp-cone-calorimeter">
+<a class="reference internal image-reference" href="../../../_images/cone_calorimeter.png"><img alt="../../../_images/cone_calorimeter.png" src="../../../_images/cone_calorimeter.png" style="width: 60%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1.13 </span><span class="caption-text">Example for a bench-scale experimente: a cone calorimeter. The sample size is about <span class="math notranslate nohighlight">\(\sf\small 10~cm \times 10~cm\)</span>.</span><a class="headerlink" href="#fig-exp-cone-calorimeter" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="fig-exp-orpheus">
+<a class="reference internal image-reference" href="../../../_images/orpheus.jpeg"><img alt="../../../_images/orpheus.jpeg" src="../../../_images/orpheus.jpeg" style="width: 60%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1.14 </span><span class="caption-text">Example for a real-scale experimente: hot gas experiments within a metro station. These experiments were conducted by I.F.I. Aachen, Germany, within the <a class="reference external" href="http://www.orpheus-projekt.de">ORPHEUS</a> project.</span><a class="headerlink" href="#fig-exp-orpheus" title="Permalink to this image">¶</a></p>
+</div>
+<p>Experiments differ from test. While a test checks for a property or a result, there is no explicit aim to gain scientific insight from it. In an experiment the outcome is designed with an open question and aims to extend the knowledge base with new findigs.</p>
+</div>
+<div class="section" id="analytical-models">
+<h2>Analytical Models<a class="headerlink" href="#analytical-models" title="Permalink to this headline">¶</a></h2>
+<p>The first level of models are analytical models. They are either based on empirical data and are thus just their mathematical representation. Or, they are based on fundamental approximations and symmetries, which lead to an closed analytical solution.</p>
+<p>Despite their, sometimes very limitting, approximations, they offer a tool to quickly estimate the quantites of interest. In addition, they can be directly integrated into other, potentially more complex, models. Another important aspect is, that analytical models can be checked by a reader, as it is in general possible to write down all needed input parameters.</p>
+<p>Of course, due to the underlying simplifications and assumptions, their applicability is limited.</p>
+</div>
+<div class="section" id="zone-models">
+<h2>Zone Models<a class="headerlink" href="#zone-models" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="field-models">
+<h2>Field Models<a class="headerlink" href="#field-models" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -345,8 +465,8 @@ TODO: Uncertainties -->
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../../overview/03_references.html" title="previous page">References</a>
-    <a class='right-next' id="next-link" href="01_processes.html" title="next page"><span class="section-number">1.1. </span>Physical and Chemical Processes</a>
+    <a class='left-prev' id="prev-link" href="02_fse.html" title="previous page"><span class="section-number">1.2. </span>Fire Safety Engineering</a>
+    <a class='right-next' id="next-link" href="../02_fluids/00_overview.html" title="next page"><span class="section-number">2. </span>Fluid Dynamics</a>
 
         </div>
         
