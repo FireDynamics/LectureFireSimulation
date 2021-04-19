@@ -17,14 +17,18 @@ execute:
 ###############################################################################
 # TOC settings
 only_build_toc_files : true
+number_toc_chapters  : true
 
 ###############################################################################
 # HTML-specific settings
 html:
-  favicon              : 'cce_logo_standalone_icon.png'
-  home_page_in_navbar  : false
-  baseurl              : ''
-  use_edit_page_button : true
+  favicon               : 'cce_logo_standalone_icon.png'
+  home_page_in_navbar   : true
+  baseurl               : 'https://firedynamics.github.io/LectureFireSimulation/content/overview/01_overview.html'
+  use_edit_page_button  : true
+  use_edit_page_button  : true
+  use_issues_button     : true
+  use_repository_button : true
   
 ###############################################################################
 # Interact link settings

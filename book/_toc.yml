@@ -1,5 +1,5 @@
 # dummy file, needed for consisency
-- file: content/overview/00_home
+- file: content/overview/01_overview
 
 ####################
 # INTRODUCTION 
@@ -7,7 +7,7 @@
 - part: Introduction
   numbered: false
   chapters:
-    - file: content/overview/01_overview
+#     - file: content/overview/01_overview
     - file: content/overview/02_team
     - file: content/overview/03_references
 
@@ -15,7 +15,8 @@
 # MODELLING
 
 - part: Modelling
-  numbered: false
+  numbered: 2
+#   numbered: true
   chapters:
     - file: content/modelling/01_general/00_overview
       sections:
