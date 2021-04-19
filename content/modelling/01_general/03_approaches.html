@@ -431,6 +431,51 @@
 <p>The first level of models are analytical models. They are either based on empirical data and are thus just their mathematical representation. Or, they are based on fundamental approximations and symmetries, which lead to an closed analytical solution.</p>
 <p>Despite their, sometimes very limitting, approximations, they offer a tool to quickly estimate the quantites of interest. In addition, they can be directly integrated into other, potentially more complex, models. Another important aspect is, that analytical models can be checked by a reader, as it is in general possible to write down all needed input parameters.</p>
 <p>Of course, due to the underlying simplifications and assumptions, their applicability is limited.</p>
+<p><strong>Example – Plume Temperature</strong></p>
+<div class="figure align-default" id="fig-exp-plume-profile">
+<a class="reference internal image-reference" href="../../../_images/plume-profile-yokoi.png"><img alt="../../../_images/plume-profile-yokoi.png" src="../../../_images/plume-profile-yokoi.png" style="width: 40%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 1.15 </span><span class="caption-text">Example for experimentally captured normalised temperature profiles of a plume. Source: <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id7"><span>Yok60</span></a>]</span>.</span><a class="headerlink" href="#fig-exp-plume-profile" title="Permalink to this image">¶</a></p>
+</div>
+<p>The temperature rise <span class="math notranslate nohighlight">\(\mf \Delta T\)</span> in a turbulent plume may be approximated by:</p>
+<div class="math notranslate nohighlight">
+\[
+\mf \Delta T(z, r) = T_m(z) \cdot\exp\left(-\beta\left(\frac{r}{b(z)}\right)^2\right)
+\]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mf z,r\)</span>: height above plume source and distance from centerline</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mf b(z)\)</span>: plume radius</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mf \beta\)</span>: empirical constant ≈ 1</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mf T_m(z)\)</span>: centerline temperature (at z)</p></li>
+</ul>
+<p><strong>Example – Mass Flow</strong></p>
+<ul class="simple">
+<li><p>How much smoke is induced into the smoke layer?</p></li>
+<li><p>How should smoke extraction systems be dimensioned?</p></li>
+</ul>
+<div class="figure align-default" id="fig-exp-analytical-mass-flow">
+<a class="reference internal image-reference" href="../../../_images/compartment_flow_central_labeled.svg"><img alt="../../../_images/compartment_flow_central_labeled.svg" src="../../../_images/compartment_flow_central_labeled.svg" width="60%" /></a>
+<p class="caption"><span class="caption-number">Fig. 1.16 </span><span class="caption-text">Basic compartment setup.</span><a class="headerlink" href="#fig-exp-analytical-mass-flow" title="Permalink to this image">¶</a></p>
+</div>
+<p>relevant quantities, see <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id5"><span>VDI09</span></a>]</span>:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mf Y_{eff}\)</span> : height between fire source and smoke layer</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mf A_{fire}\)</span> : fire source area</p></li>
+</ul>
+<div class="math notranslate nohighlight">
+\[
+\mf \dot{m}_{pl} = C_1Y^{1.5}_{eff}\sqrt{4\pi A_{fire}}
+\]</div>
+<p>But only if the following assumptions are satisfied (selection):</p>
+<ul class="simple">
+<li><p>the compartment is a single storey smoke reservoir</p></li>
+<li><p>minimum compartment height of 4.0 m</p></li>
+<li><p>room temperature is lower than smoke gas temperature</p></li>
+<li><p>jet forming regime: <span class="math notranslate nohighlight">\(\mf Y_{eff} / \sqrt{A_{fire}} \le 2\)</span></p></li>
+<li><p>fire power: 8kW – 30 kW</p></li>
+<li><p>fire source radius: 0.2 m – 4.5 m</p></li>
+<li><p>induction coefficient <span class="math notranslate nohighlight">\(\mf C_1 = 0.19~kg\,m^{-5/2}\,s^{–1}\)</span></p></li>
+</ul>
 </div>
 <div class="section" id="zone-models">
 <h2>Zone Models<a class="headerlink" href="#zone-models" title="Permalink to this headline">¶</a></h2>
