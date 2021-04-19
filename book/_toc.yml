@@ -48,3 +48,7 @@
       sections:
         - file: content/tools/01_fds_smv/01_fds
         - file: content/tools/01_fds_smv/02_smv
+        
+    - file: content/tools/03_hpc/00_overview
+      sections:
+        - file: content/tools/03_hpc/02_parallel_fds
