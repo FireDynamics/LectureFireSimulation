@@ -99,6 +99,59 @@ Despite their, sometimes very limitting, approximations, they offer a tool to qu
 
 Of course, due to the underlying simplifications and assumptions, their applicability is limited.
 
+**Example – Plume Temperature**
+
+:::{figure-md} fig-exp-plume-profile
+
+<img src="./figs/plume-profile-yokoi.png" width="40%">
+
+Example for experimentally captured normalised temperature profiles of a plume. Source: {cite}`Yokoi.1960`.
+:::
+
+The temperature rise $\mf \Delta T$ in a turbulent plume may be approximated by:
+
+$$
+\mf \Delta T(z, r) = T_m(z) \cdot\exp\left(-\beta\left(\frac{r}{b(z)}\right)^2\right)
+$$
+
+where
+* $\mf z,r$: height above plume source and distance from centerline
+* $\mf b(z)$: plume radius
+* $\mf \beta$: empirical constant ≈ 1
+* $\mf T_m(z)$: centerline temperature (at z)
+
+**Example – Mass Flow**
+
+* How much smoke is induced into the smoke layer?
+* How should smoke extraction systems be dimensioned?
+
+
+
+:::{figure-md} fig-exp-analytical-mass-flow
+
+<img src="./figs/compartment_flow_central_labeled.svg" width="60%">
+
+Basic compartment setup.
+:::
+
+relevant quantities, see {cite}`VDI-6019-2`:
+* $\mf Y_{eff}$ : height between fire source and smoke layer
+* $\mf A_{fire}$ : fire source area
+
+$$
+\mf \dot{m}_{pl} = C_1Y^{1.5}_{eff}\sqrt{4\pi A_{fire}}
+$$
+
+
+But only if the following assumptions are satisfied (selection):
+* the compartment is a single storey smoke reservoir
+* minimum compartment height of 4.0 m
+* room temperature is lower than smoke gas temperature
+* jet forming regime: $\mf Y_{eff} / \sqrt{A_{fire}} \le 2$
+* fire power: 8kW – 30 kW
+* fire source radius: 0.2 m – 4.5 m
+* induction coefficient $\mf C_1 = 0.19~kg\,m^{-5/2}\,s^{–1}$
+
 
 
 ## Zone Models
