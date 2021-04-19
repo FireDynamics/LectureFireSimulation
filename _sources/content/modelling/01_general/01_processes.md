@@ -37,16 +37,14 @@ Unwanted fires, are **not controlled and not wanted** processes. These are mostl
 **Fire Examples**
 
 * Bonfire
-    * YT link 1
-    * YT link 2
+    * [Lakeside Bonfire](https://youtu.be/NUKKzdVy0EI)
+    * [Slowmotion Bonfire](https://uni-wuppertal.sciebo.de/s/e0c3Ut8OolZGTC8)
 * Wildland fires
-    * YT link 3
-    * YT link 4
+    * [Walking With Fire: A Wildfire Documentary](https://youtu.be/6y0__CZI-Cw)
+    * [Indonesia Peat Fires](https://youtu.be/2qYzTU0q9XE)
 * Compartment fires
-    * YT link 5
-    * YT link 6
-
-􏰝 
+    * [Compartment Fire Flashover](https://youtu.be/w4W82HIzUcc)
+    * [Storage Fire](https://youtu.be/xzuNVFn0U48)
 
 ## Processes Overview
 
