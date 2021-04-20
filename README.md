@@ -2,7 +2,7 @@
 Lecture and exercise notes on fire simulations
 
 ## Webpage of the build script
-https://firedynamics.github.io/LectureFireSimulation/content/overview/01_overview.html
+https://firedynamics.github.io/LectureFireSimulation
 
 ## Local Development
 
