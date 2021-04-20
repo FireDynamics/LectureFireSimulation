@@ -98,18 +98,18 @@ In order to evaluate an individual fire incident, an explicit fire scenario must
 * the impact of technical measures
 * the influence of firefighting measures
 
-In a fire scenario, the fire development – especially the rate at which it releases heat – must be specified. A common approach is to define a time-dependent heat release rate, $\small\sf HRR(T)$, which is based on a so called natural fire. A natural fire curve is an empirical approximation to real compartment fires, see {numref}`fig-natural-design-fire`, which can be represented in three phases:
+In a fire scenario, the fire development – especially the rate at which it releases heat – must be specified. A common approach is to define a time-dependent heat release rate, $\mf HRR(t)$, which is based on a so called natural fire. A natural fire curve is an empirical approximation to real compartment fires, see {numref}`fig-natural-design-fire`, which can be represented in three phases:
 
 1. **Growth**: After ignition, the fire increases the rate at which it releases heat until it reaches the flashover. In this phase the heat release rate follows a quadratic function, i.e.
   
-    $$\small\sf HRR(t) = \alpha\cdot t^2\quad,$$
-    where $\small\sf\alpha$ is the fire intensity coefficient.
-1. **Fully developed**: After the flashover all material that is capable to burn is participating in the fire. During this phase the heat release rate reaches its maximal value $\small\sf HRR_{max}$ and stays constant, i.e. 
+    $$\mf HRR(t) = \alpha\cdot t^2\quad,$$
+    where $\mf \alpha$ is the fire intensity coefficient.
+1. **Fully developed**: After the flashover all material that is capable to burn is participating in the fire. During this phase the heat release rate reaches its maximal value $\mf HRR_{max}$ and stays constant, i.e. 
   
-    $$\small\sf HRR(t) = HRR_{max}\quad.$$
-1. **Decay**: When about 70% of the fire load is consumed, the decay phase starts. During that phase the heat release rate linearly decays and reaches a value of zero at time $\small\sf t_{end}$, i.e. 
+    $$\mf HRR(t) = HRR_{max}\quad.$$
+1. **Decay**: When about 70% of the fire load is consumed, the decay phase starts. During that phase the heat release rate linearly decays and reaches a value of zero at time $\mf t_{end}$, i.e. 
   
-    $$\small\sf \frac{HRR(t)}{dt} = const \quad.$$
+    $$\mf \frac{HRR(t)}{dt} = const \quad.$$
     
     
 :::{figure-md} fig-natural-design-fire
@@ -129,7 +129,7 @@ Following tables presents selected values for the fire load and fire intensity c
 :align: right
 
 * - Fire development rate 
-   - Fire intensity coefficient, <br>$\small\sf\alpha \ / \ kW/s^2$
+   - Fire intensity coefficient, <br>$\mf \alpha \ / \ kW/s^2$
 * - slow
    - 0.0029
 * - medium
@@ -148,7 +148,7 @@ Following tables presents selected values for the fire load and fire intensity c
 :align: right
 
 * - Building or object 
-   - Specific maximum heat release rate, <br> $\small\sf HRR_{max}'' \ / \ kW/m^2$
+   - Specific maximum heat release rate, <br> $\mf HRR_{max}'' \ / \ kW/m^2$
    - Fire development rate
 * - offices
    - 300
@@ -171,10 +171,10 @@ Following tables presents selected values for the fire load and fire intensity c
 * - burning semi-trailer
    - 400
    - fast
-* - wooden pallets <br> size: $\small\sf 1.2~m \times􏰶 1.2~m 􏰶\times 0.14~m$,<br> humidity: 6% to 12%, <br> stacked / block storage, <br> height: $\small\sf 0.5~m$
+* - wooden pallets <br> size: $\mf 1.2~m \times􏰶 1.2~m 􏰶\times 0.14~m$,<br> humidity: 6% to 12%, <br> stacked / block storage, <br> height: $\mf 0.5~m$
    - 1250
    - medium up to fast
-* - postbags, storage height $\small\sf 1.5~m$
+* - postbags, storage height $\mf 1.5~m$
    - 400
    - fast
 ```
