@@ -1,8 +1,8 @@
 # Team Fire Dynamics
 
-The *Team Fire Dynamics* is a joint team of members of the chair Computational Civil Engineering (CCE) at the University of Wupperta (BUW) and the Institute for Advanced Simulation (IAS-7) at the Forschungszentrum Jülich (FZJ).
+The *Team Fire Dynamics* is a joint team of members of the chair [Computational Civil Engineering (CCE)](https://cce.uni-wuppertal.de/en.html) at the University of Wupperta (BUW) and the [Fire Dynamics](https://www.fz-juelich.de/ias/ias-7/EN/Research/Fire_Dynamics/_node.html) division, which is part of the [Institute for Advanced Simulation (IAS-7)](https://www.fz-juelich.de/ias/ias-7) at the [Forschungszentrum Jülich (FZJ)](https://www.fz-juelich.de).
 
-The chair [Computational Civil Engineering](https://cce.uni-wuppertal.de/) is mainly concerned with the research and development of new computer-based models. The focus of the application here is fire and smoke propagation in buildings. 
+The CCE chair is mainly concerned with the research and development of new computer-based models. The focus of the application here is fire and smoke propagation in buildings. 
 
 In teaching, we focus on computer science and numerics. The main lectures we offer are [Engineering Informatics](https://cce.uni-wuppertal.de/index.php?id=4178&L=0) and [Fire Simulations](https://cce.uni-wuppertal.de/index.php?id=4185&L=0). In addition to this, we regularly offer workshops on *data analysis* and *Raspberry Pi*. 
 
