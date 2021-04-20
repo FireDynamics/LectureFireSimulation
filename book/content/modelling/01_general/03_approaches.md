@@ -153,7 +153,42 @@ But only if the following assumptions are satisfied (selection):
 * induction coefficient $\mf C_1 = 0.19~kg\,m^{-5/2}\,s^{–1}$
 
 
+## Compartment Fire
+
+
+
+:::{figure-md} fig-compartment-flow-basic
+
+<img src="./figs/compartment_door_flow_labeled.svg" width="60%">
+
+Flows and regimes in a canonical compartment fire with a single opening, here a door.
+:::
 
 ## Zone Models
 
+
+
+:::{figure-md} fig-two-zone-model
+
+<img src="./figs/compartment_zone_model.svg" width="60%">
+
+Illustration of a simple two zone – the upper hot and the lower cold gas layer – model.
+:::
+
 ## Field Models
+
+:::{figure-md} fig-field-model
+
+<img src="./figs/compartment_field_model.svg" width="60%">
+
+Illustration of the domain discretisation in a field model.
+:::
+
+## Field Models
+
+:::{figure-md} fig-field-model-temperatures
+
+<img src="./figs/compartment_field_model_temperatures.svg" width="60%">
+
+Illustration of the temperature values in each element (cell) of the domain discretisation.
+:::
