@@ -462,20 +462,20 @@
 <li><p>the impact of technical measures</p></li>
 <li><p>the influence of firefighting measures</p></li>
 </ul>
-<p>In a fire scenario, the fire development – especially the rate at which it releases heat – must be specified. A common approach is to define a time-dependent heat release rate, <span class="math notranslate nohighlight">\(\small\sf HRR(T)\)</span>, which is based on a so called natural fire. A natural fire curve is an empirical approximation to real compartment fires, see <a class="reference internal" href="#fig-natural-design-fire"><span class="std std-numref">Fig. 1.12</span></a>, which can be represented in three phases:</p>
+<p>In a fire scenario, the fire development – especially the rate at which it releases heat – must be specified. A common approach is to define a time-dependent heat release rate, <span class="math notranslate nohighlight">\(\mf HRR(t)\)</span>, which is based on a so called natural fire. A natural fire curve is an empirical approximation to real compartment fires, see <a class="reference internal" href="#fig-natural-design-fire"><span class="std std-numref">Fig. 1.12</span></a>, which can be represented in three phases:</p>
 <ol>
 <li><p><strong>Growth</strong>: After ignition, the fire increases the rate at which it releases heat until it reaches the flashover. In this phase the heat release rate follows a quadratic function, i.e.</p>
 <div class="math notranslate nohighlight">
-\[\small\sf HRR(t) = \alpha\cdot t^2\quad,\]</div>
-<p>where <span class="math notranslate nohighlight">\(\small\sf\alpha\)</span> is the fire intensity coefficient.</p>
+\[\mf HRR(t) = \alpha\cdot t^2\quad,\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mf \alpha\)</span> is the fire intensity coefficient.</p>
 </li>
-<li><p><strong>Fully developed</strong>: After the flashover all material that is capable to burn is participating in the fire. During this phase the heat release rate reaches its maximal value <span class="math notranslate nohighlight">\(\small\sf HRR_{max}\)</span> and stays constant, i.e.</p>
+<li><p><strong>Fully developed</strong>: After the flashover all material that is capable to burn is participating in the fire. During this phase the heat release rate reaches its maximal value <span class="math notranslate nohighlight">\(\mf HRR_{max}\)</span> and stays constant, i.e.</p>
 <div class="math notranslate nohighlight">
-\[\small\sf HRR(t) = HRR_{max}\quad.\]</div>
+\[\mf HRR(t) = HRR_{max}\quad.\]</div>
 </li>
-<li><p><strong>Decay</strong>: When about 70% of the fire load is consumed, the decay phase starts. During that phase the heat release rate linearly decays and reaches a value of zero at time <span class="math notranslate nohighlight">\(\small\sf t_{end}\)</span>, i.e.</p>
+<li><p><strong>Decay</strong>: When about 70% of the fire load is consumed, the decay phase starts. During that phase the heat release rate linearly decays and reaches a value of zero at time <span class="math notranslate nohighlight">\(\mf t_{end}\)</span>, i.e.</p>
 <div class="math notranslate nohighlight">
-\[\small\sf \frac{HRR(t)}{dt} = const \quad.\]</div>
+\[\mf \frac{HRR(t)}{dt} = const \quad.\]</div>
 </li>
 </ol>
 <div class="figure align-default" id="fig-natural-design-fire">
@@ -487,7 +487,7 @@
 <caption><span class="caption-number">Table 1.1 </span><span class="caption-text">Fire intensity coefficients</span><a class="headerlink" href="#tab-alpha" title="Permalink to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Fire development rate</p></th>
-<th class="head"><p>Fire intensity coefficient, <br><span class="math notranslate nohighlight">\(\small\sf\alpha \ / \ kW/s^2\)</span></p></th>
+<th class="head"><p>Fire intensity coefficient, <br><span class="math notranslate nohighlight">\(\mf \alpha \ / \ kW/s^2\)</span></p></th>
 </tr>
 </thead>
 <tbody>
@@ -509,7 +509,7 @@
 <caption><span class="caption-number">Table 1.2 </span><span class="caption-text">Specific maximal heat release rates</span><a class="headerlink" href="#tab-hrr-max" title="Permalink to this table">¶</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Building or object</p></th>
-<th class="head"><p>Specific maximum heat release rate, <br> <span class="math notranslate nohighlight">\(\small\sf HRR_{max}'' \ / \ kW/m^2\)</span></p></th>
+<th class="head"><p>Specific maximum heat release rate, <br> <span class="math notranslate nohighlight">\(\mf HRR_{max}'' \ / \ kW/m^2\)</span></p></th>
 <th class="head"><p>Fire development rate</p></th>
 </tr>
 </thead>
@@ -542,11 +542,11 @@
 <td><p>400</p></td>
 <td><p>fast</p></td>
 </tr>
-<tr class="row-odd"><td><p>wooden pallets <br> size: <span class="math notranslate nohighlight">\(\small\sf 1.2~m \times􏰶 1.2~m 􏰶\times 0.14~m\)</span>,<br> humidity: 6% to 12%, <br> stacked / block storage, <br> height: <span class="math notranslate nohighlight">\(\small\sf 0.5~m\)</span></p></td>
+<tr class="row-odd"><td><p>wooden pallets <br> size: <span class="math notranslate nohighlight">\(\mf 1.2~m \times􏰶 1.2~m 􏰶\times 0.14~m\)</span>,<br> humidity: 6% to 12%, <br> stacked / block storage, <br> height: <span class="math notranslate nohighlight">\(\mf 0.5~m\)</span></p></td>
 <td><p>1250</p></td>
 <td><p>medium up to fast</p></td>
 </tr>
-<tr class="row-even"><td><p>postbags, storage height <span class="math notranslate nohighlight">\(\small\sf 1.5~m\)</span></p></td>
+<tr class="row-even"><td><p>postbags, storage height <span class="math notranslate nohighlight">\(\mf 1.5~m\)</span></p></td>
 <td><p>400</p></td>
 <td><p>fast</p></td>
 </tr>
