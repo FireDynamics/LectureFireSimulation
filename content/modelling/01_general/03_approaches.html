@@ -53,7 +53,7 @@
     </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"vv": "\\vec{v}", "mf": "\\small\\sf"}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"vv": "\\vec{v}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}"}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/modelling/01_general/03_approaches.html" />
     <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -335,8 +335,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#compartment-fire">
-   Compartment Fire
+  <a class="reference internal nav-link" href="#single-compartment-fire">
+   Single Compartment Fire
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -346,11 +346,6 @@
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#field-models">
-   Field Models
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#id3">
    Field Models
   </a>
  </li>
@@ -456,13 +451,14 @@
 <p>Despite their, sometimes very limitting, approximations, they offer a tool to quickly estimate the quantites of interest. In addition, they can be directly integrated into other, potentially more complex, models. Another important aspect is, that analytical models can be checked by a reader, as it is in general possible to write down all needed input parameters.</p>
 <p>Of course, due to the underlying simplifications and assumptions, their applicability is limited.</p>
 <p><strong>Example – Plume Temperature</strong></p>
+<p>The measurement of the local gas temperature in a plume leads to an empirical description for the time averaged values. Based on measurements like in <a class="reference internal" href="#fig-exp-plume-profile"><span class="std std-numref">Fig. 1.15</span></a>, an mathematical formulation can be derived to describe the observarions.</p>
 <div class="figure align-default" id="fig-exp-plume-profile">
 <a class="reference internal image-reference" href="../../../_images/plume-profile-yokoi.png"><img alt="../../../_images/plume-profile-yokoi.png" src="../../../_images/plume-profile-yokoi.png" style="width: 40%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 1.15 </span><span class="caption-text">Example for experimentally captured normalised temperature profiles of a plume. Source: <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id7"><span>Yok60</span></a>]</span>.</span><a class="headerlink" href="#fig-exp-plume-profile" title="Permalink to this image">¶</a></p>
 </div>
-<p>The temperature rise <span class="math notranslate nohighlight">\(\mf \Delta T\)</span> in a turbulent plume may be approximated by:</p>
-<div class="math notranslate nohighlight">
-\[
+<p>The temperature rise <span class="math notranslate nohighlight">\(\mf \Delta T\)</span> in a turbulent plume may be generally approximated by:</p>
+<div class="math notranslate nohighlight" id="equation-eq-deltat-plume">
+<span class="eqno">(1.1)<a class="headerlink" href="#equation-eq-deltat-plume" title="Permalink to this equation">¶</a></span>\[
 \mf \Delta T(z, r) = T_m(z) \cdot\exp\left(-\beta\left(\frac{r}{b(z)}\right)^2\right)
 \]</div>
 <p>where</p>
@@ -473,47 +469,101 @@
 <li><p><span class="math notranslate nohighlight">\(\mf T_m(z)\)</span>: centerline temperature (at z)</p></li>
 </ul>
 <p><strong>Example – Mass Flow</strong></p>
+<p>With analytical desriptions of plumes and other phenomena, it becomes possible to investigate the impact and fire protection measures in compartment fires. An example for this is the estimation of the plume mass flow <span class="math notranslate nohighlight">\(\mf \dm_{pl}\)</span> from a fire with a given heat release <span class="math notranslate nohighlight">\(\mf \dQ\)</span>. This way it becomes possible, e.g., to pose requirements of a smoke extraction system.</p>
+<div class="margin sidebar">
+<p class="sidebar-title">Derivates</p>
+<p>In this script the following short forms for derivatives are used:</p>
 <ul class="simple">
-<li><p>How much smoke is induced into the smoke layer?</p></li>
-<li><p>How should smoke extraction systems be dimensioned?</p></li>
-</ul>
-<div class="figure align-default" id="fig-exp-analytical-mass-flow">
-<a class="reference internal image-reference" href="../../../_images/compartment_flow_central_labeled.svg"><img alt="../../../_images/compartment_flow_central_labeled.svg" src="../../../_images/compartment_flow_central_labeled.svg" width="60%" /></a>
-<p class="caption"><span class="caption-number">Fig. 1.16 </span><span class="caption-text">Basic compartment setup.</span><a class="headerlink" href="#fig-exp-analytical-mass-flow" title="Permalink to this image">¶</a></p>
-</div>
-<p>relevant quantities, see <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id5"><span>VDI09</span></a>]</span>:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(\mf Y_{eff}\)</span> : height between fire source and smoke layer</p></li>
-<li><p><span class="math notranslate nohighlight">\(\mf A_{fire}\)</span> : fire source area</p></li>
+<li><p>time derivative:</p></li>
 </ul>
 <div class="math notranslate nohighlight">
-\[
-\mf \dot{m}_{pl} = C_1Y^{1.5}_{eff}\sqrt{4\pi A_{fire}}
-\]</div>
-<p>But only if the following assumptions are satisfied (selection):</p>
+\[\mf \dot{\phi} = \frac{d\phi}{dt}\]</div>
 <ul class="simple">
-<li><p>the compartment is a single storey smoke reservoir</p></li>
-<li><p>minimum compartment height of 4.0 m</p></li>
-<li><p>room temperature is lower than smoke gas temperature</p></li>
-<li><p>jet forming regime: <span class="math notranslate nohighlight">\(\mf Y_{eff} / \sqrt{A_{fire}} \le 2\)</span></p></li>
-<li><p>fire power: 8kW – 30 kW</p></li>
-<li><p>fire source radius: 0.2 m – 4.5 m</p></li>
-<li><p>induction coefficient <span class="math notranslate nohighlight">\(\mf C_1 = 0.19~kg\,m^{-5/2}\,s^{–1}\)</span></p></li>
+<li><p>spatial derivatives:</p></li>
 </ul>
+<div class="math notranslate nohighlight">
+\[\mf \phi' = \frac{d\phi}{dl}\]</div>
+<div class="math notranslate nohighlight">
+\[\mf \phi'' = \frac{d\phi}{dA}\]</div>
+<div class="math notranslate nohighlight">
+\[\mf \phi''' = \frac{d\phi}{dV}\]</div>
 </div>
-<div class="section" id="compartment-fire">
-<h2>Compartment Fire<a class="headerlink" href="#compartment-fire" title="Permalink to this headline">¶</a></h2>
+<div class="figure align-default" id="fig-exp-analytical-mass-flow">
+<a class="reference internal image-reference" href="../../../_images/compartment_flow_central_labeled.svg"><img alt="../../../_images/compartment_flow_central_labeled.svg" src="../../../_images/compartment_flow_central_labeled.svg" width="80%" /></a>
+<p class="caption"><span class="caption-number">Fig. 1.16 </span><span class="caption-text">Illustration of the quantities involved in the analytical estimation of the plume mass flow <span class="math notranslate nohighlight">\(\mf \dm_{pl}\)</span>.</span><a class="headerlink" href="#fig-exp-analytical-mass-flow" title="Permalink to this image">¶</a></p>
+</div>
+<p>Following, e.g. <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id5"><span>VDI09</span></a>]</span>, the plume mass flow <span class="math notranslate nohighlight">\(\mf \dm_{pl}\)</span> can be directly computed, whereas two regimes need to be considered separately. These are distinguished by the ratio of the distance of the fire to the smoke layer <span class="math notranslate nohighlight">\(\mf z_{eff}\)</span> and the square root of the fire area <span class="math notranslate nohighlight">\(\mf A_{fire}\)</span>, i.e. <span class="math notranslate nohighlight">\(\sf \sqrt{A_{fire}}\)</span>.</p>
+<p><strong>Jet formation regime</strong></p>
+<p>In the case of</p>
+<div class="math notranslate nohighlight" id="equation-eq-za-ratio">
+<span class="eqno">(1.2)<a class="headerlink" href="#equation-eq-za-ratio" title="Permalink to this equation">¶</a></span>\[ 
+\mf \frac{z_{eff}}{\sqrt{A_{fire}}} \le 2 \quad ,
+\]</div>
+<p>the mass flow can be computed as</p>
+<div class="math notranslate nohighlight" id="equation-eq-dmpl-jet">
+<span class="eqno">(1.3)<a class="headerlink" href="#equation-eq-dmpl-jet" title="Permalink to this equation">¶</a></span>\[
+\mf \dm_{pl} = C_1 \cdot z^{1.5}_{eff}\cdot \sqrt{4\pi A_{fire}}\quad .
+\]</div>
+<p>The free parameter, here the induction coefficient <span class="math notranslate nohighlight">\(\mf C_1\)</span>, takes a value of <span class="math notranslate nohighlight">\(\mf 0.19~kg\,m^{-5/2}\,s^{–1}\)</span>.</p>
+<p>The solution in equation <a class="reference internal" href="#equation-eq-dmpl-jet">(1.3)</a> only depends on gemetrical values, the heat release rate has no impact here. The solution is simple, yet there are a assumptions, which have to be satisfied. A few of them are:</p>
+<ul class="simple">
+<li><p>the considered compartment is a single storey smoke reservoir</p></li>
+<li><p>the minimum compartment height is <span class="math notranslate nohighlight">\(\mf 4.0~m\)</span></p></li>
+<li><p>the room temperature is lower than smoke gas temperature</p></li>
+<li><p>it is only valid for fires with a power of <span class="math notranslate nohighlight">\(\mf 8~kW\)</span> to <span class="math notranslate nohighlight">\(\mf 30~kW\)</span></p></li>
+<li><p>the fire source diameter <span class="math notranslate nohighlight">\(\mf d_{fire}\)</span> is between <span class="math notranslate nohighlight">\(\mf 0.4~m\)</span> and <span class="math notranslate nohighlight">\(\mf 9~m\)</span></p></li>
+</ul>
+<p><strong>Similarity regime</strong></p>
+<p><strong>TODO</strong></p>
+</div>
+<div class="section" id="single-compartment-fire">
+<h2>Single Compartment Fire<a class="headerlink" href="#single-compartment-fire" title="Permalink to this headline">¶</a></h2>
+<p>For the illustration of the following models, a canonical compartment fire setup is used, see <a class="reference internal" href="#fig-compartment-flow-basic"><span class="std std-numref">Fig. 1.17</span></a>. It consists of a single compartment with a localised fire. The only opening to the ambient is a door.</p>
 <div class="figure align-default" id="fig-compartment-flow-basic">
 <a class="reference internal image-reference" href="../../../_images/compartment_door_flow_labeled.svg"><img alt="../../../_images/compartment_door_flow_labeled.svg" src="../../../_images/compartment_door_flow_labeled.svg" width="60%" /></a>
 <p class="caption"><span class="caption-number">Fig. 1.17 </span><span class="caption-text">Flows and regimes in a canonical compartment fire with a single opening, here a door.</span><a class="headerlink" href="#fig-compartment-flow-basic" title="Permalink to this image">¶</a></p>
 </div>
+<p>In a very simplified representation, the following phenomena can be observed:</p>
+<ul class="simple">
+<li><p>A smoke layer builds up below the ceiling of the compartment, which creates a stratification. The hot combustion products and the entreined air are transported from the fire to the smoke layer due to buoyancy – this is the plume.</p></li>
+<li><p>The hot smoke layer grows downwards until it reaches the top of the door opening and hot gas can leave the compartment and forms a spill plume.</p></li>
+<li><p>At the door opening, hot gas leaves the compartment in the top region of the opening, while fresh cold air enters the compartment in the lower region.</p></li>
+</ul>
 </div>
 <div class="section" id="zone-models">
 <h2>Zone Models<a class="headerlink" href="#zone-models" title="Permalink to this headline">¶</a></h2>
+<p>The above figure <a class="reference internal" href="#fig-compartment-flow-basic"><span class="std std-numref">Fig. 1.17</span></a> indicates that the domain of interest can be separated into two zone: an upper and a lower layer, see <a class="reference internal" href="#fig-two-zone-model"><span class="std std-numref">Fig. 1.18</span></a>. Zone models use this separation to simplify the overall scenario and predict the physical, e.g. temperature, and geometrical, e.g. height, properties of the zones. The interaction of those zones, i.e. transport of mass and enthalpy, is described by the plume.</p>
 <div class="figure align-default" id="fig-two-zone-model">
 <a class="reference internal image-reference" href="../../../_images/compartment_zone_model.svg"><img alt="../../../_images/compartment_zone_model.svg" src="../../../_images/compartment_zone_model.svg" width="60%" /></a>
 <p class="caption"><span class="caption-number">Fig. 1.18 </span><span class="caption-text">Illustration of a simple two zone – the upper hot and the lower cold gas layer – model.</span><a class="headerlink" href="#fig-two-zone-model" title="Permalink to this image">¶</a></p>
 </div>
+<ul class="simple">
+<li><p>outline computed quatities</p></li>
+<li><p>one for each layer, u and l</p></li>
+<li><p>example CFAST, see documentation</p></li>
+<li><p>funamental equations</p></li>
+</ul>
+<div class="margin sidebar">
+<p class="sidebar-title">Note:</p>
+<p>The according fundamental thermodynamical relations will be introduced in following section of the lecture.</p>
+</div>
+<div class="math notranslate nohighlight" id="equation-eq-zone-model-internal-energy">
+<span class="eqno">(1.4)<a class="headerlink" href="#equation-eq-zone-model-internal-energy" title="Permalink to this equation">¶</a></span>\[
+\mf \frac{d}{dt}\left( c_v m_i T_i\right) = \dq - P\frac{dV_i}{dt}
+\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-zone-model-ideal-gas-law">
+<span class="eqno">(1.5)<a class="headerlink" href="#equation-eq-zone-model-ideal-gas-law" title="Permalink to this equation">¶</a></span>\[
+\mf PV_i = m_i R T_i
+\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-zone-mode-governing-eqs">
+<span class="eqno">(1.6)<a class="headerlink" href="#equation-eq-zone-mode-governing-eqs" title="Permalink to this equation">¶</a></span>\[\begin{split}
+\mf \begin{align}
+\frac{dP}{dt} &amp;= \dots \\
+\frac{dV_u}{dt} &amp;= \dots \\
+\frac{dT_u}{dt} &amp;= \dots \\
+\frac{dT_l}{dt} &amp;= \dots
+\end{align}
+\end{split}\]</div>
 </div>
 <div class="section" id="field-models">
 <h2>Field Models<a class="headerlink" href="#field-models" title="Permalink to this headline">¶</a></h2>
@@ -521,9 +571,6 @@
 <a class="reference internal image-reference" href="../../../_images/compartment_field_model.svg"><img alt="../../../_images/compartment_field_model.svg" src="../../../_images/compartment_field_model.svg" width="60%" /></a>
 <p class="caption"><span class="caption-number">Fig. 1.19 </span><span class="caption-text">Illustration of the domain discretisation in a field model.</span><a class="headerlink" href="#fig-field-model" title="Permalink to this image">¶</a></p>
 </div>
-</div>
-<div class="section" id="id3">
-<h2>Field Models<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-default" id="fig-field-model-temperatures">
 <a class="reference internal image-reference" href="../../../_images/compartment_field_model_temperatures.svg"><img alt="../../../_images/compartment_field_model_temperatures.svg" src="../../../_images/compartment_field_model_temperatures.svg" width="60%" /></a>
 <p class="caption"><span class="caption-number">Fig. 1.20 </span><span class="caption-text">Illustration of the temperature values in each element (cell) of the domain discretisation.</span><a class="headerlink" href="#fig-field-model-temperatures" title="Permalink to this image">¶</a></p>
