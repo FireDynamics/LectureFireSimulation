@@ -50,7 +50,7 @@ Unwanted fires, are **not controlled and not wanted** processes. These are mostl
 
 :::{figure-md} fig-fire-processes
 
-<img src="figs/fire_processes.svg" width="60%">
+<img src="figs/fire_processes.svg" width="80%">
 
 Visualisation of the main processes involved in fires.
 :::
@@ -69,17 +69,17 @@ Fires involve a complex interaction of a multitude of physical and chemical proc
     * release of chemical energy, e.g. locally heating gas or thermal radiation
 1. **Pyrolysis**
     * degradation of the solid structure
-    * emission of volatiles gases, e.g. fuel for the combustion
+    * emission of volatile gases, e.g. fuel for the combustion
     
-## Turbulent Flows
+## Fluid Dynamics
 
-Fires induce heat into the gas phase and buoyancy drives a plume. Compartment flows are complex and involve many openings to ambient regions as well as obstructions, see {numref}`fig-compartment-flow`. Mechanical ventilation or HVAC as well as wind might be included into the evaluation of the dynamics.
+Fires induce heat in the gas phase and buoyancy of the heated gas drives a plume. Compartment flows are complex and involve many openings to ambient regions as well as obstructions, see {numref}`fig-compartment-flow`. Mechanical ventilation, systems for heating, ventilation and air conditioning (HVAC) as well as wind might be included into the evaluation of the dynamics.
 
 :::{figure-md} fig-compartment-flow
 
 <img src="figs/compartment_flow_labeled.svg" width="80%">
 
-Illustration of a potential flow inside a building, driven by the fire. There is an inflow and an outflow, which connect the confined flow to the ambient domain. 
+Illustration of a potential flow inside a building, driven by the heat released by the fire. There is an inflow and an outflow, which connect the confined flow to the ambient domain. 
 :::
 
 Most fire flows, especially in the flame and plume region, are turbulent. The turbulent mixture process during combustion is crucial and the entrainment of fresh cold air into a plume significantly determines its dynamics. Experimental analysis as well as numerical models must consider the macroscopic effects of turbulence.
@@ -95,9 +95,9 @@ Transition from a laminar to a turbulent flow in the plume of a burning candle. 
 
 ## Reactive Flows
 
-Fires are driven by the energy released by combustion, which is an exothermal chemical process. Two gases, in the simplest case oxygen and fuel, react and release energy. In real fires, there is a zoo of species and reactions involved in a fire. Depending on the concentrations of individual species and their local temperatures, new chemical species can be formed. Thus, the overall spectrum of products, due to the chemical processes during a fire, is rarely simple.  
+Fires are driven by the energy released by combustion, which is an exothermal chemical process. In the simplest case, two gas species, here oxygen and fuel, react and release energy. In real fires, there is a zoo of species and reactions involved. Depending on the concentrations of individual species and their local temperatures, new chemical species can be formed. Thus, the overall spectrum of products, due to the chemical processes during a fire, is rarely simple.  
 
-In contrast to technical combustion, the oxygen and the fuel are typically not mixed. The transition from a non-premixed to a premixed combustion can be well observed with a Bunsen burner, see {numref}`fig-bunsen-burner`.  
+In contrast to technical combustion, in fires the oxygen and the fuel are typically not mixed. The transition from a non-premixed to a premixed combustion can be well observed with a Bunsen burner, see {numref}`fig-bunsen-burner`.  
 
 :::{figure-md} fig-bunsen-burner
 
