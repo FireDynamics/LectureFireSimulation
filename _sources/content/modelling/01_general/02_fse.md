@@ -1,6 +1,6 @@
 # Fire Safety Engineering
 
-Modelling of fires is one aspect in the broad spectrum of fire safety engineering (FSE). While the engineering topics aim for the practical application, fire models are used for research quations in fire safety science (FSS).
+Modelling of fires is one aspect in the broad spectrum of fire safety engineering (FSE). While the engineering topics aim for the practical application, fire models are used for research questions in fire safety science (FSS).
 
 The following sections give only a very brief introduction to the broad topics adressed here. Starting points for further reading in this field are give in {cite}`vfdb-leitfaden:2020`, {cite}`VDI-6019-1`, {cite}`VDI-6019-2` or ,e.g., chapters 37, 38, and 39 of {cite}`sfpe-handbook-5th`.
 
@@ -37,13 +37,13 @@ However, this design approach has also some flows, like
 * under certain circumstances nonconformities to applicable regulations and standards are unavoidable
 * restrictions for international harmonisation and standardisation
 
-An alternative to prescriptive designs are performance based designs.
+An alternative to prescriptive designs is the application of performance based designs.
 
-## Performance-Based Designs
+## Performance Based Designs
 
 **General Approach**
 
-In contrast to the static and general rules of a regulation, the performance-based design follows the idea to create an equivalent level of safety by satisfying protection goals. This process allows the engineers to use multiple approaches, which do also include fire simulations, to iteratively design a safety concept. A scematic flow diagram is shown in {numref}`fig-performance-based-design`.
+In contrast to the static and general rules of a regulation, the performance based design follows the idea to create an equivalent level of safety by satisfying protection goals. This process allows the engineers to use multiple approaches, which do also include fire simulations, to iteratively design a safety concept. A scematic flow diagram is shown in {numref}`fig-performance-based-design`.
 
 :::{figure-md} fig-performance-based-design
 
@@ -171,7 +171,7 @@ Following tables presents selected values for the fire load and fire intensity c
 * - burning semi-trailer
    - 400
    - fast
-* - wooden pallets <br> size: $\mf 1.2~m \times􏰶 1.2~m 􏰶\times 0.14~m$,<br> humidity: 6% to 12%, <br> stacked / block storage, <br> height: $\mf 0.5~m$
+* - wooden pallets <br> size: $\mf 1.2~m \times 1.2~m \times 0.14~m$,<br> humidity: 6% to 12%, <br> stacked / block storage, <br> height: $\mf 0.5~m$
    - 1250
    - medium up to fast
 * - postbags, storage height $\mf 1.5~m$

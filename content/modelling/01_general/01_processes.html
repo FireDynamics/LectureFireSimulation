@@ -333,8 +333,8 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#turbulent-flows">
-   Turbulent Flows
+  <a class="reference internal nav-link" href="#fluid-dynamics">
+   Fluid Dynamics
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -410,7 +410,7 @@
 <div class="section" id="processes-overview">
 <h2>Processes Overview<a class="headerlink" href="#processes-overview" title="Permalink to this headline">¶</a></h2>
 <div class="figure align-default" id="fig-fire-processes">
-<a class="reference internal image-reference" href="../../../_images/fire_processes.svg"><img alt="../../../_images/fire_processes.svg" src="../../../_images/fire_processes.svg" width="60%" /></a>
+<a class="reference internal image-reference" href="../../../_images/fire_processes.svg"><img alt="../../../_images/fire_processes.svg" src="../../../_images/fire_processes.svg" width="80%" /></a>
 <p class="caption"><span class="caption-number">Fig. 1.4 </span><span class="caption-text">Visualisation of the main processes involved in fires.</span><a class="headerlink" href="#fig-fire-processes" title="Permalink to this image">¶</a></p>
 </div>
 <p>Fires involve a complex interaction of a multitude of physical and chemical processes. While most of them take place in the gas phase, e.g. combustion, fires commonly include also processes in the solid or liquid phase, e.g. pyrolysis which generates the fuel for the combustion. The following processes cover the main phenomena.</p>
@@ -437,17 +437,17 @@
 <li><p><strong>Pyrolysis</strong></p>
 <ul class="simple">
 <li><p>degradation of the solid structure</p></li>
-<li><p>emission of volatiles gases, e.g. fuel for the combustion</p></li>
+<li><p>emission of volatile gases, e.g. fuel for the combustion</p></li>
 </ul>
 </li>
 </ol>
 </div>
-<div class="section" id="turbulent-flows">
-<h2>Turbulent Flows<a class="headerlink" href="#turbulent-flows" title="Permalink to this headline">¶</a></h2>
-<p>Fires induce heat into the gas phase and buoyancy drives a plume. Compartment flows are complex and involve many openings to ambient regions as well as obstructions, see <a class="reference internal" href="#fig-compartment-flow"><span class="std std-numref">Fig. 1.5</span></a>. Mechanical ventilation or HVAC as well as wind might be included into the evaluation of the dynamics.</p>
+<div class="section" id="fluid-dynamics">
+<h2>Fluid Dynamics<a class="headerlink" href="#fluid-dynamics" title="Permalink to this headline">¶</a></h2>
+<p>Fires induce heat in the gas phase and buoyancy of the heated gas drives a plume. Compartment flows are complex and involve many openings to ambient regions as well as obstructions, see <a class="reference internal" href="#fig-compartment-flow"><span class="std std-numref">Fig. 1.5</span></a>. Mechanical ventilation, systems for heating, ventilation and air conditioning (HVAC) as well as wind might be included into the evaluation of the dynamics.</p>
 <div class="figure align-default" id="fig-compartment-flow">
 <a class="reference internal image-reference" href="../../../_images/compartment_flow_labeled.svg"><img alt="../../../_images/compartment_flow_labeled.svg" src="../../../_images/compartment_flow_labeled.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 1.5 </span><span class="caption-text">Illustration of a potential flow inside a building, driven by the fire. There is an inflow and an outflow, which connect the confined flow to the ambient domain.</span><a class="headerlink" href="#fig-compartment-flow" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.5 </span><span class="caption-text">Illustration of a potential flow inside a building, driven by the heat released by the fire. There is an inflow and an outflow, which connect the confined flow to the ambient domain.</span><a class="headerlink" href="#fig-compartment-flow" title="Permalink to this image">¶</a></p>
 </div>
 <p>Most fire flows, especially in the flame and plume region, are turbulent. The turbulent mixture process during combustion is crucial and the entrainment of fresh cold air into a plume significantly determines its dynamics. Experimental analysis as well as numerical models must consider the macroscopic effects of turbulence.</p>
 <div class="figure align-default" id="fig-turbulence-transition-candle">
@@ -457,8 +457,8 @@
 </div>
 <div class="section" id="reactive-flows">
 <h2>Reactive Flows<a class="headerlink" href="#reactive-flows" title="Permalink to this headline">¶</a></h2>
-<p>Fires are driven by the energy released by combustion, which is an exothermal chemical process. Two gases, in the simplest case oxygen and fuel, react and release energy. In real fires, there is a zoo of species and reactions involved in a fire. Depending on the concentrations of individual species and their local temperatures, new chemical species can be formed. Thus, the overall spectrum of products, due to the chemical processes during a fire, is rarely simple.</p>
-<p>In contrast to technical combustion, the oxygen and the fuel are typically not mixed. The transition from a non-premixed to a premixed combustion can be well observed with a Bunsen burner, see <a class="reference internal" href="#fig-bunsen-burner"><span class="std std-numref">Fig. 1.7</span></a>.</p>
+<p>Fires are driven by the energy released by combustion, which is an exothermal chemical process. In the simplest case, two gas species, here oxygen and fuel, react and release energy. In real fires, there is a zoo of species and reactions involved. Depending on the concentrations of individual species and their local temperatures, new chemical species can be formed. Thus, the overall spectrum of products, due to the chemical processes during a fire, is rarely simple.</p>
+<p>In contrast to technical combustion, in fires the oxygen and the fuel are typically not mixed. The transition from a non-premixed to a premixed combustion can be well observed with a Bunsen burner, see <a class="reference internal" href="#fig-bunsen-burner"><span class="std std-numref">Fig. 1.7</span></a>.</p>
 <div class="figure align-default" id="fig-bunsen-burner">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Bunsen_burner_flame_types.jpg/854px-Bunsen_burner_flame_types.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Bunsen_burner_flame_types.jpg/854px-Bunsen_burner_flame_types.jpg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Bunsen_burner_flame_types.jpg/854px-Bunsen_burner_flame_types.jpg" style="width: 40%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 1.7 </span><span class="caption-text">Variable oxygen concentrations in the outflow stream of a Bunsen burner. From left to right: air valve closed, nearly fully closed, valve semi-opened and maximally opened. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Bunsen_burner_flame_types.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-bunsen-burner" title="Permalink to this image">¶</a></p>
