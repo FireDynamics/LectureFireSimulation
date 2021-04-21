@@ -101,6 +101,8 @@ Of course, due to the underlying simplifications and assumptions, their applicab
 
 **Example – Plume Temperature**
 
+The measurement of the local gas temperature in a plume leads to an empirical description for the time averaged values. Based on measurements like in {numref}`fig-exp-plume-profile`, an mathematical formulation can be derived to describe the observarions. 
+
 :::{figure-md} fig-exp-plume-profile
 
 <img src="./figs/plume-profile-yokoi.png" width="40%">
@@ -108,11 +110,11 @@ Of course, due to the underlying simplifications and assumptions, their applicab
 Example for experimentally captured normalised temperature profiles of a plume. Source: {cite}`Yokoi.1960`.
 :::
 
-The temperature rise $\mf \Delta T$ in a turbulent plume may be approximated by:
+The temperature rise $\mf \Delta T$ in a turbulent plume may be generally approximated by:
 
 $$
 \mf \Delta T(z, r) = T_m(z) \cdot\exp\left(-\beta\left(\frac{r}{b(z)}\right)^2\right)
-$$
+$$ (eq-deltaT-plume)
 
 where
 * $\mf z,r$: height above plume source and distance from centerline
@@ -122,40 +124,64 @@ where
 
 **Example – Mass Flow**
 
-* How much smoke is induced into the smoke layer?
-* How should smoke extraction systems be dimensioned?
+With analytical desriptions of plumes and other phenomena, it becomes possible to investigate the impact and fire protection measures in compartment fires. An example for this is the estimation of the plume mass flow $\mf \dm_{pl}$ from a fire with a given heat release $\mf \dQ$. This way it becomes possible, e.g., to pose requirements of a smoke extraction system.
 
+```{margin} Derivates
+In this script the following short forms for derivatives are used:
 
+* time derivative:
+
+$$\mf \dot{\phi} = \frac{d\phi}{dt}$$
+
+* spatial derivatives:
+
+$$\mf \phi' = \frac{d\phi}{dl}$$
+
+$$\mf \phi'' = \frac{d\phi}{dA}$$
+
+$$\mf \phi''' = \frac{d\phi}{dV}$$
+```
 
 :::{figure-md} fig-exp-analytical-mass-flow
 
-<img src="./figs/compartment_flow_central_labeled.svg" width="60%">
+<img src="./figs/compartment_flow_central_labeled.svg" width="80%">
 
-Basic compartment setup.
+Illustration of the quantities involved in the analytical estimation of the plume mass flow $\mf \dm_{pl}$.
 :::
 
-relevant quantities, see {cite}`VDI-6019-2`:
-* $\mf Y_{eff}$ : height between fire source and smoke layer
-* $\mf A_{fire}$ : fire source area
+Following, e.g. {cite}`VDI-6019-2`, the plume mass flow $\mf \dm_{pl}$ can be directly computed, whereas two regimes need to be considered separately. These are distinguished by the ratio of the distance of the fire to the smoke layer $\mf z_{eff}$ and the square root of the fire area $\mf A_{fire}$, i.e. $\sf \sqrt{A_{fire}}$. 
+
+**Jet formation regime**
+
+In the case of 
+
+$$ 
+\mf \frac{z_{eff}}{\sqrt{A_{fire}}} \le 2 \quad ,
+$$ (eq-zA-ratio)
+
+the mass flow can be computed as
 
 $$
-\mf \dot{m}_{pl} = C_1Y^{1.5}_{eff}\sqrt{4\pi A_{fire}}
-$$
+\mf \dm_{pl} = C_1 \cdot z^{1.5}_{eff}\cdot \sqrt{4\pi A_{fire}}\quad .
+$$ (eq-dmpl-jet)
 
+The free parameter, here the induction coefficient $\mf C_1$, takes a value of $\mf 0.19~kg\,m^{-5/2}\,s^{–1}$.
 
-But only if the following assumptions are satisfied (selection):
-* the compartment is a single storey smoke reservoir
-* minimum compartment height of 4.0 m
-* room temperature is lower than smoke gas temperature
-* jet forming regime: $\mf Y_{eff} / \sqrt{A_{fire}} \le 2$
-* fire power: 8kW – 30 kW
-* fire source radius: 0.2 m – 4.5 m
-* induction coefficient $\mf C_1 = 0.19~kg\,m^{-5/2}\,s^{–1}$
+The solution in equation {eq}`eq-dmpl-jet` only depends on gemetrical values, the heat release rate has no impact here. The solution is simple, yet there are a assumptions, which have to be satisfied. A few of them are:    
 
+* the considered compartment is a single storey smoke reservoir
+* the minimum compartment height is $\mf 4.0~m$
+* the room temperature is lower than smoke gas temperature
+* it is only valid for fires with a power of $\mf 8~kW$ to $\mf 30~kW$
+* the fire source diameter $\mf d_{fire}$ is between $\mf 0.4~m$ and $\mf 9~m$
 
-## Compartment Fire
+**Similarity regime**
 
+**TODO**
 
+## Single Compartment Fire
+
+For the illustration of the following models, a canonical compartment fire setup is used, see {numref}`fig-compartment-flow-basic`. It consists of a single compartment with a localised fire. The only opening to the ambient is a door.
 
 :::{figure-md} fig-compartment-flow-basic
 
@@ -164,9 +190,15 @@ But only if the following assumptions are satisfied (selection):
 Flows and regimes in a canonical compartment fire with a single opening, here a door.
 :::
 
+In a very simplified representation, the following phenomena can be observed:
+
+* A smoke layer builds up below the ceiling of the compartment, which creates a stratification. The hot combustion products and the entreined air are transported from the fire to the smoke layer due to buoyancy -- this is the plume.
+* The hot smoke layer grows downwards until it reaches the top of the door opening and hot gas can leave the compartment and forms a spill plume.
+* At the door opening, hot gas leaves the compartment in the top region of the opening, while fresh cold air enters the compartment in the lower region.
+
 ## Zone Models
 
-
+The above figure {numref}`fig-compartment-flow-basic` indicates that the domain of interest can be separated into two zone: an upper and a lower layer, see {numref}`fig-two-zone-model`. Zone models use this separation to simplify the overall scenario and predict the physical, e.g. temperature, and geometrical, e.g. height, properties of the zones. The interaction of those zones, i.e. transport of mass and enthalpy, is described by the plume.
 
 :::{figure-md} fig-two-zone-model
 
@@ -174,6 +206,34 @@ Flows and regimes in a canonical compartment fire with a single opening, here a 
 
 Illustration of a simple two zone – the upper hot and the lower cold gas layer – model.
 :::
+
+* outline computed quatities
+* one for each layer, u and l
+
+* example CFAST, see documentation
+
+* funamental equations
+
+```{margin} Note:
+The according fundamental thermodynamical relations will be introduced in following section of the lecture. 
+```
+
+$$
+\mf \frac{d}{dt}\left( c_v m_i T_i\right) = \dq - P\frac{dV_i}{dt}
+$$ (eq-zone-model-internal-energy)
+
+$$
+\mf PV_i = m_i R T_i
+$$ (eq-zone-model-ideal-gas-law)
+
+$$
+\mf \begin{align}
+\frac{dP}{dt} &= \dots \\
+\frac{dV_u}{dt} &= \dots \\
+\frac{dT_u}{dt} &= \dots \\
+\frac{dT_l}{dt} &= \dots
+\end{align}
+$$ (eq-zone-mode-governing-eqs)
 
 ## Field Models
 
@@ -184,7 +244,6 @@ Illustration of a simple two zone – the upper hot and the lower cold gas layer
 Illustration of the domain discretisation in a field model.
 :::
 
-## Field Models
 
 :::{figure-md} fig-field-model-temperatures
 

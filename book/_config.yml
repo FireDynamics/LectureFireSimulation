@@ -44,10 +44,14 @@ sphinx:
         Macros:
           "vv": "\\vec{v}"
           "mf": "\\small\\sf"
+          "dQ": "\\dot{Q}"
+          "dq": "\\dot{q}"
+          "dm": "\\dot{m}"
 
 ###############################################################################
 # parser settings
 # parse:
+#   myst_extended_syntax: true
 #   myst_enable_extensions:
 #     - amsmath
 
