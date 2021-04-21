@@ -3,5 +3,6 @@ setuptools
 fdsreader
 jupyter-book
 jupyterlab
+jupyterlab-git
 typing_extensions
 seaborn
