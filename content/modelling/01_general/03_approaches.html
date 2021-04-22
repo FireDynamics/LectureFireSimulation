@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>1.3. Modelling Approaches &#8212; Fire Simulation Lecture</title>
     
-  <link rel="stylesheet" href="../../../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
 
     
   <link rel="stylesheet"
@@ -19,14 +20,10 @@
 
     
       
-  <link rel="stylesheet"
-    href="../../../_static/vendor/open-sans_all/1.44.1/index.css">
-  <link rel="stylesheet"
-    href="../../../_static/vendor/lato_latin-ext/1.44.1/index.css">
 
     
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e7340bb3dbd8dde6db86f25597f54a1b.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -34,7 +31,7 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.d3f166471bb80abb5163.js">
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
 
     <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -44,7 +41,7 @@
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.7d483ff0a819d6edff12ce0b1ead3928.js"></script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
@@ -60,23 +57,14 @@
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="2. Fluid Dynamics" href="../02_fluids/00_overview.html" />
     <link rel="prev" title="1.2. Fire Safety Engineering" href="02_fse.html" />
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
-
-
-<!-- Opengraph tags -->
-<meta property="og:url"         content="https://firedynamics.github.io/LectureFireSimulation/content/modelling/01_general/03_approaches.html" />
-<meta property="og:type"        content="article" />
-<meta property="og:title"       content="Modelling Approaches" />
-<meta property="og:description" content="Modelling Approaches  Fire safety science (FSS) and fire safety engineering (FSE) is not limited to describe fires and their impact on building structures, yet " />
-<meta property="og:image"       content="https://firedynamics.github.io/LectureFireSimulation/_static/cce_logo.png" />
-
-<meta name="twitter:card" content="summary" />
-
-
+    
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
     
 
     <div class="container-xl">
@@ -85,32 +73,32 @@
 <div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
     
         <div class="navbar-brand-box">
-<a class="navbar-brand text-wrap" href="../../../index.html">
-  
-  <img src="../../../_static/cce_logo.png" class="logo" alt="logo">
-  
-  
-  <h1 class="site-logo" id="site-title">Fire Simulation Lecture</h1>
-  
-</a>
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      <img src="../../../_static/cce_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Fire Simulation Lecture</h1>
+      
+    </a>
 </div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form>
-<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
-    <ul class="nav sidenav_l1">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../overview/01_overview.html">
    Overview
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Introduction
  </span>
 </p>
-<ul class="nav sidenav_l1">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="../../overview/02_team.html">
    Team Fire Dynamics
@@ -122,17 +110,22 @@
   </a>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Modelling
  </span>
 </p>
-<ul class="current nav sidenav_l1">
- <li class="toctree-l1 current active collapsible-parent">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="00_overview.html">
    1. Modelling Fires
   </a>
-  <ul class="current collapse-ul">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="01_processes.html">
      1.1. Physical and Chemical Processes
@@ -149,14 +142,17 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../02_fluids/00_overview.html">
    2. Fluid Dynamics
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../02_fluids/01_fluids.html">
      2.1. Fluids
@@ -168,14 +164,17 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../03_compartments/00_overview.html">
    3. Compartment Fires
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../03_compartments/01_fundamentals.html">
      3.1. Fundamentals
@@ -192,21 +191,24 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
 </ul>
-<p class="caption collapsible-parent">
+<p class="caption">
  <span class="caption-text">
   Tools
  </span>
 </p>
-<ul class="nav sidenav_l1">
- <li class="toctree-l1 collapsible-parent">
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../tools/01_fds_smv/00_overview.html">
    FDS and SMV
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../../tools/01_fds_smv/01_fds.html">
      FDS Basics
@@ -218,25 +220,27 @@
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
- <li class="toctree-l1 collapsible-parent">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../tools/03_hpc/00_overview.html">
    HPC
   </a>
-  <ul class="collapse-ul">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="../../tools/03_hpc/02_parallel_fds.html">
      Parallel Execution of FDS
     </a>
    </li>
   </ul>
-  <i class="fas fa-chevron-down">
-  </i>
  </li>
 </ul>
 
+    </div>
 </nav> <!-- To handle the deprecated key -->
 
 <div class="navbar_extra_footer">
@@ -304,12 +308,12 @@
     </div>
 </div>
 
-
             <!-- Full screen (wrap in <a> to have style consistency -->
-            <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-                    data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-                    title="Fullscreen mode"><i
-                        class="fas fa-expand"></i></button></a>
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
 
             <!-- Launch buttons -->
 
@@ -318,12 +322,16 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
-        <div class="tocsection onthispage pt-5 pb-3">
-            <i class="fas fa-list"></i>
-            Contents
-        </div>
-        <nav id="bd-toc-nav">
-            <ul class="nav section-nav flex-column">
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#experiments">
    Experiments
@@ -351,8 +359,7 @@
  </li>
 </ul>
 
-        </nav>
-        
+            </nav>
         </div>
     </div>
 </div>
@@ -363,6 +370,8 @@
                 
   <div class="section" id="modelling-approaches">
 <h1><span class="section-number">1.3. </span>Modelling Approaches<a class="headerlink" href="#modelling-approaches" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>Fire safety science (FSS) and fire safety engineering (FSE) is not limited to describe fires and their impact on building structures, yet other topics, like evacuation or risk analysis, are not part of this lecture. The understanding and description of fires allows for technical and organisational (active and preventive) measures to limit or even prevent damage. In general, these descriptions lead to the development of mathematical models, which are validated using physical and chemical experiments. From the practical point of view, these models are applied to design and evaluate safety concepts.</p>
 <p>The development of analytical and numerical models aims to describe processes and / or the impacts related to fires. This is true for compartment as well as wildland fires and covers may aspects, like the height of the hot gas layer, the speed and direction at which flames propagate, the toxicity of smoke or the activation and effectivenes of technical measures.</p>
 <p>Models range from empirical data models to models based on first principles. Yet, mostly experiments are needed to adjust unknown model parameters and to validate the predictive capabilities of a model.</p>
@@ -426,6 +435,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <div class="section" id="experiments">
 <h2>Experiments<a class="headerlink" href="#experiments" title="Permalink to this headline">¶</a></h2>
 <p>Models little to no value if they are not supported by experiments. Thus the design and conduction of experiments on various scales is the fundament of fire safety science and engineering. Some experimental aspects in the context of experiments are:</p>
@@ -454,7 +464,7 @@
 <p>The measurement of the local gas temperature in a plume leads to an empirical description for the time averaged values. Based on measurements like in <a class="reference internal" href="#fig-exp-plume-profile"><span class="std std-numref">Fig. 1.15</span></a>, an mathematical formulation can be derived to describe the observarions.</p>
 <div class="figure align-default" id="fig-exp-plume-profile">
 <a class="reference internal image-reference" href="../../../_images/plume-profile-yokoi.png"><img alt="../../../_images/plume-profile-yokoi.png" src="../../../_images/plume-profile-yokoi.png" style="width: 40%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 1.15 </span><span class="caption-text">Example for experimentally captured normalised temperature profiles of a plume. Source: <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id7"><span>Yok60</span></a>]</span>.</span><a class="headerlink" href="#fig-exp-plume-profile" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.15 </span><span class="caption-text">Example for experimentally captured normalised temperature profiles of a plume. Source: <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id8"><span>Yok60</span></a>]</span>.</span><a class="headerlink" href="#fig-exp-plume-profile" title="Permalink to this image">¶</a></p>
 </div>
 <p>The temperature rise <span class="math notranslate nohighlight">\(\mf \Delta T\)</span> in a turbulent plume may be generally approximated by:</p>
 <div class="math notranslate nohighlight" id="equation-eq-deltat-plume">
@@ -492,7 +502,7 @@
 <a class="reference internal image-reference" href="../../../_images/compartment_flow_central_labeled.svg"><img alt="../../../_images/compartment_flow_central_labeled.svg" src="../../../_images/compartment_flow_central_labeled.svg" width="80%" /></a>
 <p class="caption"><span class="caption-number">Fig. 1.16 </span><span class="caption-text">Illustration of the quantities involved in the analytical estimation of the plume mass flow <span class="math notranslate nohighlight">\(\mf \dm_{pl}\)</span>.</span><a class="headerlink" href="#fig-exp-analytical-mass-flow" title="Permalink to this image">¶</a></p>
 </div>
-<p>Following, e.g. <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id5"><span>VDI09</span></a>]</span>, the plume mass flow <span class="math notranslate nohighlight">\(\mf \dm_{pl}\)</span> can be directly computed, whereas two regimes need to be considered separately. These are distinguished by the ratio of the distance of the fire to the smoke layer <span class="math notranslate nohighlight">\(\mf z_{eff}\)</span> and the square root of the fire area <span class="math notranslate nohighlight">\(\mf A_{fire}\)</span>, i.e. <span class="math notranslate nohighlight">\(\sf \sqrt{A_{fire}}\)</span>.</p>
+<p>Following, e.g. <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id6"><span>VDI09</span></a>]</span>, the plume mass flow <span class="math notranslate nohighlight">\(\mf \dm_{pl}\)</span> can be directly computed, whereas two regimes need to be considered separately. These are distinguished by the ratio of the distance of the fire to the smoke layer <span class="math notranslate nohighlight">\(\mf z_{eff}\)</span> and the square root of the fire area <span class="math notranslate nohighlight">\(\mf A_{fire}\)</span>, i.e. <span class="math notranslate nohighlight">\(\sf \sqrt{A_{fire}}\)</span>.</p>
 <p><strong>Jet formation regime</strong></p>
 <p>In the case of</p>
 <div class="math notranslate nohighlight" id="equation-eq-za-ratio">
@@ -510,11 +520,38 @@
 <li><p>the considered compartment is a single storey smoke reservoir</p></li>
 <li><p>the minimum compartment height is <span class="math notranslate nohighlight">\(\mf 4.0~m\)</span></p></li>
 <li><p>the room temperature is lower than smoke gas temperature</p></li>
-<li><p>it is only valid for fires with a power of <span class="math notranslate nohighlight">\(\mf 8~kW\)</span> to <span class="math notranslate nohighlight">\(\mf 30~kW\)</span></p></li>
+<li><p>it is only valid for fires with a power of <span class="math notranslate nohighlight">\(\mf 8~kW\)</span> to <span class="math notranslate nohighlight">\(\mf 30~kW\)</span> with a specific heat release rate per area of <span class="math notranslate nohighlight">\(\mf 200~kW/m^2\)</span> to <span class="math notranslate nohighlight">\(\mf 1800~kW/m^2\)</span></p></li>
 <li><p>the fire source diameter <span class="math notranslate nohighlight">\(\mf d_{fire}\)</span> is between <span class="math notranslate nohighlight">\(\mf 0.4~m\)</span> and <span class="math notranslate nohighlight">\(\mf 9~m\)</span></p></li>
 </ul>
 <p><strong>Similarity regime</strong></p>
-<p><strong>TODO</strong></p>
+<p>If the equation <a class="reference internal" href="#equation-eq-za-ratio">(1.2)</a> is not valid, the plume is in the so called similarity regime. Here the plume can be handled as an undisturbed plume, as the distance to smoke layer is large compared to the initial width of the plume. In this case there are multiple possible approaches to describe the plume. One of them is the Heskestad plume model:</p>
+<div class="math notranslate nohighlight" id="equation-eq-heskestad">
+<span class="eqno">(1.4)<a class="headerlink" href="#equation-eq-heskestad" title="Permalink to this equation">¶</a></span>\[
+\mf \dm_{pl} = C_2\cdot \dQ_{conv}\cdot \left( z_{eff} - z_0 \right)^{5/3} \quad .
+\]</div>
+<p>The additional quantities needed for the evaluation are:</p>
+<ul>
+<li><p>The convective part of the heat release rate <span class="math notranslate nohighlight">\(\mf \dQ_{conv}\)</span>, which can be estimated as 70% of the total heat release rate, i.e.</p>
+<div class="math notranslate nohighlight">
+\[
+  \mf \dQ_{conv} = 0.7 \dQ \quad.
+  \]</div>
+</li>
+<li><p>A virtual origin of the plume, which is located at a distance <span class="math notranslate nohighlight">\(\mf z_0\)</span>. There exist various ways to compute it, yet one of them is given by</p>
+<div class="math notranslate nohighlight">
+\[
+  \mf z_0 = -1.02 d_{fire} + 0.083 \dQ^{0.4} \quad.
+  \]</div>
+<p>where the diameter of the fire is denoted as <span class="math notranslate nohighlight">\(\mf d_{fire}\)</span>.</p>
+</li>
+<li><p>The value of the induction coefficient <span class="math notranslate nohighlight">\(\mf C_2\)</span> is about <span class="math notranslate nohighlight">\(\mf 0.071~kg \left(kW\,s^3\,m^5\right)^{-1/3}\)</span>.</p></li>
+</ul>
+<p>This model leads to valid predictions, if the following conditions are met:</p>
+<ul class="simple">
+<li><p>the fire area is compact, i.e. of a shape that can be represented as a circle or  a square,</p></li>
+<li><p>the ambient temerature of the plume is constant, and</p></li>
+<li><p>the environment is not disturbing the plume.</p></li>
+</ul>
 </div>
 <div class="section" id="single-compartment-fire">
 <h2>Single Compartment Fire<a class="headerlink" href="#single-compartment-fire" title="Permalink to this headline">¶</a></h2>
@@ -532,7 +569,7 @@
 </div>
 <div class="section" id="zone-models">
 <h2>Zone Models<a class="headerlink" href="#zone-models" title="Permalink to this headline">¶</a></h2>
-<p>The above figure <a class="reference internal" href="#fig-compartment-flow-basic"><span class="std std-numref">Fig. 1.17</span></a> indicates that the domain of interest can be separated into two zone: an upper and a lower layer, see <a class="reference internal" href="#fig-two-zone-model"><span class="std std-numref">Fig. 1.18</span></a>. Zone models use this separation to simplify the overall scenario and predict the physical, e.g. temperature, and geometrical, e.g. height, properties of the zones. The interaction of those zones, i.e. transport of mass and enthalpy, is described by the plume.</p>
+<p>The above figure <a class="reference internal" href="#fig-compartment-flow-basic"><span class="std std-numref">Fig. 1.17</span></a> indicates that the domain of interest can be separated into two zone: an upper and a lower layer, see <a class="reference internal" href="#fig-two-zone-model"><span class="std std-numref">Fig. 1.18</span></a>. Zone models use this separation to simplify the overall scenario and predict the physical, e.g. temperature, and geometrical, e.g. height, properties of the zones.</p>
 <div class="figure align-default" id="fig-two-zone-model">
 <a class="reference internal image-reference" href="../../../_images/compartment_zone_model.svg"><img alt="../../../_images/compartment_zone_model.svg" src="../../../_images/compartment_zone_model.svg" width="60%" /></a>
 <p class="caption"><span class="caption-number">Fig. 1.18 </span><span class="caption-text">Illustration of a simple two zone – the upper hot and the lower cold gas layer – model.</span><a class="headerlink" href="#fig-two-zone-model" title="Permalink to this image">¶</a></p>
@@ -545,36 +582,54 @@
 </ul>
 <div class="margin sidebar">
 <p class="sidebar-title">Note:</p>
-<p>The according fundamental thermodynamical relations will be introduced in following section of the lecture.</p>
+<p>The according fundamental thermodynamical relations will be introduced in following section of the lecture. This section is just meant to demonstrate the general approach of zone models.</p>
 </div>
-<div class="math notranslate nohighlight" id="equation-eq-zone-model-internal-energy">
-<span class="eqno">(1.4)<a class="headerlink" href="#equation-eq-zone-model-internal-energy" title="Permalink to this equation">¶</a></span>\[
-\mf \frac{d}{dt}\left( c_v m_i T_i\right) = \dq - P\frac{dV_i}{dt}
-\]</div>
+<p>In the following, the <a class="reference external" href="https://pages.nist.gov/cfast/index.html">Consolidated Fire And Smoke Transport (CFAST)</a> model <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id2"><span>PMFR21</span></a>]</span> is used to demonstrate the approach of zone models. Here, the physical quantities like temperature <span class="math notranslate nohighlight">\(\mf T_i\)</span>, volume <span class="math notranslate nohighlight">\(\mf V_i\)</span>, and pressure <span class="math notranslate nohighlight">\(\mf p\)</span> for each layer, i.e. <span class="math notranslate nohighlight">\(\mf i\in [u,l]\)</span>, are computed. These are single values, which represent the whole zone.</p>
+<p>Using the ideal gas law, equation <a class="reference internal" href="#equation-eq-zone-model-ideal-gas-law">(1.5)</a>, the mass <span class="math notranslate nohighlight">\(\mf m_i\)</span> of a layer can be computed.</p>
 <div class="math notranslate nohighlight" id="equation-eq-zone-model-ideal-gas-law">
 <span class="eqno">(1.5)<a class="headerlink" href="#equation-eq-zone-model-ideal-gas-law" title="Permalink to this equation">¶</a></span>\[
 \mf PV_i = m_i R T_i
 \]</div>
-<div class="math notranslate nohighlight" id="equation-eq-zone-mode-governing-eqs">
-<span class="eqno">(1.6)<a class="headerlink" href="#equation-eq-zone-mode-governing-eqs" title="Permalink to this equation">¶</a></span>\[\begin{split}
-\mf \begin{align}
-\frac{dP}{dt} &amp;= \dots \\
-\frac{dV_u}{dt} &amp;= \dots \\
-\frac{dT_u}{dt} &amp;= \dots \\
-\frac{dT_l}{dt} &amp;= \dots
-\end{align}
-\end{split}\]</div>
+<p>Where <span class="math notranslate nohighlight">\(\mf R\)</span> is the specific gas constant, here with a value of approximately <span class="math notranslate nohighlight">\(\mf 290~J\,kg^{-1}\,K^{-1}\)</span> for air. The change of internal energy of a zone is described by the sum of all heat sources <span class="math notranslate nohighlight">\(\mf \dq_i\)</span> and the work done by the change of the layer’s volume, i.e. <span class="math notranslate nohighlight">\(\mf p\cdot dV_i/dt\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-eq-zone-model-internal-energy">
+<span class="eqno">(1.6)<a class="headerlink" href="#equation-eq-zone-model-internal-energy" title="Permalink to this equation">¶</a></span>\[
+\mf \frac{d}{dt}\left( c_v m_i T_i\right) = \dq_i - p\frac{dV_i}{dt}\quad,
+\]</div>
+<p>with the specific heat capacity at constant volume <span class="math notranslate nohighlight">\(\mf c_v\)</span>.</p>
+<p>Besides the handling of boundary coditions and other additional processes, a set of coupled ordinary differential equations is derived to prescribe the evolution of the pressure</p>
+<div class="math notranslate nohighlight" id="equation-eq-zone-mode-pressure">
+<span class="eqno">(1.7)<a class="headerlink" href="#equation-eq-zone-mode-pressure" title="Permalink to this equation">¶</a></span>\[
+\mf \frac{dp}{dt} = \frac{\gamma - 1}{V} (\dq_l + \dq_u)\quad, and
+\]</div>
+<p>the upper volume</p>
+<div class="math notranslate nohighlight" id="equation-eq-zone-mode-vu">
+<span class="eqno">(1.8)<a class="headerlink" href="#equation-eq-zone-mode-vu" title="Permalink to this equation">¶</a></span>\[
+\mf \frac{dV_u}{dt} = \frac{1}{p\gamma}\left((\gamma-1)\dq_u - V_u \frac{dp}{dt}  \right)\quad ,
+\]</div>
+<p>where the lower volume <span class="math notranslate nohighlight">\(\mf V_l\)</span> can be computed with the given total volumen of the compartment <span class="math notranslate nohighlight">\(\mf V\)</span> as <span class="math notranslate nohighlight">\(\mf V_l = V - V_u\)</span>. The temperature development in each layer is given by</p>
+<div class="math notranslate nohighlight" id="equation-eq-zone-mode-tu">
+<span class="eqno">(1.9)<a class="headerlink" href="#equation-eq-zone-mode-tu" title="Permalink to this equation">¶</a></span>\[
+\mf \frac{dT_u}{dt} = \frac{1}{c_p m_u}\left( \dq_u - c_p \dm_u T_u + V_u \frac{dp}{dt}\right)\quad, and
+\]</div>
+<div class="math notranslate nohighlight" id="equation-eq-zone-mode-tl">
+<span class="eqno">(1.10)<a class="headerlink" href="#equation-eq-zone-mode-tl" title="Permalink to this equation">¶</a></span>\[
+\mf \frac{dT_l}{dt} = \frac{1}{c_p m_l}\left( \dq_l - c_p \dm_l T_l + V_l \frac{dp}{dt}\right)\quad .
+\]</div>
+<p>This set of equations can be numericaly solved and leads to a time-dependent solution for the four stated quantities.</p>
 </div>
 <div class="section" id="field-models">
 <h2>Field Models<a class="headerlink" href="#field-models" title="Permalink to this headline">¶</a></h2>
+<p>While zone models decompose the domain of interest into few regions, field models discretise the volume with a three-dimensional mesh, see <a class="reference internal" href="#fig-field-model"><span class="std std-numref">Fig. 1.19</span></a>. This discretisation is needed to numerically solve a set of partial differential equations for quantities like density, velocity, pressure and enthalpy in each node of the mesh.</p>
 <div class="figure align-default" id="fig-field-model">
 <a class="reference internal image-reference" href="../../../_images/compartment_field_model.svg"><img alt="../../../_images/compartment_field_model.svg" src="../../../_images/compartment_field_model.svg" width="60%" /></a>
 <p class="caption"><span class="caption-number">Fig. 1.19 </span><span class="caption-text">Illustration of the domain discretisation in a field model.</span><a class="headerlink" href="#fig-field-model" title="Permalink to this image">¶</a></p>
 </div>
+<p>The solid objects in the domain have to be represented in the mesh and at these positions, boundary conditions need to be evaluated. As a result of the according numerical solution procedure, a spatially and temporaly resolved values for the above mentioned quantites is computed, see <a class="reference internal" href="#fig-field-model-temperatures"><span class="std std-numref">Fig. 1.20</span></a> for an illustrative representation of a temperature field at one point in time.</p>
 <div class="figure align-default" id="fig-field-model-temperatures">
 <a class="reference internal image-reference" href="../../../_images/compartment_field_model_temperatures.svg"><img alt="../../../_images/compartment_field_model_temperatures.svg" src="../../../_images/compartment_field_model_temperatures.svg" width="60%" /></a>
 <p class="caption"><span class="caption-number">Fig. 1.20 </span><span class="caption-text">Illustration of the temperature values in each element (cell) of the domain discretisation.</span><a class="headerlink" href="#fig-field-model-temperatures" title="Permalink to this image">¶</a></p>
 </div>
+<p>The main content of this lecture are the numerical models and solution approaches applied in field models. This methodology is in general called computational fluid dynamics (CFD), where fire simulations are a specialised topic within a very broad range of applications. The simulation model described in this lecture is the <a class="reference external" href="https://pages.nist.gov/fds-smv/index.html">Fire Dynamics Simulator (FDS)</a>.</p>
 </div>
 </div>
 
@@ -624,9 +679,8 @@
 
       </div>
     </div>
-
     
-  <script src="../../../_static/js/index.d3f166471bb80abb5163.js"></script>
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
 
     
