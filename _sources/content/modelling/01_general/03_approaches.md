@@ -179,11 +179,11 @@ The solution in equation {eq}`eq-dmpl-jet` only depends on gemetrical values, th
 
 **Similarity regime**
 
-If the equation {eq}`eq-zA-ratio` is not valid, the plume is in the so called similarity regime. Here the plume can be handled as an undisturbed plume, as the distance to smoke layer is large compared to the initial width of the plume. In this case there are multiple possible approaches to describe the plume. One of them is the Heskestad plume model:
+If the equation {eq}`eq-zA-ratio` is not valid, the plume is in the so called similarity regime. Here the plume can be handled as an undisturbed plume, as the distance to smoke layer is large compared to the initial width of the plume. In this case there are multiple possible approaches to describe the plume. One of them is based on the Heskestad plume model and predicts the plume mass flow as
 
 $$
 \mf \dm_{pl} = C_2\cdot \dQ_{conv}\cdot \left( z_{eff} - z_0 \right)^{5/3} \quad .
-$$ (eq-heskestad)
+$$ (eq-dmpl-similarity)
 
 The additional quantities needed for the evaluation are:
 
