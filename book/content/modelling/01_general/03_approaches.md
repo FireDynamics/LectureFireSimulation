@@ -1,5 +1,7 @@
 # Modelling Approaches
 
+## Overview
+
 Fire safety science (FSS) and fire safety engineering (FSE) is not limited to describe fires and their impact on building structures, yet other topics, like evacuation or risk analysis, are not part of this lecture. The understanding and description of fires allows for technical and organisational (active and preventive) measures to limit or even prevent damage. In general, these descriptions lead to the development of mathematical models, which are validated using physical and chemical experiments. From the practical point of view, these models are applied to design and evaluate safety concepts. 
 
 The development of analytical and numerical models aims to describe processes and / or the impacts related to fires. This is true for compartment as well as wildland fires and covers may aspects, like the height of the hot gas layer, the speed and direction at which flames propagate, the toxicity of smoke or the activation and effectivenes of technical measures. 
@@ -172,12 +174,39 @@ The solution in equation {eq}`eq-dmpl-jet` only depends on gemetrical values, th
 * the considered compartment is a single storey smoke reservoir
 * the minimum compartment height is $\mf 4.0~m$
 * the room temperature is lower than smoke gas temperature
-* it is only valid for fires with a power of $\mf 8~kW$ to $\mf 30~kW$
+* it is only valid for fires with a power of $\mf 8~kW$ to $\mf 30~kW$ with a specific heat release rate per area of $\mf 200~kW/m^2$ to $\mf 1800~kW/m^2$
 * the fire source diameter $\mf d_{fire}$ is between $\mf 0.4~m$ and $\mf 9~m$
 
 **Similarity regime**
 
-**TODO**
+If the equation {eq}`eq-zA-ratio` is not valid, the plume is in the so called similarity regime. Here the plume can be handled as an undisturbed plume, as the distance to smoke layer is large compared to the initial width of the plume. In this case there are multiple possible approaches to describe the plume. One of them is the Heskestad plume model:
+
+$$
+\mf \dm_{pl} = C_2\cdot \dQ_{conv}\cdot \left( z_{eff} - z_0 \right)^{5/3} \quad .
+$$ (eq-heskestad)
+
+The additional quantities needed for the evaluation are:
+
+* The convective part of the heat release rate $\mf \dQ_{conv}$, which can be estimated as 70% of the total heat release rate, i.e. 
+
+  $$
+  \mf \dQ_{conv} = 0.7 \dQ \quad.
+  $$
+
+* A virtual origin of the plume, which is located at a distance $\mf z_0$. There exist various ways to compute it, yet one of them is given by
+
+  $$
+  \mf z_0 = -1.02 d_{fire} + 0.083 \dQ^{0.4} \quad.
+  $$
+  where the diameter of the fire is denoted as $\mf d_{fire}$.
+
+* The value of the induction coefficient $\mf C_2$ is about $\mf 0.071~kg \left(kW\,s^3\,m^5\right)^{-1/3}$.
+
+This model leads to valid predictions, if the following conditions are met:
+
+* the fire area is compact, i.e. of a shape that can be represented as a circle or  a square,
+* the ambient temerature of the plume is constant, and
+* the environment is not disturbing the plume. 
 
 ## Single Compartment Fire
 
@@ -198,7 +227,7 @@ In a very simplified representation, the following phenomena can be observed:
 
 ## Zone Models
 
-The above figure {numref}`fig-compartment-flow-basic` indicates that the domain of interest can be separated into two zone: an upper and a lower layer, see {numref}`fig-two-zone-model`. Zone models use this separation to simplify the overall scenario and predict the physical, e.g. temperature, and geometrical, e.g. height, properties of the zones. The interaction of those zones, i.e. transport of mass and enthalpy, is described by the plume.
+The above figure {numref}`fig-compartment-flow-basic` indicates that the domain of interest can be separated into two zone: an upper and a lower layer, see {numref}`fig-two-zone-model`. Zone models use this separation to simplify the overall scenario and predict the physical, e.g. temperature, and geometrical, e.g. height, properties of the zones.
 
 :::{figure-md} fig-two-zone-model
 
@@ -215,27 +244,52 @@ Illustration of a simple two zone – the upper hot and the lower cold gas layer
 * funamental equations
 
 ```{margin} Note:
-The according fundamental thermodynamical relations will be introduced in following section of the lecture. 
+The according fundamental thermodynamical relations will be introduced in following section of the lecture. This section is just meant to demonstrate the general approach of zone models.
 ```
 
-$$
-\mf \frac{d}{dt}\left( c_v m_i T_i\right) = \dq - P\frac{dV_i}{dt}
-$$ (eq-zone-model-internal-energy)
+In the following, the [Consolidated Fire And Smoke Transport (CFAST)](https://pages.nist.gov/cfast/index.html) model {cite}`CFAST7-TR.2021` is used to demonstrate the approach of zone models. Here, the physical quantities like temperature $\mf T_i$, volume $\mf V_i$, and pressure $\mf p$ for each layer, i.e. $\mf i\in [u,l]$, are computed. These are single values, which represent the whole zone. 
+
+Using the ideal gas law, equation {eq}`eq-zone-model-ideal-gas-law`, the mass $\mf m_i$ of a layer can be computed. 
 
 $$
 \mf PV_i = m_i R T_i
 $$ (eq-zone-model-ideal-gas-law)
 
+Where $\mf R$ is the specific gas constant, here with a value of approximately $\mf 290~J\,kg^{-1}\,K^{-1}$ for air. The change of internal energy of a zone is described by the sum of all heat sources $\mf \dq_i$ and the work done by the change of the layer's volume, i.e. $\mf p\cdot dV_i/dt$:
+
 $$
-\mf \begin{align}
-\frac{dP}{dt} &= \dots \\
-\frac{dV_u}{dt} &= \dots \\
-\frac{dT_u}{dt} &= \dots \\
-\frac{dT_l}{dt} &= \dots
-\end{align}
-$$ (eq-zone-mode-governing-eqs)
+\mf \frac{d}{dt}\left( c_v m_i T_i\right) = \dq_i - p\frac{dV_i}{dt}\quad,
+$$ (eq-zone-model-internal-energy)
+
+with the specific heat capacity at constant volume $\mf c_v$. 
+
+Besides the handling of boundary coditions and other additional processes, a set of coupled ordinary differential equations is derived to prescribe the evolution of the pressure 
+
+$$
+\mf \frac{dp}{dt} = \frac{\gamma - 1}{V} (\dq_l + \dq_u)\quad, and
+$$ (eq-zone-mode-pressure)
+
+the upper volume 
+
+$$
+\mf \frac{dV_u}{dt} = \frac{1}{p\gamma}\left((\gamma-1)\dq_u - V_u \frac{dp}{dt}  \right)\quad ,
+$$ (eq-zone-mode-vu)
+
+where the lower volume $\mf V_l$ can be computed with the given total volumen of the compartment $\mf V$ as $\mf V_l = V - V_u$. The temperature development in each layer is given by 
+
+$$
+\mf \frac{dT_u}{dt} = \frac{1}{c_p m_u}\left( \dq_u - c_p \dm_u T_u + V_u \frac{dp}{dt}\right)\quad, and
+$$ (eq-zone-mode-Tu)
+
+$$
+\mf \frac{dT_l}{dt} = \frac{1}{c_p m_l}\left( \dq_l - c_p \dm_l T_l + V_l \frac{dp}{dt}\right)\quad .
+$$ (eq-zone-mode-Tl)
+
+This set of equations can be numericaly solved and leads to a time-dependent solution for the four stated quantities.
 
 ## Field Models
+
+While zone models decompose the domain of interest into few regions, field models discretise the volume with a three-dimensional mesh, see {numref}`fig-field-model`. This discretisation is needed to numerically solve a set of partial differential equations for quantities like density, velocity, pressure and enthalpy in each node of the mesh. 
 
 :::{figure-md} fig-field-model
 
@@ -244,6 +298,7 @@ $$ (eq-zone-mode-governing-eqs)
 Illustration of the domain discretisation in a field model.
 :::
 
+The solid objects in the domain have to be represented in the mesh and at these positions, boundary conditions need to be evaluated. As a result of the according numerical solution procedure, a spatially and temporaly resolved values for the above mentioned quantites is computed, see {numref}`fig-field-model-temperatures` for an illustrative representation of a temperature field at one point in time.
 
 :::{figure-md} fig-field-model-temperatures
 
@@ -251,3 +306,5 @@ Illustration of the domain discretisation in a field model.
 
 Illustration of the temperature values in each element (cell) of the domain discretisation.
 :::
+
+The main content of this lecture are the numerical models and solution approaches applied in field models. This methodology is in general called computational fluid dynamics (CFD), where fire simulations are a specialised topic within a very broad range of applications. The simulation model described in this lecture is the [Fire Dynamics Simulator (FDS)](https://pages.nist.gov/fds-smv/index.html). 
