@@ -55,4 +55,4 @@ How to reach us:
 We offer theses (BA, MA, PhD) on many different topics. 
 * an overview of topics and previously supervised theses can be found on the [thesis website](https://cce.uni-wuppertal.de/index.php?id=4171&L=0)
 * The [overview of our publications](https://www.fz-juelich.de/ias/ias-7/EN/AboutUs/Staff/Current/Arnold_Lukas/publication_node.html) can also help you to find a topic. 
-* If you are interested, please contact Lukas Arnold
+* If you are interested, please contact Lukas Arnold [@ University of Wuppertal](https://cce.uni-wuppertal.de/en/staff.html) or [@ Forschungszentrum Jülich](https://www.fz-juelich.de/ias/ias-7/EN/AboutUs/Staff/Current/Arnold_Lukas/main.html)

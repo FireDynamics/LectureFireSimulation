@@ -1,7 +1,7 @@
 ###############################################################################
 # Book settings
 title       : Fire Simulation Lecture
-author      : Team Fire | CCE@BUW + IAS-7@FZJ
+author      : ''
 logo        : 'cce_logo.png'
 description : A brief introduction to fire simulations.
 
@@ -29,6 +29,13 @@ html:
   use_edit_page_button  : true
   use_issues_button     : true
   use_repository_button : true
+  extra_footer          : |
+    <p>
+    <img src='https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg' height='31'/>
+    | By Team Fire | Contacts and Infos: <a href='https://cce.uni-wuppertal.de/en.html'>CCE@BUW</a> and <a href='https://www.fz-juelich.de/ias/ias-7/EN/Research/Fire_Dynamics/_node.html'>IAS-7@FZJ</a>
+    </br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+    </p>
+  extra_navbar          : ''
   
 ###############################################################################
 # Interact link settings
