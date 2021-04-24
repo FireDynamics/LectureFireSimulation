@@ -32,6 +32,13 @@ Contributors to the development of the script and the exercises are (in alphabet
 * Jan Vogelsang
 * My Linh Würzburger
 
+## Theses
+
+We offer theses (BA, MA, PhD) on many different topics. 
+* an overview of topics and previously supervised theses can be found on the [thesis website](https://cce.uni-wuppertal.de/index.php?id=4171&L=0)
+* The [overview of our publications](https://www.fz-juelich.de/ias/ias-7/EN/AboutUs/Staff/Current/Arnold_Lukas/publication_node.html) can also help you to find a topic. 
+* If you are interested, please contact Lukas Arnold [@ University of Wuppertal](https://cce.uni-wuppertal.de/en/staff.html) or [@ Forschungszentrum Jülich](https://www.fz-juelich.de/ias/ias-7/EN/AboutUs/Staff/Current/Arnold_Lukas/main.html)
+
 ## Acknowledgements
 
 The software tools used in the lecture and the creation of the materials are mostly freely available, open source and developed by volunteers. In particular, we would like to thank the following teams for their work
@@ -50,9 +57,9 @@ How to reach us:
 * Contact details for individuals can be found on the [staff website](https://cce.uni-wuppertal.de/index.php?id=4186&L=0) 
 
 
-## Theses
+## License
 
-We offer theses (BA, MA, PhD) on many different topics. 
-* an overview of topics and previously supervised theses can be found on the [thesis website](https://cce.uni-wuppertal.de/index.php?id=4171&L=0)
-* The [overview of our publications](https://www.fz-juelich.de/ias/ias-7/EN/AboutUs/Staff/Current/Arnold_Lukas/publication_node.html) can also help you to find a topic. 
-* If you are interested, please contact Lukas Arnold [@ University of Wuppertal](https://cce.uni-wuppertal.de/en/staff.html) or [@ Forschungszentrum Jülich](https://www.fz-juelich.de/ias/ias-7/EN/AboutUs/Staff/Current/Arnold_Lukas/main.html)
+These lecture notes and tools are licensed under the
+[Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
+
+<img src='https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg' />
