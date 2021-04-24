@@ -51,4 +51,5 @@
         
     - file: content/tools/03_hpc/00_overview
       sections:
+        - file: content/tools/03_hpc/01_linux
         - file: content/tools/03_hpc/02_parallel_fds
