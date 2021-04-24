@@ -4,7 +4,7 @@ The *Team Fire Dynamics* is a joint team of members of the chair [Computational 
 
 The CCE chair is mainly concerned with the research and development of new computer-based models. The focus of the application here is fire and smoke propagation in buildings. 
 
-In teaching, we focus on computer science and numerics. The main lectures we offer are [Engineering Informatics](https://cce.uni-wuppertal.de/index.php?id=4178&L=0) and [Fire Simulations](https://cce.uni-wuppertal.de/index.php?id=4185&L=0). In addition to this, we regularly offer workshops on *data analysis* and *Raspberry Pi*. 
+In teaching, we focus on computer science and numerics. The main lectures we offer are [Computer Science](https://cce.uni-wuppertal.de/index.php?id=4178&L=0) and [Fire Simulations](https://cce.uni-wuppertal.de/index.php?id=4185&L=0). In addition to this, we regularly offer workshops on *data analysis* and *Raspberry Pi*. 
 
 The simulation models we develop and use are mostly based on computational fluid dynamics (CFD). In addition, we use genetic optimisation algorithms and image processing methods. What they all have in common is the use of parallel computers, such as the supercomputer [JURECA](https://www.fz-juelich.de/ias/jsc/EN/Expertise/Supercomputers/JURECA/JURECA_node.html) at the [Forschungszentrum Jülich](https://fz-juelich.de/portal/DE/Home/home_node.html).
 
