@@ -1,0 +1,1235 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linux &#8212; Fire Simulation Lecture</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/tools/02_hpc/01_linux.html" />
+    <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Parallel Execution of FDS" href="03_parallel_fds.html" />
+    <link rel="prev" title="HPC" href="00_overview.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      <img src="../../../_static/cce_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Fire Simulation Lecture</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../overview/01_overview.html">
+   Overview
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../overview/02_team.html">
+   Team Fire Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../overview/03_references.html">
+   References
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Modelling
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../modelling/01_general/00_overview.html">
+   1. Modelling Fires
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/01_general/01_processes.html">
+     1.1. Physical and Chemical Processes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/01_general/02_fse.html">
+     1.2. Fire Safety Engineering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/01_general/03_approaches.html">
+     1.3. Modelling Approaches
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tools
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_overview.html">
+   HPC
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Linux
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_parallel_fds.html">
+     Parallel Execution of FDS
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/tools/02_hpc/01_linux.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/FireDynamics/LectureFireSimulation"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/tools/02_hpc/01_linux.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/tools/02_hpc/01_linux.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/FireDynamics/LectureFireSimulation/main?urlpath=tree/book/content/tools/02_hpc/01_linux.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://io.cce.uni-wuppertal.de/firesim_ss2020//hub/user-redirect/git-pull?repo=https://github.com/FireDynamics/LectureFireSimulation&urlpath=tree/LectureFireSimulation/book/content/tools/02_hpc/01_linux.ipynb&branch=main"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#philosophy">
+   Philosophy
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#directories">
+   Directories
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#terminal-shell">
+   Terminal &amp; Shell
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bash-basics">
+   Bash Basics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#environment-variables">
+     Environment variables
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#command-execution">
+     Command execution
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#changing-directories">
+     Changing directories
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#arguments">
+     Arguments
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#listing-directories">
+     Listing directories
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#wildcards">
+     Wildcards
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#putput-redirection">
+     Putput Redirection
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bash-programming">
+   Bash Programming
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="linux">
+<h1>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-default" id="fig-tux">
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" width="20%" /></a>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Tux the penguin. Source: <a class="reference external" href="https://en.wikipedia.org/wiki/Linux#/media/File:Tux.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-tux" title="Permalink to this image">¶</a></p>
+</div>
+<p>In scientific computing, the <a class="reference external" href="https://en.wikipedia.org/wiki/Linux">Linux</a> operating system (OS) is commonly used. Linux is an open-source OS, which was first released in 1991 as a UNIX-like system.</p>
+<p>Like in other parts of these lecture notes, the follwing sections cover only the essentials about using Linux and are by far not complete.</p>
+<div class="figure align-default" id="fig-unix-history">
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/7/77/Unix_history-simple.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/7/77/Unix_history-simple.svg" src="https://upload.wikimedia.org/wikipedia/commons/7/77/Unix_history-simple.svg" width="80%" /></a>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Unix and Unix-like operating systems. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Unix_history-simple.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-unix-history" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="philosophy">
+<h2>Philosophy<a class="headerlink" href="#philosophy" title="Permalink to this headline">¶</a></h2>
+<p>The UNIX and UNIX-like based operating systems have the following philosophy:</p>
+<ol class="simple">
+<li><p>write computer programs, that solve a single task, but very efficient</p></li>
+<li><p>write computer programs, such that they can work together</p></li>
+<li><p>write computer programs, that process simple text streams</p></li>
+</ol>
+<p>Therefore the whole OS is a collection of a zoo of small specialised applications. The combination of all of them creates a complex and mighty system. The base system of an UNIX-like OS can be used with text based terminals. However, most desktop systems have a graphical system on top.</p>
+<p>Unlike desktop systems, most high performance computing (HPC) systems are operated in a command-line based way. Therefore, the main contents of this section focus on the usage of command-line tools.</p>
+</div>
+<div class="section" id="directories">
+<h2>Directories<a class="headerlink" href="#directories" title="Permalink to this headline">¶</a></h2>
+<p>Linux uses a tree directory structure, which originates at the so called root <code class="docutils literal notranslate"><span class="pre">/</span></code>. All subdirectories are located in the same directory tree.</p>
+<p>A path, i.e. the location of a file or directory, is a sequence of directories starting at the root and which are separeted with <code class="docutils literal notranslate"><span class="pre">/</span></code>. Figure <a class="reference internal" href="#fig-linux-directory-comparison"><span class="std std-numref">Fig. 4</span></a> illustrates the differences and common aspects of the three most popular types of operating systems for desktop computers.</p>
+<div class="figure align-default" id="fig-linux-directory-comparison">
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/de/1/1f/Filesystem.svg"><img alt="https://upload.wikimedia.org/wikipedia/de/1/1f/Filesystem.svg" src="https://upload.wikimedia.org/wikipedia/de/1/1f/Filesystem.svg" width="80%" /></a>
+<p class="caption"><span class="caption-number">Fig. 4 </span><span class="caption-text">(In German) Overview of commonly used file system approaches. Source: <a class="reference external" href="https://de.wikipedia.org/wiki/Verzeichnisstruktur#/media/Datei:Filesystem.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-linux-directory-comparison" title="Permalink to this image">¶</a></p>
+</div>
+<p>There exists a <a class="reference external" href="https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard">file system hierarchy</a> in Linux, which prescribes the usage of special directories, see figure <a class="reference internal" href="#fig-linux-fsh"><span class="std std-numref">Fig. 5</span></a>.</p>
+<div class="figure align-default" id="fig-linux-fsh">
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/f/f3/Standard-unix-filesystem-hierarchy.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/f/f3/Standard-unix-filesystem-hierarchy.svg" src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Standard-unix-filesystem-hierarchy.svg" width="80%" /></a>
+<p class="caption"><span class="caption-number">Fig. 5 </span><span class="caption-text">Illustration of the Linux’s file system hierarchy. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Standard-unix-filesystem-hierarchy.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-linux-fsh" title="Permalink to this image">¶</a></p>
+</div>
+<p>There are two types of paths:</p>
+<ul class="simple">
+<li><p><strong>absolute</strong>: the path starts at the root, i.e. starts with <code class="docutils literal notranslate"><span class="pre">/</span></code></p></li>
+<li><p><strong>relative</strong>: the path is stated from a given (or current) position in the file system</p></li>
+</ul>
+<p>In order to express paths which are located towards the root, each level above can be adressed with a <code class="docutils literal notranslate"><span class="pre">..</span></code>.</p>
+</div>
+<div class="section" id="terminal-shell">
+<h2>Terminal &amp; Shell<a class="headerlink" href="#terminal-shell" title="Permalink to this headline">¶</a></h2>
+<p>A terminal is a device or (nowadays) a computer program that allows the user to interact with a computer. Besides the physical attendence at a terminal, terminal emulators allow to detach that requirement. There are terminal emulator applications that run locally, like Xterm or Konsole, but it is also possible to remotely connect terminals, e.g. with ssh. A command-line shell, or just shell, is a user interface to the terminal and thus the operating system.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the following we will focus on the bash shell. This section is meant to only demonstrate some shell capacities.</p>
+</div>
+</div>
+<p>The most popular Linux shells are:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Bash_(Unix_shell)">Bourne-Again shell (bash)</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Z_shell">Z shell (zsh)</a> + <a class="reference external" href="https://ohmyz.sh/">Oh My Zsh</a></p></li>
+</ul>
+</div>
+<div class="section" id="bash-basics">
+<h2>Bash Basics<a class="headerlink" href="#bash-basics" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the following, some examples within a directory structure are used. The directory contents are stored in the archive <a class="reference download internal" download="" href="../../../_downloads/e48e9d53422a7d02f13b1af6717ab9b8/dir_structure_01.tar"><code class="xref download docutils literal notranslate"><span class="pre">dir_structure_01.tar</span></code></a>, which can be extracted after download by <code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">-xf</span> <span class="pre">dir_structure_01.tar</span></code>.</p>
+</div>
+<div class="section" id="environment-variables">
+<h3>Environment variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">¶</a></h3>
+<p>Most, probably all, shells offer environment variables. They store information, which can be used during the execution of the issued commands. In Bash the syntax for reading the content of a variable with the name <code class="docutils literal notranslate"><span class="pre">AVAR</span></code> is <code class="docutils literal notranslate"><span class="pre">$AVAR</span></code>, i.e. the <code class="docutils literal notranslate"><span class="pre">$</span></code> character is prependet. To define the variable or change its value, the sole variable name is used.</p>
+<p>There exist many environment variables, depending on the operating system and the used shell. Some common ones are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">USER</span></code>: the name of the user</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HOME</span></code>: the path to the user’s home directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">SHELL</span></code>: the name of the shell used by the user</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">PATH</span></code>: a list of directories where the shell looks for executables</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OMP_NUM_THREADS</span></code>: sets the numer of OpenMP thread to be used</p></li>
+</ul>
+</div>
+<div class="section" id="command-execution">
+<h3>Command execution<a class="headerlink" href="#command-execution" title="Permalink to this headline">¶</a></h3>
+<p>A command or program is executed by typing its name:</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">&gt;</span></code> character indicates the shell’s prompt and is not part of the command.</p>
+</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">env</span>
+</pre></div>
+</div>
+<p>In this case, the output of the <code class="docutils literal notranslate"><span class="pre">env</span></code> command is a list of all set environment variables.</p>
+<p><strong>Example:</strong> Print current date with the <code class="docutils literal notranslate"><span class="pre">date</span></code> command:</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; date
+Mon Apr 26 13:26:29 UTC 2021
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Example:</strong> Print content of current directory:</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; whoami
+runner
+</pre></div>
+</div>
+</div>
+</div>
+<p>An issued command must be either:</p>
+<ul class="simple">
+<li><p>a build-in function of the shell,</p></li>
+<li><p>an executable file found in the directory list defined by the <code class="docutils literal notranslate"><span class="pre">PATH</span></code> environment, or</p></li>
+<li><p>an explicit reference to an executable file.</p></li>
+</ul>
+<p>To execute a custom program in the current directory (not necessary in the <code class="docutils literal notranslate"><span class="pre">PATH</span></code> directory list), its location needs to be explicitly stated. Here with a <code class="docutils literal notranslate"><span class="pre">.</span></code> to indicate the current directory:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="o">./</span><span class="n">a</span><span class="o">.</span><span class="n">out</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="changing-directories">
+<h3>Changing directories<a class="headerlink" href="#changing-directories" title="Permalink to this headline">¶</a></h3>
+<p>The current directory is changed via the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command. Invoking no arguments changes to the user’s home directory, otherwise the
+target directory is specified. There exist a couple of special directories, which can also be used with other commands:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">~</span></code>: the user’s home directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">~username</span></code>: the home directory of user username</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.</span></code>: this directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">..</span></code>: above directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-</span></code>: last directory (cd command only)</p></li>
+</ul>
+<p>The current working directory can be shown with the <code class="docutils literal notranslate"><span class="pre">pwd</span></code> (print working directory) command.</p>
+</div>
+<div class="section" id="arguments">
+<h3>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">¶</a></h3>
+<p>In general, issued commands accept arguments. These can be either named arguments, which need to be explicitly indicated, or positional arguments, which are identified by their position.</p>
+<p>Arguments are separated by a space character.</p>
+<p>Further information about the excepted arguments are either available by using the <code class="docutils literal notranslate"><span class="pre">man</span></code> command, which prints the manual for a command. The name of the command is passed as an argument. In the following example, the manual page for <code class="docutils literal notranslate"><span class="pre">grep</span></code> is shown. This application searches files or given input for a given search pattern.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To quit interactive viewers, in applications like <code class="docutils literal notranslate"><span class="pre">less</span></code> or <code class="docutils literal notranslate"><span class="pre">man</span></code>, press <code class="docutils literal notranslate"><span class="pre">q</span></code> for quit.</p>
+</div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">man</span> <span class="n">grep</span>
+</pre></div>
+</div>
+<div class="dropdown admonition">
+<p class="admonition-title">Manual page for ‘grep’</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>GREP(1)                   BSD General Commands Manual                  GREP(1)
+
+NAME
+     grep, egrep, fgrep, zgrep, zegrep, zfgrep -- file pattern searcher
+
+SYNOPSIS
+     grep [-abcdDEFGHhIiJLlmnOopqRSsUVvwxZ] [-A num] [-B num] [-C[num]]
+          [-e pattern] [-f file] [--binary-files=value] [--color[=when]]
+          [--colour[=when]] [--context[=num]] [--label] [--line-buffered]
+          [--null] [pattern] [file ...]
+
+DESCRIPTION
+     The grep utility searches any given input files, selecting lines that match
+     one or more patterns.  By default, a pattern matches an input line if the
+     regular expression (RE) in the pattern matches the input line without its
+     trailing newline.  An empty expression matches every line.  Each input line
+     that matches at least one of the patterns is written to the standard output.
+
+     grep is used for simple patterns and basic regular expressions (BREs); egrep
+     can handle extended regular expressions (EREs).  See re_format(7) for more
+     information on regular expressions.  fgrep is quicker than both grep and
+     egrep, but can only handle fixed patterns (i.e. it does not interpret regu-
+     lar expressions).  Patterns may consist of one or more lines, allowing any
+     of the pattern lines to match a portion of the input.
+
+     zgrep, zegrep, and zfgrep act like grep, egrep, and fgrep, respectively, but
+     accept input files compressed with the compress(1) or gzip(1) compression
+     utilities.
+
+     The following options are available:
+
+     -A num, --after-context=num
+             Print num lines of trailing context after each match.  See also the
+             -B and -C options.
+
+     -a, --text
+             Treat all files as ASCII text.  Normally grep will simply print
+             ``Binary file ... matches&#39;&#39; if files contain binary characters.  Use
+             of this option forces grep to output lines matching the specified
+             pattern.
+
+     -B num, --before-context=num
+             Print num lines of leading context before each match.  See also the
+             -A and -C options.
+
+     -b, --byte-offset
+             The offset in bytes of a matched pattern is displayed in front of
+             the respective matched line.
+
+     -C[num, --context=num]
+             Print num lines of leading and trailing context surrounding each
+             match.  The default is 2 and is equivalent to -A 2 -B 2.  Note: no
+             whitespace may be given between the option and its argument.
+
+     -c, --count
+             Only a count of selected lines is written to standard output.
+
+     --colour=[when, --color=[when]]
+             Mark up the matching text with the expression stored in GREP_COLOR
+             environment variable.  The possible values of when can be `never&#39;,
+             `always&#39; or `auto&#39;.
+
+     -D action, --devices=action
+             Specify the demanded action for devices, FIFOs and sockets.  The
+             default action is `read&#39;, which means, that they are read as if they
+             were normal files.  If the action is set to `skip&#39;, devices will be
+             silently skipped.
+
+     -d action, --directories=action
+             Specify the demanded action for directories.  It is `read&#39; by
+             default, which means that the directories are read in the same man-
+             ner as normal files.  Other possible values are `skip&#39; to silently
+             ignore the directories, and `recurse&#39; to read them recursively,
+             which has the same effect as the -R and -r option.
+
+     -E, --extended-regexp
+             Interpret pattern as an extended regular expression (i.e. force grep
+             to behave as egrep).
+
+     -e pattern, --regexp=pattern
+             Specify a pattern used during the search of the input: an input line
+             is selected if it matches any of the specified patterns.  This
+             option is most useful when multiple -e options are used to specify
+             multiple patterns, or when a pattern begins with a dash (`-&#39;).
+
+     --exclude
+             If specified, it excludes files matching the given filename pattern
+             from the search.  Note that --exclude patterns take priority over
+             --include patterns, and if no --include pattern is specified, all
+             files are searched that are not excluded.  Patterns are matched to
+             the full path specified, not only to the filename component.
+
+     --exclude-dir
+             If -R is specified, it excludes directories matching the given file-
+             name pattern from the search.  Note that --exclude-dir patterns take
+             priority over --include-dir patterns, and if no --include-dir pat-
+             tern is specified, all directories are searched that are not
+             excluded.
+
+     -F, --fixed-strings
+             Interpret pattern as a set of fixed strings (i.e. force grep to
+             behave as fgrep).
+
+     -f file, --file=file
+             Read one or more newline separated patterns from file.  Empty pat-
+             tern lines match every input line.  Newlines are not considered part
+             of a pattern.  If file is empty, nothing is matched.
+
+     -G, --basic-regexp
+             Interpret pattern as a basic regular expression (i.e. force grep to
+             behave as traditional grep).
+
+     -H      Always print filename headers with output lines.
+
+     -h, --no-filename
+             Never print filename headers (i.e. filenames) with output lines.
+
+     --help  Print a brief help message.
+
+     -I      Ignore binary files.  This option is equivalent to
+             --binary-file=without-match option.
+
+     -i, --ignore-case
+             Perform case insensitive matching.  By default, grep is case sensi-
+             tive.
+
+     --include
+             If specified, only files matching the given filename pattern are
+             searched.  Note that --exclude patterns take priority over --include
+             patterns.  Patterns are matched to the full path specified, not only
+             to the filename component.
+
+     --include-dir
+             If -R is specified, only directories matching the given filename
+             pattern are searched.  Note that --exclude-dir patterns take prior-
+             ity over --include-dir patterns.
+
+     -J, --bz2decompress
+             Decompress the bzip2(1) compressed file before looking for the text.
+
+     -L, --files-without-match
+             Only the names of files not containing selected lines are written to
+             standard output.  Pathnames are listed once per file searched.  If
+             the standard input is searched, the string ``(standard input)&#39;&#39; is
+             written.
+
+     -l, --files-with-matches
+             Only the names of files containing selected lines are written to
+             standard output.  grep will only search a file until a match has
+             been found, making searches potentially less expensive.  Pathnames
+             are listed once per file searched.  If the standard input is
+             searched, the string ``(standard input)&#39;&#39; is written.
+
+     --mmap  Use mmap(2) instead of read(2) to read input, which can result in
+             better performance under some circumstances but can cause undefined
+             behaviour.
+
+     -m num, --max-count=num
+             Stop reading the file after num matches.
+
+     -n, --line-number
+             Each output line is preceded by its relative line number in the
+             file, starting at line 1.  The line number counter is reset for each
+             file processed.  This option is ignored if -c, -L, -l, or -q is
+             specified.
+
+     --null  Prints a zero-byte after the file name.
+
+     -O      If -R is specified, follow symbolic links only if they were explic-
+             itly listed on the command line.  The default is not to follow sym-
+             bolic links.
+
+     -o, --only-matching
+             Prints only the matching part of the lines.
+
+     -p      If -R is specified, no symbolic links are followed.  This is the
+             default.
+
+     -q, --quiet, --silent
+             Quiet mode: suppress normal output.  grep will only search a file
+             until a match has been found, making searches potentially less
+             expensive.
+
+     -R, -r, --recursive
+             Recursively search subdirectories listed.
+
+     -S      If -R is specified, all symbolic links are followed.  The default is
+             not to follow symbolic links.
+
+     -s, --no-messages
+             Silent mode.  Nonexistent and unreadable files are ignored (i.e.
+             their error messages are suppressed).
+
+     -U, --binary
+             Search binary files, but do not attempt to print them.
+
+     -V, --version
+             Display version information and exit.
+
+     -v, --invert-match
+             Selected lines are those not matching any of the specified patterns.
+
+     -w, --word-regexp
+             The expression is searched for as a word (as if surrounded by
+             `[[:&lt;:]]&#39; and `[[:&gt;:]]&#39;; see re_format(7)).
+
+     -x, --line-regexp
+             Only input lines selected against an entire fixed string or regular
+             expression are considered to be matching lines.
+
+     -y      Equivalent to -i.  Obsoleted.
+
+     -Z, -z, --decompress
+             Force grep to behave as zgrep.
+
+     --binary-files=value
+             Controls searching and printing of binary files.  Options are
+             binary, the default: search binary files but do not print them;
+             without-match: do not search binary files; and text: treat all files
+             as text.
+
+     --context[=num]
+             Print num lines of leading and trailing context.  The default is 2.
+
+     --line-buffered
+             Force output to be line buffered.  By default, output is line
+             buffered when standard output is a terminal and block buffered oth-
+             erwise.
+
+     If no file arguments are specified, the standard input is used.
+
+ENVIRONMENT
+     GREP_OPTIONS  May be used to specify default options that will be placed at
+                   the beginning of the argument list.  Backslash-escaping is not
+                   supported, unlike the behavior in GNU grep.
+
+EXIT STATUS
+     The grep utility exits with one of the following values:
+
+     0     One or more lines were selected.
+     1     No lines were selected.
+     &gt;1    An error occurred.
+
+EXAMPLES
+     To find all occurrences of the word &#39;patricia&#39; in a file:
+
+           $ grep &#39;patricia&#39; myfile
+
+     To find all occurrences of the pattern &#39;.Pp&#39; at the beginning of a line:
+
+           $ grep &#39;^\.Pp&#39; myfile
+
+     The apostrophes ensure the entire expression is evaluated by grep instead of
+     by the user&#39;s shell.  The caret &#39;^&#39; matches the null string at the beginning
+     of a line, and the &#39;\&#39; escapes the &#39;.&#39;, which would otherwise match any
+     character.
+
+     To find all lines in a file which do not contain the words &#39;foo&#39; or &#39;bar&#39;:
+
+           $ grep -v -e &#39;foo&#39; -e &#39;bar&#39; myfile
+
+     A simple example of an extended regular expression:
+
+           $ egrep &#39;19|20|25&#39; calendar
+
+     Peruses the file &#39;calendar&#39; looking for either 19, 20, or 25.
+
+SEE ALSO
+     ed(1), ex(1), gzip(1), sed(1), re_format(7)
+
+STANDARDS
+     The grep utility is compliant with the IEEE Std 1003.1-2008 (``POSIX.1&#39;&#39;)
+     specification.
+
+     The flags [-AaBbCDdGHhIJLmoPRSUVwZ] are extensions to that specification,
+     and the behaviour of the -f flag when used with an empty pattern file is
+     left undefined.
+
+     All long options are provided for compatibility with GNU versions of this
+     utility.
+
+     Historic versions of the grep utility also supported the flags [-ruy].  This
+     implementation supports those options; however, their use is strongly dis-
+     couraged.
+
+HISTORY
+     The grep command first appeared in Version 6 AT&amp;T UNIX.
+
+BUGS
+     The grep utility does not normalize Unicode input, so a pattern containing
+     composed characters will not match decomposed input, and vice versa.
+
+BSD                              July 28, 2010                             BSD
+</pre></div>
+</div>
+</div>
+<p>A similar, yet more condensed, form with the focus on the usage of arguments, is to use the <code class="docutils literal notranslate"><span class="pre">-h</span></code> help argument.</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; grep -h
+Usage: grep [OPTION]... PATTERNS [FILE]...
+Try &#39;grep --help&#39; for more information.
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the above example, there are many named arguments, like the one to set if the search is case sensitive:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="o">...</span><span class="p">]</span>
+     <span class="o">-</span><span class="n">i</span><span class="p">,</span> <span class="o">--</span><span class="n">ignore</span><span class="o">-</span><span class="n">case</span>
+             <span class="n">Perform</span> <span class="n">case</span> <span class="n">insensitive</span> <span class="n">matching</span><span class="o">.</span>  <span class="n">By</span> <span class="n">default</span><span class="p">,</span> <span class="n">grep</span> <span class="ow">is</span> <span class="n">case</span> <span class="n">sensi</span><span class="o">-</span>
+             <span class="n">tive</span><span class="o">.</span>
+<span class="p">[</span><span class="o">...</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Often, named arguments are available as short forms with a single <code class="docutils literal notranslate"><span class="pre">-</span></code> prepended to a single character, here <code class="docutils literal notranslate"><span class="pre">-i</span></code>. In addition there is a long and more verbose version, which starts with <code class="docutils literal notranslate"><span class="pre">--</span></code>, here <code class="docutils literal notranslate"><span class="pre">--ignore-case</span></code>. Rare arguments may have only a long version.</p>
+<p>Besides the named arguments, there are two positional arguments: <code class="docutils literal notranslate"><span class="pre">pattern</span></code> and <code class="docutils literal notranslate"><span class="pre">file</span> <span class="pre">...</span></code>. The first one defines the search pattern and the second one defines one or multiple files to be searched in.</p>
+</div>
+<div class="section" id="listing-directories">
+<h3>Listing directories<a class="headerlink" href="#listing-directories" title="Permalink to this headline">¶</a></h3>
+<p>The contents of a directory are displayed with <code class="docutils literal notranslate"><span class="pre">ls</span></code>. Without arguments it shows the current directory, otherwise the target directory.</p>
+<p>Some common options:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--color=always</span></code>, color output, may be already set by default</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-l</span></code>, long output, i.e. list permissions, data, size</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-a</span></code>, list all files, i.e. also hidden files starting with a <code class="docutils literal notranslate"><span class="pre">.</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-h</span></code>, show file sizes in a human readable form</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-r</span></code>, reverse the output</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-t</span></code>, sort by modification time</p></li>
+</ul>
+<p><strong>Example:</strong> List all files in the current directory:</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; ls
+combined_logs
+doc01.md
+doc02.txt
+doc03.md
+doc04.txt
+doc05.txt
+for-loop.sh
+if-statement.sh
+info.txt
+rundir_01
+rundir_02
+rundir_03
+rundir_04
+rundir_05
+rundir_06
+rundir_07
+rundir_08
+rundir_09
+rundir_10
+rundir_11
+rundir_12
+rundir_13
+rundir_14
+rundir_15
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Example:</strong> List all files in the directory <code class="docutils literal notranslate"><span class="pre">rundir_12</span></code>:</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; ls rundir_12
+logfile
+
+&gt; ls -lah
+total 112K
+drwxr-xr-x 17 runner docker 4.0K Apr 26 06:09 .
+drwxr-xr-x  3 runner docker 4.0K Apr 26 13:26 ..
+-rw-r--r--  1 runner docker   20 Apr 25 17:55 .hidden_file_do_not_look_here
+-rw-r--r--  1 runner docker  816 Apr 26 06:02 combined_logs
+-rw-r--r--  1 runner docker  591 Dec 12  2000 doc01.md
+-rw-r--r--  1 runner docker 6.0K Dec 12  2000 doc02.txt
+-rw-r--r--  1 runner docker   29 Dec 14  2000 doc03.md
+-rw-r--r--  1 runner docker  889 Nov  8  2000 doc04.txt
+-rw-r--r--  1 runner docker 1.3K Apr 25 15:19 doc05.txt
+-rw-r--r--  1 runner docker   60 Apr 26 06:08 for-loop.sh
+-rw-r--r--  1 runner docker  113 Apr 25 19:35 if-statement.sh
+-rw-r--r--  1 runner docker   62 Apr 26 06:08 info.txt
+drwxr-xr-x  2 runner docker 4.0K Apr 26 13:26 rundir_01
+drwxr-xr-x  2 runner docker 4.0K Apr 26 13:26 rundir_02
+drwxr-xr-x  2 runner docker 4.0K Apr 26 13:26 rundir_03
+drwxr-xr-x  2 runner docker 4.0K Apr 26 13:26 rundir_04
+drwxr-xr-x  2 runner docker 4.0K Apr 26 13:26 rundir_05
+drwxr-xr-x  2 runner docker 4.0K Apr 26 13:26 rundir_06
+drwxr-xr-x  2 runner docker 4.0K Apr 26 13:26 rundir_07
+drwxr-xr-x  2 runner docker 4.0K Apr 26 13:26 rundir_08
+drwxr-xr-x  2 runner docker 4.0K Apr 26 13:26 rundir_09
+drwxr-xr-x  2 runner docker 4.0K Apr 26 13:26 rundir_10
+drwxr-xr-x  2 runner docker 4.0K Apr 26 13:26 rundir_11
+drwxr-xr-x  2 runner docker 4.0K Apr 26 13:26 rundir_12
+drwxr-xr-x  2 runner docker 4.0K Apr 26 13:26 rundir_13
+drwxr-xr-x  2 runner docker 4.0K Apr 25 15:11 rundir_14
+drwxr-xr-x  2 runner docker 4.0K Apr 26 13:26 rundir_15
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Example:</strong> List current directory’s files and sort them according to their modification time in reverse order:</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; ls -lrt
+total 100
+-rw-r--r-- 1 runner docker  889 Nov  8  2000 doc04.txt
+-rw-r--r-- 1 runner docker 6060 Dec 12  2000 doc02.txt
+-rw-r--r-- 1 runner docker  591 Dec 12  2000 doc01.md
+-rw-r--r-- 1 runner docker   29 Dec 14  2000 doc03.md
+drwxr-xr-x 2 runner docker 4096 Apr 25 15:11 rundir_14
+-rw-r--r-- 1 runner docker 1307 Apr 25 15:19 doc05.txt
+-rw-r--r-- 1 runner docker  113 Apr 25 19:35 if-statement.sh
+-rw-r--r-- 1 runner docker  816 Apr 26 06:02 combined_logs
+-rw-r--r-- 1 runner docker   62 Apr 26 06:08 info.txt
+-rw-r--r-- 1 runner docker   60 Apr 26 06:08 for-loop.sh
+drwxr-xr-x 2 runner docker 4096 Apr 26 13:26 rundir_15
+drwxr-xr-x 2 runner docker 4096 Apr 26 13:26 rundir_13
+drwxr-xr-x 2 runner docker 4096 Apr 26 13:26 rundir_12
+drwxr-xr-x 2 runner docker 4096 Apr 26 13:26 rundir_11
+drwxr-xr-x 2 runner docker 4096 Apr 26 13:26 rundir_10
+drwxr-xr-x 2 runner docker 4096 Apr 26 13:26 rundir_09
+drwxr-xr-x 2 runner docker 4096 Apr 26 13:26 rundir_08
+drwxr-xr-x 2 runner docker 4096 Apr 26 13:26 rundir_07
+drwxr-xr-x 2 runner docker 4096 Apr 26 13:26 rundir_06
+drwxr-xr-x 2 runner docker 4096 Apr 26 13:26 rundir_05
+drwxr-xr-x 2 runner docker 4096 Apr 26 13:26 rundir_04
+drwxr-xr-x 2 runner docker 4096 Apr 26 13:26 rundir_03
+drwxr-xr-x 2 runner docker 4096 Apr 26 13:26 rundir_02
+drwxr-xr-x 2 runner docker 4096 Apr 26 13:26 rundir_01
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="wildcards">
+<h3>Wildcards<a class="headerlink" href="#wildcards" title="Permalink to this headline">¶</a></h3>
+<p>Wildcards are used to provide a matching pattern for the shell, which are generally called <a class="reference external" href="https://en.wikipedia.org/wiki/Glob_(programming)">glob patterns</a>. First, the shell will evaluate the pattern and search for matching paths. Then it will expand the wildcard pattern with the explicit list of the results, which typically is passed to an applicaiton.</p>
+<p>Some common wildcards are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">*</span></code>: match everything</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">?</span></code>: match any single character</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[list]</span></code>: match any single character from list, here: <code class="docutils literal notranslate"><span class="pre">l</span></code>, <code class="docutils literal notranslate"><span class="pre">i</span></code>, <code class="docutils literal notranslate"><span class="pre">s</span></code>, <code class="docutils literal notranslate"><span class="pre">t</span></code></p></li>
+</ul>
+<p>Wildcards can be combined with constant strings and with each other.</p>
+<p><strong>Example:</strong> List all files ending with <code class="docutils literal notranslate"><span class="pre">.txt</span></code>:</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; ls *.txt
+doc02.txt
+doc04.txt
+doc05.txt
+info.txt
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Example:</strong> List all files with their attributes in the directories <code class="docutils literal notranslate"><span class="pre">rundir_10</span></code> to <code class="docutils literal notranslate"><span class="pre">rundir_15</span></code>:</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; ls -l rundir_1?
+rundir_10:
+total 4
+-rw-r--r-- 1 runner docker 54 Apr 25 15:11 logfile
+
+rundir_11:
+total 4
+-rw-r--r-- 1 runner docker 54 Apr 25 15:11 logfile
+
+rundir_12:
+total 4
+-rw-r--r-- 1 runner docker 55 Apr 25 15:11 logfile
+
+rundir_13:
+total 4
+-rw-r--r-- 1 runner docker 54 Apr 25 15:11 logfile
+
+rundir_14:
+total 4
+-rw-r--r-- 1 runner docker 55 Apr 25 15:11 logfile
+
+rundir_15:
+total 4
+-rw-r--r-- 1 runner docker 55 Apr 25 15:11 logfile
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Example:</strong> Print the content of the files <code class="docutils literal notranslate"><span class="pre">logfile</span></code> located in the directories <code class="docutils literal notranslate"><span class="pre">rundir_10</span></code> to <code class="docutils literal notranslate"><span class="pre">rundir_15</span></code>. The content of a file can be printed with the <code class="docutils literal notranslate"><span class="pre">cat</span></code> command:</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; cat rundir_1?/logfile
+Simulation started
+Result value: 1761
+Run Time: 13836
+Simulation started
+Result value: 2375
+Run Time: 11901
+Simulation started
+Result value: 15343
+Run Time: 21131
+Simulation started
+Result value: 11280
+Run Time: 3640
+Simulation started
+Result value: 13081
+Run Time: 19866
+Simulation started
+Result value: 27146
+Run Time: 20714
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="putput-redirection">
+<h3>Putput Redirection<a class="headerlink" href="#putput-redirection" title="Permalink to this headline">¶</a></h3>
+<p>The output of programs is either to</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">stdout</span></code>: the normal program output</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">stderr</span></code>: error messages</p></li>
+</ul>
+<p>In many cases it is useful to write the output into a file. This can be done via redirections.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code>: creates a new output file, overwrites old one</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">&gt;&gt;</span></code>: appends the command’s output to the output file</p></li>
+</ul>
+<p>The redirections are used direclty after a command, e.g.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">command</span> <span class="o">&gt;&gt;</span> <span class="n">logfile</span>
+</pre></div>
+</div>
+<p><strong>Example:</strong> Redirect the contents of all <code class="docutils literal notranslate"><span class="pre">logfile</span></code>-files located in the <code class="docutils literal notranslate"><span class="pre">rundir_*</span></code> directories to a file:</p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; cat rundir_*/logfile &gt; combined_logs
+
+
+&gt; cat combined_logs
+Simulation started
+Result value: 2776
+Run Time: 7789
+Simulation started
+Result value: 13856
+Run Time: 7696
+Simulation started
+Result value: 22344
+Run Time: 20401
+Simulation started
+Result value: 4155
+Run Time: 15711
+Simulation started
+Result value: 14887
+Run Time: 30786
+Simulation started
+Result value: 17783
+Run Time: 9987
+Simulation started
+Result value: 19607
+Run Time: 22428
+Simulation started
+Result value: 25874
+Run Time: 16521
+Simulation started
+Result value: 28931
+Run Time: 2517
+Simulation started
+Result value: 1761
+Run Time: 13836
+Simulation started
+Result value: 2375
+Run Time: 11901
+Simulation started
+Result value: 15343
+Run Time: 21131
+Simulation started
+Result value: 11280
+Run Time: 3640
+Simulation started
+Result value: 13081
+Run Time: 19866
+Simulation started
+Result value: 27146
+Run Time: 20714
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="bash-programming">
+<h2>Bash Programming<a class="headerlink" href="#bash-programming" title="Permalink to this headline">¶</a></h2>
+<p>Just as a starting point, a few examples on how to do looping and branchig in a bash script are shown here.</p>
+<p>A shell script can be executed either</p>
+<ul class="simple">
+<li><p>with an explicit call of <code class="docutils literal notranslate"><span class="pre">sh</span></code> or <code class="docutils literal notranslate"><span class="pre">bash</span></code>, or</p></li>
+<li><p>as an executable file with a hash-bang line as a first line in the file.</p></li>
+</ul>
+<p>A shell script is a simple text file with a sequence of commands in it. They are mostly used to prevent explicit typing of command chains and to automate processing. A script may access all environment variables and define new ones. Some special variables are:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">$#</span></code>: number of arguments passed</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$&#64;</span></code>: all passed arguments</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">$1</span></code>, <code class="docutils literal notranslate"><span class="pre">$2</span></code>, …: the first, second argument</p></li>
+</ul>
+<p><strong>Example:</strong> Simple loop over all files and directroies.</p>
+<p><em>Script listing:</em></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> i <span class="k">in</span> *<span class="p">;</span> <span class="k">do</span> 
+    <span class="nb">echo</span> <span class="s2">&quot;Found directory element: &quot;</span> <span class="nv">$i</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+<p><em>Execution example:</em></p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; bash for-loop.sh
+Found directory element:  combined_logs
+Found directory element:  doc01.md
+Found directory element:  doc02.txt
+Found directory element:  doc03.md
+Found directory element:  doc04.txt
+Found directory element:  doc05.txt
+Found directory element:  for-loop.sh
+Found directory element:  if-statement.sh
+Found directory element:  info.txt
+Found directory element:  rundir_01
+Found directory element:  rundir_02
+Found directory element:  rundir_03
+Found directory element:  rundir_04
+Found directory element:  rundir_05
+Found directory element:  rundir_06
+Found directory element:  rundir_07
+Found directory element:  rundir_08
+Found directory element:  rundir_09
+Found directory element:  rundir_10
+Found directory element:  rundir_11
+Found directory element:  rundir_12
+Found directory element:  rundir_13
+Found directory element:  rundir_14
+Found directory element:  rundir_15
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Example:</strong> Simple if-statement to check for the existance of a file.</p>
+<p><em>Script listing:</em></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;Checking for file:&quot;</span> <span class="nv">$1</span>
+
+<span class="k">if</span> <span class="o">[</span> -e <span class="nv">$1</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;File exists&quot;</span> 
+<span class="k">else</span>
+    <span class="nb">echo</span> <span class="s2">&quot;File does not exists&quot;</span> 
+<span class="k">fi</span>
+</pre></div>
+</div>
+<p><em>Execution examples:</em></p>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; bash if-statement.sh nice-file
+Checking for file: nice-file
+File does not exists
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; bash if-statement.sh info.txt
+Checking for file: info.txt
+File exists
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/tools/02_hpc"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="00_overview.html" title="previous page">HPC</a>
+    <a class='right-next' id="next-link" href="03_parallel_fds.html" title="next page">Parallel Execution of FDS</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          <div class="extra_footer">
+            <p>
+<img src='https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg' height='31'/>
+| By Team Fire | Contacts and Infos: <a href='https://cce.uni-wuppertal.de/en.html'>CCE@BUW</a> and <a href='https://www.fz-juelich.de/ias/ias-7/EN/Research/Fire_Dynamics/_node.html'>IAS-7@FZJ</a>
+</br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  None
+  </body>
+</html>
