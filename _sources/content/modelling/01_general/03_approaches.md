@@ -2,13 +2,13 @@
 
 ## Overview
 
-Fire safety science (FSS) and fire safety engineering (FSE) is not limited to describe fires and their impact on building structures, yet other topics, like evacuation or risk analysis, are not part of this lecture. The understanding and description of fires allows for technical and organisational (active and preventive) measures to limit or even prevent damage. In general, these descriptions lead to the development of mathematical models, which are validated using physical and chemical experiments. From the practical point of view, these models are applied to design and evaluate safety concepts. 
+Fire safety science (FSS) and fire safety engineering (FSE) is not limited to describe fires and their impact on building structures, yet other topics, like evacuation or risk analysis, are not part of this lecture. The understanding and description of fires allow for technical and organisational (active and preventive) measures to limit or even prevent damage. In general, these descriptions lead to the development of mathematical models, which are validated using physical and chemical experiments. From the practical point of view, these models are applied to design and evaluate safety concepts. 
 
-The development of analytical and numerical models aims to describe processes and / or the impacts related to fires. This is true for compartment as well as wildland fires and covers may aspects, like the height of the hot gas layer, the speed and direction at which flames propagate, the toxicity of smoke or the activation and effectivenes of technical measures. 
+The development of analytical and numerical models aims to describe processes and / or the impacts related to fires. This is true for compartment as well as wildland fires and covers many aspects, like the height of the hot gas layer, the speed and direction at which flames propagate, the toxicity of smoke or the activation and effectivenes of technical measures. 
 
 Models range from empirical data models to models based on first principles. Yet, mostly experiments are needed to adjust unknown model parameters and to validate the predictive capabilities of a model.
 
-A brief and by far not complete or accurate overview of the historical time scales of scientific development, which modern day approaches are based on, is give in the following table.
+A brief and by far not complete or accurate overview of the historical time scales of scientific development, which modern day approaches are based on, is given in the following table.
 
 
 ```{list-table} Brief historic overview of scientific development
@@ -71,7 +71,7 @@ A brief and by far not complete or accurate overview of the historical time scal
 
 ## Experiments
 
-Models little to no value if they are not supported by experiments. Thus the design and conduction of experiments on various scales is the fundament of fire safety science and engineering. Some experimental aspects in the context of experiments are: 
+Models have little to no value if they are not supported by experiments. Thus the design and conduction of experiments on various scales is the fundament of fire safety science and engineering. Some experimental aspects in the context of experiments are: 
 * material flamability tests
 * measurement of quantities like heat release, structural temperatures, heat radiation, toxic gas concentrations, etc.
 * bench-scale experiments for material or building element evaluation, potentially with a separation of effects
@@ -81,29 +81,29 @@ Models little to no value if they are not supported by experiments. Thus the des
 
 <img src="./figs/cone_calorimeter.png" width="60%">
 
-Example for a bench-scale experimente: a cone calorimeter. The sample size is about $\sf\small 10~cm \times 10~cm$.
+Example for a bench-scale experiment: a cone calorimeter. The sample size is about $\sf\small 10~cm \times 10~cm$.
 :::
 
 :::{figure-md} fig-exp-orpheus
 
 <img src="./figs/orpheus.jpeg" width="60%">
 
-Example for a real-scale experimente: hot gas experiments within a metro station. These experiments were conducted by I.F.I. Aachen, Germany, within the [ORPHEUS](http://www.orpheus-projekt.de) project.
+Example for a real-scale experiment: hot gas experiments within a metro station. These experiments were conducted by I.F.I. Aachen, Germany, within the [ORPHEUS](http://www.orpheus-projekt.de) project.
 :::
 
-Experiments differ from test. While a test checks for a property or a result, there is no explicit aim to gain scientific insight from it. In an experiment the outcome is designed with an open question and aims to extend the knowledge base with new findigs. 
+Experiments differ from tests. While a test checks for a property or a result, there is no explicit aim to gain scientific insight from it. In an experiment the outcome is designed with an open question and aims to extend the knowledge base with new findigs. 
 
 ## Analytical Models
 
-The first level of models are analytical models. They are either based on empirical data and are thus just their mathematical representation. Or, they are based on fundamental approximations and symmetries, which lead to an closed analytical solution. 
+The first level of models are analytical models. They are either based on empirical data and are thus just their mathematical representation. Or, they are based on fundamental approximations and symmetries, which lead to a closed analytical solution. 
 
-Despite their, sometimes very limitting, approximations, they offer a tool to quickly estimate the quantites of interest. In addition, they can be directly integrated into other, potentially more complex, models. Another important aspect is, that analytical models can be checked by a reader, as it is in general possible to write down all needed input parameters. 
+Despite their, sometimes very limitting, approximations, they offer a tool to quickly estimate the quantities of interest. In addition, they can be directly integrated into other, potentially more complex, models. Another important aspect is, that analytical models can be checked by a reader, as it is in general possible to write down all needed input parameters. 
 
 Of course, due to the underlying simplifications and assumptions, their applicability is limited.
 
 **Example – Plume Temperature**
 
-The measurement of the local gas temperature in a plume leads to an empirical description for the time averaged values. Based on measurements like in {numref}`fig-exp-plume-profile`, an mathematical formulation can be derived to describe the observarions. 
+The measurement of the local gas temperature in a plume leads to an empirical description for the time averaged values. Based on measurements like in {numref}`fig-exp-plume-profile`, a mathematical formulation can be derived to describe the observations. 
 
 :::{figure-md} fig-exp-plume-profile
 
@@ -126,7 +126,7 @@ where
 
 **Example – Mass Flow**
 
-With analytical desriptions of plumes and other phenomena, it becomes possible to investigate the impact and fire protection measures in compartment fires. An example for this is the estimation of the plume mass flow $\mf \dm_{pl}$ from a fire with a given heat release $\mf \dQ$. This way it becomes possible, e.g., to pose requirements of a smoke extraction system.
+With analytical descriptions of plumes and other phenomena, it becomes possible to investigate the impact and fire protection measures in compartment fires. An example for this is the estimation of the plume mass flow $\mf \dm_{pl}$ from a fire with a given heat release $\mf \dQ$. This way it becomes possible, e.g., to pose requirements for a smoke extraction system.
 
 ```{margin} Derivates
 In this script the following short forms for derivatives are used:
@@ -169,11 +169,11 @@ $$ (eq-dmpl-jet)
 
 The free parameter, here the induction coefficient $\mf C_1$, takes a value of $\mf 0.19~kg\,m^{-5/2}\,s^{–1}$.
 
-The solution in equation {eq}`eq-dmpl-jet` only depends on gemetrical values, the heat release rate has no impact here. The solution is simple, yet there are a assumptions, which have to be satisfied. A few of them are:    
+The solution in equation {eq}`eq-dmpl-jet` only depends on geometrical values, the heat release rate has no impact here. The solution is simple, yet there are a assumptions, which have to be satisfied. A few of them are:    
 
 * the considered compartment is a single storey smoke reservoir
 * the minimum compartment height is $\mf 4.0~m$
-* the room temperature is lower than smoke gas temperature
+* the room temperature is lower than the smoke gas temperature
 * it is only valid for fires with a power of $\mf 8~kW$ to $\mf 30~kW$ with a specific heat release rate per area of $\mf 200~kW/m^2$ to $\mf 1800~kW/m^2$
 * the fire source diameter $\mf d_{fire}$ is between $\mf 0.4~m$ and $\mf 9~m$
 
@@ -196,7 +196,7 @@ The additional quantities needed for the evaluation are:
 * A virtual origin of the plume, which is located at a distance $\mf z_0$. There exist various ways to compute it, yet one of them is given by
 
   $$
-  \mf z_0 = -1.02 d_{fire} + 0.083 \dQ^{0.4} \quad.
+  \mf z_0 = -1.02 d_{fire} + 0.083 \dQ^{0.4} \quad,
   $$
   where the diameter of the fire is denoted as $\mf d_{fire}$.
 
@@ -205,12 +205,12 @@ The additional quantities needed for the evaluation are:
 This model leads to valid predictions, if the following conditions are met:
 
 * the fire area is compact, i.e. of a shape that can be represented as a circle or  a square,
-* the ambient temerature of the plume is constant, and
+* the ambient temperature of the plume is constant, and
 * the environment is not disturbing the plume. 
 
 ## Single Compartment Fire
 
-For the illustration of the following models, a canonical compartment fire setup is used, see {numref}`fig-compartment-flow-basic`. It consists of a single compartment with a localised fire. The only opening to the ambient is a door.
+For illustrating the following models, a canonical compartment fire setup is used, see {numref}`fig-compartment-flow-basic`. It consists of a single compartment with a localised fire. The only opening to the ambient is a door.
 
 :::{figure-md} fig-compartment-flow-basic
 
@@ -227,7 +227,7 @@ In a very simplified representation, the following phenomena can be observed:
 
 ## Zone Models
 
-The above figure {numref}`fig-compartment-flow-basic` indicates that the domain of interest can be separated into two zone: an upper and a lower layer, see {numref}`fig-two-zone-model`. Zone models use this separation to simplify the overall scenario and predict the physical, e.g. temperature, and geometrical, e.g. height, properties of the zones.
+The above figure {numref}`fig-compartment-flow-basic` indicates that the domain of interest can be separated into two zones: an upper and a lower layer, see {numref}`fig-two-zone-model`. Zone models use this separation to simplify the overall scenario and predict the physical (e.g. temperature) and geometrical (e.g. height) properties of the zones.
 
 :::{figure-md} fig-two-zone-model
 
@@ -236,7 +236,7 @@ The above figure {numref}`fig-compartment-flow-basic` indicates that the domain 
 Illustration of a simple two zone – the upper hot and the lower cold gas layer – model.
 :::
 
-* outline computed quatities
+* outline computed quantities
 * one for each layer, u and l
 
 * example CFAST, see documentation
@@ -252,7 +252,7 @@ In the following, the [Consolidated Fire And Smoke Transport (CFAST)](https://pa
 Using the ideal gas law, equation {eq}`eq-zone-model-ideal-gas-law`, the mass $\mf m_i$ of a layer can be computed. 
 
 $$
-\mf PV_i = m_i R T_i
+\mf pV_i = m_i R T_i
 $$ (eq-zone-model-ideal-gas-law)
 
 Where $\mf R$ is the specific gas constant, here with a value of approximately $\mf 290~J\,kg^{-1}\,K^{-1}$ for air. The change of internal energy of a zone is described by the sum of all heat sources $\mf \dq_i$ and the work done by the change of the layer's volume, i.e. $\mf p\cdot dV_i/dt$:
@@ -263,7 +263,7 @@ $$ (eq-zone-model-internal-energy)
 
 with the specific heat capacity at constant volume $\mf c_v$. 
 
-Besides the handling of boundary coditions and other additional processes, a set of coupled ordinary differential equations is derived to prescribe the evolution of the pressure 
+Besides the handling of boundary conditions and other additional processes, a set of coupled ordinary differential equations is derived to prescribe the evolution of the pressure 
 
 $$
 \mf \frac{dp}{dt} = \frac{\gamma - 1}{V} (\dq_l + \dq_u)\quad, and
@@ -298,7 +298,7 @@ While zone models decompose the domain of interest into few regions, field model
 Illustration of the domain discretisation in a field model.
 :::
 
-The solid objects in the domain have to be represented in the mesh and at these positions, boundary conditions need to be evaluated. As a result of the according numerical solution procedure, a spatially and temporaly resolved values for the above mentioned quantites is computed, see {numref}`fig-field-model-temperatures` for an illustrative representation of a temperature field at one point in time.
+The solid objects in the domain have to be represented in the mesh and at these positions, boundary conditions need to be evaluated. As a result of the according numerical solution procedure, spatially and temporaly resolved values for the above mentioned quantities are computed. See {numref}`fig-field-model-temperatures` for an illustrative representation of a temperature field at one point in time.
 
 :::{figure-md} fig-field-model-temperatures
 
