@@ -52,6 +52,7 @@
     - file: content/tools/02_hpc/00_overview
       sections:
         - file: content/tools/02_hpc/01_linux
-#         - file: content/tools/02_hpc/02_hpc
-        - file: content/tools/02_hpc/03_parallel_fds
+        - file: content/tools/02_hpc/02_hpc
+#         - file: content/tools/02_hpc/03_parallel_fds
+
 
