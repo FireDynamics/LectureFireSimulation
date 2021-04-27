@@ -1,0 +1,506 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>High Performace Computing &#8212; Fire Simulation Lecture</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"vv": "\\vec{v}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}"}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/tools/02_hpc/02_hpc.html" />
+    <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="prev" title="Linux" href="01_linux.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      <img src="../../../_static/cce_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Fire Simulation Lecture</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../overview/01_overview.html">
+   Overview
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../overview/02_team.html">
+   Team Fire Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../overview/03_references.html">
+   References
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Modelling
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../modelling/01_general/00_overview.html">
+   1. Modelling Fires
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/01_general/01_processes.html">
+     1.1. Physical and Chemical Processes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/01_general/02_fse.html">
+     1.2. Fire Safety Engineering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/01_general/03_approaches.html">
+     1.3. Modelling Approaches
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tools
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_overview.html">
+   HPC
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_linux.html">
+     Linux
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     High Performace Computing
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/tools/02_hpc/02_hpc.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/FireDynamics/LectureFireSimulation"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/tools/02_hpc/02_hpc.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/tools/02_hpc/02_hpc.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parallel-execution">
+   Parallel Execution
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#general-principle">
+     General Principle
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#speedup">
+     Speedup
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parallelisation">
+     Parallelisation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#parallel-computer">
+   Parallel Computer
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#components">
+     Components
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#performance">
+     Performance
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jureca">
+     JURECA
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cobra-cluster">
+     CoBra Cluster
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="high-performace-computing">
+<h1>High Performace Computing<a class="headerlink" href="#high-performace-computing" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Many scientific and engineering problems require a large amount of computing time and memory. This is generally only available on supercomputers / high performance computing (HPC) systems.</p>
+<p>Typical applications are:</p>
+<ul class="simple">
+<li><p>science: particle physics, climate research, molecular dynamics</p></li>
+<li><p>engineering: CFD, structural mechanics, computer science</p></li>
+</ul>
+<p>HPC with computing power thousands times larger than personal computer allows to significantly reduce the computing time and allows to address new modelling challenges. This is also becoming true for the fire safety science and engineering communities.</p>
+<p><em>Example:</em> An CFD application run for a week on thousand processors would need 20 years on a personal computer (assuming it provides enough memory).</p>
+<p>The evolution of computer technology shows one of the fastest development of all technolgies. Considering the nubmer of transistors as a measure for a chip’s computing performance, the evolution shows that this number doubles every two years. This observation is called <a class="reference external" href="https://en.wikipedia.org/wiki/Moore%27s_law">Moore’s law</a>, see <a class="reference internal" href="#fig-hpc-moore"><span class="std std-numref">Fig. 6</span></a>.</p>
+<div class="figure align-default" id="fig-hpc-moore">
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/0/00/Moore%27s_Law_Transistor_Count_1970-2020.png"><img alt="https://upload.wikimedia.org/wikipedia/commons/0/00/Moore%27s_Law_Transistor_Count_1970-2020.png" src="https://upload.wikimedia.org/wikipedia/commons/0/00/Moore%27s_Law_Transistor_Count_1970-2020.png" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">The development of the transistor count in the last 5 decades. This observation is represented by Moore’s law. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Moore%27s_Law_Transistor_Count_1970-2020.png">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-hpc-moore" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="parallel-execution">
+<h2>Parallel Execution<a class="headerlink" href="#parallel-execution" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="general-principle">
+<h3>General Principle<a class="headerlink" href="#general-principle" title="Permalink to this headline">¶</a></h3>
+<p>An application, is in general a sequence of tasks. Here, a task can be understood as a group of commands or computations that can no further be separated, e.g. due to data dependency.</p>
+<p>Yet, there is not necessary a depencece among the tasks. Thus, they can eventually be executed at the same time, see <a class="reference internal" href="#fig-hpc-fork"><span class="std std-numref">Fig. 7</span></a>. The process of distributing the tasks on multiple execution units (threads, cores, nodes) is called a fork, while the gathering of the results back to the main execution unit is called a join. During the fork, data and instructions have to be exchanged, thus this introduces an overhead, which is not present in a serial execution. The same is true for the join process, but an additional contribution to the overhead is induced by load balancing issues. Depending on the execution time of individual tasks, especially the longest task, the join process will be prolonged.</p>
+<div class="figure align-default" id="fig-hpc-fork">
+<a class="reference internal image-reference" href="../../../_images/fork.png"><img alt="../../../_images/fork.png" src="../../../_images/fork.png" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Serial and parallel execution of a set of tasks.</span><a class="headerlink" href="#fig-hpc-fork" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="speedup">
+<h3>Speedup<a class="headerlink" href="#speedup" title="Permalink to this headline">¶</a></h3>
+<p>The maximal achievable speedup <span class="math notranslate nohighlight">\(\mf s\)</span>, w.r.t. a serial execution, on <span class="math notranslate nohighlight">\(\mf n\)</span> computing units is limited by the fraction of the execution that runs in parallel <span class="math notranslate nohighlight">\(\mf p\)</span>. This is reflected by Amdahl’s law, see equation <a class="reference internal" href="#equation-eq-amdahls-law">(1)</a> and <a class="reference internal" href="#fig-hpc-amdahl"><span class="std std-numref">Fig. 8</span></a>.</p>
+<div class="math notranslate nohighlight" id="equation-eq-amdahls-law">
+<span class="eqno">(1)<a class="headerlink" href="#equation-eq-amdahls-law" title="Permalink to this equation">¶</a></span>\[
+s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)} 
+\]</div>
+<div class="figure align-default" id="fig-hpc-amdahl">
+<a class="reference internal image-reference" href="../../../_images/amdahl.png"><img alt="../../../_images/amdahl.png" src="../../../_images/amdahl.png" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Visualisation for Amdah’s law.</span><a class="headerlink" href="#fig-hpc-amdahl" title="Permalink to this image">¶</a></p>
+</div>
+<p>The speedup may even decrease, as some operations become more expensive with increasing number of participating processes, e.g. synchronisation points, global data exchange or broadcasts.</p>
+<p>In cases, where a large number of execution units is involved and the tasks can not be well decomposed, an unequal work load per process may become the main problem. The execution of one iteration is in general determined by the longest task execution time.</p>
+<div class="figure align-default" id="fig-hpc-load-balance">
+<a class="reference internal image-reference" href="../../../_images/load_balance.png"><img alt="../../../_images/load_balance.png" src="../../../_images/load_balance.png" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Example of load balancing.</span><a class="headerlink" href="#fig-hpc-load-balance" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="parallelisation">
+<h3>Parallelisation<a class="headerlink" href="#parallelisation" title="Permalink to this headline">¶</a></h3>
+<p>In general, there is a zoo of possibilities to parallelise an application. In FDS, two of them are utilised:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Message_Passing_Interface">Message Passing Interface (MPI)</a>, and</p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/OpenMP">Open Multi-Processing (OpenMP or OMP)</a>.</p></li>
+</ul>
+<p>MPI is a language-independent communication protocol used to develop parallel computerprograms and has its main application  in distributed memory machines. The interface allows to explicitly exchange messages between processes. Therefore it is up to the programmer to design appropriate data structures and algorithms to decompose the application.</p>
+<p>In CFD, typically the computational domain is explicitly decomposed and distributed over all MPI processes. For stencil operations only neighbour cells are needed, thus only a domain’s halo needs to be shared.</p>
+<p>Typically the data exchange (compose, transfer, decompose) produces the most overhead. This overhead is purely due to the explicit problem decomposition.</p>
+<div class="figure align-default" id="fig-hpc-domain-mpi">
+<a class="reference internal image-reference" href="../../../_images/decomp_mpi.png"><img alt="../../../_images/decomp_mpi.png" src="../../../_images/decomp_mpi.png" style="width: 40%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Domain decomposition of a simple computational grid, like in FDS. The data communication (arrows) is handled with MPI.</span><a class="headerlink" href="#fig-hpc-domain-mpi" title="Permalink to this image">¶</a></p>
+</div>
+<p>As MPI is only a definition standard, there is not a single implementation of MPI. The most common MPI implementations are:</p>
+<ul class="simple">
+<li><p>Open MPI, open source and free</p></li>
+<li><p>MPICH, open source and free</p></li>
+<li><p>Intel MPI Library (MPICH derivate), commercial</p></li>
+</ul>
+<p>The MPI implementations include C/C++/FORTRAN header, libraries, compiler wrapper and a runtime environment.</p>
+<p>In contrast to MPI, OpenMP (or short OMP) is a standard to implicitly distribute the execution on a shared memory system.</p>
+<p>OMP is implemented as pragmas for C/C++/FORTRAN, and are therefore non intrusive. The typical application is to decompose loops and advise the compiler or the runtime to distribute the loop iterations. The data is not distributed and stays in place, see <a class="reference internal" href="#fig-hpc-domain-omp"><span class="std std-numref">Fig. 11</span></a>.</p>
+<div class="figure align-default" id="fig-hpc-domain-omp">
+<a class="reference internal image-reference" href="../../../_images/decomp_openmp.png"><img alt="../../../_images/decomp_openmp.png" src="../../../_images/decomp_openmp.png" style="width: 40%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Domain decomposition with OpenMP.</span><a class="headerlink" href="#fig-hpc-domain-omp" title="Permalink to this image">¶</a></p>
+</div>
+<p>However, the compiler or runtime must detect independent tasks. Loop carried dependencies may prevent parallelisation and data races may produce unpredictable results.</p>
+<p>To run an OMP application, there are a few handy environment variables</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OMP_NUM_THREADS</span></code>, number of OMP threads</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">OMP_STACKSIZE</span></code>, the size of the stack for each thread</p></li>
+</ul>
+<p>The execution command is basically equal to the serial execution. A combination with MPI is possible and the OMP environment variables should be passed to the MPI processes. The hybrid approach (MPI+OMP) is used to reduce the number of MPI processes and therefore the overhead of non-scaling operations. Some details and benchmarks of the OMP and MPI+OMP implementation is given in <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id2"><span>HA14</span></a>]</span>.</p>
+</div>
+</div>
+<div class="section" id="parallel-computer">
+<h2>Parallel Computer<a class="headerlink" href="#parallel-computer" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="components">
+<h3>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h3>
+<p>Parallel computers are often called, e.g., supercomputer, high performance computers or compute clusters. The configuration of a common modern parallel computer contains to following elements, see also <a class="reference internal" href="#fig-hpc-cluster"><span class="std std-numref">Fig. 12</span></a>.</p>
+<ul class="simple">
+<li><p><strong>Compute nodes</strong> are the nodes of the communication network. They consist of (multiple) CPUs, accelerators (e.g. GPU), memory and network interfaces.</p></li>
+<li><p><strong>Central Processing Units (CPU)</strong> do the actual computations. Modern CPUs have multiple physical cores, e.g. the AMD EPYC 7452 has 32 cores. Additionally, a node can support multiple processors, each with an own socket.</p></li>
+<li><p><strong>Accelerators</strong> are special hardware, which are capable of solving selected algorithms faster than a CPU. A common representative are Graphics Processing Units (GPU).</p></li>
+<li><p>An <strong>Interconnect</strong> enables a fast communication between the nodes. In general, there are multiple networks, e.g. an Ethernet (e.g. 10~Gbit/s) control network and a fast InfiniBand (e.g. 200~Gbit/s) network for data exchange during computation.</p></li>
+<li><p><strong>Parallel file systems</strong> store the computed data on RAID-systems, which are accessable by all nodes.</p></li>
+<li><p><strong>Login nodes</strong> provide a terminal for users to issue computing jobs and data transfer.</p></li>
+<li><p><strong>Batch systems</strong> control the distribution of user issued jobs on the whole system. Typicall, users define which ressources (e.g. number of node, execution time) are needed for a job and then the job is executed by the batch system, once the required ressources become available.</p></li>
+</ul>
+<div class="figure align-default" id="fig-hpc-cluster">
+<a class="reference internal image-reference" href="../../../_images/cluster.png"><img alt="../../../_images/cluster.png" src="../../../_images/cluster.png" style="width: 40%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">A very generalistic representation of an element / node of a cluster.</span><a class="headerlink" href="#fig-hpc-cluster" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="performance">
+<h3>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h3>
+<p>One way to express the computing power of a computer system, is to estimate the number of floating point operations (FLOP) per second. This theoretical value represents the peak performance. There exist multiple benchmarks to establish an application oriented value and one of them is a benchmark based on the <a class="reference external" href="https://en.wikipedia.org/wiki/LINPACK">LINPACK library</a> for linear algebra. Although this benchmark may in many cases not represent the performance of indivudual applications, it is commonly used for a global comparison of computer systems, like in the <a class="reference external" href="https://www.top500.org">TOP500 list</a>.</p>
+<p>An interesting representation of the computer evolution is given by the <a class="reference external" href="https://www.top500.org/statistics/perfdevel/">performance develpment of the TOP500 List</a>. It further demonstrates the fast technological development, e.g. a notebook with a theoretical peak performance of about 200~GFLOP/s would head the TOP500 list in 1996 and would be still on the list till 2002.</p>
+</div>
+<div class="section" id="jureca">
+<h3>JURECA<a class="headerlink" href="#jureca" title="Permalink to this headline">¶</a></h3>
+<p>The system, which is used for this lecture is <a class="reference external" href="https://fz-juelich.de/ias/jsc/EN/Expertise/Supercomputers/JURECA/JURECA_node.html">JURECA</a> at the Forschungszentrum Jülich.</p>
+<div class="figure align-default" id="fig-hpc-jureca-dc">
+<a class="reference internal image-reference" href="https://fz-juelich.de/SharedDocs/Bilder/IAS/JSC/EN/galeries/JURECA/JURECA-DC.jpg?__blob=poster"><img alt="https://fz-juelich.de/SharedDocs/Bilder/IAS/JSC/EN/galeries/JURECA/JURECA-DC.jpg?__blob=poster" src="https://fz-juelich.de/SharedDocs/Bilder/IAS/JSC/EN/galeries/JURECA/JURECA-DC.jpg?__blob=poster" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">JURECA-DC cluster at the Forschungszentrum Jülich. Source: Forschungszentrum Jülich.</span><a class="headerlink" href="#fig-hpc-jureca-dc" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="cobra-cluster">
+<h3>CoBra Cluster<a class="headerlink" href="#cobra-cluster" title="Permalink to this headline">¶</a></h3>
+<p>Within the BMBF-funded project CoBra, the CCE chair will setup a computing cluster with a theoretical performance of about 100 TFLOP/s in 2021.</p>
+<div class="figure align-default" id="fig-hpc-cobra-logo">
+<a class="reference internal image-reference" href="../../../_images/cobra_logo_full.svg"><img alt="../../../_images/cobra_logo_full.svg" src="../../../_images/cobra_logo_full.svg" width="80%" /></a>
+<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">CoBra project logo – an image of the cluster is yet to be included.</span><a class="headerlink" href="#fig-hpc-cobra-logo" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/tools/02_hpc"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="01_linux.html" title="previous page">Linux</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          <div class="extra_footer">
+            <p>
+<img src='https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg' height='31'/>
+| By Team Fire | Contacts and Infos: <a href='https://cce.uni-wuppertal.de/en.html'>CCE@BUW</a> and <a href='https://www.fz-juelich.de/ias/ias-7/EN/Research/Fire_Dynamics/_node.html'>IAS-7@FZJ</a>
+</br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

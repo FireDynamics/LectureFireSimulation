@@ -166,8 +166,8 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../tools/02_hpc/03_parallel_fds.html">
-     Parallel Execution of FDS
+    <a class="reference internal" href="../../tools/02_hpc/02_hpc.html">
+     High Performace Computing
     </a>
    </li>
   </ul>
@@ -394,7 +394,7 @@
 <p>The measurement of the local gas temperature in a plume leads to an empirical description for the time averaged values. Based on measurements like in <a class="reference internal" href="#fig-exp-plume-profile"><span class="std std-numref">Fig. 1.15</span></a>, a mathematical formulation can be derived to describe the observations.</p>
 <div class="figure align-default" id="fig-exp-plume-profile">
 <a class="reference internal image-reference" href="../../../_images/plume-profile-yokoi.png"><img alt="../../../_images/plume-profile-yokoi.png" src="../../../_images/plume-profile-yokoi.png" style="width: 40%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 1.15 </span><span class="caption-text">Example for experimentally captured normalised temperature profiles of a plume. Source: <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id8"><span>Yok60</span></a>]</span>.</span><a class="headerlink" href="#fig-exp-plume-profile" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 1.15 </span><span class="caption-text">Example for experimentally captured normalised temperature profiles of a plume. Source: <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id9"><span>Yok60</span></a>]</span>.</span><a class="headerlink" href="#fig-exp-plume-profile" title="Permalink to this image">¶</a></p>
 </div>
 <p>The temperature rise <span class="math notranslate nohighlight">\(\mf \Delta T\)</span> in a turbulent plume may be generally approximated by:</p>
 <div class="math notranslate nohighlight" id="equation-eq-deltat-plume">
@@ -432,7 +432,7 @@
 <a class="reference internal image-reference" href="../../../_images/compartment_flow_central_labeled.svg"><img alt="../../../_images/compartment_flow_central_labeled.svg" src="../../../_images/compartment_flow_central_labeled.svg" width="80%" /></a>
 <p class="caption"><span class="caption-number">Fig. 1.16 </span><span class="caption-text">Illustration of the quantities involved in the analytical estimation of the plume mass flow <span class="math notranslate nohighlight">\(\mf \dm_{pl}\)</span>.</span><a class="headerlink" href="#fig-exp-analytical-mass-flow" title="Permalink to this image">¶</a></p>
 </div>
-<p>Following, e.g. <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id6"><span>VDI09</span></a>]</span>, the plume mass flow <span class="math notranslate nohighlight">\(\mf \dm_{pl}\)</span> can be directly computed, whereas two regimes need to be considered separately. These are distinguished by the ratio of the distance of the fire to the smoke layer <span class="math notranslate nohighlight">\(\mf z_{eff}\)</span> and the square root of the fire area <span class="math notranslate nohighlight">\(\mf A_{fire}\)</span>, i.e. <span class="math notranslate nohighlight">\(\sf \sqrt{A_{fire}}\)</span>.</p>
+<p>Following, e.g. <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id7"><span>VDI09</span></a>]</span>, the plume mass flow <span class="math notranslate nohighlight">\(\mf \dm_{pl}\)</span> can be directly computed, whereas two regimes need to be considered separately. These are distinguished by the ratio of the distance of the fire to the smoke layer <span class="math notranslate nohighlight">\(\mf z_{eff}\)</span> and the square root of the fire area <span class="math notranslate nohighlight">\(\mf A_{fire}\)</span>, i.e. <span class="math notranslate nohighlight">\(\sf \sqrt{A_{fire}}\)</span>.</p>
 <p><strong>Jet formation regime</strong></p>
 <p>In the case of</p>
 <div class="math notranslate nohighlight" id="equation-eq-za-ratio">
@@ -514,7 +514,7 @@
 <p class="sidebar-title">Note:</p>
 <p>The according fundamental thermodynamical relations will be introduced in following section of the lecture. This section is just meant to demonstrate the general approach of zone models.</p>
 </div>
-<p>In the following, the <a class="reference external" href="https://pages.nist.gov/cfast/index.html">Consolidated Fire And Smoke Transport (CFAST)</a> model <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id2"><span>PMFR21</span></a>]</span> is used to demonstrate the approach of zone models. Here, the physical quantities like temperature <span class="math notranslate nohighlight">\(\mf T_i\)</span>, volume <span class="math notranslate nohighlight">\(\mf V_i\)</span>, and pressure <span class="math notranslate nohighlight">\(\mf p\)</span> for each layer, i.e. <span class="math notranslate nohighlight">\(\mf i\in [u,l]\)</span>, are computed. These are single values, which represent the whole zone.</p>
+<p>In the following, the <a class="reference external" href="https://pages.nist.gov/cfast/index.html">Consolidated Fire And Smoke Transport (CFAST)</a> model <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id3"><span>PMFR21</span></a>]</span> is used to demonstrate the approach of zone models. Here, the physical quantities like temperature <span class="math notranslate nohighlight">\(\mf T_i\)</span>, volume <span class="math notranslate nohighlight">\(\mf V_i\)</span>, and pressure <span class="math notranslate nohighlight">\(\mf p\)</span> for each layer, i.e. <span class="math notranslate nohighlight">\(\mf i\in [u,l]\)</span>, are computed. These are single values, which represent the whole zone.</p>
 <p>Using the ideal gas law, equation <a class="reference internal" href="#equation-eq-zone-model-ideal-gas-law">(1.5)</a>, the mass <span class="math notranslate nohighlight">\(\mf m_i\)</span> of a layer can be computed.</p>
 <div class="math notranslate nohighlight" id="equation-eq-zone-model-ideal-gas-law">
 <span class="eqno">(1.5)<a class="headerlink" href="#equation-eq-zone-model-ideal-gas-law" title="Permalink to this equation">¶</a></span>\[
@@ -618,6 +618,6 @@
   
   <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
 
-  None
+  
   </body>
 </html>
