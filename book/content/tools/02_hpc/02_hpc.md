@@ -1,5 +1,7 @@
 # High Performace Computing
 
+## Overview
+
 Many scientific and engineering problems require a large amount of computing time and memory. This is generally only available on supercomputers / high performance computing (HPC) systems.
 
 Typical applications are:
@@ -10,6 +12,14 @@ Typical applications are:
 HPC with computing power thousands times larger than personal computer allows to significantly reduce the computing time and allows to address new modelling challenges. This is also becoming true for the fire safety science and engineering communities. 
 
 *Example:* An CFD application run for a week on thousand processors would need 20 years on a personal computer (assuming it provides enough memory).
+
+The evolution of computer technology shows one of the fastest development of all technolgies. Considering the nubmer of transistors as a measure for a chip's computing performance, the evolution shows that this number doubles every two years. This observation is called [Moore's law](https://en.wikipedia.org/wiki/Moore%27s_law), see {numref}`fig-hpc-moore`.
+
+:::{figure-md} fig-hpc-moore
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Moore%27s_Law_Transistor_Count_1970-2020.png" width="80%">
+
+The development of the transistor count in the last 5 decades. This observation is represented by Moore's law. Source: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Moore%27s_Law_Transistor_Count_1970-2020.png).
+:::
 
 ## Parallel Execution
 
@@ -99,18 +109,17 @@ The execution command is basically equal to the serial execution. A combination 
 
 ## Parallel Computer
 
+### Components
 
-A list of common terms used in HPC
-* CPU, GPGPU, SIMD, SMP, NUMA, SMT
-* compute node: nodes that are used only for computation, no direct user access
-* front/login node: users login here, do compilation and job submission
-* batch/submission system: system to allocate resources to a scheduled job
-* interconnect: network between components or computing nodes (e.g. Infiniband, 10GE)
-* FLOP/s: floating point operations per second
-* peak performance: theoretical number of FLOP per second
-* linpack performance: floating point performance in the linpack test
-* top500 list: supercomputer ranking based on the linpack performance
+Parallel computers are often called, e.g., supercomputer, high performance computers or compute clusters. The configuration of a common modern parallel computer contains to following elements, see also {numref}`fig-hpc-cluster`.
 
+* **Compute nodes** are the nodes of the communication network. They consist of (multiple) CPUs, accelerators (e.g. GPU), memory and network interfaces.
+* **Central Processing Units (CPU)** do the actual computations. Modern CPUs have multiple physical cores, e.g. the AMD EPYC 7452 has 32 cores. Additionally, a node can support multiple processors, each with an own socket.
+* **Accelerators** are special hardware, which are capable of solving selected algorithms faster than a CPU. A common representative are Graphics Processing Units (GPU).
+* An **Interconnect** enables a fast communication between the nodes. In general, there are multiple networks, e.g. an Ethernet (e.g. 10~Gbit/s) control network and a fast InfiniBand (e.g. 200~Gbit/s) network for data exchange during computation.
+* **Parallel file systems** store the computed data on RAID-systems, which are accessable by all nodes.
+* **Login nodes** provide a terminal for users to issue computing jobs and data transfer.
+* **Batch systems** control the distribution of user issued jobs on the whole system. Typicall, users define which ressources (e.g. number of node, execution time) are needed for a job and then the job is executed by the batch system, once the required ressources become available.
 
 :::{figure-md} fig-hpc-cluster
 <img src="figs/cluster.png" width="40%">
@@ -118,20 +127,15 @@ A list of common terms used in HPC
 A very generalistic representation of an element / node of a cluster.
 :::
 
+### Performance
 
+One way to express the computing power of a computer system, is to estimate the number of floating point operations (FLOP) per second. This theoretical value represents the peak performance. There exist multiple benchmarks to establish an application oriented value and one of them is a benchmark based on the [LINPACK library](https://en.wikipedia.org/wiki/LINPACK) for linear algebra. Although this benchmark may in many cases not represent the performance of indivudual applications, it is commonly used for a global comparison of computer systems, like in the [TOP500 list](https://www.top500.org).
 
-:::{figure-md} fig-hpc-moore
-<img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Moore%27s_Law_Transistor_Count_1970-2020.png" width="80%">
+An interesting representation of the computer evolution is given by the [performance develpment of the TOP500 List](https://www.top500.org/statistics/perfdevel/). It further demonstrates the fast technological development, e.g. a notebook with a theoretical peak performance of about 200~GFLOP/s would head the TOP500 list in 1996 and would be still on the list till 2002.
 
-The development of the transistor count in the last 5 decades, which is represented by Moore's law. Source: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Moore%27s_Law_Transistor_Count_1970-2020.png).
-:::
+### JURECA
 
-
-[Top500 List, performance development](https://www.top500.org/statistics/perfdevel/)
-
-[JURECA @ FZJ](https://fz-juelich.de/ias/jsc/EN/Expertise/Supercomputers/JURECA/JURECA_node.html)
-
-
+The system, which is used for this lecture is [JURECA](https://fz-juelich.de/ias/jsc/EN/Expertise/Supercomputers/JURECA/JURECA_node.html) at the Forschungszentrum Jülich.
 
 :::{figure-md} fig-hpc-jureca-dc
 <img src="https://fz-juelich.de/SharedDocs/Bilder/IAS/JSC/EN/galeries/JURECA/JURECA-DC.jpg?__blob=poster" width="80%">
@@ -139,5 +143,12 @@ The development of the transistor count in the last 5 decades, which is represen
 JURECA-DC cluster at the Forschungszentrum Jülich. Source: Forschungszentrum Jülich.
 :::
 
+### CoBra Cluster
 
-CoBra ~ 110 TFLOP/s
+Within the BMBF-funded project CoBra, the CCE chair will setup a computing cluster with a theoretical performance of about 100 TFLOP/s in 2021.
+
+:::{figure-md} fig-hpc-cobra-logo
+<img src="./figs/cobra_logo_full.svg" width="80%">
+
+CoBra project logo – an image of the cluster is yet to be included.
+:::
