@@ -50,6 +50,18 @@ In all data subfolders, FDS input files as well as a run script `case_run.sh` is
 
 The `case_download.sh` script inside the individual data subfolders can be used to download precomputed data.
 
+## Contribution
+
+### For external
+
+Please for the `development` branch and create a pull request based on that.
+
+### For internal
+
+**New section / content**: Create a feature branch of `development`. Once finished, merge it back and create a release branch with your changes that have to be pushed to `main`. Assign Lukas as reviewer for the pull request.
+
+**Typos / Fixes**: Push them directly to the `development` branch and then directly to `main`.
+
 ## License
 
 This work is licensed under a
