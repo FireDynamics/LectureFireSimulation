@@ -27,8 +27,7 @@ The development of the transistor count in the last 5 decades. This observation 
 
 An application, is in general a sequence of tasks. Here, a task can be understood as a group of commands or computations that can not be separated further, e.g. due to data dependency.
 
-Yet, there is not necessarily a dependence among the tasks. Thus, they can eventually be executed at the same time, see {numref}`fig-hpc-fork`. The process of distributing the tasks on multiple execution units (threads, cores, nodes) is called a fork, while the gathering of the results back to the main execution unit is called a join. During the fork, data and instructions have to be exchanged, thus this introduces an overhead, which is not present in a serial execution. The same is true for the join process, but an additional contribution to the overhead is induced by load balancing issues. Depending on the execution time of individual tasks, especially the longest task, the join process will be prolonged.
-
+Yet, there is not necessarily a dependency among the tasks. Thus, they can eventually be executed at the same time, see {numref}`fig-hpc-fork`. The process of distributing the tasks on multiple execution units (threads, cores, nodes) is called a fork, while the gathering of the results back to the main execution unit is called a join. During the fork, data and instructions have to be exchanged, thus this introduces an overhead, which is not present in a serial execution. The same is true for the join process, but an additional contribution to the overhead is induced by load balancing issues. Depending on the execution time of individual tasks, especially the longest task, the join process will be prolonged.
 
 :::{figure-md} fig-hpc-fork
 <img src="figs/fork.png" width="80%">
@@ -38,7 +37,7 @@ Serial and parallel execution of a set of tasks.
 
 ### Speedup
 
-The maximal achievable speedup $\mf s$, w.r.t. a serial execution, on $\mf n$ computing units is limited by the fraction of the execution that runs in parallel $\mf p$. This is reflected by Amdahl's law, see equation {eq}`eq-amdahls-law` and {numref}`fig-hpc-amdahl`. 
+The maximal achievable speedup $\mf s$, with respect to a serial execution, on $\mf n$ computing units is limited by the fraction of the execution that runs in parallel $\mf p$. This is reflected by Amdahl's law, see equation {eq}`eq-amdahls-law` and {numref}`fig-hpc-amdahl`. 
 
 $$
 s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)} 
@@ -47,12 +46,12 @@ $$(eq-amdahls-law)
 :::{figure-md} fig-hpc-amdahl
 <img src="figs/amdahl.png" width="80%">
 
-Visualisation for Amdah's law.
+Visualisation for Amdahl's law.
 :::
 
 The speedup may even decrease, as some operations become more expensive with increasing number of participating processes, e.g. synchronisation points, global data exchange or broadcasts. 
 
-In cases, where a large number of execution units is involved and the tasks can not be well decomposed, an unequal work load per process may become the main problem. The execution of one iteration is in general determined by the longest task execution time.
+In cases, where a large number of execution units is involved and the tasks cannot be well decomposed, an unequal workload per process may become the main problem. The execution of one iteration is in general determined by the longest task execution time.
 
 :::{figure-md} fig-hpc-load-balance
 <img src="figs/load_balance.png" width="80%">
@@ -63,8 +62,8 @@ Example of load balancing.
 ### Parallelisation
 
 In general, there is a zoo of possibilities to parallelise an application. In FDS, two of them are utilised:
-* [Message Passing Interface (MPI)](https://en.wikipedia.org/wiki/Message_Passing_Interface), and
-* [Open Multi-Processing (OpenMP or OMP)](https://en.wikipedia.org/wiki/OpenMP).
+* [Message Passing Interface (MPI)](https://en.wikipedia.org/wiki/Message_Passing_Interface)
+* [Open Multi-Processing (OpenMP or OMP)](https://en.wikipedia.org/wiki/OpenMP)
 
 MPI is a language-independent communication protocol used to develop parallel computerprograms and has its main application  in distributed memory machines. The interface allows to explicitly exchange messages between processes. Therefore it is up to the programmer to design appropriate data structures and algorithms to decompose the application.
 
@@ -78,7 +77,7 @@ Typically the data exchange (compose, transfer, decompose) produces the most ove
 Domain decomposition of a simple computational grid, like in FDS. The data communication (arrows) is handled with MPI.
 :::
 
-As MPI is only a definition standard, there is not a single implementation of MPI. The most common MPI implementations are:
+As MPI is only a definition standard, there is more than one implementation of MPI. The most common MPI implementations are:
 
 * Open MPI, open source and free
 * MPICH, open source and free
@@ -86,7 +85,7 @@ As MPI is only a definition standard, there is not a single implementation of MP
 
 The MPI implementations include C/C++/FORTRAN header, libraries, compiler wrapper and a runtime environment.
 
-In contrast to MPI, OpenMP (or short OMP) is a standard to implicitly distribute the execution on a shared memory system.
+In contrast to MPI, OpenMP (or short OMP) is a standard, to implicitly distribute the execution on a shared memory system.
 
 OMP is implemented as pragmas for C/C++/FORTRAN, and are therefore non intrusive. The typical application is to decompose loops and advise the compiler or the runtime to distribute the loop iterations. The data is not distributed and stays in place, see {numref}`fig-hpc-domain-omp`.
 
@@ -119,7 +118,11 @@ Parallel computers are often called, e.g., supercomputer, high performance compu
 * An **Interconnect** enables a fast communication between the nodes. In general, there are multiple networks, e.g. an Ethernet (e.g. 10~Gbit/s) control network and a fast InfiniBand (e.g. 200~Gbit/s) network for data exchange during computation.
 * **Parallel file systems** store the computed data on RAID-systems, which are accessable by all nodes.
 * **Login nodes** provide a terminal for users to issue computing jobs and data transfer.
+<<<<<<< HEAD
 * **Batch systems** control the distribution of user issued jobs on the whole system. Typically, users define which ressources (e.g. number of node, execution time) are needed for a job and then the job is executed by the batch system, once the required ressources become available.
+=======
+* **Batch systems** control the distribution of user issued jobs on the whole system. Typically, users define which resources (e.g. number of node, execution time) are needed for a job and then the job is executed by the batch system, once the required resources become available.
+>>>>>>> 0d99bc2 (Update 02_hpc.md)
 
 :::{figure-md} fig-hpc-cluster
 <img src="figs/cluster.png" width="40%">
