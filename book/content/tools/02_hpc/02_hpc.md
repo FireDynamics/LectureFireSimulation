@@ -9,11 +9,11 @@ Typical applications are:
 * science: particle physics, climate research, molecular dynamics
 * engineering: CFD, structural mechanics, computer science
 
-HPC with computing power thousands times larger than personal computer allows to significantly reduce the computing time and allows to address new modelling challenges. This is also becoming true for the fire safety science and engineering communities. 
+HPC with computing power thousand times larger than personal computers allows to significantly reduce the computing time and allows to address new modelling challenges. This is also becoming true for fire safety science and engineering communities. 
 
-*Example:* An CFD application run for a week on thousand processors would need 20 years on a personal computer (assuming it provides enough memory).
+*Example:* A CFD application running for a week on thousand processors would need 20 years on a personal computer (assuming it provides enough memory).
 
-The evolution of computer technology shows one of the fastest development of all technolgies. Considering the nubmer of transistors as a measure for a chip's computing performance, the evolution shows that this number doubles every two years. This observation is called [Moore's law](https://en.wikipedia.org/wiki/Moore%27s_law), see {numref}`fig-hpc-moore`.
+The evolution of computer technology shows one of the fastest developments of all technolgies. Considering the nubmer of transistors as a measure for a chip's computing performance, the evolution shows that this number doubles every two years. This observation is called [Moore's law](https://en.wikipedia.org/wiki/Moore%27s_law), see {numref}`fig-hpc-moore`.
 
 :::{figure-md} fig-hpc-moore
 <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Moore%27s_Law_Transistor_Count_1970-2020.png" width="80%">
@@ -25,9 +25,9 @@ The development of the transistor count in the last 5 decades. This observation 
 
 ### General Principle
 
-An application, is in general a sequence of tasks. Here, a task can be understood as a group of commands or computations that can no further be separated, e.g. due to data dependency.
+An application, is in general a sequence of tasks. Here, a task can be understood as a group of commands or computations that can not be separated further, e.g. due to data dependency.
 
-Yet, there is not necessary a depencece among the tasks. Thus, they can eventually be executed at the same time, see {numref}`fig-hpc-fork`. The process of distributing the tasks on multiple execution units (threads, cores, nodes) is called a fork, while the gathering of the results back to the main execution unit is called a join. During the fork, data and instructions have to be exchanged, thus this introduces an overhead, which is not present in a serial execution. The same is true for the join process, but an additional contribution to the overhead is induced by load balancing issues. Depending on the execution time of individual tasks, especially the longest task, the join process will be prolonged.
+Yet, there is not necessarily a dependence among the tasks. Thus, they can eventually be executed at the same time, see {numref}`fig-hpc-fork`. The process of distributing the tasks on multiple execution units (threads, cores, nodes) is called a fork, while the gathering of the results back to the main execution unit is called a join. During the fork, data and instructions have to be exchanged, thus this introduces an overhead, which is not present in a serial execution. The same is true for the join process, but an additional contribution to the overhead is induced by load balancing issues. Depending on the execution time of individual tasks, especially the longest task, the join process will be prolonged.
 
 
 :::{figure-md} fig-hpc-fork
@@ -119,7 +119,7 @@ Parallel computers are often called, e.g., supercomputer, high performance compu
 * An **Interconnect** enables a fast communication between the nodes. In general, there are multiple networks, e.g. an Ethernet (e.g. 10~Gbit/s) control network and a fast InfiniBand (e.g. 200~Gbit/s) network for data exchange during computation.
 * **Parallel file systems** store the computed data on RAID-systems, which are accessable by all nodes.
 * **Login nodes** provide a terminal for users to issue computing jobs and data transfer.
-* **Batch systems** control the distribution of user issued jobs on the whole system. Typicall, users define which ressources (e.g. number of node, execution time) are needed for a job and then the job is executed by the batch system, once the required ressources become available.
+* **Batch systems** control the distribution of user issued jobs on the whole system. Typically, users define which ressources (e.g. number of node, execution time) are needed for a job and then the job is executed by the batch system, once the required ressources become available.
 
 :::{figure-md} fig-hpc-cluster
 <img src="figs/cluster.png" width="40%">
@@ -129,9 +129,9 @@ A very generalistic representation of an element / node of a cluster.
 
 ### Performance
 
-One way to express the computing power of a computer system, is to estimate the number of floating point operations (FLOP) per second. This theoretical value represents the peak performance. There exist multiple benchmarks to establish an application oriented value and one of them is a benchmark based on the [LINPACK library](https://en.wikipedia.org/wiki/LINPACK) for linear algebra. Although this benchmark may in many cases not represent the performance of indivudual applications, it is commonly used for a global comparison of computer systems, like in the [TOP500 list](https://www.top500.org).
+One way to express the computing power of a computer system, is to estimate the number of floating point operations (FLOP) per second. This theoretical value represents the peak performance. There exist multiple benchmarks to establish an application oriented value. One of them is a benchmark based on the [LINPACK library](https://en.wikipedia.org/wiki/LINPACK) for linear algebra. Although this benchmark may in many cases not represent the performance of individual applications, it is commonly used for a global comparison of computer systems, like in the [TOP500 list](https://www.top500.org).
 
-An interesting representation of the computer evolution is given by the [performance develpment of the TOP500 List](https://www.top500.org/statistics/perfdevel/). It further demonstrates the fast technological development, e.g. a notebook with a theoretical peak performance of about 200~GFLOP/s would head the TOP500 list in 1996 and would be still on the list till 2002.
+An interesting representation of the computer evolution is given by the [performance development of the TOP500 List](https://www.top500.org/statistics/perfdevel/). It further demonstrates the fast technological development, e.g. a notebook with a theoretical peak performance of about 200~GFLOP/s would head the TOP500 list in 1996 and would be still on the list till 2002.
 
 ### JURECA
 
