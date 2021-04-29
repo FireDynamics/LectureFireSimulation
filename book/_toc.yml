@@ -26,9 +26,9 @@
 #         - file: content/modelling/01_general/04_vv
 #         - file: content/modelling/01_general/05_uncertainties
     
-#     - file: content/modelling/02_fluids/00_overview
-#       sections:
-#         - file: content/modelling/02_fluids/01_fluids
+    - file: content/modelling/02_fluids/00_overview
+      sections:
+        - file: content/modelling/02_fluids/01_fluids
 #         - file: content/modelling/02_fluids/02_cfd
 #         - file: content/modelling/02_fluids/03_turbulence
 
