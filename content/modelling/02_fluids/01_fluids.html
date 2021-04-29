@@ -1,0 +1,881 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.1. Fluids &#8212; Fire Simulation Lecture</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}"}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/modelling/02_fluids/01_fluids.html" />
+    <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="HPC" href="../../tools/02_hpc/00_overview.html" />
+    <link rel="prev" title="2. Fluid Dynamics" href="00_overview.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      <img src="../../../_static/cce_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Fire Simulation Lecture</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../overview/01_overview.html">
+   Overview
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../overview/02_team.html">
+   Team Fire Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../overview/03_references.html">
+   References
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Modelling
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01_general/00_overview.html">
+   1. Modelling Fires
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_general/01_processes.html">
+     1.1. Physical and Chemical Processes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_general/02_fse.html">
+     1.2. Fire Safety Engineering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_general/03_approaches.html">
+     1.3. Modelling Approaches
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_overview.html">
+   2. Fluid Dynamics
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     2.1. Fluids
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tools
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tools/02_hpc/00_overview.html">
+   HPC
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/02_hpc/01_linux.html">
+     Linux
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/02_hpc/02_hpc.html">
+     High Performace Computing
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/modelling/02_fluids/01_fluids.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/FireDynamics/LectureFireSimulation"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/modelling/02_fluids/01_fluids.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/modelling/02_fluids/01_fluids.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fundamentals">
+   Fundamentals
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#flow-quantities">
+     Flow Quantities
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#speed-of-sound">
+     Speed of Sound
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#equation-of-state">
+     Equation of State
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#characterisation-of-flows">
+   Characterisation of Flows
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compressible-flows">
+     Compressible Flows
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#turbulent-flows">
+     Turbulent Flows
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#material-parameters">
+     Material Parameters
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#dimensionles-numbers">
+     Dimensionles numbers
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fluid-equations">
+   Fluid Equations
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#conservation-laws">
+     Conservation laws
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#partial-differential-equations">
+     Partial Differential Equations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#continuity-equation">
+     Continuity Equation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#equation-of-motion">
+     Equation of motion
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#energy-equation">
+     Energy equation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#incompressible-equations">
+     Incompressible equations
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#weakly-compressible-regime">
+     Weakly compressible regime
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#boundary-conditions">
+   Boundary Conditions
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="fluids">
+<h1><span class="section-number">2.1. </span>Fluids<a class="headerlink" href="#fluids" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Fluid dynamics describes the movement of liquids or gases. The following aspects may be needed to be taken into account:</p>
+<ul class="simple">
+<li><p>compressibility</p></li>
+<li><p>boundary conditions, e.g. walls</p></li>
+<li><p>turbulence</p></li>
+<li><p>heat conduction</p></li>
+<li><p>chemical reactions</p></li>
+<li><p>multiple species and states of matter</p></li>
+<li><p>etc.</p></li>
+</ul>
+<p><strong>Fire safety science</strong></p>
+<p>In fire safety science, fluid dynamics plays an important role in the understanding of dynamical fire phenomena. Fluid dynamics must be considered e.g. during mixing processes, combustion, convective heat transfer or the smoke spread in complex buildings.</p>
+<iframe width="60%" src="https://www.youtube-nocookie.com/embed/sKgP1Us-SF0" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
+<p><strong>Technical applications</strong></p>
+<p>A classical application example is the optimisation of transport vehicles to reduce the drag.</p>
+<iframe width="60%" src="https://www.youtube-nocookie.com/embed/E9ZSAX56m0E" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="section" id="fundamentals">
+<h2>Fundamentals<a class="headerlink" href="#fundamentals" title="Permalink to this headline">¶</a></h2>
+<p>In the fluid dynamics, the following processes represent the most fundamental ones:</p>
+<ul class="simple">
+<li><p><strong>Flow</strong> describes the movement of the medium. It is a vector field and describes the velocity of the fluid at every point in space and time: <span class="math notranslate nohighlight">\(\mf \vv = \vv(x,t)\)</span>. The velocity components are denoted as <span class="math notranslate nohighlight">\(\mf \vv = (v_x,v_y,v_z) = (u,v,w)\)</span>.</p></li>
+<li><p><strong>Convection</strong> is the fluid intrinsic movement, i.e. due to buoyancy.</p></li>
+<li><p><strong>Advection</strong> describes the transport of matter or properties (density, temperature,
+smoke) due to the flow. Convection is the advection of the velocity.</p></li>
+<li><p><strong>Diffusion</strong> is a process that drives a balancing process to equilibrate differences in flow properties (velocity, temperature, smoke density).</p></li>
+</ul>
+<div class="section" id="flow-quantities">
+<h3>Flow Quantities<a class="headerlink" href="#flow-quantities" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>density <span class="math notranslate nohighlight">\(\mf \rho\)</span>, <span class="math notranslate nohighlight">\(\mf [\rho] = kg/m\)</span> , scalar field</p></li>
+<li><p>velocity <span class="math notranslate nohighlight">\(\mf \vv\)</span>, <span class="math notranslate nohighlight">\(\mf [\vv] = m/s\)</span>, vector field</p></li>
+<li><p>vorticity <span class="math notranslate nohighlight">\(\mf \vec{\omega} = \nabla \times \vv\)</span>, <span class="math notranslate nohighlight">\(\mf [\vec{\omega}] = 1/s\)</span>, vector field</p></li>
+<li><p>momentum density <span class="math notranslate nohighlight">\(\mf \vu = \rho\vv\)</span>, <span class="math notranslate nohighlight">\(\mf [\vu] = kg/(m^2~s)\)</span>, vector field</p></li>
+<li><p>pressure <span class="math notranslate nohighlight">\(\mf p\)</span>, <span class="math notranslate nohighlight">\(\mf [p] = Pa = kg/(m~s^2)\)</span>, scalar field</p></li>
+<li><p>temperature <span class="math notranslate nohighlight">\(\mf T\)</span>, <span class="math notranslate nohighlight">\(\mf [T] = K\)</span>, scalar field</p></li>
+<li><p>specific enthalpy <span class="math notranslate nohighlight">\(\mf h = \int_{T_0}^T c_p(T')\ dT' + \Delta h_f^0\)</span> , <span class="math notranslate nohighlight">\(\mf [h] = J/kg = m^2/s^2\)</span> , scalar field</p></li>
+</ul>
+<p>Where <span class="math notranslate nohighlight">\(\mf c_p(T)\)</span> is the heat capacity at temperature <span class="math notranslate nohighlight">\(\mf T\)</span> and <span class="math notranslate nohighlight">\(\mf \Delta h_f^0\)</span> is the heat of formation.</p>
+</div>
+<div class="section" id="speed-of-sound">
+<h3>Speed of Sound<a class="headerlink" href="#speed-of-sound" title="Permalink to this headline">¶</a></h3>
+<p>In fluids and solids, information (flow changes, perturbations) propagates with a finite speed: the speed of sound. Sound waves are longitudinal compression waves. Typical travel speeds are <span class="math notranslate nohighlight">\(\mf 343~m/s\)</span> in air, <span class="math notranslate nohighlight">\(\mf 1484~m/s\)</span> in water and <span class="math notranslate nohighlight">\(\mf 5120~m/s\)</span> in steel.
+In general the speed of sound <span class="math notranslate nohighlight">\(\mf c\)</span> in an ideal gas is given by:</p>
+<div class="math notranslate nohighlight" id="equation-eq-speed-of-sound">
+<span class="eqno">(2.1)<a class="headerlink" href="#equation-eq-speed-of-sound" title="Permalink to this equation">¶</a></span>\[
+\mf c = \sqrt{\frac{\gamma k_B T}{m}}
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mf \gamma\)</span> is the heat capacity ratio <span class="math notranslate nohighlight">\(\mf \gamma=c_P/c_V\)</span>, <span class="math notranslate nohighlight">\(\mf k_B\)</span> is the Boltzmann constant (<span class="math notranslate nohighlight">\(\mf \sim\!1.381\cdot 10^{−23}~J/K\)</span>), T the gas temperature, and <span class="math notranslate nohighlight">\(\mf m\)</span> the mass of a single gas molecule. In general, for a given gas species, the speed of sound depends only on the temperature. For dry air, it can be approximated as:</p>
+<div class="math notranslate nohighlight" id="equation-eq-c-in-air">
+<span class="eqno">(2.2)<a class="headerlink" href="#equation-eq-c-in-air" title="Permalink to this equation">¶</a></span>\[
+\mf c_{air} =(331.3+0.606\cdot \Theta) m/s 
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mf \Theta\)</span> is the air temperature in <span class="math notranslate nohighlight">\(\mf ^\circ C\)</span>.</p>
+</div>
+<div class="section" id="equation-of-state">
+<h3>Equation of State<a class="headerlink" href="#equation-of-state" title="Permalink to this headline">¶</a></h3>
+<p>For an ideal or perfect gas the state can usually be described in terms of two thermodynamic variables (<span class="math notranslate nohighlight">\(\mf n\)</span>, <span class="math notranslate nohighlight">\(\mf\rho\)</span>, <span class="math notranslate nohighlight">\(\mf p\)</span>, <span class="math notranslate nohighlight">\(\mf e\)</span>, <span class="math notranslate nohighlight">\(\mf T\)</span>, <span class="math notranslate nohighlight">\(\mf V\)</span>, <span class="math notranslate nohighlight">\(\mf m\)</span>, <span class="math notranslate nohighlight">\(\mf h\)</span>). Following the combination of Boyle’s and Charles’ laws in a thermodynamical equilibrium, the equation of state follows as:</p>
+<div class="math notranslate nohighlight" id="equation-eq-equation-of-state">
+<span class="eqno">(2.3)<a class="headerlink" href="#equation-eq-equation-of-state" title="Permalink to this equation">¶</a></span>\[
+\mf pV = nRT
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mf R = 8.314~J/(mol~K)\)</span> is the universal gas constant and <span class="math notranslate nohighlight">\(\mf n\)</span> is the number of particles. Reactive flows are mostly a compound of a number of different species. Thus the equation of state for a system in equilibrium with <span class="math notranslate nohighlight">\(\mf N\)</span> species becomes</p>
+<div class="math notranslate nohighlight">
+\[
+\mf p = f(V, T, n_1 , \dots , n_N)\quad .
+\]</div>
+<p>Dalton’s law of partial pressures <span class="math notranslate nohighlight">\(\mf p_i\)</span> allows to formulate the total pressure</p>
+<div class="math notranslate nohighlight">
+\[
+\mf p = \sum_{i=1}^N p_i = \frac{1}{V} \sum_{i=1}^N n_i R T\quad .
+\]</div>
+</div>
+</div>
+<div class="section" id="characterisation-of-flows">
+<h2>Characterisation of Flows<a class="headerlink" href="#characterisation-of-flows" title="Permalink to this headline">¶</a></h2>
+<p>Flows of fluids (liquids and gases) follow the same principal characteristics. In the following there will be no difference in liquid or gas flows. They will only differ in material properties. Examples for a fluid flow:</p>
+<div class="figure align-default" id="fig-fluid-vortex-island">
+<a class="rotate90 reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/2/2c/Vortex-street-1.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/2/2c/Vortex-street-1.jpg" class="rotate90" src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Vortex-street-1.jpg" style="width: 40%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.1 </span><span class="caption-text">Von Kármán vortex street observed in nature. Soruce: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Vortex-street-1.jpg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-vortex-island" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="fig-fluid-vortex-lab">
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/f/fe/VortexStreet01.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/f/fe/VortexStreet01.jpg" src="https://upload.wikimedia.org/wikipedia/commons/f/fe/VortexStreet01.jpg" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.2 </span><span class="caption-text">Von Kármán vortex street in a lab. Soruce: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:VortexStreet01.jpg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-vortex-lab" title="Permalink to this image">¶</a></p>
+</div>
+<div class="section" id="compressible-flows">
+<h3>Compressible Flows<a class="headerlink" href="#compressible-flows" title="Permalink to this headline">¶</a></h3>
+<p>The flows involving velocities much slower (<span class="math notranslate nohighlight">\(\mf \ll c\)</span>) than the speed of sound are incompressible, i.e. the sound waves are infinitely fast on the scale of the involved processes. Thus, all changes in density are quickly balanced. Objects traveling with a speed of at least <span class="math notranslate nohighlight">\(\mf 0.3c\)</span> start to introduce fluctuations in density. Flow patterns of supersonic phenomena (explosion, supersonic airplanes) and the corresponding engineering approaches are completely different to those in case of sub sonic flows.</p>
+<p>Note: Temperature changes, like in a fire, lead to density changes and therefore to so called weakly compressible flows.</p>
+<div class="figure align-default" id="fig-fluid-laminar">
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/b/b9/Aerodynamics_of_model_car.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/b/b9/Aerodynamics_of_model_car.jpg" src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Aerodynamics_of_model_car.jpg" style="width: 60%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.3 </span><span class="caption-text">Incompressilbe flow around a model car. Soruce: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Aerodynamics_of_model_car.jpg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-laminar" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="fig-fluid-supersonic">
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/0/06/X-15_Model_in_Supersonic_Tunnel_-_GPN-2000-001272.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/0/06/X-15_Model_in_Supersonic_Tunnel_-_GPN-2000-001272.jpg" src="https://upload.wikimedia.org/wikipedia/commons/0/06/X-15_Model_in_Supersonic_Tunnel_-_GPN-2000-001272.jpg" style="width: 60%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.4 </span><span class="caption-text">Supersonic airplane model in a tunnel with at approximately <span class="math notranslate nohighlight">\(\mf 3.5 c\)</span>. Soruce: <a class="reference external" href="https://en.wikipedia.org/wiki/Compressible_flow#/media/File:X-15_Model_in_Supersonic_Tunnel_-_GPN-2000-001272.jpg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-supersonic" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="turbulent-flows">
+<h3>Turbulent Flows<a class="headerlink" href="#turbulent-flows" title="Permalink to this headline">¶</a></h3>
+<p>Depending on how smooth (continuous) a flow is, one can distinguish between laminar and turbulent flows. Flows related to fires are typically turbulent.</p>
+<div class="figure align-default" id="fig-fluid-turbulence-separation">
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/2/2f/1915ca_abger_fluegel.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/2/2f/1915ca_abger_fluegel.jpg" src="https://upload.wikimedia.org/wikipedia/commons/2/2f/1915ca_abger_fluegel.jpg" style="width: 60%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.5 </span><span class="caption-text">Flow around an airfoil with a flow separation. Soruce: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:1915ca_abger_fluegel.jpg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-turbulence-separation" title="Permalink to this image">¶</a></p>
+</div>
+<iframe width="60%" src="https://www.youtube.com/embed/QzuzbwJWlYs" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="section" id="material-parameters">
+<h3>Material Parameters<a class="headerlink" href="#material-parameters" title="Permalink to this headline">¶</a></h3>
+<p>The following material properties are of fundamental interest:</p>
+<ul class="simple">
+<li><p><strong>density</strong> <span class="math notranslate nohighlight">\(\mf\rho\)</span> is the mass per given volume</p>
+<ul>
+<li><p>air at <span class="math notranslate nohighlight">\(\mf 20~^\circ C\)</span> : <span class="math notranslate nohighlight">\(\mf\rho = 1.205~kg/m^3\)</span></p></li>
+<li><p>air at <span class="math notranslate nohighlight">\(\mf 200~^\circ C\)</span>: <span class="math notranslate nohighlight">\(\mf\rho = 0.746~kg/m^3\)</span></p></li>
+</ul>
+</li>
+<li><p><strong>dynamic viscosity</strong> <span class="math notranslate nohighlight">\(\mf\mu\)</span> characterises the capability of a flow to balance differences in velocity</p>
+<ul>
+<li><p>air at <span class="math notranslate nohighlight">\(\mf 20~^\circ C\)</span> : <span class="math notranslate nohighlight">\(\mf\mu = 1.836\cdot 10^{-5}~kg\,m / s\)</span></p></li>
+<li><p>air at <span class="math notranslate nohighlight">\(\mf 200~^\circ C\)</span>: <span class="math notranslate nohighlight">\(\mf\mu = 2.623\cdot 10^{-5}~kg\,m / s\)</span></p></li>
+</ul>
+</li>
+<li><p><strong>thermal conductivity</strong> <span class="math notranslate nohighlight">\(\mf k\)</span> is equivalent to <span class="math notranslate nohighlight">\(\mf\mu\)</span>, but for the temperature of a fluid</p>
+<ul>
+<li><p>air at <span class="math notranslate nohighlight">\(\mf 20~^\circ C\)</span> : <span class="math notranslate nohighlight">\(\mf k = 0.0257~W\,m / K\)</span></p></li>
+<li><p>air at <span class="math notranslate nohighlight">\(\mf 200~^\circ C\)</span>: <span class="math notranslate nohighlight">\(\mf k = 0.0386~W\,m / K\)</span></p></li>
+</ul>
+</li>
+<li><p><strong>heat capacity</strong> <span class="math notranslate nohighlight">\(c_p\)</span> describes the change in temperature, due to adding or extracting heat at a constant pressure</p>
+<ul>
+<li><p>air at <span class="math notranslate nohighlight">\(\mf 20~^\circ C\)</span> : <span class="math notranslate nohighlight">\(\mf c_p = 1.005~kJ\,kg / K\)</span></p></li>
+<li><p>air at <span class="math notranslate nohighlight">\(\mf 200~^\circ C\)</span>: <span class="math notranslate nohighlight">\(\mf c_p = 1.026~kJ\,kg / K\)</span></p></li>
+</ul>
+</li>
+</ul>
+<p>Further data for many properties of air (and other materials) can be found at <a class="reference external" href="https://www.engineeringtoolbox.com/air-properties-d_156.html">Engineering ToolBox (air properties)</a>.</p>
+<p><strong>Example quantity: viscosity</strong></p>
+<p>Simply speaking, viscosity describes how moving fluid elements, e.g. layers, influence the neighbouring elements. It describes the friction forces between relatively moving fluid elements.</p>
+<p>For example, honey has a high viscosity: it flows only slowly down a spoon. The outer ”honey elements” are strongly coupled to the inner – not free – elements.</p>
+<div class="figure align-default" id="fig-fluid-honey">
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/c/cc/Runny_hunny.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/c/cc/Runny_hunny.jpg" src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Runny_hunny.jpg" style="width: 40%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.6 </span><span class="caption-text">Honey running down a spoon. Soruce: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Runny_hunny.jpg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-honey" title="Permalink to this image">¶</a></p>
+</div>
+<p>In a simple two dimensional setup, with a stationary wall and a moving wall, see <a class="reference internal" href="#fig-fluid-viscosity"><span class="std std-numref">Fig. 2.7</span></a>, the dynamic viscosity describes the relation of the forces on the walls and the velocity gradient. If the velocity gradient <span class="math notranslate nohighlight">\(\mf u/y\)</span> is constant, this results in the following friction force per area:</p>
+<div class="math notranslate nohighlight" id="equation-eq-dyn-vis">
+<span class="eqno">(2.4)<a class="headerlink" href="#equation-eq-dyn-vis" title="Permalink to this equation">¶</a></span>\[
+\mf \frac{F}{A} = \mu \cdot \frac{u}{y} 
+\]</div>
+<div class="figure align-default" id="fig-fluid-viscosity">
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/9/93/Laminar_shear.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/9/93/Laminar_shear.svg" src="https://upload.wikimedia.org/wikipedia/commons/9/93/Laminar_shear.svg" width="60%" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.7 </span><span class="caption-text">Visualisation of the viscosity concepte. Soruce: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Laminar_shear.svg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-viscosity" title="Permalink to this image">¶</a></p>
+</div>
+<p>Relation <a class="reference internal" href="#equation-eq-dyn-vis">(2.4)</a> is the definition of the <em>dynamic viscosity</em> <span class="math notranslate nohighlight">\(\mf \mu\)</span>. Yet, in some cases the <em>kinematic viscosity</em> <span class="math notranslate nohighlight">\(\mf \nu\)</span> (or momentum diffusivity) is a more convenient quantity. It is given by the ratio of the dynamic viscosity and the density</p>
+<div class="math notranslate nohighlight" id="equation-eq-kin-vis">
+<span class="eqno">(2.5)<a class="headerlink" href="#equation-eq-kin-vis" title="Permalink to this equation">¶</a></span>\[
+\mf \nu = \frac{\mu}{\rho} \quad .
+\]</div>
+<p>Fluids for which viscosity does not depend on the stress state are called Newtonian fluids, which is true for all gases. However, there exist also <a class="reference external" href="https://en.wikipedia.org/wiki/Non-Newtonian_fluid">non-Newtonian fluids</a>, like blood, tomato ketchup is corn starch.</p>
+<iframe width="60%" src="https://www.youtube-nocookie.com/embed/B6h5pVETbd8" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="section" id="dimensionles-numbers">
+<h3>Dimensionles numbers<a class="headerlink" href="#dimensionles-numbers" title="Permalink to this headline">¶</a></h3>
+<p>Many flow phenomena and types may be characterised by dimensionless numbers. It is assumed, that flows with same characteristics are comparable, although e.g. the spatial scales are different. Some of the commonly used ones are:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Mach_number">Mach number</a> <span class="math notranslate nohighlight">\(\mf Ma\)</span></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Reynolds_number">Reynolds number</a> <span class="math notranslate nohighlight">\(\mf Re\)</span></p></li>
+<li><p>Grashof number <span class="math notranslate nohighlight">\(\mf Gr\)</span></p></li>
+<li><p>Prandtl number <span class="math notranslate nohighlight">\(\mf Pr\)</span></p></li>
+<li><p>Archimedes number <span class="math notranslate nohighlight">\(\mf Ar\)</span></p></li>
+<li><p>Richardson number <span class="math notranslate nohighlight">\(\mf Ri\)</span></p></li>
+<li><p>Nussel number <span class="math notranslate nohighlight">\(\mf Nu\)</span></p></li>
+</ul>
+<p><strong>Mach number</strong></p>
+<p>The Mach number is defined as the relation of a velocity to the speed of sound, i.e.</p>
+<div class="math notranslate nohighlight">
+\[
+\mf Ma = v\cdot c
+\]</div>
+<p>This number characterises the compressibility of a flow:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mf Ma \rightarrow 0\)</span>: fully incompressible</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mf Ma \lesssim 0.3\)</span>: incompressible</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mf Ma \gtrsim 0.3\)</span>: compressible</p></li>
+</ul>
+<p>The limit <span class="math notranslate nohighlight">\(\mf Ma \rightarrow 0\)</span> may be also interpreted as <span class="math notranslate nohighlight">\(\mf c \rightarrow \infty\)</span>.</p>
+<p><strong>Reynolds number</strong></p>
+<p>The Reynolds number relates convection to diffusion:</p>
+<div class="math notranslate nohighlight">
+\[
+\mf Re = \frac{\rho v L}{\mu}
+\]</div>
+<p>Here, <span class="math notranslate nohighlight">\(\mf L\)</span> denotes a characteristic length, in the case of a pipe flow, this would be the pipe diameter. The Reynolds number can be used to distinguish laminar from turbulent flows, i.e. a very high <span class="math notranslate nohighlight">\(\mf Re\)</span> represents turbulent flows. In a pipe flow, the characteristic transition number is about <span class="math notranslate nohighlight">\(\mf Re \approx 4000\)</span>.
+This number is a classical example for scaling. Flow phenomena having the same Reynolds number will behave the same way; this can be shown by normalisation of the flow equations.</p>
+<div class="figure align-default" id="fig-fluid-re-table">
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/9/99/Reynoldsflugrpd.png"><img alt="https://upload.wikimedia.org/wikipedia/commons/9/99/Reynoldsflugrpd.png" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Reynoldsflugrpd.png" style="width: 60%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.8 </span><span class="caption-text">Reynolds numbers for some flying objects (in German). Soruce: <a class="reference external" href="https://de.wikipedia.org/wiki/Reynolds-Zahl#/media/Datei:Reynoldsflugrpd.png">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-re-table" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="fluid-equations">
+<h2>Fluid Equations<a class="headerlink" href="#fluid-equations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="conservation-laws">
+<h3>Conservation laws<a class="headerlink" href="#conservation-laws" title="Permalink to this headline">¶</a></h3>
+<p>The fluid dynamics is based on the following three physical conservation laws:</p>
+<ul class="simple">
+<li><p>mass conservation</p></li>
+<li><p>momentum conservation</p></li>
+<li><p>energy conservation</p></li>
+</ul>
+<p>From these laws the basic fluid flow equations may be derived:</p>
+<ul class="simple">
+<li><p>continuity equation</p></li>
+<li><p>equation of motion</p></li>
+<li><p>energy equation</p></li>
+</ul>
+<p>In general, beside these equations a closure, e.g. via an equation of state, is needed. In many cases the ideal gas law can be used.</p>
+<p><strong>Conservation of mass</strong></p>
+<p>The conservation of mass predicts, that the total mass of a control volume does change only if there is a net flow (non balanced in and out flow) across the boundaries. Incompressible flows have always zero net flows.</p>
+<p>In fire simulations, multiple species have to be considered (e.g. oxygen, fuel and carbon dioxide). Their masses are individually conserved. However, they are strongly coupled to each other via source terms. E.g. during combustion, oxygen and fuel are consumed to produce carbon dioxide.</p>
+<p><strong>Conservation of momentum</strong></p>
+<p>The momentum of a fluid element changes only due to:</p>
+<ul class="simple">
+<li><p>momentum advection</p></li>
+<li><p>gradients of pressure</p></li>
+<li><p>diffusion and stresses, i.e. due to finite viscosity</p></li>
+<li><p>external forces, e.g. gravitation, water droplets</p></li>
+</ul>
+<p>In turbulent simulations, the diffusion is of special interest. This is the phenomenon that must be covered by turbulence models.</p>
+<p><strong>Conservation of energy</strong></p>
+<p>Changes in energy of a control volume are due to:</p>
+<ul class="simple">
+<li><p>energy advection</p></li>
+<li><p>heat conduction</p></li>
+<li><p>heating and cooling processes, e.g. radiation, friction, combustion</p></li>
+</ul>
+<p>In combination with the conservation of energy, an equation of state is needed to determine the gas temperature.</p>
+</div>
+<div class="section" id="partial-differential-equations">
+<h3>Partial Differential Equations<a class="headerlink" href="#partial-differential-equations" title="Permalink to this headline">¶</a></h3>
+<p>Partial differential equations (PDE) are one of the most powerful tools in science and engineering. Most technical, mathematical, physical, chemical and even biological models are based on differential equations. The solutions of differential equations may describe:</p>
+<ul class="simple">
+<li><p>gas flows and combustion processes</p></li>
+<li><p>heat distribution in solids</p></li>
+<li><p>oscillation of a pendulum</p></li>
+<li><p>propagation of light or water waves</p></li>
+<li><p>interaction of two species (predator and pray)</p></li>
+</ul>
+<p><strong>Types of PDEs</strong></p>
+<p>The general structure of a PDE for <span class="math notranslate nohighlight">\(\mf\phi = \phi(x,y)\)</span> is given by</p>
+<div class="math notranslate nohighlight">
+\[
+\mf a\partial_{xx}\phi + b\partial_{xy}\phi + c\partial_{yy}\phi + d\partial_x\phi + e\partial_y\phi + f\phi = 0
+\]</div>
+<p>where all coefficients (<span class="math notranslate nohighlight">\(\mf a,\dots,f\)</span>) are dependent on <span class="math notranslate nohighlight">\(\mf x\)</span> and <span class="math notranslate nohighlight">\(\mf y\)</span>, e.g. <span class="math notranslate nohighlight">\(\mf a = a(x,y)\)</span>.</p>
+<p>The coefficients determine the character of the PDE:</p>
+<div class="math notranslate nohighlight">
+\[
+\mf D(x,y) = a(x,y)\cdot c(x,y) - \left(\frac{b(x,y)}{2}\right)^2
+\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mf D \gt 0\)</span>: elliptic, e.g. Laplace equation</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mf D = 0\)</span>: parabolic, e.g. heat equation</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mf D \lt 0\)</span>: hyperbolic, e.g. wave equation</p></li>
+</ul>
+<p>Note: The type may dependent on varying material parameter or/and the position, here <span class="math notranslate nohighlight">\(\mf (x,y)\)</span>.</p>
+<p><strong>Field Operators</strong></p>
+<p>The two most common mathematical operators used in fluid dynamics are the partial derivative and the Nabla operator.</p>
+<p>The <strong>partial derivative</strong> describes the change of a field in a given space or time direction. The change of a velocity field <span class="math notranslate nohighlight">\(\mf \vv(x,y,z,t)\)</span> with respect to the time is:</p>
+<div class="math notranslate nohighlight">
+\[
+\mf \frac{\partial \vec{v}(x,y,z,t)}{\partial t} \quad \mbox{or short}\quad \partial_t \vec{v}(x,y,z,t)
+\]</div>
+<p>The <strong>Nabla operator</strong> <span class="math notranslate nohighlight">\(\mf \nabla\)</span> is used to represent the Laplace, gradient, divergence and rotation operations.</p>
+<div class="math notranslate nohighlight">
+\[
+\mf \nabla = \left( \partial_x,  \partial_y,  \partial_z \right)
+\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mf \Delta(\rho) = \nabla^2\rho \\
+\mf grad(\rho) = \nabla\rho \\
+\mf div(\vv) = \nabla\cdot\vv \\
+\mf srot(\vv) = \nabla\times\vv
+\end{split}\]</div>
+<p>The <strong>convective derivative</strong> combines both operators. It represents the total change of a value due to local intrinsic changes and due to advection. The change in a scalar value <span class="math notranslate nohighlight">\(\mf \phi(x,y,z,t)\)</span> may therefore be written as</p>
+<div class="math notranslate nohighlight">
+\[
+\mf \frac{d\phi}{dt} = \partial_t \phi + \vv\cdot(\nabla\phi)
+\]</div>
+<p>The first term (<span class="math notranslate nohighlight">\(\mf \partial_t \phi\)</span>) represents intrinsic changes and the second one (<span class="math notranslate nohighlight">\(\mf\vv\cdot(\nabla\phi)\)</span>) describes the changes due to the advection in the velocity field <span class="math notranslate nohighlight">\(\mf\vv\)</span>.</p>
+</div>
+<div class="section" id="continuity-equation">
+<h3>Continuity Equation<a class="headerlink" href="#continuity-equation" title="Permalink to this headline">¶</a></h3>
+<p>The continuity equation for a single species flow is</p>
+<div class="math notranslate nohighlight" id="equation-eq-fluid-cont">
+<span class="eqno">(2.6)<a class="headerlink" href="#equation-eq-fluid-cont" title="Permalink to this equation">¶</a></span>\[
+\mf \frac{d\rho}{dt} = \underbrace{-\rho\nabla\cdot\vec{v}}_{A}
+\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mf A\)</span>: net flow flux of mass</p></li>
+</ul>
+<p>Taking into account the convective derivative, the commonly used formulation may be derived as</p>
+<div class="math notranslate nohighlight" id="equation-eq-fluid-cont-conservative">
+<span class="eqno">(2.7)<a class="headerlink" href="#equation-eq-fluid-cont-conservative" title="Permalink to this equation">¶</a></span>\[
+\mf \partial_t \rho = -\nabla\cdot(\rho\vec{v})\quad .
+\]</div>
+</div>
+<div class="section" id="equation-of-motion">
+<h3>Equation of motion<a class="headerlink" href="#equation-of-motion" title="Permalink to this headline">¶</a></h3>
+<p>Taking into account the conservation of momentum, the following simple form of the equation of motion may be formulated</p>
+<div class="math notranslate nohighlight" id="equation-eq-fluid-momentum">
+<span class="eqno">(2.8)<a class="headerlink" href="#equation-eq-fluid-momentum" title="Permalink to this equation">¶</a></span>\[
+\mf \partial_t \rho\vec{v} + \nabla\cdot(\rho\vec{v}\vec{v}) = \underbrace{-\nabla p}_{A} + \underbrace{\mu\nabla^2\vec{v}}_{B} + \underbrace{\vec{f}}_{C}
+\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mf A\)</span>: force due to pressure gradients</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mf B\)</span>: molecular diffusion</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mf C\)</span>: external forces, e.g. gravity</p></li>
+</ul>
+<p>These equation is commonly known as the Navier-Stokes equation.</p>
+</div>
+<div class="section" id="energy-equation">
+<h3>Energy equation<a class="headerlink" href="#energy-equation" title="Permalink to this headline">¶</a></h3>
+<p>The equation for the energy <span class="math notranslate nohighlight">\(E = e + \frac{1}{2}\vv^2\)</span> is given by</p>
+<div class="math notranslate nohighlight" id="equation-eq-fluid-energy">
+<span class="eqno">(2.9)<a class="headerlink" href="#equation-eq-fluid-energy" title="Permalink to this equation">¶</a></span>\[
+\mf \partial_t (\rho E) + \nabla\cdot(\vec{v}\rho E) = \underbrace{-\nabla\cdot(\vec{v}p)}_{A} + \underbrace{\nabla\cdot(\mu\vec{v}\nabla\vec{v})}_{B} + \underbrace{\nabla\cdot(k\nabla T)}_{C}+ \underbrace{\vec{v}\cdot\vec{f}}_{D}+\underbrace{\dot{Q_s}}_{E}
+\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mf A\)</span>: work done on the fluid due to pressure gradients</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mf B\)</span>: work done by viscosity</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mf C\)</span>: heat conduction</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mf D\)</span>: work done by external forces</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mf E\)</span>: heat sources and sinks</p></li>
+</ul>
+<p>Note: Sometimes a formulation in terms of enthalpy is preferred. This is the case for the equations solved by FDS.</p>
+</div>
+<div class="section" id="incompressible-equations">
+<h3>Incompressible equations<a class="headerlink" href="#incompressible-equations" title="Permalink to this headline">¶</a></h3>
+<p>If the flow is incompressible and assumed to be isothermal, the remaining equations to be solved are:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mf \partial_t \rho\vec{v} + \nabla\cdot(\rho\vec{v}\vec{v}) = -\nabla p + \mu\nabla^2\vec{v} + \vec{f} \\
+\mf \nabla^2 p = - \nabla\cdot\left(\nabla\cdot(\rho\vec{v}\vec{v})\right) + \nabla \cdot \vec{f}
+\end{split}\]</div>
+</div>
+<div class="section" id="weakly-compressible-regime">
+<h3>Weakly compressible regime<a class="headerlink" href="#weakly-compressible-regime" title="Permalink to this headline">¶</a></h3>
+<p>In fully <em>incompressible</em> flows the pressure instantly balances all divergences and keeps therefore the density constant.</p>
+<p>In the <em>compressible</em> regime, the ideal gas law provides the linkage between the energy conservation and the conservation of mass and momentum.</p>
+<p>For low speed flows, like in fires, but with substantial temperature variations the density may change. This is not due to pressure variations, as the pressure remains relatively unperturbed. This is the so called <em>weakly compressible</em> regime.</p>
+<p>Here the equation of state is used with a fixed ambient pressure <span class="math notranslate nohighlight">\(\mf p_0\)</span> to determine the density:</p>
+<div class="math notranslate nohighlight">
+\[
+\mf \rho = \frac{p_0 M}{R T}
+\]</div>
+<p>with <span class="math notranslate nohighlight">\(\mf M\)</span> being the molecular mass of the volume of interest.</p>
+</div>
+</div>
+<div class="section" id="boundary-conditions">
+<h2>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this headline">¶</a></h2>
+<p>Besides the fluid equations, the boundary conditions are an other important aspect. In many applications, the impact of boundary conditions is crucial and a proper treatment of those essential.</p>
+<p>In general there exist a few types of boundary conditions:</p>
+<ul>
+<li><p>Dirichlet: explicit values are prescribed</p>
+<div class="math notranslate nohighlight">
+\[
+  \mf u=u_0\quad v=w=0
+  \]</div>
+</li>
+<li><p>Neumann: normal derivative is prescribed</p>
+<div class="math notranslate nohighlight">
+\[
+  \mf \partial_n u = n_0\quad \partial_n v = \partial_n w = 0
+  \]</div>
+</li>
+<li><p>symmetric: derivatives are adopted to preserve a prescribed symmetry</p></li>
+<li><p>periodic: values at the facing boundaries are kept equal</p></li>
+</ul>
+<p>Some explicit examples for boundary conditions used commonly in fluid dynamics:</p>
+<ul>
+<li><p>no-slip at solid wall</p>
+<div class="math notranslate nohighlight">
+\[
+  \mf u = v = w = 0 \quad \mbox{at the wall}
+  \]</div>
+</li>
+<li><p>gas inlet</p>
+<div class="math notranslate nohighlight">
+\[
+  \mf u = u_0\quad v=w=0 \quad \mbox{at the inflow}
+  \]</div>
+</li>
+<li><p>gas outflow</p>
+<div class="math notranslate nohighlight">
+\[
+  \mf \partial_n u = \partial_n v = \partial_n w = 0\quad \mbox{at the outflow}
+  \]</div>
+</li>
+<li><p>constant wall temperature</p>
+<div class="math notranslate nohighlight">
+\[
+  \mf T = T_w
+  \]</div>
+</li>
+<li><p>wall with changing temperature, but fixed wall heat flux</p>
+<div class="math notranslate nohighlight">
+\[
+  \mf q_w = k \partial_n T\quad \mbox{at the wall}
+  \]</div>
+</li>
+<li><p>adiabatic</p>
+<div class="math notranslate nohighlight">
+\[
+  \mf k\partial_n T = 0 \quad \mbox{at the wall}
+  \]</div>
+</li>
+</ul>
+<div class="figure align-default" id="fig-fluid-bnd-open">
+<a class="reference internal image-reference" href="../../../_images/boundaries_open_plume.svg"><img alt="../../../_images/boundaries_open_plume.svg" src="../../../_images/boundaries_open_plume.svg" width="60%" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.9 </span><span class="caption-text">Example for a boundary setup for a open plume.</span><a class="headerlink" href="#fig-fluid-bnd-open" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="fig-fluid-bnd-compartment">
+<a class="reference internal image-reference" href="../../../_images/boundaries_compartment.svg"><img alt="../../../_images/boundaries_compartment.svg" src="../../../_images/boundaries_compartment.svg" width="60%" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.10 </span><span class="caption-text">Example for a boundary setup for a simple compartment.</span><a class="headerlink" href="#fig-fluid-bnd-compartment" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/modelling/02_fluids"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="00_overview.html" title="previous page"><span class="section-number">2. </span>Fluid Dynamics</a>
+    <a class='right-next' id="next-link" href="../../tools/02_hpc/00_overview.html" title="next page">HPC</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          <div class="extra_footer">
+            <p>
+<img src='https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg' height='31'/>
+| By Team Fire | Contacts and Infos: <a href='https://cce.uni-wuppertal.de/en.html'>CCE@BUW</a> and <a href='https://www.fz-juelich.de/ias/ias-7/EN/Research/Fire_Dynamics/_node.html'>IAS-7@FZJ</a>
+</br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
