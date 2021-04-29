@@ -331,9 +331,9 @@
 <li><p>science: particle physics, climate research, molecular dynamics</p></li>
 <li><p>engineering: CFD, structural mechanics, computer science</p></li>
 </ul>
-<p>HPC with computing power thousands times larger than personal computer allows to significantly reduce the computing time and allows to address new modelling challenges. This is also becoming true for the fire safety science and engineering communities.</p>
-<p><em>Example:</em> An CFD application run for a week on thousand processors would need 20 years on a personal computer (assuming it provides enough memory).</p>
-<p>The evolution of computer technology shows one of the fastest development of all technolgies. Considering the nubmer of transistors as a measure for a chip’s computing performance, the evolution shows that this number doubles every two years. This observation is called <a class="reference external" href="https://en.wikipedia.org/wiki/Moore%27s_law">Moore’s law</a>, see <a class="reference internal" href="#fig-hpc-moore"><span class="std std-numref">Fig. 6</span></a>.</p>
+<p>HPC with computing power thousand times larger than personal computers allows to significantly reduce the computing time and allows to address new modelling challenges. This is also becoming true for fire safety science and engineering communities.</p>
+<p><em>Example:</em> A CFD application running for a week on thousand processors would need 20 years on a personal computer (assuming it provides enough memory).</p>
+<p>The evolution of computer technology shows one of the fastest developments of all technolgies. Considering the nubmer of transistors as a measure for a chip’s computing performance, the evolution shows that this number doubles every two years. This observation is called <a class="reference external" href="https://en.wikipedia.org/wiki/Moore%27s_law">Moore’s law</a>, see <a class="reference internal" href="#fig-hpc-moore"><span class="std std-numref">Fig. 6</span></a>.</p>
 <div class="figure align-default" id="fig-hpc-moore">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/0/00/Moore%27s_Law_Transistor_Count_1970-2020.png"><img alt="https://upload.wikimedia.org/wikipedia/commons/0/00/Moore%27s_Law_Transistor_Count_1970-2020.png" src="https://upload.wikimedia.org/wikipedia/commons/0/00/Moore%27s_Law_Transistor_Count_1970-2020.png" style="width: 80%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">The development of the transistor count in the last 5 decades. This observation is represented by Moore’s law. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Moore%27s_Law_Transistor_Count_1970-2020.png">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-hpc-moore" title="Permalink to this image">¶</a></p>
@@ -343,8 +343,8 @@
 <h2>Parallel Execution<a class="headerlink" href="#parallel-execution" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="general-principle">
 <h3>General Principle<a class="headerlink" href="#general-principle" title="Permalink to this headline">¶</a></h3>
-<p>An application, is in general a sequence of tasks. Here, a task can be understood as a group of commands or computations that can no further be separated, e.g. due to data dependency.</p>
-<p>Yet, there is not necessary a depencece among the tasks. Thus, they can eventually be executed at the same time, see <a class="reference internal" href="#fig-hpc-fork"><span class="std std-numref">Fig. 7</span></a>. The process of distributing the tasks on multiple execution units (threads, cores, nodes) is called a fork, while the gathering of the results back to the main execution unit is called a join. During the fork, data and instructions have to be exchanged, thus this introduces an overhead, which is not present in a serial execution. The same is true for the join process, but an additional contribution to the overhead is induced by load balancing issues. Depending on the execution time of individual tasks, especially the longest task, the join process will be prolonged.</p>
+<p>An application, is in general a sequence of tasks. Here, a task can be understood as a group of commands or computations that can not be separated further, e.g. due to data dependency.</p>
+<p>Yet, there is not necessarily a dependency among the tasks. Thus, they can eventually be executed at the same time, see <a class="reference internal" href="#fig-hpc-fork"><span class="std std-numref">Fig. 7</span></a>. The process of distributing the tasks on multiple execution units (threads, cores, nodes) is called a fork, while the gathering of the results back to the main execution unit is called a join. During the fork, data and instructions have to be exchanged, thus this introduces an overhead, which is not present in a serial execution. The same is true for the join process, but an additional contribution to the overhead is induced by load balancing issues. Depending on the execution time of individual tasks, especially the longest task, the join process will be prolonged.</p>
 <div class="figure align-default" id="fig-hpc-fork">
 <a class="reference internal image-reference" href="../../../_images/fork.png"><img alt="../../../_images/fork.png" src="../../../_images/fork.png" style="width: 80%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Serial and parallel execution of a set of tasks.</span><a class="headerlink" href="#fig-hpc-fork" title="Permalink to this image">¶</a></p>
@@ -352,17 +352,17 @@
 </div>
 <div class="section" id="speedup">
 <h3>Speedup<a class="headerlink" href="#speedup" title="Permalink to this headline">¶</a></h3>
-<p>The maximal achievable speedup <span class="math notranslate nohighlight">\(\mf s\)</span>, w.r.t. a serial execution, on <span class="math notranslate nohighlight">\(\mf n\)</span> computing units is limited by the fraction of the execution that runs in parallel <span class="math notranslate nohighlight">\(\mf p\)</span>. This is reflected by Amdahl’s law, see equation <a class="reference internal" href="#equation-eq-amdahls-law">(1)</a> and <a class="reference internal" href="#fig-hpc-amdahl"><span class="std std-numref">Fig. 8</span></a>.</p>
+<p>The maximal achievable speedup <span class="math notranslate nohighlight">\(\mf s\)</span>, with respect to a serial execution, on <span class="math notranslate nohighlight">\(\mf n\)</span> computing units is limited by the fraction of the execution that runs in parallel <span class="math notranslate nohighlight">\(\mf p\)</span>. This is reflected by Amdahl’s law, see equation <a class="reference internal" href="#equation-eq-amdahls-law">(1)</a> and <a class="reference internal" href="#fig-hpc-amdahl"><span class="std std-numref">Fig. 8</span></a>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-amdahls-law">
 <span class="eqno">(1)<a class="headerlink" href="#equation-eq-amdahls-law" title="Permalink to this equation">¶</a></span>\[
 s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)} 
 \]</div>
 <div class="figure align-default" id="fig-hpc-amdahl">
 <a class="reference internal image-reference" href="../../../_images/amdahl.png"><img alt="../../../_images/amdahl.png" src="../../../_images/amdahl.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Visualisation for Amdah’s law.</span><a class="headerlink" href="#fig-hpc-amdahl" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Visualisation for Amdahl’s law.</span><a class="headerlink" href="#fig-hpc-amdahl" title="Permalink to this image">¶</a></p>
 </div>
 <p>The speedup may even decrease, as some operations become more expensive with increasing number of participating processes, e.g. synchronisation points, global data exchange or broadcasts.</p>
-<p>In cases, where a large number of execution units is involved and the tasks can not be well decomposed, an unequal work load per process may become the main problem. The execution of one iteration is in general determined by the longest task execution time.</p>
+<p>In cases, where a large number of execution units is involved and the tasks cannot be well decomposed, an unequal workload per process may become the main problem. The execution of one iteration is in general determined by the longest task execution time.</p>
 <div class="figure align-default" id="fig-hpc-load-balance">
 <a class="reference internal image-reference" href="../../../_images/load_balance.png"><img alt="../../../_images/load_balance.png" src="../../../_images/load_balance.png" style="width: 80%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Example of load balancing.</span><a class="headerlink" href="#fig-hpc-load-balance" title="Permalink to this image">¶</a></p>
@@ -372,8 +372,8 @@ s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)}
 <h3>Parallelisation<a class="headerlink" href="#parallelisation" title="Permalink to this headline">¶</a></h3>
 <p>In general, there is a zoo of possibilities to parallelise an application. In FDS, two of them are utilised:</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Message_Passing_Interface">Message Passing Interface (MPI)</a>, and</p></li>
-<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/OpenMP">Open Multi-Processing (OpenMP or OMP)</a>.</p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Message_Passing_Interface">Message Passing Interface (MPI)</a></p></li>
+<li><p><a class="reference external" href="https://en.wikipedia.org/wiki/OpenMP">Open Multi-Processing (OpenMP or OMP)</a></p></li>
 </ul>
 <p>MPI is a language-independent communication protocol used to develop parallel computerprograms and has its main application  in distributed memory machines. The interface allows to explicitly exchange messages between processes. Therefore it is up to the programmer to design appropriate data structures and algorithms to decompose the application.</p>
 <p>In CFD, typically the computational domain is explicitly decomposed and distributed over all MPI processes. For stencil operations only neighbour cells are needed, thus only a domain’s halo needs to be shared.</p>
@@ -382,14 +382,14 @@ s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)}
 <a class="reference internal image-reference" href="../../../_images/decomp_mpi.png"><img alt="../../../_images/decomp_mpi.png" src="../../../_images/decomp_mpi.png" style="width: 40%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Domain decomposition of a simple computational grid, like in FDS. The data communication (arrows) is handled with MPI.</span><a class="headerlink" href="#fig-hpc-domain-mpi" title="Permalink to this image">¶</a></p>
 </div>
-<p>As MPI is only a definition standard, there is not a single implementation of MPI. The most common MPI implementations are:</p>
+<p>As MPI is only a definition standard, there is more than one implementation of MPI. The most common MPI implementations are:</p>
 <ul class="simple">
 <li><p>Open MPI, open source and free</p></li>
 <li><p>MPICH, open source and free</p></li>
 <li><p>Intel MPI Library (MPICH derivate), commercial</p></li>
 </ul>
 <p>The MPI implementations include C/C++/FORTRAN header, libraries, compiler wrapper and a runtime environment.</p>
-<p>In contrast to MPI, OpenMP (or short OMP) is a standard to implicitly distribute the execution on a shared memory system.</p>
+<p>In contrast to MPI, OpenMP (or short OMP) is a standard, to implicitly distribute the execution on a shared memory system.</p>
 <p>OMP is implemented as pragmas for C/C++/FORTRAN, and are therefore non intrusive. The typical application is to decompose loops and advise the compiler or the runtime to distribute the loop iterations. The data is not distributed and stays in place, see <a class="reference internal" href="#fig-hpc-domain-omp"><span class="std std-numref">Fig. 11</span></a>.</p>
 <div class="figure align-default" id="fig-hpc-domain-omp">
 <a class="reference internal image-reference" href="../../../_images/decomp_openmp.png"><img alt="../../../_images/decomp_openmp.png" src="../../../_images/decomp_openmp.png" style="width: 40%;" /></a>
@@ -415,9 +415,27 @@ s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)}
 <li><p><strong>Accelerators</strong> are special hardware, which are capable of solving selected algorithms faster than a CPU. A common representative are Graphics Processing Units (GPU).</p></li>
 <li><p>An <strong>Interconnect</strong> enables a fast communication between the nodes. In general, there are multiple networks, e.g. an Ethernet (e.g. 10~Gbit/s) control network and a fast InfiniBand (e.g. 200~Gbit/s) network for data exchange during computation.</p></li>
 <li><p><strong>Parallel file systems</strong> store the computed data on RAID-systems, which are accessable by all nodes.</p></li>
-<li><p><strong>Login nodes</strong> provide a terminal for users to issue computing jobs and data transfer.</p></li>
-<li><p><strong>Batch systems</strong> control the distribution of user issued jobs on the whole system. Typicall, users define which ressources (e.g. number of node, execution time) are needed for a job and then the job is executed by the batch system, once the required ressources become available.</p></li>
+<li><p><strong>Login nodes</strong> provide a terminal for users to issue computing jobs and data transfer.
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p></li>
+<li><p><strong>Batch systems</strong> control the distribution of user issued jobs on the whole system. Typically, users define which ressources (e.g. number of node, execution time) are needed for a job and then the job is executed by the batch system, once the required ressources become available.
+=======</p></li>
+<li><p><strong>Batch systems</strong> control the distribution of user issued jobs on the whole system. Typically, users define which resources (e.g. number of node, execution time) are needed for a job and then the job is executed by the batch system, once the required resources become available.</p></li>
 </ul>
+<blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><blockquote>
+<div><p>0d99bc2 (Update 02_hpc.md)</p>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div></blockquote>
 <div class="figure align-default" id="fig-hpc-cluster">
 <a class="reference internal image-reference" href="../../../_images/cluster.png"><img alt="../../../_images/cluster.png" src="../../../_images/cluster.png" style="width: 40%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">A very generalistic representation of an element / node of a cluster.</span><a class="headerlink" href="#fig-hpc-cluster" title="Permalink to this image">¶</a></p>
@@ -425,8 +443,8 @@ s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)}
 </div>
 <div class="section" id="performance">
 <h3>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h3>
-<p>One way to express the computing power of a computer system, is to estimate the number of floating point operations (FLOP) per second. This theoretical value represents the peak performance. There exist multiple benchmarks to establish an application oriented value and one of them is a benchmark based on the <a class="reference external" href="https://en.wikipedia.org/wiki/LINPACK">LINPACK library</a> for linear algebra. Although this benchmark may in many cases not represent the performance of indivudual applications, it is commonly used for a global comparison of computer systems, like in the <a class="reference external" href="https://www.top500.org">TOP500 list</a>.</p>
-<p>An interesting representation of the computer evolution is given by the <a class="reference external" href="https://www.top500.org/statistics/perfdevel/">performance develpment of the TOP500 List</a>. It further demonstrates the fast technological development, e.g. a notebook with a theoretical peak performance of about 200~GFLOP/s would head the TOP500 list in 1996 and would be still on the list till 2002.</p>
+<p>One way to express the computing power of a computer system, is to estimate the number of floating point operations (FLOP) per second. This theoretical value represents the peak performance. There exist multiple benchmarks to establish an application oriented value. One of them is a benchmark based on the <a class="reference external" href="https://en.wikipedia.org/wiki/LINPACK">LINPACK library</a> for linear algebra. Although this benchmark may in many cases not represent the performance of individual applications, it is commonly used for a global comparison of computer systems, like in the <a class="reference external" href="https://www.top500.org">TOP500 list</a>.</p>
+<p>An interesting representation of the computer evolution is given by the <a class="reference external" href="https://www.top500.org/statistics/perfdevel/">performance development of the TOP500 List</a>. It further demonstrates the fast technological development, e.g. a notebook with a theoretical peak performance of about 200~GFLOP/s would head the TOP500 list in 1996 and would be still on the list till 2002.</p>
 </div>
 <div class="section" id="jureca">
 <h3>JURECA<a class="headerlink" href="#jureca" title="Permalink to this headline">¶</a></h3>
