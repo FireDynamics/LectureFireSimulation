@@ -50,6 +50,7 @@ sphinx:
       TeX:
         Macros:
           "vv": "\\vec{v}"
+          "vu": "\\vec{u}"
           "mf": "\\small\\sf"
           "dQ": "\\dot{Q}"
           "dq": "\\dot{q}"
