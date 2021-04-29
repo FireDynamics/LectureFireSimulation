@@ -95,7 +95,7 @@ Experiments differ from tests. While a test checks for a property or a result, t
 
 ## Analytical Models
 
-The first level of models are analytical models. They are either based on empirical data and are thus just their mathematical representation. Or, they are based on fundamental approximations and symmetries, which lead to a closed analytical solution. 
+The first kind of models are analytical models. They are either based on empirical data and are thus just their mathematical representation. Or, they are based on fundamental approximations and symmetries, which lead to a closed analytical solution. 
 
 Despite their, sometimes very limitting, approximations, they offer a tool to quickly estimate the quantities of interest. In addition, they can be directly integrated into other, potentially more complex, models. Another important aspect is, that analytical models can be checked by a reader, as it is in general possible to write down all needed input parameters. 
 
@@ -235,13 +235,6 @@ The above figure {numref}`fig-compartment-flow-basic` indicates that the domain 
 
 Illustration of a simple two zone – the upper hot and the lower cold gas layer – model.
 :::
-
-* outline computed quantities
-* one for each layer, u and l
-
-* example CFAST, see documentation
-
-* funamental equations
 
 ```{margin} Note:
 The according fundamental thermodynamical relations will be introduced in following section of the lecture. This section is just meant to demonstrate the general approach of zone models.
