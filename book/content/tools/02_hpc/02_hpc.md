@@ -118,11 +118,7 @@ Parallel computers are often called, e.g., supercomputer, high performance compu
 * An **Interconnect** enables a fast communication between the nodes. In general, there are multiple networks, e.g. an Ethernet (e.g. 10~Gbit/s) control network and a fast InfiniBand (e.g. 200~Gbit/s) network for data exchange during computation.
 * **Parallel file systems** store the computed data on RAID-systems, which are accessable by all nodes.
 * **Login nodes** provide a terminal for users to issue computing jobs and data transfer.
-<<<<<<< HEAD
-* **Batch systems** control the distribution of user issued jobs on the whole system. Typically, users define which ressources (e.g. number of node, execution time) are needed for a job and then the job is executed by the batch system, once the required ressources become available.
-=======
 * **Batch systems** control the distribution of user issued jobs on the whole system. Typically, users define which resources (e.g. number of node, execution time) are needed for a job and then the job is executed by the batch system, once the required resources become available.
->>>>>>> 0d99bc2 (Update 02_hpc.md)
 
 :::{figure-md} fig-hpc-cluster
 <img src="figs/cluster.png" width="40%">
