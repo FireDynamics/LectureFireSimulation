@@ -32,7 +32,7 @@ In a prescriptive design, fire safety measures are carried out based on general 
 
 However, this design approach has also some flows, like
 
-* descriptive designs are prone for individuality and complexicity
+* descriptive designs are prone for individuality and complexity
 * the application of *deemed-to-satisfy* strategies can be inappropriate, uneconomic or even impossible
 * under certain circumstances nonconformities to applicable regulations and standards are unavoidable
 * restrictions for international harmonisation and standardisation
@@ -43,7 +43,7 @@ An alternative to prescriptive designs is the application of performance based d
 
 **General Approach**
 
-In contrast to the static and general rules of a regulation, the performance based design follows the idea to create an equivalent level of safety by satisfying protection goals. This process allows the engineers to use multiple approaches, which do also include fire simulations, to iteratively design a safety concept. A scematic flow diagram is shown in {numref}`fig-performance-based-design`.
+In contrast to the static and general rules of a regulation, the performance based design follows the idea to create an equivalent level of safety by satisfying protection goals. This process allows the engineers to use multiple approaches, which do also include fire simulations, to iteratively design a safety concept. A schematic flow diagram is shown in {numref}`fig-performance-based-design`.
 
 :::{figure-md} fig-performance-based-design
 
