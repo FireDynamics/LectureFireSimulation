@@ -1,15 +1,45 @@
+/* rotate images */
 .rotate90 {
     -webkit-transform: rotate(90deg);
     -moz-transform: rotate(90deg);
     -o-transform: rotate(90deg);
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
+    
+    /* this needs fixing */
     margin-top: -15%;
     margin-bottom: -15%;
 }
 
+/* center iframes, e.g. embeded YT videos */
 iframe {
     display: block;
     border-style:none;
     margin: 0 auto;
 }
+
+p {
+  text-align: justify;
+}
+
+/* center tables */
+table {
+    display: table !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+.table {
+    width: auto !important;
+}
+
+/* div.cell_output {
+    display: table-cell;
+    text-align: center !important;
+    vertical-align: middle !important;
+} */
+
+/* .cell_output {
+    display: table-cell;
+    text-align: center !important;
+    vertical-align: middle !important;
+} */

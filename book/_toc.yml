@@ -53,3 +53,8 @@
       sections:
         - file: content/tools/02_hpc/01_linux
         - file: content/tools/02_hpc/02_hpc
+
+    - file: content/tools/03_analysis/00_overview
+      sections:
+        - file: content/tools/03_analysis/01_python
+
