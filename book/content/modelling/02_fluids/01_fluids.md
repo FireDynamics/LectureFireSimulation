@@ -339,7 +339,7 @@ $$
 \mf \Delta(\rho) = \nabla^2\rho \\
 \mf grad(\rho) = \nabla\rho \\
 \mf div(\vv) = \nabla\cdot\vv \\
-\mf srot(\vv) = \nabla\times\vv
+\mf rot(\vv) = \nabla\times\vv
 $$
 
 The **convective derivative** combines both operators. It represents the total change of a value due to local intrinsic changes and due to advection. The change in a scalar value $\mf \phi(x,y,z,t)$ may therefore be written as
