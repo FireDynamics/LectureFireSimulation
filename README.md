@@ -36,6 +36,13 @@ jupyterlab
 cd book
 jupyter-book build .
 ```
+Note: Some notebooks are capable to turn the output of matplotlib figures on and off based on the environment variable JB_NOSHOW. It should be set (to any value) to prevent the rendering of dublicate figures, e.g.:
+
+```
+cd book
+JB_NOSHOW=1 jupyter-book build .
+```
+
 8. If the build is sucessful, the location of the build book is stated. You can open it with a browser.
 
 ## Data Repository
