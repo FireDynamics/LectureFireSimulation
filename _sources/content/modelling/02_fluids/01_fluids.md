@@ -239,10 +239,9 @@ This number is a classical example for scaling. Flow phenomena having the same R
 <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Reynoldsflugrpd.png" width="60%">
 
 Velocity and Reynolds numbers for some flying objects (in German). Soruce: [Wikkimedia Commons](https://de.wikipedia.org/wiki/Reynolds-Zahl#/media/Datei:Reynoldsflugrpd.png).
-
-(Staub:Dust, Insekt:Insect, Modellflugzeug/Vogel:Aeroplane model/Bird, Windrad:Windmill, Drachenflieger:Hang glider, Flugzeug:Aeroplane, Luftschiff:Airship)
 :::
 
+(Staub:Dust, Insekt:Insect, Modellflugzeug/Vogel:Aeroplane model/Bird, Windrad:Windmill, Drachenflieger:Hang glider, Flugzeug:Aeroplane, Luftschiff:Airship)
 
 ## Fluid Equations
 

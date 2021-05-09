@@ -391,10 +391,10 @@
 <h1><span class="section-number">2.2. </span>Computational Fluid Dynamics<a class="headerlink" href="#computational-fluid-dynamics" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>The very general approach to numericaly solve a set of coupled PDEs is outlined in <a class="reference internal" href="#fig-cfd-overview"><span class="std std-numref">Fig. 2.10</span></a>. In case of fluid dynamics, these are the eqauations introduced earlier and numerical solution of those is called computational fluid dynmics (CFD).</p>
+<p>The very general approach to numericaly solve a set of coupled PDEs is outlined in <a class="reference internal" href="#fig-cfd-overview"><span class="std std-numref">Fig. 2.11</span></a>. In case of fluid dynamics, these are the eqauations introduced earlier and numerical solution of those is called computational fluid dynmics (CFD).</p>
 <div class="figure align-default" id="fig-cfd-overview">
 <a class="reference internal image-reference" href="../../../_images/numerical_solution_overview.svg"><img alt="../../../_images/numerical_solution_overview.svg" src="../../../_images/numerical_solution_overview.svg" width="100%" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.10 </span><span class="caption-text">Overview of the general approach in computational fluid dynamics.</span><a class="headerlink" href="#fig-cfd-overview" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.11 </span><span class="caption-text">Overview of the general approach in computational fluid dynamics.</span><a class="headerlink" href="#fig-cfd-overview" title="Permalink to this image">¶</a></p>
 </div>
 <p>The main aspect in solving PDEs is to approximate the involved derivatives. This approximation is carried out in a discretised domain and leads to a set of algebraic equations, eventually a system of linear equations. There exist multiple approximation approaches with different specialisations and properties, where these three are the most prominent ones:</p>
 <ul class="simple">
@@ -566,33 +566,33 @@
 </div>
 <p>The following figures illustrate the accoring Taylor approximations for up to <span class="math notranslate nohighlight">\(\mf n=3\)</span>.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="9f03d62c-dca0-4817-90cf-306c36d14081" name="5af0f324-54e5-4d47-a60e-cfd67466c0e1" type="radio">
-</input><label class="tabbed-label" for="9f03d62c-dca0-4817-90cf-306c36d14081">
+<input checked="checked" id="4480849f-a58f-4734-b8fc-da71e1c7f78f" name="ffdc3095-ae6b-4a4d-b898-2d5a5509dc70" type="radio">
+</input><label class="tabbed-label" for="4480849f-a58f-4734-b8fc-da71e1c7f78f">
 f(x)</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_fnk.svg"><img alt="../../../_images/taylor_fnk.svg" src="../../../_images/taylor_fnk.svg" width="90%" /></a>
 </div>
-<input id="5ba3d53d-e902-49b5-a5b4-8387876b20cf" name="5af0f324-54e5-4d47-a60e-cfd67466c0e1" type="radio">
-</input><label class="tabbed-label" for="5ba3d53d-e902-49b5-a5b4-8387876b20cf">
+<input id="ace684a4-c486-4625-be6c-13072d2ea920" name="ffdc3095-ae6b-4a4d-b898-2d5a5509dc70" type="radio">
+</input><label class="tabbed-label" for="ace684a4-c486-4625-be6c-13072d2ea920">
 n=0</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_ts0.svg"><img alt="../../../_images/taylor_ts0.svg" src="../../../_images/taylor_ts0.svg" width="90%" /></a>
 </div>
-<input id="45eabece-c938-42eb-bdf4-a95612f2492a" name="5af0f324-54e5-4d47-a60e-cfd67466c0e1" type="radio">
-</input><label class="tabbed-label" for="45eabece-c938-42eb-bdf4-a95612f2492a">
+<input id="65e950de-f46b-40a2-82bc-8de3d61ab13d" name="ffdc3095-ae6b-4a4d-b898-2d5a5509dc70" type="radio">
+</input><label class="tabbed-label" for="65e950de-f46b-40a2-82bc-8de3d61ab13d">
 n=1</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_ts1.svg"><img alt="../../../_images/taylor_ts1.svg" src="../../../_images/taylor_ts1.svg" width="90%" /></a>
 </div>
-<input id="eae32303-d3af-4bb0-a989-f490c76a245d" name="5af0f324-54e5-4d47-a60e-cfd67466c0e1" type="radio">
-</input><label class="tabbed-label" for="eae32303-d3af-4bb0-a989-f490c76a245d">
+<input id="c871de0b-3399-4f82-b37d-8b26ca819754" name="ffdc3095-ae6b-4a4d-b898-2d5a5509dc70" type="radio">
+</input><label class="tabbed-label" for="c871de0b-3399-4f82-b37d-8b26ca819754">
 n=2</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_ts2.svg"><img alt="../../../_images/taylor_ts2.svg" src="../../../_images/taylor_ts2.svg" width="90%" /></a>
 </div>
-<input id="246697e1-bbd7-49a1-9175-e37682b3def6" name="5af0f324-54e5-4d47-a60e-cfd67466c0e1" type="radio">
-</input><label class="tabbed-label" for="246697e1-bbd7-49a1-9175-e37682b3def6">
+<input id="5288e710-6217-496e-b81c-3b9545d97239" name="ffdc3095-ae6b-4a4d-b898-2d5a5509dc70" type="radio">
+</input><label class="tabbed-label" for="5288e710-6217-496e-b81c-3b9545d97239">
 n=3</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_ts3.svg"><img alt="../../../_images/taylor_ts3.svg" src="../../../_images/taylor_ts3.svg" width="90%" /></a>
 </div>
-<input id="4ffa6fcd-4fd1-42da-afc9-b3940e529b89" name="5af0f324-54e5-4d47-a60e-cfd67466c0e1" type="radio">
-</input><label class="tabbed-label" for="4ffa6fcd-4fd1-42da-afc9-b3940e529b89">
+<input id="68352720-632d-425d-bfaa-24c1cc7e8dda" name="ffdc3095-ae6b-4a4d-b898-2d5a5509dc70" type="radio">
+</input><label class="tabbed-label" for="68352720-632d-425d-bfaa-24c1cc7e8dda">
 n in [0,…,3]</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_all.svg"><img alt="../../../_images/taylor_all.svg" src="../../../_images/taylor_all.svg" width="90%" /></a>
 </div>
@@ -658,7 +658,7 @@ n in [0,…,3]</label><div class="tabbed-content docutils">
 </div>
 <div class="figure align-default" id="fig-fwd-difference">
 <a class="reference internal image-reference" href="../../../_images/derivative_forward.svg"><img alt="../../../_images/derivative_forward.svg" src="../../../_images/derivative_forward.svg" width="90%" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.11 </span><span class="caption-text">First order forward difference formula.</span><a class="headerlink" href="#fig-fwd-difference" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.12 </span><span class="caption-text">First order forward difference formula.</span><a class="headerlink" href="#fig-fwd-difference" title="Permalink to this image">¶</a></p>
 </div>
 <p>While the above formula used the value at <span class="math notranslate nohighlight">\(\mf x_0 + h\)</span> and is thus called a forward differences formula, it is possible to use the function’s value at <span class="math notranslate nohighlight">\(\mf x_0 - h\)</span>. This results in the backward differences formula</p>
 <div class="math notranslate nohighlight">
@@ -705,7 +705,7 @@ n in [0,…,3]</label><div class="tabbed-content docutils">
 </div>
 <div class="figure align-default" id="fig-bck-difference">
 <a class="reference internal image-reference" href="../../../_images/derivative_backward.svg"><img alt="../../../_images/derivative_backward.svg" src="../../../_images/derivative_backward.svg" width="90%" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.12 </span><span class="caption-text">First order backward difference formula.</span><a class="headerlink" href="#fig-bck-difference" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.13 </span><span class="caption-text">First order backward difference formula.</span><a class="headerlink" href="#fig-bck-difference" title="Permalink to this image">¶</a></p>
 </div>
 <p>First order approximations are mostly not sufficient and higher order approximations are needed. Using more values of the function, i.e. the combination of multiple Taylor series, higher order formula may be derived, like for the second order central differences formula.</p>
 <p>The following two Taylor series are used as starting point</p>
@@ -767,7 +767,7 @@ n in [0,…,3]</label><div class="tabbed-content docutils">
 </div>
 <div class="figure align-default" id="fig-cnt-difference">
 <a class="reference internal image-reference" href="../../../_images/derivative_central.svg"><img alt="../../../_images/derivative_central.svg" src="../../../_images/derivative_central.svg" width="90%" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.13 </span><span class="caption-text">Second order central difference formula.</span><a class="headerlink" href="#fig-cnt-difference" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.14 </span><span class="caption-text">Second order central difference formula.</span><a class="headerlink" href="#fig-cnt-difference" title="Permalink to this image">¶</a></p>
 </div>
 <p>All three presented methods are shown in a joint illustration in the next figure.</p>
 <div class="cell tag_hide_cell docutils container">
@@ -803,7 +803,7 @@ n in [0,…,3]</label><div class="tabbed-content docutils">
 </div>
 <div class="figure align-default" id="fig-all-difference">
 <a class="reference internal image-reference" href="../../../_images/derivative_all.svg"><img alt="../../../_images/derivative_all.svg" src="../../../_images/derivative_all.svg" width="90%" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.14 </span><span class="caption-text">Comparison of all above presented difference formula.</span><a class="headerlink" href="#fig-all-difference" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.15 </span><span class="caption-text">Comparison of all above presented difference formula.</span><a class="headerlink" href="#fig-all-difference" title="Permalink to this image">¶</a></p>
 </div>
 <p>It is also possible to derive directional (forward, backwards) formulas second order. The calculus leads to the follwoing formulas</p>
 <div class="math notranslate nohighlight" id="equation-eq-cfd-directional-derivative-snd">
@@ -880,7 +880,7 @@ n in [0,…,3]</label><div class="tabbed-content docutils">
 </div>
 <div class="figure align-default" id="fig-cfd-discretisation">
 <a class="reference internal image-reference" href="../../../_images/discretisation.svg"><img alt="../../../_images/discretisation.svg" src="../../../_images/discretisation.svg" width="90%" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.15 </span><span class="caption-text">One dimensional discretisation.</span><a class="headerlink" href="#fig-cfd-discretisation" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.16 </span><span class="caption-text">One dimensional discretisation.</span><a class="headerlink" href="#fig-cfd-discretisation" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="discrete-derivatives">
@@ -942,7 +942,7 @@ n in [0,…,3]</label><div class="tabbed-content docutils">
 </div>
 <div class="figure align-default" id="fig-cfd-discrete-derivative">
 <a class="reference internal image-reference" href="../../../_images/discrete-derivative.svg"><img alt="../../../_images/discrete-derivative.svg" src="../../../_images/discrete-derivative.svg" width="90%" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.16 </span><span class="caption-text">Approximation of the first derivative.</span><a class="headerlink" href="#fig-cfd-discrete-derivative" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.17 </span><span class="caption-text">Approximation of the first derivative.</span><a class="headerlink" href="#fig-cfd-discrete-derivative" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
