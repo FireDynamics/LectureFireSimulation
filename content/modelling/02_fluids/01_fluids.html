@@ -568,7 +568,7 @@ In general the speed of sound <span class="math notranslate nohighlight">\(\mf c
 </div>
 <p>Relation <a class="reference internal" href="#equation-eq-dyn-vis">(2.4)</a> is the definition of the <em>dynamic viscosity</em> <span class="math notranslate nohighlight">\(\mf \mu\)</span>. Yet, in some cases the <em>kinematic viscosity</em> <span class="math notranslate nohighlight">\(\mf \nu\)</span> (or momentum diffusivity) is a more convenient quantity. It is given by the ratio of the dynamic viscosity and the density</p>
 <div class="math notranslate nohighlight" id="equation-eq-kin-vis">
-<span class="eqno">(2.5)<a class="headerlink" href="#equation-eq-kin-vis" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(2.6)<a class="headerlink" href="#equation-eq-kin-vis" title="Permalink to this equation">¶</a></span>\[
 \mf \nu = \frac{\mu}{\rho} \quad .
 \]</div>
 <p>Fluids for which viscosity does not depend on the stress state are called Newtonian fluids, which is true for all gases. However, there exist also <a class="reference external" href="https://en.wikipedia.org/wiki/Non-Newtonian_fluid">non-Newtonian fluids</a>, like blood, tomato ketchup is corn starch.</p>
@@ -588,9 +588,9 @@ In general the speed of sound <span class="math notranslate nohighlight">\(\mf c
 </ul>
 <p><strong>Mach number</strong></p>
 <p>The Mach number is defined as the relation of a velocity to the speed of sound, i.e.</p>
-<div class="math notranslate nohighlight">
-\[
-\mf Ma = v\cdot c
+<div class="math notranslate nohighlight" id="equation-eq-kin-vis">
+<span class="eqno">(2.6)<a class="headerlink" href="#equation-eq-kin-vis" title="Permalink to this equation">¶</a></span>\[
+\mf Ma = \frac{v}{c}
 \]</div>
 <p>This number characterises the compressibility of a flow:</p>
 <ul class="simple">
@@ -607,10 +607,6 @@ In general the speed of sound <span class="math notranslate nohighlight">\(\mf c
 \]</div>
 <p>Here, <span class="math notranslate nohighlight">\(\mf L\)</span> denotes a characteristic length, in the case of a pipe flow, this would be the pipe diameter. The Reynolds number can be used to distinguish laminar from turbulent flows, i.e. a very high <span class="math notranslate nohighlight">\(\mf Re\)</span> represents turbulent flows. In a pipe flow, the characteristic transition number is about <span class="math notranslate nohighlight">\(\mf Re \approx 4000\)</span>.
 This number is a classical example for scaling. Flow phenomena having the same Reynolds number will behave the same way; this can be shown by normalisation of the flow equations.</p>
-<div class="figure align-default" id="fig-fluid-re-table">
-<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/9/99/Reynoldsflugrpd.png"><img alt="https://upload.wikimedia.org/wikipedia/commons/9/99/Reynoldsflugrpd.png" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Reynoldsflugrpd.png" style="width: 60%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.8 </span><span class="caption-text">Reynolds numbers for some flying objects (in German). Soruce: <a class="reference external" href="https://de.wikipedia.org/wiki/Reynolds-Zahl#/media/Datei:Reynoldsflugrpd.png">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-re-table" title="Permalink to this image">¶</a></p>
-</div>
 </div>
 </div>
 <div class="section" id="fluid-equations">
@@ -709,7 +705,7 @@ This number is a classical example for scaling. Flow phenomena having the same R
 <h3>Continuity Equation<a class="headerlink" href="#continuity-equation" title="Permalink to this headline">¶</a></h3>
 <p>The continuity equation for a single species flow is</p>
 <div class="math notranslate nohighlight" id="equation-eq-fluid-cont">
-<span class="eqno">(2.6)<a class="headerlink" href="#equation-eq-fluid-cont" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(2.7)<a class="headerlink" href="#equation-eq-fluid-cont" title="Permalink to this equation">¶</a></span>\[
 \mf \frac{d\rho}{dt} = \underbrace{-\rho\nabla\cdot\vec{v}}_{A}
 \]</div>
 <ul class="simple">
@@ -717,7 +713,7 @@ This number is a classical example for scaling. Flow phenomena having the same R
 </ul>
 <p>Taking into account the convective derivative, the commonly used formulation may be derived as</p>
 <div class="math notranslate nohighlight" id="equation-eq-fluid-cont-conservative">
-<span class="eqno">(2.7)<a class="headerlink" href="#equation-eq-fluid-cont-conservative" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(2.8)<a class="headerlink" href="#equation-eq-fluid-cont-conservative" title="Permalink to this equation">¶</a></span>\[
 \mf \partial_t \rho = -\nabla\cdot(\rho\vec{v})\quad .
 \]</div>
 </div>
@@ -725,7 +721,7 @@ This number is a classical example for scaling. Flow phenomena having the same R
 <h3>Equation of motion<a class="headerlink" href="#equation-of-motion" title="Permalink to this headline">¶</a></h3>
 <p>Taking into account the conservation of momentum, the following simple form of the equation of motion may be formulated</p>
 <div class="math notranslate nohighlight" id="equation-eq-fluid-momentum">
-<span class="eqno">(2.8)<a class="headerlink" href="#equation-eq-fluid-momentum" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(2.9)<a class="headerlink" href="#equation-eq-fluid-momentum" title="Permalink to this equation">¶</a></span>\[
 \mf \partial_t \rho\vec{v} + \nabla\cdot(\rho\vec{v}\vec{v}) = \underbrace{-\nabla p}_{A} + \underbrace{\mu\nabla^2\vec{v}}_{B} + \underbrace{\vec{f}}_{C}
 \]</div>
 <ul class="simple">
@@ -739,7 +735,7 @@ This number is a classical example for scaling. Flow phenomena having the same R
 <h3>Energy equation<a class="headerlink" href="#energy-equation" title="Permalink to this headline">¶</a></h3>
 <p>The equation for the energy <span class="math notranslate nohighlight">\(E = e + \frac{1}{2}\vv^2\)</span> is given by</p>
 <div class="math notranslate nohighlight" id="equation-eq-fluid-energy">
-<span class="eqno">(2.9)<a class="headerlink" href="#equation-eq-fluid-energy" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(2.10)<a class="headerlink" href="#equation-eq-fluid-energy" title="Permalink to this equation">¶</a></span>\[
 \mf \partial_t (\rho E) + \nabla\cdot(\vec{v}\rho E) = \underbrace{-\nabla\cdot(\vec{v}p)}_{A} + \underbrace{\nabla\cdot(\mu\vec{v}\nabla\vec{v})}_{B} + \underbrace{\nabla\cdot(k\nabla T)}_{C}+ \underbrace{\vec{v}\cdot\vec{f}}_{D}+\underbrace{\dot{Q_s}}_{E}
 \]</div>
 <ul class="simple">
@@ -834,11 +830,11 @@ This number is a classical example for scaling. Flow phenomena having the same R
 </ul>
 <div class="figure align-default" id="fig-fluid-bnd-open">
 <a class="reference internal image-reference" href="../../../_images/boundaries_open_plume.svg"><img alt="../../../_images/boundaries_open_plume.svg" src="../../../_images/boundaries_open_plume.svg" width="60%" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.9 </span><span class="caption-text">Example for a boundary setup for a open plume.</span><a class="headerlink" href="#fig-fluid-bnd-open" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.8 </span><span class="caption-text">Example for a boundary setup for a open plume.</span><a class="headerlink" href="#fig-fluid-bnd-open" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="fig-fluid-bnd-compartment">
 <a class="reference internal image-reference" href="../../../_images/boundaries_compartment.svg"><img alt="../../../_images/boundaries_compartment.svg" src="../../../_images/boundaries_compartment.svg" width="60%" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.10 </span><span class="caption-text">Example for a boundary setup for a simple compartment.</span><a class="headerlink" href="#fig-fluid-bnd-compartment" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.9 </span><span class="caption-text">Example for a boundary setup for a simple compartment.</span><a class="headerlink" href="#fig-fluid-bnd-compartment" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
