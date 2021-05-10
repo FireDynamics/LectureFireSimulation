@@ -33,9 +33,9 @@ Schematics of the effective viscosity in a pipe flow.
 :::
 
 :::{figure-md} fig-turbulence-plume-setup
-<img src="./figs/turbulence-plume-setup.jpg" width="80%">
+<img src="./figs/turbulence-plume-setup.jpg" width="60%">
 
-TODO.
+Experimental setup of a buoyant plume, see {cite}`Meunders:2018` for more details.
 :::
 
 
@@ -63,11 +63,19 @@ TODO.
 
 ## Scales
 
+:::{figure-md} fig-turbulence-energy-cascade
+<img src="./figs/energy-cascade.svg" width="100%">
+
+TODO.
+:::
+
+
 :::{figure-md} fig-turbulence-energy-spectrum
 <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Schematic-illustration-of-the-energy-spectrum-of-turbulent-velocity-cascade.png" width="60%">
 
 Energy spectrum of a turbulent flow. Source: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Schematic-illustration-of-the-energy-spectrum-of-turbulent-velocity-cascade.png).
 :::
+
 
 
 
