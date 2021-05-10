@@ -112,5 +112,46 @@ In fire simulations, two classes of turbulence modelles are common: direct numer
 Overview of the resolved and modelled scales in DNS and LES Simulations.
 :::
 
+DNS does not modell any scales, but rather resolves them all. Thus this model can only be applied if the Kolmogorov scale is numerically resolved.
 
-Further reading: {cite}`Pope:2004`
+The general idea of LES is to formulate equations for spatially filtered quantites. In case of LES this filter is given by
+
+$$
+\mf \langle\phi\rangle = \bar{\phi} = \frac{1}{V}\int_V \phi\ dV 
+$$ (eq-les-filter)
+
+for any field quantity $\mf \phi = \phi(x,y,z,t)$.
+
+For simplicity, the LES equations for the spatially filtered velocity $\mf \langle\vec{v}\rangle$ of an incompressible isothermal flow are given by
+
+$$
+\mf \partial_t(\rho \langle\vec{v}\rangle) + \nabla\cdot(\rho \langle\vec{v}\rangle \langle\vec{v}\rangle) = -\nabla \langle p\rangle + \mu\nabla^2 \langle\vec{v}\rangle - \nabla\cdot(\underbrace{\langle\rho\vec{v}\vec{v}\rangle - \rho \langle\vec{v}\rangle \langle\vec{v}\rangle}_{\tau^r})
+$$
+
+```{admonition} Task
+Derive the above formula by applying the filter {eq}`eq-les-filter` to the equation of motion {eq}`eq-fluid-momentum` with $\mf \langle\rho\rangle = \rho$.
+```
+
+The residual stress tensor $\mf \tau^r$ must be modelled to represent the scale interaction. Here, the Boussinesq hypothesis is applied:
+
+$$
+\mf \tau^r - \frac{1}{3}tr(\tau^r)I = -2\mu_t \langle \mathbf{S}\rangle
+$$
+
+Here $\mf\langle \textbf{S}\rangle$ is the filtered stress tensor and $\mu_t$ the turbulent velocity, which needs to be determined.
+
+The Smagorinsky-Lilly model is based on the assumption, that the turbulent viscosity below the filter width $\Delta$ may be described with
+
+$$
+\mf \mu_t = \langle\rho\rangle C_S^2\Delta^2\|\langle\textbf{S}\rangle\|
+$$
+
+Here, $\mf C_S$ is the Smagorinsky constant. The choice of $\mf C_S$ may have a significant impact on the simulation results. A commonly used value is $\mf C_S=0.2$, which does not depend on position or time. Thus the LES equations for $\mf \langle\vec{v}\rangle$ are identical to the Navier-Stokes equations for $\mf \vv$, but with an effective viscosity of
+
+$$
+\mf \mu_{eff} = \mu_{mol} + \mu_t
+$$
+
+Beside this static model, there exist also a dynamic model, where the value of $\mf C_S$ depends on flow properties.
+
+Further interesting LES reading: {cite}`Pope:2004`.

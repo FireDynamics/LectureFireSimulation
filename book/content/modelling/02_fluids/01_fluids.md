@@ -213,7 +213,7 @@ Many flow phenomena and types may be characterised by dimensionless numbers. It 
 The Mach number is defined as the relation of a velocity to the speed of sound, i.e.
 
 $$
-\mf Ma = v\cdot c
+\mf Ma = \frac{v}{c}
 $$
 
 This number characterises the compressibility of a flow: 
