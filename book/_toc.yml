@@ -30,7 +30,7 @@
       sections:
         - file: content/modelling/02_fluids/01_fluids
         - file: content/modelling/02_fluids/02_cfd
-#         - file: content/modelling/02_fluids/03_turbulence
+        - file: content/modelling/02_fluids/03_turbulence
 
 #     - file: content/modelling/03_compartments/00_overview
 #       sections:
