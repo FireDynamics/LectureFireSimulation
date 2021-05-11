@@ -214,7 +214,7 @@ The Mach number is defined as the relation of a velocity to the speed of sound, 
 
 $$
 \mf Ma = \frac{v}{c}
-$$ (eq-kin-vis)
+$$ (eq-mach-number)
 
 This number characterises the compressibility of a flow: 
 * $\mf Ma \rightarrow 0$: fully incompressible

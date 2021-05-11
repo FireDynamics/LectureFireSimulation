@@ -1,0 +1,502 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.3. Turbulence &#8212; Fire Simulation Lecture</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}"}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/modelling/02_fluids/03_turbulence.html" />
+    <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="HPC" href="../../tools/02_hpc/00_overview.html" />
+    <link rel="prev" title="2.2. Computational Fluid Dynamics" href="02_cfd.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      <img src="../../../_static/cce_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Fire Simulation Lecture</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../overview/01_overview.html">
+   Overview
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../overview/02_team.html">
+   Team Fire Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../overview/03_references.html">
+   References
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Modelling
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01_general/00_overview.html">
+   1. Modelling Fires
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_general/01_processes.html">
+     1.1. Physical and Chemical Processes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_general/02_fse.html">
+     1.2. Fire Safety Engineering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_general/03_approaches.html">
+     1.3. Modelling Approaches
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_overview.html">
+   2. Fluid Dynamics
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_fluids.html">
+     2.1. Fluids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_cfd.html">
+     2.2. Computational Fluid Dynamics
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     2.3. Turbulence
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tools
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tools/02_hpc/00_overview.html">
+   HPC
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/02_hpc/01_linux.html">
+     Linux
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/02_hpc/02_hpc.html">
+     High Performace Computing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tools/03_analysis/00_overview.html">
+   Data Analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/03_analysis/01_python.html">
+     Python
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/modelling/02_fluids/03_turbulence.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/FireDynamics/LectureFireSimulation"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/modelling/02_fluids/03_turbulence.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/modelling/02_fluids/03_turbulence.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#characterisation">
+   Characterisation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#scales">
+   Scales
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#modelling">
+   Modelling
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="turbulence">
+<h1><span class="section-number">2.3. </span>Turbulence<a class="headerlink" href="#turbulence" title="Permalink to this headline">¶</a></h1>
+<p>Turbulence is one of the major scientific challenges. The mathematical description and experimental data related to fluid dynamics is known and available vor over one hundred years.</p>
+<p>“Turbulence is the most important unsolved problem of classical physics.”
+— Richard Feynman</p>
+<p>”When I meet God, I am going to ask him two questions: Why relativity, and why turbulence?
+I really believe he will have an answer for the first.”
+— Werner Heisenberg</p>
+<p>Understanding the nature of turbulence is one of the <a class="reference external" href="https://www.claymath.org/millennium-problems/navier%E2%80%93stokes-equation">Millennium Problems</a>.</p>
+<div class="section" id="characterisation">
+<h2>Characterisation<a class="headerlink" href="#characterisation" title="Permalink to this headline">¶</a></h2>
+<p>Among the first scientific experiments to characterise and analyse turbulent flows, is the work of <a class="reference external" href="https://en.wikipedia.org/wiki/Osborne_Reynolds">Osborne Reynolds</a>. He studied the conditions under which a flow undergoes the transition from a ordered to a chaotic state. One of these studies is published in <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id4"><span>Rey83</span></a>]</span>, see <a class="reference internal" href="#fig-turbulence-reynolds-experiment"><span class="std std-numref">Fig. 2.18</span></a> and <a class="reference internal" href="#fig-turbulence-reynolds-results"><span class="std std-numref">Fig. 2.19</span></a>.</p>
+<div class="figure align-default" id="fig-turbulence-reynolds-experiment">
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/f/f3/Reynolds_fluid_turbulence_experiment_1883.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/f/f3/Reynolds_fluid_turbulence_experiment_1883.jpg" src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Reynolds_fluid_turbulence_experiment_1883.jpg" style="width: 40%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.18 </span><span class="caption-text">Reynolds’ experiment in 1883. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Reynolds_fluid_turbulence_experiment_1883.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-turbulence-reynolds-experiment" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="fig-turbulence-reynolds-results">
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/1/12/Reynolds_observations_turbulence_1883.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/1/12/Reynolds_observations_turbulence_1883.svg" src="https://upload.wikimedia.org/wikipedia/commons/1/12/Reynolds_observations_turbulence_1883.svg" width="60%" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.19 </span><span class="caption-text">Observations of the flow in Reynolds’ experiment, see also original article <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id4"><span>Rey83</span></a>]</span>. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Reynolds_observations_turbulence_1883.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-turbulence-reynolds-results" title="Permalink to this image">¶</a></p>
+</div>
+<p>With these experiments the flow transition as a function of the Reynolds number can be investigated. An other example for the determination of the transition from a laminar to a turbulent state for a bouyant plume is shown in <a class="reference internal" href="#fig-turbulence-plume-setup"><span class="std std-numref">Fig. 2.20</span></a>. The full experimental setup and results are given in <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id3"><span>MABH18</span></a>]</span>.</p>
+<div class="figure align-default" id="fig-turbulence-plume-setup">
+<a class="reference internal image-reference" href="../../../_images/turbulence-plume-setup.jpg"><img alt="../../../_images/turbulence-plume-setup.jpg" src="../../../_images/turbulence-plume-setup.jpg" style="width: 60%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.20 </span><span class="caption-text">Experimental setup of a buoyant plume, see <span id="id4">[<a class="reference internal" href="../../overview/03_references.html#id3"><span>MABH18</span></a>]</span> for more details. Here, the heating power of the copper block determines the flow velocity.</span><a class="headerlink" href="#fig-turbulence-plume-setup" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="fig-turbulence-plume-quiver">
+<a class="reference internal image-reference" href="../../../_images/turbulence-plume-velocity_quiver.png"><img alt="../../../_images/turbulence-plume-velocity_quiver.png" src="../../../_images/turbulence-plume-velocity_quiver.png" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.21 </span><span class="caption-text">Example of instanteneous velocity fields for different heating rates. The velocity field is captured with a <a class="reference external" href="https://en.wikipedia.org/wiki/Particle_image_velocimetry">particle imaging velocimetry (PIV)</a> technique.</span><a class="headerlink" href="#fig-turbulence-plume-quiver" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="fig-turbulence-plume-time-series">
+<a class="reference internal image-reference" href="../../../_images/turbulence-plume-velocity_time_series.png"><img alt="../../../_images/turbulence-plume-velocity_time_series.png" src="../../../_images/turbulence-plume-velocity_time_series.png" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.22 </span><span class="caption-text">Time series of velocity components at selected locations (blue circles in <a class="reference internal" href="#fig-turbulence-plume-quiver"><span class="std std-numref">Fig. 2.21</span></a>).</span><a class="headerlink" href="#fig-turbulence-plume-time-series" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="fig-turbulence-plume-fluctuations">
+<a class="reference internal image-reference" href="../../../_images/turbulence-plume-velocity_fluctuations.png"><img alt="../../../_images/turbulence-plume-velocity_fluctuations.png" src="../../../_images/turbulence-plume-velocity_fluctuations.png" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.23 </span><span class="caption-text">Statistics of velocity fluctuations.</span><a class="headerlink" href="#fig-turbulence-plume-fluctuations" title="Permalink to this image">¶</a></p>
+</div>
+<p>The canonical setup for the transition form a laminar to a turbulent flow is a pipe flow, as shown in <a class="reference internal" href="#fig-turbulence-pipe-setup"><span class="std std-numref">Fig. 2.24</span></a>. Starting with a uniform flow at the inlet, the flow at the boudaries is deaccelarated and an acccording flow pattern develops. Depending on the Reynolds number, the mean velocity profiles differ significantly. While in the laminar case a parabolic profile develops, a flattened profile is characteristic for a turbulent flow, see <a class="reference internal" href="#fig-turbulence-pipe-velocity"><span class="std std-numref">Fig. 2.25</span></a>. An other observation is that the effective viscosity differs in both cases. While in the laminar case the observed value is the material property and thus constant, it shows a higher and dynamic value in the turbulent case, see <a class="reference internal" href="#fig-turbulence-pipe-viscosity"><span class="std std-numref">Fig. 2.26</span></a>.</p>
+<div class="figure align-default" id="fig-turbulence-pipe-setup">
+<a class="reference internal image-reference" href="../../../_images/turbulence-pipe-sketch-labeled.svg"><img alt="../../../_images/turbulence-pipe-sketch-labeled.svg" src="../../../_images/turbulence-pipe-sketch-labeled.svg" width="80%" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.24 </span><span class="caption-text">Schematics of a pipe flow. The arrows indicate the time averaged velocity.</span><a class="headerlink" href="#fig-turbulence-pipe-setup" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="fig-turbulence-pipe-velocity">
+<a class="reference internal image-reference" href="../../../_images/turbulence-pipe-velocity.svg"><img alt="../../../_images/turbulence-pipe-velocity.svg" src="../../../_images/turbulence-pipe-velocity.svg" width="80%" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.25 </span><span class="caption-text">Schematics mean flow in a pipe.</span><a class="headerlink" href="#fig-turbulence-pipe-velocity" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="fig-turbulence-pipe-viscosity">
+<a class="reference internal image-reference" href="../../../_images/turbulence-pipe-viscosity.svg"><img alt="../../../_images/turbulence-pipe-viscosity.svg" src="../../../_images/turbulence-pipe-viscosity.svg" width="80%" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.26 </span><span class="caption-text">Schematics of the effective viscosity in a pipe flow.</span><a class="headerlink" href="#fig-turbulence-pipe-viscosity" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="scales">
+<h2>Scales<a class="headerlink" href="#scales" title="Permalink to this headline">¶</a></h2>
+<p>Turbulence is dominated by the interaction of large and small scales, which are very different:</p>
+<ul class="simple">
+<li><p>production of kinetic energy, e.g. a fire at a scale of <span class="math notranslate nohighlight">\(\mf 1~m\)</span></p></li>
+<li><p>dissipation of kinetic energy into heat, in air with a velocity of <span class="math notranslate nohighlight">\(\mf 1~m/s\)</span> the dissipation scale (<a class="reference external" href="https://en.wikipedia.org/wiki/Kolmogorov_microscales">Kolmogorov scale</a>) is about <span class="math notranslate nohighlight">\(\mf 25~\mu m\)</span></p></li>
+</ul>
+<div class="figure align-default" id="fig-turbulence-energy-cascade">
+<a class="reference internal image-reference" href="../../../_images/energy-cascade.svg"><img alt="../../../_images/energy-cascade.svg" src="../../../_images/energy-cascade.svg" width="100%" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.27 </span><span class="caption-text">Scales involved in a turbulent flow.</span><a class="headerlink" href="#fig-turbulence-energy-cascade" title="Permalink to this image">¶</a></p>
+</div>
+<p>The integral scale, at which the flow structures break into smaller structures, connects both above scales.</p>
+<p>To model turbulence, the impact of small scales on the large scales must be approximated. The main two approaches are based on either a spacial or a temporal means.</p>
+<!-- :::{figure-md} fig-turbulence-energy-spectrum
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Schematic-illustration-of-the-energy-spectrum-of-turbulent-velocity-cascade.png" width="60%">
+
+Energy spectrum of a turbulent flow. Source: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Schematic-illustration-of-the-energy-spectrum-of-turbulent-velocity-cascade.png).
+::: -->
+</div>
+<div class="section" id="modelling">
+<h2>Modelling<a class="headerlink" href="#modelling" title="Permalink to this headline">¶</a></h2>
+<p>In fire simulations, two classes of turbulence modelles are common: direct numerical simulatons (DNS) and large eddy simulations (LES). Although for practical applications only the LES class is suitable.</p>
+<div class="figure align-default" id="fig-turbulence-modelling-overview">
+<a class="reference internal image-reference" href="../../../_images/turbulence-modelling-overview.svg"><img alt="../../../_images/turbulence-modelling-overview.svg" src="../../../_images/turbulence-modelling-overview.svg" width="80%" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.28 </span><span class="caption-text">Overview of the resolved and modelled scales in DNS and LES Simulations.</span><a class="headerlink" href="#fig-turbulence-modelling-overview" title="Permalink to this image">¶</a></p>
+</div>
+<p>DNS does not modell any scales, but rather resolves them all. Thus this model can only be applied if the Kolmogorov scale is numerically resolved.</p>
+<p>The general idea of LES is to formulate equations for spatially filtered quantites. In case of LES this filter is given by</p>
+<div class="math notranslate nohighlight" id="equation-eq-les-filter">
+<span class="eqno">(2.19)<a class="headerlink" href="#equation-eq-les-filter" title="Permalink to this equation">¶</a></span>\[
+\mf \langle\phi\rangle = \bar{\phi} = \frac{1}{V}\int_V \phi\ dV 
+\]</div>
+<p>for any field quantity <span class="math notranslate nohighlight">\(\mf \phi = \phi(x,y,z,t)\)</span>.</p>
+<p>For simplicity, the LES equations for the spatially filtered velocity <span class="math notranslate nohighlight">\(\mf \langle\vec{v}\rangle\)</span> of an incompressible isothermal flow are given by</p>
+<div class="math notranslate nohighlight">
+\[
+\mf \partial_t(\rho \langle\vec{v}\rangle) + \nabla\cdot(\rho \langle\vec{v}\rangle \langle\vec{v}\rangle) = -\nabla \langle p\rangle + \mu\nabla^2 \langle\vec{v}\rangle - \nabla\cdot(\underbrace{\langle\rho\vec{v}\vec{v}\rangle - \rho \langle\vec{v}\rangle \langle\vec{v}\rangle}_{\tau^r})
+\]</div>
+<div class="admonition-task admonition">
+<p class="admonition-title">Task</p>
+<p>Derive the above formula by applying the filter <a class="reference internal" href="#equation-eq-les-filter">(2.19)</a> to the equation of motion <a class="reference internal" href="01_fluids.html#equation-eq-fluid-momentum">(2.9)</a> with <span class="math notranslate nohighlight">\(\mf \langle\rho\rangle = \rho\)</span>.</p>
+</div>
+<p>The residual stress tensor <span class="math notranslate nohighlight">\(\mf \tau^r\)</span> must be modelled to represent the scale interaction. Here, the Boussinesq hypothesis is applied:</p>
+<div class="math notranslate nohighlight">
+\[
+\mf \tau^r - \frac{1}{3}tr(\tau^r)I = -2\mu_t \langle \mathbf{S}\rangle
+\]</div>
+<p>Here <span class="math notranslate nohighlight">\(\mf\langle \textbf{S}\rangle\)</span> is the filtered stress tensor and <span class="math notranslate nohighlight">\(\mu_t\)</span> the turbulent velocity, which needs to be determined.</p>
+<p>The Smagorinsky-Lilly model is based on the assumption, that the turbulent viscosity below the filter width <span class="math notranslate nohighlight">\(\Delta\)</span> may be described with</p>
+<div class="math notranslate nohighlight">
+\[
+\mf \mu_t = \langle\rho\rangle C_S^2\Delta^2\|\langle\textbf{S}\rangle\|
+\]</div>
+<p>Here, <span class="math notranslate nohighlight">\(\mf C_S\)</span> is the Smagorinsky constant. The choice of <span class="math notranslate nohighlight">\(\mf C_S\)</span> may have a significant impact on the simulation results. A commonly used value is <span class="math notranslate nohighlight">\(\mf C_S=0.2\)</span>, which does not depend on position or time. Thus the LES equations for <span class="math notranslate nohighlight">\(\mf \langle\vec{v}\rangle\)</span> are identical to the Navier-Stokes equations for <span class="math notranslate nohighlight">\(\mf \vv\)</span>, but with an effective viscosity of</p>
+<div class="math notranslate nohighlight">
+\[
+\mf \mu_{eff} = \mu_{mol} + \mu_t
+\]</div>
+<p>Beside this static model, there exist also a dynamic model, where the value of <span class="math notranslate nohighlight">\(\mf C_S\)</span> depends on flow properties.</p>
+<p>Further interesting LES reading: <span id="id5">[<a class="reference internal" href="../../overview/03_references.html#id2"><span>Pop04</span></a>]</span>.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/modelling/02_fluids"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="02_cfd.html" title="previous page"><span class="section-number">2.2. </span>Computational Fluid Dynamics</a>
+    <a class='right-next' id="next-link" href="../../tools/02_hpc/00_overview.html" title="next page">HPC</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          <div class="extra_footer">
+            <p>
+<img src='https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg' height='31'/>
+| By Team Fire | Contacts and Infos: <a href='https://cce.uni-wuppertal.de/en.html'>CCE@BUW</a> and <a href='https://www.fz-juelich.de/ias/ias-7/EN/Research/Fire_Dynamics/_node.html'>IAS-7@FZJ</a>
+</br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
