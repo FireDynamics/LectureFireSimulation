@@ -32,11 +32,19 @@
         - file: content/modelling/02_fluids/02_cfd
         - file: content/modelling/02_fluids/03_turbulence
 
-#     - file: content/modelling/03_compartments/00_overview
-#       sections:
-#         - file: content/modelling/03_compartments/01_fundamentals
-#         - file: content/modelling/03_compartments/02_design_fire
-#         - file: content/modelling/03_compartments/03_example
+    - file: content/modelling/03_compartments/00_overview
+      sections:
+        - file: content/modelling/03_compartments/01_fundamentals
+        - file: content/modelling/03_compartments/02_design_fire
+        - file: content/modelling/03_compartments/03_example
+
+    - file: content/modelling/07_particles/00_overview
+      sections:
+        - file: content/modelling/07_particles/01_basics
+        - file: content/modelling/07_particles/02_modelling
+        - file: content/modelling/07_particles/03_validation
+        - file: content/modelling/07_particles/04_exercise
+
 
 ####################
 # TOOLS 
@@ -44,17 +52,17 @@
 - part: Tools
   numbered: false
   chapters:
-#     - file: content/tools/01_fds_smv/00_overview
-#       sections:
-#         - file: content/tools/01_fds_smv/01_fds
-#         - file: content/tools/01_fds_smv/02_smv
+    - file: content/tools/01_fds_smv/00_overview
+      sections:
+        - file: content/tools/01_fds_smv/01_fds
+        - file: content/tools/01_fds_smv/02_smv
         
     - file: content/tools/02_hpc/00_overview
       sections:
         - file: content/tools/02_hpc/01_linux
         - file: content/tools/02_hpc/02_hpc
+        - file: content/tools/02_hpc/03_parallel_fds
 
     - file: content/tools/03_analysis/00_overview
       sections:
         - file: content/tools/03_analysis/01_python
-
