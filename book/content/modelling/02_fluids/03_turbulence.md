@@ -1,6 +1,6 @@
 # Turbulence
 
-Turbulence is one of the major scientific challenges. The mathematical description and experimental data related to fluid dynamics is known and available vor over one hundred years.
+Turbulence is one of the major scientific challenges. The mathematical description and experimental data related to fluid dynamics are known and available for over one hundred years.
 
 “Turbulence is the most important unsolved problem of classical physics.”
 — Richard Feynman
@@ -53,7 +53,7 @@ Time series of velocity components at selected locations (blue circles in {numre
 Statistics of velocity fluctuations.
 :::
 
-The canonical setup for the transition form a laminar to a turbulent flow is a pipe flow, as shown in {numref}`fig-turbulence-pipe-setup`. Starting with a uniform flow at the inlet, the flow at the boudaries is deaccelarated and an acccording flow pattern develops. Depending on the Reynolds number, the mean velocity profiles differ significantly. While in the laminar case a parabolic profile develops, a flattened profile is characteristic for a turbulent flow, see {numref}`fig-turbulence-pipe-velocity`. An other observation is that the effective viscosity differs in both cases. While in the laminar case the observed value is the material property and thus constant, it shows a higher and dynamic value in the turbulent case, see {numref}`fig-turbulence-pipe-viscosity`. 
+The canonical setup for the transition form a laminar to a turbulent flow is a pipe flow, as shown in {numref}`fig-turbulence-pipe-setup`. Starting with a uniform flow at the inlet, the flow at the boudaries is deaccelerated and an acccording flow pattern develops. Depending on the Reynolds number, the mean velocity profiles differ significantly. While in the laminar case a parabolic profile develops, a flattened profile is characteristic for a turbulent flow, see {numref}`fig-turbulence-pipe-velocity`. An other observation is that the effective viscosity differs in both cases. While in the laminar case the observed value is the material property and thus constant, it shows a higher and dynamic value in the turbulent case, see {numref}`fig-turbulence-pipe-viscosity`. 
 
 :::{figure-md} fig-turbulence-pipe-setup
 <img src="./figs/turbulence-pipe-sketch-labeled.svg" width="80%">
@@ -92,7 +92,7 @@ Scales involved in a turbulent flow.
 
 The integral scale, at which the flow structures break into smaller structures, connects both above scales. 
 
-To model turbulence, the impact of small scales on the large scales must be approximated. The main two approaches are based on either a spacial or a temporal means.
+To model turbulence, the impact of small scales on the large scales must be approximated. The main two approaches are based on either a spatial or a temporal means.
 
 
 <!-- :::{figure-md} fig-turbulence-energy-spectrum
@@ -104,7 +104,7 @@ Energy spectrum of a turbulent flow. Source: [Wikimedia Commons](https://commons
 
 ## Modelling
 
-In fire simulations, two classes of turbulence modelles are common: direct numerical simulatons (DNS) and large eddy simulations (LES). Although for practical applications only the LES class is suitable. 
+In fire simulations, two classes of turbulence models are common: direct numerical simulatons (DNS) and large eddy simulations (LES). Although for practical applications only the LES class is suitable. 
 
 :::{figure-md} fig-turbulence-modelling overview
 <img src="./figs/turbulence-modelling-overview.svg" width="80%">
@@ -112,7 +112,7 @@ In fire simulations, two classes of turbulence modelles are common: direct numer
 Overview of the resolved and modelled scales in DNS and LES Simulations.
 :::
 
-DNS does not modell any scales, but rather resolves them all. Thus this model can only be applied if the Kolmogorov scale is numerically resolved.
+DNS does not model any scales, but rather resolves them all. Thus this model can only be applied if the Kolmogorov scale is numerically resolved.
 
 The general idea of LES is to formulate equations for spatially filtered quantites. In case of LES this filter is given by
 
