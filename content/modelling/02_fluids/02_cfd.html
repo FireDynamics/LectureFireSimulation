@@ -396,7 +396,7 @@
 <h1><span class="section-number">2.2. </span>Computational Fluid Dynamics<a class="headerlink" href="#computational-fluid-dynamics" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
-<p>The very general approach to numericaly solve a set of coupled PDEs is outlined in <a class="reference internal" href="#fig-cfd-overview"><span class="std std-numref">Fig. 2.11</span></a>. In case of fluid dynamics, these are the eqauations introduced earlier and numerical solution of those is called computational fluid dynmics (CFD).</p>
+<p>The very general approach to numericaly solve a set of coupled PDEs is outlined in <a class="reference internal" href="#fig-cfd-overview"><span class="std std-numref">Fig. 2.11</span></a>. In case of fluid dynamics, these are the equations introduced earlier. The numerical solution of those is called computational fluid dynamics (CFD).</p>
 <div class="figure align-default" id="fig-cfd-overview">
 <a class="reference internal image-reference" href="../../../_images/numerical_solution_overview.svg"><img alt="../../../_images/numerical_solution_overview.svg" src="../../../_images/numerical_solution_overview.svg" width="100%" /></a>
 <p class="caption"><span class="caption-number">Fig. 2.11 </span><span class="caption-text">Overview of the general approach in computational fluid dynamics.</span><a class="headerlink" href="#fig-cfd-overview" title="Permalink to this image">¶</a></p>
@@ -413,7 +413,7 @@
 <h2>Approximation of Derivatives<a class="headerlink" href="#approximation-of-derivatives" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="taylor-series">
 <h3>Taylor Series<a class="headerlink" href="#taylor-series" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Taylor_series">Taylor series</a> can approximate any <span class="math notranslate nohighlight">\(\mf C^\infty\)</span> function at an expansion point <span class="math notranslate nohighlight">\(\mf x_0\)</span>. The appoximation is given in terms of <span class="math notranslate nohighlight">\(\mf h\)</span>, being the coordinate variable in the vicinity of <span class="math notranslate nohighlight">\(\mf x_0\)</span>.</p>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Taylor_series">Taylor series</a> can approximate any <span class="math notranslate nohighlight">\(\mf C^\infty\)</span> function at an expansion point <span class="math notranslate nohighlight">\(\mf x_0\)</span>. The approximation is given in terms of <span class="math notranslate nohighlight">\(\mf h\)</span>, being the coordinate variable in the vicinity of <span class="math notranslate nohighlight">\(\mf x_0\)</span>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-taylor-series">
 <span class="eqno">(2.11)<a class="headerlink" href="#equation-eq-taylor-series" title="Permalink to this equation">¶</a></span>\[\begin{split}
 \begin{align}
@@ -571,33 +571,33 @@
 </div>
 <p>The following figures illustrate the according Taylor approximations for up to <span class="math notranslate nohighlight">\(\mf n=3\)</span>.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="961146b5-32aa-4acd-9e07-b1a5ecaac229" name="da7ce50a-66c8-4eb7-8319-76bb276ebc68" type="radio">
-</input><label class="tabbed-label" for="961146b5-32aa-4acd-9e07-b1a5ecaac229">
+<input checked="checked" id="44b55525-6852-4ac4-b7b1-0028c611ec29" name="72016688-072e-4035-8da9-750b5d551757" type="radio">
+</input><label class="tabbed-label" for="44b55525-6852-4ac4-b7b1-0028c611ec29">
 f(x)</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_fnk.svg"><img alt="../../../_images/taylor_fnk.svg" src="../../../_images/taylor_fnk.svg" width="90%" /></a>
 </div>
-<input id="83538e88-65a0-49f3-afcd-31508daa93fa" name="da7ce50a-66c8-4eb7-8319-76bb276ebc68" type="radio">
-</input><label class="tabbed-label" for="83538e88-65a0-49f3-afcd-31508daa93fa">
+<input id="95f31001-e763-413f-ab47-888cac1d3144" name="72016688-072e-4035-8da9-750b5d551757" type="radio">
+</input><label class="tabbed-label" for="95f31001-e763-413f-ab47-888cac1d3144">
 n=0</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_ts0.svg"><img alt="../../../_images/taylor_ts0.svg" src="../../../_images/taylor_ts0.svg" width="90%" /></a>
 </div>
-<input id="4bbc9b05-3f3a-4925-8120-30e2ef98d7f0" name="da7ce50a-66c8-4eb7-8319-76bb276ebc68" type="radio">
-</input><label class="tabbed-label" for="4bbc9b05-3f3a-4925-8120-30e2ef98d7f0">
+<input id="3b4247aa-8607-4424-93da-ac31b6c9573b" name="72016688-072e-4035-8da9-750b5d551757" type="radio">
+</input><label class="tabbed-label" for="3b4247aa-8607-4424-93da-ac31b6c9573b">
 n=1</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_ts1.svg"><img alt="../../../_images/taylor_ts1.svg" src="../../../_images/taylor_ts1.svg" width="90%" /></a>
 </div>
-<input id="af1ee85d-6b1d-4011-99d5-3f6dc8f3139c" name="da7ce50a-66c8-4eb7-8319-76bb276ebc68" type="radio">
-</input><label class="tabbed-label" for="af1ee85d-6b1d-4011-99d5-3f6dc8f3139c">
+<input id="d362a6d2-8b16-4f7c-a63e-5e46d08427ec" name="72016688-072e-4035-8da9-750b5d551757" type="radio">
+</input><label class="tabbed-label" for="d362a6d2-8b16-4f7c-a63e-5e46d08427ec">
 n=2</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_ts2.svg"><img alt="../../../_images/taylor_ts2.svg" src="../../../_images/taylor_ts2.svg" width="90%" /></a>
 </div>
-<input id="28e0f0af-0108-4775-be47-f78c177d2d73" name="da7ce50a-66c8-4eb7-8319-76bb276ebc68" type="radio">
-</input><label class="tabbed-label" for="28e0f0af-0108-4775-be47-f78c177d2d73">
+<input id="44092a63-4cb9-4450-9bb7-45115be2bbb7" name="72016688-072e-4035-8da9-750b5d551757" type="radio">
+</input><label class="tabbed-label" for="44092a63-4cb9-4450-9bb7-45115be2bbb7">
 n=3</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_ts3.svg"><img alt="../../../_images/taylor_ts3.svg" src="../../../_images/taylor_ts3.svg" width="90%" /></a>
 </div>
-<input id="5b0868ed-4a53-40fb-b48f-85a1912511d1" name="da7ce50a-66c8-4eb7-8319-76bb276ebc68" type="radio">
-</input><label class="tabbed-label" for="5b0868ed-4a53-40fb-b48f-85a1912511d1">
+<input id="f1954cec-b05d-4adc-a48a-bee321a8bf2b" name="72016688-072e-4035-8da9-750b5d551757" type="radio">
+</input><label class="tabbed-label" for="f1954cec-b05d-4adc-a48a-bee321a8bf2b">
 n in [0,…,3]</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_all.svg"><img alt="../../../_images/taylor_all.svg" src="../../../_images/taylor_all.svg" width="90%" /></a>
 </div>
@@ -890,7 +890,7 @@ n in [0,…,3]</label><div class="tabbed-content docutils">
 </div>
 <div class="section" id="discrete-derivatives">
 <h3>Discrete Derivatives<a class="headerlink" href="#discrete-derivatives" title="Permalink to this headline">¶</a></h3>
-<p>Given the approximation formulars and a discretised function, it becomes possible to compute the function’s derivative only with the usage of its values. The approximation formulas are evaluated with <span class="math notranslate nohighlight">\(\mf h = \Delta x\)</span>.</p>
+<p>Given the approximation formulas and a discretised function, it becomes possible to compute the function’s derivative only with the usage of its values. The approximation formulas are evaluated with <span class="math notranslate nohighlight">\(\mf h = \Delta x\)</span>.</p>
 <p>For the function shown above and using the central differences second order <a class="reference internal" href="#equation-eq-cfd-central-derivative-snd">(2.16)</a>, plus the directional derivatives <a class="reference internal" href="#equation-eq-cfd-directional-derivative-snd">(2.17)</a> at the boundaries, the approximated derivative is shown in the following figure.</p>
 <div class="cell tag_hide_cell docutils container">
 <div class="cell_input docutils container">
