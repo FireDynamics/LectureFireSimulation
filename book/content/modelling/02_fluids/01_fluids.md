@@ -13,7 +13,7 @@ Fluid dynamics describes the movement of liquids or gases. The following aspects
 
 **Fire safety science**
 
-In fire safety science, fluid dynamics plays an important role in the understanding of dynamical fire phenomena. Fluid dynamics must be considered e.g. during mixing processes, combustion, convective heat transfer or the smoke spread in complex buildings.
+In fire safety science, fluid dynamics plays an important role in the understanding of dynamical fire phenomena. Fluid dynamics must be considered e.g. during mixing processes, combustion, convective heat transfer or smoke spread in complex buildings.
 
 <iframe width="60%" src="https://www.youtube-nocookie.com/embed/sKgP1Us-SF0" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
 
@@ -26,7 +26,7 @@ A classical application example is the optimisation of transport vehicles to red
 
 ## Fundamentals 
 
-In the fluid dynamics, the following processes represent the most fundamental ones:
+In fluid dynamics, the following processes represent the most fundamental ones:
 
 * **Flow** describes the movement of the medium. It is a vector field and describes the velocity of the fluid at every point in space and time: $\mf \vv = \vv(x,t)$. The velocity components are denoted as $\mf \vv = (v_x,v_y,v_z) = (u,v,w)$.
 * **Convection** is the fluid intrinsic movement, i.e. due to buoyancy.
@@ -104,7 +104,7 @@ Von Kármán vortex street in a lab. Soruce: [Wikkimedia Commons](https://common
 
 ### Compressible Flows
 
-The flows involving velocities much slower ($\mf \ll c$) than the speed of sound are incompressible, i.e. the sound waves are infinitely fast on the scale of the involved processes. Thus, all changes in density are quickly balanced. Objects traveling with a speed of at least $\mf 0.3c$ start to introduce fluctuations in density. Flow patterns of supersonic phenomena (explosion, supersonic airplanes) and the corresponding engineering approaches are completely different to those in case of sub sonic flows.
+Flows with velocities much slower ($\mf \ll c$) than the speed of sound are incompressible, i.e. the sound waves are infinitely fast on the scale of the involved processes. Thus, all changes in density are quickly balanced. Objects traveling with a speed of at least $\mf 0.3c$ start to introduce fluctuations in density. Flow patterns of supersonic phenomena (explosion, supersonic airplanes) and the corresponding engineering approaches are completely different to those in case of sub sonic flows.
 
 Note: Temperature changes, like in a fire, lead to density changes and therefore to so called weakly compressible flows.
 
@@ -192,13 +192,13 @@ $$
 $$ (eq-kin-vis)
 
 
-Fluids for which viscosity does not depend on the stress state are called Newtonian fluids, which is true for all gases. However, there exist also [non-Newtonian fluids](https://en.wikipedia.org/wiki/Non-Newtonian_fluid), like blood, tomato ketchup is corn starch.
+Fluids for which viscosity does not depend on the stress state are called Newtonian fluids, all gases are Newtonian fluids. However, there exist also [non-Newtonian fluids](https://en.wikipedia.org/wiki/Non-Newtonian_fluid), like blood, tomato ketchup and water mixed with corn starch.
 
 <iframe width="60%" src="https://www.youtube-nocookie.com/embed/B6h5pVETbd8" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-### Dimensionles numbers
+### Dimensionless numbers
 
-Many flow phenomena and types may be characterised by dimensionless numbers. It is assumed, that flows with same characteristics are comparable, although e.g. the spatial scales are different. Some of the commonly used ones are:
+Many flow phenomena and types may be characterised by dimensionless numbers. It is assumed, that flows with similar characteristics are comparable, although e.g. the spatial scales are different. Some of the commonly used dimensionless numbers are:
 * [Mach number](https://en.wikipedia.org/wiki/Mach_number) $\mf Ma$
 * [Reynolds number](https://en.wikipedia.org/wiki/Reynolds_number) $\mf Re$
 * Grashof number $\mf Gr$
@@ -214,7 +214,7 @@ The Mach number is defined as the relation of a velocity to the speed of sound, 
 
 $$
 \mf Ma = \frac{v}{c}
-$$ (eq-mach-number)
+$$ (eq-kin-vis)
 
 This number characterises the compressibility of a flow: 
 * $\mf Ma \rightarrow 0$: fully incompressible
@@ -238,16 +238,16 @@ This number is a classical example for scaling. Flow phenomena having the same R
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Reynoldsflugrpd.png" width="60%">
 
-Velocity and Reynolds numbers for some flying objects (in German). Soruce: [Wikkimedia Commons](https://de.wikipedia.org/wiki/Reynolds-Zahl#/media/Datei:Reynoldsflugrpd.png).
+Velocity and Reynolds numbers for some flying objects (in German). (Staub:Dust, Insekt:Insect, Modellflugzeug/Vogel:Aeroplane model/Bird, Windrad:Windmill, Drachenflieger:Hang glider, Flugzeug:Aeroplane, Luftschiff:Airship) Source: [Wikkimedia Commons](https://de.wikipedia.org/wiki/Reynolds-Zahl#/media/Datei:Reynoldsflugrpd.png).
 :::
 
-(Staub:Dust, Insekt:Insect, Modellflugzeug/Vogel:Aeroplane model/Bird, Windrad:Windmill, Drachenflieger:Hang glider, Flugzeug:Aeroplane, Luftschiff:Airship)
+
 
 ## Fluid Equations
 
 ### Conservation laws
 
-The fluid dynamics is based on the following three physical conservation laws: 
+Fluid dynamics is based on the following three physical conservation laws: 
 
 * mass conservation
 * momentum conservation
@@ -263,7 +263,7 @@ In general, beside these equations a closure, e.g. via an equation of state, is 
 
 **Conservation of mass**
 
-The conservation of mass predicts, that the total mass of a control volume does change only if there is a net flow (non balanced in and out flow) across the boundaries. Incompressible flows have always zero net flows.
+The conservation of mass predicts, that the total mass of a control volume only changes if there is a net flow (non balanced in and out flow) across the boundaries. Incompressible flows have always zero net flows.
 
 In fire simulations, multiple species have to be considered (e.g. oxygen, fuel and carbon dioxide). Their masses are individually conserved. However, they are strongly coupled to each other via source terms. E.g. during combustion, oxygen and fuel are consumed to produce carbon dioxide.
 
@@ -318,7 +318,7 @@ $$
 * $\mf D = 0$: parabolic, e.g. heat equation
 * $\mf D \lt 0$: hyperbolic, e.g. wave equation
 
-Note: The type may dependent on varying material parameter or/and the position, here $\mf (x,y)$.
+Note: The type may dependent on varying material parameters or/and the position, here $\mf (x,y)$.
 
 **Field Operators**
 
