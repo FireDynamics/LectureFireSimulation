@@ -330,7 +330,7 @@
                 
   <div class="section" id="turbulence">
 <h1><span class="section-number">2.3. </span>Turbulence<a class="headerlink" href="#turbulence" title="Permalink to this headline">¶</a></h1>
-<p>Turbulence is one of the major scientific challenges. The mathematical description and experimental data related to fluid dynamics is known and available vor over one hundred years.</p>
+<p>Turbulence is one of the major scientific challenges. The mathematical description and experimental data related to fluid dynamics are known and available for over one hundred years.</p>
 <p>“Turbulence is the most important unsolved problem of classical physics.”
 — Richard Feynman</p>
 <p>”When I meet God, I am going to ask him two questions: Why relativity, and why turbulence?
@@ -365,7 +365,7 @@ I really believe he will have an answer for the first.”
 <a class="reference internal image-reference" href="../../../_images/turbulence-plume-velocity_fluctuations.png"><img alt="../../../_images/turbulence-plume-velocity_fluctuations.png" src="../../../_images/turbulence-plume-velocity_fluctuations.png" style="width: 80%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 2.23 </span><span class="caption-text">Statistics of velocity fluctuations.</span><a class="headerlink" href="#fig-turbulence-plume-fluctuations" title="Permalink to this image">¶</a></p>
 </div>
-<p>The canonical setup for the transition form a laminar to a turbulent flow is a pipe flow, as shown in <a class="reference internal" href="#fig-turbulence-pipe-setup"><span class="std std-numref">Fig. 2.24</span></a>. Starting with a uniform flow at the inlet, the flow at the boudaries is deaccelarated and an acccording flow pattern develops. Depending on the Reynolds number, the mean velocity profiles differ significantly. While in the laminar case a parabolic profile develops, a flattened profile is characteristic for a turbulent flow, see <a class="reference internal" href="#fig-turbulence-pipe-velocity"><span class="std std-numref">Fig. 2.25</span></a>. An other observation is that the effective viscosity differs in both cases. While in the laminar case the observed value is the material property and thus constant, it shows a higher and dynamic value in the turbulent case, see <a class="reference internal" href="#fig-turbulence-pipe-viscosity"><span class="std std-numref">Fig. 2.26</span></a>.</p>
+<p>The canonical setup for the transition form a laminar to a turbulent flow is a pipe flow, as shown in <a class="reference internal" href="#fig-turbulence-pipe-setup"><span class="std std-numref">Fig. 2.24</span></a>. Starting with a uniform flow at the inlet, the flow at the boudaries is deaccelerated and an acccording flow pattern develops. Depending on the Reynolds number, the mean velocity profiles differ significantly. While in the laminar case a parabolic profile develops, a flattened profile is characteristic for a turbulent flow, see <a class="reference internal" href="#fig-turbulence-pipe-velocity"><span class="std std-numref">Fig. 2.25</span></a>. An other observation is that the effective viscosity differs in both cases. While in the laminar case the observed value is the material property and thus constant, it shows a higher and dynamic value in the turbulent case, see <a class="reference internal" href="#fig-turbulence-pipe-viscosity"><span class="std std-numref">Fig. 2.26</span></a>.</p>
 <div class="figure align-default" id="fig-turbulence-pipe-setup">
 <a class="reference internal image-reference" href="../../../_images/turbulence-pipe-sketch-labeled.svg"><img alt="../../../_images/turbulence-pipe-sketch-labeled.svg" src="../../../_images/turbulence-pipe-sketch-labeled.svg" width="80%" /></a>
 <p class="caption"><span class="caption-number">Fig. 2.24 </span><span class="caption-text">Schematics of a pipe flow. The arrows indicate the time averaged velocity.</span><a class="headerlink" href="#fig-turbulence-pipe-setup" title="Permalink to this image">¶</a></p>
@@ -391,7 +391,7 @@ I really believe he will have an answer for the first.”
 <p class="caption"><span class="caption-number">Fig. 2.27 </span><span class="caption-text">Scales involved in a turbulent flow.</span><a class="headerlink" href="#fig-turbulence-energy-cascade" title="Permalink to this image">¶</a></p>
 </div>
 <p>The integral scale, at which the flow structures break into smaller structures, connects both above scales.</p>
-<p>To model turbulence, the impact of small scales on the large scales must be approximated. The main two approaches are based on either a spacial or a temporal means.</p>
+<p>To model turbulence, the impact of small scales on the large scales must be approximated. The main two approaches are based on either a spatial or a temporal means.</p>
 <!-- :::{figure-md} fig-turbulence-energy-spectrum
 <img src="https://upload.wikimedia.org/wikipedia/commons/7/74/Schematic-illustration-of-the-energy-spectrum-of-turbulent-velocity-cascade.png" width="60%">
 
@@ -400,12 +400,12 @@ Energy spectrum of a turbulent flow. Source: [Wikimedia Commons](https://commons
 </div>
 <div class="section" id="modelling">
 <h2>Modelling<a class="headerlink" href="#modelling" title="Permalink to this headline">¶</a></h2>
-<p>In fire simulations, two classes of turbulence modelles are common: direct numerical simulatons (DNS) and large eddy simulations (LES). Although for practical applications only the LES class is suitable.</p>
+<p>In fire simulations, two classes of turbulence models are common: direct numerical simulatons (DNS) and large eddy simulations (LES). Although for practical applications only the LES class is suitable.</p>
 <div class="figure align-default" id="fig-turbulence-modelling-overview">
 <a class="reference internal image-reference" href="../../../_images/turbulence-modelling-overview.svg"><img alt="../../../_images/turbulence-modelling-overview.svg" src="../../../_images/turbulence-modelling-overview.svg" width="80%" /></a>
 <p class="caption"><span class="caption-number">Fig. 2.28 </span><span class="caption-text">Overview of the resolved and modelled scales in DNS and LES Simulations.</span><a class="headerlink" href="#fig-turbulence-modelling-overview" title="Permalink to this image">¶</a></p>
 </div>
-<p>DNS does not modell any scales, but rather resolves them all. Thus this model can only be applied if the Kolmogorov scale is numerically resolved.</p>
+<p>DNS does not model any scales, but rather resolves them all. Thus this model can only be applied if the Kolmogorov scale is numerically resolved.</p>
 <p>The general idea of LES is to formulate equations for spatially filtered quantites. In case of LES this filter is given by</p>
 <div class="math notranslate nohighlight" id="equation-eq-les-filter">
 <span class="eqno">(2.19)<a class="headerlink" href="#equation-eq-les-filter" title="Permalink to this equation">¶</a></span>\[
