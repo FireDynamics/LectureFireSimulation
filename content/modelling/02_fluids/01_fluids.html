@@ -350,8 +350,8 @@
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#dimensionles-numbers">
-     Dimensionles numbers
+    <a class="reference internal nav-link" href="#dimensionless-numbers">
+     Dimensionless numbers
     </a>
    </li>
   </ul>
@@ -429,7 +429,7 @@
 <li><p>etc.</p></li>
 </ul>
 <p><strong>Fire safety science</strong></p>
-<p>In fire safety science, fluid dynamics plays an important role in the understanding of dynamical fire phenomena. Fluid dynamics must be considered e.g. during mixing processes, combustion, convective heat transfer or the smoke spread in complex buildings.</p>
+<p>In fire safety science, fluid dynamics plays an important role in the understanding of dynamical fire phenomena. Fluid dynamics must be considered e.g. during mixing processes, combustion, convective heat transfer or smoke spread in complex buildings.</p>
 <iframe width="60%" src="https://www.youtube-nocookie.com/embed/sKgP1Us-SF0" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
 <p><strong>Technical applications</strong></p>
 <p>A classical application example is the optimisation of transport vehicles to reduce the drag.</p>
@@ -437,7 +437,7 @@
 </div>
 <div class="section" id="fundamentals">
 <h2>Fundamentals<a class="headerlink" href="#fundamentals" title="Permalink to this headline">¶</a></h2>
-<p>In the fluid dynamics, the following processes represent the most fundamental ones:</p>
+<p>In fluid dynamics, the following processes represent the most fundamental ones:</p>
 <ul class="simple">
 <li><p><strong>Flow</strong> describes the movement of the medium. It is a vector field and describes the velocity of the fluid at every point in space and time: <span class="math notranslate nohighlight">\(\mf \vv = \vv(x,t)\)</span>. The velocity components are denoted as <span class="math notranslate nohighlight">\(\mf \vv = (v_x,v_y,v_z) = (u,v,w)\)</span>.</p></li>
 <li><p><strong>Convection</strong> is the fluid intrinsic movement, i.e. due to buoyancy.</p></li>
@@ -505,7 +505,7 @@ In general the speed of sound <span class="math notranslate nohighlight">\(\mf c
 </div>
 <div class="section" id="compressible-flows">
 <h3>Compressible Flows<a class="headerlink" href="#compressible-flows" title="Permalink to this headline">¶</a></h3>
-<p>The flows involving velocities much slower (<span class="math notranslate nohighlight">\(\mf \ll c\)</span>) than the speed of sound are incompressible, i.e. the sound waves are infinitely fast on the scale of the involved processes. Thus, all changes in density are quickly balanced. Objects traveling with a speed of at least <span class="math notranslate nohighlight">\(\mf 0.3c\)</span> start to introduce fluctuations in density. Flow patterns of supersonic phenomena (explosion, supersonic airplanes) and the corresponding engineering approaches are completely different to those in case of sub sonic flows.</p>
+<p>Flows with velocities much slower (<span class="math notranslate nohighlight">\(\mf \ll c\)</span>) than the speed of sound are incompressible, i.e. the sound waves are infinitely fast on the scale of the involved processes. Thus, all changes in density are quickly balanced. Objects traveling with a speed of at least <span class="math notranslate nohighlight">\(\mf 0.3c\)</span> start to introduce fluctuations in density. Flow patterns of supersonic phenomena (explosion, supersonic airplanes) and the corresponding engineering approaches are completely different to those in case of sub sonic flows.</p>
 <p>Note: Temperature changes, like in a fire, lead to density changes and therefore to so called weakly compressible flows.</p>
 <div class="figure align-default" id="fig-fluid-laminar">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/b/b9/Aerodynamics_of_model_car.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/b/b9/Aerodynamics_of_model_car.jpg" src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Aerodynamics_of_model_car.jpg" style="width: 60%;" /></a>
@@ -573,15 +573,15 @@ In general the speed of sound <span class="math notranslate nohighlight">\(\mf c
 </div>
 <p>Relation <a class="reference internal" href="#equation-eq-dyn-vis">(2.4)</a> is the definition of the <em>dynamic viscosity</em> <span class="math notranslate nohighlight">\(\mf \mu\)</span>. Yet, in some cases the <em>kinematic viscosity</em> <span class="math notranslate nohighlight">\(\mf \nu\)</span> (or momentum diffusivity) is a more convenient quantity. It is given by the ratio of the dynamic viscosity and the density</p>
 <div class="math notranslate nohighlight" id="equation-eq-kin-vis">
-<span class="eqno">(2.5)<a class="headerlink" href="#equation-eq-kin-vis" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(2.6)<a class="headerlink" href="#equation-eq-kin-vis" title="Permalink to this equation">¶</a></span>\[
 \mf \nu = \frac{\mu}{\rho} \quad .
 \]</div>
-<p>Fluids for which viscosity does not depend on the stress state are called Newtonian fluids, which is true for all gases. However, there exist also <a class="reference external" href="https://en.wikipedia.org/wiki/Non-Newtonian_fluid">non-Newtonian fluids</a>, like blood, tomato ketchup is corn starch.</p>
+<p>Fluids for which viscosity does not depend on the stress state are called Newtonian fluids, all gases are Newtonian fluids. However, there exist also <a class="reference external" href="https://en.wikipedia.org/wiki/Non-Newtonian_fluid">non-Newtonian fluids</a>, like blood, tomato ketchup and water mixed with corn starch.</p>
 <iframe width="60%" src="https://www.youtube-nocookie.com/embed/B6h5pVETbd8" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
-<div class="section" id="dimensionles-numbers">
-<h3>Dimensionles numbers<a class="headerlink" href="#dimensionles-numbers" title="Permalink to this headline">¶</a></h3>
-<p>Many flow phenomena and types may be characterised by dimensionless numbers. It is assumed, that flows with same characteristics are comparable, although e.g. the spatial scales are different. Some of the commonly used ones are:</p>
+<div class="section" id="dimensionless-numbers">
+<h3>Dimensionless numbers<a class="headerlink" href="#dimensionless-numbers" title="Permalink to this headline">¶</a></h3>
+<p>Many flow phenomena and types may be characterised by dimensionless numbers. It is assumed, that flows with similar characteristics are comparable, although e.g. the spatial scales are different. Some of the commonly used dimensionless numbers are:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Mach_number">Mach number</a> <span class="math notranslate nohighlight">\(\mf Ma\)</span></p></li>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Reynolds_number">Reynolds number</a> <span class="math notranslate nohighlight">\(\mf Re\)</span></p></li>
@@ -593,8 +593,8 @@ In general the speed of sound <span class="math notranslate nohighlight">\(\mf c
 </ul>
 <p><strong>Mach number</strong></p>
 <p>The Mach number is defined as the relation of a velocity to the speed of sound, i.e.</p>
-<div class="math notranslate nohighlight" id="equation-eq-mach-number">
-<span class="eqno">(2.6)<a class="headerlink" href="#equation-eq-mach-number" title="Permalink to this equation">¶</a></span>\[
+<div class="math notranslate nohighlight" id="equation-eq-kin-vis">
+<span class="eqno">(2.6)<a class="headerlink" href="#equation-eq-kin-vis" title="Permalink to this equation">¶</a></span>\[
 \mf Ma = \frac{v}{c}
 \]</div>
 <p>This number characterises the compressibility of a flow:</p>
@@ -614,16 +614,15 @@ In general the speed of sound <span class="math notranslate nohighlight">\(\mf c
 This number is a classical example for scaling. Flow phenomena having the same Reynolds number will behave the same way; this can be shown by normalisation of the flow equations.</p>
 <div class="figure align-default" id="fig-fluid-re-table">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/9/99/Reynoldsflugrpd.png"><img alt="https://upload.wikimedia.org/wikipedia/commons/9/99/Reynoldsflugrpd.png" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Reynoldsflugrpd.png" style="width: 60%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.8 </span><span class="caption-text">Velocity and Reynolds numbers for some flying objects (in German). Soruce: <a class="reference external" href="https://de.wikipedia.org/wiki/Reynolds-Zahl#/media/Datei:Reynoldsflugrpd.png">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-re-table" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.8 </span><span class="caption-text">Velocity and Reynolds numbers for some flying objects (in German). (Staub:Dust, Insekt:Insect, Modellflugzeug/Vogel:Aeroplane model/Bird, Windrad:Windmill, Drachenflieger:Hang glider, Flugzeug:Aeroplane, Luftschiff:Airship) Source: <a class="reference external" href="https://de.wikipedia.org/wiki/Reynolds-Zahl#/media/Datei:Reynoldsflugrpd.png">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-re-table" title="Permalink to this image">¶</a></p>
 </div>
-<p>(Staub:Dust, Insekt:Insect, Modellflugzeug/Vogel:Aeroplane model/Bird, Windrad:Windmill, Drachenflieger:Hang glider, Flugzeug:Aeroplane, Luftschiff:Airship)</p>
 </div>
 </div>
 <div class="section" id="fluid-equations">
 <h2>Fluid Equations<a class="headerlink" href="#fluid-equations" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="conservation-laws">
 <h3>Conservation laws<a class="headerlink" href="#conservation-laws" title="Permalink to this headline">¶</a></h3>
-<p>The fluid dynamics is based on the following three physical conservation laws:</p>
+<p>Fluid dynamics is based on the following three physical conservation laws:</p>
 <ul class="simple">
 <li><p>mass conservation</p></li>
 <li><p>momentum conservation</p></li>
@@ -637,7 +636,7 @@ This number is a classical example for scaling. Flow phenomena having the same R
 </ul>
 <p>In general, beside these equations a closure, e.g. via an equation of state, is needed. In many cases the ideal gas law can be used.</p>
 <p><strong>Conservation of mass</strong></p>
-<p>The conservation of mass predicts, that the total mass of a control volume does change only if there is a net flow (non balanced in and out flow) across the boundaries. Incompressible flows have always zero net flows.</p>
+<p>The conservation of mass predicts, that the total mass of a control volume only changes if there is a net flow (non balanced in and out flow) across the boundaries. Incompressible flows have always zero net flows.</p>
 <p>In fire simulations, multiple species have to be considered (e.g. oxygen, fuel and carbon dioxide). Their masses are individually conserved. However, they are strongly coupled to each other via source terms. E.g. during combustion, oxygen and fuel are consumed to produce carbon dioxide.</p>
 <p><strong>Conservation of momentum</strong></p>
 <p>The momentum of a fluid element changes only due to:</p>
@@ -684,7 +683,7 @@ This number is a classical example for scaling. Flow phenomena having the same R
 <li><p><span class="math notranslate nohighlight">\(\mf D = 0\)</span>: parabolic, e.g. heat equation</p></li>
 <li><p><span class="math notranslate nohighlight">\(\mf D \lt 0\)</span>: hyperbolic, e.g. wave equation</p></li>
 </ul>
-<p>Note: The type may dependent on varying material parameter or/and the position, here <span class="math notranslate nohighlight">\(\mf (x,y)\)</span>.</p>
+<p>Note: The type may dependent on varying material parameters or/and the position, here <span class="math notranslate nohighlight">\(\mf (x,y)\)</span>.</p>
 <p><strong>Field Operators</strong></p>
 <p>The two most common mathematical operators used in fluid dynamics are the partial derivative and the Nabla operator.</p>
 <p>The <strong>partial derivative</strong> describes the change of a field in a given space or time direction. The change of a velocity field <span class="math notranslate nohighlight">\(\mf \vv(x,y,z,t)\)</span> with respect to the time is:</p>
