@@ -51,7 +51,7 @@
     </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}"}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}", "du": "\\dot{u}"}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/modelling/02_fluids/02_cfd.html" />
     <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -355,6 +355,72 @@
      Discrete Derivatives
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#approximation-error">
+     Approximation Error
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#time-integration">
+   Time Integration
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#trajectories">
+     Trajectories
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#explicit-euler-method">
+     Explicit Euler Method
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implicit-euler-method">
+     Implicit Euler Method
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#euler-heun-method">
+     Euler-Heun Method
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#runge-kutta-method-s">
+     Runge-Kutta method(s)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finite-difference-method">
+   Finite Difference Method
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-approach">
+     Solution Approach
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stability">
+   Stability
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#information-propagation">
+     Information Propagation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#courant-friedrichs-lewy-cfl-condition">
+     Courant-Friedrichs-Lewy (CFL) condition
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -571,33 +637,33 @@
 </div>
 <p>The following figures illustrate the according Taylor approximations for up to <span class="math notranslate nohighlight">\(\mf n=3\)</span>.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="59115949-d823-42a1-9546-7ce86c78bac7" name="af43a0c5-f880-4671-91fc-3f75f705e5ca" type="radio">
-</input><label class="tabbed-label" for="59115949-d823-42a1-9546-7ce86c78bac7">
+<input checked="checked" id="f417531c-facd-4152-ac6d-6737f4db25ac" name="2d75d03a-b424-4342-8237-422dcdabc360" type="radio">
+</input><label class="tabbed-label" for="f417531c-facd-4152-ac6d-6737f4db25ac">
 f(x)</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_fnk.svg"><img alt="../../../_images/taylor_fnk.svg" src="../../../_images/taylor_fnk.svg" width="90%" /></a>
 </div>
-<input id="16b8949c-db65-48d1-a8bb-f92dbae7516e" name="af43a0c5-f880-4671-91fc-3f75f705e5ca" type="radio">
-</input><label class="tabbed-label" for="16b8949c-db65-48d1-a8bb-f92dbae7516e">
+<input id="bbd6ac7e-33fb-4d7b-8f84-69f2022b829d" name="2d75d03a-b424-4342-8237-422dcdabc360" type="radio">
+</input><label class="tabbed-label" for="bbd6ac7e-33fb-4d7b-8f84-69f2022b829d">
 n=0</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_ts0.svg"><img alt="../../../_images/taylor_ts0.svg" src="../../../_images/taylor_ts0.svg" width="90%" /></a>
 </div>
-<input id="7ff8d12f-1288-4d24-9659-877111c52d3c" name="af43a0c5-f880-4671-91fc-3f75f705e5ca" type="radio">
-</input><label class="tabbed-label" for="7ff8d12f-1288-4d24-9659-877111c52d3c">
+<input id="cb7f86e4-4936-414f-bf66-5218b6179bcf" name="2d75d03a-b424-4342-8237-422dcdabc360" type="radio">
+</input><label class="tabbed-label" for="cb7f86e4-4936-414f-bf66-5218b6179bcf">
 n=1</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_ts1.svg"><img alt="../../../_images/taylor_ts1.svg" src="../../../_images/taylor_ts1.svg" width="90%" /></a>
 </div>
-<input id="5a880635-4e7b-47e7-9ec5-29058ae2ae6d" name="af43a0c5-f880-4671-91fc-3f75f705e5ca" type="radio">
-</input><label class="tabbed-label" for="5a880635-4e7b-47e7-9ec5-29058ae2ae6d">
+<input id="85d9d8e2-311e-4f05-a236-9ea11e0d4f22" name="2d75d03a-b424-4342-8237-422dcdabc360" type="radio">
+</input><label class="tabbed-label" for="85d9d8e2-311e-4f05-a236-9ea11e0d4f22">
 n=2</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_ts2.svg"><img alt="../../../_images/taylor_ts2.svg" src="../../../_images/taylor_ts2.svg" width="90%" /></a>
 </div>
-<input id="84206760-8b29-4523-9a7b-86a57ed109fa" name="af43a0c5-f880-4671-91fc-3f75f705e5ca" type="radio">
-</input><label class="tabbed-label" for="84206760-8b29-4523-9a7b-86a57ed109fa">
+<input id="e2eb9565-1399-40a7-b1c7-dd98e9ab12bd" name="2d75d03a-b424-4342-8237-422dcdabc360" type="radio">
+</input><label class="tabbed-label" for="e2eb9565-1399-40a7-b1c7-dd98e9ab12bd">
 n=3</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_ts3.svg"><img alt="../../../_images/taylor_ts3.svg" src="../../../_images/taylor_ts3.svg" width="90%" /></a>
 </div>
-<input id="1d11ae51-b549-4540-bbd6-da84c1a119a4" name="af43a0c5-f880-4671-91fc-3f75f705e5ca" type="radio">
-</input><label class="tabbed-label" for="1d11ae51-b549-4540-bbd6-da84c1a119a4">
+<input id="8bec1215-c97d-402a-9d32-dcecfc206377" name="2d75d03a-b424-4342-8237-422dcdabc360" type="radio">
+</input><label class="tabbed-label" for="8bec1215-c97d-402a-9d32-dcecfc206377">
 n in [0,…,3]</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_all.svg"><img alt="../../../_images/taylor_all.svg" src="../../../_images/taylor_all.svg" width="90%" /></a>
 </div>
@@ -850,6 +916,12 @@ n in [0,…,3]</label><div class="tabbed-content docutils">
 \mf x_i = x_b + i\cdot \Delta x \quad .
 \]</div>
 <p>In two and three dimensional cases, this discretisation can be represented as a mesh or grid, see <a class="reference internal" href="../01_general/03_approaches.html#fig-field-model"><span class="std std-numref">Fig. 1.19</span></a>. Thus <span class="math notranslate nohighlight">\(\mf \Delta x\)</span> is often called grid spacing.</p>
+<p>A common indexing for spatially discretised functions is</p>
+<div class="math notranslate nohighlight">
+\[
+\mf f(x_i) = f_i\quad ,
+\]</div>
+<p>where the index indicating the position on the spatial mesh is placed as a subscript.</p>
 <p><strong>Example of a discretisation:</strong> Given <span class="math notranslate nohighlight">\(\mf n_x = 20\)</span>, the function in equation <a class="reference internal" href="#equation-eq-cfd-example-fnk">(2.14)</a> takes the following discrete representation.</p>
 <div class="cell tag_hide_cell docutils container">
 <div class="cell_input docutils container">
@@ -949,6 +1021,333 @@ n in [0,…,3]</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/discrete-derivative.svg"><img alt="../../../_images/discrete-derivative.svg" src="../../../_images/discrete-derivative.svg" width="90%" /></a>
 <p class="caption"><span class="caption-number">Fig. 2.17 </span><span class="caption-text">Approximation of the first derivative.</span><a class="headerlink" href="#fig-cfd-discrete-derivative" title="Permalink to this image">¶</a></p>
 </div>
+</div>
+<div class="section" id="approximation-error">
+<h3>Approximation Error<a class="headerlink" href="#approximation-error" title="Permalink to this headline">¶</a></h3>
+<p>If the exact derivative is known, then the exact deviation of the numerical approximation to the exact values can be computed. A common approach to compute the difference between two data sets is the L2-norm or the root mean square error (RMSE). Given the difference of the function values <span class="math notranslate nohighlight">\(\mf \Delta f\)</span>, here</p>
+<div class="math notranslate nohighlight">
+\[
+\mf \Delta f_i = f'_{numeric,i} - f'_{exact,i}
+\]</div>
+<p>at the same locations <span class="math notranslate nohighlight">\(\mf x_i\)</span> with <span class="math notranslate nohighlight">\(\mf i \in [0, \dots, n_x-1]\)</span>, the RMSE value is</p>
+<div class="math notranslate nohighlight">
+\[
+\mf RMSE(\Delta f) = \sqrt{\frac{1}{n_x}\sum_{i=0}^{n_x-1}\left(\Delta f_i\right)^2}\quad .
+\]</div>
+<p>For the example function of the previous section, the approximation error can be computed for various values of <span class="math notranslate nohighlight">\(\mf \Delta x\)</span>, as shown in the following figure. As expected for the second order approximation scheme, the error behaves similar to a quadratic function. However, due to the finite representation of floating point numbers, the convergence stops, when round-off error start to dominate.</p>
+<div class="cell tag_hide_cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dx_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">rmse_list</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">nxe</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">25</span><span class="p">):</span>
+
+    <span class="n">nx</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="n">nxe</span>
+    <span class="n">dx</span> <span class="o">=</span> <span class="p">(</span><span class="n">xe</span> <span class="o">-</span> <span class="n">xb</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">nx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">xi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">xb</span><span class="p">,</span> <span class="n">xe</span><span class="p">,</span> <span class="n">nx</span><span class="p">)</span>
+
+    <span class="n">fi</span> <span class="o">=</span> <span class="n">fnk</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span>
+    <span class="n">fpi</span> <span class="o">=</span> <span class="n">central</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">fi</span><span class="p">)</span>
+    
+    <span class="n">fp</span> <span class="o">=</span> <span class="n">fnk</span><span class="p">(</span><span class="n">xi</span><span class="p">,</span> <span class="n">derivative</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="n">rmse</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="n">fpi</span> <span class="o">-</span> <span class="n">fp</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">nx</span><span class="p">)</span>
+    
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;dx=</span><span class="si">{</span><span class="n">dx</span><span class="si">:</span><span class="s2">4.2e</span><span class="si">}</span><span class="s2"> --&gt; rmse=</span><span class="si">{</span><span class="n">rmse</span><span class="si">:</span><span class="s2">4.2e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    
+    <span class="n">dx_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dx</span><span class="p">)</span>
+    <span class="n">rmse_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rmse</span><span class="p">)</span>
+    
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dx=8.57e-01 --&gt; rmse=2.12e-01
+dx=4.00e-01 --&gt; rmse=4.72e-02
+dx=1.94e-01 --&gt; rmse=1.03e-02
+dx=9.52e-02 --&gt; rmse=2.55e-03
+dx=4.72e-02 --&gt; rmse=6.33e-04
+dx=2.35e-02 --&gt; rmse=1.57e-04
+dx=1.17e-02 --&gt; rmse=3.92e-05
+dx=5.87e-03 --&gt; rmse=9.80e-06
+dx=2.93e-03 --&gt; rmse=2.45e-06
+dx=1.47e-03 --&gt; rmse=6.12e-07
+dx=7.33e-04 --&gt; rmse=1.53e-07
+dx=3.66e-04 --&gt; rmse=3.82e-08
+dx=1.83e-04 --&gt; rmse=9.55e-09
+dx=9.16e-05 --&gt; rmse=2.39e-09
+dx=4.58e-05 --&gt; rmse=5.97e-10
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dx=2.29e-05 --&gt; rmse=1.49e-10
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dx=1.14e-05 --&gt; rmse=3.74e-11
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dx=5.72e-06 --&gt; rmse=1.09e-11
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dx=2.86e-06 --&gt; rmse=1.14e-11
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dx=1.43e-06 --&gt; rmse=1.99e-11
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dx=7.15e-07 --&gt; rmse=4.57e-11
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dx=3.58e-07 --&gt; rmse=8.91e-11
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide_cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">dx_list</span><span class="p">,</span> <span class="n">rmse_list</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;computed&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">dx_list</span><span class="p">,</span> <span class="n">rmse_list</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="n">dx_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dx_list</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">dx_list</span><span class="p">,</span> <span class="n">dx_np</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$\sf \sim\Delta x^2$&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$\sf\Delta x$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;$\sf RMSE $&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./figs/approximation_error.svg&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">show</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="figure align-default" id="fig-cfd-approximation-error">
+<a class="reference internal image-reference" href="../../../_images/approximation_error.svg"><img alt="../../../_images/approximation_error.svg" src="../../../_images/approximation_error.svg" width="90%" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.18 </span><span class="caption-text">Approximation error as a function of the mesh spacing.</span><a class="headerlink" href="#fig-cfd-approximation-error" title="Permalink to this image">¶</a></p>
+</div>
+<div class="admonition-task admonition">
+<p class="admonition-title">Task</p>
+<p>Why does the approximation error not reduce further for <span class="math notranslate nohighlight">\(\mf \Delta x \lesssim 5\cdot 10^{-6}\)</span>? Take into account equation <a class="reference internal" href="#equation-eq-cfd-central-derivative-snd">(2.16)</a> and the round off error for 64-bit floating point numbers.</p>
+</div>
+</div>
+</div>
+<div class="section" id="time-integration">
+<h2>Time Integration<a class="headerlink" href="#time-integration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="trajectories">
+<h3>Trajectories<a class="headerlink" href="#trajectories" title="Permalink to this headline">¶</a></h3>
+<p>As the PDEs that are considered in fluid dynamics often contain the time as one dimension, time integration is another aspect besides the spatial derivatives.</p>
+<p>In a similar fashion as the spatial discretisation, the time dimension is discretised. Thus, the time interval <span class="math notranslate nohighlight">\(\mf [t_b=0, t_e]\)</span> is split into <span class="math notranslate nohighlight">\(\mf n_t\)</span> time steps:</p>
+<div class="math notranslate nohighlight">
+\[
+\mf t_n = n\cdot\Delta t\quad with \quad \Delta t = \frac{t_e}{n_t-1} \quad and \quad n \in [0, n_t-1]\quad .
+\]</div>
+<p>In order to distinguish the time index from the spatial index, it is placed as a superscript and is not to be mixed with powers:</p>
+<div class="math notranslate nohighlight">
+\[
+\mf u(t_n) = u^n\quad .
+\]</div>
+<p>Given the time derivative of a function, i.e. the right hand side (rhs),</p>
+<div class="math notranslate nohighlight">
+\[
+\mf \partial_t u = \du = rhs(u, t)
+\]</div>
+<p>and an initial value for <span class="math notranslate nohighlight">\(\mf u\)</span> at <span class="math notranslate nohighlight">\(\mf t=0\)</span>, the temporal evolution, also called trajectory, needs to be computed. Time integration aims to approximate the next value of the solution <span class="math notranslate nohighlight">\(\mf u^{n+1}\)</span>.</p>
+<p>In the following the evaluation point of rhs is shortened to</p>
+<div class="math notranslate nohighlight">
+\[
+\mf rhs(u(t_n), t_n) = rhs^n \quad .
+\]</div>
+<div class="figure align-default" id="fig-fluid-time-setup">
+<a class="reference internal image-reference" href="../../../_images/time_integration_1_setup.svg"><img alt="../../../_images/time_integration_1_setup.svg" src="../../../_images/time_integration_1_setup.svg" width="80%" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.19 </span><span class="caption-text">Time Integration.</span><a class="headerlink" href="#fig-fluid-time-setup" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="explicit-euler-method">
+<h3>Explicit Euler Method<a class="headerlink" href="#explicit-euler-method" title="Permalink to this headline">¶</a></h3>
+<p>Based, again on the Tayor series, a direct approximation of the solution’s next value is based on</p>
+<div class="math notranslate nohighlight">
+\[
+\mf \frac{u^{n+1} - u^n}{\Delta t} = rhs^n + \mathcal{O}(\Delta t)\quad .
+\]</div>
+<p>It leads directly to</p>
+<div class="math notranslate nohighlight" id="equation-eq-cfd-time-forward-euler">
+<span class="eqno">(2.19)<a class="headerlink" href="#equation-eq-cfd-time-forward-euler" title="Permalink to this equation">¶</a></span>\[
+\mf u^{n+1} = u^n + \Delta t \cdot rhs^n + \mathcal{O}(\Delta t)\quad .
+\]</div>
+<p>The equation <a class="reference internal" href="#equation-eq-cfd-time-forward-euler">(2.19)</a> is the explicit / forward Euler method. It is graphicaly demonstrated in <a class="reference internal" href="#fig-fluid-time-explicit"><span class="std std-numref">Fig. 2.20</span></a>.</p>
+<div class="figure align-default" id="fig-fluid-time-explicit">
+<a class="reference internal image-reference" href="../../../_images/time_integration_2_explicit.svg"><img alt="../../../_images/time_integration_2_explicit.svg" src="../../../_images/time_integration_2_explicit.svg" width="80%" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.20 </span><span class="caption-text">Time integration – explicit Euler scheme.</span><a class="headerlink" href="#fig-fluid-time-explicit" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="implicit-euler-method">
+<h3>Implicit Euler Method<a class="headerlink" href="#implicit-euler-method" title="Permalink to this headline">¶</a></h3>
+<p>The evaluation of the derivative in <a class="reference internal" href="#equation-eq-cfd-time-forward-euler">(2.19)</a> at <span class="math notranslate nohighlight">\(\mf t_n\)</span> is just one possibility. In the same mannor as the directional spatial derivatives, the evaluation can be done at <span class="math notranslate nohighlight">\(t_{n+1}\)</span> and leads to the folowing iteration formula:</p>
+<div class="math notranslate nohighlight" id="equation-eq-cfd-time-backward-euler">
+<span class="eqno">(2.20)<a class="headerlink" href="#equation-eq-cfd-time-backward-euler" title="Permalink to this equation">¶</a></span>\[
+\mf u^{n+1} = u^n + \Delta t \cdot rhs^{n+1} + \mathcal{O}(\Delta t)\quad .
+\]</div>
+<p>The equation <a class="reference internal" href="#equation-eq-cfd-time-backward-euler">(2.20)</a> is the implicit / backward Euler method. It is graphicaly demonstrated in <a class="reference internal" href="#fig-fluid-time-implicit"><span class="std std-numref">Fig. 2.21</span></a>. It is an implicit approach, in contrast to the explcit Euler scheme, which does not allow to directly compute the next iteration step based only on the solution of the current values <span class="math notranslate nohighlight">\(\mf u^n\)</span>. However, as the <span class="math notranslate nohighlight">\(\mf rhs\)</span> can be computed for any value of <span class="math notranslate nohighlight">\(\mf u\)</span>, a matching value of <span class="math notranslate nohighlight">\(u^{n+1}\)</span> can be found to satisfy equation <a class="reference internal" href="#equation-eq-cfd-time-backward-euler">(2.20)</a>.</p>
+<div class="figure align-default" id="fig-fluid-time-implicit">
+<a class="reference internal image-reference" href="../../../_images/time_integration_3_implicit.svg"><img alt="../../../_images/time_integration_3_implicit.svg" src="../../../_images/time_integration_3_implicit.svg" width="80%" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.21 </span><span class="caption-text">Time integration – implicit Euler scheme.</span><a class="headerlink" href="#fig-fluid-time-implicit" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="euler-heun-method">
+<h3>Euler-Heun Method<a class="headerlink" href="#euler-heun-method" title="Permalink to this headline">¶</a></h3>
+<p>The Euler-Heun method illustrates a second order time integration scheme.</p>
+<p>First, an explicit prediciton is done</p>
+<div class="math notranslate nohighlight">
+\[
+\mf u_p^{n+1} = u^n + \Delta t\cdot rhs^n\quad .
+\]</div>
+<p>This intermediate solution is used for a corrected approximation</p>
+<div class="math notranslate nohighlight">
+\[
+\mf u^{n+1} = u^n + \frac{1}{2} \Delta t\cdot \left(rhs^n + rhs(u_p^{n+1}) \right) + \mathcal{O}(\Delta t^2)\quad .
+\]</div>
+<div class="figure align-default" id="fig-fluid-time-predictorcorrector">
+<a class="reference internal image-reference" href="../../../_images/time_integration_5_predictorcorrector.svg"><img alt="../../../_images/time_integration_5_predictorcorrector.svg" src="../../../_images/time_integration_5_predictorcorrector.svg" width="80%" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.22 </span><span class="caption-text">Time integration – Euler-Heun predictor-corrector scheme.</span><a class="headerlink" href="#fig-fluid-time-predictorcorrector" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="runge-kutta-method-s">
+<h3>Runge-Kutta method(s)<a class="headerlink" href="#runge-kutta-method-s" title="Permalink to this headline">¶</a></h3>
+<p>There exists a wide range of time integration schemes. One class of them are the <a class="reference external" href="https://en.wikipedia.org/wiki/Runge%E2%80%93Kutta_methods">Runge-Kutta methods</a>. The classical scheme is the following fourth order method:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{align} 
+\mf u^{(1)} &amp;=\mf u^n + \frac{1}{2}\Delta t\cdot rhs^n \\ 
+\mf u^{(2)} &amp;=\mf u^n + \frac{1}{2}\Delta t\cdot rhs\left(u^{(1)}\right) \\ 
+\mf u^{(3)} &amp;=\mf u^n + \Delta t\cdot rhs\left(u^{(2)}\right) \\ 
+\mf u^{n+1} &amp;=\mf u^n + \frac{1}{6}\Delta t\cdot \left(rhs^n + 2\ rhs\left(u^{(1)}\right) + 2\ rhs\left(u^{(2)}\right) + rhs\left(u^{(3)}\right)\right) + \mathcal{O}(\Delta t^4) \quad .
+\end{align}
+\end{split}\]</div>
+</div>
+</div>
+<div class="section" id="finite-difference-method">
+<h2>Finite Difference Method<a class="headerlink" href="#finite-difference-method" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="solution-approach">
+<h3>Solution Approach<a class="headerlink" href="#solution-approach" title="Permalink to this headline">¶</a></h3>
+<p>Consider a simple diffusion equation:</p>
+<div class="math notranslate nohighlight">
+\[
+\mf \partial_t \phi = \lambda\partial_{xx} \phi
+\]</div>
+<p><strong>Forward Euler:</strong> This scheme can be directly – explicitly – evaluated.</p>
+<div class="math notranslate nohighlight">
+\[
+\mf \frac{\phi^{n+1}_i - \phi^n_i}{\Delta t} = \lambda\frac{\phi^n_{i-1} - 2\phi_i^n + \phi_{i+1}^n}{\Delta x^2}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\mf \phi^{n+1}_i = \phi^n_i + \Delta t \lambda \frac{\phi^n_{i-1} - 2\phi_i^n + \phi_{i+1}^n}{\Delta x^2}
+\]</div>
+<div class="figure align-default" id="fig-fdm-explicit-euler">
+<a class="reference internal image-reference" href="../../../_images/fdm_explicit_euler.png"><img alt="../../../_images/fdm_explicit_euler.png" src="../../../_images/fdm_explicit_euler.png" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.23 </span><span class="caption-text">Explicit Euler scheme.</span><a class="headerlink" href="#fig-fdm-explicit-euler" title="Permalink to this image">¶</a></p>
+</div>
+<p><strong>Backward Euler:</strong> Here a linear equation system must be solved for <span class="math notranslate nohighlight">\(\phi^{n+1}\)</span>.”</p>
+<div class="math notranslate nohighlight">
+\[
+\mf \frac{\phi^{n+1}_i - \phi^n_i}{\Delta t} = \lambda \frac{\phi^{n+1}_{i-1} - 2\phi_i^{n+1} + \phi_{i+1}^{n+1}}{\Delta x^2}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\mf \phi^{n+1}_i - \frac{\Delta t}{\Delta x^2}\lambda\left( \phi^{n+1}_{i-1} - 2\phi_i^{n+1} + \phi_{i+1}^{n+1} \right) = \phi^n_i
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\mf A\phi^{n+1} = \phi^n
+\]</div>
+<div class="figure align-default" id="fig-fdm-implicit-euler">
+<a class="reference internal image-reference" href="../../../_images/fdm_implicit_euler.png"><img alt="../../../_images/fdm_implicit_euler.png" src="../../../_images/fdm_implicit_euler.png" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.24 </span><span class="caption-text">Implicit Euler scheme.</span><a class="headerlink" href="#fig-fdm-implicit-euler" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="stability">
+<h2>Stability<a class="headerlink" href="#stability" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="information-propagation">
+<h3>Information Propagation<a class="headerlink" href="#information-propagation" title="Permalink to this headline">¶</a></h3>
+<p>An important property of a time integrator is its stability. Given a PDE to be solved and a time integrator, a simple (linear) stability analysis can be conducted, e.g. von Neuman stability analysis. The outcome is the growth factor, which indicates the growth rate of small disturbances. If this factor is larger then 1, then the scheme is unstable, as fluctuations will infinitely rise.</p>
+<ul class="simple">
+<li><p>Explicit schemes tend to be unstable or conditionally stable, i.e. if a condition for the time step is met</p></li>
+<li><p>Implicit schemes tend to be unconditionally stable, however they tend to damp the solution</p></li>
+</ul>
+<p>A constant velocity advection problem demonstrates the stability condition.</p>
+<p><strong>Slow propagation speed</strong></p>
+<ul>
+<li><p>Model equation</p>
+<div class="math notranslate nohighlight">
+\[
+  \mf \partial_t \phi + \partial_x(v_0\phi) = 0
+  \]</div>
+</li>
+<li><p>Small <span class="math notranslate nohighlight">\(\mf \Delta t\)</span></p></li>
+<li><p>Distance traveled per <span class="math notranslate nohighlight">\(\mf \Delta t\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+  \mf \delta x = v_0 \Delta t \lt \Delta x
+  \]</div>
+</li>
+<li><p>The information moves less then <span class="math notranslate nohighlight">\(\mf\Delta x\)</span> in a time step <span class="math notranslate nohighlight">\(\mf\Delta t\)</span> and is captured by the neighbouring grid point</p></li>
+<li><p>No solution information is lost during time integration</p></li>
+</ul>
+<div class="figure align-default" id="fig-fdm-cfl-dtsmall">
+<a class="reference internal image-reference" href="../../../_images/fdm_cfl_dtsmall.png"><img alt="../../../_images/fdm_cfl_dtsmall.png" src="../../../_images/fdm_cfl_dtsmall.png" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.25 </span><span class="caption-text">Slow information propagation.</span><a class="headerlink" href="#fig-fdm-cfl-dtsmall" title="Permalink to this image">¶</a></p>
+</div>
+<p><strong>Fast propagation speed</strong></p>
+<ul>
+<li><p>Large <span class="math notranslate nohighlight">\(\mf\Delta t\)</span></p></li>
+<li><p>Distance traveled per <span class="math notranslate nohighlight">\(\mf\Delta t\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+  \delta x = v_0 \Delta t \gt \Delta x
+  \]</div>
+</li>
+<li><p>The information moves more then <span class="math notranslate nohighlight">\(\mf \Delta x\)</span> in a time step <span class="math notranslate nohighlight">\(\mf\Delta t\)</span> and can therefore not be captured anymore</p></li>
+<li><p>Information is lost during time integration</p></li>
+</ul>
+<div class="figure align-default" id="fig-fdm-cfl-dtlarge">
+<a class="reference internal image-reference" href="../../../_images/fdm_cfl_dtlarge.png"><img alt="../../../_images/fdm_cfl_dtlarge.png" src="../../../_images/fdm_cfl_dtlarge.png" style="width: 80%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2.26 </span><span class="caption-text">Fast information propagation.</span><a class="headerlink" href="#fig-fdm-cfl-dtlarge" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="courant-friedrichs-lewy-cfl-condition">
+<h3>Courant-Friedrichs-Lewy (CFL) condition<a class="headerlink" href="#courant-friedrichs-lewy-cfl-condition" title="Permalink to this headline">¶</a></h3>
+<p>In general, there exist stability conditions for explicit schemes, which relates the maximal information travel speed <span class="math notranslate nohighlight">\(\mf v_{max}\)</span> and the grid velocity <span class="math notranslate nohighlight">\(\mf v_g = \Delta x / \Delta t\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\mf v_{max} \lt CFL\cdot v_{g}\quad .
+\]</div>
+<p>Given a mesh resolution <span class="math notranslate nohighlight">\(\mf\Delta x\)</span> and maximal velocities, the above condition limits the time step:</p>
+<div class="math notranslate nohighlight">
+\[
+\mf \Delta t \lt CFL\cdot \frac{\Delta x}{v_{max}}
+\]</div>
+<p>Notes:</p>
+<ul class="simple">
+<li><p>The flow velocity may be computed in various ways (<span class="math notranslate nohighlight">\(\mf L_\infty\)</span>, <span class="math notranslate nohighlight">\(L_1\)</span>, <span class="math notranslate nohighlight">\(L_2\)</span> norms), diffusion velocity <span class="math notranslate nohighlight">\(\mf \propto 1/\Delta x\)</span></p></li>
+<li><p>There also exist other constrains on <span class="math notranslate nohighlight">\(\mf Delta t\)</span>: mass density constraint and volume constraint.</p></li>
+<li><p>The value of the CFL number depends on the time integration scheme.</p></li>
+</ul>
+<p>Implications of the CFL condition in FDS:</p>
+<p>The condition for <span class="math notranslate nohighlight">\(\mf \Delta t\)</span> used in FDS is</p>
+<div class="math notranslate nohighlight">
+\[
+\mf 0.8 \leq CFL = \Delta t \left(\frac{\|\vec{v}\|}{\Delta x} + |\nabla \cdot \vec{v}|\right) \leq 1.0
+\]</div>
+<ul class="simple">
+<li><p>If the CFL number grows above the upper limit, the time step is set to 90% of the allowed, if it falls below the lower limit, then it is increased by 10%.</p></li>
+<li><p>In general, the time step is reduced by a factor of 2 when the mesh spacing is reduced by a factor of 2, i.e. the total computational effort increases by a factor of 16.</p></li>
+</ul>
 </div>
 </div>
 </div>

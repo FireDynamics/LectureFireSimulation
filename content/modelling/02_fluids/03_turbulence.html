@@ -51,7 +51,7 @@
     </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}"}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}", "du": "\\dot{u}"}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/modelling/02_fluids/03_turbulence.html" />
     <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -331,52 +331,56 @@
   <div class="section" id="turbulence">
 <h1><span class="section-number">2.3. </span>Turbulence<a class="headerlink" href="#turbulence" title="Permalink to this headline">¶</a></h1>
 <p>Turbulence is one of the major scientific challenges. The mathematical description and experimental data related to fluid dynamics are known and available for over one hundred years.</p>
-<p>“Turbulence is the most important unsolved problem of classical physics.”
+<blockquote>
+<div><p>“Turbulence is the most important unsolved problem of classical physics.”<br>
 — Richard Feynman</p>
-<p>”When I meet God, I am going to ask him two questions: Why relativity, and why turbulence?
-I really believe he will have an answer for the first.”
+</div></blockquote>
+<blockquote>
+<div><p>”When I meet God, I am going to ask him two questions: Why relativity, and why turbulence?
+I really believe he will have an answer for the first.”<br>
 — Werner Heisenberg</p>
+</div></blockquote>
 <p>Understanding the nature of turbulence is one of the <a class="reference external" href="https://www.claymath.org/millennium-problems/navier%E2%80%93stokes-equation">Millennium Problems</a>.</p>
 <div class="section" id="characterisation">
 <h2>Characterisation<a class="headerlink" href="#characterisation" title="Permalink to this headline">¶</a></h2>
-<p>Among the first scientific experiments to characterise and analyse turbulent flows, is the work of <a class="reference external" href="https://en.wikipedia.org/wiki/Osborne_Reynolds">Osborne Reynolds</a>. He studied the conditions under which a flow undergoes the transition from a ordered to a chaotic state. One of these studies is published in <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id4"><span>Rey83</span></a>]</span>, see <a class="reference internal" href="#fig-turbulence-reynolds-experiment"><span class="std std-numref">Fig. 2.18</span></a> and <a class="reference internal" href="#fig-turbulence-reynolds-results"><span class="std std-numref">Fig. 2.19</span></a>.</p>
+<p>Among the first scientific experiments to characterise and analyse turbulent flows, is the work of <a class="reference external" href="https://en.wikipedia.org/wiki/Osborne_Reynolds">Osborne Reynolds</a>. He studied the conditions under which a flow undergoes the transition from a ordered to a chaotic state. One of these studies is published in <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id4"><span>Rey83</span></a>]</span>, see <a class="reference internal" href="#fig-turbulence-reynolds-experiment"><span class="std std-numref">Fig. 2.27</span></a> and <a class="reference internal" href="#fig-turbulence-reynolds-results"><span class="std std-numref">Fig. 2.28</span></a>.</p>
 <div class="figure align-default" id="fig-turbulence-reynolds-experiment">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/f/f3/Reynolds_fluid_turbulence_experiment_1883.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/f/f3/Reynolds_fluid_turbulence_experiment_1883.jpg" src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Reynolds_fluid_turbulence_experiment_1883.jpg" style="width: 40%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.18 </span><span class="caption-text">Reynolds’ experiment in 1883. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Reynolds_fluid_turbulence_experiment_1883.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-turbulence-reynolds-experiment" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.27 </span><span class="caption-text">Reynolds’ experiment in 1883. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Reynolds_fluid_turbulence_experiment_1883.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-turbulence-reynolds-experiment" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="fig-turbulence-reynolds-results">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/1/12/Reynolds_observations_turbulence_1883.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/1/12/Reynolds_observations_turbulence_1883.svg" src="https://upload.wikimedia.org/wikipedia/commons/1/12/Reynolds_observations_turbulence_1883.svg" width="60%" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.19 </span><span class="caption-text">Observations of the flow in Reynolds’ experiment, see also original article <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id4"><span>Rey83</span></a>]</span>. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Reynolds_observations_turbulence_1883.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-turbulence-reynolds-results" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.28 </span><span class="caption-text">Observations of the flow in Reynolds’ experiment, see also original article <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id4"><span>Rey83</span></a>]</span>. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Reynolds_observations_turbulence_1883.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-turbulence-reynolds-results" title="Permalink to this image">¶</a></p>
 </div>
-<p>With these experiments the flow transition as a function of the Reynolds number can be investigated. An other example for the determination of the transition from a laminar to a turbulent state for a bouyant plume is shown in <a class="reference internal" href="#fig-turbulence-plume-setup"><span class="std std-numref">Fig. 2.20</span></a>. The full experimental setup and results are given in <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id3"><span>MABH18</span></a>]</span>.</p>
+<p>With these experiments the flow transition as a function of the Reynolds number can be investigated. An other example for the determination of the transition from a laminar to a turbulent state for a bouyant plume is shown in <a class="reference internal" href="#fig-turbulence-plume-setup"><span class="std std-numref">Fig. 2.29</span></a>. The full experimental setup and results are given in <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id3"><span>MABH18</span></a>]</span>.</p>
 <div class="figure align-default" id="fig-turbulence-plume-setup">
 <a class="reference internal image-reference" href="../../../_images/turbulence-plume-setup.jpg"><img alt="../../../_images/turbulence-plume-setup.jpg" src="../../../_images/turbulence-plume-setup.jpg" style="width: 60%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.20 </span><span class="caption-text">Experimental setup of a buoyant plume, see <span id="id4">[<a class="reference internal" href="../../overview/03_references.html#id3"><span>MABH18</span></a>]</span> for more details. Here, the heating power of the copper block determines the flow velocity.</span><a class="headerlink" href="#fig-turbulence-plume-setup" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.29 </span><span class="caption-text">Experimental setup of a buoyant plume, see <span id="id4">[<a class="reference internal" href="../../overview/03_references.html#id3"><span>MABH18</span></a>]</span> for more details. Here, the heating power of the copper block determines the flow velocity.</span><a class="headerlink" href="#fig-turbulence-plume-setup" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="fig-turbulence-plume-quiver">
 <a class="reference internal image-reference" href="../../../_images/turbulence-plume-velocity_quiver.png"><img alt="../../../_images/turbulence-plume-velocity_quiver.png" src="../../../_images/turbulence-plume-velocity_quiver.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.21 </span><span class="caption-text">Example of instanteneous velocity fields for different heating rates. The velocity field is captured with a <a class="reference external" href="https://en.wikipedia.org/wiki/Particle_image_velocimetry">particle imaging velocimetry (PIV)</a> technique.</span><a class="headerlink" href="#fig-turbulence-plume-quiver" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.30 </span><span class="caption-text">Example of instanteneous velocity fields for different heating rates. The velocity field is captured with a <a class="reference external" href="https://en.wikipedia.org/wiki/Particle_image_velocimetry">particle imaging velocimetry (PIV)</a> technique.</span><a class="headerlink" href="#fig-turbulence-plume-quiver" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="fig-turbulence-plume-time-series">
 <a class="reference internal image-reference" href="../../../_images/turbulence-plume-velocity_time_series.png"><img alt="../../../_images/turbulence-plume-velocity_time_series.png" src="../../../_images/turbulence-plume-velocity_time_series.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.22 </span><span class="caption-text">Time series of velocity components at selected locations (blue circles in <a class="reference internal" href="#fig-turbulence-plume-quiver"><span class="std std-numref">Fig. 2.21</span></a>).</span><a class="headerlink" href="#fig-turbulence-plume-time-series" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.31 </span><span class="caption-text">Time series of velocity components at selected locations (blue circles in <a class="reference internal" href="#fig-turbulence-plume-quiver"><span class="std std-numref">Fig. 2.30</span></a>).</span><a class="headerlink" href="#fig-turbulence-plume-time-series" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="fig-turbulence-plume-fluctuations">
 <a class="reference internal image-reference" href="../../../_images/turbulence-plume-velocity_fluctuations.png"><img alt="../../../_images/turbulence-plume-velocity_fluctuations.png" src="../../../_images/turbulence-plume-velocity_fluctuations.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.23 </span><span class="caption-text">Statistics of velocity fluctuations.</span><a class="headerlink" href="#fig-turbulence-plume-fluctuations" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.32 </span><span class="caption-text">Statistics of velocity fluctuations.</span><a class="headerlink" href="#fig-turbulence-plume-fluctuations" title="Permalink to this image">¶</a></p>
 </div>
-<p>The canonical setup for the transition form a laminar to a turbulent flow is a pipe flow, as shown in <a class="reference internal" href="#fig-turbulence-pipe-setup"><span class="std std-numref">Fig. 2.24</span></a>. Starting with a uniform flow at the inlet, the flow at the boudaries is deaccelerated and an acccording flow pattern develops. Depending on the Reynolds number, the mean velocity profiles differ significantly. While in the laminar case a parabolic profile develops, a flattened profile is characteristic for a turbulent flow, see <a class="reference internal" href="#fig-turbulence-pipe-velocity"><span class="std std-numref">Fig. 2.25</span></a>. An other observation is that the effective viscosity differs in both cases. While in the laminar case the observed value is the material property and thus constant, it shows a higher and dynamic value in the turbulent case, see <a class="reference internal" href="#fig-turbulence-pipe-viscosity"><span class="std std-numref">Fig. 2.26</span></a>.</p>
+<p>The canonical setup for the transition form a laminar to a turbulent flow is a pipe flow, as shown in <a class="reference internal" href="#fig-turbulence-pipe-setup"><span class="std std-numref">Fig. 2.33</span></a>. Starting with a uniform flow at the inlet, the flow at the boudaries is deaccelerated and an acccording flow pattern develops. Depending on the Reynolds number, the mean velocity profiles differ significantly. While in the laminar case a parabolic profile develops, a flattened profile is characteristic for a turbulent flow, see <a class="reference internal" href="#fig-turbulence-pipe-velocity"><span class="std std-numref">Fig. 2.34</span></a>. An other observation is that the effective viscosity differs in both cases. While in the laminar case the observed value is the material property and thus constant, it shows a higher and dynamic value in the turbulent case, see <a class="reference internal" href="#fig-turbulence-pipe-viscosity"><span class="std std-numref">Fig. 2.35</span></a>.</p>
 <div class="figure align-default" id="fig-turbulence-pipe-setup">
 <a class="reference internal image-reference" href="../../../_images/turbulence-pipe-sketch-labeled.svg"><img alt="../../../_images/turbulence-pipe-sketch-labeled.svg" src="../../../_images/turbulence-pipe-sketch-labeled.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.24 </span><span class="caption-text">Schematics of a pipe flow. The arrows indicate the time averaged velocity.</span><a class="headerlink" href="#fig-turbulence-pipe-setup" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.33 </span><span class="caption-text">Schematics of a pipe flow. The arrows indicate the time averaged velocity.</span><a class="headerlink" href="#fig-turbulence-pipe-setup" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="fig-turbulence-pipe-velocity">
 <a class="reference internal image-reference" href="../../../_images/turbulence-pipe-velocity.svg"><img alt="../../../_images/turbulence-pipe-velocity.svg" src="../../../_images/turbulence-pipe-velocity.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.25 </span><span class="caption-text">Schematics mean flow in a pipe.</span><a class="headerlink" href="#fig-turbulence-pipe-velocity" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.34 </span><span class="caption-text">Schematics mean flow in a pipe.</span><a class="headerlink" href="#fig-turbulence-pipe-velocity" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="fig-turbulence-pipe-viscosity">
 <a class="reference internal image-reference" href="../../../_images/turbulence-pipe-viscosity.svg"><img alt="../../../_images/turbulence-pipe-viscosity.svg" src="../../../_images/turbulence-pipe-viscosity.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.26 </span><span class="caption-text">Schematics of the effective viscosity in a pipe flow.</span><a class="headerlink" href="#fig-turbulence-pipe-viscosity" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.35 </span><span class="caption-text">Schematics of the effective viscosity in a pipe flow.</span><a class="headerlink" href="#fig-turbulence-pipe-viscosity" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="scales">
@@ -388,7 +392,7 @@ I really believe he will have an answer for the first.”
 </ul>
 <div class="figure align-default" id="fig-turbulence-energy-cascade">
 <a class="reference internal image-reference" href="../../../_images/energy-cascade.svg"><img alt="../../../_images/energy-cascade.svg" src="../../../_images/energy-cascade.svg" width="100%" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.27 </span><span class="caption-text">Scales involved in a turbulent flow.</span><a class="headerlink" href="#fig-turbulence-energy-cascade" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.36 </span><span class="caption-text">Scales involved in a turbulent flow.</span><a class="headerlink" href="#fig-turbulence-energy-cascade" title="Permalink to this image">¶</a></p>
 </div>
 <p>The integral scale, at which the flow structures break into smaller structures, connects both above scales.</p>
 <p>To model turbulence, the impact of small scales on the large scales must be approximated. The main two approaches are based on either a spatial or a temporal means.</p>
@@ -403,12 +407,12 @@ Energy spectrum of a turbulent flow. Source: [Wikimedia Commons](https://commons
 <p>In fire simulations, two classes of turbulence models are common: direct numerical simulatons (DNS) and large eddy simulations (LES). Although for practical applications only the LES class is suitable.</p>
 <div class="figure align-default" id="fig-turbulence-modelling-overview">
 <a class="reference internal image-reference" href="../../../_images/turbulence-modelling-overview.svg"><img alt="../../../_images/turbulence-modelling-overview.svg" src="../../../_images/turbulence-modelling-overview.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.28 </span><span class="caption-text">Overview of the resolved and modelled scales in DNS and LES Simulations.</span><a class="headerlink" href="#fig-turbulence-modelling-overview" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.37 </span><span class="caption-text">Overview of the resolved and modelled scales in DNS and LES Simulations.</span><a class="headerlink" href="#fig-turbulence-modelling-overview" title="Permalink to this image">¶</a></p>
 </div>
 <p>DNS does not model any scales, but rather resolves them all. Thus this model can only be applied if the Kolmogorov scale is numerically resolved.</p>
 <p>The general idea of LES is to formulate equations for spatially filtered quantites. In case of LES this filter is given by</p>
 <div class="math notranslate nohighlight" id="equation-eq-les-filter">
-<span class="eqno">(2.19)<a class="headerlink" href="#equation-eq-les-filter" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(2.21)<a class="headerlink" href="#equation-eq-les-filter" title="Permalink to this equation">¶</a></span>\[
 \mf \langle\phi\rangle = \bar{\phi} = \frac{1}{V}\int_V \phi\ dV 
 \]</div>
 <p>for any field quantity <span class="math notranslate nohighlight">\(\mf \phi = \phi(x,y,z,t)\)</span>.</p>
@@ -419,7 +423,7 @@ Energy spectrum of a turbulent flow. Source: [Wikimedia Commons](https://commons
 \]</div>
 <div class="admonition-task admonition">
 <p class="admonition-title">Task</p>
-<p>Derive the above formula by applying the filter <a class="reference internal" href="#equation-eq-les-filter">(2.19)</a> to the equation of motion <a class="reference internal" href="01_fluids.html#equation-eq-fluid-momentum">(2.9)</a> with <span class="math notranslate nohighlight">\(\mf \langle\rho\rangle = \rho\)</span>.</p>
+<p>Derive the above formula by applying the filter <a class="reference internal" href="#equation-eq-les-filter">(2.21)</a> to the equation of motion <a class="reference internal" href="01_fluids.html#equation-eq-fluid-momentum">(2.9)</a> with <span class="math notranslate nohighlight">\(\mf \langle\rho\rangle = \rho\)</span>.</p>
 </div>
 <p>The residual stress tensor <span class="math notranslate nohighlight">\(\mf \tau^r\)</span> must be modelled to represent the scale interaction. Here, the Boussinesq hypothesis is applied:</p>
 <div class="math notranslate nohighlight">
