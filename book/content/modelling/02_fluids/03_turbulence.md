@@ -11,6 +11,21 @@ I really believe he will have an answer for the first.”<br>
 
 Understanding the nature of turbulence is one of the [Millennium Problems](https://www.claymath.org/millennium-problems/navier–stokes-equation).
 
+Great Wave off Kanagawa
+
+:::{figure-md} fig-turbulence-great-wave
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Great_Wave_off_Kanagawa2.jpg/1280px-Great_Wave_off_Kanagawa2.jpg" width="80%">
+
+Great wave off Kanagawa. Source: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Great_Wave_off_Kanagawa2.jpg).
+:::
+
+
+:::{figure-md} fig-turbulence-great-wave
+<img src="https://upload.wikimedia.org/wikipedia/commons/4/48/Kelvin-Helmholtz_waves.jpg" width="80%">
+
+[Kelvin–Helmholtz instability](https://en.wikipedia.org/wiki/Kelvin–Helmholtz_instability) in a cloud formation. Source: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kelvin-Helmholtz_waves.jpg).
+:::
+
 ## Characterisation
 
 Among the first scientific experiments to characterise and analyse turbulent flows, is the work of [Osborne Reynolds](https://en.wikipedia.org/wiki/Osborne_Reynolds). He studied the conditions under which a flow undergoes the transition from a ordered to a chaotic state. One of these studies is published in {cite}`Reynolds:1883`, see {numref}`fig-turbulence-reynolds-experiment` and {numref}`fig-turbulence-reynolds-results`.
