@@ -200,7 +200,7 @@ As the filtered equation of motion {eq}`eq-les-eom` is nearly equal to the unfil
 
 **Constant Smagorinsky**
 
-The Smagorinsky-Lilly model is based on the assumption, that the turbulent viscosity below the filter width $\Delta$, here we focus on explicit LES with $\mf \Delta = \Delta x$, may be described with
+The Smagorinsky-Lilly model is based on the assumption, that the turbulent viscosity below the filter width $\Delta$, here we focus on implicit LES with $\mf \Delta = \Delta x$, may be described with
 
 $$
 \mf \mu_t = \langle\rho\rangle C_S^2\Delta^2\|\textbf{S}\|
@@ -241,7 +241,7 @@ The literature value of the constant is $\mf C_V=0.1$.
 
 **Implementation in FDS**
 
-FDS offers different modelling approaches, see section 7.2 in {cite}`FDS-UG-6.7.5`: DNS (Direction Numerical Simulation), LES (Large Eddy Simulation), VLES (Very Large Eddy Simulation), and SVLES (Simple Very Large Eddy Simulation — VLES with simplified physics). The default mode is VLES.
+FDS offers different simulation modes, see section 7.2 in {cite}`FDS-UG-6.7.5`: DNS (Direction Numerical Simulation), LES (Large Eddy Simulation), VLES (Very Large Eddy Simulation), and SVLES (Simple Very Large Eddy Simulation — VLES with simplified physics). The default mode is VLES.
 
 The following models for the tubulent viscosity are currently available, see section 7.5 in {cite}`FDS-UG-6.7.5`:
 
