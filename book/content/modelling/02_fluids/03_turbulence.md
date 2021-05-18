@@ -200,7 +200,7 @@ As the filtered equation of motion {eq}`eq-les-eom` is nearly equal to the unfil
 
 **Constant Smagorinsky**
 
-The Smagorinsky-Lilly model is based on the assumption, that the turbulent viscosity below the filter width $\Delta$, here we focus on explicit LES with $\mf \Delta = \Delta x$, may be described with
+The Smagorinsky-Lilly model is based on the assumption, that the turbulent viscosity below the filter width $\Delta$, here we focus on implicit LES with $\mf \Delta = \Delta x$, may be described with
 
 $$
 \mf \mu_t = \langle\rho\rangle C_S^2\Delta^2\|\textbf{S}\|
