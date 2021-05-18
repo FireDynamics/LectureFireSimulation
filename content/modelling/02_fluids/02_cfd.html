@@ -451,12 +451,6 @@
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.7.10/x64/lib/python3.7/site-packages/ipykernel_launcher.py:6: DeprecationWarning: `set_matplotlib_formats` is deprecated since IPython 7.23, directly use `matplotlib_inline.backend_inline.set_matplotlib_formats()`
-  
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="computational-fluid-dynamics">
 <h1><span class="section-number">2.2. </span>Computational Fluid Dynamics<a class="headerlink" href="#computational-fluid-dynamics" title="Permalink to this headline">¶</a></h1>
@@ -479,7 +473,7 @@
 <h2>Approximation of Derivatives<a class="headerlink" href="#approximation-of-derivatives" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="taylor-series">
 <h3>Taylor Series<a class="headerlink" href="#taylor-series" title="Permalink to this headline">¶</a></h3>
-<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Taylor_series">Taylor series</a> can approximate any <span class="math notranslate nohighlight">\(\mf C^\infty\)</span> function at an expansion point <span class="math notranslate nohighlight">\(\mf x_0\)</span>. The approximation is given in terms of <span class="math notranslate nohighlight">\(\mf h\)</span>, being the coordinate variable in the vicinity of <span class="math notranslate nohighlight">\(\mf x_0\)</span>.</p>
+<p>The <a class="reference external" href="https://en.wikipedia.org/wiki/Taylor_series">Taylor series</a> can approximate any <span class="math notranslate nohighlight">\(\mf C^\infty\)</span> function at an expansion point <span class="math notranslate nohighlight">\(\mf x_0\)</span>. The approximation of <span class="math notranslate nohighlight">\(\mf f(x)\)</span> is given in terms of <span class="math notranslate nohighlight">\(\mf h\)</span>, being the coordinate variable in the vicinity of <span class="math notranslate nohighlight">\(\mf x_0\)</span>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-taylor-series">
 <span class="eqno">(2.11)<a class="headerlink" href="#equation-eq-taylor-series" title="Permalink to this equation">¶</a></span>\[\begin{split}
 \begin{align}
@@ -630,40 +624,40 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+<img alt="../../../_images/02_cfd_5_0.svg" src="../../../_images/02_cfd_5_0.svg" /><img alt="../../../_images/02_cfd_5_1.svg" src="../../../_images/02_cfd_5_1.svg" /><img alt="../../../_images/02_cfd_5_2.svg" src="../../../_images/02_cfd_5_2.svg" /><img alt="../../../_images/02_cfd_5_3.svg" src="../../../_images/02_cfd_5_3.svg" /><img alt="../../../_images/02_cfd_5_4.svg" src="../../../_images/02_cfd_5_4.svg" /><img alt="../../../_images/02_cfd_5_5.svg" src="../../../_images/02_cfd_5_5.svg" /><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
 </pre></div>
 </div>
 </div>
 </div>
 <p>The following figures illustrate the according Taylor approximations for up to <span class="math notranslate nohighlight">\(\mf n=3\)</span>.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="f417531c-facd-4152-ac6d-6737f4db25ac" name="2d75d03a-b424-4342-8237-422dcdabc360" type="radio">
-</input><label class="tabbed-label" for="f417531c-facd-4152-ac6d-6737f4db25ac">
+<input checked="checked" id="4c40c180-7e1f-473d-8586-14889995d5bf" name="05391772-c386-4871-b8a9-45b2a294923a" type="radio">
+</input><label class="tabbed-label" for="4c40c180-7e1f-473d-8586-14889995d5bf">
 f(x)</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_fnk.svg"><img alt="../../../_images/taylor_fnk.svg" src="../../../_images/taylor_fnk.svg" width="90%" /></a>
 </div>
-<input id="bbd6ac7e-33fb-4d7b-8f84-69f2022b829d" name="2d75d03a-b424-4342-8237-422dcdabc360" type="radio">
-</input><label class="tabbed-label" for="bbd6ac7e-33fb-4d7b-8f84-69f2022b829d">
+<input id="403a0160-7ef6-40a3-9909-1976cb5f3bed" name="05391772-c386-4871-b8a9-45b2a294923a" type="radio">
+</input><label class="tabbed-label" for="403a0160-7ef6-40a3-9909-1976cb5f3bed">
 n=0</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_ts0.svg"><img alt="../../../_images/taylor_ts0.svg" src="../../../_images/taylor_ts0.svg" width="90%" /></a>
 </div>
-<input id="cb7f86e4-4936-414f-bf66-5218b6179bcf" name="2d75d03a-b424-4342-8237-422dcdabc360" type="radio">
-</input><label class="tabbed-label" for="cb7f86e4-4936-414f-bf66-5218b6179bcf">
+<input id="dcee5577-db66-4a84-a578-ff1ae57aef15" name="05391772-c386-4871-b8a9-45b2a294923a" type="radio">
+</input><label class="tabbed-label" for="dcee5577-db66-4a84-a578-ff1ae57aef15">
 n=1</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_ts1.svg"><img alt="../../../_images/taylor_ts1.svg" src="../../../_images/taylor_ts1.svg" width="90%" /></a>
 </div>
-<input id="85d9d8e2-311e-4f05-a236-9ea11e0d4f22" name="2d75d03a-b424-4342-8237-422dcdabc360" type="radio">
-</input><label class="tabbed-label" for="85d9d8e2-311e-4f05-a236-9ea11e0d4f22">
+<input id="9b9a2430-86df-40d0-b91e-fcd9dc13af56" name="05391772-c386-4871-b8a9-45b2a294923a" type="radio">
+</input><label class="tabbed-label" for="9b9a2430-86df-40d0-b91e-fcd9dc13af56">
 n=2</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_ts2.svg"><img alt="../../../_images/taylor_ts2.svg" src="../../../_images/taylor_ts2.svg" width="90%" /></a>
 </div>
-<input id="e2eb9565-1399-40a7-b1c7-dd98e9ab12bd" name="2d75d03a-b424-4342-8237-422dcdabc360" type="radio">
-</input><label class="tabbed-label" for="e2eb9565-1399-40a7-b1c7-dd98e9ab12bd">
+<input id="d7992a3c-65b3-4a00-9146-0d302056032a" name="05391772-c386-4871-b8a9-45b2a294923a" type="radio">
+</input><label class="tabbed-label" for="d7992a3c-65b3-4a00-9146-0d302056032a">
 n=3</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_ts3.svg"><img alt="../../../_images/taylor_ts3.svg" src="../../../_images/taylor_ts3.svg" width="90%" /></a>
 </div>
-<input id="8bec1215-c97d-402a-9d32-dcecfc206377" name="2d75d03a-b424-4342-8237-422dcdabc360" type="radio">
-</input><label class="tabbed-label" for="8bec1215-c97d-402a-9d32-dcecfc206377">
+<input id="6e0a626f-3c43-40a9-b75a-bba535f4e778" name="05391772-c386-4871-b8a9-45b2a294923a" type="radio">
+</input><label class="tabbed-label" for="6e0a626f-3c43-40a9-b75a-bba535f4e778">
 n in [0,…,3]</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_all.svg"><img alt="../../../_images/taylor_all.svg" src="../../../_images/taylor_all.svg" width="90%" /></a>
 </div>
@@ -671,18 +665,18 @@ n in [0,…,3]</label><div class="tabbed-content docutils">
 </div>
 <div class="section" id="derivatives">
 <h3>Derivatives<a class="headerlink" href="#derivatives" title="Permalink to this headline">¶</a></h3>
-<p>To approximate the first derivative of a function <span class="math notranslate nohighlight">\(\mf f(x)\)</span> at <span class="math notranslate nohighlight">\(\mf x=x_0\)</span>, i.e. <span class="math notranslate nohighlight">\(\mf f'(x_0)\)</span>, the Taylor expansion up to <span class="math notranslate nohighlight">\(\mf n=1\)</span> can be used</p>
-<div class="math notranslate nohighlight">
-\[
+<p>To approximate the first derivative of a function <span class="math notranslate nohighlight">\(\mf f(x)\)</span> at <span class="math notranslate nohighlight">\(\mf x=x_0\)</span>, i.e. <span class="math notranslate nohighlight">\(\mf f'(x_0)\)</span>, the Taylor expansion up to <span class="math notranslate nohighlight">\(\mf n=2\)</span> can be used</p>
+<div class="math notranslate nohighlight" id="equation-eq-fdm-taylor-n2">
+<span class="eqno">(2.15)<a class="headerlink" href="#equation-eq-fdm-taylor-n2" title="Permalink to this equation">¶</a></span>\[
 \mf f(x_0 + h) = f(x_0) + f'(x_0)h + \mathcal{O}(h^2)\quad .
 \]</div>
 <p>After rearrangemet, this results in the forward differentiation of first order</p>
 <div class="math notranslate nohighlight" id="equation-eq-fdm-fwd-frst">
-<span class="eqno">(2.15)<a class="headerlink" href="#equation-eq-fdm-fwd-frst" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(2.16)<a class="headerlink" href="#equation-eq-fdm-fwd-frst" title="Permalink to this equation">¶</a></span>\[
 \mf f'(x_0) = \frac{f(x_0 + h) - f(x_0)}{h} + \mathcal{O}(h)\quad .
 \]</div>
 <p>Thus with this formula, it becomes possible to approximate the value of the derivative based on two values of the function, here at <span class="math notranslate nohighlight">\(\mf x_0\)</span> and <span class="math notranslate nohighlight">\(\mf x_0 + h\)</span>.</p>
-<p>A graphical representation of equation <a class="reference internal" href="#equation-eq-fdm-fwd-frst">(2.15)</a> is shown below. It demonstrates the formula for <span class="math notranslate nohighlight">\(\mf h=1\)</span>.</p>
+<p>A graphical representation of equation <a class="reference internal" href="#equation-eq-fdm-fwd-frst">(2.16)</a> is shown below. It demonstrates the formula for <span class="math notranslate nohighlight">\(\mf h=1\)</span>.</p>
 <div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fix value of h</span>
@@ -726,14 +720,16 @@ n in [0,…,3]</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/02_cfd_9_0.svg" src="../../../_images/02_cfd_9_0.svg" /></div>
 </div>
 <div class="figure align-default" id="fig-fwd-difference">
 <a class="reference internal image-reference" href="../../../_images/derivative_forward.svg"><img alt="../../../_images/derivative_forward.svg" src="../../../_images/derivative_forward.svg" width="90%" /></a>
 <p class="caption"><span class="caption-number">Fig. 2.12 </span><span class="caption-text">First order forward difference formula.</span><a class="headerlink" href="#fig-fwd-difference" title="Permalink to this image">¶</a></p>
 </div>
 <p>While the above formula used the value at <span class="math notranslate nohighlight">\(\mf x_0 + h\)</span> and is thus called a forward differences formula, it is possible to use the function’s value at <span class="math notranslate nohighlight">\(\mf x_0 - h\)</span>. This results in the backward differences formula</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="math notranslate nohighlight" id="equation-eq-fdm-backward-frst">
+<span class="eqno">(2.17)<a class="headerlink" href="#equation-eq-fdm-backward-frst" title="Permalink to this equation">¶</a></span>\[
 \mf f'(x_0) = \frac{f(x_0) - f(x_0 - h)}{h} + \mathcal{O}(h)\quad .
 \]</div>
 <div class="cell tag_hide_cell docutils container">
@@ -773,6 +769,8 @@ n in [0,…,3]</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/02_cfd_12_0.svg" src="../../../_images/02_cfd_12_0.svg" /></div>
 </div>
 <div class="figure align-default" id="fig-bck-difference">
 <a class="reference internal image-reference" href="../../../_images/derivative_backward.svg"><img alt="../../../_images/derivative_backward.svg" src="../../../_images/derivative_backward.svg" width="90%" /></a>
@@ -780,22 +778,22 @@ n in [0,…,3]</label><div class="tabbed-content docutils">
 </div>
 <p>First order approximations are mostly not sufficient and higher order approximations are needed. Using more values of the function, i.e. the combination of multiple Taylor series, higher order formula may be derived, like for the second order central differences formula.</p>
 <p>The following two Taylor series are used as starting point</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
+<div class="math notranslate nohighlight" id="equation-eq-fdm-central-start">
+<span class="eqno">(2.18)<a class="headerlink" href="#equation-eq-fdm-central-start" title="Permalink to this equation">¶</a></span>\[\begin{split}
 \begin{align} 
 \mf f(x_0+h) &amp;\mf= f(x_0) + f'(x_0)\cdot h + \frac{1}{2}f''(x_0)\cdot h^2 + \mathcal{O}(h^3) \\ 
 \mf f(x_0-h) &amp;\mf= f(x_0) - f'(x_0)\cdot h + \frac{1}{2}f''(x_0)\cdot h^2 + \mathcal{O}(h^3) 
 \end{align}
 \end{split}\]</div>
 <p>Subtracting the first equation from the second</p>
-<div class="math notranslate nohighlight">
-\[
+<div class="math notranslate nohighlight" id="equation-eq-fdm-central-intermediate">
+<span class="eqno">(2.19)<a class="headerlink" href="#equation-eq-fdm-central-intermediate" title="Permalink to this equation">¶</a></span>\[
 \mf f(x_0+h) - f(x_0-h) = 2f'(x_0)\cdot h + \mathcal{O}(h^3)
 \]</div>
 <p>results in the central difference formula for the first derivative</p>
 <div class="math notranslate nohighlight" id="equation-eq-cfd-central-derivative-snd">
-<span class="eqno">(2.16)<a class="headerlink" href="#equation-eq-cfd-central-derivative-snd" title="Permalink to this equation">¶</a></span>\[
-\mf f''(x_0) = \frac{f(x_0+h) - f(x_0-h)}{2h} + \mathcal{O}(h^2)\quad .
+<span class="eqno">(2.20)<a class="headerlink" href="#equation-eq-cfd-central-derivative-snd" title="Permalink to this equation">¶</a></span>\[
+\mf f'(x_0) = \frac{f(x_0+h) - f(x_0-h)}{2h} + \mathcal{O}(h^2)\quad .
 \]</div>
 <p>The central differences formula is graphicaly represented in the following figure.</p>
 <div class="cell tag_hide_cell docutils container">
@@ -835,6 +833,8 @@ n in [0,…,3]</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/02_cfd_16_0.svg" src="../../../_images/02_cfd_16_0.svg" /></div>
 </div>
 <div class="figure align-default" id="fig-cnt-difference">
 <a class="reference internal image-reference" href="../../../_images/derivative_central.svg"><img alt="../../../_images/derivative_central.svg" src="../../../_images/derivative_central.svg" width="90%" /></a>
@@ -871,6 +871,8 @@ n in [0,…,3]</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/02_cfd_19_0.svg" src="../../../_images/02_cfd_19_0.svg" /></div>
 </div>
 <div class="figure align-default" id="fig-all-difference">
 <a class="reference internal image-reference" href="../../../_images/derivative_all.svg"><img alt="../../../_images/derivative_all.svg" src="../../../_images/derivative_all.svg" width="90%" /></a>
@@ -878,18 +880,18 @@ n in [0,…,3]</label><div class="tabbed-content docutils">
 </div>
 <p>It is also possible to derive directional (forward, backwards) formulas second order. The calculus leads to the follwoing formulas</p>
 <div class="math notranslate nohighlight" id="equation-eq-cfd-directional-derivative-snd">
-<span class="eqno">(2.17)<a class="headerlink" href="#equation-eq-cfd-directional-derivative-snd" title="Permalink to this equation">¶</a></span>\[\begin{split}
+<span class="eqno">(2.21)<a class="headerlink" href="#equation-eq-cfd-directional-derivative-snd" title="Permalink to this equation">¶</a></span>\[\begin{split}
 \begin{align}
-\mf f''(x_0) &amp;\mf= \frac{-3f(x_0) + 4f(x_0+h) - f(x_0+2h)}{2h} + \mathcal{O}(h^2) \\
-\mf f''(x_0) &amp;\mf= \frac{3f(x_0) - 4f(x_0-h) + f(x_0-2h)}{2h} + \mathcal{O}(h^2) \quad .
+\mf f'(x_0) &amp;\mf= \frac{-3f(x_0) + 4f(x_0+h) - f(x_0+2h)}{2h} + \mathcal{O}(h^2) \\
+\mf f'(x_0) &amp;\mf= \frac{ 3f(x_0) - 4f(x_0-h) + f(x_0-2h)}{2h} + \mathcal{O}(h^2) \quad .
 \end{align}
 \end{split}\]</div>
 <div class="admonition-task admonition">
 <p class="admonition-title">Task</p>
 <p>Derive the discretisation formula for the second derivative</p>
 <div class="math notranslate nohighlight" id="equation-eq-cfd-central-sndderivative-snd">
-<span class="eqno">(2.18)<a class="headerlink" href="#equation-eq-cfd-central-sndderivative-snd" title="Permalink to this equation">¶</a></span>\[
-\mf f''(x_0) = \frac{f(x_0-h) - 2f(x_0) + f(x_0+h)}{\Delta x^2} + \mathcal{O}(h^2)
+<span class="eqno">(2.22)<a class="headerlink" href="#equation-eq-cfd-central-sndderivative-snd" title="Permalink to this equation">¶</a></span>\[
+\mf f''(x_0) = \frac{f(x_0-h) - 2f(x_0) + f(x_0+h)}{h^2} + \mathcal{O}(h^2)
 \]</div>
 </div>
 </div>
@@ -922,6 +924,7 @@ n in [0,…,3]</label><div class="tabbed-content docutils">
 \mf f(x_i) = f_i\quad ,
 \]</div>
 <p>where the index indicating the position on the spatial mesh is placed as a subscript.</p>
+<p>The above definitions and the following examples are for a one-dimensional setup. In general, fire simulations are solved on a three-dimensional domain, with the according quantities for the y- and z-direction, i.e. <span class="math notranslate nohighlight">\(\mf \Delta y, \Delta z\)</span>.</p>
 <p><strong>Example of a discretisation:</strong> Given <span class="math notranslate nohighlight">\(\mf n_x = 20\)</span>, the function in equation <a class="reference internal" href="#equation-eq-cfd-example-fnk">(2.14)</a> takes the following discrete representation.</p>
 <div class="cell tag_hide_cell docutils container">
 <div class="cell_input docutils container">
@@ -931,7 +934,7 @@ n in [0,…,3]</label><div class="tabbed-content docutils">
 
 <span class="n">fi</span> <span class="o">=</span> <span class="n">fnk</span><span class="p">(</span><span class="n">xi</span><span class="p">)</span>
 
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;exact $\sf f(x)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;continuous $\sf f(x)$&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span> <span class="n">xi</span><span class="p">,</span> <span class="n">fi</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;discretised $\sf f(x_i)$&#39;</span><span class="p">)</span>
 <span class="c1"># plt.vlines( xi, [0] * len(xi), fi, color=&#39;grey&#39;, alpha=0.3)</span>
 
@@ -950,7 +953,7 @@ n in [0,…,3]</label><div class="tabbed-content docutils">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+<img alt="../../../_images/02_cfd_25_0.svg" src="../../../_images/02_cfd_25_0.svg" /><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
 </pre></div>
 </div>
 </div>
@@ -963,7 +966,7 @@ n in [0,…,3]</label><div class="tabbed-content docutils">
 <div class="section" id="discrete-derivatives">
 <h3>Discrete Derivatives<a class="headerlink" href="#discrete-derivatives" title="Permalink to this headline">¶</a></h3>
 <p>Given the approximation formulas and a discretised function, it becomes possible to compute the function’s derivative only with the usage of its values. The approximation formulas are evaluated with <span class="math notranslate nohighlight">\(\mf h = \Delta x\)</span>.</p>
-<p>For the function shown above and using the central differences second order <a class="reference internal" href="#equation-eq-cfd-central-derivative-snd">(2.16)</a>, plus the directional derivatives <a class="reference internal" href="#equation-eq-cfd-directional-derivative-snd">(2.17)</a> at the boundaries, the approximated derivative is shown in the following figure.</p>
+<p>For the function shown above and using the central differences second order <a class="reference internal" href="#equation-eq-cfd-central-derivative-snd">(2.20)</a>, plus the directional derivatives <a class="reference internal" href="#equation-eq-cfd-directional-derivative-snd">(2.21)</a> at the boundaries, the approximated derivative is shown in the following figure.</p>
 <div class="cell tag_hide_cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># function to compute the first derivative with the </span>
@@ -1012,7 +1015,7 @@ n in [0,…,3]</label><div class="tabbed-content docutils">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+<img alt="../../../_images/02_cfd_29_0.svg" src="../../../_images/02_cfd_29_0.svg" /><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
 </pre></div>
 </div>
 </div>
@@ -1020,6 +1023,19 @@ n in [0,…,3]</label><div class="tabbed-content docutils">
 <div class="figure align-default" id="fig-cfd-discrete-derivative">
 <a class="reference internal image-reference" href="../../../_images/discrete-derivative.svg"><img alt="../../../_images/discrete-derivative.svg" src="../../../_images/discrete-derivative.svg" width="90%" /></a>
 <p class="caption"><span class="caption-number">Fig. 2.17 </span><span class="caption-text">Approximation of the first derivative.</span><a class="headerlink" href="#fig-cfd-discrete-derivative" title="Permalink to this image">¶</a></p>
+</div>
+<div class="admonition-task admonition">
+<p class="admonition-title">Task</p>
+<p>Create a plot similar to <a class="reference internal" href="#fig-cfd-discrete-derivative"><span class="std std-numref">Fig. 2.17</span></a> for the function</p>
+<div class="math notranslate nohighlight">
+\[
+\mf f(x) = x^4 + 3x^3 + 2 \quad .
+\]</div>
+<ol class="simple">
+<li><p>Discretise the function with <span class="math notranslate nohighlight">\(\mf n_x = 20\)</span> between -2 and 4 and plot the continouos and discrete representation.</p></li>
+<li><p>Use this discretasition to approximate the first derivative. Plot the exact and approximated derivative.</p></li>
+<li><p>Do the same for the second derivative.</p></li>
+</ol>
 </div>
 </div>
 <div class="section" id="approximation-error">
@@ -1076,27 +1092,13 @@ dx=3.66e-04 --&gt; rmse=3.82e-08
 dx=1.83e-04 --&gt; rmse=9.55e-09
 dx=9.16e-05 --&gt; rmse=2.39e-09
 dx=4.58e-05 --&gt; rmse=5.97e-10
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dx=2.29e-05 --&gt; rmse=1.49e-10
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dx=1.14e-05 --&gt; rmse=3.74e-11
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dx=5.72e-06 --&gt; rmse=1.09e-11
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dx=2.86e-06 --&gt; rmse=1.14e-11
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dx=1.43e-06 --&gt; rmse=1.99e-11
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dx=7.15e-07 --&gt; rmse=4.57e-11
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dx=3.58e-07 --&gt; rmse=8.91e-11
+dx=2.29e-05 --&gt; rmse=1.49e-10
+dx=1.14e-05 --&gt; rmse=3.74e-11
+dx=5.72e-06 --&gt; rmse=1.09e-11
+dx=2.86e-06 --&gt; rmse=1.14e-11
+dx=1.43e-06 --&gt; rmse=1.99e-11
+dx=7.15e-07 --&gt; rmse=4.57e-11
+dx=3.58e-07 --&gt; rmse=8.91e-11
 </pre></div>
 </div>
 </div>
@@ -1121,7 +1123,7 @@ dx=4.58e-05 --&gt; rmse=5.97e-10
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+<img alt="../../../_images/02_cfd_34_0.svg" src="../../../_images/02_cfd_34_0.svg" /><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
 </pre></div>
 </div>
 </div>
@@ -1132,7 +1134,7 @@ dx=4.58e-05 --&gt; rmse=5.97e-10
 </div>
 <div class="admonition-task admonition">
 <p class="admonition-title">Task</p>
-<p>Why does the approximation error not reduce further for <span class="math notranslate nohighlight">\(\mf \Delta x \lesssim 5\cdot 10^{-6}\)</span>? Take into account equation <a class="reference internal" href="#equation-eq-cfd-central-derivative-snd">(2.16)</a> and the round off error for 64-bit floating point numbers.</p>
+<p>Why does the approximation error not reduce further for <span class="math notranslate nohighlight">\(\mf \Delta x \lesssim 5\cdot 10^{-6}\)</span>? Take into account equation <a class="reference internal" href="#equation-eq-cfd-central-derivative-snd">(2.20)</a> and the round off error for 64-bit floating point numbers.</p>
 </div>
 </div>
 </div>
@@ -1176,10 +1178,10 @@ dx=4.58e-05 --&gt; rmse=5.97e-10
 \]</div>
 <p>It leads directly to</p>
 <div class="math notranslate nohighlight" id="equation-eq-cfd-time-forward-euler">
-<span class="eqno">(2.19)<a class="headerlink" href="#equation-eq-cfd-time-forward-euler" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(2.23)<a class="headerlink" href="#equation-eq-cfd-time-forward-euler" title="Permalink to this equation">¶</a></span>\[
 \mf u^{n+1} = u^n + \Delta t \cdot rhs^n + \mathcal{O}(\Delta t)\quad .
 \]</div>
-<p>The equation <a class="reference internal" href="#equation-eq-cfd-time-forward-euler">(2.19)</a> is the explicit / forward Euler method. It is graphicaly demonstrated in <a class="reference internal" href="#fig-fluid-time-explicit"><span class="std std-numref">Fig. 2.20</span></a>.</p>
+<p>The equation <a class="reference internal" href="#equation-eq-cfd-time-forward-euler">(2.23)</a> is the explicit / forward Euler method. It is graphicaly demonstrated in <a class="reference internal" href="#fig-fluid-time-explicit"><span class="std std-numref">Fig. 2.20</span></a>.</p>
 <div class="figure align-default" id="fig-fluid-time-explicit">
 <a class="reference internal image-reference" href="../../../_images/time_integration_2_explicit.svg"><img alt="../../../_images/time_integration_2_explicit.svg" src="../../../_images/time_integration_2_explicit.svg" width="80%" /></a>
 <p class="caption"><span class="caption-number">Fig. 2.20 </span><span class="caption-text">Time integration – explicit Euler scheme.</span><a class="headerlink" href="#fig-fluid-time-explicit" title="Permalink to this image">¶</a></p>
@@ -1187,12 +1189,12 @@ dx=4.58e-05 --&gt; rmse=5.97e-10
 </div>
 <div class="section" id="implicit-euler-method">
 <h3>Implicit Euler Method<a class="headerlink" href="#implicit-euler-method" title="Permalink to this headline">¶</a></h3>
-<p>The evaluation of the derivative in <a class="reference internal" href="#equation-eq-cfd-time-forward-euler">(2.19)</a> at <span class="math notranslate nohighlight">\(\mf t_n\)</span> is just one possibility. In the same mannor as the directional spatial derivatives, the evaluation can be done at <span class="math notranslate nohighlight">\(t_{n+1}\)</span> and leads to the folowing iteration formula:</p>
+<p>The evaluation of the derivative in <a class="reference internal" href="#equation-eq-cfd-time-forward-euler">(2.23)</a> at <span class="math notranslate nohighlight">\(\mf t_n\)</span> is just one possibility. In the same mannor as the directional spatial derivatives, the evaluation can be done at <span class="math notranslate nohighlight">\(\mf t_{n+1}\)</span> and leads to the folowing iteration formula:</p>
 <div class="math notranslate nohighlight" id="equation-eq-cfd-time-backward-euler">
-<span class="eqno">(2.20)<a class="headerlink" href="#equation-eq-cfd-time-backward-euler" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(2.24)<a class="headerlink" href="#equation-eq-cfd-time-backward-euler" title="Permalink to this equation">¶</a></span>\[
 \mf u^{n+1} = u^n + \Delta t \cdot rhs^{n+1} + \mathcal{O}(\Delta t)\quad .
 \]</div>
-<p>The equation <a class="reference internal" href="#equation-eq-cfd-time-backward-euler">(2.20)</a> is the implicit / backward Euler method. It is graphicaly demonstrated in <a class="reference internal" href="#fig-fluid-time-implicit"><span class="std std-numref">Fig. 2.21</span></a>. It is an implicit approach, in contrast to the explcit Euler scheme, which does not allow to directly compute the next iteration step based only on the solution of the current values <span class="math notranslate nohighlight">\(\mf u^n\)</span>. However, as the <span class="math notranslate nohighlight">\(\mf rhs\)</span> can be computed for any value of <span class="math notranslate nohighlight">\(\mf u\)</span>, a matching value of <span class="math notranslate nohighlight">\(u^{n+1}\)</span> can be found to satisfy equation <a class="reference internal" href="#equation-eq-cfd-time-backward-euler">(2.20)</a>.</p>
+<p>The equation <a class="reference internal" href="#equation-eq-cfd-time-backward-euler">(2.24)</a> is the implicit / backward Euler method. It is graphicaly demonstrated in <a class="reference internal" href="#fig-fluid-time-implicit"><span class="std std-numref">Fig. 2.21</span></a>. It is an implicit approach, in contrast to the explcit Euler scheme, which does not allow to directly compute the next iteration step based only on the solution of the current values <span class="math notranslate nohighlight">\(\mf u^n\)</span>. However, as the <span class="math notranslate nohighlight">\(\mf rhs\)</span> can be computed for any value of <span class="math notranslate nohighlight">\(\mf u\)</span>, a matching value of <span class="math notranslate nohighlight">\(\mf u^{n+1}\)</span> can be found to satisfy equation <a class="reference internal" href="#equation-eq-cfd-time-backward-euler">(2.24)</a>.</p>
 <div class="figure align-default" id="fig-fluid-time-implicit">
 <a class="reference internal image-reference" href="../../../_images/time_integration_3_implicit.svg"><img alt="../../../_images/time_integration_3_implicit.svg" src="../../../_images/time_integration_3_implicit.svg" width="80%" /></a>
 <p class="caption"><span class="caption-number">Fig. 2.21 </span><span class="caption-text">Time integration – implicit Euler scheme.</span><a class="headerlink" href="#fig-fluid-time-implicit" title="Permalink to this image">¶</a></p>
@@ -1309,7 +1311,7 @@ dx=4.58e-05 --&gt; rmse=5.97e-10
 <li><p>Distance traveled per <span class="math notranslate nohighlight">\(\mf\Delta t\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
-  \delta x = v_0 \Delta t \gt \Delta x
+  \mf \delta x = v_0 \Delta t \gt \Delta x
   \]</div>
 </li>
 <li><p>The information moves more then <span class="math notranslate nohighlight">\(\mf \Delta x\)</span> in a time step <span class="math notranslate nohighlight">\(\mf\Delta t\)</span> and can therefore not be captured anymore</p></li>

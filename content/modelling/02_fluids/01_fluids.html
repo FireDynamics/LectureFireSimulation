@@ -447,29 +447,67 @@ smoke) due to the flow. Convection is the advection of the velocity.</p></li>
 </ul>
 <div class="section" id="flow-quantities">
 <h3>Flow Quantities<a class="headerlink" href="#flow-quantities" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>density <span class="math notranslate nohighlight">\(\mf \rho\)</span>, <span class="math notranslate nohighlight">\(\mf [\rho] = kg/m\)</span> , scalar field</p></li>
-<li><p>velocity <span class="math notranslate nohighlight">\(\mf \vv\)</span>, <span class="math notranslate nohighlight">\(\mf [\vv] = m/s\)</span>, vector field</p></li>
-<li><p>vorticity <span class="math notranslate nohighlight">\(\mf \vec{\omega} = \nabla \times \vv\)</span>, <span class="math notranslate nohighlight">\(\mf [\vec{\omega}] = 1/s\)</span>, vector field</p></li>
-<li><p>momentum density <span class="math notranslate nohighlight">\(\mf \vu = \rho\vv\)</span>, <span class="math notranslate nohighlight">\(\mf [\vu] = kg/(m^2~s)\)</span>, vector field</p></li>
-<li><p>pressure <span class="math notranslate nohighlight">\(\mf p\)</span>, <span class="math notranslate nohighlight">\(\mf [p] = Pa = kg/(m~s^2)\)</span>, scalar field</p></li>
-<li><p>temperature <span class="math notranslate nohighlight">\(\mf T\)</span>, <span class="math notranslate nohighlight">\(\mf [T] = K\)</span>, scalar field</p></li>
-<li><p>specific enthalpy <span class="math notranslate nohighlight">\(\mf h = \int_{T_0}^T c_p(T')\ dT' + \Delta h_f^0\)</span> , <span class="math notranslate nohighlight">\(\mf [h] = J/kg = m^2/s^2\)</span> , scalar field</p></li>
-</ul>
+<table class="colwidths-auto table" id="tab-flow-quantities">
+<caption><span class="caption-number">Table 2.1 </span><span class="caption-text">Flow quantities.</span><a class="headerlink" href="#tab-flow-quantities" title="Permalink to this table">¶</a></caption>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Symbol</p></th>
+<th class="head"><p>Unit</p></th>
+<th class="head"><p>Type</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>density</p></td>
+<td><p><span class="math notranslate nohighlight">\(\mf \rho\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\mf kg/m\)</span></p></td>
+<td><p>scalar field</p></td>
+</tr>
+<tr class="row-odd"><td><p>velocity</p></td>
+<td><p><span class="math notranslate nohighlight">\(\mf \vv\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\mf m/s\)</span></p></td>
+<td><p>vector field</p></td>
+</tr>
+<tr class="row-even"><td><p>vorticity</p></td>
+<td><p><span class="math notranslate nohighlight">\(\mf \vec{\omega} = \nabla \times \vv\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\mf 1/s\)</span></p></td>
+<td><p>vector field</p></td>
+</tr>
+<tr class="row-odd"><td><p>momentum density</p></td>
+<td><p><span class="math notranslate nohighlight">\(\mf \vu = \rho\vv\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\mf kg/(m^2~s)\)</span></p></td>
+<td><p>vector field</p></td>
+</tr>
+<tr class="row-even"><td><p>pressure</p></td>
+<td><p><span class="math notranslate nohighlight">\(\mf p\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\mf Pa = kg/(m~s^2)\)</span></p></td>
+<td><p>scalar field</p></td>
+</tr>
+<tr class="row-odd"><td><p>temperature</p></td>
+<td><p><span class="math notranslate nohighlight">\(\mf T\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\mf K\)</span></p></td>
+<td><p>scalar field</p></td>
+</tr>
+<tr class="row-even"><td><p>specific enthalpy</p></td>
+<td><p><span class="math notranslate nohighlight">\(\mf h = \int_{T_0}^T c_p(T')\ dT' + \Delta h_f^0\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\mf J/kg = m^2/s^2\)</span></p></td>
+<td><p>scalar field</p></td>
+</tr>
+</tbody>
+</table>
 <p>Where <span class="math notranslate nohighlight">\(\mf c_p(T)\)</span> is the heat capacity at temperature <span class="math notranslate nohighlight">\(\mf T\)</span> and <span class="math notranslate nohighlight">\(\mf \Delta h_f^0\)</span> is the heat of formation.</p>
 </div>
 <div class="section" id="speed-of-sound">
 <h3>Speed of Sound<a class="headerlink" href="#speed-of-sound" title="Permalink to this headline">¶</a></h3>
 <p>In fluids and solids, information (flow changes, perturbations) propagates with a finite speed: the speed of sound. Sound waves are longitudinal compression waves. Typical travel speeds are <span class="math notranslate nohighlight">\(\mf 343~m/s\)</span> in air, <span class="math notranslate nohighlight">\(\mf 1484~m/s\)</span> in water and <span class="math notranslate nohighlight">\(\mf 5120~m/s\)</span> in steel.
-In general the speed of sound <span class="math notranslate nohighlight">\(\mf c\)</span> in an ideal gas is given by:</p>
+In general the speed of sound <span class="math notranslate nohighlight">\(\mf c_s\)</span> in an ideal gas is given by:</p>
 <div class="math notranslate nohighlight" id="equation-eq-speed-of-sound">
 <span class="eqno">(2.1)<a class="headerlink" href="#equation-eq-speed-of-sound" title="Permalink to this equation">¶</a></span>\[
-\mf c = \sqrt{\frac{\gamma k_B T}{m}}
+\mf c_s = \sqrt{\frac{\gamma k_B T}{m}}
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(\mf \gamma\)</span> is the heat capacity ratio <span class="math notranslate nohighlight">\(\mf \gamma=c_P/c_V\)</span>, <span class="math notranslate nohighlight">\(\mf k_B\)</span> is the Boltzmann constant (<span class="math notranslate nohighlight">\(\mf \sim\!1.381\cdot 10^{−23}~J/K\)</span>), T the gas temperature, and <span class="math notranslate nohighlight">\(\mf m\)</span> the mass of a single gas molecule. In general, for a given gas species, the speed of sound depends only on the temperature. For dry air, it can be approximated as:</p>
 <div class="math notranslate nohighlight" id="equation-eq-c-in-air">
 <span class="eqno">(2.2)<a class="headerlink" href="#equation-eq-c-in-air" title="Permalink to this equation">¶</a></span>\[
-\mf c_{air} =(331.3+0.606\cdot \Theta) m/s 
+\mf c_{s, air} =(331.3+0.606\cdot \Theta) m/s 
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(\mf \Theta\)</span> is the air temperature in <span class="math notranslate nohighlight">\(\mf ^\circ C\)</span>.</p>
 </div>
@@ -505,7 +543,7 @@ In general the speed of sound <span class="math notranslate nohighlight">\(\mf c
 </div>
 <div class="section" id="compressible-flows">
 <h3>Compressible Flows<a class="headerlink" href="#compressible-flows" title="Permalink to this headline">¶</a></h3>
-<p>Flows with velocities much slower (<span class="math notranslate nohighlight">\(\mf \ll c\)</span>) than the speed of sound are incompressible, i.e. the sound waves are infinitely fast on the scale of the involved processes. Thus, all changes in density are quickly balanced. Objects traveling with a speed of at least <span class="math notranslate nohighlight">\(\mf 0.3c\)</span> start to introduce fluctuations in density. Flow patterns of supersonic phenomena (explosion, supersonic airplanes) and the corresponding engineering approaches are completely different to those in case of sub sonic flows.</p>
+<p>Flows with velocities much slower (<span class="math notranslate nohighlight">\(\mf \ll c_s\)</span>) than the speed of sound are incompressible, i.e. the sound waves are infinitely fast on the scale of the involved processes. Thus, all changes in density are quickly balanced. Objects traveling with a speed of at least <span class="math notranslate nohighlight">\(\mf 0.3c_s\)</span> start to introduce fluctuations in density. Flow patterns of supersonic phenomena (explosion, supersonic airplanes) and the corresponding engineering approaches are completely different to those in case of sub sonic flows.</p>
 <p>Note: Temperature changes, like in a fire, lead to density changes and therefore to so called weakly compressible flows.</p>
 <div class="figure align-default" id="fig-fluid-laminar">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/b/b9/Aerodynamics_of_model_car.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/b/b9/Aerodynamics_of_model_car.jpg" src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Aerodynamics_of_model_car.jpg" style="width: 60%;" /></a>
@@ -595,7 +633,7 @@ In general the speed of sound <span class="math notranslate nohighlight">\(\mf c
 <p>The Mach number is defined as the relation of a velocity to the speed of sound, i.e.</p>
 <div class="math notranslate nohighlight" id="equation-eq-kin-vis">
 <span class="eqno">(2.6)<a class="headerlink" href="#equation-eq-kin-vis" title="Permalink to this equation">¶</a></span>\[
-\mf Ma = \frac{v}{c}
+\mf Ma = \frac{v}{c_s}
 \]</div>
 <p>This number characterises the compressibility of a flow:</p>
 <ul class="simple">
