@@ -241,7 +241,7 @@ The literature value of the constant is $\mf C_V=0.1$.
 
 **Implementation in FDS**
 
-FDS offers different modelling approaches, see section 7.2 in {cite}`FDS-UG-6.7.5`: DNS (Direction Numerical Simulation), LES (Large Eddy Simulation), VLES (Very Large Eddy Simulation), and SVLES (Simple Very Large Eddy Simulation — VLES with simplified physics). The default mode is VLES.
+FDS offers different simulation modes, see section 7.2 in {cite}`FDS-UG-6.7.5`: DNS (Direction Numerical Simulation), LES (Large Eddy Simulation), VLES (Very Large Eddy Simulation), and SVLES (Simple Very Large Eddy Simulation — VLES with simplified physics). The default mode is VLES.
 
 The following models for the tubulent viscosity are currently available, see section 7.5 in {cite}`FDS-UG-6.7.5`:
 
