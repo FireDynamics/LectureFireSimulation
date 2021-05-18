@@ -45,6 +45,7 @@ notebook_interface : "notebook"
 # Sphinx settings
 sphinx:
   config:
+    bibtex_reference_style: "author_year"
     html_show_copyright : false
     mathjax_config      :
       TeX:
@@ -63,6 +64,16 @@ sphinx:
 #   myst_extended_syntax: true
 #   myst_enable_extensions:
 #     - amsmath
+#     - colon_fence
+#     - deflist
+#     - dollarmath
+#     - html_admonition
+#     - html_image
+#     - linkify
+#     - replacements
+#     - smartquotes
+#     - substitution
+#     - jupyterbook_latex
 
 ###############################################################################
 # BibTeX settings

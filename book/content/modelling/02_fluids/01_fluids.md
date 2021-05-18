@@ -36,29 +36,60 @@ smoke) due to the flow. Convection is the advection of the velocity.
 
 ### Flow Quantities
 
-* density $\mf \rho$, $\mf [\rho] = kg/m$ , scalar field
-* velocity $\mf \vv$, $\mf [\vv] = m/s$, vector field
-* vorticity $\mf \vec{\omega} = \nabla \times \vv$, $\mf [\vec{\omega}] = 1/s$, vector field
-* momentum density $\mf \vu = \rho\vv$, $\mf [\vu] = kg/(m^2~s)$, vector field 
-* pressure $\mf p$, $\mf [p] = Pa = kg/(m~s^2)$, scalar field 
-* temperature $\mf T$, $\mf [T] = K$, scalar field
-* specific enthalpy $\mf h = \int_{T_0}^T c_p(T')\ dT' + \Delta h_f^0$ , $\mf [h] = J/kg = m^2/s^2$ , scalar field
+ ```{list-table} Flow quantities.
+:header-rows: 1
+:name: tab-flow-quantities
+:widths: auto
+
+* - Name
+   - Symbol
+   - Unit
+   - Type
+* - density 
+   - $\mf \rho$
+   - $\mf kg/m$
+   - scalar field
+* - velocity 
+   - $\mf \vv$
+   - $\mf m/s$
+   - vector field
+* - vorticity
+   - $\mf \vec{\omega} = \nabla \times \vv$
+   - $\mf 1/s$
+   - vector field
+* - momentum density 
+   - $\mf \vu = \rho\vv$
+   - $\mf kg/(m^2~s)$
+   - vector field 
+* - pressure
+   - $\mf p$
+   - $\mf Pa = kg/(m~s^2)$
+   - scalar field 
+* - temperature
+   - $\mf T$
+   - $\mf K$
+   - scalar field
+* - specific enthalpy
+   - $\mf h = \int_{T_0}^T c_p(T')\ dT' + \Delta h_f^0$
+   - $\mf J/kg = m^2/s^2$
+   - scalar field
+```
 
 Where $\mf c_p(T)$ is the heat capacity at temperature $\mf T$ and $\mf \Delta h_f^0$ is the heat of formation.
 
 ### Speed of Sound
 
 In fluids and solids, information (flow changes, perturbations) propagates with a finite speed: the speed of sound. Sound waves are longitudinal compression waves. Typical travel speeds are $\mf 343~m/s$ in air, $\mf 1484~m/s$ in water and $\mf 5120~m/s$ in steel.
-In general the speed of sound $\mf c$ in an ideal gas is given by:
+In general the speed of sound $\mf c_s$ in an ideal gas is given by:
 
 $$
-\mf c = \sqrt{\frac{\gamma k_B T}{m}}
+\mf c_s = \sqrt{\frac{\gamma k_B T}{m}}
 $$(eq-speed-of-sound)
 
 where $\mf \gamma$ is the heat capacity ratio $\mf \gamma=c_P/c_V$, $\mf k_B$ is the Boltzmann constant ($\mf \sim\!1.381\cdot 10^{−23}~J/K$), T the gas temperature, and $\mf m$ the mass of a single gas molecule. In general, for a given gas species, the speed of sound depends only on the temperature. For dry air, it can be approximated as:
 
 $$
-\mf c_{air} =(331.3+0.606\cdot \Theta) m/s 
+\mf c_{s, air} =(331.3+0.606\cdot \Theta) m/s 
 $$(eq-c-in-air)
 
 where $\mf \Theta$ is the air temperature in $\mf ^\circ C$.
@@ -104,7 +135,7 @@ Von Kármán vortex street in a lab. Soruce: [Wikkimedia Commons](https://common
 
 ### Compressible Flows
 
-Flows with velocities much slower ($\mf \ll c$) than the speed of sound are incompressible, i.e. the sound waves are infinitely fast on the scale of the involved processes. Thus, all changes in density are quickly balanced. Objects traveling with a speed of at least $\mf 0.3c$ start to introduce fluctuations in density. Flow patterns of supersonic phenomena (explosion, supersonic airplanes) and the corresponding engineering approaches are completely different to those in case of sub sonic flows.
+Flows with velocities much slower ($\mf \ll c_s$) than the speed of sound are incompressible, i.e. the sound waves are infinitely fast on the scale of the involved processes. Thus, all changes in density are quickly balanced. Objects traveling with a speed of at least $\mf 0.3c_s$ start to introduce fluctuations in density. Flow patterns of supersonic phenomena (explosion, supersonic airplanes) and the corresponding engineering approaches are completely different to those in case of sub sonic flows.
 
 Note: Temperature changes, like in a fire, lead to density changes and therefore to so called weakly compressible flows.
 
@@ -213,7 +244,7 @@ Many flow phenomena and types may be characterised by dimensionless numbers. It 
 The Mach number is defined as the relation of a velocity to the speed of sound, i.e.
 
 $$
-\mf Ma = \frac{v}{c}
+\mf Ma = \frac{v}{c_s}
 $$ (eq-kin-vis)
 
 This number characterises the compressibility of a flow: 
