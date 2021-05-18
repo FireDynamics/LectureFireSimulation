@@ -471,7 +471,7 @@ Energy spectrum of a turbulent flow. Source: [Wikimedia Commons](https://commons
 \]</div>
 <p>As the filtered equation of motion <a class="reference internal" href="#equation-eq-les-eom">(2.26)</a> is nearly equal to the unfiltered version, in the follwoing the filtering brackets are omitted.</p>
 <p><strong>Constant Smagorinsky</strong></p>
-<p>The Smagorinsky-Lilly model is based on the assumption, that the turbulent viscosity below the filter width <span class="math notranslate nohighlight">\(\Delta\)</span>, here we focus on explicit LES with <span class="math notranslate nohighlight">\(\mf \Delta = \Delta x\)</span>, may be described with</p>
+<p>The Smagorinsky-Lilly model is based on the assumption, that the turbulent viscosity below the filter width <span class="math notranslate nohighlight">\(\Delta\)</span>, here we focus on implicit LES with <span class="math notranslate nohighlight">\(\mf \Delta = \Delta x\)</span>, may be described with</p>
 <div class="math notranslate nohighlight">
 \[
 \mf \mu_t = \langle\rho\rangle C_S^2\Delta^2\|\textbf{S}\|
@@ -504,7 +504,7 @@ Beside this static model, there exist also a dynamic model, where the value of <
 \]</div>
 <p>The literature value of the constant is <span class="math notranslate nohighlight">\(\mf C_V=0.1\)</span>.</p>
 <p><strong>Implementation in FDS</strong></p>
-<p>FDS offers different modelling approaches, see section 7.2 in <span id="id7">[<a class="reference internal" href="../../overview/03_references.html#id2"><span>MHF+20</span></a>]</span>: DNS (Direction Numerical Simulation), LES (Large Eddy Simulation), VLES (Very Large Eddy Simulation), and SVLES (Simple Very Large Eddy Simulation — VLES with simplified physics). The default mode is VLES.</p>
+<p>FDS offers different simulation modes, see section 7.2 in <span id="id7">[<a class="reference internal" href="../../overview/03_references.html#id2"><span>MHF+20</span></a>]</span>: DNS (Direction Numerical Simulation), LES (Large Eddy Simulation), VLES (Very Large Eddy Simulation), and SVLES (Simple Very Large Eddy Simulation — VLES with simplified physics). The default mode is VLES.</p>
 <p>The following models for the tubulent viscosity are currently available, see section 7.5 in <span id="id8">[<a class="reference internal" href="../../overview/03_references.html#id2"><span>MHF+20</span></a>]</span>:</p>
 <ul class="simple">
 <li><p>Constant-coefficient Smagorinsky</p></li>
