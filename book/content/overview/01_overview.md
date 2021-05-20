@@ -1,6 +1,6 @@
 # Overview
 
-## General info
+## General Information
 
 The lecture *Fire Simulations* at the University of Wuppertal is organised by the chair [Computational Civil Engineering (CCE)](https://cce.uni-wuppertal.de/). The 2019 founded chair is mainly concerned with the research and development of new computer-based models. The focus of the application is the numerical simulation of fire and smoke propagation in buildings.  
 
@@ -14,12 +14,13 @@ As the script is under development, we welcome constructive suggestions and your
 
 **For the University of Wuppertal students: All organisational information on the procedure can be found on the [CCE website on the fire simulations lecture](https://cce.uni-wuppertal.de/de/lehre/numerische-brandsimulationen.html).** 
 
-## Contents of the script
+## Contents of the Lecture Notes
 
 * It is planned, that this script will not only contain the contents of the lecture *Fire Simulations* but also other contents linked to this lecture, such as *FDS Data Analysis* and *Using High Performance Computers for Fire Simulations*. In the course of the lecture, we will announce the contents relevant for you accordingly. 
 * The script also contains exercises for all topics, with and without solution paths, but always with a result or the possibility of validating your solution.
 * Do not print out the script or save it elsewhere. This way you have the latest version, which is continuously improved and supplemented with content. 
 * The script will always remain freely accessible.
+* The lecture notes and exercises are designed for **FDS version 6.7.5**, and thus may not be valid / reproducable for other versions. 
 
 ## Contributors
 
