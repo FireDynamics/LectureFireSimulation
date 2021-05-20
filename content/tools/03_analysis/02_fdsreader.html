@@ -1,0 +1,811 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>fdsreader Module &#8212; Fire Simulation Lecture</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/tools/03_analysis/02_fdsreader.html" />
+    <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="prev" title="Python" href="01_python.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      <img src="../../../_static/cce_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Fire Simulation Lecture</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../overview/01_overview.html">
+   Overview
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../overview/02_team.html">
+   Team Fire Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../overview/03_references.html">
+   References
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Modelling
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../modelling/01_general/00_overview.html">
+   1. Modelling Fires
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/01_general/01_processes.html">
+     1.1. Physical and Chemical Processes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/01_general/02_fse.html">
+     1.2. Fire Safety Engineering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/01_general/03_approaches.html">
+     1.3. Modelling Approaches
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../modelling/02_fluids/00_overview.html">
+   2. Fluid Dynamics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/02_fluids/01_fluids.html">
+     2.1. Fluids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/02_fluids/02_cfd.html">
+     2.2. Computational Fluid Dynamics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/02_fluids/03_turbulence.html">
+     2.3. Turbulence
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tools
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01_fds_smv/00_overview.html">
+   FDS and SMV
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_fds_smv/01_fds_intro.html">
+     FDS Overview
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_fds_smv/02_fds_tutorial.html">
+     FDS Basic Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_fds_smv/02_smv.html">
+     SMV Basics
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02_hpc/00_overview.html">
+   HPC
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_hpc/01_linux.html">
+     Linux
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_hpc/02_hpc.html">
+     High Performace Computing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_overview.html">
+   Data Analysis
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_python.html">
+     Python
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     fdsreader Module
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/tools/03_analysis/02_fdsreader.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/FireDynamics/LectureFireSimulation"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/tools/03_analysis/02_fdsreader.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/tools/03_analysis/02_fdsreader.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/FireDynamics/LectureFireSimulation/main?urlpath=tree/book/content/tools/03_analysis/02_fdsreader.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://io.cce.uni-wuppertal.de/firesim_ss21//hub/user-redirect/git-pull?repo=https://github.com/FireDynamics/LectureFireSimulation&urlpath=tree/LectureFireSimulation/book/content/tools/03_analysis/02_fdsreader.ipynb&branch=main"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation">
+   Installation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#demo-data-set">
+   Demo Data Set
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#open-a-data-set">
+   Open a Data Set
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#devc-data">
+   <code class="docutils literal notranslate">
+    <span class="pre">
+     DEVC
+    </span>
+   </code>
+   Data
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hrr-data">
+   HRR Data
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="fdsreader-module">
+<h1>fdsreader Module<a class="headerlink" href="#fdsreader-module" title="Permalink to this headline">¶</a></h1>
+<p>In order to analyse simulation data computed by FDS with Python, we have developed the Python module fdsreader. It’s aim is to read most data output formats generated by FDS and map them to Python data structures.</p>
+<p>It is freely available and open source. The source code is hosted at GitHub: <a class="reference external" href="https://github.com/FireDynamics/fdsreader">FireDynamics/fdsreader</a>.</p>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>The fdsreader module can be installed via pip (see also the GitHub repository):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">fdsreader</span>
+</pre></div>
+</div>
+<p>However, it is already installed on all JupyterLab instances used for this lecture.</p>
+</div>
+<div class="section" id="demo-data-set">
+<h2>Demo Data Set<a class="headerlink" href="#demo-data-set" title="Permalink to this headline">¶</a></h2>
+<p>To demonstrate the usage of the fdsreader module, a simple FDS scenario is utilized:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">HEAD</span> <span class="n">CHID</span> <span class="o">=</span> <span class="s1">&#39;output_fdsreader_example&#39;</span><span class="p">,</span> <span class="n">TITLE</span> <span class="o">=</span> <span class="s1">&#39;Example simulation for the fdsreader module&#39;</span>  <span class="o">/</span> 
+
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">IJK</span> <span class="o">=</span> <span class="mi">25</span><span class="p">,</span><span class="mi">25</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span> <span class="n">XB</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.5</span><span class="p">,</span><span class="mf">2.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.5</span><span class="p">,</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span><span class="mi">10</span> <span class="o">/</span> 
+
+<span class="o">&amp;</span><span class="n">TIME</span> <span class="n">T_END</span> <span class="o">=</span> <span class="mf">10.0</span> <span class="o">/</span> 
+
+<span class="o">&amp;</span><span class="n">REAC</span> <span class="n">FUEL</span> <span class="o">=</span> <span class="s1">&#39;METHANE&#39;</span> <span class="o">/</span>
+
+<span class="o">&amp;</span><span class="n">SURF</span> <span class="n">ID</span> <span class="o">=</span> <span class="s1">&#39;BURNER&#39;</span><span class="p">,</span> <span class="n">HRRPUA</span> <span class="o">=</span> <span class="mf">1000.</span><span class="p">,</span> <span class="n">COLOR</span> <span class="o">=</span> <span class="s1">&#39;RASPBERRY&#39;</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">VENT</span> <span class="n">XB</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">SURF_ID</span><span class="o">=</span><span class="s1">&#39;BURNER&#39;</span> <span class="o">/</span>
+
+<span class="o">&amp;</span><span class="n">SLCF</span> <span class="n">PBY</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">QUANTITY</span> <span class="o">=</span> <span class="s1">&#39;TEMPERATURE&#39;</span><span class="p">,</span> <span class="n">CELL_CENTERED</span> <span class="o">=</span> <span class="o">.</span><span class="n">TRUE</span><span class="o">.</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">SLCF</span> <span class="n">PBY</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">QUANTITY</span> <span class="o">=</span> <span class="s1">&#39;VELOCITY&#39;</span><span class="p">,</span> <span class="n">CELL_CENTERED</span> <span class="o">=</span> <span class="o">.</span><span class="n">TRUE</span><span class="o">.</span> <span class="o">/</span>
+
+<span class="o">&amp;</span><span class="n">DEVC</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;T_1.0&#39;</span><span class="p">,</span> <span class="n">XYZ</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">QUANTITY</span><span class="o">=</span><span class="s1">&#39;TEMPERATURE&#39;</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">DEVC</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;T_2.0&#39;</span><span class="p">,</span> <span class="n">XYZ</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">QUANTITY</span><span class="o">=</span><span class="s1">&#39;TEMPERATURE&#39;</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">DEVC</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;T_3.0&#39;</span><span class="p">,</span> <span class="n">XYZ</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="n">QUANTITY</span><span class="o">=</span><span class="s1">&#39;TEMPERATURE&#39;</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">DEVC</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;T_4.0&#39;</span><span class="p">,</span> <span class="n">XYZ</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="n">QUANTITY</span><span class="o">=</span><span class="s1">&#39;TEMPERATURE&#39;</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">DEVC</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;T_5.0&#39;</span><span class="p">,</span> <span class="n">XYZ</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="n">QUANTITY</span><span class="o">=</span><span class="s1">&#39;TEMPERATURE&#39;</span> <span class="o">/</span>
+
+<span class="o">&amp;</span><span class="n">TAIL</span> <span class="o">/</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="open-a-data-set">
+<h2>Open a Data Set<a class="headerlink" href="#open-a-data-set" title="Permalink to this headline">¶</a></h2>
+<p>First the fdsreader module needs to be loaded:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fdsreader</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The version of (any) the module can be checked with:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">fdsreader</span><span class="o">.</span><span class="n">__version__</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.1.0rc1
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, the reader needs to be pointed to the directory, which contains the simulation data, especailly the smokeview file:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># define the path to the data</span>
+<span class="n">path_to_data</span> <span class="o">=</span> <span class="s1">&#39;../../../../data/fdsreader/example_01/rundir&#39;</span>
+
+<span class="n">sim</span> <span class="o">=</span> <span class="n">fdsreader</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">path_to_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can use the autocomplete function in Jupyter.</p>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">Simulation</span></code> object <code class="docutils literal notranslate"><span class="pre">sim</span></code> contains now all the information and data about the simulaiton output:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sim</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Simulation(chid=output_fdsreader_example,
+           meshes=1,
+           slices=2,
+           devices=6)
+</pre></div>
+</div>
+</div>
+</div>
+<p>It contains information about a single mesh (<code class="docutils literal notranslate"><span class="pre">MESH</span></code>), two slices (<code class="docutils literal notranslate"><span class="pre">SLCF</span></code>) and six point measurements (<code class="docutils literal notranslate"><span class="pre">DEVC</span></code>). The additional device – there were just five defined in the input file – is the time stemp.</p>
+</div>
+<div class="section" id="devc-data">
+<h2><code class="docutils literal notranslate"><span class="pre">DEVC</span></code> Data<a class="headerlink" href="#devc-data" title="Permalink to this headline">¶</a></h2>
+<p>The simplest data set is the output of the <code class="docutils literal notranslate"><span class="pre">DEVC</span></code> directives. The available data and meta information can be directly printed:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># short reference</span>
+<span class="n">devc</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">devices</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">devc</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Time&#39;: Device(id=&#39;Time&#39;, xyz=(0.0, 0.0, 0.0), quantity=Quantity(&#39;Time&#39;), mean=5.4907660484313965), &#39;T_1.0&#39;: Device(id=&#39;T_1.0&#39;, xyz=(0.0, 0.0, 1.0), quantity=Quantity(&#39;TEMPERATURE&#39;), mean=804.3012084960938), &#39;T_2.0&#39;: Device(id=&#39;T_2.0&#39;, xyz=(0.0, 0.0, 2.0), quantity=Quantity(&#39;TEMPERATURE&#39;), mean=691.8992919921875), &#39;T_3.0&#39;: Device(id=&#39;T_3.0&#39;, xyz=(0.0, 0.0, 3.0), quantity=Quantity(&#39;TEMPERATURE&#39;), mean=479.3949279785156), &#39;T_4.0&#39;: Device(id=&#39;T_4.0&#39;, xyz=(0.0, 0.0, 4.0), quantity=Quantity(&#39;TEMPERATURE&#39;), mean=334.0716857910156), &#39;T_5.0&#39;: Device(id=&#39;T_5.0&#39;, xyz=(0.0, 0.0, 5.0), quantity=Quantity(&#39;TEMPERATURE&#39;), mean=240.62425231933594)}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">devc</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;ID: </span><span class="si">{</span><span class="n">devc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">,</span><span class="se">\t</span><span class="s2"> quantity: </span><span class="si">{</span><span class="n">devc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">quantity</span><span class="si">}</span><span class="s2">,</span><span class="se">\t</span><span class="s2"> position: </span><span class="si">{</span><span class="n">devc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">position</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ID: Time,	 quantity: Time,	 position: (0.0, 0.0, 0.0)
+ID: T_1.0,	 quantity: TEMPERATURE,	 position: (0.0, 0.0, 1.0)
+ID: T_2.0,	 quantity: TEMPERATURE,	 position: (0.0, 0.0, 2.0)
+ID: T_3.0,	 quantity: TEMPERATURE,	 position: (0.0, 0.0, 3.0)
+ID: T_4.0,	 quantity: TEMPERATURE,	 position: (0.0, 0.0, 4.0)
+ID: T_5.0,	 quantity: TEMPERATURE,	 position: (0.0, 0.0, 5.0)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Autocomplete works also for the dictionary keys ;-)</p>
+</div>
+<p>A raw look at the data (<code class="docutils literal notranslate"><span class="pre">Device.data</span></code>), which is stored as a numpy array:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">devc</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;numpy.ndarray&#39;&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">devc</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(602,)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">devc</span><span class="p">[</span><span class="s2">&quot;Time&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 0.        ,  0.1       ,  0.2       ,  0.3       ,  0.4       ,
+        0.5       ,  0.6       ,  0.7       ,  0.8       ,  0.9       ,
+        0.97940284,  1.0490968 ,  1.1105819 ,  1.1720669 ,  1.233552  ,
+        1.27252   ,  1.311488  ,  1.3441169 ,  1.3767458 ,  1.4093747 ,
+        1.4452664 ,  1.4749194 ,  1.5045723 ,  1.531071  ,  1.5575697 ,
+        1.5799627 ,  1.6023557 ,  1.6247487 ,  1.6444938 ,  1.6642389 ,
+        1.6839839 ,  1.703729  ,  1.723474  ,  1.7432191 ,  1.7629641 ,
+        1.7827092 ,  1.8024544 ,  1.8221993 ,  1.8419445 ,  1.8616894 ,
+        1.8814344 ,  1.9011796 ,  1.9209245 ,  1.9406697 ,  1.9604146 ,
+        1.9801598 ,  1.9999048 ,  2.01965   ,  2.0393949 ,  2.05914   ,
+        2.0748444 ,  2.090549  ,  2.1062534 ,  2.1219578 ,  2.1356995 ,
+        2.149441  ,  2.1631825 ,  2.1769242 ,  2.1906657 ,  2.2044075 ,
+        2.2181492 ,  2.2318907 ,  2.2456324 ,  2.259374  ,  2.2731154 ,
+        2.2868571 ,  2.3005986 ,  2.3143404 ,  2.329456  ,  2.3445718 ,
+        2.3596878 ,  2.3748035 ,  2.3881962 ,  2.401589  ,  2.4149816 ,
+        2.4283743 ,  2.4417672 ,  2.45516   ,  2.4685526 ,  2.4832845 ,
+        2.4980166 ,  2.5127485 ,  2.5274806 ,  2.5422125 ,  2.5569446 ,
+        2.5716765 ,  2.5864086 ,  2.6011405 ,  2.6158724 ,  2.6306045 ,
+        2.6453364 ,  2.6600685 ,  2.6748004 ,  2.6895325 ,  2.7042644 ,
+        2.7189963 ,  2.732067  ,  2.7451377 ,  2.7582085 ,  2.771279  ,
+        2.78435   ,  2.7974205 ,  2.810491  ,  2.823562  ,  2.8366325 ,
+        2.8497033 ,  2.862774  ,  2.8758447 ,  2.8889153 ,  2.901986  ,
+        2.9150567 ,  2.9281273 ,  2.941198  ,  2.9542687 ,  2.9673395 ,
+        2.98041   ,  2.9934807 ,  3.0065515 ,  3.019622  ,  3.032693  ,
+        3.0457635 ,  3.0588343 ,  3.071905  ,  3.0849755 ,  3.0967317 ,
+        3.1084876 ,  3.1202438 ,  3.132     ,  3.143756  ,  3.155512  ,
+        3.167268  ,  3.179024  ,  3.1907802 ,  3.2025363 ,  3.2142923 ,
+        3.2260485 ,  3.2378044 ,  3.2495606 ,  3.2613165 ,  3.2730725 ,
+        3.2848287 ,  3.2965848 ,  3.3083408 ,  3.320097  ,  3.331853  ,
+        3.343609  ,  3.355365  ,  3.3671212 ,  3.3788772 ,  3.3906333 ,
+        3.4023893 ,  3.4141455 ,  3.4259014 ,  3.4376576 ,  3.4494135 ,
+        3.4611697 ,  3.4729257 ,  3.4846818 ,  3.4964378 ,  3.508194  ,
+        3.51995   ,  3.531706  ,  3.543462  ,  3.5552182 ,  3.5669744 ,
+        3.5787303 ,  3.5904863 ,  3.6022425 ,  3.6139984 ,  3.6257546 ,
+        3.6375105 ,  3.6492667 ,  3.661023  ,  3.6727788 ,  3.6845348 ,
+        3.696291  ,  3.708047  ,  3.7209787 ,  3.7339103 ,  3.746842  ,
+        3.7597737 ,  3.7739985 ,  3.7882235 ,  3.8024483 ,  3.816673  ,
+        3.8308978 ,  3.8451228 ,  3.8593476 ,  3.8735723 ,  3.8877974 ,
+        3.9020221 ,  3.916247  ,  3.930472  ,  3.9446967 ,  3.9573843 ,
+        3.9700718 ,  3.9827597 ,  3.9954472 ,  4.008135  ,  4.0208225 ,
+        4.03351   ,  4.046198  ,  4.0588856 ,  4.0715733 ,  4.084261  ,
+        4.0969486 ,  4.1096363 ,  4.122324  ,  4.135011  ,  4.147699  ,
+        4.1603866 ,  4.1730742 ,  4.185762  ,  4.1984496 ,  4.2111373 ,
+        4.223825  ,  4.2365127 ,  4.2492003 ,  4.261888  ,  4.2745757 ,
+        4.2872634 ,  4.299951  ,  4.3126388 ,  4.3253264 ,  4.338014  ,
+        4.350702  ,  4.363389  ,  4.3760767 ,  4.3887644 ,  4.401452  ,
+        4.4141397 ,  4.4268274 ,  4.439515  ,  4.452203  ,  4.4648905 ,
+        4.477578  ,  4.490266  ,  4.5029535 ,  4.51691   ,  4.530866  ,
+        4.5448227 ,  4.5587792 ,  4.572736  ,  4.586692  ,  4.6006484 ,
+        4.614605  ,  4.628561  ,  4.6425176 ,  4.656474  ,  4.6704307 ,
+        4.6843867 ,  4.6983433 ,  4.7123    ,  4.7262564 ,  4.7402124 ,
+        4.7555647 ,  4.7709165 ,  4.7862687 ,  4.801621  ,  4.8169727 ,
+        4.832325  ,  4.847677  ,  4.863029  ,  4.8783813 ,  4.893733  ,
+        4.9090853 ,  4.9244375 ,  4.9378886 ,  4.95134   ,  4.9647913 ,
+        4.978243  ,  4.9900465 ,  5.00185   ,  5.0136538 ,  5.0254574 ,
+        5.037261  ,  5.049065  ,  5.0608687 ,  5.0726724 ,  5.084476  ,
+        5.0962796 ,  5.1080832 ,  5.119887  ,  5.1316905 ,  5.1434946 ,
+        5.155298  ,  5.167102  ,  5.1789055 ,  5.1918893 ,  5.2048736 ,
+        5.217858  ,  5.2308416 ,  5.243826  ,  5.2568097 ,  5.269794  ,
+        5.282778  ,  5.295762  ,  5.308746  ,  5.32173   ,  5.3347144 ,
+        5.347698  ,  5.3606825 ,  5.3736663 ,  5.387949  ,  5.402231  ,
+        5.416514  ,  5.430796  ,  5.4450784 ,  5.459361  ,  5.473644  ,
+        5.487926  ,  5.5022087 ,  5.516491  ,  5.532202  ,  5.5479126 ,
+        5.563623  ,  5.579334  ,  5.5950446 ,  5.610755  ,  5.626466  ,
+        5.6421766 ,  5.6578875 ,  5.673598  ,  5.6893086 ,  5.7050195 ,
+        5.7207303 ,  5.736441  ,  5.7521515 ,  5.7678623 ,  5.783573  ,
+        5.7992835 ,  5.8149943 ,  5.830705  ,  5.846416  ,  5.862127  ,
+        5.877837  ,  5.893548  ,  5.909259  ,  5.924969  ,  5.94068   ,
+        5.956391  ,  5.9721017 ,  5.987812  ,  6.0017858 ,  6.0157595 ,
+        6.029733  ,  6.043707  ,  6.05768   ,  6.071654  ,  6.0856276 ,
+        6.0996013 ,  6.113575  ,  6.127548  ,  6.141522  ,  6.1554956 ,
+        6.1694694 ,  6.1834426 ,  6.1974163 ,  6.21139   ,  6.2253637 ,
+        6.2393374 ,  6.2533107 ,  6.2672844 ,  6.281258  ,  6.296629  ,
+        6.3120003 ,  6.327371  ,  6.342742  ,  6.358113  ,  6.373484  ,
+        6.388855  ,  6.404226  ,  6.4195967 ,  6.434968  ,  6.450339  ,
+        6.4657097 ,  6.481081  ,  6.496452  ,  6.5118227 ,  6.5271935 ,
+        6.542565  ,  6.5579357 ,  6.5733066 ,  6.5886774 ,  6.6040487 ,
+        6.6194196 ,  6.6332536 ,  6.647087  ,  6.660921  ,  6.674755  ,
+        6.688589  ,  6.7024226 ,  6.7162566 ,  6.7300906 ,  6.7439246 ,
+        6.757758  ,  6.771592  ,  6.785426  ,  6.7992597 ,  6.8130937 ,
+        6.8269277 ,  6.8407617 ,  6.854595  ,  6.8698125 ,  6.88503   ,
+        6.900247  ,  6.9154644 ,  6.9306817 ,  6.9474206 ,  6.9641595 ,
+        6.9808984 ,  6.9976377 ,  7.0143766 ,  7.0311155 ,  7.0478544 ,
+        7.0645933 ,  7.0813327 ,  7.0980716 ,  7.1148105 ,  7.1315494 ,
+        7.1482882 ,  7.1650276 ,  7.1817665 ,  7.1985054 ,  7.2152443 ,
+        7.231983  ,  7.248722  ,  7.2654614 ,  7.2822003 ,  7.2971964 ,
+        7.312193  ,  7.3271894 ,  7.3421855 ,  7.357182  ,  7.3721786 ,
+        7.3871746 ,  7.402171  ,  7.4171677 ,  7.4321637 ,  7.4471602 ,
+        7.462157  ,  7.4771533 ,  7.4921494 ,  7.507146  ,  7.5221424 ,
+        7.5371385 ,  7.552135  ,  7.5671315 ,  7.5821276 ,  7.597124  ,
+        7.6121206 ,  7.6271167 ,  7.642113  ,  7.6571097 ,  7.672106  ,
+        7.6871023 ,  7.7020984 ,  7.717095  ,  7.7320914 ,  7.7470875 ,
+        7.762084  ,  7.7770805 ,  7.7920766 ,  7.807073  ,  7.8220696 ,
+        7.8370657 ,  7.852062  ,  7.8670588 ,  7.882055  ,  7.8970513 ,
+        7.912048  ,  7.927044  ,  7.9420404 ,  7.957037  ,  7.972033  ,
+        7.9870296 ,  8.002026  ,  8.017022  ,  8.032019  ,  8.047015  ,
+        8.062012  ,  8.078507  ,  8.095003  ,  8.1115    ,  8.1279955 ,
+        8.144491  ,  8.160988  ,  8.177484  ,  8.193979  ,  8.210476  ,
+        8.226972  ,  8.243467  ,  8.259963  ,  8.27646   ,  8.292955  ,
+        8.309451  ,  8.325948  ,  8.342443  ,  8.358939  ,  8.375436  ,
+        8.391932  ,  8.406701  ,  8.421471  ,  8.436239  ,  8.451009  ,
+        8.465778  ,  8.480547  ,  8.4953165 ,  8.510086  ,  8.524856  ,
+        8.539624  ,  8.554394  ,  8.569163  ,  8.583933  ,  8.5987015 ,
+        8.613471  ,  8.629717  ,  8.645964  ,  8.6622095 ,  8.678456  ,
+        8.694702  ,  8.710948  ,  8.727195  ,  8.743441  ,  8.759687  ,
+        8.775933  ,  8.79218   ,  8.808426  ,  8.824672  ,  8.840919  ,
+        8.857164  ,  8.873411  ,  8.889657  ,  8.905903  ,  8.92215   ,
+        8.9383955 ,  8.954642  ,  8.970888  ,  8.987134  ,  9.003381  ,
+        9.019627  ,  9.035873  ,  9.052119  ,  9.068365  ,  9.084612  ,
+        9.100858  ,  9.117105  ,  9.13335   ,  9.149597  ,  9.165843  ,
+        9.182089  ,  9.198336  ,  9.2145815 ,  9.230827  ,  9.247074  ,
+        9.26332   ,  9.279567  ,  9.295813  ,  9.312059  ,  9.328305  ,
+        9.344551  ,  9.360798  ,  9.377044  ,  9.3932905 ,  9.409536  ,
+        9.425782  ,  9.442029  ,  9.458275  ,  9.474522  ,  9.4907675 ,
+        9.507014  ,  9.52326   ,  9.539506  ,  9.555753  ,  9.571999  ,
+        9.588244  ,  9.604491  ,  9.620737  ,  9.636984  ,  9.65323   ,
+        9.6694765 ,  9.685722  ,  9.701968  ,  9.718215  ,  9.734461  ,
+        9.750708  ,  9.766953  ,  9.783199  ,  9.799446  ,  9.815692  ,
+        9.831939  ,  9.848185  ,  9.86443   ,  9.880677  ,  9.896923  ,
+        9.91317   ,  9.929416  ,  9.945662  ,  9.961908  ,  9.978154  ,
+        9.994401  , 10.        ], dtype=float32)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The device data can be also visualised with matplotlib:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">150</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">devc</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">devc</span><span class="p">[</span><span class="s1">&#39;T_1.0&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;time / s&quot;</span><span class="p">)</span>
+<span class="n">devc_id</span> <span class="o">=</span> <span class="n">devc</span><span class="p">[</span><span class="s1">&#39;T_1.0&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">id</span>
+<span class="n">devc_q</span> <span class="o">=</span> <span class="n">devc</span><span class="p">[</span><span class="s1">&#39;T_1.0&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">quantity</span>
+<span class="n">devc_u</span> <span class="o">=</span> <span class="n">devc</span><span class="p">[</span><span class="s1">&#39;T_1.0&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">unit</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">devc_q</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">devc_id</span><span class="si">}</span><span class="s2">) / </span><span class="si">{</span><span class="n">devc_u</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/02_fdsreader_22_0.png" src="../../../_images/02_fdsreader_22_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">devc</span><span class="p">:</span>
+    
+    <span class="c1"># consider only devices with an ID that starts with &#39;T_&#39;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">i</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;T_&#39;</span><span class="p">):</span> 
+        <span class="k">continue</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">devc</span><span class="p">[</span><span class="s2">&quot;Time&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">devc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">devc</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;time / s&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;temperature / $^\circ$C&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/02_fdsreader_23_0.png" src="../../../_images/02_fdsreader_23_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="hrr-data">
+<h2>HRR Data<a class="headerlink" href="#hrr-data" title="Permalink to this headline">¶</a></h2>
+<p>In the same fashion as the <code class="docutils literal notranslate"><span class="pre">DEVC</span></code> data, the data written to the <code class="docutils literal notranslate"><span class="pre">HRR</span></code> file can be directly accessed:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">hrr</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">sim</span><span class="o">.</span><span class="n">hrr</span><span class="p">[</span><span class="s1">&#39;HRR&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time / s&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;heat release rate / kW&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/02_fdsreader_25_0.png" src="../../../_images/02_fdsreader_25_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/tools/03_analysis"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="01_python.html" title="previous page">Python</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          <div class="extra_footer">
+            <p>
+<img src='https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg' height='31'/>
+| By Team Fire | Contacts and Infos: <a href='https://cce.uni-wuppertal.de/en.html'>CCE@BUW</a> and <a href='https://www.fz-juelich.de/ias/ias-7/EN/Research/Fire_Dynamics/_node.html'>IAS-7@FZJ</a>
+</br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
