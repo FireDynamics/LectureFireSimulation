@@ -178,12 +178,39 @@
  </span>
 </p>
 <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01_fds_smv/00_overview.html">
+   FDS and SMV
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_fds_smv/01_fds_intro.html">
+     FDS Overview
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_fds_smv/02_fds_tutorial.html">
+     FDS Basic Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_fds_smv/02_smv.html">
+     SMV Basics
+    </a>
+   </li>
+  </ul>
+ </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="00_overview.html">
    HPC
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -204,8 +231,8 @@
   <a class="reference internal" href="../03_analysis/00_overview.html">
    Data Analysis
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -379,10 +406,10 @@
 </ul>
 <p>HPC with computing power thousand times larger than personal computers allows to significantly reduce the computing time and allows to address new modelling challenges. This is also becoming true for fire safety science and engineering communities.</p>
 <p><em>Example:</em> A CFD application running for a week on thousand processors would need 20 years on a personal computer (assuming it provides enough memory).</p>
-<p>The evolution of computer technology shows one of the fastest developments of all technolgies. Considering the nubmer of transistors as a measure for a chip’s computing performance, the evolution shows that this number doubles every two years. This observation is called <a class="reference external" href="https://en.wikipedia.org/wiki/Moore%27s_law">Moore’s law</a>, see <a class="reference internal" href="#fig-hpc-moore"><span class="std std-numref">Fig. 6</span></a>.</p>
+<p>The evolution of computer technology shows one of the fastest developments of all technolgies. Considering the nubmer of transistors as a measure for a chip’s computing performance, the evolution shows that this number doubles every two years. This observation is called <a class="reference external" href="https://en.wikipedia.org/wiki/Moore%27s_law">Moore’s law</a>, see <a class="reference internal" href="#fig-hpc-moore"><span class="std std-numref">Fig. 12</span></a>.</p>
 <div class="figure align-default" id="fig-hpc-moore">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/0/00/Moore%27s_Law_Transistor_Count_1970-2020.png"><img alt="https://upload.wikimedia.org/wikipedia/commons/0/00/Moore%27s_Law_Transistor_Count_1970-2020.png" src="https://upload.wikimedia.org/wikipedia/commons/0/00/Moore%27s_Law_Transistor_Count_1970-2020.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">The development of the transistor count in the last 5 decades. This observation is represented by Moore’s law. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Moore%27s_Law_Transistor_Count_1970-2020.png">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-hpc-moore" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">The development of the transistor count in the last 5 decades. This observation is represented by Moore’s law. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Moore%27s_Law_Transistor_Count_1970-2020.png">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-hpc-moore" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="parallel-execution">
@@ -390,28 +417,28 @@
 <div class="section" id="general-principle">
 <h3>General Principle<a class="headerlink" href="#general-principle" title="Permalink to this headline">¶</a></h3>
 <p>An application, is in general a sequence of tasks. Here, a task can be understood as a group of commands or computations that can not be separated further, e.g. due to data dependency.</p>
-<p>Yet, there is not necessarily a dependency among the tasks. Thus, they can eventually be executed at the same time, see <a class="reference internal" href="#fig-hpc-fork"><span class="std std-numref">Fig. 7</span></a>. The process of distributing the tasks on multiple execution units (threads, cores, nodes) is called a fork, while the gathering of the results back to the main execution unit is called a join. During the fork, data and instructions have to be exchanged, thus this introduces an overhead, which is not present in a serial execution. The same is true for the join process, but an additional contribution to the overhead is induced by load balancing issues. Depending on the execution time of individual tasks, especially the longest task, the join process will be prolonged.</p>
+<p>Yet, there is not necessarily a dependency among the tasks. Thus, they can eventually be executed at the same time, see <a class="reference internal" href="#fig-hpc-fork"><span class="std std-numref">Fig. 13</span></a>. The process of distributing the tasks on multiple execution units (threads, cores, nodes) is called a fork, while the gathering of the results back to the main execution unit is called a join. During the fork, data and instructions have to be exchanged, thus this introduces an overhead, which is not present in a serial execution. The same is true for the join process, but an additional contribution to the overhead is induced by load balancing issues. Depending on the execution time of individual tasks, especially the longest task, the join process will be prolonged.</p>
 <div class="figure align-default" id="fig-hpc-fork">
 <a class="reference internal image-reference" href="../../../_images/fork.png"><img alt="../../../_images/fork.png" src="../../../_images/fork.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">Serial and parallel execution of a set of tasks.</span><a class="headerlink" href="#fig-hpc-fork" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">Serial and parallel execution of a set of tasks.</span><a class="headerlink" href="#fig-hpc-fork" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="speedup">
 <h3>Speedup<a class="headerlink" href="#speedup" title="Permalink to this headline">¶</a></h3>
-<p>The maximal achievable speedup <span class="math notranslate nohighlight">\(\mf s\)</span>, with respect to a serial execution, on <span class="math notranslate nohighlight">\(\mf n\)</span> computing units is limited by the fraction of the execution that runs in parallel <span class="math notranslate nohighlight">\(\mf p\)</span>. This is reflected by Amdahl’s law, see equation <a class="reference internal" href="#equation-eq-amdahls-law">(1)</a> and <a class="reference internal" href="#fig-hpc-amdahl"><span class="std std-numref">Fig. 8</span></a>.</p>
+<p>The maximal achievable speedup <span class="math notranslate nohighlight">\(\mf s\)</span>, with respect to a serial execution, on <span class="math notranslate nohighlight">\(\mf n\)</span> computing units is limited by the fraction of the execution that runs in parallel <span class="math notranslate nohighlight">\(\mf p\)</span>. This is reflected by Amdahl’s law, see equation <a class="reference internal" href="#equation-eq-amdahls-law">(1)</a> and <a class="reference internal" href="#fig-hpc-amdahl"><span class="std std-numref">Fig. 14</span></a>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-amdahls-law">
 <span class="eqno">(1)<a class="headerlink" href="#equation-eq-amdahls-law" title="Permalink to this equation">¶</a></span>\[
 s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)} 
 \]</div>
 <div class="figure align-default" id="fig-hpc-amdahl">
 <a class="reference internal image-reference" href="../../../_images/amdahl.png"><img alt="../../../_images/amdahl.png" src="../../../_images/amdahl.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Visualisation for Amdahl’s law.</span><a class="headerlink" href="#fig-hpc-amdahl" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">Visualisation for Amdahl’s law.</span><a class="headerlink" href="#fig-hpc-amdahl" title="Permalink to this image">¶</a></p>
 </div>
 <p>The speedup may even decrease, as some operations become more expensive with increasing number of participating processes, e.g. synchronisation points, global data exchange or broadcasts.</p>
 <p>In cases, where a large number of execution units is involved and the tasks cannot be well decomposed, an unequal workload per process may become the main problem. The execution of one iteration is in general determined by the longest task execution time.</p>
 <div class="figure align-default" id="fig-hpc-load-balance">
 <a class="reference internal image-reference" href="../../../_images/load_balance.png"><img alt="../../../_images/load_balance.png" src="../../../_images/load_balance.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Example of load balancing.</span><a class="headerlink" href="#fig-hpc-load-balance" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 15 </span><span class="caption-text">Example of load balancing.</span><a class="headerlink" href="#fig-hpc-load-balance" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="parallelisation">
@@ -426,7 +453,7 @@ s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)}
 <p>Typically the data exchange (compose, transfer, decompose) produces the most overhead. This overhead is purely due to the explicit problem decomposition.</p>
 <div class="figure align-default" id="fig-hpc-domain-mpi">
 <a class="reference internal image-reference" href="../../../_images/decomp_mpi.png"><img alt="../../../_images/decomp_mpi.png" src="../../../_images/decomp_mpi.png" style="width: 40%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Domain decomposition of a simple computational grid, like in FDS. The data communication (arrows) is handled with MPI.</span><a class="headerlink" href="#fig-hpc-domain-mpi" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 16 </span><span class="caption-text">Domain decomposition of a simple computational grid, like in FDS. The data communication (arrows) is handled with MPI.</span><a class="headerlink" href="#fig-hpc-domain-mpi" title="Permalink to this image">¶</a></p>
 </div>
 <p>As MPI is only a definition standard, there is more than one implementation of MPI. The most common MPI implementations are:</p>
 <ul class="simple">
@@ -436,10 +463,10 @@ s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)}
 </ul>
 <p>The MPI implementations include C/C++/FORTRAN header, libraries, compiler wrapper and a runtime environment.</p>
 <p>In contrast to MPI, OpenMP (or short OMP) is a standard, to implicitly distribute the execution on a shared memory system.</p>
-<p>OMP is implemented as pragmas for C/C++/FORTRAN, and are therefore non intrusive. The typical application is to decompose loops and advise the compiler or the runtime to distribute the loop iterations. The data is not distributed and stays in place, see <a class="reference internal" href="#fig-hpc-domain-omp"><span class="std std-numref">Fig. 11</span></a>.</p>
+<p>OMP is implemented as pragmas for C/C++/FORTRAN, and are therefore non intrusive. The typical application is to decompose loops and advise the compiler or the runtime to distribute the loop iterations. The data is not distributed and stays in place, see <a class="reference internal" href="#fig-hpc-domain-omp"><span class="std std-numref">Fig. 17</span></a>.</p>
 <div class="figure align-default" id="fig-hpc-domain-omp">
 <a class="reference internal image-reference" href="../../../_images/decomp_openmp.png"><img alt="../../../_images/decomp_openmp.png" src="../../../_images/decomp_openmp.png" style="width: 40%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Domain decomposition with OpenMP.</span><a class="headerlink" href="#fig-hpc-domain-omp" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 17 </span><span class="caption-text">Domain decomposition with OpenMP.</span><a class="headerlink" href="#fig-hpc-domain-omp" title="Permalink to this image">¶</a></p>
 </div>
 <p>However, the compiler or runtime must detect independent tasks. Loop carried dependencies may prevent parallelisation and data races may produce unpredictable results.</p>
 <p>To run an OMP application, there are a few handy environment variables</p>
@@ -454,7 +481,7 @@ s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)}
 <h2>Parallel Computer<a class="headerlink" href="#parallel-computer" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="components">
 <h3>Components<a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h3>
-<p>Parallel computers are often called, e.g., supercomputer, high performance computers or compute clusters. The configuration of a common modern parallel computer contains to following elements, see also <a class="reference internal" href="#fig-hpc-cluster"><span class="std std-numref">Fig. 12</span></a>.</p>
+<p>Parallel computers are often called, e.g., supercomputer, high performance computers or compute clusters. The configuration of a common modern parallel computer contains to following elements, see also <a class="reference internal" href="#fig-hpc-cluster"><span class="std std-numref">Fig. 18</span></a>.</p>
 <ul class="simple">
 <li><p><strong>Compute nodes</strong> are the nodes of the communication network. They consist of (multiple) CPUs, accelerators (e.g. GPU), memory and network interfaces.</p></li>
 <li><p><strong>Central Processing Units (CPU)</strong> do the actual computations. Modern CPUs have multiple physical cores, e.g. the AMD EPYC 7452 has 32 cores. Additionally, a node can support multiple processors, each with an own socket.</p></li>
@@ -466,7 +493,7 @@ s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)}
 </ul>
 <div class="figure align-default" id="fig-hpc-cluster">
 <a class="reference internal image-reference" href="../../../_images/cluster.png"><img alt="../../../_images/cluster.png" src="../../../_images/cluster.png" style="width: 40%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">A very generalistic representation of an element / node of a cluster.</span><a class="headerlink" href="#fig-hpc-cluster" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 18 </span><span class="caption-text">A very generalistic representation of an element / node of a cluster.</span><a class="headerlink" href="#fig-hpc-cluster" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="performance">
@@ -479,7 +506,7 @@ s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)}
 <p>The system, which is used for this lecture is <a class="reference external" href="https://fz-juelich.de/ias/jsc/EN/Expertise/Supercomputers/JURECA/JURECA_node.html">JURECA</a> at the Forschungszentrum Jülich.</p>
 <div class="figure align-default" id="fig-hpc-jureca-dc">
 <a class="reference internal image-reference" href="https://fz-juelich.de/SharedDocs/Bilder/IAS/JSC/EN/galeries/JURECA/JURECA-DC.jpg?__blob=poster"><img alt="https://fz-juelich.de/SharedDocs/Bilder/IAS/JSC/EN/galeries/JURECA/JURECA-DC.jpg?__blob=poster" src="https://fz-juelich.de/SharedDocs/Bilder/IAS/JSC/EN/galeries/JURECA/JURECA-DC.jpg?__blob=poster" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 13 </span><span class="caption-text">JURECA-DC cluster at the Forschungszentrum Jülich. Source: Forschungszentrum Jülich.</span><a class="headerlink" href="#fig-hpc-jureca-dc" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 19 </span><span class="caption-text">JURECA-DC cluster at the Forschungszentrum Jülich. Source: Forschungszentrum Jülich.</span><a class="headerlink" href="#fig-hpc-jureca-dc" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="cobra-cluster">
@@ -487,7 +514,7 @@ s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)}
 <p>Within the BMBF-funded project CoBra, the CCE chair will setup a computing cluster with a theoretical performance of about 100 TFLOP/s in 2021.</p>
 <div class="figure align-default" id="fig-hpc-cobra-logo">
 <a class="reference internal image-reference" href="../../../_images/cobra_logo_full.svg"><img alt="../../../_images/cobra_logo_full.svg" src="../../../_images/cobra_logo_full.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 14 </span><span class="caption-text">CoBra project logo – an image of the cluster is yet to be included.</span><a class="headerlink" href="#fig-hpc-cobra-logo" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 20 </span><span class="caption-text">CoBra project logo – an image of the cluster is yet to be included.</span><a class="headerlink" href="#fig-hpc-cobra-logo" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>

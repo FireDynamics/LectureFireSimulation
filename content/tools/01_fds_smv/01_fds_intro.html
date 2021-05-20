@@ -1,0 +1,713 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FDS Overview &#8212; Fire Simulation Lecture</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}", "du": "\\dot{u}"}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/tools/01_fds_smv/01_fds_intro.html" />
+    <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="FDS Basic Example" href="02_fds_tutorial.html" />
+    <link rel="prev" title="FDS and SMV" href="00_overview.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      <img src="../../../_static/cce_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Fire Simulation Lecture</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../overview/01_overview.html">
+   Overview
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../overview/02_team.html">
+   Team Fire Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../overview/03_references.html">
+   References
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Modelling
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../modelling/01_general/00_overview.html">
+   1. Modelling Fires
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/01_general/01_processes.html">
+     1.1. Physical and Chemical Processes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/01_general/02_fse.html">
+     1.2. Fire Safety Engineering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/01_general/03_approaches.html">
+     1.3. Modelling Approaches
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../modelling/02_fluids/00_overview.html">
+   2. Fluid Dynamics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/02_fluids/01_fluids.html">
+     2.1. Fluids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/02_fluids/02_cfd.html">
+     2.2. Computational Fluid Dynamics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/02_fluids/03_turbulence.html">
+     2.3. Turbulence
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tools
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_overview.html">
+   FDS and SMV
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     FDS Overview
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_fds_tutorial.html">
+     FDS Basic Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_smv.html">
+     SMV Basics
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02_hpc/00_overview.html">
+   HPC
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_hpc/01_linux.html">
+     Linux
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_hpc/02_hpc.html">
+     High Performace Computing
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03_analysis/00_overview.html">
+   Data Analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_analysis/01_python.html">
+     Python
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/tools/01_fds_smv/01_fds_intro.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/FireDynamics/LectureFireSimulation"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/tools/01_fds_smv/01_fds_intro.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/tools/01_fds_smv/01_fds_intro.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/FireDynamics/LectureFireSimulation/main?urlpath=tree/book/content/tools/01_fds_smv/01_fds_intro.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://io.cce.uni-wuppertal.de/firesim_ss21//hub/user-redirect/git-pull?repo=https://github.com/FireDynamics/LectureFireSimulation&urlpath=tree/LectureFireSimulation/book/content/tools/01_fds_smv/01_fds_intro.ipynb&branch=main"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   FDS Overview
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#included-models-in-fds">
+     Included models in FDS
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#governing-equations">
+     Governing equations
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#numerical-scheme">
+     Numerical scheme
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#combustion-models">
+     Combustion models
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ventilation">
+     Ventilation
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fds-guides">
+     FDS guides
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#user-s-guide">
+       User’s guide
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#technical-guide">
+       Technical guide
+      </a>
+     </li>
+     <li class="toc-h3 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#verification-and-validation">
+       Verification and validation
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#smokeview-visiualisation">
+     Smokeview - Visiualisation
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sources">
+   Sources
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="fds-overview">
+<h1>FDS Overview<a class="headerlink" href="#fds-overview" title="Permalink to this headline">¶</a></h1>
+<p>FDS describes itself as:</p>
+<blockquote>
+<div><p>The software described in this document, Fire Dynamics Simulator (FDS), is a computational fluid dynamics (CFD) model of fire-driven fluid flow. FDS solves numerically a form of the Navier-Stokes equations appropriate for low-speed (Ma &lt; 0.3), thermally-driven flow with an emphasis on smoke and heat transport from fires.<br> – FDS User’s Guide</p>
+</div></blockquote>
+<p>It is a widely used CFD software in fire safety science.</p>
+<ul class="simple">
+<li><p>freely available and open source</p></li>
+<li><p>runs on Linux / Windows / OSX</p></li>
+<li><p>very well documented with accompanying verification and validation guides</p></li>
+</ul>
+<div class="section" id="included-models-in-fds">
+<h2>Included models in FDS<a class="headerlink" href="#included-models-in-fds" title="Permalink to this headline">¶</a></h2>
+<p><strong>Fluid dynamics</strong></p>
+<ul class="simple">
+<li><p>adopted form of Navier-Stokes for low speed and thermally driven flows</p></li>
+<li><p>emphasis on smoke and heat transport from fires</p></li>
+<li><p>LES model, DNS possible</p></li>
+<li><p>explicit predictor-corrector scheme, second order in time and space</p></li>
+</ul>
+<p><strong>Combustion</strong></p>
+<ul class="simple">
+<li><p>single step, mixing controlled chemical reaction</p></li>
+<li><p>lumped species (air, fuel and products)</p></li>
+<li><p>options for more complex reactions</p></li>
+</ul>
+<p><strong>Radiation transport</strong></p>
+<ul class="simple">
+<li><p>gray gas assumption, or wide band model possible</p></li>
+<li><p>finite volume method with discrete angles (default 100)</p></li>
+<li><p>absorption coefficients are based on a narrow band model (RadCal)</p></li>
+</ul>
+<p><strong>Geometry</strong></p>
+<ul class="simple">
+<li><p>rectilinear meshes, rectangular obstructions</p></li>
+<li><p>complex geometries</p></li>
+</ul>
+<p><strong>Parallel Execution</strong></p>
+<ul class="simple">
+<li><p>multiple messes possible and needed for distributed computing</p></li>
+<li><p>MPI and OpenMP parallel</p></li>
+</ul>
+<p><strong>Boundaries</strong></p>
+<ul class="simple">
+<li><p>thermal boundary conditions</p></li>
+<li><p>burning behavior (pyrolysis)</p></li>
+<li><p>heat conduction in obstructions</p></li>
+</ul>
+</div>
+<div class="section" id="governing-equations">
+<h2>Governing equations<a class="headerlink" href="#governing-equations" title="Permalink to this headline">¶</a></h2>
+<div class="math notranslate nohighlight">
+\[ 
+\mf \frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \textbf{u}) =0 
+\]</div>
+<div class="math notranslate nohighlight">
+\[ 
+\mf \frac{\partial \rho Y_{\alpha}}{\partial t} + \nabla \cdot (\rho Y_{\alpha}\textbf{u}) = - \nabla \cdot \textbf{J}_{\alpha} + \dot{m_{\alpha}'''}
+\]</div>
+<div class="math notranslate nohighlight">
+\[ 
+\mf \frac{\partial \rho \textbf{u}}{\partial t} + \nabla \cdot (\rho \textbf{uu}) = -\nabla \bar{p} + \nabla \cdot \textbf{T} + (\rho - \rho_0)\textbf{g}
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\mf \frac{\partial \rho h_s}{\partial t} + \nabla \cdot (\rho h_s \textbf{u}) = \frac{D\bar{p}}{Dt} = \dot{q}''' - \nabla \cdot \dot{\textbf{q}}''
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\mf \rho = \frac{\bar{p}\overline{W}}{RT}
+\]</div>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Variable</p></th>
+<th class="head"><p>Quantity</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\mf \rho\)</span></p></td>
+<td><p>mass density</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\mf \textbf{u}\)</span></p></td>
+<td><p>velocity</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\mf Y_{\alpha}\)</span></p></td>
+<td><p>mass fraction of species <span class="math notranslate nohighlight">\(\mf \alpha\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\mf \textbf{J}_{\alpha}\)</span></p></td>
+<td><p>diffusive mass flux of <span class="math notranslate nohighlight">\(\mf \alpha\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\mf \dot{m}_{\alpha}'''\)</span></p></td>
+<td><p>reaction source term</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\mf T\)</span></p></td>
+<td><p>deviatoric stress tensor</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\mf g\)</span></p></td>
+<td><p>gravitational acceleration</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\mf h_s\)</span></p></td>
+<td><p>sensible enthalpy per unit mass</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\mf \dot{q}'''\)</span></p></td>
+<td><p>heat release per unit volume due to reaction</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\mf \dot{q}''\)</span></p></td>
+<td><p>heat flux (diffusion, conduction and radiation)</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\mf \bar{p}\)</span></p></td>
+<td><p>thermodynamic pressure</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\mf \overline{W}\)</span></p></td>
+<td><p>mixture molecular weight</p></td>
+</tr>
+<tr class="row-even"><td><p><span class="math notranslate nohighlight">\(\mf T\)</span></p></td>
+<td><p>temperature</p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\mf R\)</span></p></td>
+<td><p>ideal gas constant</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="numerical-scheme">
+<h2>Numerical scheme<a class="headerlink" href="#numerical-scheme" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>update the density equation to obtain <span class="math notranslate nohighlight">\(\rho^{n+1}\)</span></p></li>
+<li><p>update the <span class="math notranslate nohighlight">\(n_s - 1\)</span> species equations to get <span class="math notranslate nohighlight">\(Y^{n+1}_{\alpha}\)</span></p></li>
+<li><p>Update the temperature from equation of state to obtain <span class="math notranslate nohighlight">\(T^{n+1}\)</span></p></li>
+<li><p>Compute <span class="math notranslate nohighlight">\((\nabla \cdot \textbf{u})^{n+1}\)</span></p></li>
+<li><p>Solve the Poisson equation for <span class="math notranslate nohighlight">\(H^n\)</span></p></li>
+<li><p>Use above pressure solution to update the velocity <span class="math notranslate nohighlight">\(\textbf{u}^{n+1}\)</span></p></li>
+</ol>
+</div>
+<div class="section" id="combustion-models">
+<h2>Combustion models<a class="headerlink" href="#combustion-models" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>single-step, mixing-controlled combustion, simple chemistry model,reaction is assumed to be of following form</p>
+<div class="math notranslate nohighlight">
+\[ 
+  C_xH_yO_zN_v + \nu_{O_2} O_2 \rightarrow \nu_{H_2O} H_2O + \nu_{CO} CO + \nu_{s} soot + \nu_{N_2} N_2
+  \]</div>
+</li>
+<li><p>comple stoichiometry</p></li>
+<li><p>finite rate combustion</p></li>
+</ul>
+</div>
+<div class="section" id="ventilation">
+<h2>Ventilation<a class="headerlink" href="#ventilation" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>supply and exhaust vents</p></li>
+<li><p>heaters</p></li>
+<li><p>HVAC systems</p></li>
+<li><p>Fires and flows in the outdoors</p></li>
+</ul>
+</div>
+<div class="section" id="fds-guides">
+<h2>FDS guides<a class="headerlink" href="#fds-guides" title="Permalink to this headline">¶</a></h2>
+<p>The FDS guides and documentation can be found here: <a class="reference external" href="https://pages.nist.gov/fds-smv/manuals.html">https://pages.nist.gov/fds-smv/manuals.html</a></p>
+<div class="section" id="user-s-guide">
+<h3>User’s guide<a class="headerlink" href="#user-s-guide" title="Permalink to this headline">¶</a></h3>
+<p>An about 300 pages thick manual to introduce users to FDS. It covers the user aspects of</p>
+<ul class="simple">
+<li><p>basics of FDS, getting started</p></li>
+<li><p>structure of FDS input files</p></li>
+<li><p>building geometric models</p></li>
+<li><p>fire and thermal boundary conditions</p></li>
+<li><p>ventilation</p></li>
+<li><p>combustion and radiation</p></li>
+<li><p>particles and droplets</p></li>
+<li><p>deices and control logic</p></li>
+<li><p>output</p></li>
+</ul>
+</div>
+<div class="section" id="technical-guide">
+<h3>Technical guide<a class="headerlink" href="#technical-guide" title="Permalink to this headline">¶</a></h3>
+<p>This document (about 175 pages)covers the technical / mathematical /
+scientific description of the FDS model. It includes a detailed description (or references) of the following aspects:</p>
+<ul class="simple">
+<li><p>general overview of the FDS model</p></li>
+<li><p>mass, species and enthalpy transport</p></li>
+<li><p>momentum transport and pressure</p></li>
+<li><p>combustion</p></li>
+<li><p>thermal radiation</p></li>
+<li><p>solid phase</p></li>
+<li><p>Lagrangian particles</p></li>
+<li><p>fire detection devices and HVAC</p></li>
+</ul>
+</div>
+<div class="section" id="verification-and-validation">
+<h3>Verification and validation<a class="headerlink" href="#verification-and-validation" title="Permalink to this headline">¶</a></h3>
+<p>To demonstrate the applicability of the FDS model, there exist two documents(in total about 800 pages) about model verification and validation.
+All test are run every night to check the impact of source code changes.</p>
+<div class="figure align-default" id="fig-fdstutorial-vv-example">
+<a class="reference internal image-reference" href="content/tools/01_fds_smv/figs/verification.png"><img alt="content/tools/01_fds_smv/figs/verification.png" src="content/tools/01_fds_smv/figs/verification.png" style="width: 60%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 2 </span><span class="caption-text">Geometry and dimensions of the room.</span><a class="headerlink" href="#fig-fdstutorial-vv-example" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="smokeview-visiualisation">
+<h2>Smokeview - Visiualisation<a class="headerlink" href="#smokeview-visiualisation" title="Permalink to this headline">¶</a></h2>
+<p>Smokeview describes itsef as:</p>
+<blockquote>
+<div><p>Smokeview is a scientific software tool designed for visualizing numerical predictions generated by fire models such as the Fire Dynamics Simulator (FDS).
+<br> – Smokeview User’s Guide</p>
+</div></blockquote>
+<div class="figure align-default" id="fig-fdstutorial-smv-demo">
+<a class="reference internal image-reference" href="../../../_images/smoke.png"><img alt="../../../_images/smoke.png" src="../../../_images/smoke.png" style="width: 60%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3 </span><span class="caption-text">Geometry and dimensions of the room.</span><a class="headerlink" href="#fig-fdstutorial-smv-demo" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+<div class="section" id="sources">
+<h1>Sources<a class="headerlink" href="#sources" title="Permalink to this headline">¶</a></h1>
+<p>The full source code (both FDS and smokeview) is available at GitHub(<a class="reference external" href="https://github.com/firemodels/fds-smv">https://github.com/firemodels/fds-smv</a>)
+This page also includes:</p>
+<ul class="simple">
+<li><p>binaries for Linux / Windows / OSX</p></li>
+<li><p>all manuals</p></li>
+<li><p>mailing lists</p></li>
+<li><p>verification and validation data
+The software can also be found here and be downloaded for installation: <a class="reference external" href="https://pages.nist.gov/fds-smv/downloads.html">https://pages.nist.gov/fds-smv/downloads.html</a></p></li>
+</ul>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/tools/01_fds_smv"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="00_overview.html" title="previous page">FDS and SMV</a>
+    <a class='right-next' id="next-link" href="02_fds_tutorial.html" title="next page">FDS Basic Example</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          <div class="extra_footer">
+            <p>
+<img src='https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg' height='31'/>
+| By Team Fire | Contacts and Infos: <a href='https://cce.uni-wuppertal.de/en.html'>CCE@BUW</a> and <a href='https://www.fz-juelich.de/ias/ias-7/EN/Research/Fire_Dynamics/_node.html'>IAS-7@FZJ</a>
+</br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>

@@ -179,11 +179,38 @@
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../tools/02_hpc/00_overview.html">
-   HPC
+  <a class="reference internal" href="../../tools/01_fds_smv/00_overview.html">
+   FDS and SMV
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/01_fds_smv/01_fds_intro.html">
+     FDS Overview
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/01_fds_smv/02_fds_tutorial.html">
+     FDS Basic Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/01_fds_smv/02_smv.html">
+     SMV Basics
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tools/02_hpc/00_overview.html">
+   HPC
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -204,8 +231,8 @@
   <a class="reference internal" href="../../tools/03_analysis/00_overview.html">
    Data Analysis
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -611,7 +638,7 @@ In general the speed of sound <span class="math notranslate nohighlight">\(\mf c
 </div>
 <p>Relation <a class="reference internal" href="#equation-eq-dyn-vis">(2.4)</a> is the definition of the <em>dynamic viscosity</em> <span class="math notranslate nohighlight">\(\mf \mu\)</span>. Yet, in some cases the <em>kinematic viscosity</em> <span class="math notranslate nohighlight">\(\mf \nu\)</span> (or momentum diffusivity) is a more convenient quantity. It is given by the ratio of the dynamic viscosity and the density</p>
 <div class="math notranslate nohighlight" id="equation-eq-kin-vis">
-<span class="eqno">(2.6)<a class="headerlink" href="#equation-eq-kin-vis" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(2.5)<a class="headerlink" href="#equation-eq-kin-vis" title="Permalink to this equation">¶</a></span>\[
 \mf \nu = \frac{\mu}{\rho} \quad .
 \]</div>
 <p>Fluids for which viscosity does not depend on the stress state are called Newtonian fluids, all gases are Newtonian fluids. However, there exist also <a class="reference external" href="https://en.wikipedia.org/wiki/Non-Newtonian_fluid">non-Newtonian fluids</a>, like blood, tomato ketchup and water mixed with corn starch.</p>
@@ -631,8 +658,8 @@ In general the speed of sound <span class="math notranslate nohighlight">\(\mf c
 </ul>
 <p><strong>Mach number</strong></p>
 <p>The Mach number is defined as the relation of a velocity to the speed of sound, i.e.</p>
-<div class="math notranslate nohighlight" id="equation-eq-kin-vis">
-<span class="eqno">(2.6)<a class="headerlink" href="#equation-eq-kin-vis" title="Permalink to this equation">¶</a></span>\[
+<div class="math notranslate nohighlight" id="equation-eq-mach-number">
+<span class="eqno">(2.6)<a class="headerlink" href="#equation-eq-mach-number" title="Permalink to this equation">¶</a></span>\[
 \mf Ma = \frac{v}{c_s}
 \]</div>
 <p>This number characterises the compressibility of a flow:</p>
