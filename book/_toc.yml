@@ -44,10 +44,11 @@
 - part: Tools
   numbered: false
   chapters:
-#     - file: content/tools/01_fds_smv/00_overview
-#       sections:
-#         - file: content/tools/01_fds_smv/01_fds
-#         - file: content/tools/01_fds_smv/02_smv
+    - file: content/tools/01_fds_smv/00_overview
+      sections:
+        - file: content/tools/01_fds_smv/01_fds_intro
+        - file: content/tools/01_fds_smv/02_fds_tutorial
+        - file: content/tools/01_fds_smv/02_smv
         
     - file: content/tools/02_hpc/00_overview
       sections:
