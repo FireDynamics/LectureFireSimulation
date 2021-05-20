@@ -45,7 +45,7 @@ notebook_interface : "notebook"
 # Sphinx settings
 sphinx:
   config:
-    bibtex_reference_style: "author_year"
+#     bibtex_reference_style: "author_year"
     html_show_copyright : false
     mathjax_config      :
       TeX:
