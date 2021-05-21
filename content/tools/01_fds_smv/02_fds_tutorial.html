@@ -538,7 +538,7 @@
 <li><p>A device can have a specified QUANTITY, which tells FDS what should be recorded.</p></li>
 </ul>
 <p>The command for the input file is:</p>
-<p><code class="docutils literal notranslate"><span class="pre">&amp;DEVC</span> <span class="pre">ID</span> <span class="pre">=</span> <span class="pre">'Air</span> <span class="pre">Temperature',</span> <span class="pre">XYZ</span> <span class="pre">=</span> <span class="pre">1,2,1.5,</span> <span class="pre">QUANTITY</span> <span class="pre">=</span> <span class="pre">'TEMPERATURE'</span></code></p>
+<p><code class="docutils literal notranslate"><span class="pre">&amp;DEVC</span> <span class="pre">ID</span> <span class="pre">=</span> <span class="pre">'Air</span> <span class="pre">Temperature',</span> <span class="pre">XYZ</span> <span class="pre">=</span> <span class="pre">1,2,1.5,</span> <span class="pre">QUANTITY</span> <span class="pre">=</span> <span class="pre">'TEMPERATURE'</span> <span class="pre">/</span></code></p>
 <p>With this line fds will record the temperature at the point <span class="math notranslate nohighlight">\(\mf x=1, y=2, z=1.5\)</span>.</p>
 <p><strong>Slices</strong></p>
 <p>A slice file allows to record a gas phase quantity at a part of the domain. In this example the temperature at the plane <span class="math notranslate nohighlight">\(\mf y=2\)</span> will be chosen as property to record.</p>
@@ -579,7 +579,7 @@ The slice file is now displayed, you can play with the setting of smokeview to c
 </div>
 </div>
 </div>
-<p>In the above code the data is read in using the pandas package. Pandas is a powerfull package from python for handling CSV or MicroSoft Excel files, more info on the package can be found here: .</p>
+<p>In the above code the data is read in using the pandas package. Pandas is a powerfull package from python for handling CSV or Microsoft Excel files, more info on the package can be found here: <a class="reference external" href="https://pandas.pydata.org">pandas module</a>.</p>
 <p>Now that the data has been imported, the plots can be generated. In order to do so the matplotlib.pyplot libary from python will be used.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
