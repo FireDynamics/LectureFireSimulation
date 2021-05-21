@@ -378,13 +378,13 @@
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#step-5-model-the-combustion">
-   Step 5: Model the combustion
+  <a class="reference internal nav-link" href="#step-5-add-a-fire">
+   Step 5: Add a Fire
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#step-6-output">
-   STEP 6: Output
+   Step 6: Output
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -485,6 +485,17 @@
 <a class="reference internal image-reference" href="../../../_images/grid.png"><img alt="../../../_images/grid.png" src="../../../_images/grid.png" style="width: 40%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 6 </span><span class="caption-text">Vizualisation of the domain.</span><a class="headerlink" href="#fig-fdstutorial-domain" title="Permalink to this image">¶</a></p>
 </div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The grid and geometry can be check in the following way:</p>
+<ul class="simple">
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">&amp;TIME</span> <span class="pre">T_END</span> <span class="pre">=</span> <span class="pre">0/</span></code> to your script, this will only build the geometry without actually running a simulation</p></li>
+<li><p>Save the FDS input file</p></li>
+<li><p>Run the fds input file</p></li>
+<li><p>Open the smokeview output file and check the geometry</p></li>
+<li><p>To display the grid, press <code class="docutils literal notranslate"><span class="pre">g</span></code></p></li>
+</ul>
+</div>
 </div>
 <div class="section" id="step-3-duration-of-the-simulation">
 <h2>Step 3: duration of the simulation<a class="headerlink" href="#step-3-duration-of-the-simulation" title="Permalink to this headline">¶</a></h2>
@@ -497,20 +508,14 @@
 <h2>Step 4: Model openings<a class="headerlink" href="#step-4-model-openings" title="Permalink to this headline">¶</a></h2>
 <p>The room has one door, this needs to be moddeled as an opening. The VENT command can be used to model openings, XB specifies the coordinates of the opening.</p>
 <p><code class="docutils literal notranslate"><span class="pre">&amp;VENT</span> <span class="pre">XB=0.5,1.5,4,4,0,2,</span> <span class="pre">SURF_ID='OPEN'/</span></code></p>
-<p>The geometry for this example is showen in figure</p>
+<p>The geometry for this example is showen in the following figure.</p>
 <div class="figure align-default" id="fig-fdstutorial-room-geometry">
-<a class="reference internal image-reference" href="../../../_images/door.png"><img alt="../../../_images/door.png" src="../../../_images/door.png" style="width: 15%;" /></a>
+<a class="reference internal image-reference" href="../../../_images/door.png"><img alt="../../../_images/door.png" src="../../../_images/door.png" style="width: 40%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 7 </span><span class="caption-text">The geometry of the room.</span><a class="headerlink" href="#fig-fdstutorial-room-geometry" title="Permalink to this image">¶</a></p>
 </div>
-<p><strong>Hint</strong> The implemented geometry can be check in the following way:</p>
-<ul class="simple">
-<li><p>Save the FDS input file</p></li>
-<li><p>Let it run for a few seconds</p></li>
-<li><p>Open the smokeview output file and check the geometry</p></li>
-</ul>
 </div>
-<div class="section" id="step-5-model-the-combustion">
-<h2>Step 5: Model the combustion<a class="headerlink" href="#step-5-model-the-combustion" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="step-5-add-a-fire">
+<h2>Step 5: Add a Fire<a class="headerlink" href="#step-5-add-a-fire" title="Permalink to this headline">¶</a></h2>
 <p>This is done in two parts. First the fuel needs to be defined. A list with pre-defined fuels in fds can be found in the FDS user manual. In this example propane will be used as reaction fuel. The command for the input file is:</p>
 <p><code class="docutils literal notranslate"><span class="pre">&amp;REAC</span> <span class="pre">FUEL</span> <span class="pre">=</span> <span class="pre">'PROPANE'</span> <span class="pre">/</span></code></p>
 <p>Next, the object that is burning needs to be defined. This will be done by using the following command.</p>
@@ -523,7 +528,7 @@
 <p><code class="docutils literal notranslate"><span class="pre">&amp;SURF</span> <span class="pre">ID</span> <span class="pre">=</span> <span class="pre">'Fire',</span> <span class="pre">HRRPUA</span> <span class="pre">=</span> <span class="pre">600/</span></code></p>
 </div>
 <div class="section" id="step-6-output">
-<h2>STEP 6: Output<a class="headerlink" href="#step-6-output" title="Permalink to this headline">¶</a></h2>
+<h2>Step 6: Output<a class="headerlink" href="#step-6-output" title="Permalink to this headline">¶</a></h2>
 <p>In this example the temperature of the air near the ceiling will be measured/studied as output parameter. There are two main ways to do this. The first one is over a device and the second one is by a slice.</p>
 <p><strong>Devices</strong></p>
 <p>Devices in fds are used to include e.g. thermocouples, sprinklers, … in the simulation. Every device gets several properties assigned.</p>
