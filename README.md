@@ -28,7 +28,7 @@ pip install -r requirements.txt
 ```
 5. Launch JupyterLab
 ```
-jupyterlab
+jupyter-lab
 ```
 6. Do some editing. The contents of the book are stored in the `content` folder.
 7. Build a local version of the book
