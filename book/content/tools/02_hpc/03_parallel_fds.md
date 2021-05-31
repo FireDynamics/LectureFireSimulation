@@ -1,5 +1,59 @@
 # Parallel Execution of FDS
 
+## Accessing JURECA
+
+### Accounts
+
+You should have received an invitation email, which asks you to register in the account management system. One registered, you will receive an individual username.
+
+### SSH
+
+To reach the computercluster JURECA you need to log in via the [secure shell protocol (SSH)](https://en.wikipedia.org/wiki/Secure_Shell_Protocol). It is recommened to read the user documention which can be found here: [access JURECA using SSH](https://apps.fz-juelich.de/jsc/hps/jureca/access.html).
+
+Most Linux and MacOS systems have a SSH client installed. On Windows, you can use tools like [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
+
+Depending on your SSH client, there are various ways to genearte a SSH key pair (public and private). In any case, it should be protected with a passphrase.
+
+One of the safety measure on JURECA is, that you need to specify the IP range from which you access the system, see [kee restrictions](https://apps.fz-juelich.de/jsc/hps/jureca/access.html#key-upload-key-restriction). If you use VPN, e.g. provided by the University of Wuppertal, your `from` statement could include `*.uni-wuppertal.de`. 
+
+### Login
+
+In order to login to JURECA on a Linux or MacOS you just need to execute
+
+```none
+> ssh username1@jureca.fz-juelich.de
+```
+
+Or you add a configuration to `~/.ssh/config` like
+
+```
+Host jureca
+     User username1
+     Hostname jureca.fz-juelich.de
+```
+
+which allow a shorter command
+
+```
+> ssh jureca
+```
+
+````{admonition} Task
+Login to JURECA and check your username, the server you have logged in to and the path to your home directory. The result should look similar to 
+
+```
+> whoami
+username1
+> hostname
+jrlogin06.jureca
+> echo $HOME
+/p/home/jusers/username1/jureca
+```
+````
+
+
+## FDS Module on JURECA
+
 ## Mesh Decomposition
 
 Python scipt to automate decomposition of a single `MESH` statement: {download}`decompose_fds_mesh.py`.
