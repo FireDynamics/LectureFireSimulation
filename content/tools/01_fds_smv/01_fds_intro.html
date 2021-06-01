@@ -171,6 +171,28 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../modelling/03_compartments/00_overview.html">
+   3. Compartment Fires
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/03_compartments/01_fundamentals.html">
+     3.1. Fundamentals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/03_compartments/02_design_fire.html">
+     3.2. Design Fires
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -182,8 +204,8 @@
   <a class="reference internal" href="00_overview.html">
    FDS and SMV
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -198,19 +220,14 @@
      FDS Basic Example
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_smv.html">
-     SMV Basics
-    </a>
-   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../02_hpc/00_overview.html">
    HPC
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -225,14 +242,24 @@
      High Performace Computing
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_hpc/03_parallel_fds.html">
+     Parallel Execution of FDS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_hpc/04_benchmarking.html">
+     Benchmarking
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../03_analysis/00_overview.html">
    Data Analysis
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -509,11 +536,11 @@
 \]</div>
 <div class="math notranslate nohighlight">
 \[ 
-\mf \frac{\partial \rho \textbf{u}}{\partial t} + \nabla \cdot (\rho \textbf{uu}) = -\nabla \bar{p} + \nabla \cdot \textbf{T} + (\rho - \rho_0)\textbf{g}
+\mf \frac{\partial \rho \textbf{u}}{\partial t} + \nabla \cdot (\rho \textbf{uu}) = -\nabla p + \nabla \cdot \textbf{T} + (\rho - \rho_0)\textbf{g}
 \]</div>
 <div class="math notranslate nohighlight">
 \[
-\mf \frac{\partial \rho h_s}{\partial t} + \nabla \cdot (\rho h_s \textbf{u}) = \frac{D\bar{p}}{Dt} = \dot{q}''' - \nabla \cdot \dot{\textbf{q}}''
+\mf \frac{\partial \rho h_s}{\partial t} + \nabla \cdot (\rho h_s \textbf{u}) = \frac{D\bar{p}}{Dt} + \dot{q}''' - \nabla \cdot \dot{\textbf{q}}''
 \]</div>
 <div class="math notranslate nohighlight">
 \[
@@ -570,6 +597,32 @@
 </tr>
 </tbody>
 </table>
+<p>The momentum equation may be rewritten as</p>
+<div class="math notranslate nohighlight">
+\[
+\mf \frac{\partial \textbf{u}}{\partial t} = -(\textbf{F}+\nabla H),
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\mf \textbf{F} = \underbrace{\textbf{u} \cdot \textbf{u} - \nabla K}_{-\textbf{u}x(\nabla x \textbf{u})} - \bar{p}\nabla(1/\rho)-\frac{1}{\rho}[\nabla \cdot \textbf{T}+(\rho - \rho_0)\textbf{g}],
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+\mf H \equiv \bar{p}/\rho + K,
+\]</div>
+<p>with the resolved kinetic energy per unit mass <span class="math notranslate nohighlight">\(\mf K \equiv \frac{1}{2}\left|\textbf{u}\right|^2\)</span>. the Bernoulli intefral <span class="math notranslate nohighlight">\(H\)</span> obeys the following Poisson equation</p>
+<div class="math notranslate nohighlight">
+\[
+\mf \nabla^2H = - \left[ \nabla \cdot \textbf{F} + \frac{\partial}{\partial t}(\nabla \cdot \textbf{u}) \right]\quad .
+\]</div>
+<p>One way to compute the divergence is given by differentiating the equation of state, which leads to</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\mf 
+\begin{align} \nabla \cdot \textbf{u} &amp;\mf = \left(\frac{1}{\rho c_pT}-\frac{1}{\bar{p}}\right) \frac{D \bar{p}}{Dt}\\ 
+&amp;\mf + \frac{1}{\rho c_pT}[\dot{q}'''-\nabla \cdot \dot{\textbf{q}}'']\\ 
+&amp;\mf + \frac{1}{\rho}\sum_{\alpha}\left(\frac{\overline{W}}{W_{\alpha}} - \frac{h_{s,\alpha}}{c_pT}\right)[\dot{m}_{\alpha}'''-\nabla \cdot \textbf{J}_{\alpha}]\end{align}
+\end{split}\]</div>
 </div>
 <div class="section" id="numerical-scheme">
 <h2>Numerical scheme<a class="headerlink" href="#numerical-scheme" title="Permalink to this headline">¶</a></h2>
@@ -609,7 +662,7 @@
 <p>The FDS guides and documentation for version 6.7.5 can be found in <a class="reference external" href="https://github.com/firemodels/fds/releases/tag/FDS6.7.5">this release</a>.</p>
 <div class="section" id="user-s-guide">
 <h3>User’s Guide<a class="headerlink" href="#user-s-guide" title="Permalink to this headline">¶</a></h3>
-<p>An about 300 pages thick manual to introduce users to FDS <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id5"><span>MHF+20d</span></a>]</span>. It covers the user aspects of</p>
+<p>An about 400 pages thick manual to introduce users to FDS <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id5"><span>MHF+20d</span></a>]</span>. It covers the user aspects of</p>
 <ul class="simple">
 <li><p>basics of FDS, getting started</p></li>
 <li><p>structure of FDS input files</p></li>
@@ -639,7 +692,7 @@ scientific description of the FDS model <span id="id2">[<a class="reference inte
 </div>
 <div class="section" id="verification-and-validation">
 <h3>Verification and validation<a class="headerlink" href="#verification-and-validation" title="Permalink to this headline">¶</a></h3>
-<p>To demonstrate the applicability of the FDS model, there exist two documents (in total about 800 pages) about model verification <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id3"><span>MHF+20b</span></a>]</span> and validation <span id="id4">[<a class="reference internal" href="../../overview/03_references.html#id2"><span>MHF+20c</span></a>]</span>.
+<p>To demonstrate the applicability of the FDS model, there exist two documents (in total over 1000 pages) about model verification <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id3"><span>MHF+20b</span></a>]</span> and validation <span id="id4">[<a class="reference internal" href="../../overview/03_references.html#id2"><span>MHF+20c</span></a>]</span>.
 All test are run every night to check the impact of source code changes.</p>
 <div class="figure align-default" id="fig-fdstutorial-vv-example">
 <a class="reference internal image-reference" href="../../../_images/verification.png"><img alt="../../../_images/verification.png" src="../../../_images/verification.png" style="width: 60%;" /></a>
@@ -664,7 +717,7 @@ All test are run every night to check the impact of source code changes.</p>
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="source-code-and-binary-download">
 <h3>Source Code and Binary Download<a class="headerlink" href="#source-code-and-binary-download" title="Permalink to this headline">¶</a></h3>
-<p>The full source code (both FDS and Smokeview) is available at <a class="reference external" href="https://github.com/firemodels/fds-smv">GitHub</a>. This page also includes references to:</p>
+<p>The full source code (both FDS and Smokeview) is available at <a class="reference external" href="https://github.com/firemodels/fds">GitHub</a>. This page also includes references to:</p>
 <ul class="simple">
 <li><p>binaries for Linux / Windows / OSX</p></li>
 <li><p>all manuals</p></li>

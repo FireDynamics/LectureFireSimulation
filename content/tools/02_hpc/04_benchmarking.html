@@ -1,0 +1,666 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Benchmarking &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/tools/02_hpc/04_benchmarking.html" />
+    <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Data Analysis" href="../03_analysis/00_overview.html" />
+    <link rel="prev" title="Parallel Execution of FDS" href="03_parallel_fds.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      <img src="../../../_static/cce_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Fire Simulation <br> Lecture Notes</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../overview/01_overview.html">
+   Overview
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../overview/02_team.html">
+   Team Fire Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../overview/03_references.html">
+   References
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Modelling
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../modelling/01_general/00_overview.html">
+   1. Modelling Fires
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/01_general/01_processes.html">
+     1.1. Physical and Chemical Processes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/01_general/02_fse.html">
+     1.2. Fire Safety Engineering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/01_general/03_approaches.html">
+     1.3. Modelling Approaches
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../modelling/02_fluids/00_overview.html">
+   2. Fluid Dynamics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/02_fluids/01_fluids.html">
+     2.1. Fluids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/02_fluids/02_cfd.html">
+     2.2. Computational Fluid Dynamics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/02_fluids/03_turbulence.html">
+     2.3. Turbulence
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../modelling/03_compartments/00_overview.html">
+   3. Compartment Fires
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/03_compartments/01_fundamentals.html">
+     3.1. Fundamentals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/03_compartments/02_design_fire.html">
+     3.2. Design Fires
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tools
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01_fds_smv/00_overview.html">
+   FDS and SMV
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_fds_smv/01_fds_intro.html">
+     FDS Overview
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_fds_smv/02_fds_tutorial.html">
+     FDS Basic Example
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_overview.html">
+   HPC
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_linux.html">
+     Linux
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_hpc.html">
+     High Performace Computing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_parallel_fds.html">
+     Parallel Execution of FDS
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Benchmarking
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03_analysis/00_overview.html">
+   Data Analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_analysis/01_python.html">
+     Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_analysis/02_fdsreader.html">
+     fdsreader Module
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/tools/02_hpc/04_benchmarking.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/FireDynamics/LectureFireSimulation"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/tools/02_hpc/04_benchmarking.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/tools/02_hpc/04_benchmarking.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/FireDynamics/LectureFireSimulation/main?urlpath=tree/book/content/tools/02_hpc/04_benchmarking.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://io.cce.uni-wuppertal.de/firesim_ss21//hub/user-redirect/git-pull?repo=https://github.com/FireDynamics/LectureFireSimulation&urlpath=tree/LectureFireSimulation/book/content/tools/02_hpc/04_benchmarking.ipynb&branch=main"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#evaluation-using-python">
+   Evaluation using Python
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="benchmarking">
+<h1>Benchmarking<a class="headerlink" href="#benchmarking" title="Permalink to this headline">¶</a></h1>
+<p>We want to investigate the strong scaling of our simulation. This means that the <strong>total</strong> workload is fixed and the number of processes used to run the simulation varies. This means we must keep our FDS file fixed for all different test runs exept for the mesh lines.<br />
+Remember the line:</p>
+<p>generates a mesh from x = 0 to x = 4.2 m, y = 0 to y = 2.4 m and z = 0 to z = 12.24 m. Here we have 42 cells in x, 24 in y and 122 cells in z direction. We could split this mesh in several different meshes. <br>
+<strong>IMPORTANT:</strong> The number of meshes must fit to the number of tasks in the <a class="reference external" href="http://submit.sh">submit.sh</a> script, otherwise slurm will not understand how to select the correct number of processes. <br>
+For example we could have 2 meshes, a bottom mesh and a top mesh where we have only have the number of cells in z direction:</p>
+<p>To avoid writing all the mesh lines by hand you can use e.g. a python script to split the “&amp;MESH ID=’1’” line according to your disires.</p>
+<p>Finally, let’s get started with the benchmarking.
+We first need a directory for our simulation and submission files. We will call it “benchmark” and save the first FDS-Code here. <br>
+You can use this as default <span class="xref myst">staircase benchmark</span></p>
+<p>We want to change the number of processes and therefore we need to change the number of meshes for each simulation. <br>
+Lets split this example into 2, 4, 8, and 16 meshes.</p>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:center head"><p>Processes</p></th>
+<th class="text-align:center head"><p>No. of cells in x</p></th>
+<th class="text-align:center head"><p>No. of cells in y</p></th>
+<th class="text-align:center head"><p>No. of cells in z</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:center"><p>1</p></td>
+<td class="text-align:center"><p>42</p></td>
+<td class="text-align:center"><p>24</p></td>
+<td class="text-align:center"><p>120</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>2</p></td>
+<td class="text-align:center"><p>42</p></td>
+<td class="text-align:center"><p>24</p></td>
+<td class="text-align:center"><p>60</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>4</p></td>
+<td class="text-align:center"><p>42</p></td>
+<td class="text-align:center"><p>24</p></td>
+<td class="text-align:center"><p>30</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:center"><p>8</p></td>
+<td class="text-align:center"><p>21</p></td>
+<td class="text-align:center"><p>24</p></td>
+<td class="text-align:center"><p>30</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:center"><p>16</p></td>
+<td class="text-align:center"><p>21</p></td>
+<td class="text-align:center"><p>24</p></td>
+<td class="text-align:center"><p>15</p></td>
+</tr>
+</tbody>
+</table>
+<p>We also need 5 submit scripts where we specify the required resources and run the job. Once we have the 5 submit scripts and the 5 FDS codes we can start the simulation with:</p>
+<p>Each simulation will run as usual but we are more interested in the execution details than on the simulation results. We now take a closer look on the file <font color=blue> <em>CHID</em>_cpu.csv </font>. In here there are a lot of information. For each process there will be a row with details on <em>RANK</em>, <em>MAIN</em>, <em>DIVG</em>, <em>MASS</em>, <em>VELO</em>, <em>PRES</em> and much more. <br>
+These abbreviation represent the compontents which FDS executes during runtime. For example MASS is the routine which handles the computation of the masses, VELO computes the velocities, DUMP is the output routine where data is written to files (and so on…). For more details check the FDS User manual. <br>
+Important to note is that the <em>MAIN</em> routine is basically a idle routine where processes which are already done with their part of the computation wait for processes which are not yet ready. Therefore this should be a very small fraction of the <em>total T_USED</em> otherwise you can see that the work is not well balanced among the processes.</p>
+<p>Once a simulation is done you can rename the CHID_cpu.csv file to a name you can use in a python evaluation code later (e.g. 1.cpu, 2.cpu, 4.cpu, 8.cpu and 16.cpu). Having the 5 cpu files collected we can start the evaluation.### Benchmarking
+We want to investigate the strong scaling of our simulation. This means that the <strong>total</strong> workload is fixed and the number of processes used to run the simulation varies. This means we must keep our FDS file fixed for all different test runs exept for the mesh lines.<br />
+Remember the line:</p>
+<div class="section" id="evaluation-using-python">
+<h2>Evaluation using Python<a class="headerlink" href="#evaluation-using-python" title="Permalink to this headline">¶</a></h2>
+<p>For the evaluation we will use matplotlib in python. We choose <font color=green><strong>plt</strong></font> as the Keyword to refer to <font color=green><strong>pyplot</strong></font>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib._color_data</span> <span class="k">as</span> <span class="nn">mcd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><font color=green> <strong>_color_data</strong> </font> will be used to have access to more different colors when plotting the data. <br>
+<font color=green> <strong>numpy</strong> </font> is used for mathematical operations such as finding the max/min, calculating the average, and so on.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">RANK</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">MAIN</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">DIVG</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">MASS</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">VELO</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">PRES</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">WALL</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">DUMP</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">PART</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">RADI</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">FIRE</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">COMM</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">EVAC</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">HVAC</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">GEOM</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">VEGE</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">T_USED</span> <span class="o">=</span> <span class="p">[]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Here we initialize the lists where we store the data for each simulation run.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#generate a list with the numbers of processes from our simulation </span>
+<span class="c1">#from those we will read in the cpu-files</span>
+<span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span> 
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+    
+    <span class="c1">#initialize empty 17 list-dummies (temporal storage)</span>
+    <span class="n">my_values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="mi">17</span> 
+    
+    <span class="c1">#open the file with names &quot;1.cpu&quot;, ..., &quot;16.cpu&quot;</span>
+    <span class="n">fileHandle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;../../../../data/fds_tutorial/benchmark_tutorial/cpu_files/&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span><span class="s1">&#39;.cpu&#39;</span><span class="p">,</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
+    
+    <span class="c1">#read the file and store the lines in a list called lineList</span>
+    <span class="n">lineList</span> <span class="o">=</span> <span class="n">fileHandle</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+    
+    <span class="c1">#you need to close the files once you don&#39;t need them anymore</span>
+    <span class="n">fileHandle</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    
+    <span class="c1">#our first line in the file contained the names for the channels.</span>
+    <span class="c1">#we dont need this line in our linelist for evaluation</span>
+    <span class="n">lineList</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    
+    <span class="c1">#iterate over the lines</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">lineList</span><span class="p">:</span>
+        <span class="c1">#iterate over the elements in each line</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">my_values</span><span class="p">)):</span>
+            <span class="c1">#add the channel - values for each process</span>
+            <span class="c1">#e.g. Numbers in MAIN channel will be summed up for process 1 (up) to 16</span>
+            <span class="n">my_values</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="nb">float</span><span class="p">(</span><span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;,&quot;</span><span class="p">)[</span><span class="n">j</span><span class="p">])</span>
+
+            
+            
+    <span class="c1">#divide each sum by the number of processes</span>
+    <span class="c1">#now we calculated an average value  [sum(x)*1/n]</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">my_values</span><span class="p">)):</span>
+        <span class="n">my_values</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">my_values</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">lineList</span><span class="p">)</span>
+
+        
+    <span class="c1">#store the calculated averages in the lists for each channel</span>
+    <span class="n">RANK</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">my_values</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="c1">#contains the number of processes</span>
+        
+    <span class="n">MAIN</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">my_values</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">DIVG</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">my_values</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> 
+    <span class="n">MASS</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">my_values</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+    <span class="n">VELO</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">my_values</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+    <span class="n">PRES</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">my_values</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+    <span class="n">WALL</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">my_values</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
+    <span class="n">DUMP</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">my_values</span><span class="p">[</span><span class="mi">7</span><span class="p">])</span>
+    <span class="n">PART</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">my_values</span><span class="p">[</span><span class="mi">8</span><span class="p">])</span>
+    <span class="n">RADI</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">my_values</span><span class="p">[</span><span class="mi">9</span><span class="p">])</span>
+    <span class="n">FIRE</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">my_values</span><span class="p">[</span><span class="mi">10</span><span class="p">])</span>
+    <span class="n">COMM</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">my_values</span><span class="p">[</span><span class="mi">11</span><span class="p">])</span>
+    <span class="n">EVAC</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">my_values</span><span class="p">[</span><span class="mi">12</span><span class="p">])</span>
+    <span class="n">HVAC</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">my_values</span><span class="p">[</span><span class="mi">13</span><span class="p">])</span>
+    <span class="n">GEOM</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">my_values</span><span class="p">[</span><span class="mi">14</span><span class="p">])</span>
+    <span class="n">VEGE</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">my_values</span><span class="p">[</span><span class="mi">15</span><span class="p">])</span>
+    <span class="n">T_USED</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">my_values</span><span class="p">[</span><span class="mi">16</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we have for each simulation an average value for each channel in the corresponding list. We can proceed with plotting now. <br>
+First we initialize the figue window:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<p>Next, we plot our data on a doubled logarithmic scale. We use the additional colors to distinguish the channels and we also set the labels. Doing so, the legend will be display the colors and names correctly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">MAIN</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;fuchsia&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;MAIN&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">DIVG</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;firebrick&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;DIVG&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">MASS</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;sienna&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;MASS&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">VELO</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;gold&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;VELO&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">PRES</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;olivedrab&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;PRESS&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">WALL</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;chartreuse&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;WALL&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">DUMP</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkcyan&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;DUMP&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">PART</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;deepskyblue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;PART&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">RADI</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;navy&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;RADI&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">FIRE</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;plum&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;FIRE&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">COMM</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;darkviolet&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;COMM&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">EVAC</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;springgreen&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;EVAC&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">HVAC</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;pink&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;HVAC&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">GEOM</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;salmon&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;GEOM&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">VEGE</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;khaki&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;VEGE&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">T_USED</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span> <span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;total Time&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="s1">&#39;small&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;time used in [s]&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;number of processes&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;time distribution of major routines&#39;</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;scaling_log.pdf&quot;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/04_benchmarking_22_0.png" src="../../../_images/04_benchmarking_22_0.png" />
+</div>
+</div>
+<p>We add a legend right next to the plot and set the x- and y-labels as well as the title. The last step is to save the plot as a pdf vector graphic so that the plot does not get blurry once we use it in a paper or presentation.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/tools/02_hpc"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="03_parallel_fds.html" title="previous page">Parallel Execution of FDS</a>
+    <a class='right-next' id="next-link" href="../03_analysis/00_overview.html" title="next page">Data Analysis</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          <div class="extra_footer">
+            <p>
+<img src='https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg' height='31'/>
+| By Team Fire | Contacts and Infos: <a href='https://cce.uni-wuppertal.de/en.html'>CCE@BUW</a> and <a href='https://www.fz-juelich.de/ias/ias-7/EN/Research/Fire_Dynamics/_node.html'>IAS-7@FZJ</a>
+</br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
