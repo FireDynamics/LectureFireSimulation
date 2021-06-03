@@ -8,13 +8,13 @@ You should have received an invitation email, which asks you to register in the 
 
 ### SSH
 
-To reach the computercluster JURECA you need to log in via the [secure shell protocol (SSH)](https://en.wikipedia.org/wiki/Secure_Shell_Protocol). It is recommened to read the user documention which can be found here: [access JURECA using SSH](https://apps.fz-juelich.de/jsc/hps/jureca/access.html).
+To reach the computercluster JURECA you need to log in via the [secure shell protocol (SSH)](https://en.wikipedia.org/wiki/Secure_Shell_Protocol). It is recommended to read the user documentation, which can be found here: [access JURECA using SSH](https://apps.fz-juelich.de/jsc/hps/jureca/access.html).
 
 Most Linux and MacOS systems have a SSH client installed. On Windows, you can use tools like [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
 
-Depending on your SSH client, there are various ways to genearte a SSH key pair (public and private). In any case, it should be protected with a passphrase.
+Depending on your SSH client, there are various ways to generate a SSH key pair (public and private). It should always be protected with a passphrase.
 
-One of the safety measure on JURECA is, that you need to specify the IP range from which you access the system, see [kee restrictions](https://apps.fz-juelich.de/jsc/hps/jureca/access.html#key-upload-key-restriction). If you use VPN, e.g. provided by the University of Wuppertal, your `from` statement could include `*.uni-wuppertal.de`. 
+One of the safety measure on JURECA is, that you need to specify the IP range from which you access the system, see [key restrictions](https://apps.fz-juelich.de/jsc/hps/jureca/access.html#key-upload-key-restriction). If you use VPN, e.g. provided by the University of Wuppertal, your `from` statement could include `*.uni-wuppertal.de`. 
 
 ### Login
 
@@ -56,7 +56,7 @@ jrlogin06.jureca
 
 Modules offer a flexible environment to manage multiple versions of software. This system is also used on JURECA: [Module usage on JURECA](https://apps.fz-juelich.de/jsc/hps/jureca/software-modules.html).
 
-As the FDS (and some other) module are not globaly installed, they need to be added to the user's environment. This can be done with
+As the FDS (and some other) modules are not globaly installed, they need to be added to the user's environment. This can be done with
 
 ```
 > module use -a ~arnold1/modules_fire/
@@ -67,7 +67,7 @@ Thus, adding this line to your batch scripts and startup script (`~/.bashrc`) wi
 ````{admonition} Task
 
 * Use the `module avail` command to list all available modules. Make sure, you see also the FDS modules. 
-* Load a FSD module and invoke FDS with `fds`. Does the loaded version of FDS correspond to the one you have expected?
+* Load a FSD module and invoke FDS with `fds`. Does the loaded version of FDS correspond to the one you expected?
 
 ````
 
@@ -80,7 +80,7 @@ Instead of running our simulation on the cluster we either submit our simulation
 
 ### Single Job
 
-The structure of a Slurm job script is basically a shell script. This shell script will be executed by the batch system on the requested ressource. The definition of the ressource is done as comments (`#`) with the `SLURM` keywords. These are instructions for Slurm.
+The structure of a Slurm job script is basically a shell script. This shell script will be executed by the batch system on the requested resource. The definition of the resource is done as comments (`#`) with the `SLURM` keywords. These are instructions for Slurm.
 
 A simple example for a Slurm job scipt ({download}`fds-slurm-job-single.sh`) is given below. It executes FDS for a single FDS input file.
 
@@ -168,7 +168,7 @@ The current status of a user's queue can be listed with
 
 As there is a limit of 24 hours on JURECA, each job has to restart after this time. The following scripts automate the process for FDS on JURECA. It is important that the FDS input file has the `RESTART` parameter defined, typically initailly set to `.FALSE.`. 
 
-The main idea is to invoke multiple jobs ({download}`fds-slurm-chain-starter.sh`) with a dependency, i.e. a chain is created, so that the jobs are consequatively executed.
+The main idea is to invoke multiple jobs ({download}`fds-slurm-chain-starter.sh`) with a dependency, i.e. a chain is created, so that the jobs are consecutively executed.
 
 ```{literalinclude} ./fds-slurm-chain-starter.sh
 ```
