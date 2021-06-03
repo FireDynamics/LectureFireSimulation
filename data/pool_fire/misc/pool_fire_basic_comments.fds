@@ -19,7 +19,7 @@ CHID = 'pool_fire', TITLE = 'Example of a pool fire'  /
 &REAC FUEL = 'METHANE' /
 
 "--------------------------------------------------------------------------------------------"
-"Name 'BURNER' at a heat release rate of 1000 kW/m^2"
+"Surface 'BURNER' with a heat release rate of 1000 kW/m^2"
 "--------------------------------------------------------------------------------------------"
 &SURF ID = 'BURNER', HRRPUA = 1000., COLOR = 'RASPBERRY' / Surface with ID /
 
