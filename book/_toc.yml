@@ -37,6 +37,7 @@
         - file: content/modelling/03_compartments/01_fundamentals
         - file: content/modelling/03_compartments/02_design_fire
         - file: content/modelling/03_compartments/03_example
+        - file: content/modelling/03_compartments/04_steckler
 
     - file: content/modelling/07_particles/00_overview
       sections:
