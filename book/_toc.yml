@@ -36,7 +36,8 @@
       sections:
         - file: content/modelling/03_compartments/01_fundamentals
         - file: content/modelling/03_compartments/02_design_fire
-#       - file: content/modelling/03_compartments/03_example
+        - file: content/modelling/03_compartments/03_example
+        - file: content/modelling/03_compartments/04_steckler
 
 ####################
 # TOOLS 
@@ -48,7 +49,7 @@
       sections:
         - file: content/tools/01_fds_smv/01_fds_intro
         - file: content/tools/01_fds_smv/02_fds_tutorial
-#         - file: content/tools/01_fds_smv/02_smv
+        - file: content/tools/01_fds_smv/02_smv
         
     - file: content/tools/02_hpc/00_overview
       sections:
