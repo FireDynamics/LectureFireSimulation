@@ -1,0 +1,45 @@
+&HEAD CHID = 'pool_fire', TITLE = 'Example of a pool fire'  / 
+
+&TIME T_END = 280.0 / 
+
+&MESH IJK = 25,25,50, XB = -2.5,2.5, -2.5,2.5, 0.0,10 /
+
+&VENT MB = 'XMIN' SURF_ID = 'OPEN' /
+&VENT MB = 'XMAX' SURF_ID = 'OPEN' /
+&VENT MB = 'YMIN' SURF_ID = 'OPEN' /
+&VENT MB = 'YMAX' SURF_ID = 'OPEN' /
+&VENT MB = 'ZMAX' SURF_ID = 'OPEN' /
+
+
+&REAC FUEL = 'N-HEPTANE' /
+
+&SURF ID = 'BURNER', HRRPUA = 1212.85, RAMP_Q = 'fireramp', COLOR = 'RASPBERRY' /
+&VENT XB = -0.5,0.5, -0.5,0.5, 0.0, 0.0, SURF_ID='BURNER' /
+&RAMP ID='fireramp', T=0, F=0.00 /
+&RAMP ID='fireramp', T=25, F=0.15 /
+&RAMP ID='fireramp', T=50, F=0.59 /
+&RAMP ID='fireramp', T=75, F=0.68 /
+&RAMP ID='fireramp', T=100, F=0.35 /
+&RAMP ID='fireramp', T=125, F=0.59 /
+&RAMP ID='fireramp', T=150, F=0.88 /
+&RAMP ID='fireramp', T=175, F=1.00 /
+&RAMP ID='fireramp', T=200, F=0.76 /
+&RAMP ID='fireramp', T=225, F=0.65 /
+&RAMP ID='fireramp', T=250, F=0.24 /
+&RAMP ID='fireramp', T=275, F=0.00 /
+
+&SLCF PBX = 0, QUANTITY = 'TEMPERATURE', CELL_CENTERED = .TRUE. /
+&SLCF PBZ = 2, QUANTITY = 'TEMPERATURE', CELL_CENTERED = .TRUE. /
+
+&SLCF PBX = 0, QUANTITY = 'U-VELOCITY', CELL_CENTERED = .TRUE. /
+&SLCF PBX = 0, QUANTITY = 'V-VELOCITY', CELL_CENTERED = .TRUE. /
+&SLCF PBX = 0, QUANTITY = 'W-VELOCITY', CELL_CENTERED = .TRUE. /
+
+
+&DEVC ID='T_1.0', XYZ=0.0, 0.0, 1.0, QUANTITY='TEMPERATURE' /
+&DEVC ID='T_1.5', XYZ=0.0, 0.0, 1.5, QUANTITY='TEMPERATURE' /
+&DEVC ID='T_2.0', XYZ=0.0, 0.0, 2.0, QUANTITY='TEMPERATURE' /
+&DEVC ID='T_2.5', XYZ=0.0, 0.0, 2.5, QUANTITY='TEMPERATURE' /
+&DEVC ID='T_4.0', XYZ=0.0, 0.0, 4.0, QUANTITY='TEMPERATURE' /
+
+&TAIL /

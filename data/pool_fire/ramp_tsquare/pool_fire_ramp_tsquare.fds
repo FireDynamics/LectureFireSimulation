@@ -1,0 +1,109 @@
+&HEAD CHID = 'pool_fire', TITLE = 'Example of a pool fire'  / 
+
+&TIME T_END = 80.0 / 
+
+&MESH IJK = 25,25,50, XB = -2.5,2.5, -2.5,2.5, 0.0,10 /
+
+&VENT MB = 'XMIN' SURF_ID = 'OPEN' /
+&VENT MB = 'XMAX' SURF_ID = 'OPEN' /
+&VENT MB = 'YMIN' SURF_ID = 'OPEN' /
+&VENT MB = 'YMAX' SURF_ID = 'OPEN' /
+&VENT MB = 'ZMAX' SURF_ID = 'OPEN' /
+
+
+&REAC FUEL = 'N-HEPTANE' /
+
+&SURF ID = 'BURNER', HRRPUA = 250, RAMP_Q = 'fireramp', COLOR = 'RASPBERRY' /
+&VENT XB = -0.5,0.5, -0.5,0.5, 0.0, 0.0, SURF_ID='BURNER' /
+&RAMP ID='fireramp', T=0, F=0.00
+&RAMP ID='fireramp', T=1, F=0.00
+&RAMP ID='fireramp', T=2, F=0.00
+&RAMP ID='fireramp', T=3, F=0.00
+&RAMP ID='fireramp', T=4, F=0.00
+&RAMP ID='fireramp', T=5, F=0.00
+&RAMP ID='fireramp', T=6, F=0.01
+&RAMP ID='fireramp', T=7, F=0.01
+&RAMP ID='fireramp', T=8, F=0.01
+&RAMP ID='fireramp', T=9, F=0.02
+&RAMP ID='fireramp', T=10, F=0.02
+&RAMP ID='fireramp', T=11, F=0.02
+&RAMP ID='fireramp', T=12, F=0.03
+&RAMP ID='fireramp', T=13, F=0.03
+&RAMP ID='fireramp', T=14, F=0.04
+&RAMP ID='fireramp', T=15, F=0.04
+&RAMP ID='fireramp', T=16, F=0.05
+&RAMP ID='fireramp', T=17, F=0.05
+&RAMP ID='fireramp', T=18, F=0.06
+&RAMP ID='fireramp', T=19, F=0.07
+&RAMP ID='fireramp', T=20, F=0.08
+&RAMP ID='fireramp', T=21, F=0.08
+&RAMP ID='fireramp', T=22, F=0.09
+&RAMP ID='fireramp', T=23, F=0.10
+&RAMP ID='fireramp', T=24, F=0.11
+&RAMP ID='fireramp', T=25, F=0.12
+&RAMP ID='fireramp', T=26, F=0.13
+&RAMP ID='fireramp', T=27, F=0.14
+&RAMP ID='fireramp', T=28, F=0.15
+&RAMP ID='fireramp', T=29, F=0.16
+&RAMP ID='fireramp', T=30, F=0.17
+&RAMP ID='fireramp', T=31, F=0.18
+&RAMP ID='fireramp', T=32, F=0.19
+&RAMP ID='fireramp', T=33, F=0.20
+&RAMP ID='fireramp', T=34, F=0.22
+&RAMP ID='fireramp', T=35, F=0.23
+&RAMP ID='fireramp', T=36, F=0.24
+&RAMP ID='fireramp', T=37, F=0.26
+&RAMP ID='fireramp', T=38, F=0.27
+&RAMP ID='fireramp', T=39, F=0.29
+&RAMP ID='fireramp', T=40, F=0.30
+&RAMP ID='fireramp', T=41, F=0.32
+&RAMP ID='fireramp', T=42, F=0.33
+&RAMP ID='fireramp', T=43, F=0.35
+&RAMP ID='fireramp', T=44, F=0.36
+&RAMP ID='fireramp', T=45, F=0.38
+&RAMP ID='fireramp', T=46, F=0.40
+&RAMP ID='fireramp', T=47, F=0.41
+&RAMP ID='fireramp', T=48, F=0.43
+&RAMP ID='fireramp', T=49, F=0.45
+&RAMP ID='fireramp', T=50, F=0.47
+&RAMP ID='fireramp', T=51, F=0.49
+&RAMP ID='fireramp', T=52, F=0.51
+&RAMP ID='fireramp', T=53, F=0.53
+&RAMP ID='fireramp', T=54, F=0.55
+&RAMP ID='fireramp', T=55, F=0.57
+&RAMP ID='fireramp', T=56, F=0.59
+&RAMP ID='fireramp', T=57, F=0.61
+&RAMP ID='fireramp', T=58, F=0.63
+&RAMP ID='fireramp', T=59, F=0.65
+&RAMP ID='fireramp', T=60, F=0.68
+&RAMP ID='fireramp', T=61, F=0.70
+&RAMP ID='fireramp', T=62, F=0.72
+&RAMP ID='fireramp', T=63, F=0.74
+&RAMP ID='fireramp', T=64, F=0.77
+&RAMP ID='fireramp', T=65, F=0.79
+&RAMP ID='fireramp', T=66, F=0.82
+&RAMP ID='fireramp', T=67, F=0.84
+&RAMP ID='fireramp', T=68, F=0.87
+&RAMP ID='fireramp', T=69, F=0.89
+&RAMP ID='fireramp', T=70, F=0.92
+&RAMP ID='fireramp', T=71, F=0.95
+&RAMP ID='fireramp', T=72, F=0.97
+&RAMP ID='fireramp', T=73, F=1.00
+
+
+
+&SLCF PBX = 0, QUANTITY = 'TEMPERATURE', CELL_CENTERED = .TRUE. /
+&SLCF PBZ = 2, QUANTITY = 'TEMPERATURE', CELL_CENTERED = .TRUE. /
+
+&SLCF PBX = 0, QUANTITY = 'U-VELOCITY', CELL_CENTERED = .TRUE. /
+&SLCF PBX = 0, QUANTITY = 'V-VELOCITY', CELL_CENTERED = .TRUE. /
+&SLCF PBX = 0, QUANTITY = 'W-VELOCITY', CELL_CENTERED = .TRUE. /
+
+
+&DEVC ID='T_1.0', XYZ=0.0, 0.0, 1.0, QUANTITY='TEMPERATURE' /
+&DEVC ID='T_1.5', XYZ=0.0, 0.0, 1.5, QUANTITY='TEMPERATURE' /
+&DEVC ID='T_2.0', XYZ=0.0, 0.0, 2.0, QUANTITY='TEMPERATURE' /
+&DEVC ID='T_2.5', XYZ=0.0, 0.0, 2.5, QUANTITY='TEMPERATURE' /
+&DEVC ID='T_4.0', XYZ=0.0, 0.0, 4.0, QUANTITY='TEMPERATURE' /
+
+&TAIL /
