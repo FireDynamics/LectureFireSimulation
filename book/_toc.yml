@@ -34,7 +34,7 @@ parts:
   - file: content/modelling/04_thermodynamics/00_overview
     sections:
     - file: content/modelling/04_thermodynamics/01_fundamentals
-    - file: content/modelling/04_thermodynamics/02_example_compartment
+    - file: content/modelling/04_thermodynamics/02_example_energy_mass_transfer
 
 ####################
 # TOOLS 
