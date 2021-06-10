@@ -56,7 +56,7 @@
     <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="FDS and SMV" href="../../tools/01_fds_smv/00_overview.html" />
+    <link rel="next" title="4.2. Energy and Mass Transfer" href="02_example_energy_mass_transfer.html" />
     <link rel="prev" title="4. Thermodynamics" href="00_overview.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -216,6 +216,11 @@
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      4.1. Fundamentals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_example_energy_mass_transfer.html">
+     4.2. Energy and Mass Transfer
     </a>
    </li>
   </ul>
@@ -504,7 +509,7 @@
 <p>At finite temperatre, the particles in a gas have not a single velocity, but a distributed over a broad range. This is an important aspect, as many chemical reactions require the involved particles to overcome the activation energy. Thus, there is always a probability that a particle has the needed kinetic energy. This velocitiy distribution, the Maxwell distribution, depends only on the temperature and the gas properties:</p>
 <div class="math notranslate nohighlight">
 \[
-\mf f(v) = 4\pi v^2 \left(\frac{m_M}{2\pi k_B T}\right)^{\frac{3}{2}} \cdot e^{\left(\frac{m_M v^2}{2 k_B T}\right)}\quad ,
+\mf f(v) = 4\pi v^2 \left(\frac{m_M}{2\pi k_B T}\right)^{\frac{3}{2}} \cdot e^{\left(-\frac{m_M v^2}{2 k_B T}\right)}\quad ,
 \]</div>
 <p>with <span class="math notranslate nohighlight">\(\mf m_M\)</span> the mass of a single particle and the Boltzmann constant <span class="math notranslate nohighlight">\(\mf k_B \approx 1.38\cdot 10^{-23}~ J/K\)</span>.</p>
 <p>The most probable velocity <span class="math notranslate nohighlight">\(\mf v_p\)</span> is given by</p>
@@ -536,7 +541,7 @@
 \[
 \mf pV = n R T
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(\mf n\)</span> respresents the number of moles in the system and <span class="math notranslate nohighlight">\(\mf R \approx 8.314~J/(mol~K)\)</span> is the universal gas constant. A mole is defined by the <a class="reference external" href="https://en.wikipedia.org/wiki/Avogadro_constant">Agogado constant</a>, as <span class="math notranslate nohighlight">\(\sf N_A \approx 6.02\cdot 10^{23}\)</span> being the number of particles in a mole.</p>
+<p>where <span class="math notranslate nohighlight">\(\mf n\)</span> respresents the number of moles in the system and <span class="math notranslate nohighlight">\(\mf R \approx 8.314~J/(mol~K)\)</span> is the universal gas constant. A mole is defined by the <a class="reference external" href="https://en.wikipedia.org/wiki/Avogadro_constant">Agogadro constant</a>, as <span class="math notranslate nohighlight">\(\sf N_A \approx 6.02\cdot 10^{23}~1/mol\)</span> being the number of particles in a mole.</p>
 </div>
 <div class="section" id="heat-capacity">
 <h2>Heat Capacity<a class="headerlink" href="#heat-capacity" title="Permalink to this headline">¶</a></h2>
@@ -609,7 +614,7 @@
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="00_overview.html" title="previous page"><span class="section-number">4. </span>Thermodynamics</a>
-    <a class='right-next' id="next-link" href="../../tools/01_fds_smv/00_overview.html" title="next page">FDS and SMV</a>
+    <a class='right-next' id="next-link" href="02_example_energy_mass_transfer.html" title="next page"><span class="section-number">4.2. </span>Energy and Mass Transfer</a>
 
         </div>
         

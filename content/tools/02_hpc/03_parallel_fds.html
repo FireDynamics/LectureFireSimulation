@@ -216,6 +216,11 @@
      4.1. Fundamentals
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/04_thermodynamics/02_example_energy_mass_transfer.html">
+     4.2. Energy and Mass Transfer
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -456,10 +461,10 @@
 </div>
 <div class="section" id="ssh">
 <h3>SSH<a class="headerlink" href="#ssh" title="Permalink to this headline">¶</a></h3>
-<p>To reach the computercluster JURECA you need to log in via the <a class="reference external" href="https://en.wikipedia.org/wiki/Secure_Shell_Protocol">secure shell protocol (SSH)</a>. It is recommened to read the user documention which can be found here: <a class="reference external" href="https://apps.fz-juelich.de/jsc/hps/jureca/access.html">access JURECA using SSH</a>.</p>
+<p>To reach the computercluster JURECA you need to log in via the <a class="reference external" href="https://en.wikipedia.org/wiki/Secure_Shell_Protocol">secure shell protocol (SSH)</a>. It is recommended to read the user documentation, which can be found here: <a class="reference external" href="https://apps.fz-juelich.de/jsc/hps/jureca/access.html">access JURECA using SSH</a>.</p>
 <p>Most Linux and MacOS systems have a SSH client installed. On Windows, you can use tools like <a class="reference external" href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">PuTTY</a>.</p>
-<p>Depending on your SSH client, there are various ways to genearte a SSH key pair (public and private). In any case, it should be protected with a passphrase.</p>
-<p>One of the safety measure on JURECA is, that you need to specify the IP range from which you access the system, see <a class="reference external" href="https://apps.fz-juelich.de/jsc/hps/jureca/access.html#key-upload-key-restriction">kee restrictions</a>. If you use VPN, e.g. provided by the University of Wuppertal, your <code class="docutils literal notranslate"><span class="pre">from</span></code> statement could include <code class="docutils literal notranslate"><span class="pre">*.uni-wuppertal.de</span></code>.</p>
+<p>Depending on your SSH client, there are various ways to generate a SSH key pair (public and private). It should always be protected with a passphrase.</p>
+<p>One of the safety measure on JURECA is, that you need to specify the IP range from which you access the system, see <a class="reference external" href="https://apps.fz-juelich.de/jsc/hps/jureca/access.html#key-upload-key-restriction">key restrictions</a>. If you use VPN, e.g. provided by the University of Wuppertal, your <code class="docutils literal notranslate"><span class="pre">from</span></code> statement could include <code class="docutils literal notranslate"><span class="pre">*.uni-wuppertal.de</span></code>.</p>
 </div>
 <div class="section" id="login">
 <h3>Login<a class="headerlink" href="#login" title="Permalink to this headline">¶</a></h3>
@@ -494,7 +499,7 @@ jrlogin06.jureca
 <div class="section" id="fds-module-on-jureca">
 <h2>FDS Module on JURECA<a class="headerlink" href="#fds-module-on-jureca" title="Permalink to this headline">¶</a></h2>
 <p>Modules offer a flexible environment to manage multiple versions of software. This system is also used on JURECA: <a class="reference external" href="https://apps.fz-juelich.de/jsc/hps/jureca/software-modules.html">Module usage on JURECA</a>.</p>
-<p>As the FDS (and some other) module are not globaly installed, they need to be added to the user’s environment. This can be done with</p>
+<p>As the FDS (and some other) modules are not globaly installed, they need to be added to the user’s environment. This can be done with</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">module</span> <span class="n">use</span> <span class="o">-</span><span class="n">a</span> <span class="o">~</span><span class="n">arnold1</span><span class="o">/</span><span class="n">modules_fire</span><span class="o">/</span>
 </pre></div>
 </div>
@@ -503,7 +508,7 @@ jrlogin06.jureca
 <p class="admonition-title">Task</p>
 <ul class="simple">
 <li><p>Use the <code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">avail</span></code> command to list all available modules. Make sure, you see also the FDS modules.</p></li>
-<li><p>Load a FSD module and invoke FDS with <code class="docutils literal notranslate"><span class="pre">fds</span></code>. Does the loaded version of FDS correspond to the one you have expected?</p></li>
+<li><p>Load a FSD module and invoke FDS with <code class="docutils literal notranslate"><span class="pre">fds</span></code>. Does the loaded version of FDS correspond to the one you expected?</p></li>
 </ul>
 </div>
 </div>
@@ -513,7 +518,7 @@ jrlogin06.jureca
 <p>Instead of running our simulation on the cluster we either submit our simulation file to the queueing system or execute a submit code which includes the modules we need for FDS, sets the number of processes, theads and other important quantities.</p>
 <div class="section" id="single-job">
 <h3>Single Job<a class="headerlink" href="#single-job" title="Permalink to this headline">¶</a></h3>
-<p>The structure of a Slurm job script is basically a shell script. This shell script will be executed by the batch system on the requested ressource. The definition of the ressource is done as comments (<code class="docutils literal notranslate"><span class="pre">#</span></code>) with the <code class="docutils literal notranslate"><span class="pre">SLURM</span></code> keywords. These are instructions for Slurm.</p>
+<p>The structure of a Slurm job script is basically a shell script. This shell script will be executed by the batch system on the requested resource. The definition of the resource is done as comments (<code class="docutils literal notranslate"><span class="pre">#</span></code>) with the <code class="docutils literal notranslate"><span class="pre">SLURM</span></code> keywords. These are instructions for Slurm.</p>
 <p>A simple example for a Slurm job scipt (<a class="reference download internal" download="" href="../../../_downloads/c61518e40ff31654179d1fe90690a792/fds-slurm-job-single.sh"><code class="xref download docutils literal notranslate"><span class="pre">fds-slurm-job-single.sh</span></code></a>) is given below. It executes FDS for a single FDS input file.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/bash -x
 
@@ -599,7 +604,7 @@ srun fds ./*.fds
 <div class="section" id="chain-jobs">
 <h3>Chain Jobs<a class="headerlink" href="#chain-jobs" title="Permalink to this headline">¶</a></h3>
 <p>As there is a limit of 24 hours on JURECA, each job has to restart after this time. The following scripts automate the process for FDS on JURECA. It is important that the FDS input file has the <code class="docutils literal notranslate"><span class="pre">RESTART</span></code> parameter defined, typically initailly set to <code class="docutils literal notranslate"><span class="pre">.FALSE.</span></code>.</p>
-<p>The main idea is to invoke multiple jobs (<a class="reference download internal" download="" href="../../../_downloads/0d1c3cadb0cd08b5a4c8d8cdc927d199/fds-slurm-chain-starter.sh"><code class="xref download docutils literal notranslate"><span class="pre">fds-slurm-chain-starter.sh</span></code></a>) with a dependency, i.e. a chain is created, so that the jobs are consequatively executed.</p>
+<p>The main idea is to invoke multiple jobs (<a class="reference download internal" download="" href="../../../_downloads/0d1c3cadb0cd08b5a4c8d8cdc927d199/fds-slurm-chain-starter.sh"><code class="xref download docutils literal notranslate"><span class="pre">fds-slurm-chain-starter.sh</span></code></a>) with a dependency, i.e. a chain is created, so that the jobs are consecutively executed.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/bash -x
 # submit a chain of jobs with dependency
 
