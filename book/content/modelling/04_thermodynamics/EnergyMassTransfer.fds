@@ -1,0 +1,95 @@
+&HEAD CHID='EnergyMassTransfer',
+      TITLE='Example for energy and mass transfer.'  /
+
+
+&TIME T_END=600. /
+&DUMP NFRAMES=600 /
+
+
+
+***** Domain ********************
+
+&VENT MB='XMIN', SURF_ID='OPEN' /
+&VENT MB='XMAX', SURF_ID='OPEN' /
+&VENT MB='YMIN', SURF_ID='OPEN' /
+&VENT MB='YMAX', SURF_ID='OPEN' /
+&VENT MB='ZMAX', SURF_ID='OPEN' /
+
+&VENT MB='ZMIN', SURF_ID='INERT' /
+
+! --- Geometric namelists from Blender Collection <Domain>
+! MESH Cell Size: 0.10 m, 0.10 m, 0.10 m
+&MESH ID='Domain' IJK=28,38,22
+      XB=-1.400,1.400,-2.400,1.400,0.000,2.200 /
+
+
+
+***** REAC Parameter and Burner ******************
+
+&REAC ID='CombustionReaction',
+
+
+&SURF ID='FireSURF',
+
+      COLOR='RASPBERRY',
+
+
+! --- Geometric namelists from Blender Collection <Burner>
+&OBST ID='Burner'
+      XB=-0.200010,0.200010,-0.200010,0.200010,-0.000010,0.300010 /
+&VENT ID='BurnerVENT' SURF_ID='FireSURF'
+      XB=-0.200000,0.200000,-0.200000,0.200000,0.300000,0.300000 /
+
+
+
+***** Materials and Surfaces ********************
+
+&SURF ID        = 'Adiabatic Wall',
+      ADIABATIC = .TRUE.,
+      DEFAULT   = .TRUE./
+
+
+&SURF ID        = 'FIBER BOARD',
+      MATL_ID   = 'INSULATION',
+      COLOR='ANTIQUE WHITE',
+      THICKNESS = 0.013 /
+
+&MATL ID            = 'INSULATION'
+      DENSITY       = 200.
+      CONDUCTIVITY  = 0.1
+      SPECIFIC_HEAT = 1. /
+
+
+
+***** Geometry ********************
+
+! --- Geometric namelists from Blender Collection <Walls>
+&OBST ID='Ceiling',
+      SURF_ID='FIBER BOARD'
+      XB=-1.500010,1.500010,-1.500010,1.500010,2.199990,2.300010 /
+&OBST ID='WallBack',
+      SURF_ID='FIBER BOARD'
+      XB=-1.400010,1.400010,1.399990,1.500010,-0.000010,2.200010 /
+&OBST ID='WallDoorLeft',
+      SURF_ID='FIBER BOARD'
+      XB=-1.400010,-0.299990,-1.500010,-1.399990,-0.000010,1.800010 /
+&OBST ID='WallDoorRight',
+      SURF_ID='FIBER BOARD'
+      XB=0.299990,1.400010,-1.500010,-1.399990,-0.000010,1.800010 /
+&OBST ID='WallDoorTop',
+      SURF_ID='FIBER BOARD'
+      XB=-1.400010,1.400010,-1.500010,-1.399990,1.799990,2.200010 /
+&OBST ID='WallLeft',
+      SURF_ID='FIBER BOARD'
+      XB=-1.500010,-1.399990,-1.500010,1.500010,-0.000010,2.200010 /
+&OBST ID='WallRight',
+      SURF_ID='FIBER BOARD'
+      XB=1.399990,1.500010,-1.500010,1.500010,-0.000010,2.200010 /
+
+
+
+***** Analysis *******************
+
+
+
+&TAIL /
