@@ -34,7 +34,7 @@ Requirements for different systems, see [link](https://docs.python.org/3/library
 | Windows  | cmd.exe         |    C:\> <venv>\Scripts\activate.bat    |
 |          | PowerShell      |    PS C:\> <venv>\Scripts\Activate.ps1 |
 
-Note: In Wondows PowerShell there is a restriction to run scripts. If the Execution Policy is not changed it will raise a message like "cannot be loaded because the execution of scripts is disabled on this system". One can allow the execution of scripts for the active PowerShell session by `Set-ExecutionPolicy Unrestricted -Scope Process`, see [link](https://stackoverflow.com/questions/18713086/virtualenv-wont-activate-on-windows).
+Note: In Windows PowerShell there is a restriction to run scripts. If the Execution Policy is not changed it will raise a message like "cannot be loaded because the execution of scripts is disabled on this system". One can allow the execution of scripts for the active PowerShell session by `Set-ExecutionPolicy Unrestricted -Scope Process`, see [link](https://stackoverflow.com/questions/18713086/virtualenv-wont-activate-on-windows).
 
 ### 4. Install the required Python packages, needed only once
 ```
