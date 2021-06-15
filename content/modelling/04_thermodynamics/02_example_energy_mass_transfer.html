@@ -54,7 +54,7 @@
     <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="FDS and SMV" href="../../tools/01_fds_smv/00_overview.html" />
+    <link rel="next" title="5. Combustion" href="../05_combustion/00_overview.html" />
     <link rel="prev" title="4.1. Fundamentals" href="01_fundamentals.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -223,6 +223,23 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../05_combustion/00_overview.html">
+   5. Combustion
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05_combustion/01_fundamentals.html">
+     5.1. Fundamentals
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -234,8 +251,8 @@
   <a class="reference internal" href="../../tools/01_fds_smv/00_overview.html">
    FDS and SMV
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -250,14 +267,19 @@
      FDS Basic Example
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/01_fds_smv/03_smv.html">
+     Smokeview Basics
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../tools/02_hpc/00_overview.html">
    HPC
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -288,8 +310,8 @@
   <a class="reference internal" href="../../tools/03_analysis/00_overview.html">
    Data Analysis
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -454,11 +476,11 @@
                 
   <div class="section" id="energy-and-mass-transfer">
 <h1><span class="section-number">4.2. </span>Energy and Mass Transfer<a class="headerlink" href="#energy-and-mass-transfer" title="Permalink to this headline">¶</a></h1>
-<p>This example builds on the “Steckler compartment”  <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id2">SQR82</a>]</span> and the <code class="docutils literal notranslate"><span class="pre">energy_budget</span></code> discussion in the (FDS Verification Guide, 7.2.1 The Heat from a Fire). It provides a brief overview over energy and mass transfer in terms of a simulation of a room fire experiment. As an example, the room setup with a door was chosen. The door is located at the centre of the front wall. It is 1.80 m high and 0.60 m wide.</p>
+<p>This example builds on the “Steckler compartment”  <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id4">SQR82</a>]</span> and the <code class="docutils literal notranslate"><span class="pre">energy_budget</span></code> discussion in the (FDS Verification Guide, 7.2.1 The Heat from a Fire). It provides a brief overview over energy and mass transfer in terms of a simulation of a room fire experiment. As an example, the room setup with a door was chosen. The door is located at the centre of the front wall. It is 1.80 m high and 0.60 m wide.</p>
 <p>You are provided with a pre-built FDS input file (<a class="reference download internal" download="" href="../../../_downloads/822b05038a5850fd1d8822fe69b6562c/EnergyMassTransfer.fds"><code class="xref download docutils literal notranslate"><span class="pre">EnergyMassTransfer.fds</span></code></a>), which needs to be completed and adjusted through the course of this exercise. The geometry of the compartment is based on the Steckler compartment. The fluid cells are cube-shaped with an edge length of 10 cm. Thus, the ceiling height is slightly larger to align with the mesh resolution, i.e. 2.20 m instead of 2.18 m. The top surface of the burner is raised to a height of 0.30 m. It has a squared cross section with an edge length of 0.40 m. In this exercise the burner shall be supplied with propane as fuel (heat of combustion: 46420.0 kJ/kg, soot yield: 20 g/g, CO yield: 10 g/g).</p>
 <div class="section" id="tasks">
 <h2>Tasks<a class="headerlink" href="#tasks" title="Permalink to this headline">¶</a></h2>
-<p>The tasks are designed with FDS 6.7.5 in mind. For more information of specific functions please consult the respective Users Guide <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id6">MHF+20d</a>]</span>.</p>
+<p>The tasks are designed with FDS 6.7.5 in mind. For more information of specific functions please consult the respective Users Guide <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id8">MHF+20d</a>]</span>.</p>
 <div class="section" id="step-0-set-up-the-simulation">
 <h3>Step 0 - Set Up the Simulation<a class="headerlink" href="#step-0-set-up-the-simulation" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
@@ -550,7 +572,7 @@
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="01_fundamentals.html" title="previous page"><span class="section-number">4.1. </span>Fundamentals</a>
-    <a class='right-next' id="next-link" href="../../tools/01_fds_smv/00_overview.html" title="next page">FDS and SMV</a>
+    <a class='right-next' id="next-link" href="../05_combustion/00_overview.html" title="next page"><span class="section-number">5. </span>Combustion</a>
 
         </div>
         

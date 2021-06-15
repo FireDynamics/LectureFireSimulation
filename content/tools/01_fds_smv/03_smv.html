@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>FDS and SMV &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
+    <title>Smokeview Basics &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -50,12 +50,12 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/tools/01_fds_smv/00_overview.html" />
+    <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/tools/01_fds_smv/03_smv.html" />
     <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="FDS Overview" href="01_fds_intro.html" />
-    <link rel="prev" title="5.1. Fundamentals" href="../../modelling/05_combustion/01_fundamentals.html" />
+    <link rel="next" title="HPC" href="../02_hpc/00_overview.html" />
+    <link rel="prev" title="FDS Basic Example" href="02_fds_tutorial.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -248,7 +248,7 @@
 </p>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+  <a class="reference internal" href="00_overview.html">
    FDS and SMV
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
@@ -256,7 +256,7 @@
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="01_fds_intro.html">
      FDS Overview
@@ -267,8 +267,8 @@
      FDS Basic Example
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="03_smv.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Smokeview Basics
     </a>
    </li>
@@ -365,7 +365,7 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/content/tools/01_fds_smv/00_overview.md"><button type="button"
+        <a class="dropdown-buttons" href="../../../_sources/content/tools/01_fds_smv/03_smv.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -385,10 +385,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/tools/01_fds_smv/00_overview.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/tools/01_fds_smv/03_smv.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/tools/01_fds_smv/00_overview.md"><button
+        <a class="edit-button" href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/tools/01_fds_smv/03_smv.md"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -408,6 +408,36 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#installation">
+   Installation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#execution">
+   Execution
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#special-topics">
+   Special Topics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#shortcuts">
+     Shortcuts
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -416,9 +446,31 @@
         
               <div>
                 
-  <div class="section" id="fds-and-smv">
-<h1>FDS and SMV<a class="headerlink" href="#fds-and-smv" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
+  <div class="section" id="smokeview-basics">
+<h1>Smokeview Basics<a class="headerlink" href="#smokeview-basics" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="execution">
+<h2>Execution<a class="headerlink" href="#execution" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="special-topics">
+<h2>Special Topics<a class="headerlink" href="#special-topics" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="shortcuts">
+<h3>Shortcuts<a class="headerlink" href="#shortcuts" title="Permalink to this headline">¶</a></h3>
+<p>The general keyboard shortcuts can be displayed in the context menue as shown in <a class="reference internal" href="#fig-smv-shortcuts"><span class="std std-numref">Fig. 8</span></a>.</p>
+<p>Some of common shortcuts we often use:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">u</span></code>: reload the data, useful if the simulation is not yet finished</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">o</span></code>: toggle the visualisation of meshes, this way one can display the domain decomposition</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">alt-v</span></code>: toggle the perspecive and size preserving mode</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">!</span></code>: snap to a closed main view direction</p></li>
+</ul>
+<div class="figure align-default" id="fig-smv-shortcuts">
+<a class="reference internal image-reference" href="../../../_images/smv_shortcuts.png"><img alt="../../../_images/smv_shortcuts.png" src="../../../_images/smv_shortcuts.png" style="width: 60%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">The available shortcuts are displayed in the help menue of Smokeview</span><a class="headerlink" href="#fig-smv-shortcuts" title="Permalink to this image">¶</a></p>
+</div>
+</div>
 </div>
 </div>
 
@@ -447,8 +499,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../../modelling/05_combustion/01_fundamentals.html" title="previous page"><span class="section-number">5.1. </span>Fundamentals</a>
-    <a class='right-next' id="next-link" href="01_fds_intro.html" title="next page">FDS Overview</a>
+    <a class='left-prev' id="prev-link" href="02_fds_tutorial.html" title="previous page">FDS Basic Example</a>
+    <a class='right-next' id="next-link" href="../02_hpc/00_overview.html" title="next page">HPC</a>
 
         </div>
         

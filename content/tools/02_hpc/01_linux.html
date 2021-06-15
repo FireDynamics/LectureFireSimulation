@@ -223,6 +223,23 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../modelling/05_combustion/00_overview.html">
+   5. Combustion
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/05_combustion/01_fundamentals.html">
+     5.1. Fundamentals
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -234,8 +251,8 @@
   <a class="reference internal" href="../01_fds_smv/00_overview.html">
    FDS and SMV
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -250,14 +267,19 @@
      FDS Basic Example
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_fds_smv/03_smv.html">
+     Smokeview Basics
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="00_overview.html">
    HPC
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -288,8 +310,8 @@
   <a class="reference internal" href="../03_analysis/00_overview.html">
    Data Analysis
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -491,13 +513,13 @@
 <h1>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h1>
 <div class="figure align-default" id="fig-tux">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" width="20%" /></a>
-<p class="caption"><span class="caption-number">Fig. 8 </span><span class="caption-text">Tux the penguin. Source: <a class="reference external" href="https://en.wikipedia.org/wiki/Linux#/media/File:Tux.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-tux" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Tux the penguin. Source: <a class="reference external" href="https://en.wikipedia.org/wiki/Linux#/media/File:Tux.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-tux" title="Permalink to this image">¶</a></p>
 </div>
 <p>In scientific computing, the <a class="reference external" href="https://en.wikipedia.org/wiki/Linux">Linux</a> operating system (OS) is commonly used. Linux is an open-source OS, which was first released in 1991 as a UNIX-like system.</p>
 <p>Like in other parts of these lecture notes, the following sections cover only the essentials about using Linux and are by far not complete.</p>
 <div class="figure align-default" id="fig-unix-history">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/7/77/Unix_history-simple.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/7/77/Unix_history-simple.svg" src="https://upload.wikimedia.org/wikipedia/commons/7/77/Unix_history-simple.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 9 </span><span class="caption-text">Unix and Unix-like operating systems. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Unix_history-simple.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-unix-history" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">Unix and Unix-like operating systems. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Unix_history-simple.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-unix-history" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="philosophy">
 <h2>Philosophy<a class="headerlink" href="#philosophy" title="Permalink to this headline">¶</a></h2>
@@ -513,15 +535,15 @@
 <div class="section" id="directories">
 <h2>Directories<a class="headerlink" href="#directories" title="Permalink to this headline">¶</a></h2>
 <p>Linux uses a tree directory structure, which originates at the so called root <code class="docutils literal notranslate"><span class="pre">/</span></code>. All subdirectories are located in the same directory tree.</p>
-<p>A path, i.e. the location of a file or directory, is a sequence of directories starting at the root and which are separated with <code class="docutils literal notranslate"><span class="pre">/</span></code>. Figure <a class="reference internal" href="#fig-linux-directory-comparison"><span class="std std-numref">Fig. 10</span></a> illustrates the differences and common aspects of the three most popular types of operating systems for desktop computers.</p>
+<p>A path, i.e. the location of a file or directory, is a sequence of directories starting at the root and which are separated with <code class="docutils literal notranslate"><span class="pre">/</span></code>. Figure <a class="reference internal" href="#fig-linux-directory-comparison"><span class="std std-numref">Fig. 11</span></a> illustrates the differences and common aspects of the three most popular types of operating systems for desktop computers.</p>
 <div class="figure align-default" id="fig-linux-directory-comparison">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/de/1/1f/Filesystem.svg"><img alt="https://upload.wikimedia.org/wikipedia/de/1/1f/Filesystem.svg" src="https://upload.wikimedia.org/wikipedia/de/1/1f/Filesystem.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 10 </span><span class="caption-text">(In German) Overview of commonly used file system approaches. Source: <a class="reference external" href="https://de.wikipedia.org/wiki/Verzeichnisstruktur#/media/Datei:Filesystem.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-linux-directory-comparison" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">(In German) Overview of commonly used file system approaches. Source: <a class="reference external" href="https://de.wikipedia.org/wiki/Verzeichnisstruktur#/media/Datei:Filesystem.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-linux-directory-comparison" title="Permalink to this image">¶</a></p>
 </div>
-<p>There exists a <a class="reference external" href="https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard">file system hierarchy</a> in Linux, which prescribes the usage of special directories, see figure <a class="reference internal" href="#fig-linux-fsh"><span class="std std-numref">Fig. 11</span></a>.</p>
+<p>There exists a <a class="reference external" href="https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard">file system hierarchy</a> in Linux, which prescribes the usage of special directories, see figure <a class="reference internal" href="#fig-linux-fsh"><span class="std std-numref">Fig. 12</span></a>.</p>
 <div class="figure align-default" id="fig-linux-fsh">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/f/f3/Standard-unix-filesystem-hierarchy.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/f/f3/Standard-unix-filesystem-hierarchy.svg" src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Standard-unix-filesystem-hierarchy.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 11 </span><span class="caption-text">Illustration of the Linux’s file system hierarchy. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Standard-unix-filesystem-hierarchy.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-linux-fsh" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 12 </span><span class="caption-text">Illustration of the Linux’s file system hierarchy. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Standard-unix-filesystem-hierarchy.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-linux-fsh" title="Permalink to this image">¶</a></p>
 </div>
 <p>There are two types of paths:</p>
 <ul class="simple">
@@ -582,7 +604,7 @@
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; date
-Thu Jun 10 19:35:53 UTC 2021
+Tue Jun 15 10:16:40 UTC 2021
 </pre></div>
 </div>
 </div>
@@ -1007,7 +1029,7 @@ logfile
 &gt; ls -lah
 total 112K
 drwxr-xr-x 17 runner docker 4.0K Apr 26 06:09 .
-drwxr-xr-x  4 runner docker 4.0K Jun 10 19:35 ..
+drwxr-xr-x  4 runner docker 4.0K Jun 15 10:16 ..
 -rw-r--r--  1 runner docker   20 Apr 25 17:55 .hidden_file_do_not_look_here
 -rw-r--r--  1 runner docker  816 Apr 26 06:02 combined_logs
 -rw-r--r--  1 runner docker  591 Dec 12  2000 doc01.md
@@ -1018,21 +1040,21 @@ drwxr-xr-x  4 runner docker 4.0K Jun 10 19:35 ..
 -rw-r--r--  1 runner docker   60 Apr 26 06:08 for-loop.sh
 -rw-r--r--  1 runner docker  113 Apr 25 19:35 if-statement.sh
 -rw-r--r--  1 runner docker   62 Apr 26 06:08 info.txt
-drwxr-xr-x  2 runner docker 4.0K Jun 10 19:35 rundir_01
-drwxr-xr-x  2 runner docker 4.0K Jun 10 19:35 rundir_02
-drwxr-xr-x  2 runner docker 4.0K Jun 10 19:35 rundir_03
-drwxr-xr-x  2 runner docker 4.0K Jun 10 19:35 rundir_04
-drwxr-xr-x  2 runner docker 4.0K Jun 10 19:35 rundir_05
-drwxr-xr-x  2 runner docker 4.0K Jun 10 19:35 rundir_06
-drwxr-xr-x  2 runner docker 4.0K Jun 10 19:35 rundir_07
-drwxr-xr-x  2 runner docker 4.0K Jun 10 19:35 rundir_08
-drwxr-xr-x  2 runner docker 4.0K Jun 10 19:35 rundir_09
-drwxr-xr-x  2 runner docker 4.0K Jun 10 19:35 rundir_10
-drwxr-xr-x  2 runner docker 4.0K Jun 10 19:35 rundir_11
-drwxr-xr-x  2 runner docker 4.0K Jun 10 19:35 rundir_12
-drwxr-xr-x  2 runner docker 4.0K Jun 10 19:35 rundir_13
+drwxr-xr-x  2 runner docker 4.0K Jun 15 10:16 rundir_01
+drwxr-xr-x  2 runner docker 4.0K Jun 15 10:16 rundir_02
+drwxr-xr-x  2 runner docker 4.0K Jun 15 10:16 rundir_03
+drwxr-xr-x  2 runner docker 4.0K Jun 15 10:16 rundir_04
+drwxr-xr-x  2 runner docker 4.0K Jun 15 10:16 rundir_05
+drwxr-xr-x  2 runner docker 4.0K Jun 15 10:16 rundir_06
+drwxr-xr-x  2 runner docker 4.0K Jun 15 10:16 rundir_07
+drwxr-xr-x  2 runner docker 4.0K Jun 15 10:16 rundir_08
+drwxr-xr-x  2 runner docker 4.0K Jun 15 10:16 rundir_09
+drwxr-xr-x  2 runner docker 4.0K Jun 15 10:16 rundir_10
+drwxr-xr-x  2 runner docker 4.0K Jun 15 10:16 rundir_11
+drwxr-xr-x  2 runner docker 4.0K Jun 15 10:16 rundir_12
+drwxr-xr-x  2 runner docker 4.0K Jun 15 10:16 rundir_13
 drwxr-xr-x  2 runner docker 4.0K Apr 25 15:11 rundir_14
-drwxr-xr-x  2 runner docker 4.0K Jun 10 19:35 rundir_15
+drwxr-xr-x  2 runner docker 4.0K Jun 15 10:16 rundir_15
 </pre></div>
 </div>
 </div>
@@ -1052,20 +1074,20 @@ drwxr-xr-x 2 runner docker 4096 Apr 25 15:11 rundir_14
 -rw-r--r-- 1 runner docker  816 Apr 26 06:02 combined_logs
 -rw-r--r-- 1 runner docker   62 Apr 26 06:08 info.txt
 -rw-r--r-- 1 runner docker   60 Apr 26 06:08 for-loop.sh
-drwxr-xr-x 2 runner docker 4096 Jun 10 19:35 rundir_15
-drwxr-xr-x 2 runner docker 4096 Jun 10 19:35 rundir_13
-drwxr-xr-x 2 runner docker 4096 Jun 10 19:35 rundir_12
-drwxr-xr-x 2 runner docker 4096 Jun 10 19:35 rundir_11
-drwxr-xr-x 2 runner docker 4096 Jun 10 19:35 rundir_10
-drwxr-xr-x 2 runner docker 4096 Jun 10 19:35 rundir_09
-drwxr-xr-x 2 runner docker 4096 Jun 10 19:35 rundir_08
-drwxr-xr-x 2 runner docker 4096 Jun 10 19:35 rundir_07
-drwxr-xr-x 2 runner docker 4096 Jun 10 19:35 rundir_06
-drwxr-xr-x 2 runner docker 4096 Jun 10 19:35 rundir_05
-drwxr-xr-x 2 runner docker 4096 Jun 10 19:35 rundir_04
-drwxr-xr-x 2 runner docker 4096 Jun 10 19:35 rundir_03
-drwxr-xr-x 2 runner docker 4096 Jun 10 19:35 rundir_02
-drwxr-xr-x 2 runner docker 4096 Jun 10 19:35 rundir_01
+drwxr-xr-x 2 runner docker 4096 Jun 15 10:16 rundir_15
+drwxr-xr-x 2 runner docker 4096 Jun 15 10:16 rundir_13
+drwxr-xr-x 2 runner docker 4096 Jun 15 10:16 rundir_12
+drwxr-xr-x 2 runner docker 4096 Jun 15 10:16 rundir_11
+drwxr-xr-x 2 runner docker 4096 Jun 15 10:16 rundir_10
+drwxr-xr-x 2 runner docker 4096 Jun 15 10:16 rundir_09
+drwxr-xr-x 2 runner docker 4096 Jun 15 10:16 rundir_08
+drwxr-xr-x 2 runner docker 4096 Jun 15 10:16 rundir_07
+drwxr-xr-x 2 runner docker 4096 Jun 15 10:16 rundir_06
+drwxr-xr-x 2 runner docker 4096 Jun 15 10:16 rundir_05
+drwxr-xr-x 2 runner docker 4096 Jun 15 10:16 rundir_04
+drwxr-xr-x 2 runner docker 4096 Jun 15 10:16 rundir_03
+drwxr-xr-x 2 runner docker 4096 Jun 15 10:16 rundir_02
+drwxr-xr-x 2 runner docker 4096 Jun 15 10:16 rundir_01
 </pre></div>
 </div>
 </div>
