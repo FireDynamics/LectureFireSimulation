@@ -1,0 +1,22 @@
+&HEAD CHID = 'pool_fire', TITLE = 'Example of a pool fire'  / 
+
+&TIME T_END = 30.0 / 
+
+&MESH IJK = 25,25,50, XB = -2.5,2.5, -2.5,2.5, 0.0,10 / 
+
+&VENT MB = 'XMIN' SURF_ID = 'OPEN' /
+&VENT MB = 'XMAX' SURF_ID = 'OPEN' /
+&VENT MB = 'YMIN' SURF_ID = 'OPEN' /
+&VENT MB = 'YMAX' SURF_ID = 'OPEN' /
+&VENT MB = 'ZMAX' SURF_ID = 'OPEN' /
+
+&REAC FUEL = 'METHANE' /
+
+&SURF ID = 'BURNER', HRRPUA = 1000., COLOR = 'RASPBERRY' /
+&VENT XB = -0.5,0.5, -0.5,0.5, 0.0, 0.0, SURF_ID='BURNER' /
+
+
+
+
+
+&TAIL /
