@@ -52,9 +52,11 @@ fi
 # create flag file to check for reaching simulation end time
 touch simulation_time_end
 
-# load FDS modules 
-module use -a /p/home/jusers/rommeswinkel2/jureca/jjsc46/modules_fire
-module load FDS/6.7.1_intel2019.lua
+# Add firesim modules
+module use -a ~arnold1/modules_fire/
+
+# Load FDS in the version 6.7.5
+module load FDS/6.7.5-IntelComp2020.2_ParaStationMPI_5.4.7
 
 # set the number of OMP threads
 export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
