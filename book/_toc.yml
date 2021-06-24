@@ -39,7 +39,7 @@ parts:
   - file: content/modelling/05_combustion/00_overview
     sections:
     - file: content/modelling/05_combustion/01_fundamentals
-#    - file: content/modelling/05_combustion/02_modelling
+    - file: content/modelling/05_combustion/02_modelling
     - file: content/modelling/05_combustion/03_closed_volume_example
     - file: content/modelling/05_combustion/04_burner_example
 
