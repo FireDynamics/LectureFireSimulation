@@ -1,0 +1,30 @@
+&HEAD CHID = 'pentane_fuel', TITLE = 'pentane_combustion'
+
+&MESH IJK = 40,40,40,  XB = -2,2, -2,2,  0,4 /
+
+&TIME T_END = 3 /
+&DUMP NFRAMES = 50 /
+
+******************************************
+ 
+C5H12 + 8 O2 => 6 H2O + 5 CO2
+
+&REAC ID ='FUEL', 
+      FUEL = 'PENTANE', 
+      FORMULA = 'C5H12',
+      SOOT_YIELD = 0.02,
+      CO_YIELD = 0.025,
+      HEAT_OF_COMBUSTION = 48000 / 
+
+&VENT XB =  -0.7,0.7, -0.7,0.7, 0.0,0.0, XYZ = 0,0,0, RADIUS=0.6, COLOR='RED', SURF_ID='FIRE' /
+
+&SURF ID = 'FIRE',
+      HRRPUA = 1000 /
+
+*****************************************
+
+&SLCF ID = 'P1', PBY = 0.0, QUANTITY = 'MASS FRACTION', SPEC_ID = 'PENTANE' /
+&SLCF ID = 'P1', PBY = 0.0, QUANTITY = 'MASS FRACTION', SPEC_ID = 'OXYGEN' /
+&SLCF ID = 'HRRPUV', PBY = 0.0, QUANTITY = 'HRRPUV', CELL_CENTERED = .TRUE. /
+
+&TAIL /
