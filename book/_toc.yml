@@ -43,10 +43,6 @@ parts:
     - file: content/modelling/05_combustion/03_closed_volume_example
     - file: content/modelling/05_combustion/04_burner_example
 
-#  - file: content/modelling/06_heat_transfer/00_overview
-#    sections:
-#    - file: content/modelling/06_heat_transfer/01_fundamentals
-
 ####################
 # TOOLS 
 - caption: Tools
