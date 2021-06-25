@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>5.2. Wolfhard-Parker Burner &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
+    <title>5.4. Wolfhard-Parker Burner &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -55,7 +55,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="FDS and SMV" href="../../tools/01_fds_smv/00_overview.html" />
-    <link rel="prev" title="5.1. Fundamentals" href="01_fundamentals.html" />
+    <link rel="prev" title="5.3. Example – Closed Volume" href="03_closed_volume_example.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -238,9 +238,19 @@
      5.1. Fundamentals
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_modelling.html">
+     5.2. Modelling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_closed_volume_example.html">
+     5.3. Example – Closed Volume
+    </a>
+   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     5.2. Wolfhard-Parker Burner
+     5.4. Wolfhard-Parker Burner
     </a>
    </li>
   </ul>
@@ -468,20 +478,20 @@
               <div>
                 
   <div class="section" id="wolfhard-parker-burner">
-<h1><span class="section-number">5.2. </span>Wolfhard-Parker Burner<a class="headerlink" href="#wolfhard-parker-burner" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">5.4. </span>Wolfhard-Parker Burner<a class="headerlink" href="#wolfhard-parker-burner" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="the-experiments">
 <h2>The Experiments<a class="headerlink" href="#the-experiments" title="Permalink to this headline">¶</a></h2>
 <p>In the article <a class="reference external" href="https://iopscience.iop.org/article/10.1088/0370-1298/62/11/305">A New Technique for the Spectroscopic Examination of Flames at Normal Pressures</a>, published in 1949, H. G. Wolfhard and W. G. Parker presented a gas burner to study laminar diffusion flames. Up to this point, diffusion flames were studied on circular tubes, which makes it difficult to pin-point locations of specific reactions within the flame. For one, because of the circular geometry optical measurement methods collect data from multiple reaction zones. Furthermore, the optical thickness of the individual zones, specifically on the inside of the circle, is very thin.</p>
 <p>The Wolfhard-Parker burner produces flat laminar diffusion flames. Thus, facilitates the accurate localisation of the different processes. The burner consists of two rectangular ducts with a cross section of 50 mm by 7 mm, that touch each other at a long edge. One of the ducts provides a fuel gas, while the other provides the oxydiser, here oxygen. Both ducts are located within a third duct, which is used to produce a stream of nitrogen completely surrounding the other two streams. These ducts are located at the bottom of the burner and the combustion products are extracted at the top. The flow velocity of the nitrogen is carefully calibrated, such that the puffing can be prevented and a stable flat flame forms. The flow velocities for the fuel and the oxygen are set to about 20 cm/s. Combustion takes place along the interface between the two main gas streams.</p>
 <div class="figure align-default" id="fig-comb-wpb-overview">
 <a class="reference internal image-reference" href="../../../_images/WPB_Overview.png"><img alt="../../../_images/WPB_Overview.png" src="../../../_images/WPB_Overview.png" style="width: 40%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.14 </span><span class="caption-text">Schematic overview over the Wolfhard-Parker burner.</span><a class="headerlink" href="#fig-comb-wpb-overview" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 5.26 </span><span class="caption-text">Schematic overview over the Wolfhard-Parker burner.</span><a class="headerlink" href="#fig-comb-wpb-overview" title="Permalink to this image">¶</a></p>
 </div>
 <p>Three different fuels have been used: hydrogen (H2), ammonia (NH3) and methane (CH4). It is shown in the article that the flame leans more towards one side of the burner. The reason is described to be the different diffusion rates between the fuels and the oxygen. Thus, it is pointed out that no relationship is made between the dimensions of the burner and the locations in the flame interface.</p>
 <p>Measurements have been performed at a height of 12 mm above the burner surface. Primarily, they are spectroscopic measurements of certain reactants of the combustion reaction that can be detected with this technique. For instance, hydrogen cannot be detected with this method, but intermediate products like OH can. Gas temperatures are measured, by inserting a wire, coated with sodium chloride (NaCL) into the gas stream and using the Na-line reversal method. It is found, that for hydrogen the maximum temperature is at about 2800 °C, which is close to the value calculated for the stoichiometric mixture.</p>
 <div class="figure align-default" id="fig-comb-wpb-flat-flame-ch4o2">
 <a class="reference internal image-reference" href="../../../_images/WPB_MethaneOxygenFlatDiffusionFlame.png"><img alt="../../../_images/WPB_MethaneOxygenFlatDiffusionFlame.png" src="../../../_images/WPB_MethaneOxygenFlatDiffusionFlame.png" style="width: 60%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.15 </span><span class="caption-text">Temperature and species distribution in the flat methane-oxygen flame.</span><a class="headerlink" href="#fig-comb-wpb-flat-flame-ch4o2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 5.27 </span><span class="caption-text">Temperature and species distribution in the flat methane-oxygen flame.</span><a class="headerlink" href="#fig-comb-wpb-flat-flame-ch4o2" title="Permalink to this image">¶</a></p>
 </div>
 <p>It is described that the fuels form different flames. Hydrogen forms a blue continuum across the reaction zone. Ammonia forms two distinct zones. The zone on the fuel side is a thin yellow layer, while on the oxygen side a blue continuum exists. Both zones are clearly divided by “a dark space”, which is similar to the zone of the methane flame. For the ammonia flame it is reported that, based on the measured spectra, oxygen and NH3 never come into direct contact. The reaction appears to take place only due to intermediate products.</p>
 </div>
@@ -490,7 +500,7 @@
 <p>The Wolfhard-Parker burner is implemented in FDS in a simplified way. No effort is made to implement chemical reactions with the different sub reactions, but it is assumed that the fuel and oxygen react directly. Two vents, for oxidiser and fuel, are positioned in the simulation according to the setup in the experiment. They have both are 50 mm long and 7 mm wide. They are surrounded by a nitrogen flow. It was manually calibrated, such that its flow velocity matches the velocity of the flame. Above the vents a series of devices is located, at a height of 12 mm, to mimic the measurement location described in the article.</p>
 <div class="figure align-default" id="fig-comb-wpb-sim-overview">
 <a class="reference internal image-reference" href="../../../_images/WPB_Overview_HiRes.png"><img alt="../../../_images/WPB_Overview_HiRes.png" src="../../../_images/WPB_Overview_HiRes.png" style="width: 40%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.16 </span><span class="caption-text">Schematic overview over the simulation setup of the Wolfhard-Parker burner.</span><a class="headerlink" href="#fig-comb-wpb-sim-overview" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 5.28 </span><span class="caption-text">Schematic overview over the simulation setup of the Wolfhard-Parker burner.</span><a class="headerlink" href="#fig-comb-wpb-sim-overview" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="tasks">
@@ -528,7 +538,7 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="01_fundamentals.html" title="previous page"><span class="section-number">5.1. </span>Fundamentals</a>
+    <a class='left-prev' id="prev-link" href="03_closed_volume_example.html" title="previous page"><span class="section-number">5.3. </span>Example – Closed Volume</a>
     <a class='right-next' id="next-link" href="../../tools/01_fds_smv/00_overview.html" title="next page">FDS and SMV</a>
 
         </div>

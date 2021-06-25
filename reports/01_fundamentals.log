@@ -30,11 +30,11 @@ sim = fdsreader.Simulation(path_to_data)
 [0;32m----> 3[0;31m [0msim[0m [0;34m=[0m [0mfdsreader[0m[0;34m.[0m[0mSimulation[0m[0;34m([0m[0mpath_to_data[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m
 [0;32m/opt/hostedtoolcache/Python/3.7.10/x64/lib/python3.7/site-packages/fdsreader/simulation.py[0m in [0;36m__new__[0;34m(cls, path)[0m
-[1;32m     52[0m     [0;32mdef[0m [0m__new__[0m[0;34m([0m[0mcls[0m[0;34m,[0m [0mpath[0m[0;34m:[0m [0mstr[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     53[0m         [0;32mif[0m [0msettings[0m[0;34m.[0m[0mENABLE_CACHING[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
-[0;32m---> 54[0;31m             [0msmv_file_path[0m [0;34m=[0m [0mget_smv_file[0m[0;34m([0m[0mpath[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m     55[0m             [0mroot_path[0m [0;34m=[0m [0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mdirname[0m[0;34m([0m[0msmv_file_path[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     56[0m [0;34m[0m[0m
+[1;32m     54[0m     [0;32mdef[0m [0m__new__[0m[0;34m([0m[0mcls[0m[0;34m,[0m [0mpath[0m[0;34m:[0m [0mstr[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     55[0m         [0;32mif[0m [0msettings[0m[0;34m.[0m[0mENABLE_CACHING[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 56[0;31m             [0msmv_file_path[0m [0;34m=[0m [0mget_smv_file[0m[0;34m([0m[0mpath[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     57[0m             [0mroot_path[0m [0;34m=[0m [0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mdirname[0m[0;34m([0m[0msmv_file_path[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     58[0m [0;34m[0m[0m
 
 [0;32m/opt/hostedtoolcache/Python/3.7.10/x64/lib/python3.7/site-packages/fdsreader/utils/data.py[0m in [0;36mget_smv_file[0;34m(path)[0m
 [1;32m    108[0m         [0;32mreturn[0m [0mpath[0m [0;34m+[0m [0;34m".smv"[0m[0;34m[0m[0;34m[0m[0m

@@ -56,7 +56,7 @@
     <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="5.2. Wolfhard-Parker Burner" href="04_burner_example.html" />
+    <link rel="next" title="5.2. Modelling" href="02_modelling.html" />
     <link rel="prev" title="5. Combustion" href="00_overview.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -241,8 +241,18 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="02_modelling.html">
+     5.2. Modelling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_closed_volume_example.html">
+     5.3. Example – Closed Volume
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="04_burner_example.html">
-     5.2. Wolfhard-Parker Burner
+     5.4. Wolfhard-Parker Burner
     </a>
    </li>
   </ul>
@@ -507,7 +517,7 @@
 </ul>
 <div class="figure align-default" id="fig-comb-candle">
 <a class="reference internal image-reference" href="../../../_images/roth_candle.jpg"><img alt="../../../_images/roth_candle.jpg" src="../../../_images/roth_candle.jpg" style="width: 60%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Schematics of a burning candle. Source: <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id3">Rot11</a>]</span>.</span><a class="headerlink" href="#fig-comb-candle" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Schematics of a burning candle. Source: <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id5">Rot11</a>]</span>.</span><a class="headerlink" href="#fig-comb-candle" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="requirements">
@@ -659,7 +669,7 @@
 <p>Therefore the reaction rate is determined by the <a class="reference external" href="https://en.wikipedia.org/wiki/Arrhenius_equation">Arrhenius equation</a>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-comb-arrhenius">
 <span class="eqno">(5.2)<a class="headerlink" href="#equation-eq-comb-arrhenius" title="Permalink to this equation">¶</a></span>\[
-\mf k = AT^n \exp\left(-\frac{E_a}{k_B T}\right)
+\mf k = AT^n exp\left(-\frac{E_a}{k_B T}\right)
 \]</div>
 <p>given the pre-exponential factor <span class="math notranslate nohighlight">\(\mf A\)</span>, the power <span class="math notranslate nohighlight">\(\mf n\)</span> and the activation energy <span class="math notranslate nohighlight">\(\mf E_a\)</span>. The parameters <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(E_a\)</span> for a few reactions are given in the following table.</p>
 <table class="colwidths-auto table" id="tab-comb-nae">
@@ -825,7 +835,7 @@
 <p>The qualitative form of the temperature and gas concentrations in the vicinity of a flame is shown in <a class="reference internal" href="#fig-comb-flame-drysdale"><span class="std std-numref">Fig. 5.10</span></a>.</p>
 <div class="figure align-default" id="fig-comb-flame-drysdale">
 <a class="reference internal image-reference" href="../../../_images/drysdale-premixed-species.png"><img alt="../../../_images/drysdale-premixed-species.png" src="../../../_images/drysdale-premixed-species.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.10 </span><span class="caption-text">The temperature profile, with the ambient <span class="math notranslate nohighlight">\(\mf T_0\)</span>, the autoignition <span class="math notranslate nohighlight">\(\mf T_i\)</span> and the final <span class="math notranslate nohighlight">\(\mf T_b\)</span> temperature values, and concentration profiles. Source: <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id2">Dry11</a>]</span>.</span><a class="headerlink" href="#fig-comb-flame-drysdale" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 5.10 </span><span class="caption-text">The temperature profile, with the ambient <span class="math notranslate nohighlight">\(\mf T_0\)</span>, the autoignition <span class="math notranslate nohighlight">\(\mf T_i\)</span> and the final <span class="math notranslate nohighlight">\(\mf T_b\)</span> temperature values, and concentration profiles. Source: <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id4">Dry11</a>]</span>.</span><a class="headerlink" href="#fig-comb-flame-drysdale" title="Permalink to this image">¶</a></p>
 </div>
 <p>The chemical components as well as the reaction rates are visualised in the following figures. Here, a propane-oxygen-argon flame is shown, with</p>
 <ul class="simple">
@@ -877,7 +887,7 @@
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="00_overview.html" title="previous page"><span class="section-number">5. </span>Combustion</a>
-    <a class='right-next' id="next-link" href="04_burner_example.html" title="next page"><span class="section-number">5.2. </span>Wolfhard-Parker Burner</a>
+    <a class='right-next' id="next-link" href="02_modelling.html" title="next page"><span class="section-number">5.2. </span>Modelling</a>
 
         </div>
         
