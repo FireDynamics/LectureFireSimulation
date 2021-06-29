@@ -1,0 +1,984 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6.1. Fundamentals &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}", "du": "\\dot{u}"}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/modelling/06_heat_transfer/01_fundamentals.html" />
+    <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="FDS and SMV" href="../../tools/01_fds_smv/00_overview.html" />
+    <link rel="prev" title="6. Heat Transfer" href="00_overview.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      <img src="../../../_static/cce_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Fire Simulation <br> Lecture Notes</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../overview/01_overview.html">
+   Overview
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../overview/02_team.html">
+   Team Fire Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../overview/03_references.html">
+   References
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Modelling
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01_general/00_overview.html">
+   1. Modelling Fires
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_general/01_processes.html">
+     1.1. Physical and Chemical Processes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_general/02_fse.html">
+     1.2. Fire Safety Engineering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_general/03_approaches.html">
+     1.3. Modelling Approaches
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02_fluids/00_overview.html">
+   2. Fluid Dynamics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_fluids/01_fluids.html">
+     2.1. Fluids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_fluids/02_cfd.html">
+     2.2. Computational Fluid Dynamics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_fluids/03_turbulence.html">
+     2.3. Turbulence
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03_compartments/00_overview.html">
+   3. Compartment Fires
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_compartments/01_fundamentals.html">
+     3.1. Fundamentals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_compartments/02_design_fire.html">
+     3.2. Design Fires
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_compartments/03_pool_example.html">
+     3.3. Example – Pool Fire
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_compartments/04_steckler_example.html">
+     3.4. Example - Steckler Compartment
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../04_thermodynamics/00_overview.html">
+   4. Thermodynamics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04_thermodynamics/01_fundamentals.html">
+     4.1. Fundamentals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04_thermodynamics/02_example_energy_mass_transfer.html">
+     4.2. Energy and Mass Transfer
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../05_combustion/00_overview.html">
+   5. Combustion
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05_combustion/01_fundamentals.html">
+     5.1. Fundamentals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05_combustion/02_modelling.html">
+     5.2. Modelling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05_combustion/03_closed_volume_example.html">
+     5.3. Example – Closed Volume
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05_combustion/04_burner_example.html">
+     5.4. Wolfhard-Parker Burner
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_overview.html">
+   6. Heat Transfer
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     6.1. Fundamentals
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tools
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tools/01_fds_smv/00_overview.html">
+   FDS and SMV
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/01_fds_smv/01_fds_intro.html">
+     FDS Overview
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/01_fds_smv/02_fds_tutorial.html">
+     FDS Basic Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/01_fds_smv/03_smv.html">
+     Smokeview Basics
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tools/02_hpc/00_overview.html">
+   HPC
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/02_hpc/01_linux.html">
+     Linux
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/02_hpc/02_hpc.html">
+     High Performace Computing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/02_hpc/03_parallel_fds.html">
+     Parallel Execution of FDS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/02_hpc/04_benchmarking.html">
+     Benchmarking
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tools/03_analysis/00_overview.html">
+   Data Analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/03_analysis/01_python.html">
+     Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/03_analysis/02_fdsreader.html">
+     fdsreader Module
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/modelling/06_heat_transfer/01_fundamentals.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/FireDynamics/LectureFireSimulation"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/modelling/06_heat_transfer/01_fundamentals.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/modelling/06_heat_transfer/01_fundamentals.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/FireDynamics/LectureFireSimulation/main?urlpath=tree/book/content/modelling/06_heat_transfer/01_fundamentals.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://io.cce.uni-wuppertal.de/firesim_ss21//hub/user-redirect/git-pull?repo=https://github.com/FireDynamics/LectureFireSimulation&urlpath=tree/LectureFireSimulation/book/content/modelling/06_heat_transfer/01_fundamentals.ipynb&branch=main"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#heat-conduction">
+   Heat Conduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#convective-heat-transfer">
+   Convective Heat Transfer
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fluid-phase">
+     Fluid Phase
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fluid-solid-interface">
+     Fluid-Solid Interface
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#thermal-radiation">
+   Thermal Radiation
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#electromagnetic-waves">
+     Electromagnetic Waves
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#emitted-power">
+     Emitted Power
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#radiation-transfer">
+     Radiation Transfer
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="fundamentals">
+<h1><span class="section-number">6.1. </span>Fundamentals<a class="headerlink" href="#fundamentals" title="Permalink to this headline">¶</a></h1>
+<div class="cell tag_hide_cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="c1"># check for set environment variable JB_NOSHOW</span>
+<span class="n">show</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">if</span> <span class="s1">&#39;JB_NOSHOW&#39;</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
+    <span class="n">show</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As already outlined, there exist three heat trasnfer modes. All of them are important for the modelling of fires.</p>
+<div class="figure align-default" id="fig-heat-transfer-overview">
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/f/f4/Heat-transmittance-means2.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/f/f4/Heat-transmittance-means2.jpg" src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Heat-transmittance-means2.jpg" style="width: 40%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.1 </span><span class="caption-text">Schematic illustration of the various heat transfer modes. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Heat-transmittance-means2.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-heat-transfer-overview" title="Permalink to this image">¶</a></p>
+</div>
+<ul class="simple">
+<li><p><strong>conduction</strong>: gas phase near the flame, heating of solids (critical structures or solid fuel sources)</p></li>
+<li><p><strong>convection</strong>: transport of hot smoke in buildings, heat flux from hot gas to building structures</p></li>
+<li><p><strong>radiation</strong>: heating of walls and fuel sources due to hot gases and soot</p></li>
+</ul>
+<div class="section" id="heat-conduction">
+<h2>Heat Conduction<a class="headerlink" href="#heat-conduction" title="Permalink to this headline">¶</a></h2>
+<p>The heat conduction in solids is different for (electric) insulators and (electric) conductors.
+While the are no free electrons in an insulator the conduction is mainly due to phonons, i.e. atom oscillations in the ordered lattice.</p>
+<p>In addition to this transport mechanism, the free electrons in conductors allow to significantly increase the heat conducting capacity. Therefore, (electric) conductors are better heat conductors than (electric) insulators.</p>
+<div class="figure align-default" id="fig-heat-conduction-solid">
+<a class="reference internal image-reference" href="../../../_images/solid-oszillations.svg"><img alt="../../../_images/solid-oszillations.svg" src="../../../_images/solid-oszillations.svg" width="80%" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.2 </span><span class="caption-text">Illustrative representation of heat conduction in a solid. Particle ensembles with high temperature (red) have higher oszilation amplitutes as those at medium (yellow) or low (blue) temperature.</span><a class="headerlink" href="#fig-heat-conduction-solid" title="Permalink to this image">¶</a></p>
+</div>
+<p>In gases and fluids, particles are not in fixed positions. They collide with each other and thus transfer energy and momentum. If the mean free length is small (w.r.t. the system size) then the collisions tend to establish an equilibrium.</p>
+<p>A general global picture is as follows:</p>
+<ul class="simple">
+<li><p>Hot parts of a gas contain particles with high (thermal) kinetic energy,</p></li>
+<li><p>cold parts have slower particles,</p></li>
+<li><p>due to collisions, both distributions tend to equalise and therefore there is an heat flow from the warm to the cold portions of the gas.</p></li>
+</ul>
+<div class="figure align-default" id="fig-heat-conduction-fluid">
+<a class="reference internal image-reference" href="../../../_images/gas-collisions.svg"><img alt="../../../_images/gas-collisions.svg" src="../../../_images/gas-collisions.svg" width="80%" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.3 </span><span class="caption-text">Illustrative representation of heat conduction in a fluid. Particle from warm regions have more (thermal) kinetic energy and transfer it to particles with lower one.</span><a class="headerlink" href="#fig-heat-conduction-fluid" title="Permalink to this image">¶</a></p>
+</div>
+<p>In general, all heat conduction processes may be modelled with the (differential) Fourier’s law</p>
+<div class="math notranslate nohighlight">
+\[
+\mf \vec{q} = \mathbf{k} \nabla T \quad ,
+\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mf \vec{q}\)</span> is the conduction vector, <span class="math notranslate nohighlight">\(\mf \mathbf{k}\)</span> is the conduction matrix and <span class="math notranslate nohighlight">\(\mf T\)</span> the temperature field. In general the conduction is neither isotropic nor homogenous, therefore a scalar heat conduction coefficient is not sufficient. Additionally, it depends on the temperature.</p>
+<p>The integral form describes the heat transfer rate through an surface <span class="math notranslate nohighlight">\(\mf S\)</span> (given a constant scalar <span class="math notranslate nohighlight">\(\mf k\)</span>)</p>
+<div class="math notranslate nohighlight">
+\[
+\mf \partial_t Q = -k \int_S \nabla T \ dS
+\]</div>
+<p>The mathematical description of heat conduction is given by the heat equation for the temperature <span class="math notranslate nohighlight">\(\mf T=T(\vec{x}, t)\)</span>. In solids, there is no convection, thus this is the only equation needed to determine the temperature.</p>
+<div class="math notranslate nohighlight">
+\[
+\mf \partial_t T - \alpha\nabla^2T = 0
+\]</div>
+<p>In absence of work done, the change of the heat content <span class="math notranslate nohighlight">\(\Delta Q\)</span> is directly proportional to the change in temperature <span class="math notranslate nohighlight">\(\Delta T\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+\mf \Delta Q = c_p \rho \Delta T\quad .
+\]</div>
+<p>Therefore conduction coefficient in the above parabolic PDE is given by</p>
+<div class="math notranslate nohighlight">
+\[
+\mf \alpha = \frac{k}{c_p \rho } \quad .
+\]</div>
+<p><strong>Thermally thin</strong> materials have a short balancing time (e.g. due to high conductivity) and react directly to changing boundary conditions. The temperature profiles are in general linear.</p>
+<p><strong>Thermally thick</strong> materials propagate the changes in boundary conditions on a longer time scale as the boundary values may change. Therefore the temperature profile is in general of non-linear nature.</p>
+<div class="figure align-default" id="fig-heat-conduction-1d">
+<a class="reference internal image-reference" href="../../../_images/1D-heat-conduction.svg"><img alt="../../../_images/1D-heat-conduction.svg" src="../../../_images/1D-heat-conduction.svg" width="60%" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.4 </span><span class="caption-text">Schematics of the temperature profile in a one dimensional setup. The heat flux is based on the temperature difference between the heated side (<span class="math notranslate nohighlight">\(\mf T_0\)</span>) and the backward side (<span class="math notranslate nohighlight">\(\mf T_B\)</span>). Thermally thin and thick materials have a different temporal scales.</span><a class="headerlink" href="#fig-heat-conduction-1d" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="convective-heat-transfer">
+<h2>Convective Heat Transfer<a class="headerlink" href="#convective-heat-transfer" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="fluid-phase">
+<h3>Fluid Phase<a class="headerlink" href="#fluid-phase" title="Permalink to this headline">¶</a></h3>
+<p>The convective heat transfer is not a principle physical phenomenon. The transfer is due to medium movement which is driven by density fluctuations in a gravitational field.</p>
+<p>There exist basically two regimes for convective heat transfer:</p>
+<ul class="simple">
+<li><p><strong>natural</strong>: the density changes are driving the mediums motion, and</p></li>
+<li><p><strong>forced</strong>: an external source moves the medium.</p></li>
+</ul>
+<div class="figure align-default" id="fig-heat-convection-scheme">
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/f/f5/ConvectionCells.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/f/f5/ConvectionCells.svg" src="https://upload.wikimedia.org/wikipedia/commons/f/f5/ConvectionCells.svg" width="60%" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.5 </span><span class="caption-text">General representation of the convective heat transfer. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:ConvectionCells.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-heat-convection-scheme" title="Permalink to this image">¶</a></p>
+</div>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/TB_Dlq57OLQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+<div class="section" id="fluid-solid-interface">
+<h3>Fluid-Solid Interface<a class="headerlink" href="#fluid-solid-interface" title="Permalink to this headline">¶</a></h3>
+<p>The heat flux <span class="math notranslate nohighlight">\(\mf q\)</span> through a surface <span class="math notranslate nohighlight">\(\mf A\)</span> is given by the temperature difference of the gas <span class="math notranslate nohighlight">\(\mf T_g\)</span> and the solid wall <span class="math notranslate nohighlight">\(\nf T_w\)</span>, by Newton’s cooling law</p>
+<div class="math notranslate nohighlight">
+\[
+\mf q = hA(T_w - T_g)\quad ,
+\]</div>
+<p>with the heat transfer coefficient <span class="math notranslate nohighlight">\(\mf h\)</span>. Although the law is simple, the determination of the heat transfer coefficient is complex.</p>
+<p>The Nusselt <span class="math notranslate nohighlight">\(\mf Nu\)</span> number is the ratio of convective to conductive heat transfer</p>
+<div class="math notranslate nohighlight">
+\[
+\mf Nu = \frac{h L }{k}
+\]</div>
+<p>with a given characteristic length scale <span class="math notranslate nohighlight">\(\mf L\)</span> and the heat conductivity <span class="math notranslate nohighlight">\(\mf k\)</span>. In general, the Nusselt number is a function of other dimensionless numbers (Reynolds <span class="math notranslate nohighlight">\(\mf Re\)</span> and Raylight <span class="math notranslate nohighlight">\(\mf Ra\)</span>):</p>
+<ul class="simple">
+<li><p>forced convection: <span class="math notranslate nohighlight">\(\mf Nu = f(Re, Pr)\)</span></p></li>
+<li><p>natural convection: <span class="math notranslate nohighlight">\(\mf Nu = f(Ra, Pr)\)</span></p></li>
+</ul>
+<p>The individual forms of the function strongly depend on the geometry. There exist many collections in the literature, where generalised cases with explicit formulations are stated. For example, see chapter 3 (Convection Heat Transfer) in <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id18">SFPE16</a>]</span>.</p>
+</div>
+</div>
+<div class="section" id="thermal-radiation">
+<h2>Thermal Radiation<a class="headerlink" href="#thermal-radiation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="electromagnetic-waves">
+<h3>Electromagnetic Waves<a class="headerlink" href="#electromagnetic-waves" title="Permalink to this headline">¶</a></h3>
+<p>The physical principles of radiative heat transfer is the fact, that all matter with finite temperature emit electromagnetic waves, which travel with the speed of light (<span class="math notranslate nohighlight">\(\mf c\approx 3\cdot 10^8 m/s\)</span>). An overview of the electromagnetic spectrum is given in <a class="reference internal" href="#fig-heat-em-spectrum-overview"><span class="std std-numref">Fig. 6.6</span></a>.</p>
+<div class="figure align-default" id="fig-heat-em-spectrum-overview">
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/c/cf/EM_Spectrum_Properties_edit.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/c/cf/EM_Spectrum_Properties_edit.svg" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/EM_Spectrum_Properties_edit.svg" width="100%" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.6 </span><span class="caption-text">The electromagnetic spectrum. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:EM_Spectrum_Properties_edit.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-heat-em-spectrum-overview" title="Permalink to this image">¶</a></p>
+</div>
+<p>The emitted energy spectrum, <span class="math notranslate nohighlight">\(\mf I\)</span> as a funktion of the wave frequency <span class="math notranslate nohighlight">\(\mf \nu\)</span>, of the so called black body radiation is given by Planck’s law</p>
+<div class="math notranslate nohighlight">
+\[
+\mf I(\nu, T) = \frac{2h\nu^3}{c^2} \frac{1}{e^\frac{h\nu}{k_B T}-1}
+\]</div>
+<p>for a finite temperature <span class="math notranslate nohighlight">\(\mf T\)</span>. Here <span class="math notranslate nohighlight">\(\mf h=6.63\cdot10^{-34}Js\)</span> denotes Planck’s constant. This thermal spectrum is illustrated for a few temperatures in <a class="reference internal" href="#fig-radi-full-spectrum"><span class="std std-numref">Fig. 6.7</span></a>.</p>
+<div class="cell tag_hide_cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">mono_em_power</span><span class="p">(</span><span class="n">temperature</span><span class="p">,</span> <span class="n">wavelength</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Monochromatic emissive power</span>
+<span class="sd">    Enclosure Fire Dynamics, B. Karlsson and J. G. Quintiere,</span>
+<span class="sd">    2000 by CRC Press LLC, Formula 7.3</span>
+<span class="sd">    </span>
+<span class="sd">    :param temperature: thermodynamic temperature, in K</span>
+<span class="sd">    :param wavelength: wave length, in µm</span>
+<span class="sd">    :return: emissive power, in W/m2-µm</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">C1</span> <span class="o">=</span> <span class="p">(</span><span class="mf">3.743</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">8</span><span class="p">)</span>  <span class="c1"># W*µm**4/m**2</span>
+    <span class="n">C2</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.4387</span> <span class="o">*</span> <span class="mi">10</span> <span class="o">**</span> <span class="mi">4</span><span class="p">)</span>  <span class="c1"># µm * K</span>
+    <span class="n">wavelength</span> <span class="o">=</span> <span class="n">wavelength</span>
+    <span class="n">emissive_power</span> <span class="o">=</span> <span class="p">(</span><span class="n">C1</span> <span class="o">*</span> <span class="n">wavelength</span> <span class="o">**</span> <span class="o">-</span><span class="mi">5</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">e</span> <span class="o">**</span> <span class="p">(</span><span class="n">C2</span> <span class="o">/</span> <span class="p">(</span><span class="n">wavelength</span> <span class="o">*</span> <span class="n">temperature</span><span class="p">))</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    
+    <span class="k">return</span> <span class="n">emissive_power</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide_cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">wavelength_to_rgb</span><span class="p">(</span><span class="n">wavelength</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.8</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; </span>
+<span class="sd">    taken from https://stackoverflow.com/questions/44959955/matplotlib-color-under-curve-based-on-spectral-color</span>
+<span class="sd">    taken from http://www.noah.org/wiki/Wavelength_to_RGB_in_Python</span>
+<span class="sd">    This converts a given wavelength of light to an </span>
+<span class="sd">    approximate RGB color value. The wavelength must be given</span>
+<span class="sd">    in nanometers in the range from 380 nm through 750 nm</span>
+<span class="sd">    (789 THz through 400 THz).</span>
+
+<span class="sd">    Based on code by Dan Bruton</span>
+<span class="sd">    http://www.physics.sfasu.edu/astro/color/spectra.html</span>
+<span class="sd">    Additionally alpha value set to 0.5 outside range</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="n">scale</span> <span class="o">=</span> <span class="mi">1</span><span class="c1">#/1000</span>
+    
+    <span class="n">wavelength</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">wavelength</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">wavelength</span> <span class="o">&gt;=</span> <span class="mi">380</span><span class="o">*</span><span class="n">scale</span> <span class="ow">and</span> <span class="n">wavelength</span> <span class="o">&lt;=</span> <span class="mi">750</span><span class="o">*</span><span class="n">scale</span><span class="p">:</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="mf">1.</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">A</span><span class="o">=</span><span class="mf">0.5</span>
+    <span class="k">if</span> <span class="n">wavelength</span> <span class="o">&lt;</span> <span class="mi">380</span><span class="o">*</span><span class="n">scale</span><span class="p">:</span>
+        <span class="n">wavelength</span> <span class="o">=</span> <span class="mf">380.</span><span class="o">*</span><span class="n">scale</span>
+    <span class="k">if</span> <span class="n">wavelength</span> <span class="o">&gt;</span><span class="mi">750</span><span class="o">*</span><span class="n">scale</span><span class="p">:</span>
+        <span class="n">wavelength</span> <span class="o">=</span> <span class="mf">750.</span><span class="o">*</span><span class="n">scale</span>
+    <span class="k">if</span> <span class="n">wavelength</span> <span class="o">&gt;=</span> <span class="mi">380</span><span class="o">*</span><span class="n">scale</span> <span class="ow">and</span> <span class="n">wavelength</span> <span class="o">&lt;=</span> <span class="mi">440</span><span class="o">*</span><span class="n">scale</span><span class="p">:</span>
+        <span class="n">attenuation</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="o">+</span> <span class="mf">0.7</span> <span class="o">*</span> <span class="p">(</span><span class="n">wavelength</span> <span class="o">-</span> <span class="mi">380</span><span class="o">*</span><span class="n">scale</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">440</span><span class="o">*</span><span class="n">scale</span> <span class="o">-</span> <span class="mi">380</span><span class="o">*</span><span class="n">scale</span><span class="p">)</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="p">((</span><span class="o">-</span><span class="p">(</span><span class="n">wavelength</span> <span class="o">-</span> <span class="mi">440</span><span class="o">*</span><span class="n">scale</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">440</span><span class="o">*</span><span class="n">scale</span> <span class="o">-</span> <span class="mi">380</span><span class="o">*</span><span class="n">scale</span><span class="p">))</span> <span class="o">*</span> <span class="n">attenuation</span><span class="p">)</span> <span class="o">**</span> <span class="n">gamma</span>
+        <span class="n">G</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">B</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">*</span> <span class="n">attenuation</span><span class="p">)</span> <span class="o">**</span> <span class="n">gamma</span>
+    <span class="k">elif</span> <span class="n">wavelength</span> <span class="o">&gt;=</span> <span class="mi">440</span><span class="o">*</span><span class="n">scale</span> <span class="ow">and</span> <span class="n">wavelength</span> <span class="o">&lt;=</span> <span class="mi">490</span><span class="o">*</span><span class="n">scale</span><span class="p">:</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">G</span> <span class="o">=</span> <span class="p">((</span><span class="n">wavelength</span> <span class="o">-</span> <span class="mi">440</span><span class="o">*</span><span class="n">scale</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">490</span><span class="o">*</span><span class="n">scale</span> <span class="o">-</span> <span class="mi">440</span><span class="o">*</span><span class="n">scale</span><span class="p">))</span> <span class="o">**</span> <span class="n">gamma</span>
+        <span class="n">B</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="k">elif</span> <span class="n">wavelength</span> <span class="o">&gt;=</span> <span class="mi">490</span><span class="o">*</span><span class="n">scale</span> <span class="ow">and</span> <span class="n">wavelength</span> <span class="o">&lt;=</span> <span class="mi">510</span><span class="o">*</span><span class="n">scale</span><span class="p">:</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">G</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="n">B</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">wavelength</span> <span class="o">-</span> <span class="mi">510</span><span class="o">*</span><span class="n">scale</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">510</span><span class="o">*</span><span class="n">scale</span> <span class="o">-</span> <span class="mi">490</span><span class="o">*</span><span class="n">scale</span><span class="p">))</span> <span class="o">**</span> <span class="n">gamma</span>
+    <span class="k">elif</span> <span class="n">wavelength</span> <span class="o">&gt;=</span> <span class="mi">510</span><span class="o">*</span><span class="n">scale</span> <span class="ow">and</span> <span class="n">wavelength</span> <span class="o">&lt;=</span> <span class="mi">580</span><span class="o">*</span><span class="n">scale</span><span class="p">:</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="p">((</span><span class="n">wavelength</span> <span class="o">-</span> <span class="mi">510</span><span class="o">*</span><span class="n">scale</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">580</span><span class="o">*</span><span class="n">scale</span> <span class="o">-</span> <span class="mi">510</span><span class="o">*</span><span class="n">scale</span><span class="p">))</span> <span class="o">**</span> <span class="n">gamma</span>
+        <span class="n">G</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="n">B</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">elif</span> <span class="n">wavelength</span> <span class="o">&gt;=</span> <span class="mi">580</span><span class="o">*</span><span class="n">scale</span> <span class="ow">and</span> <span class="n">wavelength</span> <span class="o">&lt;=</span> <span class="mi">645</span><span class="o">*</span><span class="n">scale</span><span class="p">:</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="mf">1.0</span>
+        <span class="n">G</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">wavelength</span> <span class="o">-</span> <span class="mi">645</span><span class="o">*</span><span class="n">scale</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">645</span><span class="o">*</span><span class="n">scale</span> <span class="o">-</span> <span class="mi">580</span><span class="o">*</span><span class="n">scale</span><span class="p">))</span> <span class="o">**</span> <span class="n">gamma</span>
+        <span class="n">B</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">elif</span> <span class="n">wavelength</span> <span class="o">&gt;=</span> <span class="mi">645</span><span class="o">*</span><span class="n">scale</span> <span class="ow">and</span> <span class="n">wavelength</span> <span class="o">&lt;=</span> <span class="mi">750</span><span class="o">*</span><span class="n">scale</span><span class="p">:</span>
+        <span class="n">attenuation</span> <span class="o">=</span> <span class="mf">0.3</span> <span class="o">+</span> <span class="mf">0.7</span> <span class="o">*</span> <span class="p">(</span><span class="mi">750</span><span class="o">*</span><span class="n">scale</span> <span class="o">-</span> <span class="n">wavelength</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">750</span><span class="o">*</span><span class="n">scale</span> <span class="o">-</span> <span class="mi">645</span><span class="o">*</span><span class="n">scale</span><span class="p">)</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">*</span> <span class="n">attenuation</span><span class="p">)</span> <span class="o">**</span> <span class="n">gamma</span>
+        <span class="n">G</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">B</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">G</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">B</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">G</span><span class="p">,</span><span class="n">B</span><span class="p">,</span><span class="n">A</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide_input tag_remove_output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Wave length band in µm.</span>
+<span class="n">wave_length_band</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">wavelengths</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">temperatures</span> <span class="o">=</span> <span class="p">[</span><span class="mi">500</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">1500</span><span class="p">]</span>
+                <span class="c1">#300, 400, </span>
+                <span class="c1">#500, 600, #1000]</span>
+                <span class="c1">#500, 700, 800, 900, 1000, </span>
+                <span class="c1">#1100, 1200, 1300, 1400]</span>
+
+
+
+
+<span class="c1"># Define the wave length for the visual spectrum in nm.</span>
+<span class="n">clim</span><span class="o">=</span><span class="p">(</span><span class="mi">350</span><span class="p">,</span><span class="mi">780</span><span class="p">)</span>
+<span class="c1"># clim=(0.350,0.780)</span>
+
+<span class="c1"># Scale the colors to the to the correct x-values (wave length).</span>
+<span class="n">norm</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="o">*</span><span class="n">clim</span><span class="p">)</span>
+<span class="n">wl</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">clim</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">clim</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># wl = np.arange(clim[0],clim[1]+0.001,0.002)</span>
+<span class="n">colorlist</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">norm</span><span class="p">(</span><span class="n">wl</span><span class="p">),[</span><span class="n">wavelength_to_rgb</span><span class="p">(</span><span class="n">w</span><span class="p">)</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">wl</span><span class="p">]))</span>
+<span class="n">spectralmap</span> <span class="o">=</span> <span class="n">matplotlib</span><span class="o">.</span><span class="n">colors</span><span class="o">.</span><span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="s2">&quot;spectrum&quot;</span><span class="p">,</span> <span class="n">colorlist</span><span class="p">)</span>
+
+
+<span class="c1"># Set up plot.</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">axs</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">4</span><span class="p">),</span> 
+                        <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Create map to fill the background with the colour spectrum.</span>
+<span class="c1"># y = np.linspace(0, 6, 100)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">X</span><span class="p">,</span><span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">wavelengths</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+
+<span class="n">extent</span><span class="o">=</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">wavelengths</span><span class="p">),</span> 
+        <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">wavelengths</span><span class="p">),</span> 
+        <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+
+<span class="c1"># Plot the colour spectrum.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">clim</span><span class="o">=</span><span class="n">clim</span><span class="p">,</span>  <span class="n">extent</span><span class="o">=</span><span class="n">extent</span><span class="p">,</span> 
+           <span class="n">cmap</span><span class="o">=</span><span class="n">spectralmap</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+          <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+
+<span class="c1"># Plot the emission curves based on radiator temperature.</span>
+<span class="k">for</span> <span class="n">radiator_temp</span> <span class="ow">in</span> <span class="n">temperatures</span><span class="p">[:]:</span>
+    <span class="n">em_powers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">wavelength</span> <span class="ow">in</span> <span class="n">wave_length_band</span><span class="p">:</span>
+        <span class="n">em_power</span> <span class="o">=</span> <span class="n">mono_em_power</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="n">radiator_temp</span><span class="p">,</span> 
+                                 <span class="n">wavelength</span><span class="o">=</span><span class="n">wavelength</span><span class="p">)</span>
+        <span class="n">em_powers</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">em_power</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">wave_length_band</span><span class="o">*</span><span class="mi">1000</span><span class="p">,</span> <span class="n">em_powers</span><span class="p">,</span> 
+             <span class="n">label</span><span class="o">=</span><span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> K&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">radiator_temp</span><span class="p">),</span> <span class="n">lw</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Wave Length / $\sf nm$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Intensity / $\sf W/(m^2\cdot nm)$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;./figs/radiative-spectrum-full.svg&#39;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">show</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">();</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">clf</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="figure align-default" id="fig-radi-full-spectrum">
+<a class="reference internal image-reference" href="../../../_images/radiative-spectrum-full.svg"><img alt="../../../_images/radiative-spectrum-full.svg" src="../../../_images/radiative-spectrum-full.svg" width="100%" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.7 </span><span class="caption-text">Radiative emission spectrum.</span><a class="headerlink" href="#fig-radi-full-spectrum" title="Permalink to this image">¶</a></p>
+</div>
+<p>With higher surface temperature</p>
+<ul class="simple">
+<li><p>the maximal intensity wavelength moves to lower values, and</p></li>
+<li><p>the total intensity increases.</p></li>
+</ul>
+<div class="figure align-default" id="fig-heat-em-colors">
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/5/5a/Example_incandescence_colors_%28temperature_range_550_-_1300_C%29.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/5/5a/Example_incandescence_colors_%28temperature_range_550_-_1300_C%29.svg" src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Example_incandescence_colors_%28temperature_range_550_-_1300_C%29.svg" width="30%" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.8 </span><span class="caption-text">Approximation of the color of an incandescent object. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Example_incandescence_colors_(temperature_range_550_-_1300_C).svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-heat-em-colors" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="fig-heat-em-hot-metal">
+<a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/a/a9/Hot_metalwork.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/a/a9/Hot_metalwork.jpg" src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Hot_metalwork.jpg" style="width: 60%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.9 </span><span class="caption-text">Hot metal. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Hot_metalwork.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-heat-em-hot-metal" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="emitted-power">
+<h3>Emitted Power<a class="headerlink" href="#emitted-power" title="Permalink to this headline">¶</a></h3>
+<p>The total energy (<span class="math notranslate nohighlight">\(\mf E_b\)</span>) emitted by a black body radiator is described by the Stefan-Boltzmann law</p>
+<div class="math notranslate nohighlight">
+\[
+\mf E_b = \sigma T^4 \quad ,
+\]</div>
+<p>with the Stefan-Boltzmann constant <span class="math notranslate nohighlight">\(\mf \sigma = 5.67\cdot 10^{-8}W~m^{-2}K^{-4}\)</span>. However, in practical applications most radiation comes from non-ideal black body radiators, and therefore the concept of gray bodies is introduced. The ratio of energy emitted to the emission of a fictitious <span class="math notranslate nohighlight">\(\mf \epsilon\)</span> is defined as</p>
+<div class="math notranslate nohighlight">
+\[
+\mf \epsilon = \frac{E}{E_b}
+\]</div>
+<p>and is called emissivity. In this assumption it is independent of the emitted wavelength. Absorptivity is equal to emissivity.</p>
+<p>There exist three ways how an incident electromagnetic wave can interact at the surface of a gas and a solid body, see <a class="reference internal" href="#fig-heat-radiation-surface"><span class="std std-numref">Fig. 6.10</span></a>:</p>
+<ul class="simple">
+<li><p><strong>absorption</strong>: the wave’s energy is transferred to heat</p></li>
+<li><p><strong>transmission</strong>: the wave passes the body</p></li>
+<li><p><strong>reflection</strong>: the wave is reflected either specular or diffusive</p></li>
+</ul>
+<p>In fires, mostly the reflection is a diffusive one, which means, that the reflected radiation is distributed on all outgoing angles.</p>
+<div class="figure align-default" id="fig-heat-radiation-surface">
+<a class="reference internal image-reference" href="../../../_images/radiation-interaction.svg"><img alt="../../../_images/radiation-interaction.svg" src="../../../_images/radiation-interaction.svg" width="60%" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.10 </span><span class="caption-text">Interaction of incident radiation with a solid body.</span><a class="headerlink" href="#fig-heat-radiation-surface" title="Permalink to this image">¶</a></p>
+</div>
+<p>The energy flux <span class="math notranslate nohighlight">\(\mf Q_{1\rightarrow 2}\)</span> from a diffusive radiator surface <span class="math notranslate nohighlight">\(\mf A_1\)</span> to an other surface <span class="math notranslate nohighlight">\(\mf A_2\)</span> is given by</p>
+<div class="math notranslate nohighlight">
+\[
+\mf Q_{1\rightarrow 2} = \sigma \epsilon A_1 T_1^4 F_{1\rightarrow 2} \quad ,
+\]</div>
+<p>with the view factor <span class="math notranslate nohighlight">\(\mf F_{1\rightarrow 2}\)</span>. This factor is the fraction of the totally emitted energy that may be absorped by the target, here the surface <span class="math notranslate nohighlight">\(\mf A_2\)</span>. <a class="reference internal" href="#fig-heat-radiation-general-viewfactor"><span class="std std-numref">Fig. 6.11</span></a> illustrates the geometrical setup of the following view factor integration:</p>
+<div class="math notranslate nohighlight">
+\[
+\mf F_{1\rightarrow 2} = \frac{1}{A_1}\int_{A_1}\int_{A_2}\frac{cos(\beta_1)cos(\beta_2)}{\pi \left|\vec{R}\right|^2}\ dA_2dA_1 \quad .
+\]</div>
+<div class="figure align-default" id="fig-heat-radiation-general-viewfactor">
+<a class="reference internal image-reference" href="../../../_images/radiation-general-viewfactor.svg"><img alt="../../../_images/radiation-general-viewfactor.svg" src="../../../_images/radiation-general-viewfactor.svg" width="80%" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.11 </span><span class="caption-text">General view factor between infinitesimal surface elements.</span><a class="headerlink" href="#fig-heat-radiation-general-viewfactor" title="Permalink to this image">¶</a></p>
+</div>
+<p>There exist integrated results for many configurations, like shown in the appendix D (Configuration Factors) in <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id18">SFPE16</a>]</span>.</p>
+</div>
+<div class="section" id="radiation-transfer">
+<h3>Radiation Transfer<a class="headerlink" href="#radiation-transfer" title="Permalink to this headline">¶</a></h3>
+<p>The transport of radiation through a medium must include the following processes:</p>
+<ul class="simple">
+<li><p>absorption,</p></li>
+<li><p>scattering,</p></li>
+<li><p>emission, and</p></li>
+<li><p>scattering addition.</p></li>
+</ul>
+<div class="figure align-default" id="fig-heat-radiation-general-transfer">
+<a class="reference internal image-reference" href="../../../_images/yeoh-radiation-transfer.png"><img alt="../../../_images/yeoh-radiation-transfer.png" src="../../../_images/yeoh-radiation-transfer.png" style="width: 60%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.12 </span><span class="caption-text">Radiation transfer in a medium. Source: <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id3">YY09</a>]</span>.</span><a class="headerlink" href="#fig-heat-radiation-general-transfer" title="Permalink to this image">¶</a></p>
+</div>
+<p>The change of monochromatic intensity <span class="math notranslate nohighlight">\(\mf I_\lambda\)</span> in a control volume in the direction <span class="math notranslate nohighlight">\(\mf \vec{s}\)</span> is given by</p>
+<div class="math notranslate nohighlight">
+\[
+\mf \frac{dI_\lambda}{dt} = \partial_t I_\lambda + c\partial_s I_\lambda \quad .
+\]</div>
+<p>Due to the fact, that light travels so fast, a common approximation is to neglect the partial derivative w.r.t. time:</p>
+<div class="math notranslate nohighlight">
+\[
+\mf dI_\lambda \approx c\ dt\ \partial_s I_\lambda = ds\ \partial_s I_\lambda \quad .
+\]</div>
+<p>The change of intensity per unit path length is due to net gain of radiant energy and therefore:</p>
+<div class="math notranslate nohighlight">
+\[
+\mf \partial_s I_\lambda(\vec{r},\vec{s}) = \underbrace{-(K_{a,\lambda} + \sigma_{s,\lambda}) I_\lambda(\vec{r},\vec{s})}_{\text{absorption and scattering loss}} + \underbrace{K_{a,\lambda}I_{b,\lambda}(\vec{r})}_{\text{gas emission}} + \underbrace{\frac{\sigma_{s,\lambda}}{4\pi}\int_{4\pi}\Phi(\vec{s}', \vec{s})I_\lambda(\vec{s}')\ d\Omega'}_{\text{scattering}} \quad .
+\]</div>
+<p>This equation involves coefficients for local spectral absorption (<span class="math notranslate nohighlight">\(\mf K_{a,\lambda}\)</span>) and scattering (<span class="math notranslate nohighlight">\(\mf \sigma_{a,\lambda}\)</span>). The scattering phase function <span class="math notranslate nohighlight">\(\mf \Phi\)</span> allows to integrate over a full sphere to compute scattered waves into the direction <span class="math notranslate nohighlight">\(\mf \vec{s}\)</span>. As this integral differential equation is very difficult to solve in complex geometries, a common assumption in field modelling is to neglect scattering effects. This reduces the transport equation to an ordinary differential equation:</p>
+<div class="math notranslate nohighlight">
+\[
+\mf \partial_s I_\lambda(\vec{r},\vec{s}) = -K_{a,\lambda}  I_\lambda(\vec{r},\vec{s}) + K_{a,\lambda}I_{b,\lambda}(\vec{r}) \quad .
+\]</div>
+<p>Gases interact differently with radiation w.r.t. to the wavelength:</p>
+<ul class="simple">
+<li><p>molecular gases (e.g. <span class="math notranslate nohighlight">\(\mf H_2O\)</span> or <span class="math notranslate nohighlight">\(\mf CO_2\)</span>) are selective absorbers and emitters, and</p></li>
+<li><p>large particles (e.g. soot) have a broad absorption spectrum.</p></li>
+</ul>
+<div class="figure align-default" id="fig-heat-radiation-gas-emissivity">
+<a class="reference internal image-reference" href="../../../_images/yeoh-radiation-gas-emissivity.png"><img alt="../../../_images/yeoh-radiation-gas-emissivity.png" src="../../../_images/yeoh-radiation-gas-emissivity.png" style="width: 60%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.13 </span><span class="caption-text">Emissivity spectrum of <span class="math notranslate nohighlight">\(\mf CO_2\)</span> and <span class="math notranslate nohighlight">\(\mf H_2O\)</span>. Source: <span id="id4">[<a class="reference internal" href="../../overview/03_references.html#id3">YY09</a>]</span>.</span><a class="headerlink" href="#fig-heat-radiation-gas-emissivity" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="fig-heat-radiation-soot-emissivity">
+<a class="reference internal image-reference" href="../../../_images/yeoh-radiation-spectrum-soot.png"><img alt="../../../_images/yeoh-radiation-spectrum-soot.png" src="../../../_images/yeoh-radiation-spectrum-soot.png" style="width: 60%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.14 </span><span class="caption-text">Emissivity spectrum of soot compared to a black body radiator. Source: <span id="id5">[<a class="reference internal" href="../../overview/03_references.html#id3">YY09</a>]</span>.</span><a class="headerlink" href="#fig-heat-radiation-soot-emissivity" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/modelling/06_heat_transfer"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="00_overview.html" title="previous page"><span class="section-number">6. </span>Heat Transfer</a>
+    <a class='right-next' id="next-link" href="../../tools/01_fds_smv/00_overview.html" title="next page">FDS and SMV</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          <div class="extra_footer">
+            <p>
+<img src='https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg' height='31'/>
+| By Team Fire | Contacts and Infos: <a href='https://cce.uni-wuppertal.de/en.html'>CCE@BUW</a> and <a href='https://www.fz-juelich.de/ias/ias-7/EN/Research/Fire_Dynamics/_node.html'>IAS-7@FZJ</a>
+</br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
