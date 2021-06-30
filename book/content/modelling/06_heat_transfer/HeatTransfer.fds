@@ -1,22 +1,33 @@
-&HEAD CHID = 'pool_fire', TITLE = 'Example of a pool fire'  / 
+&HEAD CHID = 'heat_transfer', TITLE = 'Heat Transfer Example Task 1'  /
 
-&TIME T_END = 30.0 / 
+## Computational domain, simulation time and ambient values
+&MESH IJK = 8,10,25, XB = -0.8,0.8, 0,2.0, 0.0,5.0 /
+&TIME T_END = 600.0 /
+&MISC TMPA = 20.0 /
 
-&MESH IJK = 25,25,50, XB = -2.5,2.5, -2.5,2.5, 0.0,10 / 
+## Geometry
+&OBST XB = 0.0,0.0 1.2,2.0, 0.0,5.0 /
+&OBST XB = -1.0,1.0 1.0,1.2, 4.8,5.0 /
+&OBST XB = -0.8,0.8 1.0,1.2, 0.0,4.0 /
+&OBST XB = -0.8,0.0 1.0,1.2, 4.0,4.8 SURF_ID = SURF_1/
+&OBST XB = 0.8,0.0 1.0,1.2, 4.0,4.8 SURF_ID = SURF_2/
+&OBST XB = -0.4,0.4 0.6,0.6, 2.2,3.0 COLOR = 'GRAY' /
 
-&VENT MB = 'XMIN' SURF_ID = 'OPEN' /
-&VENT MB = 'XMAX' SURF_ID = 'OPEN' /
-&VENT MB = 'YMIN' SURF_ID = 'OPEN' /
+## Domain boundary conditions
 &VENT MB = 'YMAX' SURF_ID = 'OPEN' /
-&VENT MB = 'ZMAX' SURF_ID = 'OPEN' /
 
-&REAC FUEL = 'METHANE' /
+## Heater surface
+&VENT XB = -0.8,0.8, 0.0,0.0, 0.0, 5.0, SURF_ID='HEATER' /
+&SURF ID = 'HEATER', TMP_FRONT = 1000., COLOR = 'RASPBERRY' /
 
-&SURF ID = 'BURNER', HRRPUA = 1000., COLOR = 'RASPBERRY' /
-&VENT XB = -0.5,0.5, -0.5,0.5, 0.0, 0.0, SURF_ID='BURNER' /
+## Material properties
+&SURF ID = 'SURF_1' COLOR = 'ORANGE' /
+&SURF ID = 'SURF_2' COLOR = 'YELLOW' /
 
+## Output definition
 
+&SLCF PBX = 0, QUANTITY = 'TEMPERATURE', CELL_CENTERED = .TRUE. /
 
-
+&BNDF QUANTITY='ADIABATIC SURFACE TEMPERATURE', CELL_CENTERED=.TRUE. /
 
 &TAIL /
