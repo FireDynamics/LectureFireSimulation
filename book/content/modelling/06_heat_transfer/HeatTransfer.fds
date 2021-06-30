@@ -1,4 +1,4 @@
-&HEAD CHID = 'heat_transfer', TITLE = 'Heat Transfer Example Task 1'  /
+&HEAD CHID = 'heat_transfer', TITLE = 'Heat Transfer Example'  /
 
 ## Computational domain, simulation time and ambient values
 &MESH IJK = 8,10,25, XB = -0.8,0.8, 0,2.0, 0.0,5.0 /
