@@ -56,7 +56,7 @@
     <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="FDS and SMV" href="../../tools/01_fds_smv/00_overview.html" />
+    <link rel="next" title="6.2. Example – Heat Transfer" href="02_heat_transfer_example.html" />
     <link rel="prev" title="6. Heat Transfer" href="00_overview.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
@@ -270,6 +270,11 @@
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      6.1. Fundamentals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_heat_transfer_example.html">
+     6.2. Example – Heat Transfer
     </a>
    </li>
   </ul>
@@ -578,7 +583,7 @@ While the are no free electrons in an insulator the conduction is mainly due to 
 <p>In general, all heat conduction processes may be modelled with the (differential) Fourier’s law</p>
 <div class="math notranslate nohighlight">
 \[
-\mf \vec{q} = \mathbf{k} \nabla T \quad ,
+\mf \vec{q} = -\mathbf{k} \nabla T \quad ,
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(\mf \vec{q}\)</span> is the conduction vector, <span class="math notranslate nohighlight">\(\mf \mathbf{k}\)</span> is the conduction matrix and <span class="math notranslate nohighlight">\(\mf T\)</span> the temperature field. In general the conduction is neither isotropic nor homogenous, therefore a scalar heat conduction coefficient is not sufficient. Additionally, it depends on the temperature.</p>
 <p>The integral form describes the heat transfer rate through an surface <span class="math notranslate nohighlight">\(\mf S\)</span> (given a constant scalar <span class="math notranslate nohighlight">\(\mf k\)</span>)</p>
@@ -626,7 +631,7 @@ While the are no free electrons in an insulator the conduction is mainly due to 
 </div>
 <div class="section" id="fluid-solid-interface">
 <h3>Fluid-Solid Interface<a class="headerlink" href="#fluid-solid-interface" title="Permalink to this headline">¶</a></h3>
-<p>The heat flux <span class="math notranslate nohighlight">\(\mf q\)</span> through a surface <span class="math notranslate nohighlight">\(\mf A\)</span> is given by the temperature difference of the gas <span class="math notranslate nohighlight">\(\mf T_g\)</span> and the solid wall <span class="math notranslate nohighlight">\(\nf T_w\)</span>, by Newton’s cooling law</p>
+<p>The heat flux <span class="math notranslate nohighlight">\(\mf q\)</span> through a surface <span class="math notranslate nohighlight">\(\mf A\)</span> is given by the temperature difference of the gas <span class="math notranslate nohighlight">\(\mf T_g\)</span> and the solid wall <span class="math notranslate nohighlight">\(\mf T_w\)</span>, by Newton’s cooling law</p>
 <div class="math notranslate nohighlight">
 \[
 \mf q = hA(T_w - T_g)\quad ,
@@ -950,7 +955,7 @@ While the are no free electrons in an insulator the conduction is mainly due to 
         <div class='prev-next-bottom'>
             
     <a class='left-prev' id="prev-link" href="00_overview.html" title="previous page"><span class="section-number">6. </span>Heat Transfer</a>
-    <a class='right-next' id="next-link" href="../../tools/01_fds_smv/00_overview.html" title="next page">FDS and SMV</a>
+    <a class='right-next' id="next-link" href="02_heat_transfer_example.html" title="next page"><span class="section-number">6.2. </span>Example – Heat Transfer</a>
 
         </div>
         

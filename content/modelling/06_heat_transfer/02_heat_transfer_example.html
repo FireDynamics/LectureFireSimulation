@@ -1,0 +1,1019 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>6.2. Example – Heat Transfer &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
+    
+  <link href="../../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}", "du": "\\dot{u}"}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/modelling/06_heat_transfer/02_heat_transfer_example.html" />
+    <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="FDS and SMV" href="../../tools/01_fds_smv/00_overview.html" />
+    <link rel="prev" title="6.1. Fundamentals" href="01_fundamentals.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+      <img src="../../../_static/cce_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Fire Simulation <br> Lecture Notes</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../overview/01_overview.html">
+   Overview
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../overview/02_team.html">
+   Team Fire Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../overview/03_references.html">
+   References
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Modelling
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01_general/00_overview.html">
+   1. Modelling Fires
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_general/01_processes.html">
+     1.1. Physical and Chemical Processes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_general/02_fse.html">
+     1.2. Fire Safety Engineering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_general/03_approaches.html">
+     1.3. Modelling Approaches
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02_fluids/00_overview.html">
+   2. Fluid Dynamics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_fluids/01_fluids.html">
+     2.1. Fluids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_fluids/02_cfd.html">
+     2.2. Computational Fluid Dynamics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_fluids/03_turbulence.html">
+     2.3. Turbulence
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03_compartments/00_overview.html">
+   3. Compartment Fires
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_compartments/01_fundamentals.html">
+     3.1. Fundamentals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_compartments/02_design_fire.html">
+     3.2. Design Fires
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_compartments/03_pool_example.html">
+     3.3. Example – Pool Fire
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_compartments/04_steckler_example.html">
+     3.4. Example - Steckler Compartment
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../04_thermodynamics/00_overview.html">
+   4. Thermodynamics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04_thermodynamics/01_fundamentals.html">
+     4.1. Fundamentals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../04_thermodynamics/02_example_energy_mass_transfer.html">
+     4.2. Energy and Mass Transfer
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../05_combustion/00_overview.html">
+   5. Combustion
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05_combustion/01_fundamentals.html">
+     5.1. Fundamentals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05_combustion/02_modelling.html">
+     5.2. Modelling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05_combustion/03_closed_volume_example.html">
+     5.3. Example – Closed Volume
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../05_combustion/04_burner_example.html">
+     5.4. Wolfhard-Parker Burner
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_overview.html">
+   6. Heat Transfer
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_fundamentals.html">
+     6.1. Fundamentals
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     6.2. Example – Heat Transfer
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Tools
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tools/01_fds_smv/00_overview.html">
+   FDS and SMV
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/01_fds_smv/01_fds_intro.html">
+     FDS Overview
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/01_fds_smv/02_fds_tutorial.html">
+     FDS Basic Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/01_fds_smv/03_smv.html">
+     Smokeview Basics
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tools/02_hpc/00_overview.html">
+   HPC
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/02_hpc/01_linux.html">
+     Linux
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/02_hpc/02_hpc.html">
+     High Performace Computing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/02_hpc/03_parallel_fds.html">
+     Parallel Execution of FDS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/02_hpc/04_benchmarking.html">
+     Benchmarking
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tools/03_analysis/00_overview.html">
+   Data Analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/03_analysis/01_python.html">
+     Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/03_analysis/02_fdsreader.html">
+     fdsreader Module
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../../_sources/content/modelling/06_heat_transfer/02_heat_transfer_example.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/FireDynamics/LectureFireSimulation"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/modelling/06_heat_transfer/02_heat_transfer_example.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/modelling/06_heat_transfer/02_heat_transfer_example.ipynb"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/FireDynamics/LectureFireSimulation/main?urlpath=tree/book/content/modelling/06_heat_transfer/02_heat_transfer_example.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://io.cce.uni-wuppertal.de/firesim_ss21//hub/user-redirect/git-pull?repo=https://github.com/FireDynamics/LectureFireSimulation&urlpath=tree/LectureFireSimulation/book/content/modelling/06_heat_transfer/02_heat_transfer_example.ipynb&branch=main"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#heat-flux">
+   Heat Flux
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#task-1">
+   Task 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#task-2">
+   Task 2
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#task-3">
+   Task 3
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="example-heat-transfer">
+<h1><span class="section-number">6.2. </span>Example – Heat Transfer<a class="headerlink" href="#example-heat-transfer" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>Fire Dynamics Simulator (FDS) calculates the mechanisms of heat transfer taking into account the corresponding physical processes of convection and radiation. From the resulting heat flux onto a solid surface, the surface temperature as well as the temperature at a certain depth can be determined, depending on the material properties and the the respective boundary conditions. By default, FDS  only performs a transient, one-dimensional calculation of heat transfer. The objective of this exercise is to discuss the different influences of radiation and convection as well as the surface and material properties of a solid body on its heating in case of fire. The <a class="reference download internal" download="" href="../../../_downloads/95623be50842c0ce3bacb5cf62f942fd/HeatTransfer.fds"><code class="xref download docutils literal notranslate"><span class="pre">HeatTransfer.fds</span></code></a> input file should be used as a starting point.</p>
+</div>
+<div class="section" id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>The extension of the computational domain is</p>
+<div class="math notranslate nohighlight">
+\[\small\sf [-0.8~m, 0.8~m] \times [0.0~m, 2.0~m] \times [0.0~m, 5.0~m]\]</div>
+<div class="figure align-default" id="fig-transfer-smv">
+<a class="reference internal image-reference" href="../../../_images/fds.png"><img alt="../../../_images/fds.png" src="../../../_images/fds.png" style="width: 100%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.15 </span><span class="caption-text">SMV visualization of the geometry. The surface patch <code class="docutils literal notranslate"><span class="pre">HEATER</span></code>, which has a constant surface temperature of <span class="math notranslate nohighlight">\(1000^\circ C\)</span> (<code class="docutils literal notranslate"><span class="pre">TMP_FRONT</span> <span class="pre">=</span> <span class="pre">1000</span></code>) ,is colored reddish. The orange and yellow obstructions (<code class="docutils literal notranslate"><span class="pre">OBST</span></code>) depict different surfaces (<code class="docutils literal notranslate"><span class="pre">SURF</span></code>). The gray heat shield covers thermocouples and devices from a radiative impact.</span><a class="headerlink" href="#fig-transfer-smv" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="heat-flux">
+<h2>Heat Flux<a class="headerlink" href="#heat-flux" title="Permalink to this headline">¶</a></h2>
+<p>FDS provides several output quantities related to the thermal exposure of solid surfaces (See section 21.10.7 <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">FDS User’s Guide</a>).</p>
+<p>The sum of radiative and convective energy absorbed at a solid surface is expressed by the <code class="docutils literal notranslate"><span class="pre">TOTAL</span> <span class="pre">HEAT</span> <span class="pre">FLUX</span></code> or <code class="docutils literal notranslate"><span class="pre">NET</span> <span class="pre">HEAT</span> <span class="pre">FLUX</span></code>:</p>
+<div class="math notranslate nohighlight">
+\[\mf q_{\rm net}'' = \epsilon_{\rm s} \, \left(q_{\rm inc,rad}'' - \sigma \, T_{\rm s}^4 \right) + h \, (T_{\rm gas} - T_{\rm s}) \label{net_flux}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mf \dot{q}_{\rm inc,rad}\)</span> is the incident radiative heat flux (<code class="docutils literal notranslate"><span class="pre">INCIDENT</span> <span class="pre">HEAT</span> <span class="pre">FLUX</span></code>), <span class="math notranslate nohighlight">\(\mf \epsilon_{\rm s}\)</span> is the surface emissivity, h is the convective heat transfer coefficient, <span class="math notranslate nohighlight">\(\mf T_{\rm s}\)</span> is the surface temperature, and <span class="math notranslate nohighlight">\(\mf T_{\rm gas}\)</span> is the gas temperature in the vicinity of the surface. The convective heat transfer coefficient, h, is calculated by FDS using the specified surface properties and the calculated near-boundary flow characteristics.</p>
+<p>The radiative component can be evaluated separately by the <code class="docutils literal notranslate"><span class="pre">RADIATIVE</span> <span class="pre">HEAT</span> <span class="pre">FLUX</span></code> quantity:</p>
+<div class="math notranslate nohighlight">
+\[\mf q_{\rm r}'' = \epsilon_{\rm s} \, \left( q_{\rm inc,rad}'' - \sigma \, T_{\rm s}^4 \right)\]</div>
+<p>The convective component is given by <code class="docutils literal notranslate"><span class="pre">CONVECTIVE</span> <span class="pre">HEAT</span> <span class="pre">FLUX</span></code>:</p>
+<div class="math notranslate nohighlight">
+\[\mf q_{\rm c}'' = h \, (T_{\rm gas} - T_{\rm s})\]</div>
+<p>The heat flux on a component depends on its surface temperature, which is automatically calculated by FDS. The heat flux on a component with a predefined temperature, e.g. a water-cooled heat flux gauge can be evaluated by <code class="docutils literal notranslate"><span class="pre">GAUGE</span> <span class="pre">HEAT</span> <span class="pre">FLUX</span></code>. If not explicitly defined, <span class="math notranslate nohighlight">\(\mf T_{gauge}\)</span> is assumed to be equal to the ambient temperature.</p>
+<div class="math notranslate nohighlight">
+\[\mf q_{\rm gauge}'' = \epsilon_{\rm gauge} \, \left( q_{\rm inc,rad}'' - \sigma \, T_{\rm gauge}^4 \right) + h \, (T_{\rm gas} - T_{\rm gauge})\]</div>
+<p>Quantities on a solid obstruction can be recorded using the <code class="docutils literal notranslate"><span class="pre">BNDF</span></code> namelist group. It can be defined similar to <code class="docutils literal notranslate"><span class="pre">SLCF</span></code> like:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">BNDF</span> <span class="n">QUANTITY</span><span class="o">=</span><span class="s1">&#39;NET HEAT FLUX&#39;</span><span class="p">,</span> <span class="n">CELL_CENTERED</span><span class="o">=.</span><span class="n">TRUE</span><span class="o">.</span> <span class="o">/</span>
+</pre></div>
+</div>
+<p>For more detailed information on how to set up <code class="docutils literal notranslate"><span class="pre">BNDF</span></code> in FDS please refer to section 21.5 <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">FDS User’s Guide</a>.</p>
+<p>By default, the specified quantities are evaluated for the surfaces of all obstructions as well as the boundaries of the computational domain. You can prevent this with the parameter <code class="docutils literal notranslate"><span class="pre">BNDF_DEFAULT</span> <span class="pre">=</span> <span class="pre">.False.</span></code> on the <code class="docutils literal notranslate"><span class="pre">MISC</span></code> line. Individual obstructions can then be turned back on with <code class="docutils literal notranslate"><span class="pre">BNDF_OBST=.TRUE.</span></code> on the appropriate <code class="docutils literal notranslate"><span class="pre">OBST</span></code> line.</p>
+<div class="cell tag_hide_cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fdsreader</span>
+<span class="kn">from</span> <span class="nn">fdsreader.bndf.utils</span> <span class="kn">import</span> <span class="n">sort_patches_cartesian</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;lines.linewidth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="n">root</span> <span class="o">=</span> <span class="s1">&#39;../../../../&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide_cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_root</span> <span class="o">=</span> <span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;data/heat_transfer/HeatTransfer_0&#39;</span>
+<span class="n">sim</span> <span class="o">=</span> <span class="n">fdsreader</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">data_root</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">get_bndf_face</span><span class="p">(</span><span class="n">quantity</span><span class="p">,</span> <span class="n">obstruction</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=-</span><span class="mi">2</span><span class="p">):</span>
+    <span class="n">obst</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">obstructions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">patches</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">sub_obst</span> <span class="ow">in</span> <span class="n">obst</span><span class="o">.</span><span class="n">filter_by_orientation</span><span class="p">(</span><span class="n">orientation</span><span class="p">):</span>
+        <span class="c1"># Get boundary data for a specific quantity</span>
+        <span class="n">sub_obst_data</span> <span class="o">=</span> <span class="n">sub_obst</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="n">quantity</span><span class="p">)</span>
+        <span class="n">patches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub_obst_data</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">orientation</span><span class="p">])</span>
+
+        <span class="c1"># Combine patches to a single face for plotting</span>
+        <span class="n">patches</span> <span class="o">=</span> <span class="n">sort_patches_cartesian</span><span class="p">(</span><span class="n">patches</span><span class="p">)</span>
+
+        <span class="n">shape_dim1</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">patch_row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">patch_row</span> <span class="ow">in</span> <span class="n">patches</span><span class="p">])</span>
+        <span class="n">shape_dim2</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">patch</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">patch</span> <span class="ow">in</span> <span class="n">patches</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+        <span class="n">n_t</span> <span class="o">=</span> <span class="n">patches</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">n_t</span>  <span class="c1"># Number of timesteps</span>
+
+        <span class="n">face</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">n_t</span><span class="p">,</span> <span class="n">shape_dim1</span><span class="p">,</span> <span class="n">shape_dim2</span><span class="p">))</span>
+        <span class="n">dim1_pos</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">dim2_pos</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">patch_row</span> <span class="ow">in</span> <span class="n">patches</span><span class="p">:</span>
+            <span class="n">d1</span> <span class="o">=</span> <span class="n">patch_row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">patch</span> <span class="ow">in</span> <span class="n">patch_row</span><span class="p">:</span>
+                <span class="n">d2</span> <span class="o">=</span> <span class="n">patch</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+                <span class="n">face</span><span class="p">[:,</span> <span class="n">dim1_pos</span><span class="p">:</span><span class="n">dim1_pos</span> <span class="o">+</span> <span class="n">d1</span><span class="p">,</span>
+                <span class="n">dim2_pos</span><span class="p">:</span><span class="n">dim2_pos</span> <span class="o">+</span> <span class="n">d2</span><span class="p">]</span> <span class="o">=</span> <span class="n">patch</span><span class="o">.</span><span class="n">data</span>
+                <span class="n">dim2_pos</span> <span class="o">+=</span> <span class="n">d2</span>
+            <span class="n">dim1_pos</span> <span class="o">+=</span> <span class="n">d1</span>
+            <span class="n">dim2_pos</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="n">face</span>
+
+<span class="n">total_hf</span> <span class="o">=</span> <span class="n">get_bndf_face</span><span class="p">(</span><span class="s1">&#39;TOTAL HEAT FLUX&#39;</span><span class="p">)</span>
+<span class="n">convective_hf</span> <span class="o">=</span> <span class="n">get_bndf_face</span><span class="p">(</span><span class="s1">&#39;CONVECTIVE HEAT FLUX&#39;</span><span class="p">)</span>
+<span class="n">radiative_hf</span> <span class="o">=</span> <span class="n">get_bndf_face</span><span class="p">(</span><span class="s1">&#39;RADIATIVE HEAT FLUX&#39;</span><span class="p">)</span>
+<span class="n">gauge_hf</span> <span class="o">=</span> <span class="n">get_bndf_face</span><span class="p">(</span><span class="s1">&#39;GAUGE HEAT FLUX&#39;</span><span class="p">)</span>
+<span class="n">incident_hf</span> <span class="o">=</span> <span class="n">get_bndf_face</span><span class="p">(</span><span class="s1">&#39;INCIDENT HEAT FLUX&#39;</span><span class="p">)</span>
+<span class="n">vmin</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">vmax</span> <span class="o">=</span> <span class="mi">80</span>
+<span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span> <span class="n">ax2</span><span class="p">,</span> <span class="n">ax3</span><span class="p">,</span> <span class="n">ax4</span><span class="p">,</span> <span class="n">ax5</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">30</span><span class="p">),</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">heatmap</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">total_hf</span><span class="p">[</span><span class="mi">500</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;jet&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">convective_hf</span><span class="p">[</span><span class="mi">500</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;jet&quot;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">radiative_hf</span><span class="p">[</span><span class="mi">500</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;jet&quot;</span><span class="p">)</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">incident_hf</span><span class="p">[</span><span class="mi">500</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;jet&quot;</span><span class="p">)</span>
+<span class="n">ax5</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">gauge_hf</span><span class="p">[</span><span class="mi">500</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;jet&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;TOTAL HEAT FLUX&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;CONVECTIVE HEAT FLUX&quot;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;RADIATIVE HEAT FLUX&quot;</span><span class="p">)</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;GAUGE HEAT FLUX&quot;</span><span class="p">)</span>
+<span class="n">ax5</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;INCIDENT HEAT FLUX&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$n_</span><span class="si">{cells}</span><span class="s2">~X$&quot;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$n_</span><span class="si">{cells}</span><span class="s2">~X$&quot;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$n_</span><span class="si">{cells}</span><span class="s2">~X$&quot;</span><span class="p">)</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$n_</span><span class="si">{cells}</span><span class="s2">~X$&quot;</span><span class="p">)</span>
+<span class="n">ax5</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;$n_</span><span class="si">{cells}</span><span class="s2">~X$&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;$n_</span><span class="si">{cells}</span><span class="s2">~Y$&quot;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="o">.</span><span class="n">subplots_adjust</span><span class="p">(</span><span class="n">right</span><span class="o">=</span><span class="mf">0.83</span><span class="p">)</span>
+<span class="n">cbar_ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.85</span><span class="p">,</span> <span class="mf">0.41</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.185</span><span class="p">])</span>
+<span class="n">cbar_ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;$kW / m^2$&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">heatmap</span><span class="p">,</span> <span class="n">cax</span><span class="o">=</span><span class="n">cbar_ax</span><span class="p">)</span>
+<span class="c1"># ax5.colorbar(label=&quot;Temperature / $\sf ^\circ C$&quot;)</span>
+<span class="c1"># plt.xlabel(&quot;$\sf N_{cells,x}$ / -&quot;)</span>
+<span class="c1"># plt.ylabel(&quot;$\sf N_{cells,y}$ / -&quot;)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figs/heatflux_bndf.svg&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="figure align-default" id="heat-transfer-heatflux-bndf">
+<a class="reference internal image-reference" href="../../../_images/heatflux_bndf.svg"><img alt="../../../_images/heatflux_bndf.svg" src="../../../_images/heatflux_bndf.svg" width="100%" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.16 </span><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">TOTAL</span> <span class="pre">HEAT</span> <span class="pre">FLUX</span></code>, <code class="docutils literal notranslate"><span class="pre">CONVECTIVE</span> <span class="pre">HEAT</span> <span class="pre">FLUX</span></code>, <code class="docutils literal notranslate"><span class="pre">RADIATIVE</span> <span class="pre">HEAT</span> <span class="pre">FLUX</span></code>, <code class="docutils literal notranslate"><span class="pre">GAUGE</span> <span class="pre">HEAT</span> <span class="pre">FLUX</span></code> and <code class="docutils literal notranslate"><span class="pre">INCIDENT</span> <span class="pre">HEAT</span> <span class="pre">FLUX</span></code> on a solid obstruction opposite a flat radiator with a constant temperature of  <span class="math notranslate nohighlight">\(\mf T = 1000^\circ C\)</span></span><a class="headerlink" href="#heat-transfer-heatflux-bndf" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="task-1">
+<h2>Task 1<a class="headerlink" href="#task-1" title="Permalink to this headline">¶</a></h2>
+<p>The local gas phase temperature at a certain cell can be evaluated via a simple <code class="docutils literal notranslate"><span class="pre">DEVC</span></code> with <code class="docutils literal notranslate"><span class="pre">QUANTITY</span> <span class="pre">=</span> <span class="pre">'TEMPERATURE'</span></code>. The output of a thermocouple which lags the true gas temperature by an amount determined mainly by its size can be assessed by a <code class="docutils literal notranslate"><span class="pre">DEVC</span></code> with <code class="docutils literal notranslate"><span class="pre">QUANTITY</span> <span class="pre">=</span> <span class="pre">THERMOCOUPLE</span></code>. It takes into account the radiative and convective heat transfer to a small sphere. For this purpose, it must be assigned an emissivity and a diameter.  The properties can be assigned to a <code class="docutils literal notranslate"><span class="pre">DEVICE</span></code> via the <code class="docutils literal notranslate"><span class="pre">PROP_ID</span></code> attribute (see also section 20.1 of <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">FDS User’s Guide</a>. For detailed information on how to model thermocouples in FDS please refer to section 21.10.6.</p>
+<p><strong>Tasks</strong></p>
+<ol class="simple">
+<li><p>Place simple devices with <code class="docutils literal notranslate"><span class="pre">QUANTITY</span> <span class="pre">=</span> <span class="pre">'TEMPERATURE'</span></code> and <code class="docutils literal notranslate"><span class="pre">THERMOCOUPLE</span></code> at X = 0, Y = 0.8 and heights z = 0.6 m (bottom), 2.6 m (behind heat shield), 4.4 m (top).  Run the simulation for at least 100 seconds and plot the temporal output of the devices. Discuss what effects lead to the differences between the two types of devices. For the thermocouples assume an <code class="docutils literal notranslate"><span class="pre">EMISSIVITY</span></code> of 0.9 and a diameter of d = 3 mm.</p></li>
+</ol>
+<div class="figure align-default" id="heat-transfer-namelist-dependencies-prop">
+<a class="reference internal image-reference" href="../../../_images/flow_chart_prop.svg"><img alt="../../../_images/flow_chart_prop.svg" src="../../../_images/flow_chart_prop.svg" width="70%" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.17 </span><span class="caption-text">Namelist dependencies <code class="docutils literal notranslate"><span class="pre">DEVC</span></code> (device) and <code class="docutils literal notranslate"><span class="pre">PROP</span></code> (property)</span><a class="headerlink" href="#heat-transfer-namelist-dependencies-prop" title="Permalink to this image">¶</a></p>
+</div>
+<div class="cell tag_hide_cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_root</span> <span class="o">=</span> <span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;data/heat_transfer/HeatTransfer_1&#39;</span>
+<span class="n">sim</span> <span class="o">=</span> <span class="n">fdsreader</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">data_root</span><span class="p">)</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">t_top</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;T_top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">tc_top</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;TC_top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">t_middle</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;T_middle&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">tc_middle</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;TC_middle&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">t_bottom</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;T_bottom&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">tc_bottom</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;TC_bottom&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">tc_top</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Thermocouple top&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">t_top</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Temp Devc top&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span> <span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">tc_middle</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Thermocouple middle&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">t_middle</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Temp Devc middle&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">tc_bottom</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Thermocouple bottom&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">t_bottom</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Temp Devc bottom&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time / s&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Temperature / $\circ C$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figs/thermocouples.svg&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>1. Solution</strong></p>
+<div class="figure align-default" id="heat-transfer-thermocouples">
+<a class="reference internal image-reference" href="../../../_images/thermocouples.svg"><img alt="../../../_images/thermocouples.svg" src="../../../_images/thermocouples.svg" width="80%" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.18 </span><span class="caption-text">Measured temperature of <code class="docutils literal notranslate"><span class="pre">THERMOCOUPLE</span></code> and simple <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span> <span class="pre">DEVC</span></code></span><a class="headerlink" href="#heat-transfer-thermocouples" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+<div class="section" id="task-2">
+<h2>Task 2<a class="headerlink" href="#task-2" title="Permalink to this headline">¶</a></h2>
+<p>In order to correctly compute the heat transfer within a solid obstruction, the thermal material properties <code class="docutils literal notranslate"><span class="pre">CONDUCTIVITY</span></code>, <code class="docutils literal notranslate"><span class="pre">SPECIF_HEAT</span></code> and <code class="docutils literal notranslate"><span class="pre">DENSITY</span></code> must be known. A new material can be defined via the <code class="docutils literal notranslate"><span class="pre">MATL</span></code> attribute. The available parameters for describing the material properties can be found at section 22.14 of <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">FDS User’s Guide</a>). Another parameter influencing the heat conduction within a solid is its thermal effective <code class="docutils literal notranslate"><span class="pre">THICKNESS</span></code>. This is defined on the <code class="docutils literal notranslate"><span class="pre">SURF</span></code> line and is independent from the actual thickness of an obstruction.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">EMISSIVITY</span></code> (default 0.9) can be set on the <code class="docutils literal notranslate"><span class="pre">SURF</span></code> or <code class="docutils literal notranslate"><span class="pre">MATL</span></code> line while the <code class="docutils literal notranslate"><span class="pre">MATL</span></code> parameter is given priority.</p>
+<p>The back side boundary conditions of a solid obstruction can be defined on the <code class="docutils literal notranslate"><span class="pre">SURF</span></code> line as:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">EXPOSED</span></code>: Calculates heat conduction through the wall into the space behind the wall (default)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">INSULATED</span></code>: Prevents any heat loss from the back side of the material</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VOID</span></code>: Always backs up to ambient temperature</p></li>
+</ul>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">THICKNESS</span></code> of a <code class="docutils literal notranslate"><span class="pre">SURF</span></code> ought to be the actual thickness of the “wall” through which FDS performs a 1-D heat conduction calculation. It is independent from the mesh cell width. If the obstruction is on the boundary of the domain or is more than one cell thick, then it is automatically assumed to back up to an air gap at ambient temperature.</p>
+</div>
+<div class="figure align-default" id="heat-transfer-namelist-dependencies-surf">
+<a class="reference internal image-reference" href="../../../_images/flow_chart_surf.svg"><img alt="../../../_images/flow_chart_surf.svg" src="../../../_images/flow_chart_surf.svg" width="100%" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.19 </span><span class="caption-text">Namelist dependencies <code class="docutils literal notranslate"><span class="pre">OBST</span></code> (obstruction), <code class="docutils literal notranslate"><span class="pre">SURF</span></code> (surface), and <code class="docutils literal notranslate"><span class="pre">MATL</span></code> (material)</span><a class="headerlink" href="#heat-transfer-namelist-dependencies-surf" title="Permalink to this image">¶</a></p>
+</div>
+<p><strong>Tasks</strong></p>
+<ol class="simple">
+<li><p>Define a new material “Steel” with the following material properties <span class="math notranslate nohighlight">\(\mf c_p = 0.5~kJ~/kg~K\)</span>, <span class="math notranslate nohighlight">\(\mf \lambda = 45.3~W~/m~K \)</span> and <span class="math notranslate nohighlight">\(\mf \rho=7854~kg~m^{-3}\)</span>. Assign the material to the “SURF_1” (yellow) and “SURF_2” (orange). On the <code class="docutils literal notranslate"><span class="pre">SURF</span></code> line change the back side boundary condition of one of the surfaces to <code class="docutils literal notranslate"><span class="pre">INSULATED</span></code> and on the other to <code class="docutils literal notranslate"><span class="pre">EXPOSED</span></code> (See section 11.3.3 <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">FDS User’s Guide</a>). Assume a <code class="docutils literal notranslate"><span class="pre">THICKNESS</span></code> of 10 mm (0.1 m). Analyse the <code class="docutils literal notranslate"><span class="pre">WALL</span> <span class="pre">TEMPERATURE</span></code> (on front surface) as well as the <code class="docutils literal notranslate"><span class="pre">INSIDE</span> <span class="pre">WALL</span> <span class="pre">TEMPERATURE</span></code> at depths 2.5 mm and 7.5 mm and the <code class="docutils literal notranslate"><span class="pre">BACK</span> <span class="pre">WALL</span> <span class="pre">TEMPERATURE</span></code> (on back surface) (see 21.2.1 and 21.2.3 <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">FDS User’s Guide</a>). For this purpose a respective <code class="docutils literal notranslate"><span class="pre">DEVC</span></code> must be placed on the front surface of the solid <code class="docutils literal notranslate"><span class="pre">OBSTRUCTION</span></code>. The parameter <code class="docutils literal notranslate"><span class="pre">IOR</span></code> (Index of Orientation) is required for any device that is placed on the surface of a solid. It indicates the direction that the device points at. For example, <code class="docutils literal notranslate"><span class="pre">IOR</span> <span class="pre">=</span> <span class="pre">-1</span></code> means that the device is mounted on a wall that faces in the negative x direction. Run the simulation for 600 s and plot the indicated temperatures for both surfaces.</p></li>
+<li><p>At which timestep does the difference between the <code class="docutils literal notranslate"><span class="pre">WALL</span> <span class="pre">TEMPERATURE</span></code> of both surfaces exceed a ratio of 5%?</p></li>
+<li><p>Assign <code class="docutils literal notranslate"><span class="pre">VOID</span></code> and <code class="docutils literal notranslate"><span class="pre">EXPOSED</span></code> back wall boundary conditions to the respective surfaces and evaluate the <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> at a gas phase cell directly behind the obstruction. Then extend the obstruction width to at least two cells and run the simulation again afterwards. Compare the measured temperatures. Make sure the devices are not within any obstruction as you change the width of the wall.</p></li>
+</ol>
+<p><strong>1. and 2. Solution</strong></p>
+<div class="cell tag_hide_cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_root</span> <span class="o">=</span> <span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;data/heat_transfer/HeatTransfer_2_1&#39;</span>
+<span class="n">sim</span> <span class="o">=</span> <span class="n">fdsreader</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">data_root</span><span class="p">)</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+
+<span class="n">steel_exposed_front</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;Steel_exposed_front&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">steel_exposed_025</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;Steel_exposed_025&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">steel_exposed_075</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;Steel_exposed_075&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">steel_exposed_back</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;Steel_exposed_back&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+
+<span class="n">steel_insulated_front</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;Steel_insulated_front&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">steel_insulated_025</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;Steel_insulated_025&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">steel_insulated_075</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;Steel_insulated_075&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">steel_insulated_back</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;Steel_insulated_back&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">steel_exposed_front</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Front, back. exposed&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">steel_exposed_025</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;d = 2.5 mm, back. exposed&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">steel_exposed_075</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;d = 7.5 mm, back. exposed&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">steel_exposed_back</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Back, back. exposed&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">steel_insulated_front</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Front, back. insulated&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">steel_insulated_025</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;2.5 mm, back. insulated&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">steel_insulated_075</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;7.5 mm, back. insulated&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">steel_insulated_back</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Back, back. insulated&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Time / s&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Temperature / $^\circ C$&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">35</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">ncol</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figs/backings_start.svg&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+
+<span class="n">error</span> <span class="o">=</span> <span class="p">(</span><span class="n">steel_insulated_front</span><span class="o">-</span><span class="n">steel_exposed_front</span><span class="p">)</span><span class="o">/</span><span class="n">steel_insulated_front</span><span class="o">*</span><span class="mi">100</span>
+<span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twinx</span><span class="p">()</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">error</span><span class="p">,</span> <span class="n">label</span> <span class="o">=</span> <span class="s2">&quot;rel. Error&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;purple&#39;</span><span class="p">)</span>
+<span class="n">handles_1</span><span class="p">,</span> <span class="n">labels_1</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">()</span>
+<span class="n">handles_2</span><span class="p">,</span> <span class="n">labels_2</span> <span class="o">=</span> <span class="n">ax2</span><span class="o">.</span><span class="n">get_legend_handles_labels</span><span class="p">()</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">handles_1</span><span class="o">+</span><span class="n">handles_2</span><span class="p">,</span> <span class="n">labels_1</span><span class="o">+</span><span class="n">labels_2</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">1.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper left&#39;</span><span class="p">)</span>
+
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Rel. Error / %&quot;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">600</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># ax1.set_ylim(20,600)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">600</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figs/backings_end.svg&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="figure align-default" id="heat-transfer-backings-start">
+<a class="reference internal image-reference" href="../../../_images/backings_start.svg"><img alt="../../../_images/backings_start.svg" src="../../../_images/backings_start.svg" width="100%" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.20 </span><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">WALL</span> <span class="pre">TEMPERATURE</span></code> and <code class="docutils literal notranslate"><span class="pre">INSIDE</span> <span class="pre">WALL</span> <span class="pre">TEMPERATURE</span></code> at several depths inside the solid steel obstruction within the first 10 seconds seconds of heating phase</span><a class="headerlink" href="#heat-transfer-backings-start" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="heat-transfer-backings-end">
+<a class="reference internal image-reference" href="../../../_images/backings_end.svg"><img alt="../../../_images/backings_end.svg" src="../../../_images/backings_end.svg" width="100%" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.21 </span><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">WALL</span> <span class="pre">TEMPERATURE</span></code> and <code class="docutils literal notranslate"><span class="pre">INSIDE</span> <span class="pre">WALL</span> <span class="pre">TEMPERATURE</span></code> at several depths inside the solid steel obstruction within the first 600 seconds seconds of heating phase. The purple line indicates the relative error between an insulated and exposed backing boundary condition.</span><a class="headerlink" href="#heat-transfer-backings-end" title="Permalink to this image">¶</a></p>
+</div>
+<div class="cell tag_hide_cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_root</span> <span class="o">=</span> <span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;data/heat_transfer/HeatTransfer_2_2&#39;</span>
+<span class="n">sim</span> <span class="o">=</span> <span class="n">fdsreader</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">data_root</span><span class="p">)</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">exposed_temp_1cell</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;exposed_temp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">void_temp_1cell</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;void_temp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">data_root</span> <span class="o">=</span> <span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;data/heat_transfer/HeatTransfer_2_3&#39;</span>
+<span class="n">sim</span> <span class="o">=</span> <span class="n">fdsreader</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">data_root</span><span class="p">)</span>
+<span class="n">exposed_temp_2cell</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;exposed_temp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">void_temp_2cell</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;void_temp&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">exposed_temp_1cell</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;back. exposed, 1 cell&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">void_temp_1cell</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;back. void, 1 cell&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">exposed_temp_2cell</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;back. exposed, 2 cells&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">void_temp_2cell</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;back. void, 2 cells&quot;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time / s&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Temperature / $^\circ C$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">600</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figs/two_cell_problem.svg&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/02_heat_transfer_example_14_0.png" src="../../../_images/02_heat_transfer_example_14_0.png" />
+</div>
+</div>
+<p><strong>3. Solution</strong></p>
+<div class="figure align-default" id="heat-transfer-specific-heat-capacity">
+<a class="reference internal image-reference" href="../../../_images/two_cell_problem.svg"><img alt="../../../_images/two_cell_problem.svg" src="../../../_images/two_cell_problem.svg" width="80%" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.22 </span><span class="caption-text">Comparison of heat conduction through a wall. The heat transfer into the space behind the wall is not computed if the obstruction is thicker than one cell.</span><a class="headerlink" href="#heat-transfer-specific-heat-capacity" title="Permalink to this image">¶</a></p>
+</div>
+<div class="cell tag_hide_cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="k">def</span> <span class="nf">density</span><span class="p">(</span><span class="n">p_20</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+    <span class="k">if</span> <span class="mi">20</span> <span class="o">&lt;=</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="mi">115</span><span class="p">:</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">p_20</span>
+    <span class="k">elif</span> <span class="mi">115</span> <span class="o">&lt;</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">p_20</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="mf">0.02</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">115</span><span class="p">)</span><span class="o">/</span><span class="mi">85</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="mi">200</span> <span class="o">&lt;</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="mi">400</span><span class="p">:</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">p_20</span> <span class="o">*</span> <span class="p">(</span><span class="mf">0.98</span> <span class="o">-</span> <span class="mf">0.03</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">200</span><span class="p">)</span><span class="o">/</span><span class="mi">200</span><span class="p">)</span>     
+    <span class="k">elif</span> <span class="mi">400</span> <span class="o">&lt;</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="mi">1200</span><span class="p">:</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">p_20</span> <span class="o">*</span> <span class="p">(</span><span class="mf">0.95</span> <span class="o">-</span> <span class="mf">0.07</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">400</span><span class="p">)</span><span class="o">/</span><span class="mi">800</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">p</span>
+
+<span class="k">def</span> <span class="nf">conductivity</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;upper&#39;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">how</span> <span class="o">==</span> <span class="s1">&#39;upper&#39;</span><span class="p">:</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="mi">2</span><span class="o">-</span><span class="mf">0.2451</span> <span class="o">*</span> <span class="p">(</span><span class="n">t</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.0107</span> <span class="o">*</span> <span class="p">(</span><span class="n">t</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">elif</span> <span class="n">how</span> <span class="o">==</span> <span class="s1">&#39;lower&#39;</span><span class="p">:</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="mf">1.36</span> <span class="o">-</span><span class="mf">0.136</span> <span class="o">*</span> <span class="p">(</span><span class="n">t</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.0057</span> <span class="o">*</span><span class="p">(</span><span class="n">t</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+    <span class="k">return</span> <span class="n">k</span>
+
+<span class="k">def</span> <span class="nf">specific_heat</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">humidity</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+    <span class="k">if</span> <span class="mi">20</span> <span class="o">&lt;=</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="mi">100</span><span class="p">:</span>
+        <span class="n">cp</span> <span class="o">=</span> <span class="mi">900</span>
+    <span class="k">elif</span> <span class="mi">100</span> <span class="o">&lt;</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="mi">200</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">humidity</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">cp</span> <span class="o">=</span> <span class="mi">900</span> <span class="o">+</span> <span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="mi">100</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">humidity</span> <span class="o">==</span> <span class="mf">1.5</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="mi">115</span><span class="p">:</span>
+                <span class="n">cp</span> <span class="o">=</span> <span class="mi">1470</span>
+            <span class="k">elif</span> <span class="n">t</span> <span class="o">&gt;</span> <span class="mi">115</span><span class="p">:</span>
+                <span class="n">cp</span> <span class="o">=</span> <span class="mi">1470</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1000</span><span class="o">-</span><span class="mi">1470</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">200</span><span class="o">-</span><span class="mi">115</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">115</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">humidity</span> <span class="o">==</span> <span class="mf">3.0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="mi">115</span><span class="p">:</span>
+                <span class="n">cp</span> <span class="o">=</span> <span class="mi">2020</span>
+            <span class="k">elif</span> <span class="n">t</span> <span class="o">&gt;</span> <span class="mi">115</span><span class="p">:</span>
+                <span class="n">cp</span> <span class="o">=</span> <span class="mi">2020</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1000</span><span class="o">-</span><span class="mi">2020</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">200</span><span class="o">-</span><span class="mi">115</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">t</span><span class="o">-</span><span class="mi">115</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="mi">200</span> <span class="o">&lt;</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="mi">400</span><span class="p">:</span>
+        <span class="n">cp</span> <span class="o">=</span> <span class="mi">1000</span> <span class="o">+</span> <span class="p">(</span><span class="n">t</span> <span class="o">-</span> <span class="mi">200</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="k">elif</span> <span class="mi">400</span> <span class="o">&lt;</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="mi">1200</span><span class="p">:</span>
+        <span class="n">cp</span> <span class="o">=</span> <span class="mi">1100</span>
+    <span class="k">return</span> <span class="n">cp</span><span class="o">/</span><span class="mi">1000</span>
+ 
+<span class="n">temp_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">1200</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">density_array</span> <span class="o">=</span> <span class="p">[</span><span class="n">density</span><span class="p">(</span><span class="mi">2400</span><span class="p">,</span> <span class="n">t</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">temp_array</span><span class="p">]</span>
+<span class="n">conductivity_upper_array</span> <span class="o">=</span> <span class="p">[</span><span class="n">conductivity</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;upper&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">temp_array</span><span class="p">]</span>
+<span class="n">conductivity_lower_array</span> <span class="o">=</span> <span class="p">[</span><span class="n">conductivity</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">temp_array</span><span class="p">]</span>
+<span class="n">specific_heat_array_0</span> <span class="o">=</span> <span class="p">[</span><span class="n">specific_heat</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">humidity</span><span class="o">=</span><span class="mf">0.0</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">temp_array</span><span class="p">]</span>
+<span class="n">specific_heat_array_15</span> <span class="o">=</span> <span class="p">[</span><span class="n">specific_heat</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">humidity</span><span class="o">=</span><span class="mf">1.5</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">temp_array</span><span class="p">]</span>
+<span class="n">specific_heat_array_30</span> <span class="o">=</span> <span class="p">[</span><span class="n">specific_heat</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">humidity</span><span class="o">=</span><span class="mf">3.0</span><span class="p">)</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">temp_array</span><span class="p">]</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temp_array</span><span class="p">,</span> <span class="n">specific_heat_array_0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;humidity 0%&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temp_array</span><span class="p">,</span> <span class="n">specific_heat_array_15</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;humidity 1.5%&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temp_array</span><span class="p">,</span> <span class="n">specific_heat_array_30</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;humidity 3%&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Temperature / $^\circ C$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Specific Heat / $kJ~/~kg~K$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;figs/specific_heat_capacity.svg&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temp_array</span><span class="p">,</span> <span class="n">conductivity_upper_array</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;upper limit&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temp_array</span><span class="p">,</span> <span class="n">conductivity_lower_array</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;lower limit&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Temperature / $^\circ C$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Conductivity / $W~/~m~K$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;figs/conductivity.svg&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">temp_array</span><span class="p">,</span> <span class="n">density_array</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Temperature / $^\circ C$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Density / $kg~/~m^3$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s2">&quot;figs/density.svg&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="task-3">
+<h2>Task 3<a class="headerlink" href="#task-3" title="Permalink to this headline">¶</a></h2>
+<p>The assumption of constant thermal material properties is a simplification that often is sufficiently accurate. In some cases, however, it may be necessary to consider the actual temperature-dependent properties of a material or component. This can be done in FDS by defining a RAMP function, which describes a material parameter as a function of temperature (see section 11.3.2 <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">FDS User’s Guide</a>).</p>
+<p>Figure <a class="reference internal" href="#heat-transfer-density"><span class="std std-numref">Fig. 6.24</span></a> - <a class="reference internal" href="#heat-transfer-conductivity"><span class="std std-numref">Fig. 6.26</span></a> shows the temperature-dependent relationships for the specific heat capacity, thermal conductivity and density of concrete according to DIN EN 1992-1-2.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In FDS only the <code class="docutils literal notranslate"><span class="pre">SPECIFI_HEAT</span></code> and <code class="docutils literal notranslate"><span class="pre">CONDUCTIVITY</span></code> can be ramped while <code class="docutils literal notranslate"><span class="pre">DENSITY</span></code> and <code class="docutils literal notranslate"><span class="pre">EMISSIVITY</span></code> cannot.</p>
+</div>
+<p><strong>Tasks</strong></p>
+<ol class="simple">
+<li><p>At 20°C, read the values from <a class="reference internal" href="#heat-transfer-density"><span class="std std-numref">Fig. 6.24</span></a> - <a class="reference internal" href="#heat-transfer-conductivity"><span class="std std-numref">Fig. 6.26</span></a> and define a new material “concrete” with the corresponding material properties. Define another material taking into account the variable material properties. Therefore roughly map the corresponding progression curves using a RAMP function (max. 7 datapoints each). Assign the two materials to “SURF_1”  and “SURF_2” in the FDS file.</p></li>
+<li><p>Run the simulation for 600 s and compare the <code class="docutils literal notranslate"><span class="pre">WALL</span> <span class="pre">TEMPERATURE</span></code> for both surfaces as well as the <code class="docutils literal notranslate"><span class="pre">INSIDE</span> <span class="pre">WALL</span> <span class="pre">TEMPERATURE</span></code> at d = 10 mm. Assume the wall to have a thickness of 10 cm. Assume a humidity of 3 %. For the conductivity consider the upper limit.</p></li>
+</ol>
+<div class="figure align-default" id="heat-transfer-namelist-dependencies-ramp">
+<a class="reference internal image-reference" href="../../../_images/flow_chart_ramp.svg"><img alt="../../../_images/flow_chart_ramp.svg" src="../../../_images/flow_chart_ramp.svg" width="70%" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.23 </span><span class="caption-text">Namelist dependencies <code class="docutils literal notranslate"><span class="pre">MATL</span></code> (material) and <code class="docutils literal notranslate"><span class="pre">RAMP</span></code> (ramp function)</span><a class="headerlink" href="#heat-transfer-namelist-dependencies-ramp" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="heat-transfer-density">
+<a class="reference internal image-reference" href="../../../_images/density.svg"><img alt="../../../_images/density.svg" src="../../../_images/density.svg" width="80%" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.24 </span><span class="caption-text">Density of concrete as a function of temperature</span><a class="headerlink" href="#heat-transfer-density" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="id1">
+<a class="reference internal image-reference" href="../../../_images/specific_heat_capacity.svg"><img alt="../../../_images/specific_heat_capacity.svg" src="../../../_images/specific_heat_capacity.svg" width="80%" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.25 </span><span class="caption-text">Specific heat of concrete with quartz-containing additive as a function of temperature</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="heat-transfer-conductivity">
+<a class="reference internal image-reference" href="../../../_images/conductivity.svg"><img alt="../../../_images/conductivity.svg" src="../../../_images/conductivity.svg" width="80%" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.26 </span><span class="caption-text">Thermal conductivity of concrete</span><a class="headerlink" href="#heat-transfer-conductivity" title="Permalink to this image">¶</a></p>
+</div>
+<p><strong>1. and 2. Solution</strong></p>
+<div class="cell tag_hide_cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_root</span> <span class="o">=</span> <span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;data/heat_transfer/HeatTransfer_3&#39;</span>
+<span class="n">sim</span> <span class="o">=</span> <span class="n">fdsreader</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">data_root</span><span class="p">)</span>
+<span class="n">time</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+
+<span class="n">concrete_1_surf</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;Concrete_1_surf&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">concrete_2_surf</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;Concrete_2_surf&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">concrete_1_ins</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;Concrete_1_ins&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">concrete_2_ins</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;Concrete_2_ins&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">concrete_1_surf</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;WALL Temp. RAMP MAT&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">concrete_2_surf</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;WALL Temp. FIXED MAT&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">concrete_1_ins</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;INSIDE WALL Temp. RAMP MAT&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">concrete_2_ins</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;INSIDE WALL Temp. FIXED MAT&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time / s&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Temperature / $\circ^C$&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figs/mat_prop.svg&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="figure align-default" id="heat-transfer-ramp-mat-prop">
+<a class="reference internal image-reference" href="../../../_images/mat_prop.svg"><img alt="../../../_images/mat_prop.svg" src="../../../_images/mat_prop.svg" width="80%" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.27 </span><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">WALL</span> <span class="pre">TEMPERATURE</span></code> and <code class="docutils literal notranslate"><span class="pre">INSIDE</span> <span class="pre">WALL</span> <span class="pre">TEMPERATURE</span></code> of concrete <code class="docutils literal notranslate"><span class="pre">SURF</span></code> with fixed and temperature dependent material properties</span><a class="headerlink" href="#heat-transfer-ramp-mat-prop" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/modelling/06_heat_transfer"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="01_fundamentals.html" title="previous page"><span class="section-number">6.1. </span>Fundamentals</a>
+    <a class='right-next' id="next-link" href="../../tools/01_fds_smv/00_overview.html" title="next page">FDS and SMV</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          <div class="extra_footer">
+            <p>
+<img src='https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg' height='31'/>
+| By Team Fire | Contacts and Infos: <a href='https://cce.uni-wuppertal.de/en.html'>CCE@BUW</a> and <a href='https://www.fz-juelich.de/ias/ias-7/EN/Research/Fire_Dynamics/_node.html'>IAS-7@FZJ</a>
+</br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</p>
+
+          </div>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
