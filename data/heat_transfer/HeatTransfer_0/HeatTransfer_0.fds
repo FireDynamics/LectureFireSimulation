@@ -1,0 +1,34 @@
+&HEAD CHID = 'heat_transfer', TITLE = 'Heat Transfer Example Task 0'  /
+
+## Computational domain, simulation time and ambient values
+&MESH IJK = 8,10,25, XB = -0.8,0.8, 0,2.0, 0.0,5.0 /
+&TIME T_END = 600.0 /
+&MISC TMPA = 20.0 BNDF_DEFAULT = .False. /
+
+## Geometry
+&OBST XB = -1.0,1.0 1.0,1.2, 0,5.0 BNDF_OBST=T /
+
+
+## Domain boundary conditions
+&VENT MB = 'YMAX' SURF_ID = 'OPEN' /
+
+## Heater surface
+&VENT XB = -0.8,0.8, 0.0,0.0, 0.0, 5.0, SURF_ID='HEATER' /
+&SURF ID = 'HEATER', TMP_FRONT = 1000., COLOR = 'RASPBERRY' /
+
+## Material properties
+&SURF ID = 'SURF_1'  COLOR = 'ORANGE' /
+&SURF ID = 'SURF_2'  COLOR = 'YELLOW' /
+
+## Output definition
+&SLCF PBX = 0, QUANTITY = 'TEMPERATURE', CELL_CENTERED = .TRUE. /
+
+&BNDF QUANTITY='TOTAL HEAT FLUX', CELL_CENTERED=.TRUE. /
+&BNDF QUANTITY='CONVECTIVE HEAT FLUX', CELL_CENTERED=.TRUE. /
+&BNDF QUANTITY='GAUGE HEAT FLUX', CELL_CENTERED=.TRUE. /
+&BNDF QUANTITY='INCIDENT HEAT FLUX', CELL_CENTERED=.TRUE. /
+&BNDF QUANTITY='RADIATIVE HEAT FLUX', CELL_CENTERED=.TRUE. /
+
+
+
+&TAIL /

@@ -1,0 +1,63 @@
+&HEAD CHID = 'heat_transfer', TITLE = 'Heat Transfer Example'  /
+
+## Computational domain, simulation time and ambient values
+&MESH IJK = 8,10,25, XB = -0.8,0.8, 0,2.0, 0.0,5.0 /
+&TIME T_END = 600.0 /
+&MISC TMPA = 20.0 /
+
+## Geometry
+&OBST XB = -1.0,1.0 1.0,1.2, 4.8,5.0 /
+&OBST XB = -0.8,0.8 1.0,1.2, 0.0,4.0 /
+&OBST XB = -0.8,0.0 1.0,1.2, 4.0,4.8 SURF_ID = SURF_1/
+&OBST XB = 0.8,0.0 1.0,1.2, 4.0,4.8 SURF_ID = SURF_2/
+&OBST XB = -0.4,0.4 0.6,0.6, 2.2,3.0 COLOR = 'GRAY' /
+
+## Domain boundary conditions
+&VENT MB = 'YMAX' SURF_ID = 'OPEN' /
+
+## Heater surface
+&VENT XB = -0.8,0.8, 0.0,0.0, 0.0, 5.0, SURF_ID='HEATER' /
+&SURF ID = 'HEATER', TMP_FRONT = 1000., COLOR = 'RASPBERRY' /
+
+## Material properties
+&SURF ID = 'SURF_1'  MATL_ID = 'CONCRETE_1' THICKNESS = 0.1 BACKING = 'VOID' COLOR = 'ORANGE' /
+&SURF ID = 'SURF_2'  MATL_ID = 'CONCRETE_2' THICKNESS = 0.1 BACKING = 'INSULATED' COLOR = 'YELLOW' /
+
+&MATL ID                    = 'CONCRETE_1'
+      FYI                   = 'EUROCODE 2'
+      SPECIFIC_HEAT         = 0.9
+      CONDUCTIVITY          = 2.0
+      DENSITY               = 2400/
+
+
+&MATL ID                    = 'CONCRETE_2'
+      FYI                   = 'EUROCODE 2'
+      SPECIFIC_HEAT_RAMP    = 'c_ramp'
+      CONDUCTIVITY_RAMP     = 'k_ramp'
+      DENSITY          = 2400
+
+
+&RAMP ID='k_ramp', T= 20., F=1.95 /
+&RAMP ID='k_ramp', T= 200., F=1.55 /
+&RAMP ID='k_ramp', T= 400., F=1.19 /
+&RAMP ID='k_ramp', T= 600., F=0.92 /
+&RAMP ID='k_ramp', T= 800., F=0.72 /
+&RAMP ID='k_ramp', T= 1000., F=0.62 /
+
+&RAMP ID='c_ramp', T= 20., F=0.90 /
+&RAMP ID='c_ramp', T= 100., F=0.90 /
+&RAMP ID='c_ramp', T= 101., F=2.02 /
+&RAMP ID='c_ramp', T= 115., F=2.02 /
+&RAMP ID='c_ramp', T= 200., F=1.00 /
+&RAMP ID='c_ramp', T= 400., F=1.10 /
+&RAMP ID='c_ramp', T= 1000., F=1.00 /
+
+## Output definition
+
+&DEVC XYZ=-0.5,1.0,4.4 QUANTITY='WALL TEMPERATURE' ID='Concrete_1_surf', IOR=-2 /
+&DEVC XYZ=-0.5,1.0,4.4 QUANTITY='INSIDE WALL TEMPERATURE', DEPTH=0.01, ID='Concrete_1_ins', IOR=-2 /
+
+&DEVC XYZ=0.5,1.0,4.4 QUANTITY='WALL TEMPERATURE' ID='Concrete_2_surf', IOR=-2 /
+&DEVC XYZ=0.5,1.0,4.4 QUANTITY='INSIDE WALL TEMPERATURE', DEPTH=0.01, ID='Concrete_2_ins', IOR=-2 /
+
+&TAIL /

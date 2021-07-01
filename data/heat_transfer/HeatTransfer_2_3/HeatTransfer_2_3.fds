@@ -1,0 +1,37 @@
+&HEAD CHID = 'heat_transfer', TITLE = 'Heat Transfer Example Task 2_3'  /
+
+## Computational domain, simulation time and ambient values
+&MESH IJK = 8,10,25, XB = -0.8,0.8, 0,2.0, 0.0,5.0 /
+&TIME T_END = 600.0 /
+&MISC TMPA = 20.0 /
+
+## Geometry
+&OBST XB = 0.0,0.0 1.2,2.0, 0.0,5.0 /
+&OBST XB = -1.0,1.0 1.0,1.4, 4.8,5.0 /
+&OBST XB = -0.8,0.8 1.0,1.4, 0.0,4.0 /
+&OBST XB = -0.8,0.0 1.0,1.4, 4.0,4.8 SURF_ID = SURF_1/
+&OBST XB = 0.8,0.0 1.0,1.4, 4.0,4.8 SURF_ID = SURF_2/
+&OBST XB = -0.4,0.4 0.6,0.6, 2.2,3.0 COLOR = 'GRAY' /
+
+## Domain boundary conditions
+&VENT MB = 'YMAX' SURF_ID = 'OPEN' /
+
+## Heater surface
+&VENT XB = -0.8,0.8, 0.0,0.0, 0.0, 5.0, SURF_ID='HEATER' /
+&SURF ID = 'HEATER', TMP_FRONT = 1000., COLOR = 'RASPBERRY' /
+
+## Material properties
+&SURF ID = 'SURF_1'  MATL_ID = 'STEEL' THICKNESS = 0.01 BACKING = 'VOID' COLOR = 'ORANGE' /
+&SURF ID = 'SURF_2'  MATL_ID = 'STEEL' THICKNESS = 0.01 BACKING = 'EXPOSED' COLOR = 'YELLOW' /
+
+&MATL ID                    = 'STEEL'
+      FYI                   = 'EUROCODE 3'
+      SPECIFIC_HEAT         = 0.5
+      CONDUCTIVITY          = 45.3
+      DENSITY               = 7854/
+
+## Output definition
+&DEVC XYZ=-0.5,1.3,4.5 QUANTITY='TEMPERATURE' ID='void_temp' /
+&DEVC XYZ=0.5,1.3,4.5 QUANTITY='TEMPERATURE' ID='exposed_temp' /
+
+&TAIL /

@@ -1,0 +1,46 @@
+&HEAD CHID = 'heat_transfer', TITLE = 'Heat Transfer Example Task 2_1'  /
+
+## Computational domain, simulation time and ambient values
+&MESH IJK = 8,10,25, XB = -0.8,0.8, 0,2.0, 0.0,5.0 /
+&TIME T_END = 600.0 /
+&MISC TMPA = 20.0 /
+
+## Geometry
+&OBST XB = -1.0,1.0 1.0,1.2, 4.8,5.0 /
+&OBST XB = -0.8,0.8 1.0,1.2, 0.0,4.0 /
+&OBST XB = -0.8,0.0 1.0,1.2, 4.0,4.8 SURF_ID = SURF_1/
+&OBST XB = 0.8,0.0 1.0,1.2, 4.0,4.8 SURF_ID = SURF_2/
+&OBST XB = -0.4,0.4 0.6,0.6, 2.2,3.0 COLOR = 'GRAY' /
+
+## Domain boundary conditions
+&VENT MB = 'YMAX' SURF_ID = 'OPEN' /
+
+## Heater surface
+&VENT XB = -0.8,0.8, 0.0,0.0, 0.0, 5.0, SURF_ID='HEATER' /
+&SURF ID = 'HEATER', TMP_FRONT = 1000., COLOR = 'RASPBERRY' /
+
+## Material properties
+&SURF ID = 'SURF_1'  MATL_ID = 'STEEL' THICKNESS = 0.01 BACKING = 'VOID' COLOR = 'ORANGE' /
+&SURF ID = 'SURF_2'  MATL_ID = 'STEEL' THICKNESS = 0.01 BACKING = 'INSULATED' COLOR = 'YELLOW' /
+
+&MATL ID                    = 'STEEL'
+      FYI                   = 'EUROCODE 3'
+      SPECIFIC_HEAT         = 0.5
+      CONDUCTIVITY          = 45.3
+      DENSITY               = 7854/
+
+## Output definition
+&DEVC XYZ=-0.5,1.0,4.5 QUANTITY='WALL TEMPERATURE' ID='Steel_exposed_front', IOR=-2 /
+&DEVC XYZ=-0.5,1.0,4.5 QUANTITY='INSIDE WALL TEMPERATURE', DEPTH=0.0025, ID='Steel_exposed_025', IOR=-2 /
+&DEVC XYZ=-0.5,1.0,4.5 QUANTITY='INSIDE WALL TEMPERATURE', DEPTH=0.0075, ID='Steel_exposed_075', IOR=-2 /
+&DEVC XYZ=-0.5,1.0,4.5 QUANTITY='BACK WALL TEMPERATURE' ID='Steel_exposed_back', IOR=-2 /
+&DEVC XYZ=0.5,1.0,4.5 QUANTITY='WALL TEMPERATURE' ID='Steel_insulated_front', IOR=-2 /
+&DEVC XYZ=0.5,1.0,4.5 QUANTITY='INSIDE WALL TEMPERATURE', DEPTH=0.0025, ID='Steel_insulated_025', IOR=-2 /
+&DEVC XYZ=0.5,1.0,4.5 QUANTITY='INSIDE WALL TEMPERATURE', DEPTH=0.0075, ID='Steel_insulated_075', IOR=-2 /
+&DEVC XYZ=0.5,1.0,4.5 QUANTITY='BACK WALL TEMPERATURE' ID='Steel_insulated_back', IOR=-2 /
+
+&SLCF PBZ = 4.4, QUANTITY = 'TEMPERATURE', CELL_CENTERED = .TRUE. /
+
+&PROF ID='Steel_exposed_prof', XYZ=-0.5,1.0,4.5, QUANTITY='TEMPERATURE', IOR=-2 /
+
+&TAIL /

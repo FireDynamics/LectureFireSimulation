@@ -1,0 +1,31 @@
+&HEAD CHID = 'heat_transfer', TITLE = 'Heat Transfer Example'  /
+
+## Computational domain, simulation time and ambient values
+&MESH IJK = 8,10,25, XB = -0.8,0.8, 0,2.0, 0.0,5.0 /
+&TIME T_END = 600.0 /
+&MISC TMPA = 20.0 /
+
+## Geometry
+&OBST XB = 0.0,0.0 1.2,2.0, 0.0,5.0 /
+&OBST XB = -1.0,1.0 1.0,1.2, 4.8,5.0 /
+&OBST XB = -0.8,0.8 1.0,1.2, 0.0,4.0 /
+&OBST XB = -0.8,0.0 1.0,1.2, 4.0,4.8 SURF_ID = SURF_1/
+&OBST XB = 0.8,0.0 1.0,1.2, 4.0,4.8 SURF_ID = SURF_2/
+&OBST XB = -0.4,0.4 0.6,0.6, 2.2,3.0 COLOR = 'GRAY' /
+
+## Domain boundary conditions
+&VENT MB = 'YMAX' SURF_ID = 'OPEN' /
+
+## Heater surface
+&VENT XB = -0.8,0.8, 0.0,0.0, 0.0, 5.0, SURF_ID='HEATER' /
+&SURF ID = 'HEATER', TMP_FRONT = 1000., COLOR = 'RASPBERRY' /
+
+## Material properties
+&SURF ID = 'SURF_1' COLOR = 'ORANGE' /
+&SURF ID = 'SURF_2' COLOR = 'YELLOW' /
+
+## Output definition
+
+&SLCF PBX = 0, QUANTITY = 'TEMPERATURE', CELL_CENTERED = .TRUE. /
+
+&TAIL /
