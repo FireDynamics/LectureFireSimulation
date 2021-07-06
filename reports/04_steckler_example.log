@@ -22,7 +22,7 @@ sim = fdsreader.Simulation('../../../../data/compartment/steckler_test_013_20cm_
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mOSError[0m                                   Traceback (most recent call last)
-[0;32m/tmp/ipykernel_1985/3049549055.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_2035/3049549055.py[0m in [0;36m<module>[0;34m[0m
 [0;32m----> 1[0;31m [0msim[0m [0;34m=[0m [0mfdsreader[0m[0;34m.[0m[0mSimulation[0m[0;34m([0m[0;34m'../../../../data/compartment/steckler_test_013_20cm_001m/'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m
 [0;32m/opt/hostedtoolcache/Python/3.7.10/x64/lib/python3.7/site-packages/fdsreader/simulation.py[0m in [0;36m__new__[0;34m(cls, path)[0m
