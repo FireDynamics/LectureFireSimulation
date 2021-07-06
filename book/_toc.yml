@@ -47,6 +47,7 @@ parts:
     sections:
     - file: content/modelling/06_heat_transfer/01_fundamentals
     - file: content/modelling/06_heat_transfer/02_heat_transfer_example
+    - file: content/modelling/06_heat_transfer/03_validation_example
 
 
 ####################
