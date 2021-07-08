@@ -1,0 +1,104 @@
+&HEAD CHID='beam_ht3d_gas', TITLE='Example Steel Beam HT3D, gas + solidphase' /
+
+## Computational domain, simulation time and ambient values
+/MESH IJK=60,10,25, XB= -0.6,0.6, -0.1,0.1, 0.0,0.5/ 
+&MESH IJK=20,10,25, XB= -0.6,-0.2, -0.1,0.1, 0.0,0.5/ multible Meshes for MPI
+&MESH IJK=20,10,25, XB= -0.2,0.2, -0.1,0.1, 0.0,0.5/ multible Meshes for MPI
+&MESH IJK=20,10,25, XB= 0.2,0.6, -0.1,0.1, 0.0,0.5/ multible Meshes for MPI
+
+&TIME T_END=3600, DT=5/
+&MISC SOLID_PHASE_ONLY=.FALSE., BNDF_DEFAULT=.FALSE./
+&DUMP DT_DEVC=10, DT_BNDF=5, DT_SLCF=5/
+&RADI RADIATION=.TRUE./
+
+## Domain boundary conditions
+&VENT MB='ZMAX',SURF_ID='OPEN'/
+&VENT MB='YMIN',SURF_ID='OPEN'/
+&VENT MB='YMAX',SURF_ID='OPEN'/
+&VENT MB='XMIN',SURF_ID='OPEN'/
+&VENT MB='XMAX',SURF_ID='OPEN'/
+
+## Geometry
+&OBST XB= -0.60, 0.60, -0.10,-0.08, 0.18,0.20, SURF_ID='ADIABATIC' /
+&OBST XB= -0.60, 0.60,  0.08, 0.10, 0.18,0.20, SURF_ID='ADIABATIC' /
+&OBST XB= -0.60,-0.58, -0.10, 0.10, 0.18,0.20, SURF_ID='ADIABATIC' /
+&OBST XB=  0.58, 0.60, -0.10, 0.10, 0.18,0.20, SURF_ID='ADIABATIC' /
+
+&OBST XB= -0.58,-0.20, -0.08,0.08, 0.40,0.46, HT3D=.TRUE., MATL_ID='STEEL',  SURF_ID='STEEL BEAM',  BNDF_OBST=.TRUE./ top flange steel
+&OBST XB= -0.58,-0.20, -0.04,0.04, 0.24,0.40, HT3D=.TRUE., MATL_ID='STEEL',  SURF_ID='STEEL BEAM',  BNDF_OBST=.TRUE./ web steel
+&OBST XB= -0.58,-0.20, -0.08,0.08, 0.18,0.26, HT3D=.TRUE., MATL_ID='STEEL',  SURF_ID='STEEL BEAM',  BNDF_OBST=.TRUE./ bottom flange steel
+
+&OBST XB= -0.20, 0.20, -0.08,0.08, 0.40,0.46, HT3D=.TRUE., MATL_ID='COPPER', SURF_ID='COPPER BEAM', BNDF_OBST=.TRUE./ top flange copper
+&OBST XB= -0.20, 0.20, -0.04,0.04, 0.24,0.40, HT3D=.TRUE., MATL_ID='COPPER', SURF_ID='COPPER BEAM', BNDF_OBST=.TRUE./ web copper
+&OBST XB= -0.20, 0.20, -0.08,0.08, 0.18,0.26, HT3D=.TRUE., MATL_ID='COPPER', SURF_ID='COPPER BEAM', BNDF_OBST=.TRUE./ bottom flange copper
+
+&OBST XB=  0.20, 0.58, -0.08,0.08, 0.40,0.46, HT3D=.TRUE., MATL_ID='CONCRETE', SURF_ID='CONCRETE BEAM', BNDF_OBST=.TRUE./ top flange aluminum
+&OBST XB=  0.20, 0.58, -0.04,0.04, 0.24,0.40, HT3D=.TRUE., MATL_ID='CONCRETE', SURF_ID='CONCRETE BEAM', BNDF_OBST=.TRUE./ web aluminum
+&OBST XB=  0.20, 0.58, -0.08,0.08, 0.18,0.26, HT3D=.TRUE., MATL_ID='CONCRETE', SURF_ID='CONCRETE BEAM', BNDF_OBST=.TRUE./ bottom flange aluminum
+
+
+## Heater surface
+&REAC FUEL               = 'METHANOL'
+      FYI                = 'Methanol C_1 H_4 O_1'
+      CO_YIELD           = 0.001
+      SOOT_YIELD         = 0.001 /
+
+&SURF ID='FIRE', COLOR='RED', HRRPUA=100./
+
+&VENT XB = -0.6,0.6, -0.1,0.1, 0.0,0.0, SURF_ID='FIRE' /
+
+
+
+## Material properties
+&SURF ID 		= 'ADIABATIC',
+	  COLOR 	= 'BLACK',
+	  ADIABATIC = .TRUE. /
+
+&MATL ID				 ='STEEL',
+      SPECIFIC_HEAT		 = 0.45,
+      CONDUCTIVITY  	 = 45.8,
+      DENSITY			 = 7850.0 /
+
+&MATL ID				 ='COPPER',
+      SPECIFIC_HEAT		 = 0.385,
+      CONDUCTIVITY  	 = 401,
+      DENSITY			 = 8960.0 /
+
+&MATL ID             	= 'CONCRETE'
+      SPECIFIC_HEAT  	= 0.75
+      CONDUCTIVITY   	= 1.6
+      DENSITY        	= 2400. /
+
+&SURF ID        		 = 'STEEL BEAM',
+      RGB				 = 68,68,68
+	  TRANSPARENCY		 = 0.5,
+      HT3D				 = .TRUE./
+
+&SURF ID        		 = 'COPPER BEAM',
+      RGB				 = 190,100,0
+	  TRANSPARENCY		 = 0.5,
+      HT3D				 = .TRUE./
+
+&SURF ID        		 = 'CONCRETE BEAM',
+      COLOR				 = 'GRAY',
+	  TRANSPARENCY		 = 0.5,
+      HT3D				 = .TRUE./
+
+
+## Output definition
+&DEVC ID = "Temp_Steel" XB=-0.4,-0.4, 0,0, 0.18,0.46, QUANTITY='TEMPERATURE', POINTS=15 TIME_HISTORY=.TRUE./
+&DEVC ID = "Temp_Copper" XB=-0,0, 0,0, 0.18,0.46, QUANTITY='TEMPERATURE', POINTS=15 TIME_HISTORY=.TRUE./
+&DEVC ID = "Temp_Concrete" XB=0.4,0.4, 0,0, 0.18,0.46, QUANTITY='TEMPERATURE', POINTS=15 TIME_HISTORY=.TRUE./
+
+&BNDF QUANTITY = 'WALL TEMPERATURE', 	 CELL_CENTERED=.TRUE. /
+&BNDF QUANTITY = 'RADIATIVE HEAT FLUX',  CELL_CENTERED=.TRUE. /
+&BNDF QUANTITY = 'CONVECTIVE HEAT FLUX', CELL_CENTERED=.TRUE. /
+&BNDF QUANTITY = 'NET HEAT FLUX', 		 CELL_CENTERED=.TRUE. /
+
+&SLCF ID = 'SLCF_ALL', PBY=0, QUANTITY='TEMPERATURE', CELL_CENTERED=.TRUE. /
+&SLCF ID = 'SLCF_STEEL', PBX=-0.4, QUANTITY='TEMPERATURE', CELL_CENTERED=.TRUE. /
+&SLCF ID = 'SLCF_COPPER', PBX=0, QUANTITY='TEMPERATURE', CELL_CENTERED=.TRUE. /
+&SLCF ID = 'SLCF_CONCRETE', PBX=0.4, QUANTITY='TEMPERATURE', CELL_CENTERED=.TRUE. /
+
+
+&TAIL
