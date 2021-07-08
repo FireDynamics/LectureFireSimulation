@@ -280,6 +280,11 @@
      6.3. Validation – Heat Transfer
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/06_heat_transfer/04_ht3d_example.html">
+     6.4. Example – 3D Heat Transfer
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -646,7 +651,7 @@
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; date
-Tue Jul  6 10:04:44 UTC 2021
+Thu Jul  8 16:32:53 UTC 2021
 </pre></div>
 </div>
 </div>
@@ -1071,7 +1076,7 @@ logfile
 &gt; ls -lah
 total 112K
 drwxr-xr-x 17 runner docker 4.0K Apr 26 06:09 .
-drwxr-xr-x  4 runner docker 4.0K Jul  6 10:04 ..
+drwxr-xr-x  4 runner docker 4.0K Jul  8 16:32 ..
 -rw-r--r--  1 runner docker   20 Apr 25 17:55 .hidden_file_do_not_look_here
 -rw-r--r--  1 runner docker  816 Apr 26 06:02 combined_logs
 -rw-r--r--  1 runner docker  591 Dec 12  2000 doc01.md
@@ -1082,21 +1087,21 @@ drwxr-xr-x  4 runner docker 4.0K Jul  6 10:04 ..
 -rw-r--r--  1 runner docker   60 Apr 26 06:08 for-loop.sh
 -rw-r--r--  1 runner docker  113 Apr 25 19:35 if-statement.sh
 -rw-r--r--  1 runner docker   62 Apr 26 06:08 info.txt
-drwxr-xr-x  2 runner docker 4.0K Jul  6 10:04 rundir_01
-drwxr-xr-x  2 runner docker 4.0K Jul  6 10:04 rundir_02
-drwxr-xr-x  2 runner docker 4.0K Jul  6 10:04 rundir_03
-drwxr-xr-x  2 runner docker 4.0K Jul  6 10:04 rundir_04
-drwxr-xr-x  2 runner docker 4.0K Jul  6 10:04 rundir_05
-drwxr-xr-x  2 runner docker 4.0K Jul  6 10:04 rundir_06
-drwxr-xr-x  2 runner docker 4.0K Jul  6 10:04 rundir_07
-drwxr-xr-x  2 runner docker 4.0K Jul  6 10:04 rundir_08
-drwxr-xr-x  2 runner docker 4.0K Jul  6 10:04 rundir_09
-drwxr-xr-x  2 runner docker 4.0K Jul  6 10:04 rundir_10
-drwxr-xr-x  2 runner docker 4.0K Jul  6 10:04 rundir_11
-drwxr-xr-x  2 runner docker 4.0K Jul  6 10:04 rundir_12
-drwxr-xr-x  2 runner docker 4.0K Jul  6 10:04 rundir_13
+drwxr-xr-x  2 runner docker 4.0K Jul  8 16:32 rundir_01
+drwxr-xr-x  2 runner docker 4.0K Jul  8 16:32 rundir_02
+drwxr-xr-x  2 runner docker 4.0K Jul  8 16:32 rundir_03
+drwxr-xr-x  2 runner docker 4.0K Jul  8 16:32 rundir_04
+drwxr-xr-x  2 runner docker 4.0K Jul  8 16:32 rundir_05
+drwxr-xr-x  2 runner docker 4.0K Jul  8 16:32 rundir_06
+drwxr-xr-x  2 runner docker 4.0K Jul  8 16:32 rundir_07
+drwxr-xr-x  2 runner docker 4.0K Jul  8 16:32 rundir_08
+drwxr-xr-x  2 runner docker 4.0K Jul  8 16:32 rundir_09
+drwxr-xr-x  2 runner docker 4.0K Jul  8 16:32 rundir_10
+drwxr-xr-x  2 runner docker 4.0K Jul  8 16:32 rundir_11
+drwxr-xr-x  2 runner docker 4.0K Jul  8 16:32 rundir_12
+drwxr-xr-x  2 runner docker 4.0K Jul  8 16:32 rundir_13
 drwxr-xr-x  2 runner docker 4.0K Apr 25 15:11 rundir_14
-drwxr-xr-x  2 runner docker 4.0K Jul  6 10:04 rundir_15
+drwxr-xr-x  2 runner docker 4.0K Jul  8 16:32 rundir_15
 </pre></div>
 </div>
 </div>
@@ -1116,20 +1121,20 @@ drwxr-xr-x 2 runner docker 4096 Apr 25 15:11 rundir_14
 -rw-r--r-- 1 runner docker  816 Apr 26 06:02 combined_logs
 -rw-r--r-- 1 runner docker   62 Apr 26 06:08 info.txt
 -rw-r--r-- 1 runner docker   60 Apr 26 06:08 for-loop.sh
-drwxr-xr-x 2 runner docker 4096 Jul  6 10:04 rundir_15
-drwxr-xr-x 2 runner docker 4096 Jul  6 10:04 rundir_13
-drwxr-xr-x 2 runner docker 4096 Jul  6 10:04 rundir_12
-drwxr-xr-x 2 runner docker 4096 Jul  6 10:04 rundir_11
-drwxr-xr-x 2 runner docker 4096 Jul  6 10:04 rundir_10
-drwxr-xr-x 2 runner docker 4096 Jul  6 10:04 rundir_09
-drwxr-xr-x 2 runner docker 4096 Jul  6 10:04 rundir_08
-drwxr-xr-x 2 runner docker 4096 Jul  6 10:04 rundir_07
-drwxr-xr-x 2 runner docker 4096 Jul  6 10:04 rundir_06
-drwxr-xr-x 2 runner docker 4096 Jul  6 10:04 rundir_05
-drwxr-xr-x 2 runner docker 4096 Jul  6 10:04 rundir_04
-drwxr-xr-x 2 runner docker 4096 Jul  6 10:04 rundir_03
-drwxr-xr-x 2 runner docker 4096 Jul  6 10:04 rundir_02
-drwxr-xr-x 2 runner docker 4096 Jul  6 10:04 rundir_01
+drwxr-xr-x 2 runner docker 4096 Jul  8 16:32 rundir_15
+drwxr-xr-x 2 runner docker 4096 Jul  8 16:32 rundir_13
+drwxr-xr-x 2 runner docker 4096 Jul  8 16:32 rundir_12
+drwxr-xr-x 2 runner docker 4096 Jul  8 16:32 rundir_08
+drwxr-xr-x 2 runner docker 4096 Jul  8 16:32 rundir_06
+drwxr-xr-x 2 runner docker 4096 Jul  8 16:32 rundir_01
+drwxr-xr-x 2 runner docker 4096 Jul  8 16:32 rundir_11
+drwxr-xr-x 2 runner docker 4096 Jul  8 16:32 rundir_10
+drwxr-xr-x 2 runner docker 4096 Jul  8 16:32 rundir_09
+drwxr-xr-x 2 runner docker 4096 Jul  8 16:32 rundir_07
+drwxr-xr-x 2 runner docker 4096 Jul  8 16:32 rundir_05
+drwxr-xr-x 2 runner docker 4096 Jul  8 16:32 rundir_04
+drwxr-xr-x 2 runner docker 4096 Jul  8 16:32 rundir_03
+drwxr-xr-x 2 runner docker 4096 Jul  8 16:32 rundir_02
 </pre></div>
 </div>
 </div>

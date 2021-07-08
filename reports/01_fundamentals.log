@@ -24,7 +24,7 @@ sim = fdsreader.Simulation(path_to_data)
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mOSError[0m                                   Traceback (most recent call last)
-[0;32m/tmp/ipykernel_1704/2540366039.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_1795/2540366039.py[0m in [0;36m<module>[0;34m[0m
 [1;32m      1[0m [0mpath_to_data[0m [0;34m=[0m [0;34m'../../../../data/compartment/pressure_01/rundir/'[0m[0;34m[0m[0;34m[0m[0m
 [1;32m      2[0m [0;34m[0m[0m
 [0;32m----> 3[0;31m [0msim[0m [0;34m=[0m [0mfdsreader[0m[0;34m.[0m[0mSimulation[0m[0;34m([0m[0mpath_to_data[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m

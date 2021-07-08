@@ -1,0 +1,79 @@
+&HEAD CHID='steel_beam_ht3d_surf_false', TITLE='FS I - 03 Steel Beam HT3D' /
+
+## Computational domain, simulation time and ambient values
+&MESH IJK=60,10,25, XB= -0.6,0.6, -0.1,0.1, 0.0,0.5/
+&TIME T_END=3600, DT=5/
+&MISC SOLID_PHASE_ONLY=.FALSE., BNDF_DEFAULT=.FALSE./
+&DUMP DT_DEVC=10/
+&RADI RADIATION=.TRUE./
+
+## Domain boundary conditions
+&VENT MB='ZMAX',SURF_ID='OPEN'/
+&VENT MB='YMIN',SURF_ID='OPEN'/
+&VENT MB='YMAX',SURF_ID='OPEN'/
+&VENT MB='XMIN',SURF_ID='OPEN'/
+&VENT MB='XMAX',SURF_ID='OPEN'/
+
+## Geometry
+&OBST XB= -0.60, 0.60, -0.10,-0.08, 0.18,0.20, SURF_ID='ADIABATIC' /
+&OBST XB= -0.60, 0.60,  0.08, 0.10, 0.18,0.20, SURF_ID='ADIABATIC' /
+&OBST XB= -0.60,-0.58, -0.10, 0.10, 0.18,0.20, SURF_ID='ADIABATIC' /
+&OBST XB=  0.58, 0.60, -0.10, 0.10, 0.18,0.20, SURF_ID='ADIABATIC' /
+
+&OBST XB= -0.58,-0.20, -0.08,0.08, 0.40,0.46, SURF_ID='STEEL BEAM'  / top flange steel
+&OBST XB= -0.58,-0.20, -0.04,0.04, 0.24,0.40, SURF_ID='STEEL BEAM'  / web steel
+&OBST XB= -0.58,-0.20, -0.08,0.08, 0.18,0.26, SURF_ID='STEEL BEAM'  / bottom flange steel
+
+&OBST XB= -0.20, 0.20, -0.08,0.08, 0.40,0.46, SURF_ID='COPPER BEAM' / top flange copper
+&OBST XB= -0.20, 0.20, -0.04,0.04, 0.24,0.40, SURF_ID='COPPER BEAM' / web copper
+&OBST XB= -0.20, 0.20, -0.08,0.08, 0.18,0.26, SURF_ID='COPPER BEAM' / bottom flange copper
+                   
+&OBST XB=  0.20, 0.58, -0.08,0.08, 0.40,0.46, SURF_ID='CONCRETE BEAM' / top flange aluminum
+&OBST XB=  0.20, 0.58, -0.04,0.04, 0.24,0.40, SURF_ID='CONCRETE BEAM' / web aluminum
+&OBST XB=  0.20, 0.58, -0.08,0.08, 0.18,0.26, SURF_ID='CONCRETE BEAM' / bottom flange aluminum
+
+
+## Heater surface
+&SURF ID='HOT STEEL',       COLOR='RED', TMP_FRONT=800/
+
+&VENT XB = -0.44,-0.36, -0.04,0.04, 0.18,0.18, SURF_ID='HOT STEEL' /
+&VENT XB = -0.08, 0.08, -0.04,0.04, 0.18,0.18, SURF_ID='HOT STEEL' /
+&VENT XB =  0.44, 0.36, -0.04,0.04, 0.18,0.18, SURF_ID='HOT STEEL' /
+
+
+## Material properties
+&SURF ID 		= 'ADIABATIC',
+	  COLOR 	= 'BLACK',
+	  ADIABATIC = .TRUE. /
+      
+&MATL ID				 ='STEEL',
+      SPECIFIC_HEAT		 = 0.45,
+      CONDUCTIVITY  	 = 45.8,
+      DENSITY			 = 7850.0 /
+	  
+&MATL ID				 ='COPPER',
+      SPECIFIC_HEAT		 = 0.385,
+      CONDUCTIVITY  	 = 401,
+      DENSITY			 = 8960.0 /
+	  
+&MATL ID             	= 'CONCRETE'
+      SPECIFIC_HEAT  	= 0.75
+      CONDUCTIVITY   	= 1.6
+      DENSITY        	= 2400. /
+	  
+&SURF ID        		 = 'STEEL BEAM',
+      RGB				 = 68,68,68
+	  TRANSPARENCY		 = 0.5,
+	  ADIABATIC			 = .TRUE./
+
+&SURF ID        		 = 'COPPER BEAM',
+      RGB				 = 190,100,0
+	  TRANSPARENCY		 = 0.5,
+	  ADIABATIC			 = .TRUE./
+
+&SURF ID        		 = 'CONCRETE BEAM',
+      COLOR				 = 'GRAY',
+	  TRANSPARENCY		 = 0.5,
+	  ADIABATIC			 = .TRUE./
+
+&TAIL
