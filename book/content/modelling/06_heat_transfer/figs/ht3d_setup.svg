@@ -3,7 +3,7 @@
 <svg width="100%" height="100%" viewBox="0 0 890 541" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-miterlimit:10;">
     <g id="Layer-1" serif:id="Layer 1">
         <g transform="matrix(0.341927,-0.939726,-0.939726,-0.341927,690.918,320.616)">
-            <path d="M-4.234,15.794L21.075,15.794L23.379,6.347L-0.218,-0.925L-4.234,15.794Z" style="fill:rgb(164,0,4);fill-rule:nonzero;"/>
+            <path d="M-4.234,15.794L21.075,15.794L23.379,6.347L-0.218,-0.925L-4.234,15.794Z" style="fill:rgb(153,63,165);fill-rule:nonzero;"/>
         </g>
         <g transform="matrix(1,0,0,1,841.963,172.067)">
             <path d="M0,128.756L-7.826,178.55L-4.264,139.965L-2.248,127.397L7.56,21.47L5.646,32.66L9.522,-9.324L16.655,-49.794L12.941,-9.996L11.205,0.159L2.667,91.91L1.596,103.427L3.429,91.989L0,128.756Z" style="fill:rgb(49,49,49);fill-rule:nonzero;"/>
@@ -45,7 +45,7 @@
             <path d="M0,-11.02L7.505,-10.244L0.198,0L0,-11.02Z" style="fill:rgb(159,81,9);fill-rule:nonzero;"/>
         </g>
         <g transform="matrix(-0.993583,-0.113102,-0.113102,0.993583,458.18,269.944)">
-            <path d="M-12.75,24.461L13.183,24.461L0.699,0.645L-24.526,0.556L-12.75,24.461Z" style="fill:rgb(164,0,4);fill-rule:nonzero;"/>
+            <path d="M-12.75,24.461L13.183,24.461L0.699,0.645L-24.526,0.556L-12.75,24.461Z" style="fill:rgb(153,63,165);fill-rule:nonzero;"/>
         </g>
         <g transform="matrix(-0.1258,-0.992056,-0.992056,0.1258,208.179,369.839)">
             <path d="M122.434,116.666L158.062,116.666L103.518,-110.244L67.178,-107.889L122.434,116.666Z" style="fill:rgb(134,134,134);fill-rule:nonzero;"/>
@@ -467,26 +467,50 @@
         <g transform="matrix(0.995933,0.090099,0.090099,-0.995933,455.815,130.275)">
             <path d="M-0.27,-5.98L132.473,-5.98" style="fill:none;fill-rule:nonzero;stroke:black;stroke-width:0.5px;"/>
         </g>
-        <text x="65.088px" y="396.589px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:18px;">x</text>
-        <text x="12.528px" y="341.725px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:18px;">z</text>
-        <text x="52.596px" y="364.603px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:18px;">y</text>
-        <text x="187.404px" y="28.534px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:34.287px;">s<tspan x="202.525px 212.991px 229.736px 246.481px " y="28.534px 28.534px 28.534px 28.534px ">teel</tspan></text>
-        <text x="424.59px" y="46.429px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:34.287px;">c<tspan x="440.01px 458.93px 478.368px 497.806px 514.766px " y="46.429px 46.429px 46.429px 46.429px 46.429px ">opper</tspan></text>
-        <text x="625.754px" y="62.441px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:34.287px;">c<tspan x="641.051px 659.846px 678.859px 694.155px 705.919px 722.756px 733.314px " y="62.441px 62.441px 62.441px 62.441px 62.441px 62.441px 62.441px ">oncrete</tspan></text>
+        <g transform="matrix(1,0,0,1,65.088,396.589)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:18px;">x</text>
+        </g>
+        <g transform="matrix(1,0,0,1,12.528,341.725)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:18px;">z</text>
+        </g>
+        <g transform="matrix(1,0,0,1,52.596,364.603)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:18px;">y</text>
+        </g>
+        <g transform="matrix(1,0,0,1,202.525,28.534)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:34.287px;">Steel</text>
+        </g>
+        <g transform="matrix(1,0,0,1,440.01,46.429)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:34.287px;">Copper</text>
+        </g>
+        <g transform="matrix(1,0,0,1,641.051,62.441)">
+            <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:34.287px;">Concrete</text>
+        </g>
         <g>
-            <text x="94.112px" y="457.868px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:25px;">h<tspan x="107.865px 120.03px 132.074px 139.662px 145.809px 156.791px 170.385px 184.137px 192.604px 203.647px " y="457.868px 457.868px 457.868px 457.868px 457.868px 457.868px 457.868px 457.868px 457.868px 457.868px ">eat source</tspan></text>
-            <text x="220.237px" y="457.868px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:25px;">(<tspan x="226.605px 237.647px 249.691px 260.672px 272.838px " y="457.868px 457.868px 457.868px 457.868px 457.868px ">case:</tspan></text>
-            <text x="283.487px" y="457.868px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:25px;">s<tspan x="294.469px 308.063px 313.527px 318.99px " y="457.868px 457.868px 457.868px 457.868px ">olid</tspan></text>
-            <text x="338.262px" y="457.868px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:25px;">p<tspan x="352.235px 365.987px 378.031px 389.012px " y="457.868px 457.868px 457.868px 457.868px ">hase</tspan></text>
-            <text x="406.137px" y="457.868px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:25px;">o<tspan x="419.731px 433.484px 438.948px 450.246px " y="457.868px 457.868px 457.868px 457.868px ">nly)</tspan></text>
-            <text x="94.112px" y="492.018px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:25px;">h<tspan x="107.822px 119.944px 131.945px 139.49px 145.595px 156.533px 170.084px 183.793px 192.217px 203.217px " y="492.018px 492.018px 492.018px 492.018px 492.018px 492.018px 492.018px 492.018px 492.018px 492.018px ">eat source</tspan></text>
-            <text x="94.112px" y="526.168px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:25px;">i<tspan x="99.699px 110.803px 124.52px 130.107px 142.273px 149.984px 155.571px 169.287px " y="526.168px 526.168px 526.168px 526.168px 526.168px 526.168px 526.168px 526.168px ">solation</tspan></text>
+            <g>
+                <g transform="matrix(1,0,0,1,94.112,457.868)">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:25px;">h</text>
+                </g>
+                <g transform="matrix(1,0,0,1,107.865,457.868)">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:25px;">eat source (solid phase only)</text>
+                </g>
+            </g>
+            <g transform="matrix(1,0,0,1,94.112,492.018)">
+                <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:25px;">burner surface</text>
+            </g>
+            <g>
+                <g transform="matrix(1,0,0,1,94.112,526.168)">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:25px;">i</text>
+                </g>
+                <g transform="matrix(1,0,0,1,99.699,526.168)">
+                    <text x="0px" y="0px" style="font-family:'LucidaGrande', 'Lucida Grande', sans-serif;font-weight:500;font-size:25px;">solation</text>
+                </g>
+            </g>
         </g>
         <g transform="matrix(-1,0,0,1,129.23,416.328)">
             <rect x="50.769" y="47.998" width="27.692" height="27.693" style="fill:rgb(114,0,14);"/>
         </g>
         <g transform="matrix(-1,0,0,1,129.23,348.026)">
-            <rect x="50.769" y="82.149" width="27.692" height="27.693" style="fill:rgb(164,0,4);"/>
+            <rect x="50.769" y="82.149" width="27.692" height="27.693" style="fill:rgb(153,63,165);"/>
         </g>
         <g transform="matrix(1,0,0,1,75.0323,336.501)">
             <path d="M0,-85.138L230.737,-58.867L358.99,-44.266L366.972,-43.358L616.865,-14.907L760.655,1.464L768.446,-47.791L768.985,-53.573L783.081,-52.077L774.431,9.771L-18.211,-81.216L-1.239,-94.909L0,-85.138Z" style="fill-rule:nonzero;"/>
