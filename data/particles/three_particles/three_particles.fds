@@ -1,0 +1,48 @@
+&HEAD CHID='out_three_particles', TITLE='Particle Trajectory' /
+
+&MESH IJK=30,30,10, XB=-1.,29.,-1.,29.,0.,10. /
+
+&TIME T_END=2.5, DT=0.1 /
+
+&SPEC ID='WATER VAPOR' /
+
+&PART ID='DROPLET_1',
+      SPEC_ID='WATER VAPOR',
+      DIAMETER=10000,
+      SAMPLING_FACTOR=1,
+      MONODISPERSE=.TRUE. /
+
+&INIT ID='INJECTOR',
+      XYZ=0.0,0.0,0.5,
+      UVW=10.,10.,10.,
+      PART_ID='DROPLET_1',
+      N_PARTICLES=1 /
+
+&PART ID='DROPLET_2',
+      SPEC_ID='WATER VAPOR',
+      DIAMETER=1000,
+      SAMPLING_FACTOR=1,
+      MONODISPERSE=.TRUE. /
+
+&INIT ID='INJECTOR',
+      XYZ=0.0,0.0,0.5,
+      UVW=10.,10.,10.,
+      PART_ID='DROPLET_2',
+      T_INSERT=1,
+      N_PARTICLES=1 /
+
+&PART ID='DROPLET_3',
+      SPEC_ID='WATER VAPOR',
+      DIAMETER=100,
+      SAMPLING_FACTOR=1,
+      MONODISPERSE=.TRUE. /
+
+&INIT ID='INJECTOR',
+      XYZ=0.0,0.0,0.5,
+      UVW=10.,10.,10.,
+      PART_ID='DROPLET_3',
+      T_INSERT=2,
+      N_PARTICLES=1 /
+
+
+&TAIL /
