@@ -53,6 +53,7 @@ parts:
   - file: content/modelling/07_particles/00_overview
     sections:
     - file: content/modelling/07_particles/01_fundamentals
+    - file: content/modelling/07_particles/02_example_spray
 
 ####################
 # TOOLS 
