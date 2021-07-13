@@ -49,7 +49,7 @@ parts:
     - file: content/modelling/06_heat_transfer/02_heat_transfer_example
     - file: content/modelling/06_heat_transfer/03_validation_example
     - file: content/modelling/06_heat_transfer/04_ht3d_example
-    
+
   - file: content/modelling/07_particles/00_overview
     sections:
     - file: content/modelling/07_particles/01_fundamentals
