@@ -855,7 +855,11 @@ This effect starts at the distance of the particles drops below 10 particle diam
 <p>The diameters are rarely of same size, but are a spectrum, which can be described with a distribution function. FDS uses a combination of a log-normal and a Rosin-Rammler distribution function. The first one is used for small particles sizes, up to the median of the distribution function <span class="math notranslate nohighlight">\(\mf D_{v,0.5}\)</span>, and the second for larger particles. The cumulative size distribution is therefor</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-\mf F_V(D) = \left\{ \begin{array}{lc} \mf \frac{1}{2\pi} \int_0^D \frac{1}{\sigma D'} \exp\left( - \frac{|\ln(D'/D_{v,0.5}|^2}{2\sigma^2}\right)\ dD' &amp; D \lt D_{v,0.5} \\ \mf 1-\exp\left(-0.693\cdot (D/D_{v,0.5})^\gamma\right) &amp; D \gt D_{v,0.5} \end{array} \right.
+\mf F_V(D) = \left\{ \begin{array}{lc} 
+   \mf \frac{1}{2\pi} \int_0^D \frac{1}{\sigma D'} exp\left( - \frac{|ln(D'/D_{v,0.5}|^2}{2\sigma^2}\right)\ dD' 
+       &amp; \mf D \lt D_{v,0.5} \\ 
+    \mf 1-exp\left(-0.693\cdot \left(\frac{D}{D_{v,0.5}}\right)^\gamma\right) 
+       &amp; \mf D \gt D_{v,0.5} \end{array} \right.
 \end{split}\]</div>
 <p>with the empirical parameters <span class="math notranslate nohighlight">\(\mf \gamma = 2.4\)</span> and <span class="math notranslate nohighlight">\(\mf \sigma=0.48\)</span>.</p>
 <div class="figure align-default" id="fig-particles-distribution">
