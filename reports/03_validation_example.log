@@ -20,15 +20,18 @@ nbclient.exceptions.CellExecutionError: An error occurred while executing the fo
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
-dev = pd.read_csv('radiation_line.csv', delimiter=',', skiprows=1)
+root = '../../../../'
+data_root = root + 'data/heat_transfer/radiation_validation/rundir/'
+file = data_root + 'radiation_line.csv'
+dev = pd.read_csv(file , delimiter=',', skiprows=1)
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-[0;32m/tmp/ipykernel_1807/2114447165.py[0m in [0;36m<module>[0;34m[0m
-[1;32m      2[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      3[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 4[0;31m [0mdev[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0;34m'radiation_line.csv'[0m[0;34m,[0m [0mdelimiter[0m[0;34m=[0m[0;34m','[0m[0;34m,[0m [0mskiprows[0m[0;34m=[0m[0;36m1[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m/tmp/ipykernel_1832/4140597811.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      5[0m [0mdata_root[0m [0;34m=[0m [0mroot[0m [0;34m+[0m [0;34m'data/heat_transfer/radiation_validation/rundir/'[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      6[0m [0mfile[0m [0;34m=[0m [0mdata_root[0m [0;34m+[0m [0;34m'radiation_line.csv'[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 7[0;31m [0mdev[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0mfile[0m [0;34m,[0m [0mdelimiter[0m[0;34m=[0m[0;34m','[0m[0;34m,[0m [0mskiprows[0m[0;34m=[0m[0;36m1[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m
 [0;32m/opt/hostedtoolcache/Python/3.7.10/x64/lib/python3.7/site-packages/pandas/util/_decorators.py[0m in [0;36mwrapper[0;34m(*args, **kwargs)[0m
 [1;32m    309[0m                     [0mstacklevel[0m[0;34m=[0m[0mstacklevel[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
@@ -86,6 +89,6 @@ dev = pd.read_csv('radiation_line.csv', delimiter=',', skiprows=1)
 [0m[1;32m    707[0m             )
 [1;32m    708[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: 'radiation_line.csv'
-FileNotFoundError: [Errno 2] No such file or directory: 'radiation_line.csv'
+[0;31mFileNotFoundError[0m: [Errno 2] No such file or directory: '../../../../data/heat_transfer/radiation_validation/rundir/radiation_line.csv'
+FileNotFoundError: [Errno 2] No such file or directory: '../../../../data/heat_transfer/radiation_validation/rundir/radiation_line.csv'
 

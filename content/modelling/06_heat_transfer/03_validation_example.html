@@ -598,6 +598,43 @@
      Task
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#input-file-parameters-explained">
+     Input file parameters explained
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution">
+     Solution
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#analytical-results-for-both-device-lines">
+       Analytical results for both device lines
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#single-device">
+       Single device
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#plotting-the-results">
+       Plotting the results
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#higher-value-for-number-radiation-angles">
+       Higher value for
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         NUMBER_RADIATION_ANGLES
+        </span>
+       </code>
+      </a>
+     </li>
+    </ul>
+   </li>
   </ul>
  </li>
 </ul>
@@ -622,9 +659,9 @@ It provides a methodology for evaluating the predictive capabilities of a fire m
 <div class="section" id="validation">
 <h2>Validation<a class="headerlink" href="#validation" title="Permalink to this headline">¶</a></h2>
 <p>The process of determining the degree to which a calculation method is an accurate representation of the real world from the perspective of the intended uses of the calculation method. It typically involves comparing model results with experimental measurement. Differences that cannot be explained in terms of numerical errors in the model or uncertainty in the measurements are attributed to the assumptions and simplifications of the physical model.</p>
-<div class="figure align-default" id="fig-transfer-smv">
+<div class="figure align-default" id="fig-validation-flowchart">
 <a class="reference internal image-reference" href="../../../_images/validation_verification.svg"><img alt="../../../_images/validation_verification.svg" src="../../../_images/validation_verification.svg" width="60%" /></a>
-<p class="caption"><span class="caption-number">Fig. 6.28 </span><span class="caption-text">Validation and Verification</span><a class="headerlink" href="#fig-transfer-smv" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 6.28 </span><span class="caption-text">Validation and Verification</span><a class="headerlink" href="#fig-validation-flowchart" title="Permalink to this image">¶</a></p>
 </div>
 <div class="section" id="reality-of-interest">
 <h3>Reality of interest<a class="headerlink" href="#reality-of-interest" title="Permalink to this headline">¶</a></h3>
@@ -693,9 +730,9 @@ It is a four volume set of companion documents.</p>
 <div class="section" id="validation-verification-example">
 <h2>Validation / Verification example<a class="headerlink" href="#validation-verification-example" title="Permalink to this headline">¶</a></h2>
 <p>In order to calculate the incident heat flux, a concept called view factor is used. View factor is the proportion of the radiation which leaves the transmitter surface and strikes the receiver surface.</p>
-<div class="figure align-default" id="id6">
+<div class="figure align-default" id="fig-validation-viewfactor">
 <a class="reference internal image-reference" href="../../../_images/device_viewfactor.png"><img alt="../../../_images/device_viewfactor.png" src="../../../_images/device_viewfactor.png" style="width: 70%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 6.29 </span><span class="caption-text">The green point is the point on a target surface to be evaluated. It is the projection of a device on the hot surface.</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 6.29 </span><span class="caption-text">The green point is the point on a target surface to be evaluated. It is the projection of a device on the hot surface.</span><a class="headerlink" href="#fig-validation-viewfactor" title="Permalink to this image">¶</a></p>
 </div>
 <p>The total heat flux that reaches the device is the sum of heat fluxes of all subsurfaces. The following equations calculate the fractional heat flux for the individual subsurfaces expressed by viewfactors <span class="math notranslate nohighlight">\(\mf \phi\)</span> for simple cases:</p>
 <p>Transmitter and receiver surfaces are parallel to each other:</p>
@@ -705,15 +742,21 @@ It is a four volume set of companion documents.</p>
 <div class="math notranslate nohighlight">
 \[\mf \phi = \frac{1}{2\pi}[tan^{-1}(a)-\frac{1}{\sqrt{1+b^2}}tan^{-1}(\frac{a}{\sqrt{1+b^2}})]\]</div>
 <p>with <span class="math notranslate nohighlight">\(\mf a = \frac{z}{x}\)</span> and <span class="math notranslate nohighlight">\(\mf b = \frac{y}{x}\)</span>,  where <span class="math notranslate nohighlight">\(\mf z\)</span> is the height and <span class="math notranslate nohighlight">\( \mf y\)</span> is the width of the subsurface. <span class="math notranslate nohighlight">\( \mf x\)</span> is the distance between the point and the hot surface.</p>
+<p>calculating the <code class="docutils literal notranslate"><span class="pre">incident</span> <span class="pre">heat</span> <span class="pre">flux</span></code> from the view factor for a given point:</p>
+<div class="math notranslate nohighlight">
+\[
+\mf q_{inc,rad}^{''} =\phi_{total} \cdot \sigma \cdot T_r^4
+\]</div>
+<p>Stefan–Boltzmann constant is: $<span class="math notranslate nohighlight">\( \mf \sigma = 5.67 \cdot 10^{-8} \frac{W}{m^2 \cdot K^4}= 5.67 \cdot 10^{-11} \frac{kW}{m^2 \cdot K^4}\)</span>$</p>
 <div class="section" id="task">
 <h3>Task<a class="headerlink" href="#task" title="Permalink to this headline">¶</a></h3>
 <p>The FDS input file <a class="reference download internal" download="" href="../../../_downloads/7ad2addc9b20822808af2f249e009480/radiation_validation.fds"><code class="xref download docutils literal notranslate"><span class="pre">radiation_validation.fds</span></code></a> is used for this simulation. Given is a room with one hot wall, <span class="math notranslate nohighlight">\(\mf temperature = 91.2717 °C\)</span> and other cold surfaces, <span class="math notranslate nohighlight">\(\mf temperature = -272.15 °C\)</span>. Ten devices are defined for measuring the incident and radiative heat fluxes on both front and adjacent sides of the hot wall diagonally, as it is shown below.</p>
 <p>In order to omit the influence of convective heat transfer, there should be no air in the room, which is considered in the input file by
 <code class="docutils literal notranslate"><span class="pre">SOLID_PHASE_ONLY</span> <span class="pre">=</span> <span class="pre">.TRUE.</span></code> on the <code class="docutils literal notranslate"><span class="pre">MISC</span></code> line.
 The objective of this task is to validate the results of the FDS simulation with the analytical calculations. After executing the simulation and reading the results with python, both, incident and radiative heat fluxes are calculated for all devices.</p>
-<div class="figure align-default" id="id7">
-<a class="reference internal image-reference" href="../../../_images/geometry.png"><img alt="../../../_images/geometry.png" src="../../../_images/geometry.png" style="width: 70%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 6.30 </span><span class="caption-text">The geometry, location of the hot surface and the devices.</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
+<div class="figure align-default" id="fig-validation-geometry">
+<a class="reference internal image-reference" href="../../../_images/room_geometry.png"><img alt="../../../_images/room_geometry.png" src="../../../_images/room_geometry.png" style="width: 100%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.30 </span><span class="caption-text">The geometry, location of the hot surface and the devices.</span><a class="headerlink" href="#fig-validation-geometry" title="Permalink to this image">¶</a></p>
 </div>
 <ol>
 <li><p>Evaluate the boundary files for the <code class="docutils literal notranslate"><span class="pre">INCIDENT</span> <span class="pre">HEAT</span> <span class="pre">FLUX</span></code>, the <code class="docutils literal notranslate"><span class="pre">RADIATIVE</span> <span class="pre">HEAT</span> <span class="pre">FLUX</span></code> and the <code class="docutils literal notranslate"><span class="pre">GAUGE</span> <span class="pre">HEAT</span> <span class="pre">FLUX</span></code>. Assume <span class="math notranslate nohighlight">\(\sf T_{gauge}=-100°C \)</span>. The output quantities related to the thermal exposure of solid surfaces are explained in section 21.10.7 <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">FDS User’s Guide</a>. Quantities on a solid obstruction can be recorded using the <code class="docutils literal notranslate"><span class="pre">BNDF</span></code> namelist group. It can be defined similar to <code class="docutils literal notranslate"><span class="pre">SLCF</span></code> like:</p>
@@ -724,212 +767,142 @@ The objective of this task is to validate the results of the FDS simulation with
 </li>
 <li><p>Calculate the heat flux for a single point on the parallel plane at x = 1, y = 0.333 and z = 0.667 using analytical formulas and compare the results to the output of the corresponding device of the FDS calculation.</p></li>
 <li><p>Evaluate the the <code class="docutils literal notranslate"><span class="pre">INCIDENT</span> <span class="pre">HEAT</span> <span class="pre">FLUX</span></code> for the respective positions of the line device and compare it to the analytical solutions. Calculate the view factors using e.g. spreadsheet application or Python. Do the same for <code class="docutils literal notranslate"><span class="pre">RADIATIVE</span> <span class="pre">HEAT</span> <span class="pre">FLUX</span></code> as well as the <code class="docutils literal notranslate"><span class="pre">GAUGE</span> <span class="pre">HEAT</span> <span class="pre">FLUX</span></code>.</p></li>
+<li><p>Execute the simulation with higher value for <code class="docutils literal notranslate"><span class="pre">NUMBER_RADIATION_ANGLES</span></code>, <span class="math notranslate nohighlight">\(\mf 200\)</span> and <span class="math notranslate nohighlight">\(\mf 500\)</span> respectively. Add <code class="docutils literal notranslate"><span class="pre">SLCF</span></code> files with <code class="docutils literal notranslate"><span class="pre">QUANTITY='INTEGRATED</span> <span class="pre">INTENSITY'</span></code> at <code class="docutils literal notranslate"><span class="pre">PBX=0.98</span></code> and check out the <code class="docutils literal notranslate"><span class="pre">SLCF</span></code> file in Smokeview. Plot the <code class="docutils literal notranslate"><span class="pre">incident</span> <span class="pre">heat</span> <span class="pre">flux</span></code> for front and side and compare it with the analytical ones for  <code class="docutils literal notranslate"><span class="pre">NUMBER_RADIATION_ANGLES</span> <span class="pre">=</span> <span class="pre">500</span></code>.</p></li>
 </ol>
-<div class="cell tag_hide_cell docutils container">
+</div>
+<div class="section" id="input-file-parameters-explained">
+<h3>Input file parameters explained<a class="headerlink" href="#input-file-parameters-explained" title="Permalink to this headline">¶</a></h3>
+<p>Regarding <code class="docutils literal notranslate"><span class="pre">RADI</span></code> namelist in the input file, the frequency of calls to the radiation solver can be changed from every <span class="math notranslate nohighlight">\(\mf 3\)</span> time steps with an integer
+called <code class="docutils literal notranslate"><span class="pre">TIME_STEP_INCREMENT</span></code>. The increment over which the angles are updated can be reduced from
+<span class="math notranslate nohighlight">\(\mf 5\)</span> with the integer called <code class="docutils literal notranslate"><span class="pre">ANGLE_INCREMENT</span></code>. If <code class="docutils literal notranslate"><span class="pre">TIME_STEP_INCREMENT</span></code> and <code class="docutils literal notranslate"><span class="pre">ANGLE_INCREMENT</span></code> are
+both set to <span class="math notranslate nohighlight">\(\mf 1\)</span>, the radiation field is completely updated in a single time step, but the cost of the calculation
+increases significantly.</p>
+<p>There are several ways to improve the spatial and temporal accuracy of the discrete radiation transport equation
+(RTE), but each typically increases the computation time. The spatial accuracy can be improved by increasing
+the number of angles from the default <span class="math notranslate nohighlight">\(\mf 100\)</span> with the integer parameter <code class="docutils literal notranslate"><span class="pre">NUMBER_RADIATION_ANGLES</span></code>.
+Typically, you see high values of this quantity near sources of heat, and
+these values decrease farther away. Ideally, you should see a somewhat smooth and circular pattern far
+from the heat source, but because of the finite number of solid angles along which the radiation intensity is tracked, you will see in the far field a star-like pattern that is not physical. For more information refer to section 16.2 <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">FDS User’s Guide</a>.</p>
+<p>Following are the parameters of the <code class="docutils literal notranslate"><span class="pre">DUMP</span></code> namelist in the input file.
+<code class="docutils literal notranslate"><span class="pre">SMOKE3D</span> <span class="pre">=</span> <span class="pre">.FALSE.</span></code> does not produce an animation of the smoke and fire. <code class="docutils literal notranslate"><span class="pre">DT_PL3D</span></code> is the time between Plot3D file output. <code class="docutils literal notranslate"><span class="pre">DT_DEVC</span></code> works like <code class="docutils literal notranslate"><span class="pre">NFRAMES</span></code>, but only controls the output of devices. For more detailed description refer to section 21.1 <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">FDS User’s Guide</a></p>
+</div>
+<div class="section" id="solution">
+<h3>Solution<a class="headerlink" href="#solution" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="analytical-results-for-both-device-lines">
+<h4>Analytical results for both device lines<a class="headerlink" href="#analytical-results-for-both-device-lines" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="single-device">
+<h4>Single device<a class="headerlink" href="#single-device" title="Permalink to this headline">¶</a></h4>
+<p>Here is the calculation of the incident and radiative heat fluxes for one of the devices at x = 1, y = 0.333 and z = 0.667 using analytical formulas.</p>
+<p>First calculate a and b for each subsurface.</p>
+<div class="math notranslate nohighlight">
+\[\mf a_1 = \frac{0.667 - 0}{1} = 0.667~m,~b_1 = \frac{0.333 - 0}{1} = 0.333~m\]</div>
+<div class="math notranslate nohighlight">
+\[\mf a_2 = \frac{0.667 - 0}{1} = 0.667~m,~b_2 = \frac{1 - 0.333}{1} = 0.667~m\]</div>
+<div class="math notranslate nohighlight">
+\[\mf a_3 = \frac{1 - 0.667}{1} = 0.333~m,~b_3 = \frac{0.333 - 0}{1} = 0.333~m\]</div>
+<div class="math notranslate nohighlight">
+\[\mf a_4 = \frac{1 - 0.667}{1} = 0.333~m,~b_4 = \frac{1 - 0.333}{1} = 0.667~m\]</div>
+<p>Now calculate the view factor for each of the subsurfaces.</p>
+<div class="math notranslate nohighlight">
+\[\mf \phi_1 = \frac{1}{2\pi}[\frac{0.667}{\sqrt{1+0.666^2}}tan^{-1}(\frac{0.333}{\sqrt{1+0.667^2}})+\frac{0.333}{\sqrt{1+0.333^2}}tan^{-1}(\frac{0.667}{\sqrt{1+0.333^2}})] = 0.052\]</div>
+<div class="math notranslate nohighlight">
+\[\mf \phi_2 = \frac{1}{2\pi}[\frac{0.667}{\sqrt{1+0.667^2}}tan^{-1}(\frac{0.667}{\sqrt{1+0.667^2}})+\frac{0.667}{\sqrt{1+0.667^2}}tan^{-1}(\frac{0.667}{\sqrt{1+0.667^2}})] = 0.089\]</div>
+<div class="math notranslate nohighlight">
+\[\mf \phi_3 = \frac{1}{2\pi}[\frac{0.333}{\sqrt{1+0.333^2}}tan^{-1}(\frac{0.333}{\sqrt{1+0.333^2}})+\frac{0.333}{\sqrt{1+0.333^2}}tan^{-1}(\frac{0.333}{\sqrt{1+0.333^2}})] = 0.030\]</div>
+<div class="math notranslate nohighlight">
+\[\mf \phi_4 = \frac{1}{2\pi}[\frac{0.333}{\sqrt{1+0.333^2}}tan^{-1}(\frac{0.667}{\sqrt{1+0.333^2}})+\frac{0.667}{\sqrt{1+0.667^2}}tan^{-1}(\frac{0.333}{\sqrt{1+0.667^2}})] = 0.052\]</div>
+<div class="math notranslate nohighlight">
+\[\mf \phi = \phi_1+\phi_2+\phi_3+\phi_4 =  0.224\]</div>
+<p>Incident heat flux is:</p>
+<div class="math notranslate nohighlight">
+\[\mf q_{inc,rad}^{''} =\phi \cdot \sigma \cdot (T_r + 273)^4 = 0.224 \cdot 5.67 \cdot 10^{-8} \cdot (91.27+273)^4 = 224~\frac{W}{m^2}\]</div>
+<p>And the radiative heat flux is:</p>
+<div class="math notranslate nohighlight">
+\[\mf q_{r}^{''} = \epsilon_{s} (q_{inc,rad}^{''} - \sigma T_{s}^4) = 1.0 \cdot (224 - 5.67 \cdot 10^{-8} \cdot (-272.15+273.15)^4) = 224~\frac{W}{m^2}\]</div>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="n">dev</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;radiation_line.csv&#39;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell tag_hide_cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#### Heat fluxes for devices on the front</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Alternative for calculating the flux for a single device by hand(above solution) is:</span>
+<span class="c1">#Only on the parallel surface</span>
 
-<span class="c1"># Coordination of the hot surface</span>
-<span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span><span class="p">,</span> <span class="n">z_min</span><span class="p">,</span> <span class="n">z_max</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span> 
-
-<span class="n">inc_front_analytics</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">rad_front_analytics</span> <span class="o">=</span> <span class="p">[]</span>
-
-
-<span class="s1">&#39;Transmitter and receiver parallel&#39;</span>
-<span class="n">x</span> <span class="o">=</span> <span class="mf">1.0</span>
-
-<span class="s1">&#39;Incident:&#39;</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dev</span><span class="p">[</span><span class="s1">&#39;inc_flux_front-y&#39;</span><span class="p">])):</span>
-    <span class="n">y</span> <span class="o">=</span> <span class="n">dev</span><span class="p">[</span><span class="s1">&#39;inc_flux_front-y&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
-    <span class="n">z</span> <span class="o">=</span> <span class="n">dev</span><span class="p">[</span><span class="s1">&#39;inc_flux_front-z&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
-    
-    <span class="c1"># height and width of four subsurfaces for each device </span>
-    <span class="n">device</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">y</span> <span class="o">-</span> <span class="n">y_min</span><span class="p">,</span> <span class="n">z</span> <span class="o">-</span> <span class="n">z_min</span><span class="p">],</span>
-                       <span class="p">[</span><span class="n">y_max</span> <span class="o">-</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">-</span> <span class="n">z_min</span><span class="p">],</span>
-                       <span class="p">[</span><span class="n">y</span> <span class="o">-</span> <span class="n">y_min</span><span class="p">,</span> <span class="n">z_max</span> <span class="o">-</span> <span class="n">z</span><span class="p">],</span>
-                       <span class="p">[</span><span class="n">y_max</span> <span class="o">-</span> <span class="n">y</span><span class="p">,</span> <span class="n">z_max</span> <span class="o">-</span> <span class="n">z</span><span class="p">]])</span> 
-                       
-    <span class="n">subsurf</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">device</span><span class="p">)):</span>
-        <span class="n">b</span> <span class="o">=</span> <span class="n">device</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">x</span>
-        <span class="n">a</span> <span class="o">=</span> <span class="n">device</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">x</span>
-
-        <span class="n">subsurf</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span> <span class="o">*</span> <span class="p">((</span><span class="n">a</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">b</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span> <span class="o">+</span> \
-                   <span class="p">(</span><span class="n">b</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span>
-    <span class="n">inc_front_analytics</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">subsurf</span><span class="p">)</span>
-        
-<span class="n">dev</span><span class="p">[</span><span class="s1">&#39;inc_front_analytics&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">inc_front_analytics</span>
-
-<span class="s1">&#39;Radiative:&#39;</span>
-<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">dev</span><span class="p">[</span><span class="s1">&#39;inc_front_analytics&#39;</span><span class="p">]:</span>
-    <span class="n">rad_front_analytics</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span> <span class="o">*</span> <span class="p">(</span><span class="n">f</span> <span class="o">-</span> <span class="mf">5.67</span><span class="o">*</span><span class="p">(</span><span class="mi">10</span><span class="o">**-</span><span class="mi">8</span><span class="p">)</span> <span class="o">*</span> <span class="p">(((</span><span class="o">-</span><span class="mf">272.15</span><span class="p">)</span><span class="o">+</span><span class="mf">273.15</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">)))</span>
-    
-<span class="n">dev</span><span class="p">[</span><span class="s1">&#39;rad_front_analytics&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rad_front_analytics</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell tag_hide_cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#### Heat fluxes for devices on the side </span>
-<span class="n">inc_side_analytics</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">rad_side_analytics</span> <span class="o">=</span> <span class="p">[]</span>
-
-<span class="s1">&#39;Transmitter and receiver normal&#39;</span>
-<span class="n">y</span> <span class="o">=</span> <span class="mf">0.0</span>
-
-<span class="s1">&#39;Incident:&#39;</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">dev</span><span class="p">[</span><span class="s1">&#39;inc_flux_side-x&#39;</span><span class="p">])):</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">dev</span><span class="p">[</span><span class="s1">&#39;inc_flux_side-x&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
-    <span class="n">z</span> <span class="o">=</span> <span class="n">dev</span><span class="p">[</span><span class="s1">&#39;inc_flux_side-z&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">]</span>
-    <span class="c1"># height and width of two subsurfaces for each device </span>
-    <span class="n">device</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">y_max</span> <span class="o">-</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">-</span> <span class="n">z_min</span><span class="p">],</span>
-                       <span class="p">[</span><span class="n">y_max</span> <span class="o">-</span> <span class="n">y</span><span class="p">,</span> <span class="n">z_max</span> <span class="o">-</span> <span class="n">z</span><span class="p">]])</span>
-    
-    <span class="n">subsurf</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">device</span><span class="p">)):</span>
-        <span class="n">b</span> <span class="o">=</span> <span class="n">device</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">x</span>
-        <span class="n">a</span> <span class="o">=</span> <span class="n">device</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">x</span>
-        
-        <span class="n">subsurf</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span>
-    <span class="n">inc_side_analytics</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">subsurf</span><span class="p">)</span>
-
-<span class="n">dev</span><span class="p">[</span><span class="s1">&#39;inc_side_analytics&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">inc_side_analytics</span>
-<span class="n">dev</span><span class="p">[</span><span class="s1">&#39;distances&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-<span class="s1">&#39;Radiative:&#39;</span>
-<span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">dev</span><span class="p">[</span><span class="s1">&#39;inc_side_analytics&#39;</span><span class="p">]:</span>
-    <span class="n">rad_side_analytics</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span> <span class="o">*</span> <span class="p">(</span><span class="n">f</span> <span class="o">-</span> <span class="mf">5.67</span><span class="o">*</span><span class="p">(</span><span class="mi">10</span><span class="o">**-</span><span class="mi">8</span><span class="p">)</span> <span class="o">*</span> <span class="p">(((</span><span class="o">-</span><span class="mf">272.15</span><span class="p">)</span><span class="o">+</span><span class="mf">273.15</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">)))</span>
-    
-<span class="n">dev</span><span class="p">[</span><span class="s1">&#39;rad_side_analytics&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rad_side_analytics</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell tag_hide_cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;for device on the ceiling&#39;</span>
-
-<span class="k">def</span> <span class="nf">heat_flux</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">heat_flux</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">z</span><span class="p">):</span>
     
     <span class="n">single_analytics</span> <span class="o">=</span> <span class="p">[]</span>
     
     <span class="c1"># Coordination of the hot surface</span>
     <span class="n">y_min</span><span class="p">,</span> <span class="n">y_max</span><span class="p">,</span> <span class="n">z_min</span><span class="p">,</span> <span class="n">z_max</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span>
-    <span class="n">z</span> <span class="o">=</span> <span class="mf">1.0</span>
-    
+    <span class="n">x</span> <span class="o">=</span> <span class="mf">1.0</span>
+
     <span class="c1">#Incident heat flux </span>
-    <span class="n">device</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">z</span> <span class="o">-</span> <span class="n">z_min</span><span class="p">,</span> <span class="n">y_max</span> <span class="o">-</span> <span class="n">y</span><span class="p">],</span>
-                       <span class="p">[</span><span class="n">z</span> <span class="o">-</span> <span class="n">z_min</span><span class="p">,</span> <span class="n">y</span> <span class="o">-</span> <span class="n">y_min</span><span class="p">]])</span>
+    <span class="n">device</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="n">y</span> <span class="o">-</span> <span class="n">y_min</span><span class="p">,</span> <span class="n">z</span> <span class="o">-</span> <span class="n">z_min</span><span class="p">],</span>
+                       <span class="p">[</span><span class="n">y_max</span> <span class="o">-</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span> <span class="o">-</span> <span class="n">z_min</span><span class="p">],</span>
+                       <span class="p">[</span><span class="n">y</span> <span class="o">-</span> <span class="n">y_min</span><span class="p">,</span> <span class="n">z_max</span> <span class="o">-</span> <span class="n">z</span><span class="p">],</span>
+                       <span class="p">[</span><span class="n">y_max</span> <span class="o">-</span> <span class="n">y</span><span class="p">,</span> <span class="n">z_max</span> <span class="o">-</span> <span class="n">z</span><span class="p">]])</span>
     
-    <span class="n">subsurf</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">phi</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">device</span><span class="p">)):</span>
         <span class="n">b</span> <span class="o">=</span> <span class="n">device</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">/</span><span class="n">x</span>
         <span class="n">a</span> <span class="o">=</span> <span class="n">device</span><span class="p">[</span><span class="n">s</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">x</span>
         
-        <span class="n">subsurf</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">-</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span>
-    <span class="n">single_analytics</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">subsurf</span><span class="p">)</span>
+        <span class="n">phi</span> <span class="o">+=</span> <span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span> <span class="o">*</span> <span class="p">((</span><span class="n">a</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">b</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">a</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span> <span class="o">+</span> \
+                   <span class="p">(</span><span class="n">b</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">a</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">b</span><span class="o">**</span><span class="mi">2</span><span class="p">)))</span>
+        
+    <span class="n">q_inc</span> <span class="o">=</span> <span class="n">phi</span> <span class="o">*</span> <span class="mf">5.67</span><span class="o">*</span><span class="p">(</span><span class="mi">10</span><span class="o">**-</span><span class="mi">8</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mf">91.27</span><span class="o">+</span><span class="mf">273.15</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span>
+    <span class="n">single_analytics</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">q_inc</span><span class="p">)</span>
     
     <span class="c1">#Radiative heat flux, emissivity=1 and Temperature=-272.15°C</span>
-    <span class="n">single_analytics</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">single_analytics</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mf">5.67</span><span class="o">*</span><span class="p">(</span><span class="mi">10</span><span class="o">**-</span><span class="mi">8</span><span class="p">)</span> <span class="o">*</span> <span class="p">(((</span><span class="o">-</span><span class="mf">272.15</span><span class="p">)</span><span class="o">+</span><span class="mf">273.15</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">)))</span>
+    <span class="n">single_analytics</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">single_analytics</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mf">5.67</span><span class="o">*</span><span class="p">(</span><span class="mi">10</span><span class="o">**-</span><span class="mi">8</span><span class="p">)</span> <span class="o">*</span> <span class="p">((</span><span class="o">-</span><span class="mf">272.15</span><span class="o">+</span><span class="mf">273.15</span><span class="p">)</span><span class="o">**</span><span class="mi">4</span><span class="p">)))</span>
     
     <span class="k">return</span> <span class="s2">&quot;Incident heat flux:</span><span class="si">{}</span><span class="s2">, Radiative heat flux:</span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">single_analytics</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">single_analytics</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell tag_hide_cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">### Validating the results (Simulation vs. Analytical)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dev</span><span class="p">[</span><span class="s1">&#39;distances&#39;</span><span class="p">],</span><span class="n">dev</span><span class="p">[</span><span class="s1">&#39;inc_flux_front&#39;</span><span class="p">],</span> <span class="s1">&#39;--bo&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Simulation&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dev</span><span class="p">[</span><span class="s1">&#39;distances&#39;</span><span class="p">],</span><span class="n">dev</span><span class="p">[</span><span class="s1">&#39;inc_front_analytics&#39;</span><span class="p">],</span> <span class="s1">&#39;--ro&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Analytical&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Position / $\sf m $&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Incident heat flux / $\sf kW/m^2 $&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figs/incident_front.svg&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dev</span><span class="p">[</span><span class="s1">&#39;inc_flux_side-z&#39;</span><span class="p">],</span><span class="n">dev</span><span class="p">[</span><span class="s1">&#39;inc_flux_side&#39;</span><span class="p">],</span> <span class="s1">&#39;--bo&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Simulation&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dev</span><span class="p">[</span><span class="s1">&#39;inc_flux_side-z&#39;</span><span class="p">],</span><span class="n">dev</span><span class="p">[</span><span class="s1">&#39;inc_side_analytics&#39;</span><span class="p">],</span> <span class="s1">&#39;--ro&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Analytical&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Position / $\sf m $&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Incident heat flux / $\sf kW/m^2 $&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figs/incident_side.svg&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dev</span><span class="p">[</span><span class="s1">&#39;inc_flux_front-z&#39;</span><span class="p">],</span><span class="n">dev</span><span class="p">[</span><span class="s1">&#39;rad_flux_front&#39;</span><span class="p">],</span> <span class="s1">&#39;--bo&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Simulation&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dev</span><span class="p">[</span><span class="s1">&#39;inc_flux_front-z&#39;</span><span class="p">],</span><span class="n">dev</span><span class="p">[</span><span class="s1">&#39;rad_front_analytics&#39;</span><span class="p">],</span> <span class="s1">&#39;--ro&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Analytical&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Position / $\sf m $&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Radiative heat flux / $\sf kW/m^2 $&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figs/radiative_front.svg&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dev</span><span class="p">[</span><span class="s1">&#39;inc_flux_side-z&#39;</span><span class="p">],</span><span class="n">dev</span><span class="p">[</span><span class="s1">&#39;rad_flux_side&#39;</span><span class="p">],</span> <span class="s1">&#39;--bo&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Simulation&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dev</span><span class="p">[</span><span class="s1">&#39;inc_flux_side-z&#39;</span><span class="p">],</span><span class="n">dev</span><span class="p">[</span><span class="s1">&#39;rad_side_analytics&#39;</span><span class="p">],</span> <span class="s1">&#39;--ro&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Analytical&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Position / $\sf m $&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Radiative heat flux / $\sf kW/m^2 $&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figs/radiative_side.svg&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dev</span><span class="p">[</span><span class="s1">&#39;gauge_front-z&#39;</span><span class="p">],</span><span class="n">dev</span><span class="p">[</span><span class="s1">&#39;gauge_front&#39;</span><span class="p">],</span> <span class="s1">&#39;--bo&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Simulation&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Position / $\sf m $&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Gauge heat flux / $\sf kW/m^2 $&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figs/gauge_flux_front.svg&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">dev</span><span class="p">[</span><span class="s1">&#39;gauge_front-z&#39;</span><span class="p">],</span><span class="n">dev</span><span class="p">[</span><span class="s1">&#39;gauge_side&#39;</span><span class="p">],</span> <span class="s1">&#39;--bo&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Simulation&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Position / $\sf m $&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Gauge heat flux / $\sf kW/m^2 $&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figs/gauge_flux_side.svg&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
 </div>
+<div class="section" id="plotting-the-results">
+<h4>Plotting the results<a class="headerlink" href="#plotting-the-results" title="Permalink to this headline">¶</a></h4>
+<div class="figure align-default" id="id6">
+<a class="reference internal image-reference" href="../../../_images/incident_flux_front.svg"><img alt="../../../_images/incident_flux_front.svg" src="../../../_images/incident_flux_front.svg" width="80%" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.31 </span><span class="caption-text">Incident heat flux front</span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
 </div>
+<div class="figure align-default" id="id7">
+<a class="reference internal image-reference" href="../../../_images/incident_flux_side.svg"><img alt="../../../_images/incident_flux_side.svg" src="../../../_images/incident_flux_side.svg" width="80%" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.32 </span><span class="caption-text">Incident heat flux side</span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="id8">
-<a class="reference internal image-reference" href="../../../_images/incident_front.svg"><img alt="../../../_images/incident_front.svg" src="../../../_images/incident_front.svg" width="60%" /></a>
-<p class="caption"><span class="caption-number">Fig. 6.31 </span><span class="caption-text">Incident heat flux front</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
+<a class="reference internal image-reference" href="../../../_images/radiative_flux_front.svg"><img alt="../../../_images/radiative_flux_front.svg" src="../../../_images/radiative_flux_front.svg" width="80%" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.33 </span><span class="caption-text">Radiative heat flux front</span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="id9">
-<a class="reference internal image-reference" href="../../../_images/radiative_front.svg"><img alt="../../../_images/radiative_front.svg" src="../../../_images/radiative_front.svg" width="60%" /></a>
-<p class="caption"><span class="caption-number">Fig. 6.32 </span><span class="caption-text">Radiative heat flux front</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
+<a class="reference internal image-reference" href="../../../_images/radiative_flux_side.svg"><img alt="../../../_images/radiative_flux_side.svg" src="../../../_images/radiative_flux_side.svg" width="80%" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.34 </span><span class="caption-text">Radiative heat flux side</span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="id10">
-<a class="reference internal image-reference" href="../../../_images/incident_side.svg"><img alt="../../../_images/incident_side.svg" src="../../../_images/incident_side.svg" width="60%" /></a>
-<p class="caption"><span class="caption-number">Fig. 6.33 </span><span class="caption-text">Incident heat flux side</span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
+<a class="reference internal image-reference" href="../../../_images/gauge_flux_front.svg"><img alt="../../../_images/gauge_flux_front.svg" src="../../../_images/gauge_flux_front.svg" width="80%" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.35 </span><span class="caption-text">Gauge heat flux front, <span class="math notranslate nohighlight">\(\sf T_{gauge}=-100°C\)</span></span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="id11">
-<a class="reference internal image-reference" href="../../../_images/radiative_side.svg"><img alt="../../../_images/radiative_side.svg" src="../../../_images/radiative_side.svg" width="60%" /></a>
-<p class="caption"><span class="caption-number">Fig. 6.34 </span><span class="caption-text">Radiative heat flux side</span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
+<a class="reference internal image-reference" href="../../../_images/gauge_flux_side.svg"><img alt="../../../_images/gauge_flux_side.svg" src="../../../_images/gauge_flux_side.svg" width="80%" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.36 </span><span class="caption-text">Gauge heat flux side, <span class="math notranslate nohighlight">\(\sf T_{gauge}=-100°C\)</span></span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
 </div>
-<!---:::{figure-md}
-
-<img src="figs/gauge_flux_front.svg" width="60%">
-
-Gauge heat flux front, $\sf T_{gauge}=-100°C$
-:::
-            
-:::{figure-md}
-
-<img src="figs/gauge_flux_side.svg" width="60%">
-
-Gauge heat flux side, $\sf T_{gauge}=-100°C$
-:::></div>
+</div>
+<div class="section" id="higher-value-for-number-radiation-angles">
+<h4>Higher value for <code class="docutils literal notranslate"><span class="pre">NUMBER_RADIATION_ANGLES</span></code><a class="headerlink" href="#higher-value-for-number-radiation-angles" title="Permalink to this headline">¶</a></h4>
+<div class="figure align-default" id="fig-validation-heatflux-rad-angles">
+<a class="reference internal image-reference" href="../../../_images/rad_angle.png"><img alt="../../../_images/rad_angle.png" src="../../../_images/rad_angle.png" style="width: 100%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.37 </span><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">SLCF</span></code> file in <code class="docutils literal notranslate"><span class="pre">PBX</span> <span class="pre">=</span> <span class="pre">0.98</span></code> for radiation intensity. From left to right, the <code class="docutils literal notranslate"><span class="pre">NUMBER_RADIATION_ANGLES</span></code> is set to <span class="math notranslate nohighlight">\(\sf 100\)</span>, <span class="math notranslate nohighlight">\(\sf 200\)</span> and <span class="math notranslate nohighlight">\(\sf 500\)</span>.</span><a class="headerlink" href="#fig-validation-heatflux-rad-angles" title="Permalink to this image">¶</a></p>
+</div>
+<p>Comparing the <code class="docutils literal notranslate"><span class="pre">incident</span> <span class="pre">heat</span> <span class="pre">flux</span></code> results, when <code class="docutils literal notranslate"><span class="pre">NUMBER_RADIATION_ANGLES</span> <span class="pre">=</span> <span class="pre">500</span></code>.</p>
+<div class="figure align-default" id="fig-validation-heatflux-rad-angles-front">
+<a class="reference internal image-reference" href="../../../_images/incident_front_500.svg"><img alt="../../../_images/incident_front_500.svg" src="../../../_images/incident_front_500.svg" width="80%" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.38 </span><span class="caption-text">Incident heat flux front</span><a class="headerlink" href="#fig-validation-heatflux-rad-angles-front" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="fig-validation-heatflux-rad-angles-side">
+<a class="reference internal image-reference" href="../../../_images/incident_side_500.svg"><img alt="../../../_images/incident_side_500.svg" src="../../../_images/incident_side_500.svg" width="80%" /></a>
+<p class="caption"><span class="caption-number">Fig. 6.39 </span><span class="caption-text">Radiative heat flux front</span><a class="headerlink" href="#fig-validation-heatflux-rad-angles-side" title="Permalink to this image">¶</a></p>
+</div>
+</div>
+</div>
 </div>
 </div>
 

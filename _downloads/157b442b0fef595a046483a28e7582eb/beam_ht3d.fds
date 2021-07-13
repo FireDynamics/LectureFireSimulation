@@ -1,11 +1,11 @@
-&HEAD CHID='steel_beam_ht3d_surf_false', TITLE='FS I - 03 Steel Beam HT3D' /
+&HEAD CHID='beam_ht3d', TITLE='Example Steel Beam HT3D, solid phase only' /
 
 ## Computational domain, simulation time and ambient values
 &MESH IJK=60,10,25, XB= -0.6,0.6, -0.1,0.1, 0.0,0.5/
 &TIME T_END=3600, DT=5/
-&MISC SOLID_PHASE_ONLY=.FALSE., BNDF_DEFAULT=.FALSE./
+&MISC SOLID_PHASE_ONLY=.TRUE., BNDF_DEFAULT=.FALSE./
 &DUMP DT_DEVC=10/
-&RADI RADIATION=.TRUE./
+&RADI RADIATION=.FALSE./
 
 ## Domain boundary conditions
 &VENT MB='ZMAX',SURF_ID='OPEN'/
@@ -37,7 +37,7 @@
 &SURF ID='HOT STEEL',       COLOR='RED', TMP_FRONT=800/
 
 &VENT XB = -0.44,-0.36, -0.04,0.04, 0.18,0.18, SURF_ID='HOT STEEL' /
-&VENT XB = -0.08, 0.08, -0.04,0.04, 0.18,0.18, SURF_ID='HOT STEEL' /
+&VENT XB = -0.04, 0.04, -0.04,0.04, 0.18,0.18, SURF_ID='HOT STEEL' /
 &VENT XB =  0.44, 0.36, -0.04,0.04, 0.18,0.18, SURF_ID='HOT STEEL' /
 
 
