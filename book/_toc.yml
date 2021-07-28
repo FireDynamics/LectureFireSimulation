@@ -54,6 +54,11 @@ parts:
     sections:
     - file: content/modelling/07_particles/01_fundamentals
     - file: content/modelling/07_particles/02_example_spray
+    
+  - file: content/modelling/09_pyrolysis/00_overview
+    sections:
+    - file: content/modelling/09_pyrolysis/01_fundamentals
+    - file: content/modelling/09_pyrolysis/02_example
 
 ####################
 # TOOLS 
