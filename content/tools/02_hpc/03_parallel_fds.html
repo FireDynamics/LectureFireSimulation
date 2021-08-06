@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -502,12 +502,34 @@
      Login
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fds-modules-on-jureca">
+     FDS Modules on JURECA
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fds-module-on-jureca">
-   FDS Module on JURECA
+  <a class="reference internal nav-link" href="#accessing-the-cobra-pleiades-cluster">
+   Accessing the CoBra / Pleiades Cluster
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     Accounts
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id2">
+     Login
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#fds-modules-on-the-cobra-cluster">
+     FDS Modules on the CoBra Cluster
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#job-submission">
@@ -515,8 +537,13 @@
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#single-job">
-     Single Job
+    <a class="reference internal nav-link" href="#single-job-on-jureca">
+     Single Job on JURECA
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#single-job-on-the-cobra-cluster">
+     Single Job on the CoBra-Cluster
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -586,9 +613,8 @@ jrlogin06.jureca
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="fds-module-on-jureca">
-<h2>FDS Module on JURECA<a class="headerlink" href="#fds-module-on-jureca" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="fds-modules-on-jureca">
+<h3>FDS Modules on JURECA<a class="headerlink" href="#fds-modules-on-jureca" title="Permalink to this headline">¶</a></h3>
 <p>Modules offer a flexible environment to manage multiple versions of software. This system is also used on JURECA: <a class="reference external" href="https://apps.fz-juelich.de/jsc/hps/jureca/software-modules.html">Module usage on JURECA</a>.</p>
 <p>As the FDS (and some other) modules are not globaly installed, they need to be added to the user’s environment. This can be done with</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">module</span> <span class="n">use</span> <span class="o">-</span><span class="n">a</span> <span class="o">~</span><span class="n">arnold1</span><span class="o">/</span><span class="n">modules_fire</span><span class="o">/</span>
@@ -603,12 +629,32 @@ jrlogin06.jureca
 </ul>
 </div>
 </div>
+</div>
+<div class="section" id="accessing-the-cobra-pleiades-cluster">
+<h2>Accessing the CoBra / Pleiades Cluster<a class="headerlink" href="#accessing-the-cobra-pleiades-cluster" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Accounts<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<p>Please contact Lukas for an account.</p>
+</div>
+<div class="section" id="id2">
+<h3>Login<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Using the provided credentials, you can use SSH to login to the front-end <code class="docutils literal notranslate"><span class="pre">fugg1.pleiades.uni-wuppertal.de</span></code>.</p>
+</div>
+<div class="section" id="fds-modules-on-the-cobra-cluster">
+<h3>FDS Modules on the CoBra Cluster<a class="headerlink" href="#fds-modules-on-the-cobra-cluster" title="Permalink to this headline">¶</a></h3>
+<p>As on JURECA, the modules need to be added to the user’s environment with</p>
+<p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">use</span> <span class="pre">-a</span> <span class="pre">/beegfs/larnold/modules</span></code></p>
+<p>The (default) FDS module can be loaded with</p>
+<p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">FDS</span></code></p>
+<p>which sets up the environment to run FDS in parallel. The name of the FDS executable is <code class="docutils literal notranslate"><span class="pre">fds</span></code>.</p>
+</div>
+</div>
 <div class="section" id="job-submission">
 <h2>Job Submission<a class="headerlink" href="#job-submission" title="Permalink to this headline">¶</a></h2>
-<p>A computercluster is often used by a lot of users. Therefore executing a programm which needs a lot of the CPU power could disturb other users by slowing down the rest of the softwares or even the OS. The solution to this is a queueing system which organizes the execution of many programms and manages the ressource distribution among them. JURECA uses the software called Slurm for queueing and distributing to compute nodes. More information is provided in <a class="reference external" href="https://apps.fz-juelich.de/jsc/hps/jureca/batchsystem.html">JURECA’s batch system documentation</a>.</p>
+<p>A computercluster is often used by a lot of users. Therefore executing a programm which needs a lot of the CPU power could disturb other users by slowing down the rest of the softwares or even the OS. The solution to this is a queueing system which organizes the execution of many programms and manages the ressource distribution among them. JURECA and the CoBra-cluster use the software called Slurm for queueing and distributing to compute nodes. More information is provided in <a class="reference external" href="https://apps.fz-juelich.de/jsc/hps/jureca/batchsystem.html">JURECA’s batch system documentation</a> and <a class="reference external" href="http://www.pleiades.uni-wuppertal.de/index.php?id=slurm">Pleiades batch system</a>.</p>
 <p>Instead of running our simulation on the cluster we either submit our simulation file to the queueing system or execute a submit code which includes the modules we need for FDS, sets the number of processes, theads and other important quantities.</p>
-<div class="section" id="single-job">
-<h3>Single Job<a class="headerlink" href="#single-job" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="single-job-on-jureca">
+<h3>Single Job on JURECA<a class="headerlink" href="#single-job-on-jureca" title="Permalink to this headline">¶</a></h3>
 <p>The structure of a Slurm job script is basically a shell script. This shell script will be executed by the batch system on the requested resource. The definition of the resource is done as comments (<code class="docutils literal notranslate"><span class="pre">#</span></code>) with the <code class="docutils literal notranslate"><span class="pre">SLURM</span></code> keywords. These are instructions for Slurm.</p>
 <p>A simple example for a Slurm job scipt (<a class="reference download internal" download="" href="../../../_downloads/c61518e40ff31654179d1fe90690a792/fds-slurm-job-single.sh"><code class="xref download docutils literal notranslate"><span class="pre">fds-slurm-job-single.sh</span></code></a>) is given below. It executes FDS for a single FDS input file.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/bash -x
@@ -645,7 +691,7 @@ srun fds ./*.fds
 </li>
 <li><p><strong>Accounting</strong></p>
 <p><code class="docutils literal notranslate"><span class="pre">#SBATCH</span> <span class="pre">--account=ias-7</span></code></p>
-<p>On Jureca you need to have a computing time project and your account needs to be assinged to it. This budget is used to “buy” a normal/high priority in the queueing system. Using <code class="docutils literal notranslate"><span class="pre">account</span></code> you specify which computing time contingency will be debited for the specified job. Here <code class="docutils literal notranslate"><span class="pre">ias-7</span></code> is indicating the project we will use for this lecture. It is the budget of the IAS-7 at the Forschungszentrum Jülich.</p>
+<p>On JURECA you need to have a computing time project and your account needs to be assinged to it. This budget is used to “buy” a normal/high priority in the queueing system. Using <code class="docutils literal notranslate"><span class="pre">account</span></code> you specify which computing time contingency will be debited for the specified job. Here <code class="docutils literal notranslate"><span class="pre">ias-7</span></code> is indicating the project we will use for this lecture. It is the budget of the IAS-7 at the Forschungszentrum Jülich.</p>
 </li>
 <li><p><strong>Partition</strong></p>
 <p><code class="docutils literal notranslate"><span class="pre">#SBATCH</span> <span class="pre">--partition=dc-cpu</span></code></p>
@@ -691,6 +737,26 @@ srun fds ./*.fds
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt; squeue -u $USER
 </pre></div>
 </div>
+</div>
+<div class="section" id="single-job-on-the-cobra-cluster">
+<h3>Single Job on the CoBra-Cluster<a class="headerlink" href="#single-job-on-the-cobra-cluster" title="Permalink to this headline">¶</a></h3>
+<p>A simple script to execute FDS on a given input file is as follows:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<span class="c1">#SBATCH --job-name=fds_job_name</span>
+<span class="c1">#SBATCH --partition=normal</span>
+<span class="c1">#SBATCH --time=0-01:00:00 # days-hours:minutes:seconds</span>
+<span class="c1">#SBATCH --ntasks=24</span>
+<span class="c1">#SBATCH --nodes=1</span>
+<span class="c1">#SBATCH --output=stdout.%j</span>
+<span class="c1">#SBATCH --error=stderr.%j</span>
+
+<span class="n">module</span> <span class="n">use</span> <span class="o">-</span><span class="n">a</span> <span class="o">/</span><span class="n">beegfs</span><span class="o">/</span><span class="n">larnold</span><span class="o">/</span><span class="n">modules</span><span class="o">/</span>
+<span class="n">module</span> <span class="n">load</span> <span class="n">FDS</span>
+
+<span class="n">srun</span> <span class="n">fds</span> <span class="o">*.</span><span class="n">fds</span>
+</pre></div>
+</div>
+<p>In contrast to JURECA, it is possible to run jobs for more than 24 hours.</p>
 </div>
 <div class="section" id="chain-jobs">
 <h3>Chain Jobs<a class="headerlink" href="#chain-jobs" title="Permalink to this headline">¶</a></h3>

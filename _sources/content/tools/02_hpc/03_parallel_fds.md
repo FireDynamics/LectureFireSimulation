@@ -52,7 +52,7 @@ jrlogin06.jureca
 ````
 
 
-## FDS Module on JURECA
+### FDS Modules on JURECA
 
 Modules offer a flexible environment to manage multiple versions of software. This system is also used on JURECA: [Module usage on JURECA](https://apps.fz-juelich.de/jsc/hps/jureca/software-modules.html).
 
@@ -71,14 +71,37 @@ Thus, adding this line to your batch scripts and startup script (`~/.bashrc`) wi
 
 ````
 
+## Accessing the CoBra / Pleiades Cluster
+
+### Accounts
+
+Please contact Lukas for an account.
+
+### Login
+
+Using the provided credentials, you can use SSH to login to the front-end `fugg1.pleiades.uni-wuppertal.de`.
+
+
+### FDS Modules on the CoBra Cluster
+
+As on JURECA, the modules need to be added to the user's environment with
+
+```module use -a /beegfs/larnold/modules```
+
+The (default) FDS module can be loaded with
+
+```module load FDS```
+
+which sets up the environment to run FDS in parallel. The name of the FDS executable is `fds`.
+
 ## Job Submission 
 
-A computercluster is often used by a lot of users. Therefore executing a programm which needs a lot of the CPU power could disturb other users by slowing down the rest of the softwares or even the OS. The solution to this is a queueing system which organizes the execution of many programms and manages the ressource distribution among them. JURECA uses the software called Slurm for queueing and distributing to compute nodes. More information is provided in [JURECA's batch system documentation](https://apps.fz-juelich.de/jsc/hps/jureca/batchsystem.html).
+A computercluster is often used by a lot of users. Therefore executing a programm which needs a lot of the CPU power could disturb other users by slowing down the rest of the softwares or even the OS. The solution to this is a queueing system which organizes the execution of many programms and manages the ressource distribution among them. JURECA and the CoBra-cluster use the software called Slurm for queueing and distributing to compute nodes. More information is provided in [JURECA's batch system documentation](https://apps.fz-juelich.de/jsc/hps/jureca/batchsystem.html) and [Pleiades batch system](http://www.pleiades.uni-wuppertal.de/index.php?id=slurm).
 
 Instead of running our simulation on the cluster we either submit our simulation file to the queueing system or execute a submit code which includes the modules we need for FDS, sets the number of processes, theads and other important quantities.
 
 
-### Single Job
+### Single Job on JURECA
 
 The structure of a Slurm job script is basically a shell script. This shell script will be executed by the batch system on the requested resource. The definition of the resource is done as comments (`#`) with the `SLURM` keywords. These are instructions for Slurm.
 
@@ -101,7 +124,7 @@ The individual lines have the following functions
 
   ```#SBATCH --account=ias-7```
   
-  On Jureca you need to have a computing time project and your account needs to be assinged to it. This budget is used to "buy" a normal/high priority in the queueing system. Using `account` you specify which computing time contingency will be debited for the specified job. Here `ias-7` is indicating the project we will use for this lecture. It is the budget of the IAS-7 at the Forschungszentrum Jülich.
+  On JURECA you need to have a computing time project and your account needs to be assinged to it. This budget is used to "buy" a normal/high priority in the queueing system. Using `account` you specify which computing time contingency will be debited for the specified job. Here `ias-7` is indicating the project we will use for this lecture. It is the budget of the IAS-7 at the Forschungszentrum Jülich.
 
 * **Partition**
 
@@ -163,6 +186,28 @@ The current status of a user's queue can be listed with
 ```
 > squeue -u $USER
 ```
+
+### Single Job on the CoBra-Cluster
+
+A simple script to execute FDS on a given input file is as follows:
+
+```
+#!/bin/sh
+#SBATCH --job-name=fds_job_name
+#SBATCH --partition=normal
+#SBATCH --time=0-01:00:00 # days-hours:minutes:seconds
+#SBATCH --ntasks=24
+#SBATCH --nodes=1
+#SBATCH --output=stdout.%j
+#SBATCH --error=stderr.%j
+
+module use -a /beegfs/larnold/modules/
+module load FDS
+
+srun fds *.fds
+```
+
+In contrast to JURECA, it is possible to run jobs for more than 24 hours. 
 
 ### Chain Jobs
 
