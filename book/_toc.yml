@@ -27,7 +27,7 @@ parts:
   - file: content/modelling/03_compartments/00_overview
     sections:
     - file: content/modelling/03_compartments/01_fundamentals
-    - file: content/modelling/03_compartments/02_design_fire
+#    - file: content/modelling/03_compartments/02_design_fire
     - file: content/modelling/03_compartments/03_pool_example
     - file: content/modelling/03_compartments/04_steckler_example
 
@@ -49,17 +49,17 @@ parts:
     - file: content/modelling/06_heat_transfer/02_heat_transfer_example
     - file: content/modelling/06_heat_transfer/03_validation_example
     - file: content/modelling/06_heat_transfer/04_ht3d_example
-    
+
   - file: content/modelling/07_particles/00_overview
     sections:
     - file: content/modelling/07_particles/01_fundamentals
     - file: content/modelling/07_particles/02_example_spray
-    
+
   - file: content/modelling/09_pyrolysis/00_overview
     sections:
     - file: content/modelling/09_pyrolysis/01_fundamentals
     - file: content/modelling/09_pyrolysis/02_example
-
+    
 ####################
 # TOOLS 
 - caption: Tools
