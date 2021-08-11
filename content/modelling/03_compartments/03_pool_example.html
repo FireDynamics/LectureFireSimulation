@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3.3. Example – Pool Fire &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
+    <title>3.2. Example – Pool Fire &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -56,8 +56,8 @@
     <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="3.4. Example - Steckler Compartment" href="04_steckler_example.html" />
-    <link rel="prev" title="3.2. Design Fires" href="02_design_fire.html" />
+    <link rel="next" title="3.3. Example - Steckler Compartment" href="04_steckler_example.html" />
+    <link rel="prev" title="3.1. Fundamentals" href="01_fundamentals.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -186,19 +186,14 @@
      3.1. Fundamentals
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_design_fire.html">
-     3.2. Design Fires
-    </a>
-   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     3.3. Example – Pool Fire
+     3.2. Example – Pool Fire
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="04_steckler_example.html">
-     3.4. Example - Steckler Compartment
+     3.3. Example - Steckler Compartment
     </a>
    </li>
   </ul>
@@ -311,6 +306,28 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../09_pyrolysis/00_overview.html">
+   8. Pyrolysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../09_pyrolysis/01_fundamentals.html">
+     8.1. Fundamentals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../09_pyrolysis/02_example.html">
+     8.2. Example - Gasification of PMMA
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -322,8 +339,8 @@
   <a class="reference internal" href="../../tools/01_fds_smv/00_overview.html">
    FDS and SMV
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-  <label for="toctree-checkbox-8">
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -349,8 +366,8 @@
   <a class="reference internal" href="../../tools/02_hpc/00_overview.html">
    HPC
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-  <label for="toctree-checkbox-9">
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -381,8 +398,8 @@
   <a class="reference internal" href="../../tools/03_analysis/00_overview.html">
    Data Analysis
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-  <label for="toctree-checkbox-10">
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -564,7 +581,7 @@
               <div>
                 
   <div class="section" id="example-pool-fire">
-<h1><span class="section-number">3.3. </span>Example – Pool Fire<a class="headerlink" href="#example-pool-fire" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3.2. </span>Example – Pool Fire<a class="headerlink" href="#example-pool-fire" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>This example illustrates the setup and analysis of a minimalist FDS simulation. Starting from a simple pool fire with a fixed heat release rate, the model is extended by various parameters. The results are then validated by comparison with simple analytical methods.</p>
@@ -824,13 +841,13 @@
 </div>
 </div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="98feaddb-bbf6-4532-8f34-191be0f494a6" name="29f8681c-2f86-415c-bcbf-651b26074b5d" type="radio">
-</input><label class="tabbed-label" for="98feaddb-bbf6-4532-8f34-191be0f494a6">
+<input checked="checked" id="7a188743-f8a2-4f95-9bbc-15813e9d391b" name="54efce3d-1f69-4594-a4d1-b6306d047708" type="radio">
+</input><label class="tabbed-label" for="7a188743-f8a2-4f95-9bbc-15813e9d391b">
 10 MW, sealed domain</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_velocity_vector_sealed.svg"><img alt="../../../_images/pool_fire_velocity_vector_sealed.svg" src="../../../_images/pool_fire_velocity_vector_sealed.svg" width="60%" /></a>
 </div>
-<input id="7b0ba483-2d4c-4a42-ae7c-b9399ab0a760" name="29f8681c-2f86-415c-bcbf-651b26074b5d" type="radio">
-</input><label class="tabbed-label" for="7b0ba483-2d4c-4a42-ae7c-b9399ab0a760">
+<input id="b1f9c6e5-e253-4f89-931c-43eed5ab5a93" name="54efce3d-1f69-4594-a4d1-b6306d047708" type="radio">
+</input><label class="tabbed-label" for="b1f9c6e5-e253-4f89-931c-43eed5ab5a93">
 10 MW, open domain</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_velocity_vector_open.svg"><img alt="../../../_images/pool_fire_velocity_vector_open.svg" src="../../../_images/pool_fire_velocity_vector_open.svg" width="60%" /></a>
 </div>
@@ -892,18 +909,18 @@
 </div>
 </div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="5930057b-747a-43b1-b851-91086b71316e" name="c94c265c-082f-413f-95cc-4a9171f4d0d3" type="radio">
-</input><label class="tabbed-label" for="5930057b-747a-43b1-b851-91086b71316e">
+<input checked="checked" id="6100e790-6904-47c7-88ef-e49ba967459e" name="513d7eb6-9bda-4e2c-aa13-a1f3d03997f2" type="radio">
+</input><label class="tabbed-label" for="6100e790-6904-47c7-88ef-e49ba967459e">
 100 kW</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_100kw_sealed_hrr.svg"><img alt="../../../_images/pool_fire_100kw_sealed_hrr.svg" src="../../../_images/pool_fire_100kw_sealed_hrr.svg" width="80%" /></a>
 </div>
-<input id="3822ce4c-d955-4ecb-b588-11d882df105a" name="c94c265c-082f-413f-95cc-4a9171f4d0d3" type="radio">
-</input><label class="tabbed-label" for="3822ce4c-d955-4ecb-b588-11d882df105a">
+<input id="9b7e2175-b0a6-4a9c-bb3e-4117e23afb90" name="513d7eb6-9bda-4e2c-aa13-a1f3d03997f2" type="radio">
+</input><label class="tabbed-label" for="9b7e2175-b0a6-4a9c-bb3e-4117e23afb90">
 1 MW</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_1mw_sealed_hrr.svg"><img alt="../../../_images/pool_fire_1mw_sealed_hrr.svg" src="../../../_images/pool_fire_1mw_sealed_hrr.svg" width="80%" /></a>
 </div>
-<input id="e61908fd-b52c-47bd-a1e6-8e2eb777902c" name="c94c265c-082f-413f-95cc-4a9171f4d0d3" type="radio">
-</input><label class="tabbed-label" for="e61908fd-b52c-47bd-a1e6-8e2eb777902c">
+<input id="72d89560-c1f0-4383-9ce3-02a815601ae7" name="513d7eb6-9bda-4e2c-aa13-a1f3d03997f2" type="radio">
+</input><label class="tabbed-label" for="72d89560-c1f0-4383-9ce3-02a815601ae7">
 10 MW</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_10mw_sealed_hrr.svg"><img alt="../../../_images/pool_fire_10mw_sealed_hrr.svg" src="../../../_images/pool_fire_10mw_sealed_hrr.svg" width="80%" /></a>
 </div>
@@ -1482,8 +1499,8 @@ $<span class="math notranslate nohighlight">\(\small\sf \dot{Q} = \Delta h_{c,ef
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="02_design_fire.html" title="previous page"><span class="section-number">3.2. </span>Design Fires</a>
-    <a class='right-next' id="next-link" href="04_steckler_example.html" title="next page"><span class="section-number">3.4. </span>Example - Steckler Compartment</a>
+    <a class='left-prev' id="prev-link" href="01_fundamentals.html" title="previous page"><span class="section-number">3.1. </span>Fundamentals</a>
+    <a class='right-next' id="next-link" href="04_steckler_example.html" title="next page"><span class="section-number">3.3. </span>Example - Steckler Compartment</a>
 
         </div>
         

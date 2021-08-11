@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3.4. Example - Steckler Compartment &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
+    <title>3.3. Example - Steckler Compartment &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -57,7 +57,7 @@
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="4. Thermodynamics" href="../04_thermodynamics/00_overview.html" />
-    <link rel="prev" title="3.3. Example – Pool Fire" href="03_pool_example.html" />
+    <link rel="prev" title="3.2. Example – Pool Fire" href="03_pool_example.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -187,18 +187,13 @@
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02_design_fire.html">
-     3.2. Design Fires
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="03_pool_example.html">
-     3.3. Example – Pool Fire
+     3.2. Example – Pool Fire
     </a>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     3.4. Example - Steckler Compartment
+     3.3. Example - Steckler Compartment
     </a>
    </li>
   </ul>
@@ -311,6 +306,28 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../09_pyrolysis/00_overview.html">
+   8. Pyrolysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../09_pyrolysis/01_fundamentals.html">
+     8.1. Fundamentals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../09_pyrolysis/02_example.html">
+     8.2. Example - Gasification of PMMA
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -322,8 +339,8 @@
   <a class="reference internal" href="../../tools/01_fds_smv/00_overview.html">
    FDS and SMV
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-  <label for="toctree-checkbox-8">
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -349,8 +366,8 @@
   <a class="reference internal" href="../../tools/02_hpc/00_overview.html">
    HPC
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-  <label for="toctree-checkbox-9">
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -381,8 +398,8 @@
   <a class="reference internal" href="../../tools/03_analysis/00_overview.html">
    Data Analysis
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-  <label for="toctree-checkbox-10">
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -566,7 +583,7 @@
               <div>
                 
   <div class="section" id="example-steckler-compartment">
-<h1><span class="section-number">3.4. </span>Example - Steckler Compartment<a class="headerlink" href="#example-steckler-compartment" title="Permalink to this headline">¶</a></h1>
+<h1><span class="section-number">3.3. </span>Example - Steckler Compartment<a class="headerlink" href="#example-steckler-compartment" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="experimental-setup">
 <h2>Experimental Setup<a class="headerlink" href="#experimental-setup" title="Permalink to this headline">¶</a></h2>
 <p>In 1982 a series of 55 full-scale experiments was coducted by K.D. Steckler, J.G. Quintiere, W.J. Rinkinen <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id6">SQR82</a>]</span>. In this study they investigated a compartment with the size of <span class="math notranslate nohighlight">\(\mf 2.8~m \times 2.8~m \times 2.18~m\)</span>.</p>
@@ -720,7 +737,7 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="03_pool_example.html" title="previous page"><span class="section-number">3.3. </span>Example – Pool Fire</a>
+    <a class='left-prev' id="prev-link" href="03_pool_example.html" title="previous page"><span class="section-number">3.2. </span>Example – Pool Fire</a>
     <a class='right-next' id="next-link" href="../04_thermodynamics/00_overview.html" title="next page"><span class="section-number">4. </span>Thermodynamics</a>
 
         </div>

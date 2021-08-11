@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>3.2. Design Fires &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
+    <title>8.2. Example - Gasification of PMMA &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
     
   <link href="../../../_static/css/theme.css" rel="stylesheet" />
   <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -50,12 +50,14 @@
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/modelling/03_compartments/02_design_fire.html" />
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}", "du": "\\dot{u}"}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/modelling/09_pyrolysis/02_example.html" />
     <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="3.3. Example – Pool Fire" href="03_pool_example.html" />
-    <link rel="prev" title="3.1. Fundamentals" href="01_fundamentals.html" />
+    <link rel="next" title="FDS and SMV" href="../../tools/01_fds_smv/00_overview.html" />
+    <link rel="prev" title="8.1. Fundamentals" href="01_fundamentals.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -169,34 +171,29 @@
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00_overview.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../03_compartments/00_overview.html">
    3. Compartment Fires
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
   <label for="toctree-checkbox-3">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="01_fundamentals.html">
+    <a class="reference internal" href="../03_compartments/01_fundamentals.html">
      3.1. Fundamentals
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     3.2. Design Fires
+   <li class="toctree-l2">
+    <a class="reference internal" href="../03_compartments/03_pool_example.html">
+     3.2. Example – Pool Fire
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="03_pool_example.html">
-     3.3. Example – Pool Fire
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="04_steckler_example.html">
-     3.4. Example - Steckler Compartment
+    <a class="reference internal" href="../03_compartments/04_steckler_example.html">
+     3.3. Example - Steckler Compartment
     </a>
    </li>
   </ul>
@@ -309,6 +306,28 @@
    </li>
   </ul>
  </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_overview.html">
+   8. Pyrolysis
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="01_fundamentals.html">
+     8.1. Fundamentals
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     8.2. Example - Gasification of PMMA
+    </a>
+   </li>
+  </ul>
+ </li>
 </ul>
 <p class="caption">
  <span class="caption-text">
@@ -320,8 +339,8 @@
   <a class="reference internal" href="../../tools/01_fds_smv/00_overview.html">
    FDS and SMV
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-  <label for="toctree-checkbox-8">
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -347,8 +366,8 @@
   <a class="reference internal" href="../../tools/02_hpc/00_overview.html">
    HPC
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-  <label for="toctree-checkbox-9">
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -379,8 +398,8 @@
   <a class="reference internal" href="../../tools/03_analysis/00_overview.html">
    Data Analysis
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-  <label for="toctree-checkbox-10">
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -434,9 +453,9 @@
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/content/modelling/03_compartments/02_design_fire.md"><button type="button"
+        <a class="dropdown-buttons" href="../../../_sources/content/modelling/09_pyrolysis/02_example.ipynb"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
+                data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
             onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
@@ -454,10 +473,10 @@
                 data-toggle="tooltip" data-placement="left" title="Source repository"><i
                     class="fab fa-github"></i>repository</button></a>
         <a class="issues-button"
-            href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/modelling/03_compartments/02_design_fire.html&body=Your%20issue%20content%20here."><button
+            href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/modelling/09_pyrolysis/02_example.html&body=Your%20issue%20content%20here."><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/modelling/03_compartments/02_design_fire.md"><button
+        <a class="edit-button" href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/modelling/09_pyrolysis/02_example.ipynb"><button
                 type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
                 title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
     </div>
@@ -472,11 +491,47 @@
 
             <!-- Launch buttons -->
 
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/FireDynamics/LectureFireSimulation/main?urlpath=tree/book/content/modelling/09_pyrolysis/02_example.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        <a class="jupyterhub-button" href="https://io.cce.uni-wuppertal.de/firesim_ss21//hub/user-redirect/git-pull?repo=https://github.com/FireDynamics/LectureFireSimulation&urlpath=tree/LectureFireSimulation/book/content/modelling/09_pyrolysis/02_example.ipynb&branch=main"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
+                data-placement="left"><img class="jupyterhub-button-logo"
+                    src="../../../_static/images/logo_jupyterhub.svg"
+                    alt="Interact on JupyterHub">JupyterHub</button></a>
+        
+        
+        
+    </div>
+</div>
+
         </div>
 
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#task-1">
+   Task 1
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -485,8 +540,65 @@
         
               <div>
                 
-  <div class="section" id="design-fires">
-<h1><span class="section-number">3.2. </span>Design Fires<a class="headerlink" href="#design-fires" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="example-gasification-of-pmma">
+<h1><span class="section-number">8.2. </span>Example - Gasification of PMMA<a class="headerlink" href="#example-gasification-of-pmma" title="Permalink to this headline">¶</a></h1>
+<p>The cone calorimeter is one of the device often used in fire safety science. A picture of a cone device can be seen in figure 2. A sample is placed under a cone shaped heater. The heater will induce a certain heat flux to the sample, causing the sample to pyrolysis or to burn. During the experiment the mass loss of the sample is measured. Additionaly a gasanalyser is used to measure the CO, CO<span class="math notranslate nohighlight">\(_2\)</span> amd O<span class="math notranslate nohighlight">\(_2\)</span> concentration released/consumed by the sample. This allows for the determination of the heat release rate of the sample by the Janssens method. Usually the sample is placed in holder with frame, as pictured in figure 3. The space between the bottom of the holder and the sample is usually filled with isolation, although experiments with other filling materials are also possible.</p>
+<div class="figure align-default" id="fig-pyrolisis-cone">
+<a class="reference internal image-reference" href="content/modelling/09_pyrolysis/figs/Cone.PNG"><img alt="content/modelling/09_pyrolysis/figs/Cone.PNG" src="content/modelling/09_pyrolysis/figs/Cone.PNG" style="width: 30%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 8.4 </span><span class="caption-text">Cone calorimeter</span><a class="headerlink" href="#fig-pyrolisis-cone" title="Permalink to this image">¶</a></p>
+</div>
+<p>The goal of this exercise is to simulate a gasification experiment done by the aalto university. The data can be found in the MaCFP database: <a class="reference external" href="https://github.com/MaCFP/matl-db/tree/master/Non-charring/PMMA/Aalto">https://github.com/MaCFP/matl-db/tree/master/Non-charring/PMMA/Aalto</a>. TGA data will be used to determine the parameters needed for the gasification experiment.</p>
+<div class="section" id="task-1">
+<h2>Task 1<a class="headerlink" href="#task-1" title="Permalink to this headline">¶</a></h2>
+<p>For simulating the gasification experiment, the following fds file will be used as a starting point: <a class="reference download internal" download="" href="../../../_downloads/abcfe7656cf6bef3a352af44aaece100/Gasification.fds"><code class="xref download docutils literal notranslate"><span class="pre">Gasification.fds</span></code></a>, more information on this set-up can be found in the fds userguide part 11.5. Instead of describing the reaction parameters by A and E, we will use the parameter REFERENCE_TEMPERATURE. This is the temperature at which the reaction that is modeled takes place, as is indicated in figure 4. FDS will than calculate A and E based on this temperature.</p>
+<div class="figure align-default" id="fig-fds-parameter-reference-temperature">
+<a class="reference internal image-reference" href="../../../_images/fds.PNG"><img alt="../../../_images/fds.PNG" src="../../../_images/fds.PNG" style="width: 40%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 8.5 </span><span class="caption-text">fds parameter REFERENCE_TEMPERATURE.</span><a class="headerlink" href="#fig-fds-parameter-reference-temperature" title="Permalink to this image">¶</a></p>
+</div>
+<ul class="simple">
+<li><p>Use the provided TGA data, to determine the reference temperature and rate. For this part of the task you only have to take into account the main peak. Note the total mass of the sample was 8.45 mg.</p>
+<ul>
+<li><p>The TGA data is still the raw data, in order to determine the maximum temperature, you will first have to calculate the massloss rate.</p></li>
+</ul>
+</li>
+<li><p>Use your calculated values as input parameters for your simulation</p>
+<ul>
+<li><p>You can no longer specify A and E, because fds will use the temperature to determine pre-exponential factor and the activitation energy.</p></li>
+</ul>
+</li>
+<li><p>Before comparing you gasifications results with the experimental results from aalto university, compare the TGA data you get from the simulation with the original TGA data. This can be done by specifying the following parameters in the SURF line:</p>
+<ul>
+<li><p>TGA_ANALYSIS = T</p></li>
+<li><p>TGA_HEATING_RATE = 10</p></li>
+<li><p>When you run the simulation in the terminal, you will get the following: ‘STOP: TGA analysis only (CHID: pmma_example)’. This is correct it means your simulation is done now.</p></li>
+</ul>
+</li>
+<li><p>Compare the gasification simulation with the aalto data</p></li>
+</ul>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Maximum
+0.003721893491124284
+361.1
+</pre></div>
+</div>
+<img alt="../../../_images/02_example_2_1.png" src="../../../_images/02_example_2_1.png" />
+<img alt="../../../_images/02_example_2_2.png" src="../../../_images/02_example_2_2.png" />
+<img alt="../../../_images/02_example_2_3.png" src="../../../_images/02_example_2_3.png" />
+<img alt="../../../_images/02_example_2_4.png" src="../../../_images/02_example_2_4.png" />
+</div>
+</div>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../../_images/02_example_3_0.png" src="../../../_images/02_example_3_0.png" />
+</div>
+</div>
+<div class="cell tag_remove_input docutils container">
+<div class="cell_output docutils container">
+<img alt="../../../_images/02_example_4_0.png" src="../../../_images/02_example_4_0.png" />
+</div>
+</div>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -502,7 +614,7 @@
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./content/modelling/03_compartments"
+            path: "./content/modelling/09_pyrolysis"
         },
         predefinedOutput: true
     }
@@ -514,8 +626,8 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="01_fundamentals.html" title="previous page"><span class="section-number">3.1. </span>Fundamentals</a>
-    <a class='right-next' id="next-link" href="03_pool_example.html" title="next page"><span class="section-number">3.3. </span>Example – Pool Fire</a>
+    <a class='left-prev' id="prev-link" href="01_fundamentals.html" title="previous page"><span class="section-number">8.1. </span>Fundamentals</a>
+    <a class='right-next' id="next-link" href="../../tools/01_fds_smv/00_overview.html" title="next page">FDS and SMV</a>
 
         </div>
         
