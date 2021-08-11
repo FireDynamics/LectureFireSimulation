@@ -30,15 +30,15 @@ TGA_data['Normalized_mass'] = (TGA_data['Mass(mg)']+8.45)/8.45
 TGA_data['massloss_rate'] = (-1)*np.gradient(TGA_data['Normalized_mass'], TGA_data['Time(s)'])
 plt.figure()
 plt.plot(TGA_data['Temperature(C)'], TGA_data['Normalized_mass'])
-plt.ylabel('Normalized mass')
-plt.xlabel('Temperature (˚C)')
+plt.ylabel('Normalized Mass')
+plt.xlabel('Temperature / ˚C')
 plt.grid()
 plt.plot()
 
 plt.figure()
 plt.plot(TGA_data['Temperature(C)'],TGA_data['massloss_rate'])
-plt.ylabel('Massloss rate (1/s)')
-plt.xlabel('Temperature (˚C)')
+plt.ylabel('Massloss Rate / 1/s')
+plt.xlabel('Temperature / ˚C')
 plt.ylim(-0.001, 0.004)
 plt.grid()
 plt.plot()
@@ -53,16 +53,20 @@ print(TGA_data['Temperature(C)'][index])
 
 plt.figure()
 plt.plot(TGA_data['Time(s)'], TGA_data['Temperature(C)'])
+plt.xlabel('Time / s')
+plt.ylabel('Temperature / ˚C')
 plt.grid()
 
 plt.figure()
 plt.plot(TGA_data['Time(s)'], 60*np.gradient(TGA_data['Temperature(C)'], TGA_data['Time(s)']))
+plt.xlabel('Time / s')
+plt.ylabel('Heating Rate / K/min')
 plt.grid()
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mUnicodeDecodeError[0m                        Traceback (most recent call last)
-[0;32m/tmp/ipykernel_2211/1238515068.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_2205/1537754653.py[0m in [0;36m<module>[0;34m[0m
 [1;32m      6[0m [0;34m[0m[0m
 [1;32m      7[0m [0;34m[0m[0m
 [0;32m----> 8[0;31m [0mTGA_data[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0mTGA_Data[0m[0;34m,[0m [0msep[0m[0;34m=[0m[0;34m','[0m[0;34m,[0m [0mnames[0m[0;34m=[0m[0;34m[[0m[0;34m'Time(s)'[0m[0;34m,[0m [0;34m'Temperature(C)'[0m[0;34m,[0m [0;34m'Mass(mg)'[0m[0;34m][0m[0;34m,[0m [0mskiprows[0m[0;34m=[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
