@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.5f77b4aec8189eecf79907ce328c390d.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -43,15 +43,15 @@
     <script src="../../../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}", "du": "\\dot{u}"}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
     </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}", "du": "\\dot{u}"}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
     <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/modelling/02_fluids/02_cfd.html" />
     <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -76,6 +76,10 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="../../../_static/cce_logo.png" class="logo" alt="logo">
       
       
@@ -85,7 +89,7 @@
 </div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -522,7 +526,7 @@
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
             </div>
-            <nav id="bd-toc-nav">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#overview">
@@ -651,7 +655,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/ipykernel_launcher.py:6: DeprecationWarning: `set_matplotlib_formats` is deprecated since IPython 7.23, directly use `matplotlib_inline.backend_inline.set_matplotlib_formats()`
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/ipykernel_launcher.py:6: DeprecationWarning: `set_matplotlib_formats` is deprecated since IPython 7.23, directly use `matplotlib_inline.backend_inline.set_matplotlib_formats()`
   
 </pre></div>
 </div>
@@ -836,33 +840,33 @@
 </div>
 <p>The following figures illustrate the according Taylor approximations for up to <span class="math notranslate nohighlight">\(\mf n=3\)</span>.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="2df78850-f1a2-49b8-a207-65e4560943a0" name="0d3d9d39-27c0-42bf-8fcd-478515eb66dc" type="radio">
-</input><label class="tabbed-label" for="2df78850-f1a2-49b8-a207-65e4560943a0">
+<input checked="checked" id="8521194a-fa38-48f2-b0db-6cf70987675e" name="0042506c-5f83-4196-9b0b-799d83a1ebb3" type="radio">
+</input><label class="tabbed-label" for="8521194a-fa38-48f2-b0db-6cf70987675e">
 f(x)</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_fnk.svg"><img alt="../../../_images/taylor_fnk.svg" src="../../../_images/taylor_fnk.svg" width="90%" /></a>
 </div>
-<input id="176f1b37-3b57-4830-806d-e1220af071ed" name="0d3d9d39-27c0-42bf-8fcd-478515eb66dc" type="radio">
-</input><label class="tabbed-label" for="176f1b37-3b57-4830-806d-e1220af071ed">
+<input id="74ca3ba2-cf57-4734-991c-e7d7e98f2485" name="0042506c-5f83-4196-9b0b-799d83a1ebb3" type="radio">
+</input><label class="tabbed-label" for="74ca3ba2-cf57-4734-991c-e7d7e98f2485">
 n=0</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_ts0.svg"><img alt="../../../_images/taylor_ts0.svg" src="../../../_images/taylor_ts0.svg" width="90%" /></a>
 </div>
-<input id="ce76d331-a67e-4c7d-89c7-999bc73efe2d" name="0d3d9d39-27c0-42bf-8fcd-478515eb66dc" type="radio">
-</input><label class="tabbed-label" for="ce76d331-a67e-4c7d-89c7-999bc73efe2d">
+<input id="f79113ed-09ef-46f8-9a2d-1f2be0186bd4" name="0042506c-5f83-4196-9b0b-799d83a1ebb3" type="radio">
+</input><label class="tabbed-label" for="f79113ed-09ef-46f8-9a2d-1f2be0186bd4">
 n=1</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_ts1.svg"><img alt="../../../_images/taylor_ts1.svg" src="../../../_images/taylor_ts1.svg" width="90%" /></a>
 </div>
-<input id="05da97cb-4e66-40e0-ba92-a65d224d1147" name="0d3d9d39-27c0-42bf-8fcd-478515eb66dc" type="radio">
-</input><label class="tabbed-label" for="05da97cb-4e66-40e0-ba92-a65d224d1147">
+<input id="1fea6443-2072-4bd6-b0b4-d06f99a9d071" name="0042506c-5f83-4196-9b0b-799d83a1ebb3" type="radio">
+</input><label class="tabbed-label" for="1fea6443-2072-4bd6-b0b4-d06f99a9d071">
 n=2</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_ts2.svg"><img alt="../../../_images/taylor_ts2.svg" src="../../../_images/taylor_ts2.svg" width="90%" /></a>
 </div>
-<input id="35cc462e-b147-4823-afba-b3841a7041a4" name="0d3d9d39-27c0-42bf-8fcd-478515eb66dc" type="radio">
-</input><label class="tabbed-label" for="35cc462e-b147-4823-afba-b3841a7041a4">
+<input id="f6ab1c34-54fb-48e4-b063-e79f02785b4f" name="0042506c-5f83-4196-9b0b-799d83a1ebb3" type="radio">
+</input><label class="tabbed-label" for="f6ab1c34-54fb-48e4-b063-e79f02785b4f">
 n=3</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_ts3.svg"><img alt="../../../_images/taylor_ts3.svg" src="../../../_images/taylor_ts3.svg" width="90%" /></a>
 </div>
-<input id="28788fda-ef45-4a6d-a2c1-60cba57388fc" name="0d3d9d39-27c0-42bf-8fcd-478515eb66dc" type="radio">
-</input><label class="tabbed-label" for="28788fda-ef45-4a6d-a2c1-60cba57388fc">
+<input id="f05a551a-bafc-4ba2-b5e6-21ad4c380560" name="0042506c-5f83-4196-9b0b-799d83a1ebb3" type="radio">
+</input><label class="tabbed-label" for="f05a551a-bafc-4ba2-b5e6-21ad4c380560">
 n in [0,…,3]</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_all.svg"><img alt="../../../_images/taylor_all.svg" src="../../../_images/taylor_all.svg" width="90%" /></a>
 </div>
@@ -1588,16 +1592,36 @@ dx=4.58e-05 --&gt; rmse=5.97e-10
               </div>
               
         
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="01_fluids.html" title="previous page"><span class="section-number">2.1. </span>Fluids</a>
-    <a class='right-next' id="next-link" href="03_turbulence.html" title="next page"><span class="section-number">2.3. </span>Turbulence</a>
 
-        </div>
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="01_fluids.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title"><span class="section-number">2.1. </span>Fluids</p>
+            </div>
+        </a>
+    </div>
+     <div id="next">
+        <a class="right-next" href="03_turbulence.html" title="next page">
+            <div class="prevnext-info">
+                <p class="prevnext-label">next</p>
+                <p class="prevnext-title"><span class="section-number">2.3. </span>Turbulence</p>
+            </div>
+            <i class="prevnext-label fas fa-angle-right"></i>
+        </a>
+     </div>
+
+</div>
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         

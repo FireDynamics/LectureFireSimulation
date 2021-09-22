@@ -1,72 +1,44 @@
 Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/jupyter_cache/executors/utils.py", line 56, in single_nb_execution
+  File "/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/jupyter_cache/executors/utils.py", line 56, in single_nb_execution
     record_timing=False,
-  File "/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/nbclient/client.py", line 1112, in execute
+  File "/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/nbclient/client.py", line 1117, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/nbclient/util.py", line 74, in wrapped
+  File "/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/nbclient/util.py", line 78, in wrapped
     return just_run(coro(*args, **kwargs))
-  File "/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/nbclient/util.py", line 53, in just_run
+  File "/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/nbclient/util.py", line 57, in just_run
     return loop.run_until_complete(coro)
-  File "/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/asyncio/base_events.py", line 587, in run_until_complete
+  File "/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/asyncio/base_events.py", line 587, in run_until_complete
     return future.result()
-  File "/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/nbclient/client.py", line 554, in async_execute
+  File "/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/nbclient/client.py", line 559, in async_execute
     cell, index, execution_count=self.code_cells_executed + 1
-  File "/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/nbclient/client.py", line 857, in async_execute_cell
+  File "/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/nbclient/client.py", line 862, in async_execute_cell
     self._check_raise_for_error(cell, exec_reply)
-  File "/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/nbclient/client.py", line 760, in _check_raise_for_error
+  File "/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/nbclient/client.py", line 765, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import numpy as np
-import matplotlib.pyplot as plt
-import fdsreader
-
-# Set the matplotlib output to svg
-from IPython.display import set_matplotlib_formats
-set_matplotlib_formats('svg')
-
-import os
-# check for set environment variable JB_NOSHOW
-show = True
-if 'JB_NOSHOW' in os.environ:
-    show = False
+sim = fdsreader.Simulation('../../../../data/compartment/steckler_test_013_20cm_001m/')
 ------------------
 
 [0;31m---------------------------------------------------------------------------[0m
-[0;31mImportError[0m                               Traceback (most recent call last)
-[0;32m/tmp/ipykernel_1772/2396645316.py[0m in [0;36m<module>[0;34m[0m
-[1;32m      1[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      2[0m [0;32mimport[0m [0mmatplotlib[0m[0;34m.[0m[0mpyplot[0m [0;32mas[0m [0mplt[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 3[0;31m [0;32mimport[0m [0mfdsreader[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      4[0m [0;34m[0m[0m
-[1;32m      5[0m [0;31m# Set the matplotlib output to svg[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;31mOSError[0m                                   Traceback (most recent call last)
+[0;32m/tmp/ipykernel_2118/3049549055.py[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m [0msim[0m [0;34m=[0m [0mfdsreader[0m[0;34m.[0m[0mSimulation[0m[0;34m([0m[0;34m'../../../../data/compartment/steckler_test_013_20cm_001m/'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m
+[0;32m/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/fdsreader/simulation.py[0m in [0;36m__new__[0;34m(cls, path)[0m
+[1;32m     57[0m     [0;32mdef[0m [0m__new__[0m[0;34m([0m[0mcls[0m[0;34m,[0m [0mpath[0m[0;34m:[0m [0mstr[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     58[0m         [0;32mif[0m [0msettings[0m[0;34m.[0m[0mENABLE_CACHING[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 59[0;31m             [0msmv_file_path[0m [0;34m=[0m [0mget_smv_file[0m[0;34m([0m[0mpath[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     60[0m             [0mroot_path[0m [0;34m=[0m [0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mdirname[0m[0;34m([0m[0msmv_file_path[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     61[0m [0;34m[0m[0m
 
-[0;32m/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/fdsreader/__init__.py[0m in [0;36m<module>[0;34m[0m
-[1;32m      2[0m [0m__version__[0m [0;34m=[0m [0mstr[0m[0;34m([0m[0m_version[0m[0;34m.[0m[0m__version__[0m[0;34m.[0m[0mpublic[0m[0;34m([0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      3[0m [0;34m[0m[0m
-[0;32m----> 4[0;31m [0;32mfrom[0m [0;34m.[0m[0msimulation[0m [0;32mimport[0m [0mSimulation[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      5[0m [0;34m[0m[0m
-[1;32m      6[0m [0;32mfrom[0m [0;34m.[0m [0;32mimport[0m [0msettings[0m[0;34m[0m[0;34m[0m[0m
+[0;32m/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/fdsreader/utils/data.py[0m in [0;36mget_smv_file[0;34m(path)[0m
+[1;32m    128[0m             [0;32mraise[0m [0mIOError[0m[0;34m([0m[0;34m"There are multiple simulations in this path!"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    129[0m         [0;32melif[0m [0mlen[0m[0;34m([0m[0mfiles[0m[0;34m)[0m [0;34m==[0m [0;36m0[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 130[0;31m             [0;32mraise[0m [0mIOError[0m[0;34m([0m[0;34m"There are no simulations in this path!"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    131[0m         [0;32mreturn[0m [0mfiles[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m    132[0m     [0;32melif[0m [0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0misfile[0m[0;34m([0m[0mpath[0m [0;34m+[0m [0;34m".smv"[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
 
-[0;32m/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/fdsreader/simulation.py[0m in [0;36m<module>[0;34m[0m
-[1;32m     14[0m [0;32mfrom[0m [0mfdsreader[0m[0;34m.[0m[0mevac[0m [0;32mimport[0m [0mEvacuation[0m[0;34m,[0m [0mEvacCollection[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     15[0m [0;32mfrom[0m [0mfdsreader[0m[0;34m.[0m[0mpl3d[0m [0;32mimport[0m [0mPlot3D[0m[0;34m,[0m [0mPlot3DCollection[0m[0;34m[0m[0;34m[0m[0m
-[0;32m---> 16[0;31m [0;32mfrom[0m [0mfdsreader[0m[0;34m.[0m[0msmoke3d[0m [0;32mimport[0m [0mSmoke3D[0m[0;34m,[0m [0mSmoke3DCollection[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m     17[0m [0;32mfrom[0m [0mfdsreader[0m[0;34m.[0m[0mslcf[0m [0;32mimport[0m [0mSlice[0m[0;34m,[0m [0mSliceCollection[0m[0;34m,[0m [0mGeomSliceCollection[0m[0;34m,[0m [0mGeomSlice[0m[0;34m[0m[0;34m[0m[0m
-[1;32m     18[0m [0;32mfrom[0m [0mfdsreader[0m[0;34m.[0m[0mutils[0m [0;32mimport[0m [0mDimension[0m[0;34m,[0m [0mQuantity[0m[0;34m,[0m [0mExtent[0m[0;34m,[0m [0mlog_error[0m[0;34m[0m[0;34m[0m[0m
-
-[0;32m/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/fdsreader/smoke3d/__init__.py[0m in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0;31m [0;32mfrom[0m [0;34m.[0m[0msmoke3d[0m [0;32mimport[0m [0mSmoke3D[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      2[0m [0;34m[0m[0m
-[1;32m      3[0m [0;32mfrom[0m [0;34m.[0m[0mSmoke3DCollection[0m [0;32mimport[0m [0mSmoke3DCollection[0m[0;34m[0m[0;34m[0m[0m
-
-[0;32m/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/site-packages/fdsreader/smoke3d/smoke3d.py[0m in [0;36m<module>[0;34m[0m
-[1;32m      2[0m [0;32mimport[0m [0mos[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      3[0m [0;32mfrom[0m [0mcopy[0m [0;32mimport[0m [0mdeepcopy[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 4[0;31m [0;32mfrom[0m [0mtyping[0m [0;32mimport[0m [0mDict[0m[0;34m,[0m [0mLiteral[0m[0;34m[0m[0;34m[0m[0m
-[0m[1;32m      5[0m [0;32mimport[0m [0mnumpy[0m [0;32mas[0m [0mnp[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      6[0m [0;34m[0m[0m
-
-[0;31mImportError[0m: cannot import name 'Literal' from 'typing' (/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/typing.py)
-ImportError: cannot import name 'Literal' from 'typing' (/opt/hostedtoolcache/Python/3.7.11/x64/lib/python3.7/typing.py)
+[0;31mOSError[0m: There are no simulations in this path!
+OSError: There are no simulations in this path!
 
