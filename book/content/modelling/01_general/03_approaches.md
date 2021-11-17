@@ -91,7 +91,7 @@ Example for a bench-scale experiment: a cone calorimeter. The sample size is abo
 Example for a real-scale experiment: hot gas experiments within a metro station. These experiments were conducted by I.F.I. Aachen, Germany, within the [ORPHEUS](http://www.orpheus-projekt.de) project.
 :::
 
-Experiments differ from tests. While a test checks for a property or a result, there is no explicit aim to gain scientific insight from it. In an experiment the outcome is designed with an open question and aims to extend the knowledge base with new findigs. 
+Experiments differ from tests. While a test checks for a property or a result, there is no explicit aim to gain scientific insight from it. In an experiment the outcome is designed with an open question and aims to extend the knowledge base with new findings. 
 
 ## Analytical Models
 
@@ -221,7 +221,7 @@ Flows and regimes in a canonical compartment fire with a single opening, here a 
 
 In a very simplified representation, the following phenomena can be observed:
 
-* A smoke layer builds up below the ceiling of the compartment, which creates a stratification. The hot combustion products and the entreined air are transported from the fire to the smoke layer due to buoyancy -- this is the plume.
+* A smoke layer builds up below the ceiling of the compartment, which creates a stratification. The hot combustion products and the entrained air are transported from the fire to the smoke layer due to buoyancy -- this is the plume.
 * The hot smoke layer grows downwards until it reaches the top of the door opening and hot gas can leave the compartment and forms a spill plume.
 * At the door opening, hot gas leaves the compartment in the top region of the opening, while fresh cold air enters the compartment in the lower region.
 
@@ -268,7 +268,7 @@ $$
 \mf \frac{dV_u}{dt} = \frac{1}{p\gamma}\left((\gamma-1)\dq_u - V_u \frac{dp}{dt}  \right)\quad ,
 $$ (eq-zone-mode-vu)
 
-where the lower volume $\mf V_l$ can be computed with the given total volumen of the compartment $\mf V$ as $\mf V_l = V - V_u$. The temperature development in each layer is given by 
+where the lower volume $\mf V_l$ can be computed with the given total volume of the compartment $\mf V$ as $\mf V_l = V - V_u$. The temperature development in each layer is given by 
 
 $$
 \mf \frac{dT_u}{dt} = \frac{1}{c_p m_u}\left( \dq_u - c_p \dm_u T_u + V_u \frac{dp}{dt}\right)\quad, and
