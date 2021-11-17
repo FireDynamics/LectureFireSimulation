@@ -30,7 +30,7 @@ In a prescriptive design, fire safety measures are carried out based on general 
 * fire safety design can be conducted by *semi-qualified* persons
 * legal certainity
 
-However, this design approach has also some flows, like
+However, this design approach has also some flaws, like
 
 * descriptive designs are prone for individuality and complexity
 * the application of *deemed-to-satisfy* strategies can be inappropriate, uneconomic or even impossible
