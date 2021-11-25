@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Linux &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -32,19 +32,19 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -57,7 +57,10 @@
     <link rel="next" title="High Performace Computing" href="02_hpc.html" />
     <link rel="prev" title="HPC" href="00_overview.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -96,7 +99,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Introduction
  </span>
@@ -113,7 +116,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Modelling
  </span>
@@ -331,7 +334,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Tools
  </span>
@@ -599,7 +602,7 @@
         
               <div>
                 
-  <div class="section" id="linux">
+  <div class="tex2jax_ignore mathjax_ignore section" id="linux">
 <h1>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">¶</a></h1>
 <div class="figure align-default" id="fig-tux">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" width="20%" /></a>
@@ -694,7 +697,7 @@
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; date
-Wed Sep 22 08:45:54 UTC 2021
+Thu Nov 25 16:34:25 UTC 2021
 </pre></div>
 </div>
 </div>
@@ -1118,33 +1121,33 @@ logfile
 
 &gt; ls -lah
 total 112K
-drwxr-xr-x 17 runner docker 4.0K Apr 26 06:09 .
-drwxr-xr-x  4 runner docker 4.0K Sep 22 08:45 ..
--rw-r--r--  1 runner docker   20 Apr 25 17:55 .hidden_file_do_not_look_here
--rw-r--r--  1 runner docker  816 Apr 26 06:02 combined_logs
+drwxr-xr-x 17 runner docker 4.0K Apr 26  2021 .
+drwxr-xr-x  4 runner docker 4.0K Nov 25 16:34 ..
+-rw-r--r--  1 runner docker   20 Apr 25  2021 .hidden_file_do_not_look_here
+-rw-r--r--  1 runner docker  816 Apr 26  2021 combined_logs
 -rw-r--r--  1 runner docker  591 Dec 12  2000 doc01.md
 -rw-r--r--  1 runner docker 6.0K Dec 12  2000 doc02.txt
 -rw-r--r--  1 runner docker   29 Dec 14  2000 doc03.md
 -rw-r--r--  1 runner docker  889 Nov  8  2000 doc04.txt
--rw-r--r--  1 runner docker 1.3K Apr 25 15:19 doc05.txt
--rw-r--r--  1 runner docker   60 Apr 26 06:08 for-loop.sh
--rw-r--r--  1 runner docker  113 Apr 25 19:35 if-statement.sh
--rw-r--r--  1 runner docker   62 Apr 26 06:08 info.txt
-drwxr-xr-x  2 runner docker 4.0K Sep 22 08:45 rundir_01
-drwxr-xr-x  2 runner docker 4.0K Sep 22 08:45 rundir_02
-drwxr-xr-x  2 runner docker 4.0K Sep 22 08:45 rundir_03
-drwxr-xr-x  2 runner docker 4.0K Sep 22 08:45 rundir_04
-drwxr-xr-x  2 runner docker 4.0K Sep 22 08:45 rundir_05
-drwxr-xr-x  2 runner docker 4.0K Sep 22 08:45 rundir_06
-drwxr-xr-x  2 runner docker 4.0K Sep 22 08:45 rundir_07
-drwxr-xr-x  2 runner docker 4.0K Sep 22 08:45 rundir_08
-drwxr-xr-x  2 runner docker 4.0K Sep 22 08:45 rundir_09
-drwxr-xr-x  2 runner docker 4.0K Sep 22 08:45 rundir_10
-drwxr-xr-x  2 runner docker 4.0K Sep 22 08:45 rundir_11
-drwxr-xr-x  2 runner docker 4.0K Sep 22 08:45 rundir_12
-drwxr-xr-x  2 runner docker 4.0K Sep 22 08:45 rundir_13
-drwxr-xr-x  2 runner docker 4.0K Apr 25 15:11 rundir_14
-drwxr-xr-x  2 runner docker 4.0K Sep 22 08:45 rundir_15
+-rw-r--r--  1 runner docker 1.3K Apr 25  2021 doc05.txt
+-rw-r--r--  1 runner docker   60 Apr 26  2021 for-loop.sh
+-rw-r--r--  1 runner docker  113 Apr 25  2021 if-statement.sh
+-rw-r--r--  1 runner docker   62 Apr 26  2021 info.txt
+drwxr-xr-x  2 runner docker 4.0K Nov 25 16:34 rundir_01
+drwxr-xr-x  2 runner docker 4.0K Nov 25 16:34 rundir_02
+drwxr-xr-x  2 runner docker 4.0K Nov 25 16:34 rundir_03
+drwxr-xr-x  2 runner docker 4.0K Nov 25 16:34 rundir_04
+drwxr-xr-x  2 runner docker 4.0K Nov 25 16:34 rundir_05
+drwxr-xr-x  2 runner docker 4.0K Nov 25 16:34 rundir_06
+drwxr-xr-x  2 runner docker 4.0K Nov 25 16:34 rundir_07
+drwxr-xr-x  2 runner docker 4.0K Nov 25 16:34 rundir_08
+drwxr-xr-x  2 runner docker 4.0K Nov 25 16:34 rundir_09
+drwxr-xr-x  2 runner docker 4.0K Nov 25 16:34 rundir_10
+drwxr-xr-x  2 runner docker 4.0K Nov 25 16:34 rundir_11
+drwxr-xr-x  2 runner docker 4.0K Nov 25 16:34 rundir_12
+drwxr-xr-x  2 runner docker 4.0K Nov 25 16:34 rundir_13
+drwxr-xr-x  2 runner docker 4.0K Apr 25  2021 rundir_14
+drwxr-xr-x  2 runner docker 4.0K Nov 25 16:34 rundir_15
 </pre></div>
 </div>
 </div>
@@ -1158,26 +1161,26 @@ total 100
 -rw-r--r-- 1 runner docker 6060 Dec 12  2000 doc02.txt
 -rw-r--r-- 1 runner docker  591 Dec 12  2000 doc01.md
 -rw-r--r-- 1 runner docker   29 Dec 14  2000 doc03.md
-drwxr-xr-x 2 runner docker 4096 Apr 25 15:11 rundir_14
--rw-r--r-- 1 runner docker 1307 Apr 25 15:19 doc05.txt
--rw-r--r-- 1 runner docker  113 Apr 25 19:35 if-statement.sh
--rw-r--r-- 1 runner docker  816 Apr 26 06:02 combined_logs
--rw-r--r-- 1 runner docker   62 Apr 26 06:08 info.txt
--rw-r--r-- 1 runner docker   60 Apr 26 06:08 for-loop.sh
-drwxr-xr-x 2 runner docker 4096 Sep 22 08:45 rundir_15
-drwxr-xr-x 2 runner docker 4096 Sep 22 08:45 rundir_13
-drwxr-xr-x 2 runner docker 4096 Sep 22 08:45 rundir_12
-drwxr-xr-x 2 runner docker 4096 Sep 22 08:45 rundir_11
-drwxr-xr-x 2 runner docker 4096 Sep 22 08:45 rundir_10
-drwxr-xr-x 2 runner docker 4096 Sep 22 08:45 rundir_09
-drwxr-xr-x 2 runner docker 4096 Sep 22 08:45 rundir_08
-drwxr-xr-x 2 runner docker 4096 Sep 22 08:45 rundir_07
-drwxr-xr-x 2 runner docker 4096 Sep 22 08:45 rundir_06
-drwxr-xr-x 2 runner docker 4096 Sep 22 08:45 rundir_05
-drwxr-xr-x 2 runner docker 4096 Sep 22 08:45 rundir_04
-drwxr-xr-x 2 runner docker 4096 Sep 22 08:45 rundir_03
-drwxr-xr-x 2 runner docker 4096 Sep 22 08:45 rundir_02
-drwxr-xr-x 2 runner docker 4096 Sep 22 08:45 rundir_01
+drwxr-xr-x 2 runner docker 4096 Apr 25  2021 rundir_14
+-rw-r--r-- 1 runner docker 1307 Apr 25  2021 doc05.txt
+-rw-r--r-- 1 runner docker  113 Apr 25  2021 if-statement.sh
+-rw-r--r-- 1 runner docker  816 Apr 26  2021 combined_logs
+-rw-r--r-- 1 runner docker   62 Apr 26  2021 info.txt
+-rw-r--r-- 1 runner docker   60 Apr 26  2021 for-loop.sh
+drwxr-xr-x 2 runner docker 4096 Nov 25 16:34 rundir_15
+drwxr-xr-x 2 runner docker 4096 Nov 25 16:34 rundir_13
+drwxr-xr-x 2 runner docker 4096 Nov 25 16:34 rundir_12
+drwxr-xr-x 2 runner docker 4096 Nov 25 16:34 rundir_11
+drwxr-xr-x 2 runner docker 4096 Nov 25 16:34 rundir_10
+drwxr-xr-x 2 runner docker 4096 Nov 25 16:34 rundir_09
+drwxr-xr-x 2 runner docker 4096 Nov 25 16:34 rundir_08
+drwxr-xr-x 2 runner docker 4096 Nov 25 16:34 rundir_07
+drwxr-xr-x 2 runner docker 4096 Nov 25 16:34 rundir_06
+drwxr-xr-x 2 runner docker 4096 Nov 25 16:34 rundir_05
+drwxr-xr-x 2 runner docker 4096 Nov 25 16:34 rundir_04
+drwxr-xr-x 2 runner docker 4096 Nov 25 16:34 rundir_03
+drwxr-xr-x 2 runner docker 4096 Nov 25 16:34 rundir_02
+drwxr-xr-x 2 runner docker 4096 Nov 25 16:34 rundir_01
 </pre></div>
 </div>
 </div>
@@ -1211,27 +1214,27 @@ info.txt
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; ls -l rundir_1?
 rundir_10:
 total 4
--rw-r--r-- 1 runner docker 54 Apr 25 15:11 logfile
+-rw-r--r-- 1 runner docker 54 Apr 25  2021 logfile
 
 rundir_11:
 total 4
--rw-r--r-- 1 runner docker 54 Apr 25 15:11 logfile
+-rw-r--r-- 1 runner docker 54 Apr 25  2021 logfile
 
 rundir_12:
 total 4
--rw-r--r-- 1 runner docker 55 Apr 25 15:11 logfile
+-rw-r--r-- 1 runner docker 55 Apr 25  2021 logfile
 
 rundir_13:
 total 4
--rw-r--r-- 1 runner docker 54 Apr 25 15:11 logfile
+-rw-r--r-- 1 runner docker 54 Apr 25  2021 logfile
 
 rundir_14:
 total 4
--rw-r--r-- 1 runner docker 55 Apr 25 15:11 logfile
+-rw-r--r-- 1 runner docker 55 Apr 25  2021 logfile
 
 rundir_15:
 total 4
--rw-r--r-- 1 runner docker 55 Apr 25 15:11 logfile
+-rw-r--r-- 1 runner docker 55 Apr 25  2021 logfile
 </pre></div>
 </div>
 </div>
@@ -1446,31 +1449,22 @@ File exists
               </div>
               
         
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="00_overview.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">HPC</p>
-            </div>
-        </a>
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="00_overview.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">HPC</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="02_hpc.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">High Performace Computing</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="02_hpc.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">High Performace Computing</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
@@ -1496,8 +1490,7 @@ File exists
       </div>
     </div>
   
-  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>

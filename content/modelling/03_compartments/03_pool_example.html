@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>3.2. Example – Pool Fire &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <link href="../../../_static/css/theme.css" rel="stylesheet">
+  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -22,8 +22,8 @@
       
 
     
-    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../../_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -32,21 +32,21 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
 
-    <script id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"TeX": {"Macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}", "du": "\\dot{u}"}}, "tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"TeX": {"Macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}", "du": "\\dot{u}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
+    <script>
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
         const thebe_selector_output = ".output"
@@ -59,7 +59,10 @@
     <link rel="next" title="3.3. Example - Steckler Compartment" href="04_steckler_example.html" />
     <link rel="prev" title="3.1. Fundamentals" href="01_fundamentals.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
@@ -98,7 +101,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Introduction
  </span>
@@ -115,7 +118,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Modelling
  </span>
@@ -333,7 +336,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Tools
  </span>
@@ -584,7 +587,7 @@
         
               <div>
                 
-  <div class="section" id="example-pool-fire">
+  <div class="tex2jax_ignore mathjax_ignore section" id="example-pool-fire">
 <h1><span class="section-number">3.2. </span>Example – Pool Fire<a class="headerlink" href="#example-pool-fire" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
@@ -845,13 +848,13 @@
 </div>
 </div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="30669f31-ecdc-4c70-93d9-513d6eae7634" name="48795791-7ecb-454f-a548-778b5dbc541a" type="radio">
-</input><label class="tabbed-label" for="30669f31-ecdc-4c70-93d9-513d6eae7634">
+<input checked="checked" id="06959e67-a1cb-4788-9f1a-1598bce8d2e6" name="eedbeb38-e486-463b-b6f5-d5fb56a3fa02" type="radio">
+</input><label class="tabbed-label" for="06959e67-a1cb-4788-9f1a-1598bce8d2e6">
 10 MW, sealed domain</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_velocity_vector_sealed.svg"><img alt="../../../_images/pool_fire_velocity_vector_sealed.svg" src="../../../_images/pool_fire_velocity_vector_sealed.svg" width="60%" /></a>
 </div>
-<input id="c77ded9f-2ba7-490c-a814-db3b4fe24dd9" name="48795791-7ecb-454f-a548-778b5dbc541a" type="radio">
-</input><label class="tabbed-label" for="c77ded9f-2ba7-490c-a814-db3b4fe24dd9">
+<input id="3c88f205-8a68-4b2e-a42e-da478c7f6e03" name="eedbeb38-e486-463b-b6f5-d5fb56a3fa02" type="radio">
+</input><label class="tabbed-label" for="3c88f205-8a68-4b2e-a42e-da478c7f6e03">
 10 MW, open domain</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_velocity_vector_open.svg"><img alt="../../../_images/pool_fire_velocity_vector_open.svg" src="../../../_images/pool_fire_velocity_vector_open.svg" width="60%" /></a>
 </div>
@@ -913,18 +916,18 @@
 </div>
 </div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="48301610-54f2-49c9-b4f8-55b7efece220" name="096fed4c-1f87-49b9-a2ef-73d85e1adfa7" type="radio">
-</input><label class="tabbed-label" for="48301610-54f2-49c9-b4f8-55b7efece220">
+<input checked="checked" id="8d56701c-de68-445f-90c2-d0aa21d693a9" name="ac2961fd-9cff-4246-8957-a708d0895aac" type="radio">
+</input><label class="tabbed-label" for="8d56701c-de68-445f-90c2-d0aa21d693a9">
 100 kW</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_100kw_sealed_hrr.svg"><img alt="../../../_images/pool_fire_100kw_sealed_hrr.svg" src="../../../_images/pool_fire_100kw_sealed_hrr.svg" width="80%" /></a>
 </div>
-<input id="c90f8512-ad81-4de4-b1e3-00d4f8ca1f70" name="096fed4c-1f87-49b9-a2ef-73d85e1adfa7" type="radio">
-</input><label class="tabbed-label" for="c90f8512-ad81-4de4-b1e3-00d4f8ca1f70">
+<input id="a81de65e-4658-44c8-bcde-d6f61a1f4770" name="ac2961fd-9cff-4246-8957-a708d0895aac" type="radio">
+</input><label class="tabbed-label" for="a81de65e-4658-44c8-bcde-d6f61a1f4770">
 1 MW</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_1mw_sealed_hrr.svg"><img alt="../../../_images/pool_fire_1mw_sealed_hrr.svg" src="../../../_images/pool_fire_1mw_sealed_hrr.svg" width="80%" /></a>
 </div>
-<input id="f7e67ef1-e207-42de-996e-05d9346dcd89" name="096fed4c-1f87-49b9-a2ef-73d85e1adfa7" type="radio">
-</input><label class="tabbed-label" for="f7e67ef1-e207-42de-996e-05d9346dcd89">
+<input id="dd6d18db-628a-4f02-8538-b8e596f42f29" name="ac2961fd-9cff-4246-8957-a708d0895aac" type="radio">
+</input><label class="tabbed-label" for="dd6d18db-628a-4f02-8538-b8e596f42f29">
 10 MW</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_10mw_sealed_hrr.svg"><img alt="../../../_images/pool_fire_10mw_sealed_hrr.svg" src="../../../_images/pool_fire_10mw_sealed_hrr.svg" width="80%" /></a>
 </div>
@@ -1501,31 +1504,22 @@ $<span class="math notranslate nohighlight">\(\small\sf \dot{Q} = \Delta h_{c,ef
               </div>
               
         
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="01_fundamentals.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title"><span class="section-number">3.1. </span>Fundamentals</p>
-            </div>
-        </a>
+            <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="01_fundamentals.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title"><span class="section-number">3.1. </span>Fundamentals</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="04_steckler_example.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">3.3. </span>Example - Steckler Compartment</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="04_steckler_example.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title"><span class="section-number">3.3. </span>Example - Steckler Compartment</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
         
         </div>
@@ -1551,8 +1545,7 @@ $<span class="math notranslate nohighlight">\(\small\sf \dot{Q} = \Delta h_{c,ef
       </div>
     </div>
   
-  <script src="../../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
 
-  
   </body>
 </html>
