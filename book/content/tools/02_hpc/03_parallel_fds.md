@@ -130,7 +130,7 @@ The individual lines have the following functions
 
   ```#SBATCH --partition=dc-cpu```
   
-  JURECA's batch system is divided into multipe partitions, which represent different computing architectures. In our case we want to execute the simulation on common CPU cores and therefore we use the partition `dc-cpu` – more information on [JURECA's partitions](https://apps.fz-juelich.de/jsc/hps/jureca/batchsystem.html#slurm-partitions).
+  JURECA's batch system is divided into multiple partitions, which represent different computing architectures. In our case we want to execute the simulation on common CPU cores and therefore we use the partition `dc-cpu` – more information on [JURECA's partitions](https://apps.fz-juelich.de/jsc/hps/jureca/batchsystem.html#slurm-partitions).
 
 * **MPI Tasks**
 
