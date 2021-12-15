@@ -47,9 +47,9 @@ sphinx:
   config:
 #     bibtex_reference_style: "author_year"
     html_show_copyright : false
-    mathjax_config      :
-      TeX:
-        Macros:
+    mathjax3_config     :
+      tex:
+        macros:
           "vv": "\\vec{v}"
           "vu": "\\vec{u}"
           "mf": "\\small\\sf"
