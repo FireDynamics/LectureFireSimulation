@@ -38,13 +38,16 @@
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>window.MathJax = {"tex": {"macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}", "du": "\\dot{u}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -465,7 +468,7 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -524,7 +527,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -584,7 +587,70 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Example – Pool Fire</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#setup">
+   Setup
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#fds-input-file">
+   FDS Input File
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#smv-visualisation">
+   SMV Visualisation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#analysis">
+   Analysis
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#task-i-basics">
+   Task I – Basics
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#task-ii-plume-formulas">
+   Task II - Plume Formulas
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#task-iii-time-dependent-heat-release-rate">
+   Task III – Time-dependent Heat Release Rate
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#task-iv-grid-convergence-hpc-computing-benchmarking">
+   Task IV – Grid Convergence / HPC computing / Benchmarking
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="example-pool-fire">
@@ -848,13 +914,13 @@
 </div>
 </div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="e1c8a798-2ece-4323-b7ac-f376032adc87" name="0ba3e7c9-8d23-446b-8cf8-83af08179962" type="radio">
-</input><label class="tabbed-label" for="e1c8a798-2ece-4323-b7ac-f376032adc87">
+<input checked="checked" id="9c9cfa1c-9b02-418a-a88d-4f5db72d9a69" name="e438d4dc-94af-488e-9aa2-0fbb1cae4f9b" type="radio">
+</input><label class="tabbed-label" for="9c9cfa1c-9b02-418a-a88d-4f5db72d9a69">
 10 MW, sealed domain</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_velocity_vector_sealed.svg"><img alt="../../../_images/pool_fire_velocity_vector_sealed.svg" src="../../../_images/pool_fire_velocity_vector_sealed.svg" width="60%" /></a>
 </div>
-<input id="3d9fb2e1-2a4a-4468-b8c3-648c9452c665" name="0ba3e7c9-8d23-446b-8cf8-83af08179962" type="radio">
-</input><label class="tabbed-label" for="3d9fb2e1-2a4a-4468-b8c3-648c9452c665">
+<input id="1775520a-41b5-47e5-9024-8f0444dec2f2" name="e438d4dc-94af-488e-9aa2-0fbb1cae4f9b" type="radio">
+</input><label class="tabbed-label" for="1775520a-41b5-47e5-9024-8f0444dec2f2">
 10 MW, open domain</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_velocity_vector_open.svg"><img alt="../../../_images/pool_fire_velocity_vector_open.svg" src="../../../_images/pool_fire_velocity_vector_open.svg" width="60%" /></a>
 </div>
@@ -916,18 +982,18 @@
 </div>
 </div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="48d91284-5713-491a-8b19-c01e59023b4e" name="165a7720-8fa9-48ed-a2b4-dbc4cb399ecb" type="radio">
-</input><label class="tabbed-label" for="48d91284-5713-491a-8b19-c01e59023b4e">
+<input checked="checked" id="511719ea-9589-44d3-bb7c-ecbd11243072" name="62950936-d683-4d9e-b36e-9c1dbfc9a1a8" type="radio">
+</input><label class="tabbed-label" for="511719ea-9589-44d3-bb7c-ecbd11243072">
 100 kW</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_100kw_sealed_hrr.svg"><img alt="../../../_images/pool_fire_100kw_sealed_hrr.svg" src="../../../_images/pool_fire_100kw_sealed_hrr.svg" width="80%" /></a>
 </div>
-<input id="3638e829-0764-4508-b693-fafdd7ac0594" name="165a7720-8fa9-48ed-a2b4-dbc4cb399ecb" type="radio">
-</input><label class="tabbed-label" for="3638e829-0764-4508-b693-fafdd7ac0594">
+<input id="d0a82844-ab88-4220-8a08-35933ab8a5d1" name="62950936-d683-4d9e-b36e-9c1dbfc9a1a8" type="radio">
+</input><label class="tabbed-label" for="d0a82844-ab88-4220-8a08-35933ab8a5d1">
 1 MW</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_1mw_sealed_hrr.svg"><img alt="../../../_images/pool_fire_1mw_sealed_hrr.svg" src="../../../_images/pool_fire_1mw_sealed_hrr.svg" width="80%" /></a>
 </div>
-<input id="b19073aa-cf17-420c-bd02-e7ea6b8fb0bb" name="165a7720-8fa9-48ed-a2b4-dbc4cb399ecb" type="radio">
-</input><label class="tabbed-label" for="b19073aa-cf17-420c-bd02-e7ea6b8fb0bb">
+<input id="d7c1f2e3-e12a-4b77-bd89-d6313054faa6" name="62950936-d683-4d9e-b36e-9c1dbfc9a1a8" type="radio">
+</input><label class="tabbed-label" for="d7c1f2e3-e12a-4b77-bd89-d6313054faa6">
 10 MW</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_10mw_sealed_hrr.svg"><img alt="../../../_images/pool_fire_10mw_sealed_hrr.svg" src="../../../_images/pool_fire_10mw_sealed_hrr.svg" width="80%" /></a>
 </div>
@@ -1503,8 +1569,8 @@ $<span class="math notranslate nohighlight">\(\small\sf \dot{Q} = \Delta h_{c,ef
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="01_fundamentals.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -1521,24 +1587,22 @@ $<span class="math notranslate nohighlight">\(\small\sf \dot{Q} = \Delta h_{c,ef
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          <div class="extra_footer">
-            <p>
+  <p>
+    
+      <div class="extra_footer">
+        <p>
 <img src='https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg' height='31'/>
 | By Team Fire | Contacts and Infos: <a href='https://cce.uni-wuppertal.de/en.html'>CCE@BUW</a> and <a href='https://www.fz-juelich.de/ias/ias-7/EN/Research/Fire_Dynamics/_node.html'>IAS-7@FZJ</a>
 </br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
 </p>
 
-          </div>
-      </p>
-    </div>
-  </footer>
+      </div>
+  </p>
+</footer>
 </main>
 
 

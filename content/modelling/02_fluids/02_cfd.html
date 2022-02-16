@@ -38,13 +38,16 @@
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
     <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/togglebutton.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
     <script>window.MathJax = {"tex": {"macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}", "du": "\\dot{u}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script>
         const thebe_selector = ".thebe"
@@ -465,7 +468,7 @@
                 data-placement="left">.ipynb</button></a>
         <!-- Download PDF via print -->
         <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
     </div>
 </div>
 
@@ -524,7 +527,7 @@
         </div>
 
         <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
@@ -637,7 +640,123 @@
 </div>
     <div id="main-content" class="row">
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Computational Fluid Dynamics</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#overview">
+   Overview
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#approximation-of-derivatives">
+   Approximation of Derivatives
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#taylor-series">
+     Taylor Series
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#derivatives">
+     Derivatives
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#discretisation">
+     Discretisation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#discrete-derivatives">
+     Discrete Derivatives
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#approximation-error">
+     Approximation Error
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#time-integration">
+   Time Integration
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#trajectories">
+     Trajectories
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#explicit-euler-method">
+     Explicit Euler Method
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#implicit-euler-method">
+     Implicit Euler Method
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#euler-heun-method">
+     Euler-Heun Method
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#runge-kutta-method-s">
+     Runge-Kutta method(s)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#finite-difference-method">
+   Finite Difference Method
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#solution-approach">
+     Solution Approach
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#stability">
+   Stability
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#information-propagation">
+     Information Propagation
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#courant-friedrichs-lewy-cfl-condition">
+     Courant-Friedrichs-Lewy (CFL) condition
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
               <div>
                 
   <div class="cell tag_hide_cell docutils container">
@@ -654,12 +773,6 @@
 <span class="n">show</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="k">if</span> <span class="s1">&#39;JB_NOSHOW&#39;</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
     <span class="n">show</span> <span class="o">=</span> <span class="kc">False</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/opt/hostedtoolcache/Python/3.7.12/x64/lib/python3.7/site-packages/ipykernel_launcher.py:6: DeprecationWarning: `set_matplotlib_formats` is deprecated since IPython 7.23, directly use `matplotlib_inline.backend_inline.set_matplotlib_formats()`
-  
 </pre></div>
 </div>
 </div>
@@ -836,40 +949,40 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+<img alt="../../../_images/02_cfd_5_0.svg" src="../../../_images/02_cfd_5_0.svg" /><img alt="../../../_images/02_cfd_5_1.svg" src="../../../_images/02_cfd_5_1.svg" /><img alt="../../../_images/02_cfd_5_2.svg" src="../../../_images/02_cfd_5_2.svg" /><img alt="../../../_images/02_cfd_5_3.svg" src="../../../_images/02_cfd_5_3.svg" /><img alt="../../../_images/02_cfd_5_4.svg" src="../../../_images/02_cfd_5_4.svg" /><img alt="../../../_images/02_cfd_5_5.svg" src="../../../_images/02_cfd_5_5.svg" /><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
 </pre></div>
 </div>
 </div>
 </div>
 <p>The following figures illustrate the according Taylor approximations for up to <span class="math notranslate nohighlight">\(\mf n=3\)</span>.</p>
 <div class="tabbed-set docutils">
-<input checked="checked" id="be133657-bf5b-4b82-9ec1-83424001c678" name="57337fd1-1a22-4bcf-b80c-586332898bfb" type="radio">
-</input><label class="tabbed-label" for="be133657-bf5b-4b82-9ec1-83424001c678">
+<input checked="checked" id="86716165-7fec-47a3-94bb-3106396cb707" name="0f80c647-4171-4987-a04b-ad3ed2969aaa" type="radio">
+</input><label class="tabbed-label" for="86716165-7fec-47a3-94bb-3106396cb707">
 f(x)</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_fnk.svg"><img alt="../../../_images/taylor_fnk.svg" src="../../../_images/taylor_fnk.svg" width="90%" /></a>
 </div>
-<input id="5fdbe348-3004-4b43-afd4-125525ac612a" name="57337fd1-1a22-4bcf-b80c-586332898bfb" type="radio">
-</input><label class="tabbed-label" for="5fdbe348-3004-4b43-afd4-125525ac612a">
+<input id="ae27da31-d78a-4298-9ba6-2b93411b4cb6" name="0f80c647-4171-4987-a04b-ad3ed2969aaa" type="radio">
+</input><label class="tabbed-label" for="ae27da31-d78a-4298-9ba6-2b93411b4cb6">
 n=0</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_ts0.svg"><img alt="../../../_images/taylor_ts0.svg" src="../../../_images/taylor_ts0.svg" width="90%" /></a>
 </div>
-<input id="9ef66960-ef4e-494d-b681-d007b18092af" name="57337fd1-1a22-4bcf-b80c-586332898bfb" type="radio">
-</input><label class="tabbed-label" for="9ef66960-ef4e-494d-b681-d007b18092af">
+<input id="8ab220c0-b2e8-466d-9d0d-cef927ed4234" name="0f80c647-4171-4987-a04b-ad3ed2969aaa" type="radio">
+</input><label class="tabbed-label" for="8ab220c0-b2e8-466d-9d0d-cef927ed4234">
 n=1</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_ts1.svg"><img alt="../../../_images/taylor_ts1.svg" src="../../../_images/taylor_ts1.svg" width="90%" /></a>
 </div>
-<input id="0f21f6f1-b435-4842-9e7a-9a4c96b1602f" name="57337fd1-1a22-4bcf-b80c-586332898bfb" type="radio">
-</input><label class="tabbed-label" for="0f21f6f1-b435-4842-9e7a-9a4c96b1602f">
+<input id="95de09f0-1bc8-437d-8f29-e7db53127d86" name="0f80c647-4171-4987-a04b-ad3ed2969aaa" type="radio">
+</input><label class="tabbed-label" for="95de09f0-1bc8-437d-8f29-e7db53127d86">
 n=2</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_ts2.svg"><img alt="../../../_images/taylor_ts2.svg" src="../../../_images/taylor_ts2.svg" width="90%" /></a>
 </div>
-<input id="ad8d7953-d04a-43a7-be95-8d1ffa3dec39" name="57337fd1-1a22-4bcf-b80c-586332898bfb" type="radio">
-</input><label class="tabbed-label" for="ad8d7953-d04a-43a7-be95-8d1ffa3dec39">
+<input id="7591df0e-18e8-4a97-a617-2a7ac99d4393" name="0f80c647-4171-4987-a04b-ad3ed2969aaa" type="radio">
+</input><label class="tabbed-label" for="7591df0e-18e8-4a97-a617-2a7ac99d4393">
 n=3</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_ts3.svg"><img alt="../../../_images/taylor_ts3.svg" src="../../../_images/taylor_ts3.svg" width="90%" /></a>
 </div>
-<input id="9245558e-f459-4e5e-b7f7-2694762b47ef" name="57337fd1-1a22-4bcf-b80c-586332898bfb" type="radio">
-</input><label class="tabbed-label" for="9245558e-f459-4e5e-b7f7-2694762b47ef">
+<input id="ec809932-9a5a-479a-bf08-fe48a3246653" name="0f80c647-4171-4987-a04b-ad3ed2969aaa" type="radio">
+</input><label class="tabbed-label" for="ec809932-9a5a-479a-bf08-fe48a3246653">
 n in [0,…,3]</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/taylor_all.svg"><img alt="../../../_images/taylor_all.svg" src="../../../_images/taylor_all.svg" width="90%" /></a>
 </div>
@@ -932,6 +1045,8 @@ n in [0,…,3]</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/02_cfd_9_0.svg" src="../../../_images/02_cfd_9_0.svg" /></div>
 </div>
 <div class="figure align-default" id="fig-fwd-difference">
 <a class="reference internal image-reference" href="../../../_images/derivative_forward.svg"><img alt="../../../_images/derivative_forward.svg" src="../../../_images/derivative_forward.svg" width="90%" /></a>
@@ -979,6 +1094,8 @@ n in [0,…,3]</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/02_cfd_12_0.svg" src="../../../_images/02_cfd_12_0.svg" /></div>
 </div>
 <div class="figure align-default" id="fig-bck-difference">
 <a class="reference internal image-reference" href="../../../_images/derivative_backward.svg"><img alt="../../../_images/derivative_backward.svg" src="../../../_images/derivative_backward.svg" width="90%" /></a>
@@ -1041,6 +1158,8 @@ n in [0,…,3]</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/02_cfd_16_0.svg" src="../../../_images/02_cfd_16_0.svg" /></div>
 </div>
 <div class="figure align-default" id="fig-cnt-difference">
 <a class="reference internal image-reference" href="../../../_images/derivative_central.svg"><img alt="../../../_images/derivative_central.svg" src="../../../_images/derivative_central.svg" width="90%" /></a>
@@ -1077,6 +1196,8 @@ n in [0,…,3]</label><div class="tabbed-content docutils">
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/02_cfd_19_0.svg" src="../../../_images/02_cfd_19_0.svg" /></div>
 </div>
 <div class="figure align-default" id="fig-all-difference">
 <a class="reference internal image-reference" href="../../../_images/derivative_all.svg"><img alt="../../../_images/derivative_all.svg" src="../../../_images/derivative_all.svg" width="90%" /></a>
@@ -1157,7 +1278,7 @@ n in [0,…,3]</label><div class="tabbed-content docutils">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+<img alt="../../../_images/02_cfd_25_0.svg" src="../../../_images/02_cfd_25_0.svg" /><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
 </pre></div>
 </div>
 </div>
@@ -1219,7 +1340,7 @@ n in [0,…,3]</label><div class="tabbed-content docutils">
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+<img alt="../../../_images/02_cfd_29_0.svg" src="../../../_images/02_cfd_29_0.svg" /><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
 </pre></div>
 </div>
 </div>
@@ -1295,30 +1416,14 @@ dx=7.33e-04 --&gt; rmse=1.53e-07
 dx=3.66e-04 --&gt; rmse=3.82e-08
 dx=1.83e-04 --&gt; rmse=9.55e-09
 dx=9.16e-05 --&gt; rmse=2.39e-09
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dx=4.58e-05 --&gt; rmse=5.97e-10
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dx=2.29e-05 --&gt; rmse=1.49e-10
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dx=1.14e-05 --&gt; rmse=3.74e-11
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dx=5.72e-06 --&gt; rmse=1.09e-11
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dx=2.86e-06 --&gt; rmse=1.14e-11
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dx=1.43e-06 --&gt; rmse=1.99e-11
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dx=7.15e-07 --&gt; rmse=4.57e-11
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dx=3.58e-07 --&gt; rmse=8.91e-11
+dx=4.58e-05 --&gt; rmse=5.97e-10
+dx=2.29e-05 --&gt; rmse=1.49e-10
+dx=1.14e-05 --&gt; rmse=3.74e-11
+dx=5.72e-06 --&gt; rmse=1.09e-11
+dx=2.86e-06 --&gt; rmse=1.14e-11
+dx=1.43e-06 --&gt; rmse=1.99e-11
+dx=7.15e-07 --&gt; rmse=4.57e-11
+dx=3.58e-07 --&gt; rmse=8.91e-11
 </pre></div>
 </div>
 </div>
@@ -1343,7 +1448,7 @@ dx=9.16e-05 --&gt; rmse=2.39e-09
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
+<img alt="../../../_images/02_cfd_34_0.svg" src="../../../_images/02_cfd_34_0.svg" /><div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 432x288 with 0 Axes&gt;
 </pre></div>
 </div>
 </div>
@@ -1596,8 +1701,8 @@ dx=9.16e-05 --&gt; rmse=2.39e-09
 
               </div>
               
-        
-            <!-- Previous / next buttons -->
+            
+                <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
     <a class='left-prev' id="prev-link" href="01_fluids.html" title="previous page">
         <i class="fas fa-angle-left"></i>
@@ -1614,24 +1719,22 @@ dx=9.16e-05 --&gt; rmse=2.39e-09
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-        
+            
         </div>
     </div>
     <footer class="footer">
-    <div class="container">
-      <p>
-        
-          <div class="extra_footer">
-            <p>
+  <p>
+    
+      <div class="extra_footer">
+        <p>
 <img src='https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg' height='31'/>
 | By Team Fire | Contacts and Infos: <a href='https://cce.uni-wuppertal.de/en.html'>CCE@BUW</a> and <a href='https://www.fz-juelich.de/ias/ias-7/EN/Research/Fire_Dynamics/_node.html'>IAS-7@FZJ</a>
 </br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
 </p>
 
-          </div>
-      </p>
-    </div>
-  </footer>
+      </div>
+  </p>
+</footer>
 </main>
 
 

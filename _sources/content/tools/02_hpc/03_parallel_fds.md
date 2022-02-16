@@ -204,10 +204,12 @@ A simple script to execute FDS on a given input file is as follows:
 module use -a /beegfs/larnold/modules/
 module load FDS
 
-srun fds *.fds
+mpiexec fds *.fds
 ```
 
-In contrast to JURECA, it is possible to run jobs for more than 24 hours. 
+```{note}
+In contrast to JURECA, it is possible to run jobs for more than 24 hours. More information about the available queues and their time limits is presented with the `sinfo` command.  
+```
 
 ### Chain Jobs
 
@@ -221,6 +223,10 @@ The main idea is to invoke multiple jobs ({download}`fds-slurm-chain-starter.sh`
 The individual jobs ({download}`fds-slurm-chain-job.sh`) are similar to the above simple setting. However, they add the functionality to create a `STOP` file to stop FDS before the requested wall clock time is reached. This way restart files are written out by FDS, which can be used for the next chain element. The value of `RESTART` is automatically set to `.TRUE.` after the first execution of FDS.
 
 ```{literalinclude} ./fds-slurm-chain-job.sh
+```
+
+```{note}
+Most of the above commands are very general, yet a few, like the modules to be loaded as well as the way to run a MPI application, i.e. using `srun` or `mpiexec`, may have to be adopted to the used system.
 ```
 
 ## Mesh Decomposition
