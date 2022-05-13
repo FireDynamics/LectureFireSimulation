@@ -113,7 +113,7 @@ $$
 \mf k = \frac{2\pi}{L}\quad .
 $$
 
-Thus the smallest resolvable eddy $\mf L=2\Delta x$ has a wavenumber of 
+Thus, the smallest resolvable eddy $\mf L=2\Delta x$ has a wavenumber of 
 
 $$
 \mf k_0 = \frac{\pi}{\Delta x}\quad .
