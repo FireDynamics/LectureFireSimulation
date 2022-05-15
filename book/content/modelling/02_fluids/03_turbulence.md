@@ -24,7 +24,7 @@ Great wave off Kanagawa. Source: [Wikimedia Commons](https://commons.wikimedia.o
 [Kelvin–Helmholtz instability](https://en.wikipedia.org/wiki/Kelvin–Helmholtz_instability) in a cloud formation. Source: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kelvin-Helmholtz_waves.jpg).
 :::
 
-On of the reference books for turbulence is {cite}`Pope:2000` and urther interesting LES reading: {cite}`Pope:2004`.
+On of the reference books for turbulence is {cite}`Pope:2000` and further interesting LES reading: {cite}`Pope:2004`.
 
 ## Characterisation
 
@@ -88,8 +88,9 @@ Schematics mean flow in a pipe.
 Schematics of the effective viscosity in a pipe flow.
 :::
 
+The following video shows a few simple experiments, including the one performed by Reynolds, that might help to understand some of the fundamental concepts of fluid flow and turbulence.
 
-
+<iframe width="60%" src="https://www.youtube-nocookie.com/embed/LTHIGdIEKJI" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
 
 
 
