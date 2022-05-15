@@ -46,15 +46,14 @@
     <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"tex": {"macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}", "du": "\\dot{u}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/modelling/05_combustion/03_closed_volume_example.html" />
     <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -695,7 +694,7 @@
 <h2>Task 1<a class="headerlink" href="#task-1" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="non-predefined-fuel">
 <h3>Non-predefined fuel<a class="headerlink" href="#non-predefined-fuel" title="Permalink to this headline">¶</a></h3>
-<p>The combustion reaction in FDS is defined by the <code class="docutils literal notranslate"><span class="pre">REAC</span></code> namelist. So far we used fuels, which were pre-defined in FDS. The list of these fuels can be found in Table 14.1. of the user guide <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id10">MHF+20d</a>]</span>. The physical properties of these species are embeded in FDS and do not need to be explicitly specified.</p>
+<p>The combustion reaction in FDS is defined by the <code class="docutils literal notranslate"><span class="pre">REAC</span></code> namelist. So far we used fuels, which were pre-defined in FDS. The list of these fuels can be found in Table 14.1. of the user guide <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id10" title="Kevin McGrattan, Simo Hostikka, Jason Floyd, Randall McDermott, and Marcos Vanella. Fire Dynamics Simulator User's Guide – Version 6.7.5. Technical Report, NIST, 2020. URL: https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf.">MHF+20d</a>]</span>. The physical properties of these species are embeded in FDS and do not need to be explicitly specified.</p>
 <p>Complete the pre-built FDS input file for this task <a class="reference download internal" download="" href="../../../_downloads/887d58f85e9d037c89ce0c3bbf56d4b9/pentane_fuel.fds"><code class="xref download docutils literal notranslate"><span class="pre">pentane_fuel.fds</span></code></a> .</p>
 <ul class="simple">
 <li><p>Use pentane as the fuel. For this purpose, specify the fuel name and chemical formula.</p></li>

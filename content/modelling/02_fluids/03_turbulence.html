@@ -46,15 +46,14 @@
     <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"tex": {"macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}", "du": "\\dot{u}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/modelling/02_fluids/03_turbulence.html" />
     <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -591,22 +590,22 @@ I really believe he will have an answer for the first.”<br>
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/4/48/Kelvin-Helmholtz_waves.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/4/48/Kelvin-Helmholtz_waves.jpg" src="https://upload.wikimedia.org/wikipedia/commons/4/48/Kelvin-Helmholtz_waves.jpg" style="width: 80%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 2.28 </span><span class="caption-text"><a class="reference external" href="https://en.wikipedia.org/wiki/Kelvin%E2%80%93Helmholtz_instability">Kelvin–Helmholtz instability</a> in a cloud formation. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Kelvin-Helmholtz_waves.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-turbulence-kh-waves" title="Permalink to this image">¶</a></p>
 </div>
-<p>On of the reference books for turbulence is <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id11">Pop00</a>]</span> and urther interesting LES reading: <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id12">Pop04</a>]</span>.</p>
+<p>On of the reference books for turbulence is <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id11" title="Stephen B Pope. Turbulent Flows. Cambridge University Press, 2000. ISBN 9780521598866. doi:10.1017/cbo9780511840531.">Pop00</a>]</span> and urther interesting LES reading: <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id12" title="Stephen B Pope. Ten questions concerning the large-eddy simulation of turbulent flows. New Journal of Physics, 6(1):35, 2004. doi:10.1088/1367-2630/6/1/035.">Pop04</a>]</span>.</p>
 <div class="section" id="characterisation">
 <h2>Characterisation<a class="headerlink" href="#characterisation" title="Permalink to this headline">¶</a></h2>
-<p>Among the first scientific experiments to characterise and analyse turbulent flows, is the work of <a class="reference external" href="https://en.wikipedia.org/wiki/Osborne_Reynolds">Osborne Reynolds</a>. He studied the conditions under which a flow undergoes the transition from a ordered to a chaotic state. One of these studies is published in <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id14">Rey83</a>]</span>, see <a class="reference internal" href="#fig-turbulence-reynolds-experiment"><span class="std std-numref">Fig. 2.29</span></a> and <a class="reference internal" href="#fig-turbulence-reynolds-results"><span class="std std-numref">Fig. 2.30</span></a>.</p>
+<p>Among the first scientific experiments to characterise and analyse turbulent flows, is the work of <a class="reference external" href="https://en.wikipedia.org/wiki/Osborne_Reynolds">Osborne Reynolds</a>. He studied the conditions under which a flow undergoes the transition from a ordered to a chaotic state. One of these studies is published in <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id14" title="Osborne Reynolds. III. An experimental investigation of the circumstances which determine whether the motion of water shall be direct or sinuous, and of the law of resistance in parallel channels. Proceedings of the Royal Society of London, 35(224-226):84–99, 1883. doi:10.1098/rspl.1883.0018.">Rey83</a>]</span>, see <a class="reference internal" href="#fig-turbulence-reynolds-experiment"><span class="std std-numref">Fig. 2.29</span></a> and <a class="reference internal" href="#fig-turbulence-reynolds-results"><span class="std std-numref">Fig. 2.30</span></a>.</p>
 <div class="figure align-default" id="fig-turbulence-reynolds-experiment">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/f/f3/Reynolds_fluid_turbulence_experiment_1883.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/f/f3/Reynolds_fluid_turbulence_experiment_1883.jpg" src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Reynolds_fluid_turbulence_experiment_1883.jpg" style="width: 40%;" /></a>
 <p class="caption"><span class="caption-number">Fig. 2.29 </span><span class="caption-text">Reynolds’ experiment in 1883. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Reynolds_fluid_turbulence_experiment_1883.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-turbulence-reynolds-experiment" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="fig-turbulence-reynolds-results">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/1/12/Reynolds_observations_turbulence_1883.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/1/12/Reynolds_observations_turbulence_1883.svg" src="https://upload.wikimedia.org/wikipedia/commons/1/12/Reynolds_observations_turbulence_1883.svg" width="60%" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.30 </span><span class="caption-text">Observations of the flow in Reynolds’ experiment, see also original article <span id="id4">[<a class="reference internal" href="../../overview/03_references.html#id14">Rey83</a>]</span>. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Reynolds_observations_turbulence_1883.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-turbulence-reynolds-results" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.30 </span><span class="caption-text">Observations of the flow in Reynolds’ experiment, see also original article <span id="id4">[<a class="reference internal" href="../../overview/03_references.html#id14" title="Osborne Reynolds. III. An experimental investigation of the circumstances which determine whether the motion of water shall be direct or sinuous, and of the law of resistance in parallel channels. Proceedings of the Royal Society of London, 35(224-226):84–99, 1883. doi:10.1098/rspl.1883.0018.">Rey83</a>]</span>. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Reynolds_observations_turbulence_1883.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-turbulence-reynolds-results" title="Permalink to this image">¶</a></p>
 </div>
-<p>With these experiments the flow transition as a function of the Reynolds number can be investigated. An other example for the determination of the transition from a laminar to a turbulent state for a bouyant plume is shown in <a class="reference internal" href="#fig-turbulence-plume-setup"><span class="std std-numref">Fig. 2.31</span></a>. The full experimental setup and results are given in <span id="id5">[<a class="reference internal" href="../../overview/03_references.html#id13">MABH18</a>]</span>.</p>
+<p>With these experiments the flow transition as a function of the Reynolds number can be investigated. An other example for the determination of the transition from a laminar to a turbulent state for a bouyant plume is shown in <a class="reference internal" href="#fig-turbulence-plume-setup"><span class="std std-numref">Fig. 2.31</span></a>. The full experimental setup and results are given in <span id="id5">[<a class="reference internal" href="../../overview/03_references.html#id13" title="Andreas Meunders, Lukas Arnold, Alexander Belt, and Alexander Hundhausen. Velocity measurements of a bench scale buoyant plume applying particle image velocimetry. International Journal of Heat and Mass Transfer, 123:473–488, 2018. doi:10.1016/j.ijheatmasstransfer.2018.02.011.">MABH18</a>]</span>.</p>
 <div class="figure align-default" id="fig-turbulence-plume-setup">
 <a class="reference internal image-reference" href="../../../_images/turbulence-plume-setup.jpg"><img alt="../../../_images/turbulence-plume-setup.jpg" src="../../../_images/turbulence-plume-setup.jpg" style="width: 60%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.31 </span><span class="caption-text">Experimental setup of a buoyant plume, see <span id="id6">[<a class="reference internal" href="../../overview/03_references.html#id13">MABH18</a>]</span> for more details. Here, the heating power of the copper block determines the flow velocity.</span><a class="headerlink" href="#fig-turbulence-plume-setup" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 2.31 </span><span class="caption-text">Experimental setup of a buoyant plume, see <span id="id6">[<a class="reference internal" href="../../overview/03_references.html#id13" title="Andreas Meunders, Lukas Arnold, Alexander Belt, and Alexander Hundhausen. Velocity measurements of a bench scale buoyant plume applying particle image velocimetry. International Journal of Heat and Mass Transfer, 123:473–488, 2018. doi:10.1016/j.ijheatmasstransfer.2018.02.011.">MABH18</a>]</span> for more details. Here, the heating power of the copper block determines the flow velocity.</span><a class="headerlink" href="#fig-turbulence-plume-setup" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="fig-turbulence-plume-quiver">
 <a class="reference internal image-reference" href="../../../_images/turbulence-plume-velocity_quiver.png"><img alt="../../../_images/turbulence-plume-velocity_quiver.png" src="../../../_images/turbulence-plume-velocity_quiver.png" style="width: 80%;" /></a>
@@ -651,7 +650,7 @@ I really believe he will have an answer for the first.”<br>
 \[
 \mf k = \frac{2\pi}{L}\quad .
 \]</div>
-<p>Thus the smallest resolvable eddy <span class="math notranslate nohighlight">\(\mf L=2\Delta x\)</span> has a wavenumber of</p>
+<p>Thus, the smallest resolvable eddy <span class="math notranslate nohighlight">\(\mf L=2\Delta x\)</span> has a wavenumber of</p>
 <div class="math notranslate nohighlight">
 \[
 \mf k_0 = \frac{\pi}{\Delta x}\quad .
@@ -746,8 +745,8 @@ Beside this static model, there exist also a dynamic model, where the value of <
 \]</div>
 <p>The literature value of the constant is <span class="math notranslate nohighlight">\(\mf C_V=0.1\)</span>.</p>
 <p><strong>Implementation in FDS</strong></p>
-<p>FDS offers different simulation modes, see section 7.2 in <span id="id7">[<a class="reference internal" href="../../overview/03_references.html#id10">MHF+20d</a>]</span>: DNS (Direction Numerical Simulation), LES (Large Eddy Simulation), VLES (Very Large Eddy Simulation), and SVLES (Simple Very Large Eddy Simulation — VLES with simplified physics). The default mode is VLES.</p>
-<p>The following models for the tubulent viscosity are currently available, see section 7.5 in <span id="id8">[<a class="reference internal" href="../../overview/03_references.html#id10">MHF+20d</a>]</span>:</p>
+<p>FDS offers different simulation modes, see section 7.2 in <span id="id7">[<a class="reference internal" href="../../overview/03_references.html#id10" title="Kevin McGrattan, Simo Hostikka, Jason Floyd, Randall McDermott, and Marcos Vanella. Fire Dynamics Simulator User's Guide – Version 6.7.5. Technical Report, NIST, 2020. URL: https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf.">MHF+20d</a>]</span>: DNS (Direction Numerical Simulation), LES (Large Eddy Simulation), VLES (Very Large Eddy Simulation), and SVLES (Simple Very Large Eddy Simulation — VLES with simplified physics). The default mode is VLES.</p>
+<p>The following models for the tubulent viscosity are currently available, see section 7.5 in <span id="id8">[<a class="reference internal" href="../../overview/03_references.html#id10" title="Kevin McGrattan, Simo Hostikka, Jason Floyd, Randall McDermott, and Marcos Vanella. Fire Dynamics Simulator User's Guide – Version 6.7.5. Technical Report, NIST, 2020. URL: https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf.">MHF+20d</a>]</span>:</p>
 <ul class="simple">
 <li><p>Constant-coefficient Smagorinsky</p></li>
 <li><p>Dynamic Smagorinsky</p></li>

@@ -46,15 +46,14 @@
     <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"tex": {"macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}", "du": "\\dot{u}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/modelling/05_combustion/01_fundamentals.html" />
     <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -656,7 +655,7 @@
 </ul>
 <div class="figure align-default" id="fig-comb-candle">
 <a class="reference internal image-reference" href="../../../_images/roth_candle.jpg"><img alt="../../../_images/roth_candle.jpg" src="../../../_images/roth_candle.jpg" style="width: 60%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Schematics of a burning candle. Source: <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id5">Rot11</a>]</span>.</span><a class="headerlink" href="#fig-comb-candle" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Schematics of a burning candle. Source: <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id5" title="Klaus Roth. Chemistry of the Christmas Candle — Part 2. ChemViews, 2011. doi:10.1002/chemv.201000146.">Rot11</a>]</span>.</span><a class="headerlink" href="#fig-comb-candle" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="requirements">
@@ -974,7 +973,7 @@
 <p>The qualitative form of the temperature and gas concentrations in the vicinity of a flame is shown in <a class="reference internal" href="#fig-comb-flame-drysdale"><span class="std std-numref">Fig. 5.10</span></a>.</p>
 <div class="figure align-default" id="fig-comb-flame-drysdale">
 <a class="reference internal image-reference" href="../../../_images/drysdale-premixed-species.png"><img alt="../../../_images/drysdale-premixed-species.png" src="../../../_images/drysdale-premixed-species.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.10 </span><span class="caption-text">The temperature profile, with the ambient <span class="math notranslate nohighlight">\(\mf T_0\)</span>, the autoignition <span class="math notranslate nohighlight">\(\mf T_i\)</span> and the final <span class="math notranslate nohighlight">\(\mf T_b\)</span> temperature values, and concentration profiles. Source: <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id4">Dry11</a>]</span>.</span><a class="headerlink" href="#fig-comb-flame-drysdale" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 5.10 </span><span class="caption-text">The temperature profile, with the ambient <span class="math notranslate nohighlight">\(\mf T_0\)</span>, the autoignition <span class="math notranslate nohighlight">\(\mf T_i\)</span> and the final <span class="math notranslate nohighlight">\(\mf T_b\)</span> temperature values, and concentration profiles. Source: <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id4" title="Dougal Drysdale. An Introduction to Fire Dynamics. John Wiley &amp; Sons, Ltd, 2011. ISBN 9780470319031. doi:10.1002/9781119975465.">Dry11</a>]</span>.</span><a class="headerlink" href="#fig-comb-flame-drysdale" title="Permalink to this image">¶</a></p>
 </div>
 <p>The chemical components as well as the reaction rates are visualised in the following figures. Here, a propane-oxygen-argon flame is shown, with</p>
 <ul class="simple">

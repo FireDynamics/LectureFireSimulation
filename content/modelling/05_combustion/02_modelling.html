@@ -46,15 +46,14 @@
     <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"tex": {"macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}", "du": "\\dot{u}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/modelling/05_combustion/02_modelling.html" />
     <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -605,16 +604,16 @@
 <p>For a more complex description of, e.g. methane combustion, there are according approaches to generate the mixture-fraction functions for the species concentrations. <a class="reference internal" href="#fig-comb-mf-methane-major"><span class="std std-numref">Fig. 5.16</span></a> and <a class="reference internal" href="#fig-comb-mf-methane-minor"><span class="std std-numref">Fig. 5.17</span></a> illustrate one of them.</p>
 <div class="figure align-default" id="fig-comb-mf-methane-major">
 <a class="reference internal image-reference" href="../../../_images/yeoh-mixture-fraction-methane-major.png"><img alt="../../../_images/yeoh-mixture-fraction-methane-major.png" src="../../../_images/yeoh-mixture-fraction-methane-major.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.16 </span><span class="caption-text">The major species concentrations for a mixture fraction model with 11 species for the methane combustion. Source: <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id3">YY09</a>]</span>.</span><a class="headerlink" href="#fig-comb-mf-methane-major" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 5.16 </span><span class="caption-text">The major species concentrations for a mixture fraction model with 11 species for the methane combustion. Source: <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id3" title="Guan Heng Yeoh and Kwok Kit Yuen. Computational Fluid Dynamics in Fire Engineering. Butterworth-Heinemann, 2009. ISBN 9780750685894. doi:10.1016/b978-0-7506-8589-4.00008-9.">YY09</a>]</span>.</span><a class="headerlink" href="#fig-comb-mf-methane-major" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="fig-comb-mf-methane-minor">
 <a class="reference internal image-reference" href="../../../_images/yeoh-mixture-fraction-methane-minor.png"><img alt="../../../_images/yeoh-mixture-fraction-methane-minor.png" src="../../../_images/yeoh-mixture-fraction-methane-minor.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.17 </span><span class="caption-text">The minor species concentrations for a mixture fraction model with 11 species for the methane combustion. Source: <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id3">YY09</a>]</span>.</span><a class="headerlink" href="#fig-comb-mf-methane-minor" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 5.17 </span><span class="caption-text">The minor species concentrations for a mixture fraction model with 11 species for the methane combustion. Source: <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id3" title="Guan Heng Yeoh and Kwok Kit Yuen. Computational Fluid Dynamics in Fire Engineering. Butterworth-Heinemann, 2009. ISBN 9780750685894. doi:10.1016/b978-0-7506-8589-4.00008-9.">YY09</a>]</span>.</span><a class="headerlink" href="#fig-comb-mf-methane-minor" title="Permalink to this image">¶</a></p>
 </div>
 <p>An example for a measurement of the species concentration and temperature as a function of the mixture fraction for a hydrogen-nitrogen mixture fuel is shown in <a class="reference internal" href="#fig-comb-mf-measurement-h2n2"><span class="std std-numref">Fig. 5.18</span></a>.</p>
 <div class="figure align-default" id="fig-comb-mf-measurement-h2n2">
 <a class="reference internal image-reference" href="../../../_images/yang-measured-mf-h2n2.png"><img alt="../../../_images/yang-measured-mf-h2n2.png" src="../../../_images/yang-measured-mf-h2n2.png" style="width: 60%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.18 </span><span class="caption-text">Measured concentration and temperature values for a laminar (subfigure a and b) and a turbulent flame (subfigures c and d). Source: <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id2">YTM20</a>]</span>.</span><a class="headerlink" href="#fig-comb-mf-measurement-h2n2" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 5.18 </span><span class="caption-text">Measured concentration and temperature values for a laminar (subfigure a and b) and a turbulent flame (subfigures c and d). Source: <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id2" title="Chaobo Yang, Hao Tang, and Gaetano Magnotti. High-speed 1D Raman analyzer for temperature and major species measurements in a combustion environment. Optics Letters, 45(10):2817, 2020. doi:10.1364/ol.390299.">YTM20</a>]</span>.</span><a class="headerlink" href="#fig-comb-mf-measurement-h2n2" title="Permalink to this image">¶</a></p>
 </div>
 <p>The mixture fraction itself is a conserved scalar and is advected by the flow. Thus its transport equation is the following</p>
 <div class="math notranslate nohighlight">

@@ -46,15 +46,14 @@
     <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"tex": {"macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}", "du": "\\dot{u}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/modelling/09_pyrolysis/02_example.html" />
     <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -586,7 +585,7 @@
 <p>For simulating the gasification experiment, the following fds file will be used as a starting point: <a class="reference download internal" download="" href="../../../_downloads/abcfe7656cf6bef3a352af44aaece100/Gasification.fds"><code class="xref download docutils literal notranslate"><span class="pre">Gasification.fds</span></code></a>, more information on this set-up can be found in the FDS user guide (section 11.5)s. Instead of describing the reaction parameters by A and E, we will use the parameter <code class="docutils literal notranslate"><span class="pre">REFERENCE_TEMPERATURE</span></code>. This is the temperature at which the main reaction peak is located, as is indicated in figure <a class="reference internal" href="#fig-fds-parameter-reference-temperature"><span class="std std-numref">Fig. 8.5</span></a>. FDS will than calculate A and E based on this temperature.</p>
 <div class="figure align-default" id="fig-fds-parameter-reference-temperature">
 <a class="reference internal image-reference" href="../../../_images/fds.PNG"><img alt="../../../_images/fds.PNG" src="../../../_images/fds.PNG" style="width: 40%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 8.5 </span><span class="caption-text">fds parameter REFERENCE_TEMPERATURE. Source: <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id10">MHF+20d</a>]</span>.</span><a class="headerlink" href="#fig-fds-parameter-reference-temperature" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 8.5 </span><span class="caption-text">fds parameter REFERENCE_TEMPERATURE. Source: <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id10" title="Kevin McGrattan, Simo Hostikka, Jason Floyd, Randall McDermott, and Marcos Vanella. Fire Dynamics Simulator User's Guide – Version 6.7.5. Technical Report, NIST, 2020. URL: https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf.">MHF+20d</a>]</span>.</span><a class="headerlink" href="#fig-fds-parameter-reference-temperature" title="Permalink to this image">¶</a></p>
 </div>
 <ul class="simple">
 <li><p>Use the provided TGA data, to determine the reference temperature and rate. For this part of the task you only have to take into account the main peak. Note: the total mass of the sample was <span class="math notranslate nohighlight">\(\mf 8.45~mg\)</span>.</p>

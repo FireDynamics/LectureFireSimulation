@@ -46,15 +46,14 @@
     <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"tex": {"macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}", "du": "\\dot{u}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/modelling/06_heat_transfer/03_validation_example.html" />
     <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
@@ -825,7 +824,7 @@
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="validation-heat-transfer">
 <h1><span class="section-number">6.3. </span>Validation – Heat Transfer<a class="headerlink" href="#validation-heat-transfer" title="Permalink to this headline">¶</a></h1>
-<p>ASTM E1355 - 12 <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id21">ASTM12</a>]</span> is the ‘Standard Guide for Evaluating the Predictive Capability of Deterministic Fire Models’
+<p>ASTM E1355 - 12 <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id21" title="ASTM. ASTM E1355-12, Standard Guide for Evaluating the Predictive Capabilities of Deterministic Fire Models. Technical Report, American Society for Testing and Materials, 2012.">ASTM12</a>]</span> is the ‘Standard Guide for Evaluating the Predictive Capability of Deterministic Fire Models’
 It provides a methodology for evaluating the predictive capabilities of a fire model for a specific use. The intent is to cover the whole range of deterministic numerical models which might be used in evaluating the effects of fires in and on structures. It gives a general definition of the terms verification and validation:</p>
 <div class="section" id="verification">
 <h2>Verification<a class="headerlink" href="#verification" title="Permalink to this headline">¶</a></h2>
@@ -858,7 +857,7 @@ It provides a methodology for evaluating the predictive capabilities of a fire m
 <li><p>implementation of mathematical model</p></li>
 <li><p>numerical solver and algorithms</p></li>
 </ul>
-<p><span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id21">ASTM12</a>]</span> describes three basic types of validation calculations:</p>
+<p><span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id21" title="ASTM. ASTM E1355-12, Standard Guide for Evaluating the Predictive Capabilities of Deterministic Fire Models. Technical Report, American Society for Testing and Materials, 2012.">ASTM12</a>]</span> describes three basic types of validation calculations:</p>
 </div>
 <div class="section" id="blind-calculation">
 <h3>Blind Calculation:<a class="headerlink" href="#blind-calculation" title="Permalink to this headline">¶</a></h3>
@@ -882,11 +881,11 @@ It provides a methodology for evaluating the predictive capabilities of a fire m
 </div>
 <div class="section" id="techical-reference-guide">
 <h3>Techical Reference Guide<a class="headerlink" href="#techical-reference-guide" title="Permalink to this headline">¶</a></h3>
-<p>The FDS Technical Reference Guide is based in part on the ASTM E1355 - 12 <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id21">ASTM12</a>]</span>.
+<p>The FDS Technical Reference Guide is based in part on the ASTM E1355 - 12 <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id21" title="ASTM. ASTM E1355-12, Standard Guide for Evaluating the Predictive Capabilities of Deterministic Fire Models. Technical Report, American Society for Testing and Materials, 2012.">ASTM12</a>]</span>.
 It is a four volume set of companion documents.</p>
 <div class="section" id="technical-reference-guide-volume-1-mathematical-model">
 <h4>Technical Reference Guide Volume 1: Mathematical Model<a class="headerlink" href="#technical-reference-guide-volume-1-mathematical-model" title="Permalink to this headline">¶</a></h4>
-<p>The <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_Technical_Reference_Guide.pdf">Technical Reference Guide Volume 1: Mathematical Model</a> provides the theoretical (mathematical and physical) basis for the Fire Dynamics Simulator (FDS), according to <span id="id4">[<a class="reference internal" href="../../overview/03_references.html#id21">ASTM12</a>]</span> .</p>
+<p>The <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_Technical_Reference_Guide.pdf">Technical Reference Guide Volume 1: Mathematical Model</a> provides the theoretical (mathematical and physical) basis for the Fire Dynamics Simulator (FDS), according to <span id="id4">[<a class="reference internal" href="../../overview/03_references.html#id21" title="ASTM. ASTM E1355-12, Standard Guide for Evaluating the Predictive Capabilities of Deterministic Fire Models. Technical Report, American Society for Testing and Materials, 2012.">ASTM12</a>]</span> .</p>
 </div>
 <div class="section" id="technical-reference-guide-volume-2-verification">
 <h4>Technical Reference Guide Volume 2: Verification<a class="headerlink" href="#technical-reference-guide-volume-2-verification" title="Permalink to this headline">¶</a></h4>
@@ -898,7 +897,7 @@ It is a four volume set of companion documents.</p>
 </div>
 <div class="section" id="technical-reference-guide-volume-4-configuration-management-plan">
 <h4>Technical Reference Guide Volume 4: Configuration Management Plan<a class="headerlink" href="#technical-reference-guide-volume-4-configuration-management-plan" title="Permalink to this headline">¶</a></h4>
-<p><a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_Config_Management_Plan.pdf">Technical Reference Guide Volume 4: Configuration Management Plan</a> describes the policies and procedures for developing and maintaining the Fire Dynamics Simulator (FDS) and the companion visualization program, Smokeview (SMV). It is referred to as a Software Quality Assurance Plan according to IEEE Standard 828 and <span id="id5">[<a class="reference internal" href="../../overview/03_references.html#id21">ASTM12</a>]</span>.</p>
+<p><a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_Config_Management_Plan.pdf">Technical Reference Guide Volume 4: Configuration Management Plan</a> describes the policies and procedures for developing and maintaining the Fire Dynamics Simulator (FDS) and the companion visualization program, Smokeview (SMV). It is referred to as a Software Quality Assurance Plan according to IEEE Standard 828 and <span id="id5">[<a class="reference internal" href="../../overview/03_references.html#id21" title="ASTM. ASTM E1355-12, Standard Guide for Evaluating the Predictive Capabilities of Deterministic Fire Models. Technical Report, American Society for Testing and Materials, 2012.">ASTM12</a>]</span>.</p>
 </div>
 </div>
 </div>

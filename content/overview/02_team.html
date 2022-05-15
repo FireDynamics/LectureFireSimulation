@@ -46,12 +46,11 @@
     <script src="../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/overview/02_team.html" />
     <link rel="shortcut icon" href="../../_static/cce_logo_standalone_icon.png"/>
@@ -559,7 +558,7 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:center"><p>Self-consistent simulation of fire spread along a cable route, part of <span id="id1">[<a class="reference internal" href="03_references.html#id22">HAM20</a>]</span>. Calculated with <a class="reference external" href="https://pages.nist.gov/fds-smv/">FDS</a>.</p></td>
+<tr class="row-even"><td class="text-align:center"><p>Self-consistent simulation of fire spread along a cable route, part of <span id="id1">[<a class="reference internal" href="03_references.html#id22" title="Tristan Hehnen, Lukas Arnold, and Saverio La Mendola. Numerical Fire Spread Simulation Based on Material Pyrolysis—An Application to the CHRISTIFIRE Phase 1 Horizontal Cable Tray Tests. Fire, 3(3):33, 2020. doi:10.3390/fire3030033.">HAM20</a>]</span>. Calculated with <a class="reference external" href="https://pages.nist.gov/fds-smv/">FDS</a>.</p></td>
 </tr>
 </tbody>
 </table>
