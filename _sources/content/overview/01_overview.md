@@ -28,10 +28,12 @@ Contributors to the development of the script and the exercises are (in alphabet
 
 * Lukas Arnold
 * Kristian Börger
+* Tristan Hehnen
 * Karen de Lannoye
 * Keyvan Najarian
 * Jan Vogelsang
 * My Linh Würzburger
+* Tássia Quaresma
 
 ## Theses
 
