@@ -721,19 +721,19 @@ const thebe_selector_output = ".output, .cell_output"
 <h3>Step 1 – Opening<a class="headerlink" href="#step-1-opening" title="Permalink to this headline">¶</a></h3>
 <p>Add an opening to the FDS input file, with the extension given by the experimental setup.</p>
 <p>Which grid resolution <span class="math notranslate nohighlight">\(\mf \Delta x\)</span> is defined in the initial FDS setup?</p>
-<p>Check your setup, especially the opening’s width with smokeview by executing FDS with a zero simulation time. It is helpful to display the grid and turn on the projection method to a size preserving mode, see the keyboard shortcut section in <span class="xref myst">SMV Basics</span>. <a class="reference internal" href="#fig-steckler-opening"><span class="std std-numref">Fig. 3.15</span></a> illustrates an example of a suitable view on an opening.</p>
+<p>Check your setup, especially the opening’s width with smokeview by executing FDS with a zero simulation time. It is helpful to display the grid and turn on the projection method to a size preserving mode, see the keyboard shortcut section in <span class="xref myst">SMV Basics</span>. <a class="reference internal" href="#fig-steckler-opening"><span class="std std-numref">Fig. 3.18</span></a> illustrates an example of a suitable view on an opening.</p>
 <div class="figure align-default" id="fig-steckler-opening">
 <a class="reference internal image-reference" href="../../../_images/steckler_opening.png"><img alt="../../../_images/steckler_opening.png" src="../../../_images/steckler_opening.png" style="width: 60%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.15 </span><span class="caption-text">Check for the opening size.</span><a class="headerlink" href="#fig-steckler-opening" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.18 </span><span class="caption-text">Check for the opening size.</span><a class="headerlink" href="#fig-steckler-opening" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="step-2-hrr">
 <h3>Step 2 – HRR<a class="headerlink" href="#step-2-hrr" title="Permalink to this headline">¶</a></h3>
 <p>In the initial setup, there is already a surface property defined. Adopt the specific heat release rate to match the one in test number 13 and add a surface tempertaure of <span class="math notranslate nohighlight">\(\mf 100~^\circ C\)</span>. This elevated temperature represents the hot surface of the burner.</p>
-<p>Plot the heat release rate like in <a class="reference internal" href="#fig-steckler-20cm-hrr"><span class="std std-numref">Fig. 3.16</span></a>, where the curve is shown for the full simulation time.</p>
+<p>Plot the heat release rate like in <a class="reference internal" href="#fig-steckler-20cm-hrr"><span class="std std-numref">Fig. 3.19</span></a>, where the curve is shown for the full simulation time.</p>
 <div class="figure align-default" id="fig-steckler-20cm-hrr">
 <a class="reference internal image-reference" href="../../../_images/steckler_20cm_hrr.svg"><img alt="../../../_images/steckler_20cm_hrr.svg" src="../../../_images/steckler_20cm_hrr.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.16 </span><span class="caption-text">Comparison of the targeted heat realease rate and the one achieved in the simulations.</span><a class="headerlink" href="#fig-steckler-20cm-hrr" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.19 </span><span class="caption-text">Comparison of the targeted heat realease rate and the one achieved in the simulations.</span><a class="headerlink" href="#fig-steckler-20cm-hrr" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="step-3-output">
@@ -745,28 +745,28 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>A set of individual devices, or</p></li>
 <li><p>with a linear array of devices, see section 21.2.2 (Linear Array of Point Devices) in <span id="id4">[<a class="reference internal" href="../../overview/03_references.html#id10" title="Kevin McGrattan, Simo Hostikka, Jason Floyd, Randall McDermott, and Marcos Vanella. Fire Dynamics Simulator User's Guide – Version 6.7.5. Technical Report, NIST, 2020. URL: https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf.">MHF+20d</a>]</span>.</p></li>
 </ul>
-<p>Check their positions with Smokeview. They are indicated as green dots, see <a class="reference internal" href="#fig-steckler-devices"><span class="std std-numref">Fig. 3.17</span></a>.</p>
+<p>Check their positions with Smokeview. They are indicated as green dots, see <a class="reference internal" href="#fig-steckler-devices"><span class="std std-numref">Fig. 3.20</span></a>.</p>
 <div class="figure align-default" id="fig-steckler-devices">
 <a class="reference internal image-reference" href="../../../_images/steckler_devices.png"><img alt="../../../_images/steckler_devices.png" src="../../../_images/steckler_devices.png" style="width: 60%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.17 </span><span class="caption-text">Check for the device positioning.</span><a class="headerlink" href="#fig-steckler-devices" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.20 </span><span class="caption-text">Check for the device positioning.</span><a class="headerlink" href="#fig-steckler-devices" title="Permalink to this image">¶</a></p>
 </div>
-<p>Additionally, check if the quasi steady-state is reached in the simulations, like shown in <a class="reference internal" href="#fig-steckler-20cm-temp-devc"><span class="std std-numref">Fig. 3.18</span></a>.</p>
+<p>Additionally, check if the quasi steady-state is reached in the simulations, like shown in <a class="reference internal" href="#fig-steckler-20cm-temp-devc"><span class="std std-numref">Fig. 3.21</span></a>.</p>
 <div class="figure align-default" id="fig-steckler-20cm-temp-devc">
 <a class="reference internal image-reference" href="../../../_images/steckler_20cm_temp-devc.svg"><img alt="../../../_images/steckler_20cm_temp-devc.svg" src="../../../_images/steckler_20cm_temp-devc.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.18 </span><span class="caption-text">Time series of a point temperature measurement in the opening.</span><a class="headerlink" href="#fig-steckler-20cm-temp-devc" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.21 </span><span class="caption-text">Time series of a point temperature measurement in the opening.</span><a class="headerlink" href="#fig-steckler-20cm-temp-devc" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="step-4-comparison-with-the-experiment">
 <h3>Step 4 – Comparison with the Experiment<a class="headerlink" href="#step-4-comparison-with-the-experiment" title="Permalink to this headline">¶</a></h3>
 <p>Plot the simulation results for temperature and velocity as time averaged values during the quasi steady-state. Add to these plots the experimental data stated by the study, here you can use the central values (in x-direction). A common representation is to use the y-axis of the plot for the height and the x-axis for the values.</p>
-<p>Your results may look like those in <a class="reference internal" href="#fig-steckler-20cm-temp-exp"><span class="std std-numref">Fig. 3.19</span></a> and <a class="reference internal" href="#fig-steckler-20cm-velo-exp"><span class="std std-numref">Fig. 3.20</span></a>.</p>
+<p>Your results may look like those in <a class="reference internal" href="#fig-steckler-20cm-temp-exp"><span class="std std-numref">Fig. 3.22</span></a> and <a class="reference internal" href="#fig-steckler-20cm-velo-exp"><span class="std std-numref">Fig. 3.23</span></a>.</p>
 <div class="figure align-default" id="fig-steckler-20cm-temp-exp">
 <a class="reference internal image-reference" href="../../../_images/steckler_20cm_temp-exp.svg"><img alt="../../../_images/steckler_20cm_temp-exp.svg" src="../../../_images/steckler_20cm_temp-exp.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.19 </span><span class="caption-text">Comparison of the predicted temperature profile with experimental data.</span><a class="headerlink" href="#fig-steckler-20cm-temp-exp" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.22 </span><span class="caption-text">Comparison of the predicted temperature profile with experimental data.</span><a class="headerlink" href="#fig-steckler-20cm-temp-exp" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="fig-steckler-20cm-velo-exp">
 <a class="reference internal image-reference" href="../../../_images/steckler_20cm_velo-exp.svg"><img alt="../../../_images/steckler_20cm_velo-exp.svg" src="../../../_images/steckler_20cm_velo-exp.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.20 </span><span class="caption-text">Comparison of the predicted velocity profile with experimental data.</span><a class="headerlink" href="#fig-steckler-20cm-velo-exp" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.23 </span><span class="caption-text">Comparison of the predicted velocity profile with experimental data.</span><a class="headerlink" href="#fig-steckler-20cm-velo-exp" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="step-5-grid-resolution">
@@ -777,11 +777,11 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Plot the simulation outcome for the three grid resolutions. Do the results depend on the grid resolution?</p>
 <div class="figure align-default" id="fig-steckler-20cm-temp-grid-sensitivity">
 <a class="reference internal image-reference" href="../../../_images/steckler_20cm_temp-grid-sensitivity.svg"><img alt="../../../_images/steckler_20cm_temp-grid-sensitivity.svg" src="../../../_images/steckler_20cm_temp-grid-sensitivity.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.21 </span><span class="caption-text">Grid sensitivity of the temperature profile.</span><a class="headerlink" href="#fig-steckler-20cm-temp-grid-sensitivity" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.24 </span><span class="caption-text">Grid sensitivity of the temperature profile.</span><a class="headerlink" href="#fig-steckler-20cm-temp-grid-sensitivity" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="fig-steckler-20cm-velo-grid-sensitivity">
 <a class="reference internal image-reference" href="../../../_images/steckler_20cm_velo-grid-sensitivity.svg"><img alt="../../../_images/steckler_20cm_velo-grid-sensitivity.svg" src="../../../_images/steckler_20cm_velo-grid-sensitivity.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.22 </span><span class="caption-text">Grid sensitivity of the velocity profile.</span><a class="headerlink" href="#fig-steckler-20cm-velo-grid-sensitivity" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.25 </span><span class="caption-text">Grid sensitivity of the velocity profile.</span><a class="headerlink" href="#fig-steckler-20cm-velo-grid-sensitivity" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>

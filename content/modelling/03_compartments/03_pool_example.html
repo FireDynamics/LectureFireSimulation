@@ -723,7 +723,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The computational domain including boundary conditions, obstructions and the results for the respective output variables of the FDS simulation can be displayed with the Smokeview post-processor.</p>
 <div class="figure align-default" id="fig-pool-fire-smv-plain">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_all.png"><img alt="../../../_images/pool_fire_all.png" src="../../../_images/pool_fire_all.png" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.5 </span><span class="caption-text">SMV visualization of the geometry / the mesh-grid in the y-z-plane / the temperature values in the y-z-slice at  <span class="math notranslate nohighlight">\(\sf y=0~m\)</span> (<span class="math notranslate nohighlight">\(\sf t=19.63~s\)</span>). The surface patch <code class="docutils literal notranslate"><span class="pre">BURNER</span></code>, which has a <code class="docutils literal notranslate"><span class="pre">HRRPUA</span></code> defined, is colored redish.</span><a class="headerlink" href="#fig-pool-fire-smv-plain" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.8 </span><span class="caption-text">SMV visualization of the geometry / the mesh-grid in the y-z-plane / the temperature values in the y-z-slice at  <span class="math notranslate nohighlight">\(\sf y=0~m\)</span> (<span class="math notranslate nohighlight">\(\sf t=19.63~s\)</span>). The surface patch <code class="docutils literal notranslate"><span class="pre">BURNER</span></code>, which has a <code class="docutils literal notranslate"><span class="pre">HRRPUA</span></code> defined, is colored redish.</span><a class="headerlink" href="#fig-pool-fire-smv-plain" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="analysis">
@@ -754,11 +754,11 @@ const thebe_selector_output = ".output, .cell_output"
 <p><strong>1. Solution</strong></p>
 <div class="figure align-default" id="fig-pool-fire-temp-timesteps">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_temp_timesteps.png"><img alt="../../../_images/pool_fire_temp_timesteps.png" src="../../../_images/pool_fire_temp_timesteps.png" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.6 </span><span class="caption-text">Visualization of the instantaneous <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> values in the x-z-level at <span class="math notranslate nohighlight">\(\sf y=0~m\)</span> for different timesteps (<span class="math notranslate nohighlight">\(\sf t=5.03~s\)</span>), (<span class="math notranslate nohighlight">\(\sf t=10.03~s\)</span>), (<span class="math notranslate nohighlight">\(\sf t=20.03~s\)</span>) The attribute <code class="docutils literal notranslate"><span class="pre">CELL_CENTERED</span></code>, prevents the values between the cell boundaries from being interpolated.</span><a class="headerlink" href="#fig-pool-fire-temp-timesteps" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.9 </span><span class="caption-text">Visualization of the instantaneous <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> values in the x-z-level at <span class="math notranslate nohighlight">\(\sf y=0~m\)</span> for different timesteps (<span class="math notranslate nohighlight">\(\sf t=5.03~s\)</span>), (<span class="math notranslate nohighlight">\(\sf t=10.03~s\)</span>), (<span class="math notranslate nohighlight">\(\sf t=20.03~s\)</span>) The attribute <code class="docutils literal notranslate"><span class="pre">CELL_CENTERED</span></code>, prevents the values between the cell boundaries from being interpolated.</span><a class="headerlink" href="#fig-pool-fire-temp-timesteps" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="fig-pool-fire-temp-bounds-trunc">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_temp_bounds_trunc.png"><img alt="../../../_images/pool_fire_temp_bounds_trunc.png" src="../../../_images/pool_fire_temp_bounds_trunc.png" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.7 </span><span class="caption-text">Visualization of the instantaneous <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> values in the x-z-slice at <span class="math notranslate nohighlight">\(\sf y=0~m\)</span> at (<span class="math notranslate nohighlight">\(\sf t=19.63~s\)</span>) The upper data bound is set to 1200 and 800. The data is truncated beyond 100.</span><a class="headerlink" href="#fig-pool-fire-temp-bounds-trunc" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.10 </span><span class="caption-text">Visualization of the instantaneous <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> values in the x-z-slice at <span class="math notranslate nohighlight">\(\sf y=0~m\)</span> at (<span class="math notranslate nohighlight">\(\sf t=19.63~s\)</span>) The upper data bound is set to 1200 and 800. The data is truncated beyond 100.</span><a class="headerlink" href="#fig-pool-fire-temp-bounds-trunc" title="Permalink to this image">¶</a></p>
 </div>
 <p>Alternatively, the <code class="docutils literal notranslate"><span class="pre">SLCF</span></code> can be analyzed with the <strong>fdsreader</strong>.</p>
 <div class="cell tag_hide_cell docutils container">
@@ -802,7 +802,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="figure align-default" id="fig-pool-fire-temp-slice">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_1mw_temperatures_slice.svg"><img alt="../../../_images/pool_fire_1mw_temperatures_slice.svg" src="../../../_images/pool_fire_1mw_temperatures_slice.svg" width="60%" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.8 </span><span class="caption-text">Visualization of the instantaneous (<span class="math notranslate nohighlight">\(\sf t=19.63~s\)</span>) <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> values in the y-z-slice <span class="math notranslate nohighlight">\(\sf y=0~m\)</span> with python / matplotlib. The data was obtained via the <strong>fdsreader</strong>.</span><a class="headerlink" href="#fig-pool-fire-temp-slice" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.11 </span><span class="caption-text">Visualization of the instantaneous (<span class="math notranslate nohighlight">\(\sf t=19.63~s\)</span>) <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> values in the y-z-slice <span class="math notranslate nohighlight">\(\sf y=0~m\)</span> with python / matplotlib. The data was obtained via the <strong>fdsreader</strong>.</span><a class="headerlink" href="#fig-pool-fire-temp-slice" title="Permalink to this image">¶</a></p>
 </div>
 <div class="cell tag_hide_cell docutils container">
 <div class="cell_input docutils container">
@@ -914,13 +914,13 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="54fe5ebf-5a5c-4fc2-82cc-092274c233e3" name="03035c9a-4520-4013-b885-bc037e716d27" type="radio">
-</input><label class="tabbed-label" for="54fe5ebf-5a5c-4fc2-82cc-092274c233e3">
+<input checked="checked" id="f11aee4c-e164-40a9-9b7d-d270dbcbd080" name="c95afac9-d6fa-4b1c-ba14-82df4adf45ea" type="radio">
+</input><label class="tabbed-label" for="f11aee4c-e164-40a9-9b7d-d270dbcbd080">
 10 MW, sealed domain</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_velocity_vector_sealed.svg"><img alt="../../../_images/pool_fire_velocity_vector_sealed.svg" src="../../../_images/pool_fire_velocity_vector_sealed.svg" width="60%" /></a>
 </div>
-<input id="2d39ac98-63b9-4be7-9669-04a9627cc657" name="03035c9a-4520-4013-b885-bc037e716d27" type="radio">
-</input><label class="tabbed-label" for="2d39ac98-63b9-4be7-9669-04a9627cc657">
+<input id="1f1b6330-28bf-4ec4-a1d1-658d6359d2e4" name="c95afac9-d6fa-4b1c-ba14-82df4adf45ea" type="radio">
+</input><label class="tabbed-label" for="1f1b6330-28bf-4ec4-a1d1-658d6359d2e4">
 10 MW, open domain</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_velocity_vector_open.svg"><img alt="../../../_images/pool_fire_velocity_vector_open.svg" src="../../../_images/pool_fire_velocity_vector_open.svg" width="60%" /></a>
 </div>
@@ -982,18 +982,18 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="a99610d3-21cb-4d02-abb9-d7eb615a9f89" name="64ac9fc6-a613-4adf-a0ac-6ef490afb607" type="radio">
-</input><label class="tabbed-label" for="a99610d3-21cb-4d02-abb9-d7eb615a9f89">
+<input checked="checked" id="b4384eed-0b6d-4195-bf6d-f6d7d7e92404" name="fa0795bc-ad37-451a-8bf7-037f934daeab" type="radio">
+</input><label class="tabbed-label" for="b4384eed-0b6d-4195-bf6d-f6d7d7e92404">
 100 kW</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_100kw_sealed_hrr.svg"><img alt="../../../_images/pool_fire_100kw_sealed_hrr.svg" src="../../../_images/pool_fire_100kw_sealed_hrr.svg" width="80%" /></a>
 </div>
-<input id="60d75cb4-2053-420d-a308-bfd984af9ec8" name="64ac9fc6-a613-4adf-a0ac-6ef490afb607" type="radio">
-</input><label class="tabbed-label" for="60d75cb4-2053-420d-a308-bfd984af9ec8">
+<input id="ac4dbb1a-6557-447f-adc1-4acea26bbeb0" name="fa0795bc-ad37-451a-8bf7-037f934daeab" type="radio">
+</input><label class="tabbed-label" for="ac4dbb1a-6557-447f-adc1-4acea26bbeb0">
 1 MW</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_1mw_sealed_hrr.svg"><img alt="../../../_images/pool_fire_1mw_sealed_hrr.svg" src="../../../_images/pool_fire_1mw_sealed_hrr.svg" width="80%" /></a>
 </div>
-<input id="658872b3-73b0-4f05-a6d0-9106d54b301b" name="64ac9fc6-a613-4adf-a0ac-6ef490afb607" type="radio">
-</input><label class="tabbed-label" for="658872b3-73b0-4f05-a6d0-9106d54b301b">
+<input id="a4ba3d35-b82d-40e6-9db2-7c02077ebb0f" name="fa0795bc-ad37-451a-8bf7-037f934daeab" type="radio">
+</input><label class="tabbed-label" for="a4ba3d35-b82d-40e6-9db2-7c02077ebb0f">
 10 MW</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_10mw_sealed_hrr.svg"><img alt="../../../_images/pool_fire_10mw_sealed_hrr.svg" src="../../../_images/pool_fire_10mw_sealed_hrr.svg" width="80%" /></a>
 </div>
@@ -1194,7 +1194,7 @@ L = 0.235 \cdot \dot{Q}^{2/5} - 1.02 \cdot D
 <p><strong>2. Solution</strong></p>
 <div class="figure align-default" id="fig-pool-fire-hrr">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_1mw_open_temperatures_devc.svg"><img alt="../../../_images/pool_fire_1mw_open_temperatures_devc.svg" src="../../../_images/pool_fire_1mw_open_temperatures_devc.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.9 </span><span class="caption-text">Moving average of <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> devices at heights 1.0, 2.0, 3.0, 4.0, 5.0 and 6.0 m smoothed over 100 datapoints.</span><a class="headerlink" href="#fig-pool-fire-hrr" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.12 </span><span class="caption-text">Moving average of <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> devices at heights 1.0, 2.0, 3.0, 4.0, 5.0 and 6.0 m smoothed over 100 datapoints.</span><a class="headerlink" href="#fig-pool-fire-hrr" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="task-iii-time-dependent-heat-release-rate">
@@ -1219,7 +1219,7 @@ L = 0.235 \cdot \dot{Q}^{2/5} - 1.02 \cdot D
 <li><p>Model the fire propagation directly in FDS by defining the spread rate. The <code class="docutils literal notranslate"><span class="pre">SPREAD</span></code> attribute denotes a constant radial propagation speed from a specified point.</p>
 <div class="figure align-default" id="fig-pool-fire-spread">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_spread.svg"><img alt="../../../_images/pool_fire_spread.svg" src="../../../_images/pool_fire_spread.svg" width="30%" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.10 </span><span class="caption-text">Fire propagation via FDS <code class="docutils literal notranslate"><span class="pre">SPREAD</span></code> attribute</span><a class="headerlink" href="#fig-pool-fire-spread" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.13 </span><span class="caption-text">Fire propagation via FDS <code class="docutils literal notranslate"><span class="pre">SPREAD</span></code> attribute</span><a class="headerlink" href="#fig-pool-fire-spread" title="Permalink to this image">¶</a></p>
 </div>
 <p>For instructions on how to model a radial fire spread in FDS, please refer to the <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">FDS User’s Guide</a> Section 11.4.2 “Special Topic: A Radially-Spreading Fire”. The radial propagation speed v can be obtained from the fire area <span class="math notranslate nohighlight">\(\small\sf A_{Fire}\)</span> and the corresponding burning period t.</p>
 <div class="math notranslate nohighlight">
@@ -1383,7 +1383,7 @@ t = \frac{\dot{q}'' \cdot A_{Fire}}{\alpha} = \frac{250 \cdot 1}{0.04689} \appro
 </div>
 <div class="figure align-default" id="fig-pool-fire-hrr-spread">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_10mw_sealed_hrr_spread.svg"><img alt="../../../_images/pool_fire_10mw_sealed_hrr_spread.svg" src="../../../_images/pool_fire_10mw_sealed_hrr_spread.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.11 </span><span class="caption-text">Simulated <code class="docutils literal notranslate"><span class="pre">HRR</span></code> generated by <code class="docutils literal notranslate"><span class="pre">RAMP</span></code> and <code class="docutils literal notranslate"><span class="pre">SPREAD</span></code> as a function of time.</span><a class="headerlink" href="#fig-pool-fire-hrr-spread" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.14 </span><span class="caption-text">Simulated <code class="docutils literal notranslate"><span class="pre">HRR</span></code> generated by <code class="docutils literal notranslate"><span class="pre">RAMP</span></code> and <code class="docutils literal notranslate"><span class="pre">SPREAD</span></code> as a function of time.</span><a class="headerlink" href="#fig-pool-fire-hrr-spread" title="Permalink to this image">¶</a></p>
 </div>
 <p><strong>2. Solution</strong></p>
 <div class="toggle docutils container">
@@ -1465,7 +1465,7 @@ $<span class="math notranslate nohighlight">\(\small\sf \dot{Q} = \Delta h_{c,ef
 </div>
 <div class="figure align-default" id="fig-pool-fire-hrr-ramp">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_hrr_heptane_ramp.svg"><img alt="../../../_images/pool_fire_hrr_heptane_ramp.svg" src="../../../_images/pool_fire_hrr_heptane_ramp.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.12 </span><span class="caption-text">Prescribed and simulated <code class="docutils literal notranslate"><span class="pre">HRR</span></code> of n-heptane fire as a function of time. The heat release can be derived from the mass loss and the effective heat of combustion <span class="math notranslate nohighlight">\(\small\sf \Delta h_{c,eff}\)</span>.</span><a class="headerlink" href="#fig-pool-fire-hrr-ramp" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.15 </span><span class="caption-text">Prescribed and simulated <code class="docutils literal notranslate"><span class="pre">HRR</span></code> of n-heptane fire as a function of time. The heat release can be derived from the mass loss and the effective heat of combustion <span class="math notranslate nohighlight">\(\small\sf \Delta h_{c,eff}\)</span>.</span><a class="headerlink" href="#fig-pool-fire-hrr-ramp" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="task-iv-grid-convergence-hpc-computing-benchmarking">
@@ -1538,11 +1538,11 @@ $<span class="math notranslate nohighlight">\(\small\sf \dot{Q} = \Delta h_{c,ef
 </div>
 <div class="figure align-default" id="fig-pool-fire-benchmarking">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_benchmarking.svg"><img alt="../../../_images/pool_fire_benchmarking.svg" src="../../../_images/pool_fire_benchmarking.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.13 </span><span class="caption-text">Total computation time as a function of the total number of grid cells in the computational domain ( <span class="math notranslate nohighlight">\(\sf N_{cells}\)</span> ) for different amount of openMP processes (<span class="math notranslate nohighlight">\(\sf N_{openMP}\)</span>).</span><a class="headerlink" href="#fig-pool-fire-benchmarking" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.16 </span><span class="caption-text">Total computation time as a function of the total number of grid cells in the computational domain ( <span class="math notranslate nohighlight">\(\sf N_{cells}\)</span> ) for different amount of openMP processes (<span class="math notranslate nohighlight">\(\sf N_{openMP}\)</span>).</span><a class="headerlink" href="#fig-pool-fire-benchmarking" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="fig-pool-fire-grid-convergence">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_grid_convergence.svg"><img alt="../../../_images/pool_fire_grid_convergence.svg" src="../../../_images/pool_fire_grid_convergence.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.14 </span><span class="caption-text">Checking grid convergence for a device with quantity <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> at XYZ (0, 0, 1). A grid size of 20 cm and below, which results in a total number of 31250 cells, does not show any significant change in temperature.</span><a class="headerlink" href="#fig-pool-fire-grid-convergence" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.17 </span><span class="caption-text">Checking grid convergence for a device with quantity <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> at XYZ (0, 0, 1). A grid size of 20 cm and below, which results in a total number of 31250 cells, does not show any significant change in temperature.</span><a class="headerlink" href="#fig-pool-fire-grid-convergence" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
