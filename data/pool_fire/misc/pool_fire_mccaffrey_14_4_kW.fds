@@ -1,0 +1,101 @@
+"--------------------------------------------------------------------------------------------"
+"Output files will be tagged with 'pool_fire', 'TITLE' is just an description"
+"--------------------------------------------------------------------------------------------"
+CHID = 'pool_fire', TITLE = 'Example of a pool fire'  /
+
+"--------------------------------------------------------------------------------------------"
+"Mesh with 25/25/50 cells in X/Y/Z axes that extends from X/Y/Z = -0.75/-0.75/-0.72 to -0.75/0.75/5.28 m"
+"--------------------------------------------------------------------------------------------"
+&MESH IJK = 25,25,100, XB = -0.75,0.75, -0.9,0.9, -0.72,5.28 /
+
+"--------------------------------------------------------------------------------------------"
+"End of simulation time is 30 s"
+"--------------------------------------------------------------------------------------------"
+&TIME T_END = 30.0 / End of simulation time is 30 s
+TIME T_END = 0.0 / End of simulation time is 30 s
+
+"--------------------------------------------------------------------------------------------"
+"Specifying FDS default fuel 'METHANE' for the reaction"
+"--------------------------------------------------------------------------------------------"
+&REAC FUEL = 'METHANE', SOOT_YIELD=0.01 /
+
+&OBST ID        = 'SampleHolder'
+      SURF_ID   = 'INERT'
+      XB        =  -0.15,0.15, -0.15,0.15, -0.72,0 /
+
+"--------------------------------------------------------------------------------------------"
+"Surface 'BURNER' with a heat release rate of 1000 kW/m^2"
+"--------------------------------------------------------------------------------------------"
+&SURF ID = 'BURNER', HRRPUA = 160., COLOR = 'RASPBERRY' / Surface with ID /
+
+"--------------------------------------------------------------------------------------------"
+"Vent in the X-Y plane at Z = 0 that extends from X/Y = -0.15/-0.15 to -0.15/0.15"
+"Surface 'BURNER' is assigned to the vent"
+"--------------------------------------------------------------------------------------------"
+&VENT XB = -0.15,0.15, -0.15,0.15, 0,0, SURF_ID='BURNER'/
+
+"--------------------------------------------------------------------------------------------"
+"Open the top and lateral boundaries of the domain.
+"--------------------------------------------------------------------------------------------"
+&VENT MB = 'XMIN' SURF_ID = 'OPEN' /
+&VENT MB = 'XMAX' SURF_ID = 'OPEN' /
+&VENT MB = 'YMIN' SURF_ID = 'OPEN' /
+&VENT MB = 'YMAX' SURF_ID = 'OPEN' /
+&VENT MB = 'ZMAX' SURF_ID = 'OPEN' /
+
+
+&DEVC ID = 'DEVC.000', XYZ = 0, 0, 0.03, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.001', XYZ = 0, 0, 0.09, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.002', XYZ = 0, 0, 0.15, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.003', XYZ = 0, 0, 0.21, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.004', XYZ = 0, 0, 0.27, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.005', XYZ = 0, 0, 0.33, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.006', XYZ = 0, 0, 0.39, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.007', XYZ = 0, 0, 0.45, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.008', XYZ = 0, 0, 0.51, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.009', XYZ = 0, 0, 0.57, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.010', XYZ = 0, 0, 0.63, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.011', XYZ = 0, 0, 0.69, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.012', XYZ = 0, 0, 0.75, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.013', XYZ = 0, 0, 0.81, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.014', XYZ = 0, 0, 0.87, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.015', XYZ = 0, 0, 0.93, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.016', XYZ = 0, 0, 0.99, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.017', XYZ = 0, 0, 1.05, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.018', XYZ = 0, 0, 1.11, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.019', XYZ = 0, 0, 1.17, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.020', XYZ = 0, 0, 1.23, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.021', XYZ = 0, 0, 1.29, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.022', XYZ = 0, 0, 1.35, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.023', XYZ = 0, 0, 1.41, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.024', XYZ = 0, 0, 1.47, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.025', XYZ = 0, 0, 1.53, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.026', XYZ = 0, 0, 1.59, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.027', XYZ = 0, 0, 1.65, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.028', XYZ = 0, 0, 1.71, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.029', XYZ = 0, 0, 1.77, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.030', XYZ = 0, 0, 1.83, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.031', XYZ = 0, 0, 1.89, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.032', XYZ = 0, 0, 1.95, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.033', XYZ = 0, 0, 2.01, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.034', XYZ = 0, 0, 2.07, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.035', XYZ = 0, 0, 2.13, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.036', XYZ = 0, 0, 2.19, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.037', XYZ = 0, 0, 2.25, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.038', XYZ = 0, 0, 2.31, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'DEVC.039', XYZ = 0, 0, 2.37, QUANTITY = 'THERMOCOUPLE' /
+
+
+&BNDF QUANTITY      = 'WALL TEMPERATURE'
+      CELL_CENTERED = .TRUE. /
+
+"--------------------------------------------------------------------------------------------"
+"Slice file in the Y-Z plane at X = 0 with quantity 'THERMOCOUPLE'"
+"CELL_CENTERED prevents FDS from interpolating the results to the cell corners"
+"--------------------------------------------------------------------------------------------"
+&SLCF PBX = 0, QUANTITY = 'TEMPERATURE', CELL_CENTERED = .TRUE. /
+
+"--------------------------------------------------------------------------------------------"
+"FDS does not look after this line"
+"--------------------------------------------------------------------------------------------"
+&TAIL /
