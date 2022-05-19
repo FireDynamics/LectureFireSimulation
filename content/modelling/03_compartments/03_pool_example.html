@@ -564,6 +564,11 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extra-task-simulation-of-a-purely-buoyant-diffusion-flame">
+   Extra Task - Simulation of a purely buoyant diffusion flame
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#task-ii-plume-formulas">
    Task II - Plume Formulas
   </a>
@@ -629,6 +634,11 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extra-task-simulation-of-a-purely-buoyant-diffusion-flame">
+   Extra Task - Simulation of a purely buoyant diffusion flame
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#task-ii-plume-formulas">
    Task II - Plume Formulas
   </a>
@@ -656,7 +666,7 @@ const thebe_selector_output = ".output, .cell_output"
 <h1><span class="section-number">3.2. </span>Example – Pool Fire<a class="headerlink" href="#example-pool-fire" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>Pool fires are interesting for studiyng fire development, because they are relatively easy to handle. One needs a fire proof pan, for example made out of steel sheets, and fill in a combustible liquid. Shortly after ignition it reaches a quasi steady-state, due to the evaporation of the liquid. One of the shortcomings of pool fires is their limited fuel supply. This is one of the reasons why gas burners are often used in fire experiments. That, and the good reproducability associated with gas burners as ignition source. Also in FDS, most pool fire simulations are modelled as gas burners (<a class="reference external" href="https://github.com/firemodels/fds/releases/tag/FDS6.7.5">see Section 11.4 of FDS User’s Guide</a>).</p>
+<p>Pool fires are interesting for studiyng fire development, because they are relatively easy to handle. One needs a fire proof pan, for example made out of steel sheets, and fill in a combustible liquid. Shortly after ignition it reaches a quasi steady-state, due to the evaporation of the liquid. One of the shortcomings of pool fires is their limited fuel supply. This is one of the reasons why gas burners are often used in fire experiments. That, and the good reproducability associated with gas burners as ignition source. Also in FDS, most pool fire simulations are modelled as gas burners (<a class="reference external" href="https://github.com/firemodels/fds/releases/tag/FDS6.7.5">see Section “11.4 Simple Pyrolysis Models” in the FDS User’s Guide</a>).</p>
 <p>This example illustrates the setup and analysis of a minimalist FDS simulation. Starting from a simple pool fire with a fixed heat release rate, the model is extended by various parameters. The results are then validated by comparison with simple analytical methods.</p>
 </div>
 <div class="section" id="setup">
@@ -668,7 +678,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <div class="section" id="fds-input-file">
 <h2>FDS Input File<a class="headerlink" href="#fds-input-file" title="Permalink to this headline">¶</a></h2>
-<p>Parameters in the FDS input file are specified by using namelist formatted records. Each namelist record begins with the ampersand character, &amp;, followed by the name of the namelist group, then a comma-delimited list of the input parameters, and finally a forward slash /.</p>
+<p>Parameters in the FDS input file are specified by using namelist formatted records. Each namelist record begins with the ampersand character “&amp;”, followed by the name of the namelist group, then a comma-delimited list of the input parameters, and finally a forward slash “/”.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Table 21.3 in the <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">FDS User’s Guide</a> provides a summary of frequently used output quantities.</p>
@@ -914,13 +924,13 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="04708c28-6b8f-4298-acca-174ec13feb22" name="eec021ce-41d7-4b7e-8e4a-eb7b4f953d2d" type="radio">
-</input><label class="tabbed-label" for="04708c28-6b8f-4298-acca-174ec13feb22">
+<input checked="checked" id="0a2741c7-0ebc-4692-a803-41bc4d0c1940" name="6cbeab54-7212-4225-9568-a413e1f390fb" type="radio">
+</input><label class="tabbed-label" for="0a2741c7-0ebc-4692-a803-41bc4d0c1940">
 10 MW, sealed domain</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_velocity_vector_sealed.svg"><img alt="../../../_images/pool_fire_velocity_vector_sealed.svg" src="../../../_images/pool_fire_velocity_vector_sealed.svg" width="60%" /></a>
 </div>
-<input id="e22c25eb-d63b-4e87-97bd-496dc0d0ed03" name="eec021ce-41d7-4b7e-8e4a-eb7b4f953d2d" type="radio">
-</input><label class="tabbed-label" for="e22c25eb-d63b-4e87-97bd-496dc0d0ed03">
+<input id="74f1a097-21de-4efe-a3ef-bfc5bac3c0a2" name="6cbeab54-7212-4225-9568-a413e1f390fb" type="radio">
+</input><label class="tabbed-label" for="74f1a097-21de-4efe-a3ef-bfc5bac3c0a2">
 10 MW, open domain</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_velocity_vector_open.svg"><img alt="../../../_images/pool_fire_velocity_vector_open.svg" src="../../../_images/pool_fire_velocity_vector_open.svg" width="60%" /></a>
 </div>
@@ -980,29 +990,71 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
+<span class="nn">Input In [3],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data_root</span> <span class="o">=</span> <span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;data/pool_fire/10mw_sealed&#39;</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">sim</span> <span class="o">=</span> <span class="n">fdsreader</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">data_root</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">hrr</span><span class="p">[</span><span class="s2">&quot;Time&quot;</span><span class="p">],</span> <span class="n">sim</span><span class="o">.</span><span class="n">hrr</span><span class="p">[</span><span class="s2">&quot;HRR&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;simulation&#39;</span><span class="p">)</span>
+
+<span class="ne">NameError</span>: name &#39;root&#39; is not defined
+</pre></div>
+</div>
+</div>
 </div>
 <div class="tabbed-set docutils">
-<input checked="checked" id="8dbb01bd-5432-4585-8829-ab4abd2bc20b" name="83c41d4b-9238-4979-9429-c7f3cb4169e5" type="radio">
-</input><label class="tabbed-label" for="8dbb01bd-5432-4585-8829-ab4abd2bc20b">
+<input checked="checked" id="deeae372-510f-46ba-8393-5eb1476905ed" name="c5de4c9f-dcf2-4e09-9f78-ff28e4798cdd" type="radio">
+</input><label class="tabbed-label" for="deeae372-510f-46ba-8393-5eb1476905ed">
 100 kW</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_100kw_sealed_hrr.svg"><img alt="../../../_images/pool_fire_100kw_sealed_hrr.svg" src="../../../_images/pool_fire_100kw_sealed_hrr.svg" width="80%" /></a>
 </div>
-<input id="0e4be200-7902-4036-b6b9-4879a454fadc" name="83c41d4b-9238-4979-9429-c7f3cb4169e5" type="radio">
-</input><label class="tabbed-label" for="0e4be200-7902-4036-b6b9-4879a454fadc">
+<input id="1d94fddd-0ab9-43d2-8d13-85a41486fb80" name="c5de4c9f-dcf2-4e09-9f78-ff28e4798cdd" type="radio">
+</input><label class="tabbed-label" for="1d94fddd-0ab9-43d2-8d13-85a41486fb80">
 1 MW</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_1mw_sealed_hrr.svg"><img alt="../../../_images/pool_fire_1mw_sealed_hrr.svg" src="../../../_images/pool_fire_1mw_sealed_hrr.svg" width="80%" /></a>
 </div>
-<input id="6529e61d-cfcd-46bd-8577-1fd8d060f09c" name="83c41d4b-9238-4979-9429-c7f3cb4169e5" type="radio">
-</input><label class="tabbed-label" for="6529e61d-cfcd-46bd-8577-1fd8d060f09c">
+<input id="6da89d9b-ce4b-4fee-84dd-14d4ed7043c5" name="c5de4c9f-dcf2-4e09-9f78-ff28e4798cdd" type="radio">
+</input><label class="tabbed-label" for="6da89d9b-ce4b-4fee-84dd-14d4ed7043c5">
 10 MW</label><div class="tabbed-content docutils">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_10mw_sealed_hrr.svg"><img alt="../../../_images/pool_fire_10mw_sealed_hrr.svg" src="../../../_images/pool_fire_10mw_sealed_hrr.svg" width="80%" /></a>
 </div>
 </div>
 </div>
+<div class="section" id="extra-task-simulation-of-a-purely-buoyant-diffusion-flame">
+<h2>Extra Task - Simulation of a purely buoyant diffusion flame<a class="headerlink" href="#extra-task-simulation-of-a-purely-buoyant-diffusion-flame" title="Permalink to this headline">¶</a></h2>
+<p>In this task we propose as an extra exercise, the simulation of a diffusion flame, based on the experimental setup described in the report: <a class="reference external" href="https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nbsir79-1910.pdf">Purely Buoyant Diffusion Flames: Some Experimental Results</a>.</p>
+<p>The report defines purely bouyant diffusion flames as those which take place over combustible gases that leave the surface of a solid or liquid fuel with negligible velocity. In such cases, the fire is said to be dominated by buoyancy. This is a common characteristic of fires that develop freely over a pool of liquid fuel, or over a solid polymeric material. The main purpose of the experiment is to measure the temperature and the velocity magnitude in the near field of the flame. Five different heating rates of <span class="math notranslate nohighlight">\(\small\sf 14.4~kW\)</span>, <span class="math notranslate nohighlight">\(\small\sf 21.7~kW\)</span>, <span class="math notranslate nohighlight">\(\small\sf 33.3~kW\)</span>, <span class="math notranslate nohighlight">\(\small\sf 44.9~kW\)</span>, <span class="math notranslate nohighlight">\(\small\sf 57.5~kW\)</span> are considered, and the measurements are taken at the central line of the flame. A burner of natural gas injects fuel at a controlled rate, so as to obtain the desired heat release. The goal is to reproduce the experiment in the FDS simulation.</p>
+<p><em><strong>Building the setup</strong></em></p>
+<p>The simulation setup is built based on the dimensions presented in the report referenced above. A methane burner with a heat release rate of <span class="math notranslate nohighlight">\(\small\sf 14.4~kW\)</span> can be considered as a start. The burner dimensions are <span class="math notranslate nohighlight">\(\small\sf 0.30 \times 0.30~m\)</span> and its suface is positioned at <span class="math notranslate nohighlight">\(\small\sf 0.72~m\)</span> above the floor. The lateral and top boundaries of the simulation domain are open. The extension of the domain is</p>
+<div class="math notranslate nohighlight">
+\[\small\sf [-0.75~m, 0.75~m] \times [-0.75~m, 0.75~m] \times [-0.72~m, 3.48~m]\]</div>
+<p>with a grid resolution of <span class="math notranslate nohighlight">\(\small\sf 0.06~m\)</span>. A set of measuring devices of temperature and velocity are positioned along the central line of the flame. It is recommended that each device is located right in the middle of a cell.</p>
+<div class="figure align-default" id="id2">
+<a class="reference internal image-reference" href="../../../_images/extra_task_diffusion_flame_01.png"><img alt="../../../_images/extra_task_diffusion_flame_01.png" src="../../../_images/extra_task_diffusion_flame_01.png" style="width: 55%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3.12 </span><span class="caption-text">Visualization of how the simulation setup should look like in Smokeview.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
+</div>
+<p>At total, five different simulations need to be run, one for each heat release rate indicated above.</p>
+<p><em><strong>Collecting and plotting the results</strong></em></p>
+<p>Once the simulations are finished, the data recorded by the devices (temperature and velocity) can be collected from the “devc.csv” output file. The goal is to present a log-log plot of the time-averaged output quantities against the hight above the burner, for the five values of heat release rates. Velocity and hight should be both normalised respectively by the scaling factors <span class="math notranslate nohighlight">\(\small\sf Q^(1/5)\)</span> and <span class="math notranslate nohighlight">\(\small\sf Q^(2/5)\)</span>. The results obtained in the report are presented:</p>
+<div class="figure align-default" id="id3">
+<a class="reference internal image-reference" href="../../../_images/extra_task_McCaffreyVelocity.png"><img alt="../../../_images/extra_task_McCaffreyVelocity.png" src="../../../_images/extra_task_McCaffreyVelocity.png" style="width: 55%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3.13 </span><span class="caption-text">Plot of normalised velocity against normalised hight above burner, presented in the <a class="reference external" href="https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nbsir79-1910.pdf">report</a>.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
+</div>
+<div class="figure align-default" id="id4">
+<a class="reference internal image-reference" href="../../../_images/extra_task_McCaffreyTemperature.png"><img alt="../../../_images/extra_task_McCaffreyTemperature.png" src="../../../_images/extra_task_McCaffreyTemperature.png" style="width: 55%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3.14 </span><span class="caption-text">Plot of temperature against normalised hight above burner, presented in the <a class="reference external" href="https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nbsir79-1910.pdf">report</a>.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+</div>
+<p>The simulation results can be compared to those presented in the report, as in the following plot:</p>
+<div class="figure align-default" id="id5">
+<a class="reference internal image-reference" href="../../../_images/extra_task_temperature_result.png"><img alt="../../../_images/extra_task_temperature_result.png" src="../../../_images/extra_task_temperature_result.png" style="width: 55%;" /></a>
+<p class="caption"><span class="caption-number">Fig. 3.15 </span><span class="caption-text">Plot of temperature against normalised hight above burner, simulation results plotted against experimental results.</span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
+</div>
+</div>
 <div class="section" id="task-ii-plume-formulas">
 <h2>Task II - Plume Formulas<a class="headerlink" href="#task-ii-plume-formulas" title="Permalink to this headline">¶</a></h2>
 <p>This task targets the computation of the plume temperature with analytical methods in order to subsequently validate the results of an numerical simulation. For more detailed information on the theory and application of the plume formulas, please refer to the literature, e.g. Enclosure Fire Dynamics by B. Karlsson and J. Quintiere <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id24" title="Bjorn Karlsson and James Quintiere. Enclosure Fire Dynamics. CRC Press LLC, 1999. doi:10.1201/9781420050219-12.">KQ99</a>]</span>.</p>
-<p><em><strong>Heskested</strong></em></p>
+<p><em><strong>Heskestad</strong></em></p>
 <p><span class="math notranslate nohighlight">\(\small\sf \Delta T \)</span> indicates the temperature rise in the plume centerline axis above ambient temperature:</p>
 <div class="math notranslate nohighlight">
 \[ \small\sf
@@ -1055,7 +1107,7 @@ L = 0.235 \cdot \dot{Q}^{2/5} - 1.02 \cdot D
 </table>
 <p><strong>Task:</strong></p>
 <ol>
-<li><p>Calculate the temperatures of the plume within the respective application limits using the analytical approaches of the Heskested and Mccaffrey Plumes with a HRR of 1 MW at heights of <span class="math notranslate nohighlight">\(\small\sf  z = 1~m, 2~m, 3~m, 4~m, 5~m, 6~m\)</span>. Assume that the radiative fraction of the plume is 20 % and <span class="math notranslate nohighlight">\( \small\sf A_{fire}=1~m^2\)</span> . Compare the results and discuss the reasons for the deviations.</p></li>
+<li><p>Calculate the temperatures of the plume within the respective application limits using the analytical approaches of the Heskestad and McCaffrey Plumes with a HRR of 1 MW at heights of <span class="math notranslate nohighlight">\(\small\sf  z = 1~m, 2~m, 3~m, 4~m, 5~m, 6~m\)</span>. Assume that the radiative fraction of the plume is 20 % and <span class="math notranslate nohighlight">\( \small\sf A_{fire}=1~m^2\)</span> . Compare the results and discuss the reasons for the deviations.</p></li>
 <li><p>Compare the results from the analytical calculations to the results of an FDS simulation using temperature devices. Smooth the output by a moving average to reduce noise. Refer to section 20.1 of the <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">FDS User’s Guide</a> for further information on how to place Devices in the computational domain.</p>
 <p>Add the following lines to your FDS file to open the lateral and top boundaries of the sealed domain which provides a better depiction of the boundary conditions of the empirically determined plume formulas:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">VENT</span> <span class="n">MB</span> <span class="o">=</span> <span class="s1">&#39;XMIN&#39;</span> <span class="n">SURF_ID</span> <span class="o">=</span> <span class="s1">&#39;OPEN&#39;</span> <span class="o">/</span>
@@ -1073,7 +1125,7 @@ L = 0.235 \cdot \dot{Q}^{2/5} - 1.02 \cdot D
 <span class="math notranslate nohighlight">\(\small\sf m_{SMA}(t) = \frac{1}{n}\sum_{i=0}^{n-1}x(t-i)\)</span></p>
 </div>
 <p><strong>1. Solution:</strong></p>
-<p><em><strong>Heskested</strong></em></p>
+<p><em><strong>Heskestad</strong></em></p>
 <div class="toggle docutils container">
 <p>Simplifying the plume formula into:</p>
 <p><span class="math notranslate nohighlight">\(\small\sf \Delta T = 9.1 \left(\frac{T_\infty}{g \cdot c_p^2 \cdot \rho_\infty^2} \right)^{1/3} \cdot \dot{Q}_c^{2/3} \cdot (z -z_0)^{-5/3} = 25 \left( \frac{\dot{Q}_c^{2/5}}{(z -z_0)}\right)^{5/3}\)</span></p>
@@ -1194,7 +1246,7 @@ L = 0.235 \cdot \dot{Q}^{2/5} - 1.02 \cdot D
 <p><strong>2. Solution</strong></p>
 <div class="figure align-default" id="fig-pool-fire-hrr">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_1mw_open_temperatures_devc.svg"><img alt="../../../_images/pool_fire_1mw_open_temperatures_devc.svg" src="../../../_images/pool_fire_1mw_open_temperatures_devc.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.12 </span><span class="caption-text">Moving average of <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> devices at heights 1.0, 2.0, 3.0, 4.0, 5.0 and 6.0 m smoothed over 100 datapoints.</span><a class="headerlink" href="#fig-pool-fire-hrr" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.16 </span><span class="caption-text">Moving average of <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> devices at heights 1.0, 2.0, 3.0, 4.0, 5.0 and 6.0 m smoothed over 100 datapoints.</span><a class="headerlink" href="#fig-pool-fire-hrr" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="task-iii-time-dependent-heat-release-rate">
@@ -1219,7 +1271,7 @@ L = 0.235 \cdot \dot{Q}^{2/5} - 1.02 \cdot D
 <li><p>Model the fire propagation directly in FDS by defining the spread rate. The <code class="docutils literal notranslate"><span class="pre">SPREAD</span></code> attribute denotes a constant radial propagation speed from a specified point.</p>
 <div class="figure align-default" id="fig-pool-fire-spread">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_spread.svg"><img alt="../../../_images/pool_fire_spread.svg" src="../../../_images/pool_fire_spread.svg" width="30%" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.13 </span><span class="caption-text">Fire propagation via FDS <code class="docutils literal notranslate"><span class="pre">SPREAD</span></code> attribute</span><a class="headerlink" href="#fig-pool-fire-spread" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.17 </span><span class="caption-text">Fire propagation via FDS <code class="docutils literal notranslate"><span class="pre">SPREAD</span></code> attribute</span><a class="headerlink" href="#fig-pool-fire-spread" title="Permalink to this image">¶</a></p>
 </div>
 <p>For instructions on how to model a radial fire spread in FDS, please refer to the <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">FDS User’s Guide</a> Section 11.4.2 “Special Topic: A Radially-Spreading Fire”. The radial propagation speed v can be obtained from the fire area <span class="math notranslate nohighlight">\(\small\sf A_{Fire}\)</span> and the corresponding burning period t.</p>
 <div class="math notranslate nohighlight">
@@ -1383,7 +1435,7 @@ t = \frac{\dot{q}'' \cdot A_{Fire}}{\alpha} = \frac{250 \cdot 1}{0.04689} \appro
 </div>
 <div class="figure align-default" id="fig-pool-fire-hrr-spread">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_10mw_sealed_hrr_spread.svg"><img alt="../../../_images/pool_fire_10mw_sealed_hrr_spread.svg" src="../../../_images/pool_fire_10mw_sealed_hrr_spread.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.14 </span><span class="caption-text">Simulated <code class="docutils literal notranslate"><span class="pre">HRR</span></code> generated by <code class="docutils literal notranslate"><span class="pre">RAMP</span></code> and <code class="docutils literal notranslate"><span class="pre">SPREAD</span></code> as a function of time.</span><a class="headerlink" href="#fig-pool-fire-hrr-spread" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.18 </span><span class="caption-text">Simulated <code class="docutils literal notranslate"><span class="pre">HRR</span></code> generated by <code class="docutils literal notranslate"><span class="pre">RAMP</span></code> and <code class="docutils literal notranslate"><span class="pre">SPREAD</span></code> as a function of time.</span><a class="headerlink" href="#fig-pool-fire-hrr-spread" title="Permalink to this image">¶</a></p>
 </div>
 <p><strong>2. Solution</strong></p>
 <div class="toggle docutils container">
@@ -1460,12 +1512,12 @@ $<span class="math notranslate nohighlight">\(\small\sf \dot{Q} = \Delta h_{c,ef
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/03_pool_example_39_0.png" src="../../../_images/03_pool_example_39_0.png" />
+<img alt="../../../_images/03_pool_example_40_0.png" src="../../../_images/03_pool_example_40_0.png" />
 </div>
 </div>
 <div class="figure align-default" id="fig-pool-fire-hrr-ramp">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_hrr_heptane_ramp.svg"><img alt="../../../_images/pool_fire_hrr_heptane_ramp.svg" src="../../../_images/pool_fire_hrr_heptane_ramp.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.15 </span><span class="caption-text">Prescribed and simulated <code class="docutils literal notranslate"><span class="pre">HRR</span></code> of n-heptane fire as a function of time. The heat release can be derived from the mass loss and the effective heat of combustion <span class="math notranslate nohighlight">\(\small\sf \Delta h_{c,eff}\)</span>.</span><a class="headerlink" href="#fig-pool-fire-hrr-ramp" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.19 </span><span class="caption-text">Prescribed and simulated <code class="docutils literal notranslate"><span class="pre">HRR</span></code> of n-heptane fire as a function of time. The heat release can be derived from the mass loss and the effective heat of combustion <span class="math notranslate nohighlight">\(\small\sf \Delta h_{c,eff}\)</span>.</span><a class="headerlink" href="#fig-pool-fire-hrr-ramp" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 <div class="section" id="task-iv-grid-convergence-hpc-computing-benchmarking">
@@ -1538,11 +1590,11 @@ $<span class="math notranslate nohighlight">\(\small\sf \dot{Q} = \Delta h_{c,ef
 </div>
 <div class="figure align-default" id="fig-pool-fire-benchmarking">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_benchmarking.svg"><img alt="../../../_images/pool_fire_benchmarking.svg" src="../../../_images/pool_fire_benchmarking.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.16 </span><span class="caption-text">Total computation time as a function of the total number of grid cells in the computational domain ( <span class="math notranslate nohighlight">\(\sf N_{cells}\)</span> ) for different amount of openMP processes (<span class="math notranslate nohighlight">\(\sf N_{openMP}\)</span>).</span><a class="headerlink" href="#fig-pool-fire-benchmarking" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.20 </span><span class="caption-text">Total computation time as a function of the total number of grid cells in the computational domain ( <span class="math notranslate nohighlight">\(\sf N_{cells}\)</span> ) for different amount of openMP processes (<span class="math notranslate nohighlight">\(\sf N_{openMP}\)</span>).</span><a class="headerlink" href="#fig-pool-fire-benchmarking" title="Permalink to this image">¶</a></p>
 </div>
 <div class="figure align-default" id="fig-pool-fire-grid-convergence">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_grid_convergence.svg"><img alt="../../../_images/pool_fire_grid_convergence.svg" src="../../../_images/pool_fire_grid_convergence.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.17 </span><span class="caption-text">Checking grid convergence for a device with quantity <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> at XYZ (0, 0, 1). A grid size of 20 cm and below, which results in a total number of 31250 cells, does not show any significant change in temperature.</span><a class="headerlink" href="#fig-pool-fire-grid-convergence" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-number">Fig. 3.21 </span><span class="caption-text">Checking grid convergence for a device with quantity <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> at XYZ (0, 0, 1). A grid size of 20 cm and below, which results in a total number of 31250 cells, does not show any significant change in temperature.</span><a class="headerlink" href="#fig-pool-fire-grid-convergence" title="Permalink to this image">¶</a></p>
 </div>
 </div>
 </div>
