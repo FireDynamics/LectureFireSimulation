@@ -1,7 +1,7 @@
 "--------------------------------------------------------------------------------------------"
 "Output files will be tagged with 'pool_fire', 'TITLE' is just an description"
 "--------------------------------------------------------------------------------------------"
-CHID = 'pool_fire', TITLE = 'Example of a pool fire'  /
+&HEAD CHID = 'pool_fire', TITLE = 'Example of a pool fire'  /
 
 "--------------------------------------------------------------------------------------------"
 "Mesh with 25/25/50 cells in X/Y/Z axes that extends from X/Y/Z = -2.5/-2.5/0 to 2.5/2.5/10 m"
