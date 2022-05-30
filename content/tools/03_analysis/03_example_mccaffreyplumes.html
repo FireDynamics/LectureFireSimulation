@@ -56,7 +56,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="prev" title="fdsreader Module" href="02_fdsreader.html" />
+    <link rel="next" title="fdsreader Module" href="02_fdsreader.html" />
+    <link rel="prev" title="Python" href="01_python.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -415,14 +416,14 @@ const thebe_selector_output = ".output, .cell_output"
      Python
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_fdsreader.html">
-     fdsreader Module
-    </a>
-   </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Example: McCaffrey plume experiments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_fdsreader.html">
+     fdsreader Module
     </a>
    </li>
   </ul>
@@ -627,7 +628,7 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>Here, we provide a proposal as to how one could organise their simulation projects. Projects can be anything, from work for a thesis or in context of a simulation campaign in the industry.</p>
-<p>In this example, the directory for our project is called <code class="docutils literal notranslate"><span class="pre">FirePlumes</span></code>. Inside the project directory, three other directories are created: one to store the jupyter notebooks <code class="docutils literal notranslate"><span class="pre">RunReports</span></code>, one for the simulations <code class="docutils literal notranslate"><span class="pre">McCaffrey</span></code>, and one for general information <code class="docutils literal notranslate"><span class="pre">GeneralInformation</span></code>. The simulations are based on the different setups of the <a class="reference external" href="https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nbsir79-1910.pdf">McCaffrey plume experiments</a>, which are proposed and discussed in the <span class="xref myst">Extra Task: Simulation of a purely buoyant diffusion flame</span>.</p>
+<p>In this example, the directory for our project is called <code class="docutils literal notranslate"><span class="pre">FirePlumes</span></code>. Inside the project directory, three other directories are created: one to store the jupyter notebooks <code class="docutils literal notranslate"><span class="pre">RunReports</span></code>, one for the simulations <code class="docutils literal notranslate"><span class="pre">McCaffrey</span></code>, and one for general information <code class="docutils literal notranslate"><span class="pre">GeneralInformation</span></code>. The simulations are based on the different setups of the <a class="reference external" href="https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nbsir79-1910.pdf">McCaffrey plume experiments</a>, which are proposed and discussed in the <a class="reference internal" href="../../modelling/03_compartments/03_pool_example.html#extra-task"><span class="std std-ref">Extra Task: Simulation of a purely buoyant diffusion flame</span></a>.</p>
 <p>In general, it could be useful to distribute different aspects of the project over different jupyter notebooks. Consider, for example, one were to compare experiment data to simulation results. One notebook could be used to pre-process the data from the experiment, one could be used to prepare the simulation input and one could be used to compare the results.</p>
 <p>In <code class="docutils literal notranslate"><span class="pre">RunReports</span></code>, sub-directories are created by the notebooks to store their respective results. File and directory labels are used to control the flow of reading the data. The data is organised in Python dictionaries. An external Python script is provided to store functions used in the notebook in an effort to keep it relatively clean. The <code class="docutils literal notranslate"><span class="pre">reload</span></code> module from the <code class="docutils literal notranslate"><span class="pre">importlib</span></code> package is used to reload the <code class="docutils literal notranslate"><span class="pre">Processing.py</span></code> script during runtime of the notebook. This allows to add functions to <code class="docutils literal notranslate"><span class="pre">Processing.py</span></code>, while designing the content of the <code class="docutils literal notranslate"><span class="pre">RunReport</span></code> notebook and load them without need to restart the respective kernel.</p>
 <div class="cell docutils container">
@@ -1196,12 +1197,19 @@ Matplotlib version: 3.5.2
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="02_fdsreader.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="01_python.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">fdsreader Module</p>
+            <p class="prev-next-title">Python</p>
         </div>
+    </a>
+    <a class='right-next' id="next-link" href="02_fdsreader.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">fdsreader Module</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
     </a>
 </div>
             
