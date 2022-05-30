@@ -1,0 +1,153 @@
+"------------------------------------------------------------------------------"
+"Output files will be tagged with 'mcc_14kW', 'TITLE' is just a description"
+"------------------------------------------------------------------------------"
+&HEAD CHID  = 'mcc_14kW',
+      TITLE = 'McCaffrey simulation setup 14.4 kW'  /
+
+&MISC SIMULATION_MODE='LES'/
+
+
+"------------------------------------------------------------------------------"
+"MESH with 25/25/50 cells in X/Y/Z axes, that extends"
+"from X/Y/Z = -0.75/-0.75/-0.72 to 0.75/0.75/3.48 m"
+"------------------------------------------------------------------------------"
+&MESH ID  = 'Domain',
+      IJK = 25,25,70,
+      XB  = -0.75,0.75,-0.75,0.75,-0.72,3.48 /
+
+
+"------------------------------------------------------------------------------"
+"End of simulation time is 30 s"
+"------------------------------------------------------------------------------"
+&TIME T_END = 40.0 /
+
+&DUMP NFRAMES = 120 /
+
+
+"------------------------------------------------------------------------------"
+"Specifying FDS default fuel 'METHANE' for the reaction"
+"------------------------------------------------------------------------------"
+&REAC FUEL       = 'METHANE',
+      SOOT_YIELD = 0.01 /
+
+
+"------------------------------------------------------------------------------"
+"Define boundary condition that releases combustible gas (kW/m^2)"
+"------------------------------------------------------------------------------"
+&SURF ID     = 'GasBurner',
+      HRRPUA = 160.0,
+      COLOR  = 'RASPBERRY' /
+
+
+"------------------------------------------------------------------------------"
+"VENT in the X-Y plane at Z = 0, that extends"
+"from X/Y = -0.15/-0.15 to -0.15/0.15"
+"Surface 'GasBurner' is assigned to the VENT"
+"OBST as support for VENT, i.e. where the boundary condition is assigned to"
+"------------------------------------------------------------------------------"
+&VENT XB = -0.15,0.15, -0.15,0.15, 0.00,0.00, SURF_ID='GasBurner'/
+
+&OBST ID      = 'BurnerSupport'
+      SURF_ID = 'INERT'
+      XB      =  -0.15,0.15, -0.15,0.15, -0.72,0 /
+
+
+"------------------------------------------------------------------------------"
+"Open the top and lateral boundaries of the domain."
+"------------------------------------------------------------------------------"
+&VENT MB = 'XMIN' SURF_ID = 'OPEN' /
+&VENT MB = 'XMAX' SURF_ID = 'OPEN' /
+&VENT MB = 'YMIN' SURF_ID = 'OPEN' /
+&VENT MB = 'YMAX' SURF_ID = 'OPEN' /
+&VENT MB = 'ZMAX' SURF_ID = 'OPEN' /
+
+
+"------------------------------------------------------------------------------"
+"Set up data recording."
+"------------------------------------------------------------------------------"
+
+
+"------------------------------------------------------------------------------"
+"Devices (DEVC) to record data at a given point in the domain."
+"------------------------------------------------------------------------------"
+&DEVC ID='TC.000', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,0.030 /
+&DEVC ID='TC.001', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,0.090 /
+&DEVC ID='TC.002', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,0.150 /
+&DEVC ID='TC.003', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,0.210 /
+&DEVC ID='TC.004', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,0.270 /
+&DEVC ID='TC.005', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,0.330 /
+&DEVC ID='TC.006', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,0.390 /
+&DEVC ID='TC.007', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,0.450 /
+&DEVC ID='TC.008', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,0.510 /
+&DEVC ID='TC.009', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,0.570 /
+&DEVC ID='TC.010', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,0.630 /
+&DEVC ID='TC.011', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,0.690 /
+&DEVC ID='TC.012', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,0.750 /
+&DEVC ID='TC.013', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,0.810 /
+&DEVC ID='TC.014', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,0.870 /
+&DEVC ID='TC.015', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,0.930 /
+&DEVC ID='TC.016', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,0.990 /
+&DEVC ID='TC.017', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,1.050 /
+&DEVC ID='TC.018', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,1.110 /
+&DEVC ID='TC.019', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,1.170 /
+&DEVC ID='TC.020', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,1.230 /
+&DEVC ID='TC.021', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,1.290 /
+&DEVC ID='TC.022', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,1.350 /
+&DEVC ID='TC.023', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,1.410 /
+&DEVC ID='TC.024', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,1.470 /
+&DEVC ID='TC.025', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,1.530 /
+&DEVC ID='TC.026', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,1.590 /
+&DEVC ID='TC.027', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,1.650 /
+&DEVC ID='TC.028', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,1.710 /
+&DEVC ID='TC.029', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,1.770 /
+&DEVC ID='TC.030', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,1.830 /
+&DEVC ID='TC.031', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,1.890 /
+&DEVC ID='TC.032', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,1.950 /
+&DEVC ID='TC.033', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,2.010 /
+&DEVC ID='TC.034', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,2.070 /
+&DEVC ID='TC.035', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,2.130 /
+&DEVC ID='TC.036', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,2.190 /
+&DEVC ID='TC.037', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,2.250 /
+&DEVC ID='TC.038', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,2.310 /
+&DEVC ID='TC.039', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,2.370 /
+&DEVC ID='TC.040', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,2.430 /
+&DEVC ID='TC.041', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,2.490 /
+&DEVC ID='TC.042', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,2.550 /
+&DEVC ID='TC.043', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,2.610 /
+&DEVC ID='TC.044', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,2.670 /
+&DEVC ID='TC.045', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,2.730 /
+&DEVC ID='TC.046', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,2.790 /
+&DEVC ID='TC.047', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,2.850 /
+&DEVC ID='TC.048', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,2.910 /
+&DEVC ID='TC.049', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,2.970 /
+&DEVC ID='TC.050', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,3.030 /
+&DEVC ID='TC.051', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,3.090 /
+&DEVC ID='TC.052', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,3.150 /
+&DEVC ID='TC.053', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,3.210 /
+&DEVC ID='TC.054', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,3.270 /
+&DEVC ID='TC.055', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,3.330 /
+&DEVC ID='TC.056', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,3.390 /
+&DEVC ID='TC.057', QUANTITY='THERMOCOUPLE', XYZ=0.000,0.000,3.450 /
+
+
+"------------------------------------------------------------------------------"
+"Boundary information (BNDF) records data for designated cell boundaries."
+"CELL_CENTERED prevents FDS from interpolating the results to the cell corners."
+"------------------------------------------------------------------------------"
+&BNDF QUANTITY      = 'WALL TEMPERATURE',
+      CELL_CENTERED = .TRUE. /
+
+
+"------------------------------------------------------------------------------"
+"Slice file (SLCF) in the Y-Z plane at X = 0 with quantity 'TEMPERATURE'"
+"------------------------------------------------------------------------------"
+&SLCF ID = "Temp_X0",
+      PBX = 0,
+      QUANTITY = 'TEMPERATURE',
+      CELL_CENTERED = .TRUE. /
+
+
+"------------------------------------------------------------------------------"
+"FDS does not look for instructions after this line."
+"------------------------------------------------------------------------------"
+&TAIL /
