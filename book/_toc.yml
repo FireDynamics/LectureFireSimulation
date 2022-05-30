@@ -81,3 +81,4 @@ parts:
     sections:
     - file: content/tools/03_analysis/01_python
     - file: content/tools/03_analysis/02_fdsreader
+    - file: content/tools/03_analysis/03_example_mccaffreyplumes
