@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>3.2. Example – Pool Fire &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,21 +20,17 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -40,12 +38,13 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -67,7 +66,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -76,9 +89,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -96,14 +110,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../overview/01_overview.html">
-   Overview
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../overview/01_overview.html">
+                    Overview
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Introduction
  </span>
@@ -433,111 +448,240 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/content/modelling/03_compartments/03_pool_example.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/FireDynamics/LectureFireSimulation"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/modelling/03_compartments/03_pool_example.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/modelling/03_compartments/03_pool_example.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/FireDynamics/LectureFireSimulation/main?urlpath=tree/book/content/modelling/03_compartments/03_pool_example.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        <a class="jupyterhub-button" href="https://io.cce.uni-wuppertal.de/firesim_ss21//hub/user-redirect/git-pull?repo=https://github.com/FireDynamics/LectureFireSimulation&urlpath=tree/LectureFireSimulation/book/content/modelling/03_compartments/03_pool_example.ipynb&branch=main"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
-                data-placement="left"><img class="jupyterhub-button-logo"
-                    src="../../../_static/images/logo_jupyterhub.svg"
-                    alt="Interact on JupyterHub">JupyterHub</button></a>
-        
-        
-        
-    </div>
-</div>
-
         </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/FireDynamics/LectureFireSimulation/main?urlpath=tree/book/content/modelling/03_compartments/03_pool_example.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://io.cce.uni-wuppertal.de/firesim_ss21/hub/user-redirect/git-pull?repo=https://github.com/FireDynamics/LectureFireSimulation&urlpath=tree/LectureFireSimulation/book/content/modelling/03_compartments/03_pool_example.ipynb&branch=main"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/FireDynamics/LectureFireSimulation"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/modelling/03_compartments/03_pool_example.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/modelling/03_compartments/03_pool_example.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/content/modelling/03_compartments/03_pool_example.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction">
    Introduction
@@ -590,12 +734,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Example – Pool Fire</h1>
@@ -664,25 +807,26 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="example-pool-fire">
-<h1><span class="section-number">3.2. </span>Example – Pool Fire<a class="headerlink" href="#example-pool-fire" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="example-pool-fire">
+<h1><span class="section-number">3.2. </span>Example – Pool Fire<a class="headerlink" href="#example-pool-fire" title="Permalink to this headline">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
 <p>Pool fires are interesting for studiyng fire development, because they are relatively easy to handle. One needs a fire proof pan, for example made out of steel sheets, and fill in a combustible liquid. Shortly after ignition it reaches a quasi steady-state, due to the evaporation of the liquid. One of the shortcomings of pool fires is their limited fuel supply. This is one of the reasons why gas burners are often used in fire experiments. That, and the good reproducability associated with gas burners as ignition source. Also in FDS, most pool fire simulations are modelled as gas burners (<a class="reference external" href="https://github.com/firemodels/fds/releases/tag/FDS6.7.5">see Section “11.4 Simple Pyrolysis Models” in the FDS User’s Guide</a>).</p>
 <p>This example illustrates the setup and analysis of a minimalist FDS simulation. Starting from a simple pool fire with a fixed heat release rate, the model is extended by various parameters. The results are then validated by comparison with simple analytical methods.</p>
-</div>
-<div class="section" id="setup">
-<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h2>
 <p>A pool fire scenario is considered as an example of a FDS simulation. The pool surface area is <span class="math notranslate nohighlight">\(\small\sf 1~m^2\)</span> and it is located at <span class="math notranslate nohighlight">\(z = 0\)</span>. The heat release rate of the fire is <span class="math notranslate nohighlight">\(\small\sf 10~MW\)</span>. The lateral and top boundaries of the simulation domain are sealed and the extension of the computational domain is</p>
 <div class="math notranslate nohighlight">
 \[\small\sf [-2.5~m, 2.5~m] \times [-2.5~m, 2.5~m] \times [0~m, 10~m]\]</div>
 <p>with a grid resolution of <span class="math notranslate nohighlight">\(\small\sf 0.2~m\)</span>.</p>
-</div>
-<div class="section" id="fds-input-file">
-<h2>FDS Input File<a class="headerlink" href="#fds-input-file" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="fds-input-file">
+<h2>FDS Input File<a class="headerlink" href="#fds-input-file" title="Permalink to this headline">#</a></h2>
 <p>Parameters in the FDS input file are specified by using namelist formatted records. Each namelist record begins with the ampersand character “&amp;”, followed by the name of the namelist group, then a comma-delimited list of the input parameters, and finally a forward slash “/”.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -732,25 +876,27 @@ const thebe_selector_output = ".output, .cell_output"
 <span class="o">&amp;</span><span class="n">TAIL</span> <span class="o">/</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="smv-visualisation">
-<h2>SMV Visualisation<a class="headerlink" href="#smv-visualisation" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="smv-visualisation">
+<h2>SMV Visualisation<a class="headerlink" href="#smv-visualisation" title="Permalink to this headline">#</a></h2>
 <p>The computational domain including boundary conditions, obstructions and the results for the respective output variables of the FDS simulation can be displayed with the Smokeview post-processor.</p>
-<div class="figure align-default" id="fig-pool-fire-smv-plain">
+<figure class="align-default" id="fig-pool-fire-smv-plain">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_all.png"><img alt="../../../_images/pool_fire_all.png" src="../../../_images/pool_fire_all.png" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.8 </span><span class="caption-text">SMV visualization of the geometry / the mesh-grid in the y-z-plane / the temperature values in the y-z-slice at  <span class="math notranslate nohighlight">\(\sf y=0~m\)</span> (<span class="math notranslate nohighlight">\(\sf t=19.63~s\)</span>). The surface patch <code class="docutils literal notranslate"><span class="pre">BURNER</span></code>, which has a <code class="docutils literal notranslate"><span class="pre">HRRPUA</span></code> defined, is colored redish.</span><a class="headerlink" href="#fig-pool-fire-smv-plain" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="analysis">
-<h2>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">¶</a></h2>
+<figcaption>
+<p><span class="caption-number">Fig. 3.8 </span><span class="caption-text">SMV visualization of the geometry / the mesh-grid in the y-z-plane / the temperature values in the y-z-slice at  <span class="math notranslate nohighlight">\(\sf y=0~m\)</span> (<span class="math notranslate nohighlight">\(\sf t=19.63~s\)</span>). The surface patch <code class="docutils literal notranslate"><span class="pre">BURNER</span></code>, which has a <code class="docutils literal notranslate"><span class="pre">HRRPUA</span></code> defined, is colored redish.</span><a class="headerlink" href="#fig-pool-fire-smv-plain" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="analysis">
+<h2>Analysis<a class="headerlink" href="#analysis" title="Permalink to this headline">#</a></h2>
 <p>The following tasks are intended to provide a general understanding of how to use FDS and SmokeView. They cover the basic functions and the analysis of the simulation results. The FDS input case described above can serve as a starting point.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Read the entire task before starting a simulation to capture multiple output parameters in a single run.</p>
 </div>
-</div>
-<div class="section" id="task-i-basics">
-<h2>Task I – Basics<a class="headerlink" href="#task-i-basics" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="task-i-basics">
+<h2>Task I – Basics<a class="headerlink" href="#task-i-basics" title="Permalink to this headline">#</a></h2>
 <p>The goal of this task is to become familiar with basic functions. Use the above listed input file and extend it to your needs.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -767,14 +913,18 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Plot the computed heat release rate (HRR) from the pool_fire_hrr.csv file against the given input HRR of the FDS file. Discuss the differences and what these are related to. Run simulations for HRR of <span class="math notranslate nohighlight">\(\small\sf 100~kW\)</span>, <span class="math notranslate nohighlight">\(\small\sf 1~MW\)</span> and <span class="math notranslate nohighlight">\(\small\sf 10~MW\)</span>.</p></li>
 </ol>
 <p><strong>1. Solution</strong></p>
-<div class="figure align-default" id="fig-pool-fire-temp-timesteps">
+<figure class="align-default" id="fig-pool-fire-temp-timesteps">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_temp_timesteps.png"><img alt="../../../_images/pool_fire_temp_timesteps.png" src="../../../_images/pool_fire_temp_timesteps.png" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.9 </span><span class="caption-text">Visualization of the instantaneous <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> values in the x-z-level at <span class="math notranslate nohighlight">\(\sf y=0~m\)</span> for different timesteps (<span class="math notranslate nohighlight">\(\sf t=5.03~s\)</span>), (<span class="math notranslate nohighlight">\(\sf t=10.03~s\)</span>), (<span class="math notranslate nohighlight">\(\sf t=20.03~s\)</span>) The attribute <code class="docutils literal notranslate"><span class="pre">CELL_CENTERED</span></code>, prevents the values between the cell boundaries from being interpolated.</span><a class="headerlink" href="#fig-pool-fire-temp-timesteps" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="fig-pool-fire-temp-bounds-trunc">
+<figcaption>
+<p><span class="caption-number">Fig. 3.9 </span><span class="caption-text">Visualization of the instantaneous <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> values in the x-z-level at <span class="math notranslate nohighlight">\(\sf y=0~m\)</span> for different timesteps (<span class="math notranslate nohighlight">\(\sf t=5.03~s\)</span>), (<span class="math notranslate nohighlight">\(\sf t=10.03~s\)</span>), (<span class="math notranslate nohighlight">\(\sf t=20.03~s\)</span>) The attribute <code class="docutils literal notranslate"><span class="pre">CELL_CENTERED</span></code>, prevents the values between the cell boundaries from being interpolated.</span><a class="headerlink" href="#fig-pool-fire-temp-timesteps" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fig-pool-fire-temp-bounds-trunc">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_temp_bounds_trunc.png"><img alt="../../../_images/pool_fire_temp_bounds_trunc.png" src="../../../_images/pool_fire_temp_bounds_trunc.png" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.10 </span><span class="caption-text">Visualization of the instantaneous <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> values in the x-z-slice at <span class="math notranslate nohighlight">\(\sf y=0~m\)</span> at (<span class="math notranslate nohighlight">\(\sf t=19.63~s\)</span>) The upper data bound is set to 1200 and 800. The data is truncated beyond 100.</span><a class="headerlink" href="#fig-pool-fire-temp-bounds-trunc" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 3.10 </span><span class="caption-text">Visualization of the instantaneous <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> values in the x-z-slice at <span class="math notranslate nohighlight">\(\sf y=0~m\)</span> at (<span class="math notranslate nohighlight">\(\sf t=19.63~s\)</span>) The upper data bound is set to 1200 and 800. The data is truncated beyond 100.</span><a class="headerlink" href="#fig-pool-fire-temp-bounds-trunc" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Alternatively, the <code class="docutils literal notranslate"><span class="pre">SLCF</span></code> can be analyzed with the <strong>fdsreader</strong>.</p>
 <div class="cell tag_hide_cell docutils container">
 <div class="cell_input docutils container">
@@ -815,10 +965,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="figure align-default" id="fig-pool-fire-temp-slice">
+<figure class="align-default" id="fig-pool-fire-temp-slice">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_1mw_temperatures_slice.svg"><img alt="../../../_images/pool_fire_1mw_temperatures_slice.svg" src="../../../_images/pool_fire_1mw_temperatures_slice.svg" width="60%" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.11 </span><span class="caption-text">Visualization of the instantaneous (<span class="math notranslate nohighlight">\(\sf t=19.63~s\)</span>) <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> values in the y-z-slice <span class="math notranslate nohighlight">\(\sf y=0~m\)</span> with python / matplotlib. The data was obtained via the <strong>fdsreader</strong>.</span><a class="headerlink" href="#fig-pool-fire-temp-slice" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 3.11 </span><span class="caption-text">Visualization of the instantaneous (<span class="math notranslate nohighlight">\(\sf t=19.63~s\)</span>) <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> values in the y-z-slice <span class="math notranslate nohighlight">\(\sf y=0~m\)</span> with python / matplotlib. The data was obtained via the <strong>fdsreader</strong>.</span><a class="headerlink" href="#fig-pool-fire-temp-slice" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <div class="cell tag_hide_cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fdsreader.bndf.utils</span> <span class="kn">import</span> <span class="n">sort_patches_cartesian</span>
@@ -928,18 +1080,6 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="tabbed-set docutils">
-<input checked="checked" id="b27b0b3b-95c7-4c7e-b3e8-50c1f6a93f41" name="aa29a4a1-03e0-46c4-b43b-2b18faefc327" type="radio">
-</input><label class="tabbed-label" for="b27b0b3b-95c7-4c7e-b3e8-50c1f6a93f41">
-10 MW, sealed domain</label><div class="tabbed-content docutils">
-<a class="reference internal image-reference" href="../../../_images/pool_fire_velocity_vector_sealed.svg"><img alt="../../../_images/pool_fire_velocity_vector_sealed.svg" src="../../../_images/pool_fire_velocity_vector_sealed.svg" width="60%" /></a>
-</div>
-<input id="ee6671f9-1f8a-4a92-b581-ea76b4c58e37" name="aa29a4a1-03e0-46c4-b43b-2b18faefc327" type="radio">
-</input><label class="tabbed-label" for="ee6671f9-1f8a-4a92-b581-ea76b4c58e37">
-10 MW, open domain</label><div class="tabbed-content docutils">
-<a class="reference internal image-reference" href="../../../_images/pool_fire_velocity_vector_open.svg"><img alt="../../../_images/pool_fire_velocity_vector_open.svg" src="../../../_images/pool_fire_velocity_vector_open.svg" width="60%" /></a>
-</div>
-</div>
 <p><strong>3. Solution</strong></p>
 <p>The fluctuation of the HRR curve increases at higher levels. A drop in the released energy with time indicates a lower oxygen level due to the sealed compartment.</p>
 <div class="cell tag_hide_cell docutils container">
@@ -1008,26 +1148,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="tabbed-set docutils">
-<input checked="checked" id="105b4b54-8277-4ff0-9fbe-3a37e5e0463d" name="b23f0816-fa2b-4c4c-b44c-8e211c523449" type="radio">
-</input><label class="tabbed-label" for="105b4b54-8277-4ff0-9fbe-3a37e5e0463d">
-100 kW</label><div class="tabbed-content docutils">
-<a class="reference internal image-reference" href="../../../_images/pool_fire_100kw_sealed_hrr.svg"><img alt="../../../_images/pool_fire_100kw_sealed_hrr.svg" src="../../../_images/pool_fire_100kw_sealed_hrr.svg" width="80%" /></a>
-</div>
-<input id="40b07ac4-973b-4972-8095-af93baaaa339" name="b23f0816-fa2b-4c4c-b44c-8e211c523449" type="radio">
-</input><label class="tabbed-label" for="40b07ac4-973b-4972-8095-af93baaaa339">
-1 MW</label><div class="tabbed-content docutils">
-<a class="reference internal image-reference" href="../../../_images/pool_fire_1mw_sealed_hrr.svg"><img alt="../../../_images/pool_fire_1mw_sealed_hrr.svg" src="../../../_images/pool_fire_1mw_sealed_hrr.svg" width="80%" /></a>
-</div>
-<input id="c3cc0ba7-8748-4750-b286-512ee52db20e" name="b23f0816-fa2b-4c4c-b44c-8e211c523449" type="radio">
-</input><label class="tabbed-label" for="c3cc0ba7-8748-4750-b286-512ee52db20e">
-10 MW</label><div class="tabbed-content docutils">
-<a class="reference internal image-reference" href="../../../_images/pool_fire_10mw_sealed_hrr.svg"><img alt="../../../_images/pool_fire_10mw_sealed_hrr.svg" src="../../../_images/pool_fire_10mw_sealed_hrr.svg" width="80%" /></a>
-</div>
-</div>
-</div>
-<div class="section" id="extra-task-simulation-of-a-purely-buoyant-diffusion-flame">
-<span id="extra-task"></span><h2>Extra Task: Simulation of a purely buoyant diffusion flame<a class="headerlink" href="#extra-task-simulation-of-a-purely-buoyant-diffusion-flame" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="extra-task-simulation-of-a-purely-buoyant-diffusion-flame">
+<span id="extra-task"></span><h2>Extra Task: Simulation of a purely buoyant diffusion flame<a class="headerlink" href="#extra-task-simulation-of-a-purely-buoyant-diffusion-flame" title="Permalink to this headline">#</a></h2>
 <p>In this task we propose as an extra exercise, the simulation of a diffusion flame, based on the experimental setup described in the report: <a class="reference external" href="https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nbsir79-1910.pdf">Purely Buoyant Diffusion Flames: Some Experimental Results</a>. Purely bouyant diffusion flames can be defined as those which take place over combustible gases leaving the surface of a solid or liquid fuel with negligible velocity. In such cases, the fire is said to be dominated by buoyancy. This is a common characteristic of fires that develop freely over a pool of liquid fuel, or over a solid polymeric material.</p>
 <p>The main purpose of the experiments described in the report is to measure the temperature and the velocity magnitude in the near field of the flame, with probes and thermocouples. Flames of five different heat release rates of <span class="math notranslate nohighlight">\(\small\sf 14.4~kW\)</span>, <span class="math notranslate nohighlight">\(\small\sf 21.7~kW\)</span>, <span class="math notranslate nohighlight">\(\small\sf 33.3~kW\)</span>, <span class="math notranslate nohighlight">\(\small\sf 44.9~kW\)</span>, <span class="math notranslate nohighlight">\(\small\sf 57.5~kW\)</span> are considered, and the measurements are taken at the central line of the flame. A burner of natural gas injects fuel at a controlled rate, so as to obtain the desired heat release. For a complete description of the experiment, please visit the reference in the paragraph above.</p>
 <p><em><strong>Building the setup</strong></em></p>
@@ -1036,25 +1159,31 @@ const thebe_selector_output = ".output, .cell_output"
 \[\small\sf [-0.75~m, 0.75~m] \times [-0.75~m, 0.75~m] \times [-0.72~m, 3.48~m]\]</div>
 <p>with a grid resolution of <span class="math notranslate nohighlight">\(\small\sf 0.06~m\)</span>.</p>
 <p>A set of measuring devices of temperature and velocity are positioned along the central line of the flame. It is recommended that each device is located in the middle of the cell.</p>
-<div class="figure align-default" id="id2">
+<figure class="align-default" id="id2">
 <a class="reference internal image-reference" href="../../../_images/extra_task_diffusion_flame_01.png"><img alt="../../../_images/extra_task_diffusion_flame_01.png" src="../../../_images/extra_task_diffusion_flame_01.png" style="width: 55%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.12 </span><span class="caption-text">Visualization of the simulation setup in Smokeview.</span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 3.12 </span><span class="caption-text">Visualization of the simulation setup in Smokeview.</span><a class="headerlink" href="#id2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>At total, five different simulations need to be run, one for each heat release rate indicated above.</p>
 <p><em><strong>Collecting and plotting the results</strong></em></p>
 <p>Once the simulations are finished, the data recorded by the devices (temperature and velocity) can be collected from the “devc.csv” output file. The goal is to present a log-log plot of the time-averaged output quantities against the hight above the burner, for the five values of heat release rates. Velocity and hight should be both normalised respectively by the scaling factors <span class="math notranslate nohighlight">\(\small\sf Q^{1/5}\)</span> and <span class="math notranslate nohighlight">\(\small\sf Q^{2/5}\)</span>. The results obtained in the report are presented:</p>
-<div class="figure align-default" id="id3">
+<figure class="align-default" id="id3">
 <a class="reference internal image-reference" href="../../../_images/extra_task_McCaffreyVelocity.png"><img alt="../../../_images/extra_task_McCaffreyVelocity.png" src="../../../_images/extra_task_McCaffreyVelocity.png" style="width: 55%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.13 </span><span class="caption-text">Normalised velocity plotted against normalised hights above burner.</span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="id4">
+<figcaption>
+<p><span class="caption-number">Fig. 3.13 </span><span class="caption-text">Normalised velocity plotted against normalised hights above burner.</span><a class="headerlink" href="#id3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id4">
 <a class="reference internal image-reference" href="../../../_images/extra_task_McCaffreyTemperature.png"><img alt="../../../_images/extra_task_McCaffreyTemperature.png" src="../../../_images/extra_task_McCaffreyTemperature.png" style="width: 55%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.14 </span><span class="caption-text">Temperature plotted against normalised hights above burner.</span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 3.14 </span><span class="caption-text">Temperature plotted against normalised hights above burner.</span><a class="headerlink" href="#id4" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Relevant insights for the solution of this task are presented in the <a class="reference internal" href="../../tools/03_analysis/03_example_mccaffreyplumes.html#example-mccaffrey"><span class="std std-ref">Example: McCaffrey plume experiments</span></a>.</p>
-</div>
-<div class="section" id="task-ii-plume-formulas">
-<h2>Task II - Plume Formulas<a class="headerlink" href="#task-ii-plume-formulas" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="task-ii-plume-formulas">
+<h2>Task II - Plume Formulas<a class="headerlink" href="#task-ii-plume-formulas" title="Permalink to this headline">#</a></h2>
 <p>This task targets the computation of the plume temperature with analytical methods in order to subsequently validate the results of an numerical simulation. For more detailed information on the theory and application of the plume formulas, please refer to the literature, e.g. Enclosure Fire Dynamics by B. Karlsson and J. Quintiere <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id24" title="Bjorn Karlsson and James Quintiere. Enclosure Fire Dynamics. CRC Press LLC, 1999. doi:10.1201/9781420050219-12.">KQ99</a>]</span>.</p>
 <p><em><strong>Heskestad</strong></em></p>
 <p><span class="math notranslate nohighlight">\(\small\sf \Delta T \)</span> indicates the temperature rise in the plume centerline axis above ambient temperature:</p>
@@ -1246,13 +1375,15 @@ L = 0.235 \cdot \dot{Q}^{2/5} - 1.02 \cdot D
 </div>
 </div>
 <p><strong>2. Solution</strong></p>
-<div class="figure align-default" id="fig-pool-fire-hrr">
+<figure class="align-default" id="fig-pool-fire-hrr">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_1mw_open_temperatures_devc.svg"><img alt="../../../_images/pool_fire_1mw_open_temperatures_devc.svg" src="../../../_images/pool_fire_1mw_open_temperatures_devc.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.15 </span><span class="caption-text">Moving average of <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> devices at heights 1.0, 2.0, 3.0, 4.0, 5.0 and 6.0 m smoothed over 100 datapoints.</span><a class="headerlink" href="#fig-pool-fire-hrr" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="task-iii-time-dependent-heat-release-rate">
-<h2>Task III – Time-dependent Heat Release Rate<a class="headerlink" href="#task-iii-time-dependent-heat-release-rate" title="Permalink to this headline">¶</a></h2>
+<figcaption>
+<p><span class="caption-number">Fig. 3.15 </span><span class="caption-text">Moving average of <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> devices at heights 1.0, 2.0, 3.0, 4.0, 5.0 and 6.0 m smoothed over 100 datapoints.</span><a class="headerlink" href="#fig-pool-fire-hrr" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="task-iii-time-dependent-heat-release-rate">
+<h2>Task III – Time-dependent Heat Release Rate<a class="headerlink" href="#task-iii-time-dependent-heat-release-rate" title="Permalink to this headline">#</a></h2>
 <p>This task deals with the different possibilities to define the heat release rate (HRR) of a design fire and to model it in FDS. The total heat release  <span class="math notranslate nohighlight">\(\small\sf \dot{Q}\)</span> of a burning area <span class="math notranslate nohighlight">\(\small\sf A_{fire}\)</span> depends on the heat release rate per unit area <span class="math notranslate nohighlight">\(\small\sf \dot{q}''\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\small\sf \dot{Q} = {A_{Fire} \cdot \dot{q}''}\]</div>
@@ -1271,10 +1402,12 @@ L = 0.235 \cdot \dot{Q}^{2/5} - 1.02 \cdot D
 <p>where t is the  burning time after ignition and <span class="math notranslate nohighlight">\(\small\sf \alpha\)</span> is the fire growth factor.Assume a fast fire propagation by <span class="math notranslate nohighlight">\(\small\sf \alpha = 0.04689~kW/s^2\)</span> and a <strong>constant</strong> heat release rate per unit area of <span class="math notranslate nohighlight">\(\small\sf  \dot{q}'' = 0.25~MW/m^2\)</span>. The maximum burning area is <span class="math notranslate nohighlight">\(\small\sf  A_{fire} = 1~m^2\)</span>. First calculate the time until the fire has spread to the entire area. This corresponds to the time at which the maximum HRR is reached. For simplicity, assume a perfect radial fire spread and a round fire area. Then model the temporal evolution of the HRR in FDS via a <code class="docutils literal notranslate"><span class="pre">RAMP</span></code> function (See section 20.6 “Controlling a Ramp” of the <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">FDS User’s Guide</a> ).</p>
 </li>
 <li><p>Model the fire propagation directly in FDS by defining the spread rate. The <code class="docutils literal notranslate"><span class="pre">SPREAD</span></code> attribute denotes a constant radial propagation speed from a specified point.</p>
-<div class="figure align-default" id="fig-pool-fire-spread">
+<figure class="align-default" id="fig-pool-fire-spread">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_spread.svg"><img alt="../../../_images/pool_fire_spread.svg" src="../../../_images/pool_fire_spread.svg" width="30%" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.16 </span><span class="caption-text">Fire propagation via FDS <code class="docutils literal notranslate"><span class="pre">SPREAD</span></code> attribute</span><a class="headerlink" href="#fig-pool-fire-spread" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 3.16 </span><span class="caption-text">Fire propagation via FDS <code class="docutils literal notranslate"><span class="pre">SPREAD</span></code> attribute</span><a class="headerlink" href="#fig-pool-fire-spread" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>For instructions on how to model a radial fire spread in FDS, please refer to the <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">FDS User’s Guide</a> Section 11.4.2 “Special Topic: A Radially-Spreading Fire”. The radial propagation speed v can be obtained from the fire area <span class="math notranslate nohighlight">\(\small\sf A_{Fire}\)</span> and the corresponding burning period t.</p>
 <div class="math notranslate nohighlight">
 \[\small\sf v = \frac{\sqrt{A_{fire}/\pi}}{t}\]</div>
@@ -1435,10 +1568,12 @@ t = \frac{\dot{q}'' \cdot A_{Fire}}{\alpha} = \frac{250 \cdot 1}{0.04689} \appro
 </div>
 </div>
 </div>
-<div class="figure align-default" id="fig-pool-fire-hrr-spread">
+<figure class="align-default" id="fig-pool-fire-hrr-spread">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_10mw_sealed_hrr_spread.svg"><img alt="../../../_images/pool_fire_10mw_sealed_hrr_spread.svg" src="../../../_images/pool_fire_10mw_sealed_hrr_spread.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.17 </span><span class="caption-text">Simulated <code class="docutils literal notranslate"><span class="pre">HRR</span></code> generated by <code class="docutils literal notranslate"><span class="pre">RAMP</span></code> and <code class="docutils literal notranslate"><span class="pre">SPREAD</span></code> as a function of time.</span><a class="headerlink" href="#fig-pool-fire-hrr-spread" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 3.17 </span><span class="caption-text">Simulated <code class="docutils literal notranslate"><span class="pre">HRR</span></code> generated by <code class="docutils literal notranslate"><span class="pre">RAMP</span></code> and <code class="docutils literal notranslate"><span class="pre">SPREAD</span></code> as a function of time.</span><a class="headerlink" href="#fig-pool-fire-hrr-spread" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p><strong>2. Solution</strong></p>
 <div class="toggle docutils container">
 <p>The HRR can be obtained from the mass loss <span class="math notranslate nohighlight">\(\small\sf \dot{m_{fuel}}\)</span> by the following expression:
@@ -1517,13 +1652,15 @@ $<span class="math notranslate nohighlight">\(\small\sf \dot{Q} = \Delta h_{c,ef
 <img alt="../../../_images/03_pool_example_40_0.png" src="../../../_images/03_pool_example_40_0.png" />
 </div>
 </div>
-<div class="figure align-default" id="fig-pool-fire-hrr-ramp">
+<figure class="align-default" id="fig-pool-fire-hrr-ramp">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_hrr_heptane_ramp.svg"><img alt="../../../_images/pool_fire_hrr_heptane_ramp.svg" src="../../../_images/pool_fire_hrr_heptane_ramp.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.18 </span><span class="caption-text">Prescribed and simulated <code class="docutils literal notranslate"><span class="pre">HRR</span></code> of n-heptane fire as a function of time. The heat release can be derived from the mass loss and the effective heat of combustion <span class="math notranslate nohighlight">\(\small\sf \Delta h_{c,eff}\)</span>.</span><a class="headerlink" href="#fig-pool-fire-hrr-ramp" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="task-iv-grid-convergence-hpc-computing-benchmarking">
-<h2>Task IV – Grid Convergence / HPC computing / Benchmarking<a class="headerlink" href="#task-iv-grid-convergence-hpc-computing-benchmarking" title="Permalink to this headline">¶</a></h2>
+<figcaption>
+<p><span class="caption-number">Fig. 3.18 </span><span class="caption-text">Prescribed and simulated <code class="docutils literal notranslate"><span class="pre">HRR</span></code> of n-heptane fire as a function of time. The heat release can be derived from the mass loss and the effective heat of combustion <span class="math notranslate nohighlight">\(\small\sf \Delta h_{c,eff}\)</span>.</span><a class="headerlink" href="#fig-pool-fire-hrr-ramp" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="task-iv-grid-convergence-hpc-computing-benchmarking">
+<h2>Task IV – Grid Convergence / HPC computing / Benchmarking<a class="headerlink" href="#task-iv-grid-convergence-hpc-computing-benchmarking" title="Permalink to this headline">#</a></h2>
 <p>This task deals with the monitoring of simulation parameters such as computation time and the convergence of numerical solutions.</p>
 <p><strong>Task:</strong></p>
 <ol class="simple">
@@ -1590,16 +1727,20 @@ $<span class="math notranslate nohighlight">\(\small\sf \dot{Q} = \Delta h_{c,ef
 </div>
 </div>
 </div>
-<div class="figure align-default" id="fig-pool-fire-benchmarking">
+<figure class="align-default" id="fig-pool-fire-benchmarking">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_benchmarking.svg"><img alt="../../../_images/pool_fire_benchmarking.svg" src="../../../_images/pool_fire_benchmarking.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.19 </span><span class="caption-text">Total computation time as a function of the total number of grid cells in the computational domain ( <span class="math notranslate nohighlight">\(\sf N_{cells}\)</span> ) for different amount of openMP processes (<span class="math notranslate nohighlight">\(\sf N_{openMP}\)</span>).</span><a class="headerlink" href="#fig-pool-fire-benchmarking" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="fig-pool-fire-grid-convergence">
+<figcaption>
+<p><span class="caption-number">Fig. 3.19 </span><span class="caption-text">Total computation time as a function of the total number of grid cells in the computational domain ( <span class="math notranslate nohighlight">\(\sf N_{cells}\)</span> ) for different amount of openMP processes (<span class="math notranslate nohighlight">\(\sf N_{openMP}\)</span>).</span><a class="headerlink" href="#fig-pool-fire-benchmarking" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fig-pool-fire-grid-convergence">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_grid_convergence.svg"><img alt="../../../_images/pool_fire_grid_convergence.svg" src="../../../_images/pool_fire_grid_convergence.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 3.20 </span><span class="caption-text">Checking grid convergence for a device with quantity <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> at XYZ (0, 0, 1). A grid size of 20 cm and below, which results in a total number of 31250 cells, does not show any significant change in temperature.</span><a class="headerlink" href="#fig-pool-fire-grid-convergence" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 3.20 </span><span class="caption-text">Checking grid convergence for a device with quantity <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> at XYZ (0, 0, 1). A grid size of 20 cm and below, which results in a total number of 31250 cells, does not show any significant change in temperature.</span><a class="headerlink" href="#fig-pool-fire-grid-convergence" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1623,9 +1764,11 @@ $<span class="math notranslate nohighlight">\(\small\sf \dot{Q} = \Delta h_{c,ef
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="01_fundamentals.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1641,29 +1784,33 @@ $<span class="math notranslate nohighlight">\(\small\sf \dot{Q} = \Delta h_{c,ef
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
-    
-      <div class="extra_footer">
-        <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    <div class="extra_footer">
+      <p>
 <img src='https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg' height='31'/>
 | By Team Fire | Contacts and Infos: <a href='https://cce.uni-wuppertal.de/en.html'>CCE@BUW</a> and <a href='https://www.fz-juelich.de/ias/ias-7/EN/Research/Fire_Dynamics/_node.html'>IAS-7@FZJ</a>
 </br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
 </p>
 
-      </div>
-  </p>
-</footer>
-</main>
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

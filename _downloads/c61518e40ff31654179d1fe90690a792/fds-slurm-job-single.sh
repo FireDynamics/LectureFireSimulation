@@ -16,7 +16,7 @@ export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
 module use -a ~arnold1/modules_fire/
 
 # Load FDS in the version 6.7.5
-module load FDS/6.7.5-IntelComp2020.2_ParaStationMPI_5.4.7
+module load FDS/6.7.8-IntelCompiler_2021.4.0_IntelMPI_2021.4.0
 
 # Execute FDS, here it is assumed, that there is only one FDS input file
 # in the current directory. Additionally, srun uses implicitly the number 

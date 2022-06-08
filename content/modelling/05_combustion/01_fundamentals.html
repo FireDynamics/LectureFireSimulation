@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>5.1. Fundamentals &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,21 +20,17 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -40,12 +38,13 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -67,7 +66,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -76,9 +89,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -96,14 +110,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../overview/01_overview.html">
-   Overview
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../overview/01_overview.html">
+                    Overview
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Introduction
  </span>
@@ -433,111 +448,240 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/content/modelling/05_combustion/01_fundamentals.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/FireDynamics/LectureFireSimulation"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/modelling/05_combustion/01_fundamentals.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/modelling/05_combustion/01_fundamentals.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/FireDynamics/LectureFireSimulation/main?urlpath=tree/book/content/modelling/05_combustion/01_fundamentals.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        <a class="jupyterhub-button" href="https://io.cce.uni-wuppertal.de/firesim_ss21//hub/user-redirect/git-pull?repo=https://github.com/FireDynamics/LectureFireSimulation&urlpath=tree/LectureFireSimulation/book/content/modelling/05_combustion/01_fundamentals.ipynb&branch=main"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
-                data-placement="left"><img class="jupyterhub-button-logo"
-                    src="../../../_static/images/logo_jupyterhub.svg"
-                    alt="Interact on JupyterHub">JupyterHub</button></a>
-        
-        
-        
-    </div>
-</div>
-
         </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/FireDynamics/LectureFireSimulation/main?urlpath=tree/book/content/modelling/05_combustion/01_fundamentals.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://io.cce.uni-wuppertal.de/firesim_ss21/hub/user-redirect/git-pull?repo=https://github.com/FireDynamics/LectureFireSimulation&urlpath=tree/LectureFireSimulation/book/content/modelling/05_combustion/01_fundamentals.ipynb&branch=main"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/FireDynamics/LectureFireSimulation"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/modelling/05_combustion/01_fundamentals.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/modelling/05_combustion/01_fundamentals.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/content/modelling/05_combustion/01_fundamentals.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#burning-candle">
    Burning Candle
@@ -580,12 +724,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Fundamentals</h1>
@@ -644,13 +787,14 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="fundamentals">
-<h1><span class="section-number">5.1. </span>Fundamentals<a class="headerlink" href="#fundamentals" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="burning-candle">
-<h2>Burning Candle<a class="headerlink" href="#burning-candle" title="Permalink to this headline">¶</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="fundamentals">
+<h1><span class="section-number">5.1. </span>Fundamentals<a class="headerlink" href="#fundamentals" title="Permalink to this headline">#</a></h1>
+<section id="burning-candle">
+<h2>Burning Candle<a class="headerlink" href="#burning-candle" title="Permalink to this headline">#</a></h2>
 <p>A buring candle is a good fire example. Here, once ignited, the flame emitts heat radiation which is absorbed by the candle body. The solid melts and the fluid wax is transported through the wick and evaporates in a endotermic reaction. Through diffusion, the vaporised wax mixes with air and conducts an exothermic reaction, the combustion. The hot combustion products rise and enentually lead to further reactions.</p>
 <p>The main zones of this process and the characteristic temperatures are shown in <a class="reference internal" href="#fig-comb-candle"><span class="std std-numref">Fig. 5.1</span></a>, with:</p>
 <ul class="simple">
@@ -658,13 +802,15 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><strong>Zone II + III</strong>: Decomposition of the wax molecules, diffusive mixing with the ambient air and combustion, and</p></li>
 <li><p><strong>Zone IV</strong>: Hot (large) soot particles emitt thermal radiation.</p></li>
 </ul>
-<div class="figure align-default" id="fig-comb-candle">
+<figure class="align-default" id="fig-comb-candle">
 <a class="reference internal image-reference" href="../../../_images/roth_candle.jpg"><img alt="../../../_images/roth_candle.jpg" src="../../../_images/roth_candle.jpg" style="width: 60%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Schematics of a burning candle. Source: <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id5" title="Klaus Roth. Chemistry of the Christmas Candle — Part 2. ChemViews, 2011. doi:10.1002/chemv.201000146.">Rot11</a>]</span>.</span><a class="headerlink" href="#fig-comb-candle" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="requirements">
-<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<figcaption>
+<p><span class="caption-number">Fig. 5.1 </span><span class="caption-text">Schematics of a burning candle. Source: <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id5" title="Klaus Roth. Chemistry of the Christmas Candle — Part 2. ChemViews, 2011. doi:10.1002/chemv.201000146.">Rot11</a>]</span>.</span><a class="headerlink" href="#fig-comb-candle" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">#</a></h2>
 <p>Combustion is a chemical reaction which basically involves three substances: fuel, oxygen and combustion products. It is</p>
 <ul class="simple">
 <li><p>a fast oxidation process,</p></li>
@@ -679,13 +825,15 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>a supply of <strong>heat</strong>, which is needed to overcome the activation energy of the chemical reaction, and</p></li>
 <li><p>sufficient high reaction rates to keep up a <strong>chain reaction</strong>.</p></li>
 </ul>
-<div class="figure align-default" id="fig-comb-fire-tetrahedron">
+<figure class="align-default" id="fig-comb-fire-tetrahedron">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/9/99/Fire_tetrahedron.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/9/99/Fire_tetrahedron.svg" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Fire_tetrahedron.svg" width="40%" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.2 </span><span class="caption-text">The fire tetrahedron. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Fire_tetrahedron.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-comb-fire-tetrahedron" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="stoichiometry">
-<h2>Stoichiometry<a class="headerlink" href="#stoichiometry" title="Permalink to this headline">¶</a></h2>
+<figcaption>
+<p><span class="caption-number">Fig. 5.2 </span><span class="caption-text">The fire tetrahedron. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Fire_tetrahedron.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-comb-fire-tetrahedron" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="stoichiometry">
+<h2>Stoichiometry<a class="headerlink" href="#stoichiometry" title="Permalink to this headline">#</a></h2>
 <p>A stoichiometric amount or stoichiometric ratio of a reagent is the optimum amount or ratio where, assuming that the reaction proceeds to completion:</p>
 <ol class="simple">
 <li><p>All of the reagent is consumed</p></li>
@@ -697,37 +845,41 @@ const thebe_selector_output = ".output, .cell_output"
 \[
 \mf fuel + oxidant \rightarrow products \quad .
 \]</div>
-</div>
-<div class="section" id="stoichiometric-reaction-for-methane">
-<h2>Stoichiometric Reaction for Methane<a class="headerlink" href="#stoichiometric-reaction-for-methane" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="stoichiometric-reaction-for-methane">
+<h2>Stoichiometric Reaction for Methane<a class="headerlink" href="#stoichiometric-reaction-for-methane" title="Permalink to this headline">#</a></h2>
 <p>In many of the examples used in this lecture, <a class="reference external" href="https://en.wikipedia.org/wiki/Methane">methane</a> is used as fuel. Methane is commonly used in everyday life. It is used for heating, cooking and propulsion. Liquified natural gas (LNG) is predominantly methane.</p>
 <p>A methane molecule (<span class="math notranslate nohighlight">\(\mf CH_4\)</span>) consists out of four hydrogen atoms (<span class="math notranslate nohighlight">\(\mf H\)</span>) and a single carbon atom (<span class="math notranslate nohighlight">\(\mf C\)</span>), see <a class="reference internal" href="#fig-comb-methane"><span class="std std-numref">Fig. 5.3</span></a>. Methane is rarely found in Earth’s atmosphere (<span class="math notranslate nohighlight">\(\mf 1.75~ppm\)</span>).</p>
-<div class="figure align-default" id="fig-comb-methane">
+<figure class="align-default" id="fig-comb-methane">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/9/9b/Methane-2D-dimensions.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/9/9b/Methane-2D-dimensions.svg" src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Methane-2D-dimensions.svg" width="40%" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.3 </span><span class="caption-text">A methane molecule. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Methane-2D-dimensions.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-comb-methane" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 5.3 </span><span class="caption-text">A methane molecule. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Methane-2D-dimensions.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-comb-methane" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>The stoichiometric one step reaction of methane (<span class="math notranslate nohighlight">\(\mf CH_4\)</span>) and oxygen (<span class="math notranslate nohighlight">\(\mf O_2\)</span>) into carbon dioxide (<span class="math notranslate nohighlight">\(\mf CO_2\)</span>) and water (<span class="math notranslate nohighlight">\(\mf H_2O\)</span>) is given by</p>
 <div class="math notranslate nohighlight">
 \[
 \mf CH_4 + 2O_2 \rightarrow CO_2 + 2H_2O \quad .
 \]</div>
 <p>The reaction equations relate the involved relative number of particles, i.e. in the above equation one (mole) of methane would react with two (moles) of oxygen molecules, as illustrated in <a class="reference internal" href="#fig-comb-methane-comb"><span class="std std-numref">Fig. 5.4</span></a>.</p>
-<div class="figure align-default" id="fig-comb-methane-comb">
+<figure class="align-default" id="fig-comb-methane-comb">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/7/7c/Combustion_reaction_of_methane.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/7/7c/Combustion_reaction_of_methane.jpg" src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Combustion_reaction_of_methane.jpg" style="width: 40%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.4 </span><span class="caption-text">The combustion of methane. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Combustion_reaction_of_methane.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-comb-methane-comb" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 5.4 </span><span class="caption-text">The combustion of methane. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Combustion_reaction_of_methane.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-comb-methane-comb" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>This reaction represents the ideal case (stoichiometric) where all gases are in exactly equivalent proportions. The same equation in (synthetic) air, with 21% oxygen and 79% nitrogen (<span class="math notranslate nohighlight">\(\mf N_2\)</span>), transforms into</p>
 <div class="math notranslate nohighlight" id="equation-eq-combustion-methane-air">
-<span class="eqno">(5.1)<a class="headerlink" href="#equation-eq-combustion-methane-air" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(5.1)<a class="headerlink" href="#equation-eq-combustion-methane-air" title="Permalink to this equation">#</a></span>\[
 \mf CH_4 +2O_2 +2 \frac{79}{21} N_2 \rightarrow CO_2 +2H_2O+2 \frac{79}{21} N_2 \quad .
 \]</div>
 <div class="admonition-task admonition">
 <p class="admonition-title">Task</p>
 <p>Show that the combustion of <span class="math notranslate nohighlight">\(\mf 1~g\)</span> methane requires about <span class="math notranslate nohighlight">\(\mf 17~g\)</span> of air. Check the molar masses of the involved molecules in reaction <a class="reference internal" href="#equation-eq-combustion-methane-air">(5.1)</a>.</p>
 </div>
-</div>
-<div class="section" id="heat-of-combustion">
-<h2>Heat of Combustion<a class="headerlink" href="#heat-of-combustion" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="heat-of-combustion">
+<h2>Heat of Combustion<a class="headerlink" href="#heat-of-combustion" title="Permalink to this headline">#</a></h2>
 <p>During combustion, not only chemical bounds are rearagend, but in general also heat is released. This is quantified as heat of combustion <span class="math notranslate nohighlight">\(\mf \Delta H_c\)</span>. The experimental setup used to determine the heat of combustion is the bomb calorimeter, like schematicly outlined in <a class="reference internal" href="#fig-comb-bomb-calorimeter"><span class="std std-numref">Fig. 5.5</span></a>. Here, the heat released by the reaction increases the temperature of the system. The measurement is based on the following assumptions:</p>
 <ul class="simple">
 <li><p>constant volume,</p></li>
@@ -735,14 +887,16 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>adiabatic system, and</p></li>
 <li><p>measure all heat transferred into the system.</p></li>
 </ul>
-<div class="figure align-default" id="fig-comb-bomb-calorimeter">
+<figure class="align-default" id="fig-comb-bomb-calorimeter">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/e/ed/Bomb_Calorimeter_Diagram.png"><img alt="https://upload.wikimedia.org/wikipedia/commons/e/ed/Bomb_Calorimeter_Diagram.png" src="https://upload.wikimedia.org/wikipedia/commons/e/ed/Bomb_Calorimeter_Diagram.png" style="width: 60%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.5 </span><span class="caption-text">A schematic representation of a bomb calorimeter. Source: <a class="reference external" href="https://de.wikipedia.org/wiki/Datei:Bomb_Calorimeter_Diagram.png">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-comb-bomb-calorimeter" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 5.5 </span><span class="caption-text">A schematic representation of a bomb calorimeter. Source: <a class="reference external" href="https://de.wikipedia.org/wiki/Datei:Bomb_Calorimeter_Diagram.png">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-comb-bomb-calorimeter" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Besides the explicit measurement of the heat of combustion, its value can be computed using the concept of the heat of formation <span class="math notranslate nohighlight">\(\mf \Delta H_f\)</span>. The heat or enthalpy of formation describes the change of enthalpy required to create a mole of a molecule out of its composing atoms. The difference in the formation enthalpies of the reactants and the producs is the enthalpy released in the reaction.</p>
 <p>The following table provides some selected value examples for the heat of combustion and heat of formation at standard conditions <span class="math notranslate nohighlight">\(\mf \Delta H_f^0\)</span>, i.e. <span class="math notranslate nohighlight">\(\mf 25~^\circ C\)</span> and <span class="math notranslate nohighlight">\(\mf 100~kPa\)</span>.</p>
 <table class="colwidths-auto table" id="tab-hoc-hof">
-<caption><span class="caption-number">Table 5.1 </span><span class="caption-text">Molar masses (<span class="math notranslate nohighlight">\(\mf m_M\)</span>), enthalpies of combustion <span class="math notranslate nohighlight">\(\mf \Delta H_c\)</span> and formation <span class="math notranslate nohighlight">\(\mf \Delta H_f^0\)</span> (approximated values)</span><a class="headerlink" href="#tab-hoc-hof" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 5.1 </span><span class="caption-text">Molar masses (<span class="math notranslate nohighlight">\(\mf m_M\)</span>), enthalpies of combustion <span class="math notranslate nohighlight">\(\mf \Delta H_c\)</span> and formation <span class="math notranslate nohighlight">\(\mf \Delta H_f^0\)</span> (approximated values)</span><a class="headerlink" href="#tab-hoc-hof" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Molecule</p></th>
 <th class="head"><p><span class="math notranslate nohighlight">\(\mf m_M~/~g/mol\)</span></p></th>
@@ -789,9 +943,9 @@ const thebe_selector_output = ".output, .cell_output"
 </tbody>
 </table>
 <p>A more comprehensive list is provided at <a class="reference external" href="https://en.wikipedia.org/wiki/Standard_enthalpy_of_formation">Wikipedia/Standard enthalpy of formation</a>.</p>
-</div>
-<div class="section" id="reaction-rates">
-<h2>Reaction Rates<a class="headerlink" href="#reaction-rates" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="reaction-rates">
+<h2>Reaction Rates<a class="headerlink" href="#reaction-rates" title="Permalink to this headline">#</a></h2>
 <p>A chemical process is the collision and interaction of molecules of the involved species. Therefore the rate at which the reaction takes place is proportional to the collision frequency <span class="math notranslate nohighlight">\(\mf R\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[
@@ -811,12 +965,12 @@ const thebe_selector_output = ".output, .cell_output"
 \]</div>
 <p>Therefore the reaction rate is determined by the <a class="reference external" href="https://en.wikipedia.org/wiki/Arrhenius_equation">Arrhenius equation</a>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-comb-arrhenius">
-<span class="eqno">(5.2)<a class="headerlink" href="#equation-eq-comb-arrhenius" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(5.2)<a class="headerlink" href="#equation-eq-comb-arrhenius" title="Permalink to this equation">#</a></span>\[
 \mf k = AT^n exp\left(-\frac{E_a}{k_B T}\right)
 \]</div>
 <p>given the pre-exponential factor <span class="math notranslate nohighlight">\(\mf A\)</span>, the power <span class="math notranslate nohighlight">\(\mf n\)</span> and the activation energy <span class="math notranslate nohighlight">\(\mf E_a\)</span>. The parameters <span class="math notranslate nohighlight">\(A\)</span>, <span class="math notranslate nohighlight">\(n\)</span> and <span class="math notranslate nohighlight">\(E_a\)</span> for a few reactions are given in the following table.</p>
 <table class="colwidths-auto table" id="tab-comb-nae">
-<caption><span class="caption-number">Table 5.2 </span><span class="caption-text">Parameters for some selected reactions (approximated values)</span><a class="headerlink" href="#tab-comb-nae" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 5.2 </span><span class="caption-text">Parameters for some selected reactions (approximated values)</span><a class="headerlink" href="#tab-comb-nae" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Reaction</p></th>
 <th class="head"><p><span class="math notranslate nohighlight">\(\mf A\)</span></p></th>
@@ -887,18 +1041,20 @@ const thebe_selector_output = ".output, .cell_output"
 \mf H + O_2 + M &amp;\rightarrow\mf HO_2 + M*
 \end{align}
 \end{split}\]</div>
-</div>
-<div class="section" id="flamability">
-<h2>Flamability<a class="headerlink" href="#flamability" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="flamability">
+<h2>Flamability<a class="headerlink" href="#flamability" title="Permalink to this headline">#</a></h2>
 <p>Not all mixtures of fuel and oxygen / air are flammable. In general there exists a lower (LFL) and an upper flammability limit (UFL), which relate the volume fraction of the fuel to air. Additionally the gas temperature may have a lower limit and there exist an autoignition temperature. A pilot ignition is needed below the autoignition temperature (AIT). The schematics in <a class="reference internal" href="#fig-comb-flammability"><span class="std std-numref">Fig. 5.6</span></a> outline the relevant regions of fuel mixture and gas temperature.</p>
-<div class="figure align-default" id="fig-comb-flammability">
+<figure class="align-default" id="fig-comb-flammability">
 <a class="reference internal image-reference" href="../../../_images/flamibility.svg"><img alt="../../../_images/flamibility.svg" src="../../../_images/flamibility.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.6 </span><span class="caption-text">Flammability regions.</span><a class="headerlink" href="#fig-comb-flammability" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 5.6 </span><span class="caption-text">Flammability regions.</span><a class="headerlink" href="#fig-comb-flammability" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p><strong>TODO: Add link to video of autoignition of candle wax vapour</strong></p>
 <p>The following table outlines some <a class="reference external" href="https://en.wikipedia.org/wiki/Flammability_limit">flammability limits</a>.</p>
 <table class="colwidths-auto table" id="tab-comb-flammability">
-<caption><span class="caption-number">Table 5.3 </span><span class="caption-text">Flammability quantities (approximated values)</span><a class="headerlink" href="#tab-comb-flammability" title="Permalink to this table">¶</a></caption>
+<caption><span class="caption-number">Table 5.3 </span><span class="caption-text">Flammability quantities (approximated values)</span><a class="headerlink" href="#tab-comb-flammability" title="Permalink to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Fuel</p></th>
 <th class="head"><p>LFL</p></th>
@@ -937,9 +1093,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><span class="math notranslate nohighlight">\(\mf \Phi &lt; 1\)</span>: fuel lean</p></li>
 </ul>
 <p>In fuel rich fires, the chances that intermediate combustion products are not involved in further reactions are high. These are mostly situations when e.g. <span class="math notranslate nohighlight">\(\mf CO\)</span> and soot are produced.</p>
-</div>
-<div class="section" id="flames">
-<h2>Flames<a class="headerlink" href="#flames" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="flames">
+<h2>Flames<a class="headerlink" href="#flames" title="Permalink to this headline">#</a></h2>
 <p>A flame is the region where the combustion process occures. In general, two types of combustion are considered:</p>
 <ul class="simple">
 <li><p><strong>premixed</strong>: the fuel and oxygen are mixed in a combustable ratio; the chemical reaction can occur everywhere, depending on the required temperature</p></li>
@@ -947,10 +1103,12 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p>Natural fires are of the non-premixed type.</p>
 <p>In premixed combustion, a localised ignition will trigger a spreading flame. The localised flame region propagates across the volume with the burning velocity <span class="math notranslate nohighlight">\(\mf S_u\)</span>. In addition, this movement can be overlapped by advection with velocity <span class="math notranslate nohighlight">\(\mf v_0\)</span>. The following quasi-onedimensional setup in <a class="reference internal" href="#fig-comb-burning-velocity-0"><span class="std std-numref">Fig. 5.7</span></a> illustrates this setup.</p>
-<div class="figure align-default" id="fig-comb-burning-velocity-0">
+<figure class="align-default" id="fig-comb-burning-velocity-0">
 <a class="reference internal image-reference" href="../../../_images/flame_burn_velocity_setup_0.svg"><img alt="../../../_images/flame_burn_velocity_setup_0.svg" src="../../../_images/flame_burn_velocity_setup_0.svg" width="40%" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.7 </span><span class="caption-text">Advection opposed to burning velocity.</span><a class="headerlink" href="#fig-comb-burning-velocity-0" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 5.7 </span><span class="caption-text">Advection opposed to burning velocity.</span><a class="headerlink" href="#fig-comb-burning-velocity-0" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>If the combustible gas is injected, e.g. out of a burner, with velocity <span class="math notranslate nohighlight">\(\mf v_0\)</span>, then the following situations can occur:</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mf S_u = v_0\)</span> : a stable flame forms,</p></li>
@@ -961,14 +1119,18 @@ const thebe_selector_output = ".output, .cell_output"
 <p><strong>TODO: Add link to video of a candle blown off</strong></p>
 <p><strong>TODO: Add link to video of a candle flash back</strong></p>
 <p>The following figures illustrate a setup with a pipe, which is closed at one side and filled with a combustible mixture. The velocity at which the flame effectivle moves depends on the ignition location.</p>
-<div class="figure align-default" id="fig-comb-burning-velocity-1">
+<figure class="align-default" id="fig-comb-burning-velocity-1">
 <a class="reference internal image-reference" href="../../../_images/flame_burn_velocity_setup_1.svg"><img alt="../../../_images/flame_burn_velocity_setup_1.svg" src="../../../_images/flame_burn_velocity_setup_1.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.8 </span><span class="caption-text">Ignition at the open end.</span><a class="headerlink" href="#fig-comb-burning-velocity-1" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="fig-comb-burning-velocity-2">
+<figcaption>
+<p><span class="caption-number">Fig. 5.8 </span><span class="caption-text">Ignition at the open end.</span><a class="headerlink" href="#fig-comb-burning-velocity-1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fig-comb-burning-velocity-2">
 <a class="reference internal image-reference" href="../../../_images/flame_burn_velocity_setup_2.svg"><img alt="../../../_images/flame_burn_velocity_setup_2.svg" src="../../../_images/flame_burn_velocity_setup_2.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.9 </span><span class="caption-text">Ignition at the closed end.</span><a class="headerlink" href="#fig-comb-burning-velocity-2" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 5.9 </span><span class="caption-text">Ignition at the closed end.</span><a class="headerlink" href="#fig-comb-burning-velocity-2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p><strong>TODO: Add link to video of the above experiment</strong></p>
 <p>The combustion process is divided into two stages:</p>
 <ul class="simple">
@@ -976,10 +1138,12 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><strong>reaction / flame region</strong>: the chemical reaction which released heat needed for the preheat region.</p></li>
 </ul>
 <p>The qualitative form of the temperature and gas concentrations in the vicinity of a flame is shown in <a class="reference internal" href="#fig-comb-flame-drysdale"><span class="std std-numref">Fig. 5.10</span></a>.</p>
-<div class="figure align-default" id="fig-comb-flame-drysdale">
+<figure class="align-default" id="fig-comb-flame-drysdale">
 <a class="reference internal image-reference" href="../../../_images/drysdale-premixed-species.png"><img alt="../../../_images/drysdale-premixed-species.png" src="../../../_images/drysdale-premixed-species.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.10 </span><span class="caption-text">The temperature profile, with the ambient <span class="math notranslate nohighlight">\(\mf T_0\)</span>, the autoignition <span class="math notranslate nohighlight">\(\mf T_i\)</span> and the final <span class="math notranslate nohighlight">\(\mf T_b\)</span> temperature values, and concentration profiles. Source: <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id4" title="Dougal Drysdale. An Introduction to Fire Dynamics. John Wiley &amp; Sons, Ltd, 2011. ISBN 9780470319031. doi:10.1002/9781119975465.">Dry11</a>]</span>.</span><a class="headerlink" href="#fig-comb-flame-drysdale" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 5.10 </span><span class="caption-text">The temperature profile, with the ambient <span class="math notranslate nohighlight">\(\mf T_0\)</span>, the autoignition <span class="math notranslate nohighlight">\(\mf T_i\)</span> and the final <span class="math notranslate nohighlight">\(\mf T_b\)</span> temperature values, and concentration profiles. Source: <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id4" title="Dougal Drysdale. An Introduction to Fire Dynamics. John Wiley &amp; Sons, Ltd, 2011. ISBN 9780470319031. doi:10.1002/9781119975465.">Dry11</a>]</span>.</span><a class="headerlink" href="#fig-comb-flame-drysdale" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>The chemical components as well as the reaction rates are visualised in the following figures. Here, a propane-oxygen-argon flame is shown, with</p>
 <ul class="simple">
 <li><p><span class="math notranslate nohighlight">\(\mf 1.38\%\)</span> propane (<span class="math notranslate nohighlight">\(\mf C_3H_8\)</span>),</p></li>
@@ -988,21 +1152,27 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>half circle: <span class="math notranslate nohighlight">\(10 \times CO\)</span></p></li>
 <li><p>full circle: <span class="math notranslate nohighlight">\(10 \times C_3 H_8\)</span></p></li>
 </ul>
-<div class="figure align-default" id="fig-comb-flame-sfpe-profile">
+<figure class="align-default" id="fig-comb-flame-sfpe-profile">
 <a class="reference internal image-reference" href="../../../_images/sfpe-flat-flame-profile.png"><img alt="../../../_images/sfpe-flat-flame-profile.png" src="../../../_images/sfpe-flat-flame-profile.png" style="width: 60%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.11 </span><span class="caption-text">Concentration in a propane-oxygen-argon flame. Source: SFPE Handbook.</span><a class="headerlink" href="#fig-comb-flame-sfpe-profile" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="fig-comb-flame-sfpe-reaction">
+<figcaption>
+<p><span class="caption-number">Fig. 5.11 </span><span class="caption-text">Concentration in a propane-oxygen-argon flame. Source: SFPE Handbook.</span><a class="headerlink" href="#fig-comb-flame-sfpe-profile" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fig-comb-flame-sfpe-reaction">
 <a class="reference internal image-reference" href="../../../_images/sfpe-flat-flame-reaction-rate.png"><img alt="../../../_images/sfpe-flat-flame-reaction-rate.png" src="../../../_images/sfpe-flat-flame-reaction-rate.png" style="width: 60%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.12 </span><span class="caption-text">Reaction rates in a propane-oxygen-argon flame. Source: SFPE Handbook.</span><a class="headerlink" href="#fig-comb-flame-sfpe-reaction" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 5.12 </span><span class="caption-text">Reaction rates in a propane-oxygen-argon flame. Source: SFPE Handbook.</span><a class="headerlink" href="#fig-comb-flame-sfpe-reaction" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>And the candle example revisited:</p>
-<div class="figure align-default" id="fig-comb-flame-sfpe-candle">
+<figure class="align-default" id="fig-comb-flame-sfpe-candle">
 <a class="reference internal image-reference" href="../../../_images/sfpe-candle.png"><img alt="../../../_images/sfpe-candle.png" src="../../../_images/sfpe-candle.png" style="width: 60%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 5.13 </span><span class="caption-text">Reaction regions in a candle. Source: SFPE Handbook.</span><a class="headerlink" href="#fig-comb-flame-sfpe-candle" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 5.13 </span><span class="caption-text">Reaction regions in a candle. Source: SFPE Handbook.</span><a class="headerlink" href="#fig-comb-flame-sfpe-candle" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1026,9 +1196,11 @@ const thebe_selector_output = ".output, .cell_output"
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="00_overview.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1044,29 +1216,33 @@ const thebe_selector_output = ".output, .cell_output"
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
-    
-      <div class="extra_footer">
-        <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    <div class="extra_footer">
+      <p>
 <img src='https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg' height='31'/>
 | By Team Fire | Contacts and Infos: <a href='https://cce.uni-wuppertal.de/en.html'>CCE@BUW</a> and <a href='https://www.fz-juelich.de/ias/ias-7/EN/Research/Fire_Dynamics/_node.html'>IAS-7@FZJ</a>
 </br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
 </p>
 
-      </div>
-  </p>
-</footer>
-</main>
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

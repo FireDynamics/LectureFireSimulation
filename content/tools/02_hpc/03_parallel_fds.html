@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Parallel Execution of FDS &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,21 +20,17 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -40,12 +38,13 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -65,7 +64,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -74,9 +87,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -94,14 +108,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../overview/01_overview.html">
-   Overview
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../overview/01_overview.html">
+                    Overview
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Introduction
  </span>
@@ -431,88 +446,193 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/content/tools/02_hpc/03_parallel_fds.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/FireDynamics/LectureFireSimulation"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/tools/02_hpc/03_parallel_fds.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/tools/02_hpc/03_parallel_fds.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
         </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/FireDynamics/LectureFireSimulation"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/tools/02_hpc/03_parallel_fds.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/tools/02_hpc/03_parallel_fds.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/content/tools/02_hpc/03_parallel_fds.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#accessing-jureca">
    Accessing JURECA
@@ -591,12 +711,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Parallel Execution of FDS</h1>
@@ -691,26 +810,27 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="parallel-execution-of-fds">
-<h1>Parallel Execution of FDS<a class="headerlink" href="#parallel-execution-of-fds" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="accessing-jureca">
-<h2>Accessing JURECA<a class="headerlink" href="#accessing-jureca" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="accounts">
-<h3>Accounts<a class="headerlink" href="#accounts" title="Permalink to this headline">¶</a></h3>
+  <section class="tex2jax_ignore mathjax_ignore" id="parallel-execution-of-fds">
+<h1>Parallel Execution of FDS<a class="headerlink" href="#parallel-execution-of-fds" title="Permalink to this headline">#</a></h1>
+<section id="accessing-jureca">
+<h2>Accessing JURECA<a class="headerlink" href="#accessing-jureca" title="Permalink to this headline">#</a></h2>
+<section id="accounts">
+<h3>Accounts<a class="headerlink" href="#accounts" title="Permalink to this headline">#</a></h3>
 <p>You should have received an invitation email, which asks you to register in the account management system. Once registered, you will receive an individual username and be asked to upload your login keys.</p>
-</div>
-<div class="section" id="ssh">
-<h3>SSH<a class="headerlink" href="#ssh" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="ssh">
+<h3>SSH<a class="headerlink" href="#ssh" title="Permalink to this headline">#</a></h3>
 <p>To reach the computercluster JURECA you need to log in via the <a class="reference external" href="https://en.wikipedia.org/wiki/Secure_Shell_Protocol">secure shell protocol (SSH)</a>. It is recommended to read the user documentation, which can be found here: <a class="reference external" href="https://apps.fz-juelich.de/jsc/hps/jureca/access.html">access JURECA using SSH</a>.</p>
 <p>Most Linux and MacOS systems have a SSH client installed. On Windows, you can use tools like <a class="reference external" href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">PuTTY</a>.</p>
 <p>Depending on your SSH client, there are various ways to generate a SSH key pair (public and private). It should always be protected with a passphrase.</p>
 <p>One of the safety measure on JURECA is, that you need to specify the IP range from which you access the system, see <a class="reference external" href="https://apps.fz-juelich.de/jsc/hps/jureca/access.html#key-upload-key-restriction">key restrictions</a>. If you use VPN, e.g. provided by the University of Wuppertal, your <code class="docutils literal notranslate"><span class="pre">from</span></code> statement could include <code class="docutils literal notranslate"><span class="pre">*.uni-wuppertal.de</span></code>.</p>
-</div>
-<div class="section" id="login">
-<h3>Login<a class="headerlink" href="#login" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="login">
+<h3>Login<a class="headerlink" href="#login" title="Permalink to this headline">#</a></h3>
 <p>In order to login to JURECA on a Linux or MacOS you just need to execute</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; ssh username1@jureca.fz-juelich.de
 </pre></div>
@@ -737,9 +857,9 @@ jrlogin06.jureca
 </pre></div>
 </div>
 </div>
-</div>
-<div class="section" id="fds-modules-on-jureca">
-<h3>FDS Modules on JURECA<a class="headerlink" href="#fds-modules-on-jureca" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="fds-modules-on-jureca">
+<h3>FDS Modules on JURECA<a class="headerlink" href="#fds-modules-on-jureca" title="Permalink to this headline">#</a></h3>
 <p>Modules offer a flexible environment to manage multiple versions of software. This system is also used on JURECA: <a class="reference external" href="https://apps.fz-juelich.de/jsc/hps/jureca/software-modules.html">Module usage on JURECA</a>.</p>
 <p>As the FDS (and some other) modules are not globaly installed, they need to be added to the user’s environment. This can be done with</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">module</span> <span class="n">use</span> <span class="o">-</span><span class="n">a</span> <span class="o">~</span><span class="n">arnold1</span><span class="o">/</span><span class="n">modules_fire</span><span class="o">/</span>
@@ -753,33 +873,33 @@ jrlogin06.jureca
 <li><p>Load a FSD module and invoke FDS with <code class="docutils literal notranslate"><span class="pre">fds</span></code>. Does the loaded version of FDS correspond to the one you expected?</p></li>
 </ul>
 </div>
-</div>
-</div>
-<div class="section" id="accessing-the-cobra-pleiades-cluster">
-<h2>Accessing the CoBra / Pleiades Cluster<a class="headerlink" href="#accessing-the-cobra-pleiades-cluster" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="id1">
-<h3>Accounts<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+</section>
+</section>
+<section id="accessing-the-cobra-pleiades-cluster">
+<h2>Accessing the CoBra / Pleiades Cluster<a class="headerlink" href="#accessing-the-cobra-pleiades-cluster" title="Permalink to this headline">#</a></h2>
+<section id="id1">
+<h3>Accounts<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
 <p>Please contact Lukas for an account.</p>
-</div>
-<div class="section" id="id2">
-<h3>Login<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="id2">
+<h3>Login<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
 <p>Using the provided credentials, you can use SSH to login to the front-end <code class="docutils literal notranslate"><span class="pre">fugg1.pleiades.uni-wuppertal.de</span></code>.</p>
-</div>
-<div class="section" id="fds-modules-on-the-cobra-cluster">
-<h3>FDS Modules on the CoBra Cluster<a class="headerlink" href="#fds-modules-on-the-cobra-cluster" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="fds-modules-on-the-cobra-cluster">
+<h3>FDS Modules on the CoBra Cluster<a class="headerlink" href="#fds-modules-on-the-cobra-cluster" title="Permalink to this headline">#</a></h3>
 <p>As on JURECA, the modules need to be added to the user’s environment with</p>
 <p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">use</span> <span class="pre">-a</span> <span class="pre">/beegfs/larnold/modules</span></code></p>
 <p>The (default) FDS module can be loaded with</p>
 <p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">FDS</span></code></p>
 <p>which sets up the environment to run FDS in parallel. The name of the FDS executable is <code class="docutils literal notranslate"><span class="pre">fds</span></code>.</p>
-</div>
-</div>
-<div class="section" id="job-submission">
-<h2>Job Submission<a class="headerlink" href="#job-submission" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="job-submission">
+<h2>Job Submission<a class="headerlink" href="#job-submission" title="Permalink to this headline">#</a></h2>
 <p>A computercluster is often used by a lot of users. Therefore executing a programm which needs a lot of the CPU power could disturb other users by slowing down the rest of the softwares or even the OS. The solution to this is a queueing system which organizes the execution of many programms and manages the ressource distribution among them. JURECA and the CoBra-cluster use the software called Slurm for queueing and distributing to compute nodes. More information is provided in <a class="reference external" href="https://apps.fz-juelich.de/jsc/hps/jureca/batchsystem.html">JURECA’s batch system documentation</a> and <a class="reference external" href="http://www.pleiades.uni-wuppertal.de/index.php?id=slurm">Pleiades batch system</a>.</p>
 <p>Instead of running our simulation on the cluster we either submit our simulation file to the queueing system or execute a submit code which includes the modules we need for FDS, sets the number of processes, theads and other important quantities.</p>
-<div class="section" id="single-job-on-jureca">
-<h3>Single Job on JURECA<a class="headerlink" href="#single-job-on-jureca" title="Permalink to this headline">¶</a></h3>
+<section id="single-job-on-jureca">
+<h3>Single Job on JURECA<a class="headerlink" href="#single-job-on-jureca" title="Permalink to this headline">#</a></h3>
 <p>The structure of a Slurm job script is basically a shell script. This shell script will be executed by the batch system on the requested resource. The definition of the resource is done as comments (<code class="docutils literal notranslate"><span class="pre">#</span></code>) with the <code class="docutils literal notranslate"><span class="pre">SLURM</span></code> keywords. These are instructions for Slurm.</p>
 <p>A simple example for a Slurm job scipt (<a class="reference download internal" download="" href="../../../_downloads/c61518e40ff31654179d1fe90690a792/fds-slurm-job-single.sh"><code class="xref download docutils literal notranslate"><span class="pre">fds-slurm-job-single.sh</span></code></a>) is given below. It executes FDS for a single FDS input file.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/bash -x
@@ -800,7 +920,7 @@ export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
 module use -a ~arnold1/modules_fire/
 
 # Load FDS in the version 6.7.5
-module load FDS/6.7.5-IntelComp2020.2_ParaStationMPI_5.4.7
+module load FDS/6.7.8-IntelCompiler_2021.4.0_IntelMPI_2021.4.0
 
 # Execute FDS, here it is assumed, that there is only one FDS input file
 # in the current directory. Additionally, srun uses implicitly the number 
@@ -862,9 +982,9 @@ srun fds ./*.fds
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&gt; squeue -u $USER
 </pre></div>
 </div>
-</div>
-<div class="section" id="single-job-on-the-cobra-cluster">
-<h3>Single Job on the CoBra-Cluster<a class="headerlink" href="#single-job-on-the-cobra-cluster" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="single-job-on-the-cobra-cluster">
+<h3>Single Job on the CoBra-Cluster<a class="headerlink" href="#single-job-on-the-cobra-cluster" title="Permalink to this headline">#</a></h3>
 <p>A simple script to execute FDS on a given input file is as follows:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
 <span class="c1">#SBATCH --job-name=fds_job_name</span>
@@ -885,9 +1005,9 @@ srun fds ./*.fds
 <p class="admonition-title">Note</p>
 <p>In contrast to JURECA, it is possible to run jobs for more than 24 hours. More information about the available queues and their time limits is presented with the <code class="docutils literal notranslate"><span class="pre">sinfo</span></code> command.</p>
 </div>
-</div>
-<div class="section" id="chain-jobs">
-<h3>Chain Jobs<a class="headerlink" href="#chain-jobs" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="chain-jobs">
+<h3>Chain Jobs<a class="headerlink" href="#chain-jobs" title="Permalink to this headline">#</a></h3>
 <p>As there is a limit of 24 hours on JURECA, each job has to restart after this time. The following scripts automate the process for FDS on JURECA. It is important that the FDS input file has the <code class="docutils literal notranslate"><span class="pre">RESTART</span></code> parameter defined, typically initailly set to <code class="docutils literal notranslate"><span class="pre">.FALSE.</span></code>.</p>
 <p>The main idea is to invoke multiple jobs (<a class="reference download internal" download="" href="../../../_downloads/0d1c3cadb0cd08b5a4c8d8cdc927d199/fds-slurm-chain-starter.sh"><code class="xref download docutils literal notranslate"><span class="pre">fds-slurm-chain-starter.sh</span></code></a>) with a dependency, i.e. a chain is created, so that the jobs are consecutively executed.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/bash -x
@@ -989,10 +1109,10 @@ rm $CHID.stop
 <p class="admonition-title">Note</p>
 <p>Most of the above commands are very general, yet a few, like the modules to be loaded as well as the way to run a MPI application, i.e. using <code class="docutils literal notranslate"><span class="pre">srun</span></code> or <code class="docutils literal notranslate"><span class="pre">mpiexec</span></code>, may have to be adopted to the used system.</p>
 </div>
-</div>
-</div>
-<div class="section" id="mesh-decomposition">
-<h2>Mesh Decomposition<a class="headerlink" href="#mesh-decomposition" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="mesh-decomposition">
+<h2>Mesh Decomposition<a class="headerlink" href="#mesh-decomposition" title="Permalink to this headline">#</a></h2>
 <p>Python scipt to automate decomposition of a single <code class="docutils literal notranslate"><span class="pre">MESH</span></code> statement: <a class="reference download internal" download="" href="../../../_downloads/4017b6458e61599216f92ef0948c18f7/decompose_fds_mesh.py"><code class="xref download docutils literal notranslate"><span class="pre">decompose_fds_mesh.py</span></code></a>.</p>
 <p>Usage: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">decompose_fds_mesh.py</span> <span class="pre">MESH</span> <span class="pre">DECOMPOSITION</span></code></p>
 <p><strong>One mesh, i.e. no decompositon</strong></p>
@@ -1081,8 +1201,8 @@ rm $CHID.stop
 <span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span><span class="o">=</span><span class="s1">&#39;27&#39;</span> <span class="n">IJK</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span> <span class="n">XB</span><span class="o">=</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">12.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">12.0000</span><span class="p">,</span><span class="mf">8.0000</span><span class="p">,</span><span class="mf">12.0000</span> <span class="o">/</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1106,9 +1226,11 @@ rm $CHID.stop
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="02_hpc.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1124,29 +1246,33 @@ rm $CHID.stop
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
-    
-      <div class="extra_footer">
-        <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    <div class="extra_footer">
+      <p>
 <img src='https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg' height='31'/>
 | By Team Fire | Contacts and Infos: <a href='https://cce.uni-wuppertal.de/en.html'>CCE@BUW</a> and <a href='https://www.fz-juelich.de/ias/ias-7/EN/Research/Fire_Dynamics/_node.html'>IAS-7@FZJ</a>
 </br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
 </p>
 
-      </div>
-  </p>
-</footer>
-</main>
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

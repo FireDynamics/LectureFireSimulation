@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>6.2. Example – Heat Transfer &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,21 +20,17 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -40,12 +38,13 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -67,7 +66,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -76,9 +89,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -96,14 +110,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../overview/01_overview.html">
-   Overview
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../overview/01_overview.html">
+                    Overview
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Introduction
  </span>
@@ -433,111 +448,240 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/content/modelling/06_heat_transfer/02_heat_transfer_example.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/FireDynamics/LectureFireSimulation"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/modelling/06_heat_transfer/02_heat_transfer_example.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/modelling/06_heat_transfer/02_heat_transfer_example.ipynb"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/FireDynamics/LectureFireSimulation/main?urlpath=tree/book/content/modelling/06_heat_transfer/02_heat_transfer_example.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        <a class="jupyterhub-button" href="https://io.cce.uni-wuppertal.de/firesim_ss21//hub/user-redirect/git-pull?repo=https://github.com/FireDynamics/LectureFireSimulation&urlpath=tree/LectureFireSimulation/book/content/modelling/06_heat_transfer/02_heat_transfer_example.ipynb&branch=main"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch JupyterHub" data-toggle="tooltip"
-                data-placement="left"><img class="jupyterhub-button-logo"
-                    src="../../../_static/images/logo_jupyterhub.svg"
-                    alt="Interact on JupyterHub">JupyterHub</button></a>
-        
-        
-        
-    </div>
-</div>
-
         </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/FireDynamics/LectureFireSimulation/main?urlpath=tree/book/content/modelling/06_heat_transfer/02_heat_transfer_example.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://io.cce.uni-wuppertal.de/firesim_ss21/hub/user-redirect/git-pull?repo=https://github.com/FireDynamics/LectureFireSimulation&urlpath=tree/LectureFireSimulation/book/content/modelling/06_heat_transfer/02_heat_transfer_example.ipynb&branch=main"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/FireDynamics/LectureFireSimulation"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/modelling/06_heat_transfer/02_heat_transfer_example.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/modelling/06_heat_transfer/02_heat_transfer_example.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/content/modelling/06_heat_transfer/02_heat_transfer_example.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#introduction">
    Introduction
@@ -570,12 +714,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Example – Heat Transfer</h1>
@@ -624,27 +767,30 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="example-heat-transfer">
-<h1><span class="section-number">6.2. </span>Example – Heat Transfer<a class="headerlink" href="#example-heat-transfer" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="introduction">
-<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="example-heat-transfer">
+<h1><span class="section-number">6.2. </span>Example – Heat Transfer<a class="headerlink" href="#example-heat-transfer" title="Permalink to this headline">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">#</a></h2>
 <p>Fire Dynamics Simulator (FDS) calculates the mechanisms of heat transfer taking into account the corresponding physical processes of convection and radiation. From the resulting heat flux onto a solid surface, the surface temperature as well as the temperature at a certain depth can be determined, depending on the material properties and the the respective boundary conditions. By default, FDS  only performs a transient, one-dimensional calculation of heat transfer. The objective of this exercise is to discuss the different influences of radiation and convection as well as the surface and material properties of a solid body on its heating in case of fire. The <a class="reference download internal" download="" href="../../../_downloads/95623be50842c0ce3bacb5cf62f942fd/HeatTransfer.fds"><code class="xref download docutils literal notranslate"><span class="pre">HeatTransfer.fds</span></code></a> input file should be used as a starting point.</p>
-</div>
-<div class="section" id="setup">
-<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="setup">
+<h2>Setup<a class="headerlink" href="#setup" title="Permalink to this headline">#</a></h2>
 <p>The extension of the computational domain is</p>
 <div class="math notranslate nohighlight">
 \[\small\sf [-0.8~m, 0.8~m] \times [0.0~m, 2.0~m] \times [0.0~m, 5.0~m]\]</div>
-<div class="figure align-default" id="fig-transfer-smv">
+<figure class="align-default" id="fig-transfer-smv">
 <a class="reference internal image-reference" href="../../../_images/fds.png"><img alt="../../../_images/fds.png" src="../../../_images/fds.png" style="width: 100%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 6.15 </span><span class="caption-text">SMV visualization of the geometry. The surface patch <code class="docutils literal notranslate"><span class="pre">HEATER</span></code>, which has a constant surface temperature of <span class="math notranslate nohighlight">\(1000^\circ C\)</span> (<code class="docutils literal notranslate"><span class="pre">TMP_FRONT</span> <span class="pre">=</span> <span class="pre">1000</span></code>) ,is colored reddish. The orange and yellow obstructions (<code class="docutils literal notranslate"><span class="pre">OBST</span></code>) depict different surfaces (<code class="docutils literal notranslate"><span class="pre">SURF</span></code>). The gray heat shield covers thermocouples and devices from a radiative impact.</span><a class="headerlink" href="#fig-transfer-smv" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="heat-flux">
-<h2>Heat Flux<a class="headerlink" href="#heat-flux" title="Permalink to this headline">¶</a></h2>
+<figcaption>
+<p><span class="caption-number">Fig. 6.15 </span><span class="caption-text">SMV visualization of the geometry. The surface patch <code class="docutils literal notranslate"><span class="pre">HEATER</span></code>, which has a constant surface temperature of <span class="math notranslate nohighlight">\(1000^\circ C\)</span> (<code class="docutils literal notranslate"><span class="pre">TMP_FRONT</span> <span class="pre">=</span> <span class="pre">1000</span></code>) ,is colored reddish. The orange and yellow obstructions (<code class="docutils literal notranslate"><span class="pre">OBST</span></code>) depict different surfaces (<code class="docutils literal notranslate"><span class="pre">SURF</span></code>). The gray heat shield covers thermocouples and devices from a radiative impact.</span><a class="headerlink" href="#fig-transfer-smv" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="heat-flux">
+<h2>Heat Flux<a class="headerlink" href="#heat-flux" title="Permalink to this headline">#</a></h2>
 <p>FDS provides several output quantities related to the thermal exposure of solid surfaces (See section 21.10.7 <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">FDS User’s Guide</a>).</p>
 <p>The sum of radiative and convective energy absorbed at a solid surface is expressed by the <code class="docutils literal notranslate"><span class="pre">TOTAL</span> <span class="pre">HEAT</span> <span class="pre">FLUX</span></code> or <code class="docutils literal notranslate"><span class="pre">NET</span> <span class="pre">HEAT</span> <span class="pre">FLUX</span></code>:</p>
 <div class="math notranslate nohighlight">
@@ -751,22 +897,26 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="figure align-default" id="heat-transfer-heatflux-bndf">
+<figure class="align-default" id="heat-transfer-heatflux-bndf">
 <a class="reference internal image-reference" href="../../../_images/heatflux_bndf.svg"><img alt="../../../_images/heatflux_bndf.svg" src="../../../_images/heatflux_bndf.svg" width="100%" /></a>
-<p class="caption"><span class="caption-number">Fig. 6.16 </span><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">TOTAL</span> <span class="pre">HEAT</span> <span class="pre">FLUX</span></code>, <code class="docutils literal notranslate"><span class="pre">CONVECTIVE</span> <span class="pre">HEAT</span> <span class="pre">FLUX</span></code>, <code class="docutils literal notranslate"><span class="pre">RADIATIVE</span> <span class="pre">HEAT</span> <span class="pre">FLUX</span></code>, <code class="docutils literal notranslate"><span class="pre">GAUGE</span> <span class="pre">HEAT</span> <span class="pre">FLUX</span></code> and <code class="docutils literal notranslate"><span class="pre">INCIDENT</span> <span class="pre">HEAT</span> <span class="pre">FLUX</span></code> on a solid obstruction opposite a flat radiator with a constant temperature of  <span class="math notranslate nohighlight">\(\mf T = 1000^\circ C\)</span></span><a class="headerlink" href="#heat-transfer-heatflux-bndf" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="task-1">
-<h2>Task 1<a class="headerlink" href="#task-1" title="Permalink to this headline">¶</a></h2>
+<figcaption>
+<p><span class="caption-number">Fig. 6.16 </span><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">TOTAL</span> <span class="pre">HEAT</span> <span class="pre">FLUX</span></code>, <code class="docutils literal notranslate"><span class="pre">CONVECTIVE</span> <span class="pre">HEAT</span> <span class="pre">FLUX</span></code>, <code class="docutils literal notranslate"><span class="pre">RADIATIVE</span> <span class="pre">HEAT</span> <span class="pre">FLUX</span></code>, <code class="docutils literal notranslate"><span class="pre">GAUGE</span> <span class="pre">HEAT</span> <span class="pre">FLUX</span></code> and <code class="docutils literal notranslate"><span class="pre">INCIDENT</span> <span class="pre">HEAT</span> <span class="pre">FLUX</span></code> on a solid obstruction opposite a flat radiator with a constant temperature of  <span class="math notranslate nohighlight">\(\mf T = 1000^\circ C\)</span></span><a class="headerlink" href="#heat-transfer-heatflux-bndf" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="task-1">
+<h2>Task 1<a class="headerlink" href="#task-1" title="Permalink to this headline">#</a></h2>
 <p>The local gas phase temperature at a certain cell can be evaluated via a simple <code class="docutils literal notranslate"><span class="pre">DEVC</span></code> with <code class="docutils literal notranslate"><span class="pre">QUANTITY</span> <span class="pre">=</span> <span class="pre">'TEMPERATURE'</span></code>. The output of a thermocouple which lags the true gas temperature by an amount determined mainly by its size can be assessed by a <code class="docutils literal notranslate"><span class="pre">DEVC</span></code> with <code class="docutils literal notranslate"><span class="pre">QUANTITY</span> <span class="pre">=</span> <span class="pre">THERMOCOUPLE</span></code>. It takes into account the radiative and convective heat transfer to a small sphere. For this purpose, it must be assigned an emissivity and a diameter.  The properties can be assigned to a <code class="docutils literal notranslate"><span class="pre">DEVICE</span></code> via the <code class="docutils literal notranslate"><span class="pre">PROP_ID</span></code> attribute (see also section 20.1 of <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">FDS User’s Guide</a>. For detailed information on how to model thermocouples in FDS please refer to section 21.10.6.</p>
 <p><strong>Tasks</strong></p>
 <ol class="simple">
 <li><p>Place simple devices with <code class="docutils literal notranslate"><span class="pre">QUANTITY</span> <span class="pre">=</span> <span class="pre">'TEMPERATURE'</span></code> and <code class="docutils literal notranslate"><span class="pre">THERMOCOUPLE</span></code> at X = 0, Y = 0.8 and heights z = 0.6 m (bottom), 2.6 m (behind heat shield), 4.4 m (top).  Run the simulation for at least 100 seconds and plot the temporal output of the devices. Discuss what effects lead to the differences between the two types of devices. For the thermocouples assume an <code class="docutils literal notranslate"><span class="pre">EMISSIVITY</span></code> of 0.9 and a diameter of d = 3 mm.</p></li>
 </ol>
-<div class="figure align-default" id="heat-transfer-namelist-dependencies-prop">
+<figure class="align-default" id="heat-transfer-namelist-dependencies-prop">
 <a class="reference internal image-reference" href="../../../_images/flow_chart_prop.svg"><img alt="../../../_images/flow_chart_prop.svg" src="../../../_images/flow_chart_prop.svg" width="70%" /></a>
-<p class="caption"><span class="caption-number">Fig. 6.17 </span><span class="caption-text">Namelist dependencies <code class="docutils literal notranslate"><span class="pre">DEVC</span></code> (device) and <code class="docutils literal notranslate"><span class="pre">PROP</span></code> (property)</span><a class="headerlink" href="#heat-transfer-namelist-dependencies-prop" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 6.17 </span><span class="caption-text">Namelist dependencies <code class="docutils literal notranslate"><span class="pre">DEVC</span></code> (device) and <code class="docutils literal notranslate"><span class="pre">PROP</span></code> (property)</span><a class="headerlink" href="#heat-transfer-namelist-dependencies-prop" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <div class="cell tag_hide_cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_root</span> <span class="o">=</span> <span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;data/heat_transfer/HeatTransfer_1&#39;</span>
@@ -796,13 +946,15 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p><strong>1. Solution</strong></p>
-<div class="figure align-default" id="heat-transfer-thermocouples">
+<figure class="align-default" id="heat-transfer-thermocouples">
 <a class="reference internal image-reference" href="../../../_images/thermocouples.svg"><img alt="../../../_images/thermocouples.svg" src="../../../_images/thermocouples.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 6.18 </span><span class="caption-text">Measured temperature of <code class="docutils literal notranslate"><span class="pre">THERMOCOUPLE</span></code> and simple <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span> <span class="pre">DEVC</span></code></span><a class="headerlink" href="#heat-transfer-thermocouples" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-<div class="section" id="task-2">
-<h2>Task 2<a class="headerlink" href="#task-2" title="Permalink to this headline">¶</a></h2>
+<figcaption>
+<p><span class="caption-number">Fig. 6.18 </span><span class="caption-text">Measured temperature of <code class="docutils literal notranslate"><span class="pre">THERMOCOUPLE</span></code> and simple <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span> <span class="pre">DEVC</span></code></span><a class="headerlink" href="#heat-transfer-thermocouples" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="task-2">
+<h2>Task 2<a class="headerlink" href="#task-2" title="Permalink to this headline">#</a></h2>
 <p>In order to correctly compute the heat transfer within a solid obstruction, the thermal material properties <code class="docutils literal notranslate"><span class="pre">CONDUCTIVITY</span></code>, <code class="docutils literal notranslate"><span class="pre">SPECIF_HEAT</span></code> and <code class="docutils literal notranslate"><span class="pre">DENSITY</span></code> must be known. A new material can be defined via the <code class="docutils literal notranslate"><span class="pre">MATL</span></code> attribute. The available parameters for describing the material properties can be found at section 22.14 of <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">FDS User’s Guide</a>). Another parameter influencing the heat conduction within a solid is its thermal effective <code class="docutils literal notranslate"><span class="pre">THICKNESS</span></code>. This is defined on the <code class="docutils literal notranslate"><span class="pre">SURF</span></code> line and is independent from the actual thickness of an obstruction.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">EMISSIVITY</span></code> (default 0.9) can be set on the <code class="docutils literal notranslate"><span class="pre">SURF</span></code> or <code class="docutils literal notranslate"><span class="pre">MATL</span></code> line while the <code class="docutils literal notranslate"><span class="pre">MATL</span></code> parameter is given priority.</p>
 <p>The back side boundary conditions of a solid obstruction can be defined on the <code class="docutils literal notranslate"><span class="pre">SURF</span></code> line as:</p>
@@ -815,10 +967,12 @@ const thebe_selector_output = ".output, .cell_output"
 <p class="admonition-title">Important</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">THICKNESS</span></code> of a <code class="docutils literal notranslate"><span class="pre">SURF</span></code> ought to be the actual thickness of the “wall” through which FDS performs a 1-D heat conduction calculation. It is independent from the mesh cell width. If the obstruction is on the boundary of the domain or is more than one cell thick, then it is automatically assumed to back up to an air gap at ambient temperature.</p>
 </div>
-<div class="figure align-default" id="heat-transfer-namelist-dependencies-surf">
+<figure class="align-default" id="heat-transfer-namelist-dependencies-surf">
 <a class="reference internal image-reference" href="../../../_images/flow_chart_surf.svg"><img alt="../../../_images/flow_chart_surf.svg" src="../../../_images/flow_chart_surf.svg" width="100%" /></a>
-<p class="caption"><span class="caption-number">Fig. 6.19 </span><span class="caption-text">Namelist dependencies <code class="docutils literal notranslate"><span class="pre">OBST</span></code> (obstruction), <code class="docutils literal notranslate"><span class="pre">SURF</span></code> (surface), and <code class="docutils literal notranslate"><span class="pre">MATL</span></code> (material)</span><a class="headerlink" href="#heat-transfer-namelist-dependencies-surf" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 6.19 </span><span class="caption-text">Namelist dependencies <code class="docutils literal notranslate"><span class="pre">OBST</span></code> (obstruction), <code class="docutils literal notranslate"><span class="pre">SURF</span></code> (surface), and <code class="docutils literal notranslate"><span class="pre">MATL</span></code> (material)</span><a class="headerlink" href="#heat-transfer-namelist-dependencies-surf" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p><strong>Tasks</strong></p>
 <ol class="simple">
 <li><p>Define a new material “Steel” with the following material properties <span class="math notranslate nohighlight">\(\mf c_p = 0.5~kJ~/kg~K\)</span>, <span class="math notranslate nohighlight">\(\mf \lambda = 45.3~W~/m~K \)</span> and <span class="math notranslate nohighlight">\(\mf \rho=7854~kg~m^{-3}\)</span>. Assign the material to the “SURF_1” (yellow) and “SURF_2” (orange). On the <code class="docutils literal notranslate"><span class="pre">SURF</span></code> line change the back side boundary condition of one of the surfaces to <code class="docutils literal notranslate"><span class="pre">INSULATED</span></code> and on the other to <code class="docutils literal notranslate"><span class="pre">EXPOSED</span></code> (See section 11.3.3 <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">FDS User’s Guide</a>). Assume a <code class="docutils literal notranslate"><span class="pre">THICKNESS</span></code> of 10 mm (0.01 m). Analyse the <code class="docutils literal notranslate"><span class="pre">WALL</span> <span class="pre">TEMPERATURE</span></code> (on front surface) as well as the <code class="docutils literal notranslate"><span class="pre">INSIDE</span> <span class="pre">WALL</span> <span class="pre">TEMPERATURE</span></code> at depths 2.5 mm and 7.5 mm and the <code class="docutils literal notranslate"><span class="pre">BACK</span> <span class="pre">WALL</span> <span class="pre">TEMPERATURE</span></code> (on back surface) (see 21.2.1 and 21.2.3 <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">FDS User’s Guide</a>). For this purpose a respective <code class="docutils literal notranslate"><span class="pre">DEVC</span></code> must be placed on the front surface of the solid <code class="docutils literal notranslate"><span class="pre">OBSTRUCTION</span></code>. The parameter <code class="docutils literal notranslate"><span class="pre">IOR</span></code> (Index of Orientation) is required for any device that is placed on the surface of a solid. It indicates the direction that the device points at. For example, <code class="docutils literal notranslate"><span class="pre">IOR</span> <span class="pre">=</span> <span class="pre">-1</span></code> means that the device is mounted on a wall that faces in the negative x direction. Run the simulation for 600 s and plot the indicated temperatures for both surfaces.</p></li>
@@ -883,14 +1037,18 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="figure align-default" id="heat-transfer-backings-start">
+<figure class="align-default" id="heat-transfer-backings-start">
 <a class="reference internal image-reference" href="../../../_images/backings_start.svg"><img alt="../../../_images/backings_start.svg" src="../../../_images/backings_start.svg" width="100%" /></a>
-<p class="caption"><span class="caption-number">Fig. 6.20 </span><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">WALL</span> <span class="pre">TEMPERATURE</span></code> and <code class="docutils literal notranslate"><span class="pre">INSIDE</span> <span class="pre">WALL</span> <span class="pre">TEMPERATURE</span></code> at several depths inside the solid steel obstruction within the first 10 seconds seconds of heating phase</span><a class="headerlink" href="#heat-transfer-backings-start" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="heat-transfer-backings-end">
+<figcaption>
+<p><span class="caption-number">Fig. 6.20 </span><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">WALL</span> <span class="pre">TEMPERATURE</span></code> and <code class="docutils literal notranslate"><span class="pre">INSIDE</span> <span class="pre">WALL</span> <span class="pre">TEMPERATURE</span></code> at several depths inside the solid steel obstruction within the first 10 seconds seconds of heating phase</span><a class="headerlink" href="#heat-transfer-backings-start" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="heat-transfer-backings-end">
 <a class="reference internal image-reference" href="../../../_images/backings_end.svg"><img alt="../../../_images/backings_end.svg" src="../../../_images/backings_end.svg" width="100%" /></a>
-<p class="caption"><span class="caption-number">Fig. 6.21 </span><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">WALL</span> <span class="pre">TEMPERATURE</span></code> and <code class="docutils literal notranslate"><span class="pre">INSIDE</span> <span class="pre">WALL</span> <span class="pre">TEMPERATURE</span></code> at several depths inside the solid steel obstruction within the first 600 seconds seconds of heating phase. The purple line indicates the relative error between an insulated and exposed backing boundary condition.</span><a class="headerlink" href="#heat-transfer-backings-end" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 6.21 </span><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">WALL</span> <span class="pre">TEMPERATURE</span></code> and <code class="docutils literal notranslate"><span class="pre">INSIDE</span> <span class="pre">WALL</span> <span class="pre">TEMPERATURE</span></code> at several depths inside the solid steel obstruction within the first 600 seconds seconds of heating phase. The purple line indicates the relative error between an insulated and exposed backing boundary condition.</span><a class="headerlink" href="#heat-transfer-backings-end" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <div class="cell tag_hide_cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_root</span> <span class="o">=</span> <span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;data/heat_transfer/HeatTransfer_2_2&#39;</span>
@@ -923,10 +1081,12 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <p><strong>3. Solution</strong></p>
-<div class="figure align-default" id="heat-transfer-specific-heat-capacity">
+<figure class="align-default" id="heat-transfer-specific-heat-capacity">
 <a class="reference internal image-reference" href="../../../_images/two_cell_problem.svg"><img alt="../../../_images/two_cell_problem.svg" src="../../../_images/two_cell_problem.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 6.22 </span><span class="caption-text">Comparison of heat conduction through a wall. The heat transfer into the space behind the wall is not computed if the obstruction is thicker than one cell.</span><a class="headerlink" href="#heat-transfer-specific-heat-capacity" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 6.22 </span><span class="caption-text">Comparison of heat conduction through a wall. The heat transfer into the space behind the wall is not computed if the obstruction is thicker than one cell.</span><a class="headerlink" href="#heat-transfer-specific-heat-capacity" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <div class="cell tag_hide_cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -1008,9 +1168,9 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="task-3">
-<h2>Task 3<a class="headerlink" href="#task-3" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="task-3">
+<h2>Task 3<a class="headerlink" href="#task-3" title="Permalink to this headline">#</a></h2>
 <p>The assumption of constant thermal material properties is a simplification that often is sufficiently accurate. In some cases, however, it may be necessary to consider the actual temperature-dependent properties of a material or component. This can be done in FDS by defining a RAMP function, which describes a material parameter as a function of temperature (see section 11.3.2 <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">FDS User’s Guide</a>).</p>
 <p>Figure <a class="reference internal" href="#heat-transfer-density"><span class="std std-numref">Fig. 6.24</span></a> - <a class="reference internal" href="#heat-transfer-conductivity"><span class="std std-numref">Fig. 6.26</span></a> shows the temperature-dependent relationships for the specific heat capacity, thermal conductivity and density of concrete according to DIN EN 1992-1-2.</p>
 <div class="admonition note">
@@ -1022,22 +1182,30 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>At 20°C, read the values from <a class="reference internal" href="#heat-transfer-density"><span class="std std-numref">Fig. 6.24</span></a> - <a class="reference internal" href="#heat-transfer-conductivity"><span class="std std-numref">Fig. 6.26</span></a> and define a new material “concrete” with the corresponding material properties. Define another material taking into account the variable material properties. Therefore roughly map the corresponding progression curves using a RAMP function (max. 7 datapoints each). Assign the two materials to “SURF_1”  and “SURF_2” in the FDS file.</p></li>
 <li><p>Run the simulation for 600 s and compare the <code class="docutils literal notranslate"><span class="pre">WALL</span> <span class="pre">TEMPERATURE</span></code> for both surfaces as well as the <code class="docutils literal notranslate"><span class="pre">INSIDE</span> <span class="pre">WALL</span> <span class="pre">TEMPERATURE</span></code> at d = 10 mm. Assume the wall to have a thickness of 10 cm. Assume a humidity of 3 %. For the conductivity consider the upper limit.</p></li>
 </ol>
-<div class="figure align-default" id="heat-transfer-namelist-dependencies-ramp">
+<figure class="align-default" id="heat-transfer-namelist-dependencies-ramp">
 <a class="reference internal image-reference" href="../../../_images/flow_chart_ramp.svg"><img alt="../../../_images/flow_chart_ramp.svg" src="../../../_images/flow_chart_ramp.svg" width="70%" /></a>
-<p class="caption"><span class="caption-number">Fig. 6.23 </span><span class="caption-text">Namelist dependencies <code class="docutils literal notranslate"><span class="pre">MATL</span></code> (material) and <code class="docutils literal notranslate"><span class="pre">RAMP</span></code> (ramp function)</span><a class="headerlink" href="#heat-transfer-namelist-dependencies-ramp" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="heat-transfer-density">
+<figcaption>
+<p><span class="caption-number">Fig. 6.23 </span><span class="caption-text">Namelist dependencies <code class="docutils literal notranslate"><span class="pre">MATL</span></code> (material) and <code class="docutils literal notranslate"><span class="pre">RAMP</span></code> (ramp function)</span><a class="headerlink" href="#heat-transfer-namelist-dependencies-ramp" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="heat-transfer-density">
 <a class="reference internal image-reference" href="../../../_images/density.svg"><img alt="../../../_images/density.svg" src="../../../_images/density.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 6.24 </span><span class="caption-text">Density of concrete as a function of temperature</span><a class="headerlink" href="#heat-transfer-density" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="id1">
+<figcaption>
+<p><span class="caption-number">Fig. 6.24 </span><span class="caption-text">Density of concrete as a function of temperature</span><a class="headerlink" href="#heat-transfer-density" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="id1">
 <a class="reference internal image-reference" href="../../../_images/specific_heat_capacity.svg"><img alt="../../../_images/specific_heat_capacity.svg" src="../../../_images/specific_heat_capacity.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 6.25 </span><span class="caption-text">Specific heat of concrete with quartz-containing additive as a function of temperature</span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="heat-transfer-conductivity">
+<figcaption>
+<p><span class="caption-number">Fig. 6.25 </span><span class="caption-text">Specific heat of concrete with quartz-containing additive as a function of temperature</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="heat-transfer-conductivity">
 <a class="reference internal image-reference" href="../../../_images/conductivity.svg"><img alt="../../../_images/conductivity.svg" src="../../../_images/conductivity.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 6.26 </span><span class="caption-text">Thermal conductivity of concrete</span><a class="headerlink" href="#heat-transfer-conductivity" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 6.26 </span><span class="caption-text">Thermal conductivity of concrete</span><a class="headerlink" href="#heat-transfer-conductivity" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p><strong>1. and 2. Solution</strong></p>
 <div class="cell tag_hide_cell docutils container">
 <div class="cell_input docutils container">
@@ -1064,12 +1232,14 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-<div class="figure align-default" id="heat-transfer-ramp-mat-prop">
+<figure class="align-default" id="heat-transfer-ramp-mat-prop">
 <a class="reference internal image-reference" href="../../../_images/mat_prop.svg"><img alt="../../../_images/mat_prop.svg" src="../../../_images/mat_prop.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 6.27 </span><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">WALL</span> <span class="pre">TEMPERATURE</span></code> and <code class="docutils literal notranslate"><span class="pre">INSIDE</span> <span class="pre">WALL</span> <span class="pre">TEMPERATURE</span></code> of concrete <code class="docutils literal notranslate"><span class="pre">SURF</span></code> with fixed and temperature dependent material properties</span><a class="headerlink" href="#heat-transfer-ramp-mat-prop" title="Permalink to this image">¶</a></p>
-</div>
-</div>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 6.27 </span><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">WALL</span> <span class="pre">TEMPERATURE</span></code> and <code class="docutils literal notranslate"><span class="pre">INSIDE</span> <span class="pre">WALL</span> <span class="pre">TEMPERATURE</span></code> of concrete <code class="docutils literal notranslate"><span class="pre">SURF</span></code> with fixed and temperature dependent material properties</span><a class="headerlink" href="#heat-transfer-ramp-mat-prop" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1093,9 +1263,11 @@ const thebe_selector_output = ".output, .cell_output"
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="01_fundamentals.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1111,29 +1283,33 @@ const thebe_selector_output = ".output, .cell_output"
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
-    
-      <div class="extra_footer">
-        <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    <div class="extra_footer">
+      <p>
 <img src='https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg' height='31'/>
 | By Team Fire | Contacts and Infos: <a href='https://cce.uni-wuppertal.de/en.html'>CCE@BUW</a> and <a href='https://www.fz-juelich.de/ias/ias-7/EN/Research/Fire_Dynamics/_node.html'>IAS-7@FZJ</a>
 </br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
 </p>
 
-      </div>
-  </p>
-</footer>
-</main>
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

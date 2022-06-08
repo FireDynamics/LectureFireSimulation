@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>2.3. Turbulence &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
     
-  <link href="../../../_static/css/theme.css" rel="stylesheet">
-  <link href="../../../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,21 +20,17 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../../_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -40,12 +38,13 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="../../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -67,7 +66,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -76,9 +89,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -96,14 +110,15 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../overview/01_overview.html">
-   Overview
-  </a>
- </li>
-</ul>
-<p aria-level="2" class="caption" role="heading">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../overview/01_overview.html">
+                    Overview
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Introduction
  </span>
@@ -433,88 +448,193 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../../_sources/content/modelling/02_fluids/03_turbulence.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/FireDynamics/LectureFireSimulation"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/modelling/02_fluids/03_turbulence.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        <a class="edit-button" href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/modelling/02_fluids/03_turbulence.md"><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
         </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
 
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/FireDynamics/LectureFireSimulation"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/modelling/02_fluids/03_turbulence.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/modelling/02_fluids/03_turbulence.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/content/modelling/02_fluids/03_turbulence.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#characterisation">
    Characterisation
@@ -532,12 +652,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Turbulence</h1>
@@ -571,11 +690,12 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="turbulence">
-<h1><span class="section-number">2.3. </span>Turbulence<a class="headerlink" href="#turbulence" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="turbulence">
+<h1><span class="section-number">2.3. </span>Turbulence<a class="headerlink" href="#turbulence" title="Permalink to this headline">#</a></h1>
 <p>Turbulence is one of the major scientific challenges. The mathematical description and experimental data related to fluid dynamics are known and available for over one hundred years.</p>
 <blockquote>
 <div><p>“Turbulence is the most important unsolved problem of classical physics.”<br>
@@ -587,70 +707,94 @@ I really believe he will have an answer for the first.”<br>
 — Werner Heisenberg</p>
 </div></blockquote>
 <p>Understanding the nature of turbulence is one of the <a class="reference external" href="https://www.claymath.org/millennium-problems/navier%E2%80%93stokes-equation">Millennium Problems</a>.</p>
-<div class="figure align-default" id="fig-turbulence-great-wave">
+<figure class="align-default" id="fig-turbulence-great-wave">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Great_Wave_off_Kanagawa2.jpg/1280px-Great_Wave_off_Kanagawa2.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Great_Wave_off_Kanagawa2.jpg/1280px-Great_Wave_off_Kanagawa2.jpg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Great_Wave_off_Kanagawa2.jpg/1280px-Great_Wave_off_Kanagawa2.jpg" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.27 </span><span class="caption-text">Great wave off Kanagawa. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Great_Wave_off_Kanagawa2.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-turbulence-great-wave" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="fig-turbulence-kh-waves">
+<figcaption>
+<p><span class="caption-number">Fig. 2.27 </span><span class="caption-text">Great wave off Kanagawa. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Great_Wave_off_Kanagawa2.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-turbulence-great-wave" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fig-turbulence-kh-waves">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/4/48/Kelvin-Helmholtz_waves.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/4/48/Kelvin-Helmholtz_waves.jpg" src="https://upload.wikimedia.org/wikipedia/commons/4/48/Kelvin-Helmholtz_waves.jpg" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.28 </span><span class="caption-text"><a class="reference external" href="https://en.wikipedia.org/wiki/Kelvin%E2%80%93Helmholtz_instability">Kelvin–Helmholtz instability</a> in a cloud formation. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Kelvin-Helmholtz_waves.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-turbulence-kh-waves" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 2.28 </span><span class="caption-text"><a class="reference external" href="https://en.wikipedia.org/wiki/Kelvin%E2%80%93Helmholtz_instability">Kelvin–Helmholtz instability</a> in a cloud formation. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Kelvin-Helmholtz_waves.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-turbulence-kh-waves" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>On of the reference books for turbulence is <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id11" title="Stephen B Pope. Turbulent Flows. Cambridge University Press, 2000. ISBN 9780521598866. doi:10.1017/cbo9780511840531.">Pop00</a>]</span> and further interesting LES reading: <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id12" title="Stephen B Pope. Ten questions concerning the large-eddy simulation of turbulent flows. New Journal of Physics, 6(1):35, 2004. doi:10.1088/1367-2630/6/1/035.">Pop04</a>]</span>.</p>
-<div class="section" id="characterisation">
-<h2>Characterisation<a class="headerlink" href="#characterisation" title="Permalink to this headline">¶</a></h2>
+<section id="characterisation">
+<h2>Characterisation<a class="headerlink" href="#characterisation" title="Permalink to this headline">#</a></h2>
 <p>Among the first scientific experiments to characterise and analyse turbulent flows, is the work of <a class="reference external" href="https://en.wikipedia.org/wiki/Osborne_Reynolds">Osborne Reynolds</a>. He studied the conditions under which a flow undergoes the transition from a ordered to a chaotic state. One of these studies is published in <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id14" title="Osborne Reynolds. III. An experimental investigation of the circumstances which determine whether the motion of water shall be direct or sinuous, and of the law of resistance in parallel channels. Proceedings of the Royal Society of London, 35(224-226):84–99, 1883. doi:10.1098/rspl.1883.0018.">Rey83</a>]</span>, see <a class="reference internal" href="#fig-turbulence-reynolds-experiment"><span class="std std-numref">Fig. 2.29</span></a> and <a class="reference internal" href="#fig-turbulence-reynolds-results"><span class="std std-numref">Fig. 2.30</span></a>.</p>
-<div class="figure align-default" id="fig-turbulence-reynolds-experiment">
+<figure class="align-default" id="fig-turbulence-reynolds-experiment">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/f/f3/Reynolds_fluid_turbulence_experiment_1883.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/f/f3/Reynolds_fluid_turbulence_experiment_1883.jpg" src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Reynolds_fluid_turbulence_experiment_1883.jpg" style="width: 40%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.29 </span><span class="caption-text">Reynolds’ experiment in 1883. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Reynolds_fluid_turbulence_experiment_1883.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-turbulence-reynolds-experiment" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="fig-turbulence-reynolds-results">
+<figcaption>
+<p><span class="caption-number">Fig. 2.29 </span><span class="caption-text">Reynolds’ experiment in 1883. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Reynolds_fluid_turbulence_experiment_1883.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-turbulence-reynolds-experiment" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fig-turbulence-reynolds-results">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/1/12/Reynolds_observations_turbulence_1883.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/1/12/Reynolds_observations_turbulence_1883.svg" src="https://upload.wikimedia.org/wikipedia/commons/1/12/Reynolds_observations_turbulence_1883.svg" width="60%" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.30 </span><span class="caption-text">Observations of the flow in Reynolds’ experiment, see also original article <span id="id4">[<a class="reference internal" href="../../overview/03_references.html#id14" title="Osborne Reynolds. III. An experimental investigation of the circumstances which determine whether the motion of water shall be direct or sinuous, and of the law of resistance in parallel channels. Proceedings of the Royal Society of London, 35(224-226):84–99, 1883. doi:10.1098/rspl.1883.0018.">Rey83</a>]</span>. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Reynolds_observations_turbulence_1883.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-turbulence-reynolds-results" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 2.30 </span><span class="caption-text">Observations of the flow in Reynolds’ experiment, see also original article <span id="id4">[<a class="reference internal" href="../../overview/03_references.html#id14" title="Osborne Reynolds. III. An experimental investigation of the circumstances which determine whether the motion of water shall be direct or sinuous, and of the law of resistance in parallel channels. Proceedings of the Royal Society of London, 35(224-226):84–99, 1883. doi:10.1098/rspl.1883.0018.">Rey83</a>]</span>. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Reynolds_observations_turbulence_1883.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-turbulence-reynolds-results" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>With these experiments the flow transition as a function of the Reynolds number can be investigated. An other example for the determination of the transition from a laminar to a turbulent state for a bouyant plume is shown in <a class="reference internal" href="#fig-turbulence-plume-setup"><span class="std std-numref">Fig. 2.31</span></a>. The full experimental setup and results are given in <span id="id5">[<a class="reference internal" href="../../overview/03_references.html#id13" title="Andreas Meunders, Lukas Arnold, Alexander Belt, and Alexander Hundhausen. Velocity measurements of a bench scale buoyant plume applying particle image velocimetry. International Journal of Heat and Mass Transfer, 123:473–488, 2018. doi:10.1016/j.ijheatmasstransfer.2018.02.011.">MABH18</a>]</span>.</p>
-<div class="figure align-default" id="fig-turbulence-plume-setup">
+<figure class="align-default" id="fig-turbulence-plume-setup">
 <a class="reference internal image-reference" href="../../../_images/turbulence-plume-setup.jpg"><img alt="../../../_images/turbulence-plume-setup.jpg" src="../../../_images/turbulence-plume-setup.jpg" style="width: 60%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.31 </span><span class="caption-text">Experimental setup of a buoyant plume, see <span id="id6">[<a class="reference internal" href="../../overview/03_references.html#id13" title="Andreas Meunders, Lukas Arnold, Alexander Belt, and Alexander Hundhausen. Velocity measurements of a bench scale buoyant plume applying particle image velocimetry. International Journal of Heat and Mass Transfer, 123:473–488, 2018. doi:10.1016/j.ijheatmasstransfer.2018.02.011.">MABH18</a>]</span> for more details. Here, the heating power of the copper block determines the flow velocity.</span><a class="headerlink" href="#fig-turbulence-plume-setup" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="fig-turbulence-plume-quiver">
+<figcaption>
+<p><span class="caption-number">Fig. 2.31 </span><span class="caption-text">Experimental setup of a buoyant plume, see <span id="id6">[<a class="reference internal" href="../../overview/03_references.html#id13" title="Andreas Meunders, Lukas Arnold, Alexander Belt, and Alexander Hundhausen. Velocity measurements of a bench scale buoyant plume applying particle image velocimetry. International Journal of Heat and Mass Transfer, 123:473–488, 2018. doi:10.1016/j.ijheatmasstransfer.2018.02.011.">MABH18</a>]</span> for more details. Here, the heating power of the copper block determines the flow velocity.</span><a class="headerlink" href="#fig-turbulence-plume-setup" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fig-turbulence-plume-quiver">
 <a class="reference internal image-reference" href="../../../_images/turbulence-plume-velocity_quiver.png"><img alt="../../../_images/turbulence-plume-velocity_quiver.png" src="../../../_images/turbulence-plume-velocity_quiver.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.32 </span><span class="caption-text">Example of instanteneous velocity fields for different heating rates. The velocity field is captured with a <a class="reference external" href="https://en.wikipedia.org/wiki/Particle_image_velocimetry">particle imaging velocimetry (PIV)</a> technique.</span><a class="headerlink" href="#fig-turbulence-plume-quiver" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="fig-turbulence-plume-time-series">
+<figcaption>
+<p><span class="caption-number">Fig. 2.32 </span><span class="caption-text">Example of instanteneous velocity fields for different heating rates. The velocity field is captured with a <a class="reference external" href="https://en.wikipedia.org/wiki/Particle_image_velocimetry">particle imaging velocimetry (PIV)</a> technique.</span><a class="headerlink" href="#fig-turbulence-plume-quiver" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fig-turbulence-plume-time-series">
 <a class="reference internal image-reference" href="../../../_images/turbulence-plume-velocity_time_series.png"><img alt="../../../_images/turbulence-plume-velocity_time_series.png" src="../../../_images/turbulence-plume-velocity_time_series.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.33 </span><span class="caption-text">Time series of velocity components at selected locations (blue circles in <a class="reference internal" href="#fig-turbulence-plume-quiver"><span class="std std-numref">Fig. 2.32</span></a>).</span><a class="headerlink" href="#fig-turbulence-plume-time-series" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="fig-turbulence-plume-fluctuations">
+<figcaption>
+<p><span class="caption-number">Fig. 2.33 </span><span class="caption-text">Time series of velocity components at selected locations (blue circles in <a class="reference internal" href="#fig-turbulence-plume-quiver"><span class="std std-numref">Fig. 2.32</span></a>).</span><a class="headerlink" href="#fig-turbulence-plume-time-series" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fig-turbulence-plume-fluctuations">
 <a class="reference internal image-reference" href="../../../_images/turbulence-plume-velocity_fluctuations.png"><img alt="../../../_images/turbulence-plume-velocity_fluctuations.png" src="../../../_images/turbulence-plume-velocity_fluctuations.png" style="width: 80%;" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.34 </span><span class="caption-text">Statistics of velocity fluctuations.</span><a class="headerlink" href="#fig-turbulence-plume-fluctuations" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 2.34 </span><span class="caption-text">Statistics of velocity fluctuations.</span><a class="headerlink" href="#fig-turbulence-plume-fluctuations" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>The canonical setup for the transition form a laminar to a turbulent flow is a pipe flow, as shown in <a class="reference internal" href="#fig-turbulence-pipe-setup"><span class="std std-numref">Fig. 2.35</span></a>. Starting with a uniform flow at the inlet, the flow at the boudaries is deaccelerated and an acccording flow pattern develops. Depending on the Reynolds number, the mean velocity profiles differ significantly. While in the laminar case a parabolic profile develops, a flattened profile is characteristic for a turbulent flow, see <a class="reference internal" href="#fig-turbulence-pipe-velocity"><span class="std std-numref">Fig. 2.36</span></a>. An other observation is that the effective viscosity differs in both cases. While in the laminar case the observed value is the material property and thus constant, it shows a higher and dynamic value in the turbulent case, see <a class="reference internal" href="#fig-turbulence-pipe-viscosity"><span class="std std-numref">Fig. 2.37</span></a>.</p>
-<div class="figure align-default" id="fig-turbulence-pipe-setup">
+<figure class="align-default" id="fig-turbulence-pipe-setup">
 <a class="reference internal image-reference" href="../../../_images/turbulence-pipe-sketch-labeled.svg"><img alt="../../../_images/turbulence-pipe-sketch-labeled.svg" src="../../../_images/turbulence-pipe-sketch-labeled.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.35 </span><span class="caption-text">Schematics of a pipe flow. The arrows indicate the time averaged velocity.</span><a class="headerlink" href="#fig-turbulence-pipe-setup" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="fig-turbulence-pipe-velocity">
+<figcaption>
+<p><span class="caption-number">Fig. 2.35 </span><span class="caption-text">Schematics of a pipe flow. The arrows indicate the time averaged velocity.</span><a class="headerlink" href="#fig-turbulence-pipe-setup" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fig-turbulence-pipe-velocity">
 <a class="reference internal image-reference" href="../../../_images/turbulence-pipe-velocity.svg"><img alt="../../../_images/turbulence-pipe-velocity.svg" src="../../../_images/turbulence-pipe-velocity.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.36 </span><span class="caption-text">Schematics mean flow in a pipe.</span><a class="headerlink" href="#fig-turbulence-pipe-velocity" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="fig-turbulence-pipe-viscosity">
+<figcaption>
+<p><span class="caption-number">Fig. 2.36 </span><span class="caption-text">Schematics mean flow in a pipe.</span><a class="headerlink" href="#fig-turbulence-pipe-velocity" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fig-turbulence-pipe-viscosity">
 <a class="reference internal image-reference" href="../../../_images/turbulence-pipe-viscosity.svg"><img alt="../../../_images/turbulence-pipe-viscosity.svg" src="../../../_images/turbulence-pipe-viscosity.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.37 </span><span class="caption-text">Schematics of the effective viscosity in a pipe flow.</span><a class="headerlink" href="#fig-turbulence-pipe-viscosity" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 2.37 </span><span class="caption-text">Schematics of the effective viscosity in a pipe flow.</span><a class="headerlink" href="#fig-turbulence-pipe-viscosity" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>The following video shows a few simple experiments, including the one performed by Reynolds, that might help to understand some of the fundamental concepts of fluid flow and turbulence.</p>
 <iframe width="60%" src="https://www.youtube-nocookie.com/embed/LTHIGdIEKJI" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe><br>
-</div>
-<div class="section" id="scales">
-<h2>Scales<a class="headerlink" href="#scales" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="scales">
+<h2>Scales<a class="headerlink" href="#scales" title="Permalink to this headline">#</a></h2>
 <p>Turbulence is dominated by the interaction of large and small scales, which are very different:</p>
 <ul class="simple">
 <li><p>production of kinetic energy, e.g. a fire at a scale of <span class="math notranslate nohighlight">\(\mf 1~m\)</span></p></li>
 <li><p>dissipation of kinetic energy into heat, in air with a velocity of <span class="math notranslate nohighlight">\(\mf 1~m/s\)</span> the dissipation scale (<a class="reference external" href="https://en.wikipedia.org/wiki/Kolmogorov_microscales">Kolmogorov scale</a>) is about <span class="math notranslate nohighlight">\(\mf 25~\mu m\)</span></p></li>
 </ul>
-<div class="figure align-default" id="fig-turbulence-energy-cascade">
+<figure class="align-default" id="fig-turbulence-energy-cascade">
 <a class="reference internal image-reference" href="../../../_images/energy-cascade.svg"><img alt="../../../_images/energy-cascade.svg" src="../../../_images/energy-cascade.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.38 </span><span class="caption-text">Scales involved in a turbulent flow.</span><a class="headerlink" href="#fig-turbulence-energy-cascade" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 2.38 </span><span class="caption-text">Scales involved in a turbulent flow.</span><a class="headerlink" href="#fig-turbulence-energy-cascade" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>The integral scale, at which the flow structures break into smaller structures, connects both above scales.</p>
 <p>In turbulence literature the structures are often represented by wavenumbers <span class="math notranslate nohighlight">\(\mf k\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -662,15 +806,19 @@ I really believe he will have an answer for the first.”<br>
 \[
 \mf k_0 = \frac{\pi}{\Delta x}\quad .
 \]</div>
-<div class="figure align-default" id="fig-turbulence-subgridscale">
+<figure class="align-default" id="fig-turbulence-subgridscale">
 <a class="reference internal image-reference" href="../../../_images/subgridscale.svg"><img alt="../../../_images/subgridscale.svg" src="../../../_images/subgridscale.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.39 </span><span class="caption-text">Scales and resolution on a numerical grid.</span><a class="headerlink" href="#fig-turbulence-subgridscale" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 2.39 </span><span class="caption-text">Scales and resolution on a numerical grid.</span><a class="headerlink" href="#fig-turbulence-subgridscale" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Often, the kinetic energy spectrum is considered in turbulence. It can be divided into (at least) three sections, as outlined in <a class="reference internal" href="#fig-turbulence-energy-spectrum-physical"><span class="std std-numref">Fig. 2.40</span></a>.</p>
-<div class="figure align-default" id="fig-turbulence-energy-spectrum-physical">
+<figure class="align-default" id="fig-turbulence-energy-spectrum-physical">
 <a class="reference internal image-reference" href="../../../_images/energy-spectrum-physical.svg"><img alt="../../../_images/energy-spectrum-physical.svg" src="../../../_images/energy-spectrum-physical.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.40 </span><span class="caption-text">Energy spectrum for a homogeneous isotropic turbulent flow.</span><a class="headerlink" href="#fig-turbulence-energy-spectrum-physical" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 2.40 </span><span class="caption-text">Energy spectrum for a homogeneous isotropic turbulent flow.</span><a class="headerlink" href="#fig-turbulence-energy-spectrum-physical" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>Given a finite value of the grid resolution, thus also the minimal wavenumber, the energy spectrum can not be fully resolved and the unresolved parts must be modelled with a sub-grid scale (SGS) model.</p>
 <p>To model turbulence, the impact of small scales on the large scales must be approximated. The main two approaches are based on either a spatial or a temporal means.</p>
 <!-- :::{figure-md} fig-turbulence-energy-spectrum
@@ -678,28 +826,32 @@ I really believe he will have an answer for the first.”<br>
 
 Energy spectrum of a turbulent flow. Source: [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Schematic-illustration-of-the-energy-spectrum-of-turbulent-velocity-cascade.png).
 ::: -->
-</div>
-<div class="section" id="modelling">
-<h2>Modelling<a class="headerlink" href="#modelling" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="modelling">
+<h2>Modelling<a class="headerlink" href="#modelling" title="Permalink to this headline">#</a></h2>
 <p>In fire simulations, two classes of turbulence models are common: direct numerical simulatons (DNS) and large eddy simulations (LES). Although for practical applications only the LES class is suitable.</p>
-<div class="figure align-default" id="fig-turbulence-modelling-overview">
+<figure class="align-default" id="fig-turbulence-modelling-overview">
 <a class="reference internal image-reference" href="../../../_images/turbulence-modelling-overview.svg"><img alt="../../../_images/turbulence-modelling-overview.svg" src="../../../_images/turbulence-modelling-overview.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.41 </span><span class="caption-text">Overview of the resolved and modelled scales in DNS and LES Simulations.</span><a class="headerlink" href="#fig-turbulence-modelling-overview" title="Permalink to this image">¶</a></p>
-</div>
-<div class="figure align-default" id="fig-turbulence-energy-spectrum-modelling">
+<figcaption>
+<p><span class="caption-number">Fig. 2.41 </span><span class="caption-text">Overview of the resolved and modelled scales in DNS and LES Simulations.</span><a class="headerlink" href="#fig-turbulence-modelling-overview" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fig-turbulence-energy-spectrum-modelling">
 <a class="reference internal image-reference" href="../../../_images/energy-spectrum-modelling.svg"><img alt="../../../_images/energy-spectrum-modelling.svg" src="../../../_images/energy-spectrum-modelling.svg" width="80%" /></a>
-<p class="caption"><span class="caption-number">Fig. 2.42 </span><span class="caption-text">Resolved scales of various modelling approaches.</span><a class="headerlink" href="#fig-turbulence-energy-spectrum-modelling" title="Permalink to this image">¶</a></p>
-</div>
+<figcaption>
+<p><span class="caption-number">Fig. 2.42 </span><span class="caption-text">Resolved scales of various modelling approaches.</span><a class="headerlink" href="#fig-turbulence-energy-spectrum-modelling" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>DNS does not model any scales, but rather resolves them all. Thus this model can only be applied if the Kolmogorov scale is numerically resolved.</p>
 <p>The general idea of LES is to formulate equations for spatially filtered quantites. In case of LES this filter is given by</p>
 <div class="math notranslate nohighlight" id="equation-eq-les-filter">
-<span class="eqno">(2.25)<a class="headerlink" href="#equation-eq-les-filter" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(2.25)<a class="headerlink" href="#equation-eq-les-filter" title="Permalink to this equation">#</a></span>\[
 \mf \langle\phi\rangle = \bar{\phi} = \frac{1}{V}\int_V \phi\ dV 
 \]</div>
 <p>for any field quantity <span class="math notranslate nohighlight">\(\mf \phi = \phi(x,y,z,t)\)</span>.</p>
 <p>For simplicity, the LES equations for the spatially filtered velocity <span class="math notranslate nohighlight">\(\mf \langle\vec{v}\rangle\)</span> of an incompressible isothermal flow are given by</p>
 <div class="math notranslate nohighlight" id="equation-eq-les-eom">
-<span class="eqno">(2.26)<a class="headerlink" href="#equation-eq-les-eom" title="Permalink to this equation">¶</a></span>\[
+<span class="eqno">(2.26)<a class="headerlink" href="#equation-eq-les-eom" title="Permalink to this equation">#</a></span>\[
 \mf \partial_t(\rho \langle\vec{v}\rangle) + \nabla\cdot(\rho \langle\vec{v}\rangle \langle\vec{v}\rangle) = -\nabla \langle p\rangle + \mu\nabla^2 \langle\vec{v}\rangle - \nabla\cdot(\underbrace{\langle\rho\vec{v}\vec{v}\rangle - \rho \langle\vec{v}\rangle \langle\vec{v}\rangle}_{\tau_{sgs}})
 \]</div>
 <div class="admonition-task admonition">
@@ -725,14 +877,14 @@ Energy spectrum of a turbulent flow. Source: [Wikimedia Commons](https://commons
 \mf \mu_t = \langle\rho\rangle C_S^2\Delta^2\|\textbf{S}\|
 \]</div>
 <p>and</p>
-<div class="margin sidebar">
+<aside class="margin sidebar">
 <p class="sidebar-title">Note:</p>
 <p>A common representation of operations involving vectors and tensors is the (Einstein) summation convention. It states, that a sum is computet over all indices which appear twice. For example:</p>
 <div class="math notranslate nohighlight">
 \[
 \mf \vec{a} \cdot \vec{b} = \sum_i a_i b_i = a_i b_i \quad .
 \]</div>
-</div>
+</aside>
 <div class="math notranslate nohighlight">
 \[
 \mf \|\textbf{S}\| = \sqrt{S_{ij}S_{ij} - \frac{2}{3}\left(\nabla\cdot\vv\right)^2} \quad .
@@ -762,8 +914,8 @@ Beside this static model, there exist also a dynamic model, where the value of <
 <li><p>Renormalization Group Eddy Viscosity</p></li>
 <li><p>Wall-Adapting Local Eddy-viscosity</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -787,9 +939,11 @@ Beside this static model, there exist also a dynamic model, where the value of <
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="02_cfd.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -805,29 +959,33 @@ Beside this static model, there exist also a dynamic model, where the value of <
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
-    
-      <div class="extra_footer">
-        <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    <div class="extra_footer">
+      <p>
 <img src='https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg' height='31'/>
 | By Team Fire | Contacts and Infos: <a href='https://cce.uni-wuppertal.de/en.html'>CCE@BUW</a> and <a href='https://www.fz-juelich.de/ias/ias-7/EN/Research/Fire_Dynamics/_node.html'>IAS-7@FZJ</a>
 </br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
 </p>
 
-      </div>
-  </p>
-</footer>
-</main>
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>
