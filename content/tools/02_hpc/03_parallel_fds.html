@@ -21,7 +21,7 @@
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -38,7 +38,7 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -634,6 +634,28 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basics">
+   Basics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ssh">
+     SSH
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#environment-modules-lmod">
+     Environment modules (Lmod)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#slurm">
+     SLURM
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#accessing-jureca">
    Accessing JURECA
   </a>
@@ -641,11 +663,6 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#accounts">
      Accounts
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ssh">
-     SSH
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -729,6 +746,28 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#basics">
+   Basics
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#ssh">
+     SSH
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#environment-modules-lmod">
+     Environment modules (Lmod)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#slurm">
+     SLURM
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#accessing-jureca">
    Accessing JURECA
   </a>
@@ -736,11 +775,6 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#accounts">
      Accounts
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#ssh">
-     SSH
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -816,21 +850,92 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="parallel-execution-of-fds">
 <h1>Parallel Execution of FDS<a class="headerlink" href="#parallel-execution-of-fds" title="Permalink to this headline">#</a></h1>
+<section id="basics">
+<h2>Basics<a class="headerlink" href="#basics" title="Permalink to this headline">#</a></h2>
+<p>Below two different HPC clusters are discussed. Make sure to look into the system that you will be working on. The computer <a class="reference external" href="https://www.fz-juelich.de/en/ias/jsc/systems/supercomputers/jureca">JURECA</a> is located at the Forschungszentrum Jülich (FZJ) and <a class="reference external" href="https://pleiades.uni-wuppertal.de/en/">Pleiades</a> is located at the Bergische Universität Wuppertal (BUW), both in Germany.</p>
+<p>Follow the respective link to the documentation of <a class="reference external" href="https://apps.fz-juelich.de/jsc/hps/jureca/index.html">JURECA</a> or <a class="reference external" href="https://pleiadesbuw.github.io/PleiadesUserDocumentation/">Pleiades</a>.</p>
+<section id="ssh">
+<h3>SSH<a class="headerlink" href="#ssh" title="Permalink to this headline">#</a></h3>
+<p>To reach the compute clusters you need to log in via the <a class="reference external" href="https://en.wikipedia.org/wiki/Secure_Shell_Protocol">secure shell protocol (SSH)</a>.</p>
+<p>Most Linux and MacOS systems have a SSH client installed. On Windows, you can use tools like <a class="reference external" href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">PuTTY</a> for the connection per terminal and <a class="reference external" href="https://winscp.net/eng/download.php">WinSCP</a> to copy files with a graphical user interface.</p>
+<p>Depending on your SSH client, there are various ways to generate a SSH key pair (public and private). It should always be protected with a passphrase.</p>
+<p>One of the safety measures on JURECA is, that you need to specify the IP range from which you access the system, see <a class="reference external" href="https://apps.fz-juelich.de/jsc/hps/jureca/access.html#key-upload-key-restriction">key restrictions</a>. If you use VPN, e.g. provided by the University of Wuppertal, your <code class="docutils literal notranslate"><span class="pre">from</span></code> statement could include <code class="docutils literal notranslate"><span class="pre">*.uni-wuppertal.de</span></code>.</p>
+</section>
+<section id="environment-modules-lmod">
+<h3>Environment modules (Lmod)<a class="headerlink" href="#environment-modules-lmod" title="Permalink to this headline">#</a></h3>
+<p>With <a class="reference external" href="https://lmod.readthedocs.io/en/latest/">Lmod</a> the user is able to dynamically change the terminal environment. This is convenient for example when different simulation software versions are to be used. See below for guides of the modules on the systems JURECA and Pleiades.</p>
+<p>Documentation of Lmod can be found <a class="reference external" href="https://lmod.readthedocs.io/en/latest/010_user.html">here</a>. Some of the most important commands are reproduced here.</p>
+<p>An overview over already loaded modules is provided with the following command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; module list
+</pre></div>
+</div>
+<p>To find out what modules are available to be loaded, type:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; module avail
+</pre></div>
+</div>
+<p>Desired modules can simply loaded by typing:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; module load package1 package2 ...
+</pre></div>
+</div>
+<p>For unloading use the following command:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; module unload package1 package2 ...
+</pre></div>
+</div>
+<p>A user may wish to go back to an initial set of modules:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; module reset
+</pre></div>
+</div>
+<p>Another way to search for modules is with the “<code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">spider</span></code>” command. This command searches the entire list of possible modules:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; module spider
+</pre></div>
+</div>
+<p>What is now the difference between “<code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">avail</span></code>” and “<code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">spider</span></code>”? Lmod reports only the modules that are in the current MODULEPATH (<code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">avail</span></code>). Those are the only modules that the user can load. If there is a modulefile hierarchy, then a package the user wants may be available but not with the current compiler version (<code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">spider</span></code>).</p>
+<p>This is explained in the <a class="reference external" href="https://lmod.readthedocs.io/en/latest/010_user.html">“Module Hierarchy” and “Searching for Modules” sections</a>.</p>
+</section>
+<section id="slurm">
+<h3>SLURM<a class="headerlink" href="#slurm" title="Permalink to this headline">#</a></h3>
+<p>To efficiently use the provided resources of a large compute cluster, workload managers are used. A common workload manager is <a class="reference external" href="https://slurm.schedmd.com/documentation.html">SLURM</a>, which is also used on JURECA and Pleiades.</p>
+<p>Some of the basic commands are reproduced here. Many parameters can be used to control the behaviour of the individual commands. Look into the <a class="reference external" href="https://slurm.schedmd.com/documentation.html">documentation</a> for a comprehensive overview.</p>
+<p>An overview over all jobs in the queue is provided with:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; squeue
+</pre></div>
+</div>
+<p>More useful is to limit the output to the jobs of the user, which can be accomplished by adding the following parameters:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; squeue -u $USER
+</pre></div>
+</div>
+<p>Look also to the “Aliases” section to set up the <code class="docutils literal notranslate"><span class="pre">myjobs</span></code> alias.</p>
+<p>To submit submit a job for execution or initiate job steps in real time use the following. A job can contain multiple job steps executing sequentially or in parallel on independent or shared resources within the job’s node allocation.:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; srun
+</pre></div>
+</div>
+<p>Jobs can be canceled by using <code class="docutils literal notranslate"><span class="pre">scancel</span></code> and providing the job id number:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; scancel job_id_number
+</pre></div>
+</div>
+<p>Here, some parameters are handy. For example all jobs can be canceled that have the same name, thus one does not need to enter many job ids (see also job scripts for the names):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; scancel -n job_name
+</pre></div>
+</div>
+<p>One might want to further limit the command, by setting the focus on jobs with a specific name and also state. For example <code class="docutils literal notranslate"><span class="pre">PENDING</span></code> or <code class="docutils literal notranslate"><span class="pre">RUNNING</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; scancel -n job_name --state=&quot;PENDING&quot;
+</pre></div>
+</div>
+<p>Often different queues exist on the computers. These can be defined by the maximum runtime of a job or the resources available, for example if the computer has also access to GPU clusters. For example <a class="reference external" href="https://pleiadesbuw.github.io/PleiadesUserDocumentation/slurm">Pleiades provides</a> a couple different queues: “short” limited to 1 h for testing, “normal” a 3 day limit (default), “long” with a time limit of 7 days and “gpu” for access to the GPU cluster with a time limit of 3 days. Note: best practice is to use the shortest queue for your jobs! These queues are called “partition”, the respective parameter is <code class="docutils literal notranslate"><span class="pre">--partition</span></code> or short <code class="docutils literal notranslate"><span class="pre">-p</span></code>:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; srun --partition=normal
+</pre></div>
+</div>
+</section>
+</section>
 <section id="accessing-jureca">
 <h2>Accessing JURECA<a class="headerlink" href="#accessing-jureca" title="Permalink to this headline">#</a></h2>
 <section id="accounts">
 <h3>Accounts<a class="headerlink" href="#accounts" title="Permalink to this headline">#</a></h3>
-<p>You should have received an invitation email, which asks you to register in the account management system. Once registered, you will receive an individual username and be asked to upload your login keys.</p>
-</section>
-<section id="ssh">
-<h3>SSH<a class="headerlink" href="#ssh" title="Permalink to this headline">#</a></h3>
-<p>To reach the computercluster JURECA you need to log in via the <a class="reference external" href="https://en.wikipedia.org/wiki/Secure_Shell_Protocol">secure shell protocol (SSH)</a>. It is recommended to read the user documentation, which can be found here: <a class="reference external" href="https://apps.fz-juelich.de/jsc/hps/jureca/access.html">access JURECA using SSH</a>.</p>
-<p>Most Linux and MacOS systems have a SSH client installed. On Windows, you can use tools like <a class="reference external" href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">PuTTY</a>.</p>
-<p>Depending on your SSH client, there are various ways to generate a SSH key pair (public and private). It should always be protected with a passphrase.</p>
-<p>One of the safety measure on JURECA is, that you need to specify the IP range from which you access the system, see <a class="reference external" href="https://apps.fz-juelich.de/jsc/hps/jureca/access.html#key-upload-key-restriction">key restrictions</a>. If you use VPN, e.g. provided by the University of Wuppertal, your <code class="docutils literal notranslate"><span class="pre">from</span></code> statement could include <code class="docutils literal notranslate"><span class="pre">*.uni-wuppertal.de</span></code>.</p>
+<p>You should have received an invitation email, which asks you to register in the account management system. Once registered, you will receive an individual username and be asked to upload your login keys. Your account is managed via <a class="reference external" href="https://judoor.fz-juelich.de/login">JuDoor</a>.</p>
 </section>
 <section id="login">
 <h3>Login<a class="headerlink" href="#login" title="Permalink to this headline">#</a></h3>
+<p>Connecting to JURECA is done via SSH. It is recommended to read the user documentation, which can be found here: <a class="reference external" href="https://apps.fz-juelich.de/jsc/hps/jureca/access.html">access JURECA using SSH</a>.</p>
 <p>In order to login to JURECA on a Linux or MacOS you just need to execute</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; ssh username1@jureca.fz-juelich.de
 </pre></div>
@@ -883,7 +988,7 @@ jrlogin06.jureca
 </section>
 <section id="id2">
 <h3>Login<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
-<p>Using the provided credentials, you can use SSH to login to the front-end <code class="docutils literal notranslate"><span class="pre">fugg1.pleiades.uni-wuppertal.de</span></code>.</p>
+<p>Connecting to Pleiades is done via SSH. Using the provided credentials, you can use SSH to login to the front-end <code class="docutils literal notranslate"><span class="pre">fugg1.pleiades.uni-wuppertal.de</span></code>.</p>
 </section>
 <section id="fds-modules-on-the-cobra-cluster">
 <h3>FDS Modules on the CoBra Cluster<a class="headerlink" href="#fds-modules-on-the-cobra-cluster" title="Permalink to this headline">#</a></h3>

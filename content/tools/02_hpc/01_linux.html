@@ -21,7 +21,7 @@
     href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
@@ -38,7 +38,7 @@
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -516,7 +516,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://io.cce.uni-wuppertal.de/firesim_ss21/hub/user-redirect/git-pull?repo=https://github.com/FireDynamics/LectureFireSimulation&urlpath=tree/LectureFireSimulation/book/content/tools/02_hpc/01_linux.ipynb&branch=main"
+        <a href="https://io.cce.uni-wuppertal.de/firesim_ss21/hub/user-redirect/git-pull?repo=https%3A//github.com/FireDynamics/LectureFireSimulation&urlpath=tree/LectureFireSimulation/book/content/tools/02_hpc/01_linux.ipynb&branch=main"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -711,6 +711,11 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#configure-your-terminal">
+     Configure your terminal
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#changing-directories">
      Changing directories
     </a>
@@ -723,6 +728,11 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#listing-directories">
      Listing directories
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aliases">
+     Aliases
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -741,6 +751,23 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#bash-programming">
    Bash Programming
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#advanced">
+   Advanced
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#git-and-github">
+     Git and GitHub
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compile-software-from-git-repo">
+     Compile software from Git repo
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -792,6 +819,11 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#configure-your-terminal">
+     Configure your terminal
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#changing-directories">
      Changing directories
     </a>
@@ -804,6 +836,11 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#listing-directories">
      Listing directories
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#aliases">
+     Aliases
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -822,6 +859,23 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#bash-programming">
    Bash Programming
   </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#advanced">
+   Advanced
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#git-and-github">
+     Git and GitHub
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#compile-software-from-git-repo">
+     Compile software from Git repo
+    </a>
+   </li>
+  </ul>
  </li>
 </ul>
 
@@ -906,6 +960,8 @@ title="Print to PDF"
 <p class="admonition-title">Note</p>
 <p>In the following, some examples within a directory structure are used. The directory contents are stored in the archive <a class="reference download internal" download="" href="../../../_downloads/e48e9d53422a7d02f13b1af6717ab9b8/dir_structure_01.tar"><code class="xref download docutils literal notranslate"><span class="pre">dir_structure_01.tar</span></code></a>, which can be extracted after download by <code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">-xf</span> <span class="pre">dir_structure_01.tar</span></code>.</p>
 </div>
+<p>The shell keeps track of commands that have been used in its history. Individual entries can be accessed with the up/down arrow keys. A general overview over the history can be shown when using the <code class="docutils literal notranslate"><span class="pre">history</span></code> command. Hitting the “Cmd” and “R” keys, the user can search for commands in the history. Furthermore, the shell provides functionality to auto-complete commands by hitting the “tab” key during typing in of a command.
+The command <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">$SHELL</span></code> allows the user to get information about which shell they are working with right now. The shell behaviour can be individualised, by setting up configuration files like the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>, <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code> or <code class="docutils literal notranslate"><span class="pre">.bash_aliases</span></code>.</p>
 <section id="environment-variables">
 <h3>Environment variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">#</a></h3>
 <p>Most, probably all, shells offer environment variables. They store information, which can be used during the execution of the issued commands. In Bash the syntax for reading the content of a variable with the name <code class="docutils literal notranslate"><span class="pre">AVAR</span></code> is <code class="docutils literal notranslate"><span class="pre">$AVAR</span></code>, i.e. the <code class="docutils literal notranslate"><span class="pre">$</span></code> character is prepended. To define the variable or change its value, the sole variable name is used.</p>
@@ -936,7 +992,7 @@ title="Print to PDF"
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; date
-Tue Jul  5 19:48:54 UTC 2022
+Thu Sep 22 13:09:48 UTC 2022
 </pre></div>
 </div>
 </div>
@@ -953,13 +1009,28 @@ runner
 <p>An issued command must be either:</p>
 <ul class="simple">
 <li><p>a build-in function of the shell,</p></li>
-<li><p>an executable file found in the directory list defined by the <code class="docutils literal notranslate"><span class="pre">PATH</span></code> environment, or</p></li>
+<li><p>an executable file found in the directory list, defined by the <code class="docutils literal notranslate"><span class="pre">PATH</span></code> environment, or</p></li>
 <li><p>an explicit reference to an executable file.</p></li>
 </ul>
 <p>To execute a custom program in the current directory (not necessary in the <code class="docutils literal notranslate"><span class="pre">PATH</span></code> directory list), its location needs to be explicitly stated. Here with a <code class="docutils literal notranslate"><span class="pre">.</span></code> to indicate the current directory:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="o">./</span><span class="n">a</span><span class="o">.</span><span class="n">out</span>
 </pre></div>
 </div>
+</section>
+<section id="configure-your-terminal">
+<h3>Configure your terminal<a class="headerlink" href="#configure-your-terminal" title="Permalink to this headline">#</a></h3>
+<p>The user can adjust their shell by setting up a configuration file that is called <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>. This is a basic text file, which is stored in the user’s home directory as a hidden file (indicated by the leading period in the file name). Typically this file does not exist right away, using for example the command<code class="docutils literal notranslate"><span class="pre">vim</span> <span class="pre">~/.bashrc</span></code> the file will be created otherwise it will just be opened for editing in the text editor <a class="reference external" href="https://www.vim.org/docs.php">Vim</a>. In the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> default settings can be stored. For instance, the command prompt can be changed from the generic default to show <code class="docutils literal notranslate"><span class="pre">user_name&#64;host</span></code> or often used modules could be pre-loaded, see section “Environment modules (Lmod)” below.</p>
+<p>Let’s try it out. First we create/open the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file in Vim, assuming we are in the users home directory.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">vim</span> <span class="o">~/.</span><span class="n">bashrc</span>
+</pre></div>
+</div>
+<p>Text can be inserted (written) into the file by hitting the <code class="docutils literal notranslate"><span class="pre">i</span></code> key (”<code class="docutils literal notranslate"><span class="pre">--</span> <span class="pre">INSERT</span> <span class="pre">--</span></code>” is visible at the bottom left of the window). Then enter the following lines.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set prompt outline.</span>
+<span class="n">PS1</span><span class="o">=</span><span class="s2">&quot;\u@\h:\w</span><span class="se">\n</span><span class="s2">\[</span><span class="se">\033</span><span class="s2">[1;34m\]&gt; \[</span><span class="se">\033</span><span class="s2">[0m\]&quot;</span>
+</pre></div>
+</div>
+<p>Afterwards, hit <code class="docutils literal notranslate"><span class="pre">Esc</span></code> to go back into the normal mode. Type <code class="docutils literal notranslate"><span class="pre">:w</span></code> to save the changes and <code class="docutils literal notranslate"><span class="pre">:q</span></code> to quit Vim, or <code class="docutils literal notranslate"><span class="pre">:wq</span></code> to combine both commands. With <code class="docutils literal notranslate"><span class="pre">:q!</span></code> changes to the file are discarded before closing Vim.</p>
+<p>This changes the command prompt to show the user and host names.</p>
 </section>
 <section id="changing-directories">
 <h3>Changing directories<a class="headerlink" href="#changing-directories" title="Permalink to this headline">#</a></h3>
@@ -1361,7 +1432,7 @@ logfile
 &gt; ls -lah
 total 112K
 drwxr-xr-x 17 runner docker 4.0K Apr 26  2021 .
-drwxr-xr-x  4 runner docker 4.0K Jul  5 19:48 ..
+drwxr-xr-x  4 runner docker 4.0K Sep 22 13:09 ..
 -rw-r--r--  1 runner docker   20 Apr 25  2021 .hidden_file_do_not_look_here
 -rw-r--r--  1 runner docker  816 Apr 26  2021 combined_logs
 -rw-r--r--  1 runner docker  591 Dec 12  2000 doc01.md
@@ -1372,21 +1443,21 @@ drwxr-xr-x  4 runner docker 4.0K Jul  5 19:48 ..
 -rw-r--r--  1 runner docker   60 Apr 26  2021 for-loop.sh
 -rw-r--r--  1 runner docker  113 Apr 25  2021 if-statement.sh
 -rw-r--r--  1 runner docker   62 Apr 26  2021 info.txt
-drwxr-xr-x  2 runner docker 4.0K Jul  5 19:48 rundir_01
-drwxr-xr-x  2 runner docker 4.0K Jul  5 19:48 rundir_02
-drwxr-xr-x  2 runner docker 4.0K Jul  5 19:48 rundir_03
-drwxr-xr-x  2 runner docker 4.0K Jul  5 19:48 rundir_04
-drwxr-xr-x  2 runner docker 4.0K Jul  5 19:48 rundir_05
-drwxr-xr-x  2 runner docker 4.0K Jul  5 19:48 rundir_06
-drwxr-xr-x  2 runner docker 4.0K Jul  5 19:48 rundir_07
-drwxr-xr-x  2 runner docker 4.0K Jul  5 19:48 rundir_08
-drwxr-xr-x  2 runner docker 4.0K Jul  5 19:48 rundir_09
-drwxr-xr-x  2 runner docker 4.0K Jul  5 19:48 rundir_10
-drwxr-xr-x  2 runner docker 4.0K Jul  5 19:48 rundir_11
-drwxr-xr-x  2 runner docker 4.0K Jul  5 19:48 rundir_12
-drwxr-xr-x  2 runner docker 4.0K Jul  5 19:48 rundir_13
+drwxr-xr-x  2 runner docker 4.0K Sep 22 13:09 rundir_01
+drwxr-xr-x  2 runner docker 4.0K Sep 22 13:09 rundir_02
+drwxr-xr-x  2 runner docker 4.0K Sep 22 13:09 rundir_03
+drwxr-xr-x  2 runner docker 4.0K Sep 22 13:09 rundir_04
+drwxr-xr-x  2 runner docker 4.0K Sep 22 13:09 rundir_05
+drwxr-xr-x  2 runner docker 4.0K Sep 22 13:09 rundir_06
+drwxr-xr-x  2 runner docker 4.0K Sep 22 13:09 rundir_07
+drwxr-xr-x  2 runner docker 4.0K Sep 22 13:09 rundir_08
+drwxr-xr-x  2 runner docker 4.0K Sep 22 13:09 rundir_09
+drwxr-xr-x  2 runner docker 4.0K Sep 22 13:09 rundir_10
+drwxr-xr-x  2 runner docker 4.0K Sep 22 13:09 rundir_11
+drwxr-xr-x  2 runner docker 4.0K Sep 22 13:09 rundir_12
+drwxr-xr-x  2 runner docker 4.0K Sep 22 13:09 rundir_13
 drwxr-xr-x  2 runner docker 4.0K Apr 25  2021 rundir_14
-drwxr-xr-x  2 runner docker 4.0K Jul  5 19:48 rundir_15
+drwxr-xr-x  2 runner docker 4.0K Sep 22 13:09 rundir_15
 </pre></div>
 </div>
 </div>
@@ -1406,24 +1477,66 @@ drwxr-xr-x 2 runner docker 4096 Apr 25  2021 rundir_14
 -rw-r--r-- 1 runner docker  816 Apr 26  2021 combined_logs
 -rw-r--r-- 1 runner docker   62 Apr 26  2021 info.txt
 -rw-r--r-- 1 runner docker   60 Apr 26  2021 for-loop.sh
-drwxr-xr-x 2 runner docker 4096 Jul  5 19:48 rundir_15
-drwxr-xr-x 2 runner docker 4096 Jul  5 19:48 rundir_13
-drwxr-xr-x 2 runner docker 4096 Jul  5 19:48 rundir_12
-drwxr-xr-x 2 runner docker 4096 Jul  5 19:48 rundir_11
-drwxr-xr-x 2 runner docker 4096 Jul  5 19:48 rundir_10
-drwxr-xr-x 2 runner docker 4096 Jul  5 19:48 rundir_09
-drwxr-xr-x 2 runner docker 4096 Jul  5 19:48 rundir_08
-drwxr-xr-x 2 runner docker 4096 Jul  5 19:48 rundir_07
-drwxr-xr-x 2 runner docker 4096 Jul  5 19:48 rundir_06
-drwxr-xr-x 2 runner docker 4096 Jul  5 19:48 rundir_05
-drwxr-xr-x 2 runner docker 4096 Jul  5 19:48 rundir_04
-drwxr-xr-x 2 runner docker 4096 Jul  5 19:48 rundir_03
-drwxr-xr-x 2 runner docker 4096 Jul  5 19:48 rundir_02
-drwxr-xr-x 2 runner docker 4096 Jul  5 19:48 rundir_01
+drwxr-xr-x 2 runner docker 4096 Sep 22 13:09 rundir_15
+drwxr-xr-x 2 runner docker 4096 Sep 22 13:09 rundir_13
+drwxr-xr-x 2 runner docker 4096 Sep 22 13:09 rundir_12
+drwxr-xr-x 2 runner docker 4096 Sep 22 13:09 rundir_11
+drwxr-xr-x 2 runner docker 4096 Sep 22 13:09 rundir_10
+drwxr-xr-x 2 runner docker 4096 Sep 22 13:09 rundir_09
+drwxr-xr-x 2 runner docker 4096 Sep 22 13:09 rundir_08
+drwxr-xr-x 2 runner docker 4096 Sep 22 13:09 rundir_07
+drwxr-xr-x 2 runner docker 4096 Sep 22 13:09 rundir_06
+drwxr-xr-x 2 runner docker 4096 Sep 22 13:09 rundir_05
+drwxr-xr-x 2 runner docker 4096 Sep 22 13:09 rundir_02
+drwxr-xr-x 2 runner docker 4096 Sep 22 13:09 rundir_01
+drwxr-xr-x 2 runner docker 4096 Sep 22 13:09 rundir_04
+drwxr-xr-x 2 runner docker 4096 Sep 22 13:09 rundir_03
 </pre></div>
 </div>
 </div>
 </div>
+</section>
+<section id="aliases">
+<h3>Aliases<a class="headerlink" href="#aliases" title="Permalink to this headline">#</a></h3>
+<p>The user can personalise their environment in different ways. For example it is possible to define so-called “aliases”. An “alias” allows the user to set up individualised short form commands. For example, a command to call a program with an often used set of parameters could be attached to an alias. Assume we were to use the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command often, together with the parameters to give the long output (<code class="docutils literal notranslate"><span class="pre">-l</span></code>) for all file in a directory (<code class="docutils literal notranslate"><span class="pre">-a</span></code>) in human-readable form (<code class="docutils literal notranslate"><span class="pre">-h</span></code>), i.e. <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-lah</span></code>. We could give it a short form command, for example <code class="docutils literal notranslate"><span class="pre">lsa</span></code>, by typing <code class="docutils literal notranslate"><span class="pre">alias</span> <span class="pre">lsa='ls</span> <span class="pre">-lah'</span></code> in the command line. However, this definition will only exist as long as the session is active. To make it permanent, it needs to be stored in a script which is loaded when a new session is started. Typically, these definitions are stored in files within the user home directory, specifically the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> or better the <code class="docutils literal notranslate"><span class="pre">.bash_aliases</span></code> files. These are simple text files, if they don’t exist they can be easily created. For example using <code class="docutils literal notranslate"><span class="pre">vim</span> <span class="pre">~/.bash_aliases</span></code>. In the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> a command needs then to be written to read the <code class="docutils literal notranslate"><span class="pre">.bash_aliases</span></code>.</p>
+<p>Let’s try it out. First we navigate to the users home directory.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">cd</span> <span class="o">~</span>
+</pre></div>
+</div>
+<p>We set up the temporary alias “lsa”.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">alias</span> <span class="n">lsa</span><span class="o">=</span><span class="s1">&#39;ls -lah&#39;</span>
+</pre></div>
+</div>
+<p>If we use the alias it should yield the same result as the command itself, try it out.</p>
+<p>Now open a new terminal and try to use the alias again. You should see an error message, something like “<code class="docutils literal notranslate"><span class="pre">-bash:</span> <span class="pre">lsa:</span> <span class="pre">command</span> <span class="pre">not</span> <span class="pre">found</span></code>”.</p>
+<p>To set a permanent alias we are using a file we name <code class="docutils literal notranslate"><span class="pre">.bash_aliases</span></code>. It will be created using Vim again:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">vim</span> <span class="o">~/.</span><span class="n">bash_aliases</span>
+</pre></div>
+</div>
+<p>In the insert mode (<code class="docutils literal notranslate"><span class="pre">i</span></code>) write the following lines into the file:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set aliases.</span>
+<span class="n">alias</span> <span class="n">lsa</span><span class="o">=</span><span class="s1">&#39;ls -lah&#39;</span>
+</pre></div>
+</div>
+<p>Afterwards, hit <code class="docutils literal notranslate"><span class="pre">Esc</span></code> to go back into the normal mode. Type <code class="docutils literal notranslate"><span class="pre">:w</span></code> to save the changes and <code class="docutils literal notranslate"><span class="pre">:q</span></code> to quit Vim, or <code class="docutils literal notranslate"><span class="pre">:wq</span></code> to combine both commands. With <code class="docutils literal notranslate"><span class="pre">:q!</span></code> changes to the file are discarded before closing Vim.</p>
+<p>Now we need to set up a way to load the <code class="docutils literal notranslate"><span class="pre">.bash_aliases</span></code>. For this we open the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> and add the following lines:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load aliases.</span>
+<span class="k">if</span> <span class="p">[</span><span class="o">-</span><span class="n">f</span> <span class="o">~/.</span><span class="n">bash_aliases</span> <span class="p">];</span> <span class="n">then</span>
+<span class="n">source</span> <span class="o">~/.</span><span class="n">bash_aliases</span>
+<span class="n">fi</span>
+</pre></div>
+</div>
+<p>Instead of <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">~/.bash_aliases</span></code> also <code class="docutils literal notranslate"><span class="pre">.</span> <span class="pre">~/.bash_aliases</span></code> could be used. If a new terminal is started it will now load the <code class="docutils literal notranslate"><span class="pre">.bash_aliases</span></code>. To load it in the active terminal one can just run the command directly:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">source</span> <span class="o">~/.</span><span class="n">bash_aliases</span>
+</pre></div>
+</div>
+<p>Another useful alias is the following:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check your jobs</span>
+<span class="n">alias</span> <span class="n">myjobs</span><span class="o">=</span><span class="s1">&#39;squeue -u $USER -o &quot;</span><span class="si">%.9i</span><span class="s1"> %.22j %.2t %.20S %.12l %.5D %.5C&quot;</span>
+
+</pre></div>
+</div>
+<p>When on a computer that uses the SLURM scheduler (see subsection “SLURM” in the “Parallel Execution of FDS”), it shows all queued jobs of the user (<code class="docutils literal notranslate"><span class="pre">$USER</span></code>).</p>
 </section>
 <section id="wildcards">
 <h3>Wildcards<a class="headerlink" href="#wildcards" title="Permalink to this headline">#</a></h3>
@@ -1662,6 +1775,23 @@ File exists
 </div>
 </div>
 </div>
+</section>
+<section id="advanced">
+<h2>Advanced<a class="headerlink" href="#advanced" title="Permalink to this headline">#</a></h2>
+<section id="git-and-github">
+<h3>Git and GitHub<a class="headerlink" href="#git-and-github" title="Permalink to this headline">#</a></h3>
+<p>GitHub is a web hosting service for distributed version control using Git. Git allows collaborative software development, while keeping track of changes to the code. This code can be hosted in open-access repositories via GitHub, like the <a class="reference external" href="https://github.com/firemodels/fds">FDS repository</a> for example. Operating systems like Linux or MacOS often come with Git integrated and can directly be used from the terminal. Windows users might need to install an application, for example the graphical user interface <a class="reference external" href="https://desktop.github.com/">GitHub Desktop</a> or the lightweight <a class="reference external" href="https://gitforwindows.org/">git for windows</a>.</p>
+<p>Version control systems allow the creation of <a class="reference external" href="https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell">branches</a> to the code base, as well as keeping track of <a class="reference external" href="https://git-scm.com/docs/git-commit">individual changes</a>. Branches can be used to implement new features, solve bugs or further the development of new software versions, without affecting the stable version. Commits are incremental changes to the code itself. At any given time the user can change the branches and commits to work with specific versions of the software. On the web page of the repository there are a couple of tabs at the top of the page. On the right hand side is the tab “Insights”. Clicking on it and then on the left hand side “Network” gives a brief graphical overview over commits and branches.
+Typically, the user would clone the repository to their computer, work on the software locally, collect changes into commits and push these changes to the online repository later on. One can also download the repository as a zip archive.</p>
+<p>To clone a repository, in the terminal navigate to a directory where you would like it to be stored. With Git installed the command <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">link/to/repo</span></code> in the command line will fetch the data from the online repository and clone it to the desired location. The address of the repository can easily be taken from the respective web page. Just click on the green button on the top right labelled “Code”. A dropdown menu opens from which the link to the repo can be copied.
+With <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">branch_label</span></code> one can change to a different branch. When only <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span></code> is typed and one hits the Tab-key all available branch labels are shown. Furthermore, individual commits can be loaded by using the commit instead of the branch <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">commit_id</span></code>.</p>
+</section>
+<section id="compile-software-from-git-repo">
+<h3>Compile software from Git repo<a class="headerlink" href="#compile-software-from-git-repo" title="Permalink to this headline">#</a></h3>
+<p>It may be necessary for users to compile necessary software themselves. For example, to account for the pre-installed libraries and dependencies on the target system. It also happens that one might need a specific software version that is not available in a package or with an installer. Consider the ongoing development of FDS. New functionality could be added that you might want to try out or a change is implemented that might be beneficial for your work. Or maybe you want to compare simulation results to older versions.</p>
+<p>The source code of FDS can be downloaded from the <a class="reference external" href="https://github.com/firemodels/fds">FDS GitHub repository</a>, following the green button at the top right on the main page of the git repo. One can download it as a compressed archive or clone the repo directly to disk, using ´git clone address/of/repo´ in the command line.</p>
+<p>In the directory <code class="docutils literal notranslate"><span class="pre">Build</span></code>is a <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file located (<code class="docutils literal notranslate"><span class="pre">*.md</span></code> is a plain text file to be interpreted as <a class="reference external" href="https://www.markdownguide.org/">Markdown</a>). It contains some information on the compilation process of FDS. Detailed instructions are given in the ´makefile´ for different operating systems and MPI versions.</p>
+</section>
 </section>
 </section>
 

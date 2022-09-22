@@ -1,22 +1,133 @@
 # Parallel Execution of FDS
 
+## Basics
+
+Below two different HPC clusters are discussed. Make sure to look into the system that you will be working on. The computer [JURECA](https://www.fz-juelich.de/en/ias/jsc/systems/supercomputers/jureca) is located at the Forschungszentrum Jülich (FZJ) and [Pleiades](https://pleiades.uni-wuppertal.de/en/) is located at the Bergische Universität Wuppertal (BUW), both in Germany.
+
+Follow the respective link to the documentation of [JURECA](https://apps.fz-juelich.de/jsc/hps/jureca/index.html) or [Pleiades](https://pleiadesbuw.github.io/PleiadesUserDocumentation/).
+
+
+### SSH
+
+To reach the compute clusters you need to log in via the [secure shell protocol (SSH)](https://en.wikipedia.org/wiki/Secure_Shell_Protocol).
+
+Most Linux and MacOS systems have a SSH client installed. On Windows, you can use tools like [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html) for the connection per terminal and [WinSCP](https://winscp.net/eng/download.php) to copy files with a graphical user interface.
+
+Depending on your SSH client, there are various ways to generate a SSH key pair (public and private). It should always be protected with a passphrase.
+
+One of the safety measures on JURECA is, that you need to specify the IP range from which you access the system, see [key restrictions](https://apps.fz-juelich.de/jsc/hps/jureca/access.html#key-upload-key-restriction). If you use VPN, e.g. provided by the University of Wuppertal, your `from` statement could include `*.uni-wuppertal.de`.
+
+
+### Environment modules (Lmod)
+With [Lmod](https://lmod.readthedocs.io/en/latest/) the user is able to dynamically change the terminal environment. This is convenient for example when different simulation software versions are to be used. See below for guides of the modules on the systems JURECA and Pleiades.
+
+Documentation of Lmod can be found [here](https://lmod.readthedocs.io/en/latest/010_user.html). Some of the most important commands are reproduced here.
+
+An overview over already loaded modules is provided with the following command:
+
+```none
+> module list
+```
+
+To find out what modules are available to be loaded, type:
+
+```none
+> module avail
+```
+
+Desired modules can simply loaded by typing:
+
+```none
+> module load package1 package2 ...
+```
+
+For unloading use the following command:
+
+```none
+> module unload package1 package2 ...
+```
+
+A user may wish to go back to an initial set of modules:
+
+```none
+> module reset
+```
+
+Another way to search for modules is with the “`module spider`” command. This command searches the entire list of possible modules:
+
+```none
+> module spider
+```
+
+What is now the difference between “`module avail`” and “`module spider`”? Lmod reports only the modules that are in the current MODULEPATH (`module avail`). Those are the only modules that the user can load. If there is a modulefile hierarchy, then a package the user wants may be available but not with the current compiler version (`module spider`).
+
+This is explained in the [“Module Hierarchy” and “Searching for Modules” sections](https://lmod.readthedocs.io/en/latest/010_user.html).
+
+
+
+### SLURM
+To efficiently use the provided resources of a large compute cluster, workload managers are used. A common workload manager is [SLURM](https://slurm.schedmd.com/documentation.html), which is also used on JURECA and Pleiades.
+
+Some of the basic commands are reproduced here. Many parameters can be used to control the behaviour of the individual commands. Look into the [documentation](https://slurm.schedmd.com/documentation.html) for a comprehensive overview.
+
+An overview over all jobs in the queue is provided with:
+
+```none
+> squeue
+```
+
+More useful is to limit the output to the jobs of the user, which can be accomplished by adding the following parameters:
+
+```none
+> squeue -u $USER
+```
+
+Look also to the "Aliases" section to set up the `myjobs` alias.
+
+
+To submit submit a job for execution or initiate job steps in real time use the following. A job can contain multiple job steps executing sequentially or in parallel on independent or shared resources within the job's node allocation.:
+
+```none
+> srun
+```
+
+Jobs can be canceled by using `scancel` and providing the job id number:
+
+```none
+> scancel job_id_number
+```
+
+Here, some parameters are handy. For example all jobs can be canceled that have the same name, thus one does not need to enter many job ids (see also job scripts for the names):
+
+```none
+> scancel -n job_name
+```
+
+One might want to further limit the command, by setting the focus on jobs with a specific name and also state. For example `PENDING` or `RUNNING`:
+
+```none
+> scancel -n job_name --state="PENDING"
+```
+
+Often different queues exist on the computers. These can be defined by the maximum runtime of a job or the resources available, for example if the computer has also access to GPU clusters. For example [Pleiades provides](https://pleiadesbuw.github.io/PleiadesUserDocumentation/slurm) a couple different queues: "short" limited to 1 h for testing, "normal" a 3 day limit (default), "long" with a time limit of 7 days and "gpu" for access to the GPU cluster with a time limit of 3 days. Note: best practice is to use the shortest queue for your jobs! These queues are called "partition", the respective parameter is `--partition` or short `-p`:
+
+```none
+> srun --partition=normal
+```
+
+
+
+
 ## Accessing JURECA
 
 ### Accounts
 
-You should have received an invitation email, which asks you to register in the account management system. Once registered, you will receive an individual username and be asked to upload your login keys.
+You should have received an invitation email, which asks you to register in the account management system. Once registered, you will receive an individual username and be asked to upload your login keys. Your account is managed via [JuDoor](https://judoor.fz-juelich.de/login).
 
-### SSH
-
-To reach the computercluster JURECA you need to log in via the [secure shell protocol (SSH)](https://en.wikipedia.org/wiki/Secure_Shell_Protocol). It is recommended to read the user documentation, which can be found here: [access JURECA using SSH](https://apps.fz-juelich.de/jsc/hps/jureca/access.html).
-
-Most Linux and MacOS systems have a SSH client installed. On Windows, you can use tools like [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
-
-Depending on your SSH client, there are various ways to generate a SSH key pair (public and private). It should always be protected with a passphrase.
-
-One of the safety measure on JURECA is, that you need to specify the IP range from which you access the system, see [key restrictions](https://apps.fz-juelich.de/jsc/hps/jureca/access.html#key-upload-key-restriction). If you use VPN, e.g. provided by the University of Wuppertal, your `from` statement could include `*.uni-wuppertal.de`. 
 
 ### Login
+
+Connecting to JURECA is done via SSH. It is recommended to read the user documentation, which can be found here: [access JURECA using SSH](https://apps.fz-juelich.de/jsc/hps/jureca/access.html).
 
 In order to login to JURECA on a Linux or MacOS you just need to execute
 
@@ -39,7 +150,7 @@ which allow a shorter command
 ```
 
 ````{admonition} Task
-Login to JURECA and check your username, the server you have logged in to and the path to your home directory. The result should look similar to 
+Login to JURECA and check your username, the server you have logged in to and the path to your home directory. The result should look similar to
 
 ```
 > whoami
@@ -62,11 +173,11 @@ As the FDS (and some other) modules are not globaly installed, they need to be a
 > module use -a ~arnold1/modules_fire/
 ```
 
-Thus, adding this line to your batch scripts and startup script (`~/.bashrc`) will automatically add the related modules to the module environment. 
+Thus, adding this line to your batch scripts and startup script (`~/.bashrc`) will automatically add the related modules to the module environment.
 
 ````{admonition} Task
 
-* Use the `module avail` command to list all available modules. Make sure, you see also the FDS modules. 
+* Use the `module avail` command to list all available modules. Make sure, you see also the FDS modules.
 * Load a FSD module and invoke FDS with `fds`. Does the loaded version of FDS correspond to the one you expected?
 
 ````
@@ -79,7 +190,7 @@ Please contact Lukas for an account.
 
 ### Login
 
-Using the provided credentials, you can use SSH to login to the front-end `fugg1.pleiades.uni-wuppertal.de`.
+Connecting to Pleiades is done via SSH. Using the provided credentials, you can use SSH to login to the front-end `fugg1.pleiades.uni-wuppertal.de`.
 
 
 ### FDS Modules on the CoBra Cluster
@@ -94,7 +205,7 @@ The (default) FDS module can be loaded with
 
 which sets up the environment to run FDS in parallel. The name of the FDS executable is `fds`.
 
-## Job Submission 
+## Job Submission
 
 A computercluster is often used by a lot of users. Therefore executing a programm which needs a lot of the CPU power could disturb other users by slowing down the rest of the softwares or even the OS. The solution to this is a queueing system which organizes the execution of many programms and manages the ressource distribution among them. JURECA and the CoBra-cluster use the software called Slurm for queueing and distributing to compute nodes. More information is provided in [JURECA's batch system documentation](https://apps.fz-juelich.de/jsc/hps/jureca/batchsystem.html) and [Pleiades batch system](http://www.pleiades.uni-wuppertal.de/index.php?id=slurm).
 
@@ -119,7 +230,7 @@ The individual lines have the following functions
   ```
   #SBATCH --job-name=my_FDS_simulation
   ```
-  
+
   You can name your job in order to find it quicker in the job lists. The name has no other function.
 
 * **Accounting**
@@ -127,7 +238,7 @@ The individual lines have the following functions
   ```
   #SBATCH --account=ias-7
   ```
-  
+
   On JURECA you need to have a computing time project and your account needs to be assinged to it. This budget is used to "buy" a normal/high priority in the queueing system. Using `account` you specify which computing time contingency will be debited for the specified job. Here `ias-7` is indicating the project we will use for this lecture. It is the budget of the IAS-7 at the Forschungszentrum Jülich.
 
 * **Partition**
@@ -135,7 +246,7 @@ The individual lines have the following functions
   ```
   #SBATCH --partition=dc-cpu
   ```
-  
+
   JURECA's batch system is divided into multipe partitions, which represent different computing architectures. In our case we want to execute the simulation on common CPU cores and therefore we use the partition `dc-cpu` – more information on [JURECA's partitions](https://apps.fz-juelich.de/jsc/hps/jureca/batchsystem.html#slurm-partitions).
 
 * **MPI Tasks**
@@ -144,16 +255,16 @@ The individual lines have the following functions
   #SBATCH --ntasks=128
   #SBATCH --cpus-per-task=1
   ```
-  
-  There are different ways how to define the number of requested cores. It is possible to state how many MPI tasks (`ntasks`) are to be started and how many cores each of them (`cpus-per-task`) will get assigned. The product of these will lead to the number of physical cores and thus to the number of nodes to be allocated. In the current configuration of the `dc-cpu` partition, each node has 128 cores. An alternative is to specify the number of nodes, which would lead to the number of MPI tasks to be started. 
-  
+
+  There are different ways how to define the number of requested cores. It is possible to state how many MPI tasks (`ntasks`) are to be started and how many cores each of them (`cpus-per-task`) will get assigned. The product of these will lead to the number of physical cores and thus to the number of nodes to be allocated. In the current configuration of the `dc-cpu` partition, each node has 128 cores. An alternative is to specify the number of nodes, which would lead to the number of MPI tasks to be started.
+
 * **Terminal Output**
 
   ```
   #SBATCH --output=stdout.%j
   #SBATCH --error=stderr.%j
   ```
-  
+
   Here the file name for the standard output and error log are defined. `%j` will be replaced by the job id generated by Slurm.
 
 * **Wall Clock Time**
@@ -162,7 +273,7 @@ The individual lines have the following functions
   #SBATCH --time=00:30:00
   ```
 
-  This line specifies the maximum time the job can run on the requested resource. The maximal wall clock time is stated in the documentation for the individual partitions. The `cd-cpu` partition has a limit of 24 hours. 
+  This line specifies the maximum time the job can run on the requested resource. The maximal wall clock time is stated in the documentation for the individual partitions. The `cd-cpu` partition has a limit of 24 hours.
 
 * **Setting OpenMP Environment**
 
@@ -171,7 +282,7 @@ The individual lines have the following functions
   ```
 
   As FDS can utilise OpenMP, the according environment variable (`OMP_NUM_THREADS`) needs to be set. The above command sets it automatically to the number given by `cpus-per-task` in the Slurm section.
-  
+
 * **Load FDS Modules**
 
   ```
@@ -180,17 +291,17 @@ The individual lines have the following functions
   ```
 
   Here, first the module environment containig the FDS module is included, then the specified FDS module is loaded.
-  
+
 * **Execute FDS**
 
   ```
   srun fds ./*.fds
   ```
-  
-  A MPI-parallel application is started with `srun` on a Slurm system. If not explicitly stated, like in the above line, the number of MPI tasks is specified by the Slurm environment. 
+
+  A MPI-parallel application is started with `srun` on a Slurm system. If not explicitly stated, like in the above line, the number of MPI tasks is specified by the Slurm environment.
 
 ```{note}
-It is important to keep in mind, that JURECA's usage concept is to assign compute nodes **exclusively** to a single job. Thus, the resources used are given by the number of nodes used and the wall clock time. In the current setup the `dc-cpu` partition has nodes with 128 cores, so even if jobs use just a few cores, the account is charged with 128 cores (a full node). 
+It is important to keep in mind, that JURECA's usage concept is to assign compute nodes **exclusively** to a single job. Thus, the resources used are given by the number of nodes used and the wall clock time. In the current setup the `dc-cpu` partition has nodes with 128 cores, so even if jobs use just a few cores, the account is charged with 128 cores (a full node).
 ```
 
 A Slurm job can be submitted via
@@ -199,7 +310,7 @@ A Slurm job can be submitted via
 > sbatch fds-slurm-job-single.sh
 ```
 
-The current status of a user's queue can be listed with 
+The current status of a user's queue can be listed with
 
 ```
 > squeue -u $USER
@@ -231,7 +342,7 @@ In contrast to JURECA, it is possible to run jobs for more than 24 hours. More i
 
 ### Chain Jobs
 
-As there is a limit of 24 hours on JURECA, each job has to restart after this time. The following scripts automate the process for FDS on JURECA. It is important that the FDS input file has the `RESTART` parameter defined, typically initailly set to `.FALSE.`. 
+As there is a limit of 24 hours on JURECA, each job has to restart after this time. The following scripts automate the process for FDS on JURECA. It is important that the FDS input file has the `RESTART` parameter defined, typically initailly set to `.FALSE.`.
 
 The main idea is to invoke multiple jobs ({download}`fds-slurm-chain-starter.sh`) with a dependency, i.e. a chain is created, so that the jobs are consecutively executed.
 
