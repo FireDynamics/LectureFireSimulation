@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="High Performace Computing" href="02_hpc.html" />
+    <link rel="next" title="High Performance Computing" href="02_hpc.html" />
     <link rel="prev" title="HPC" href="00_overview.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -401,7 +401,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="02_hpc.html">
-     High Performace Computing
+     High Performance Computing
     </a>
    </li>
    <li class="toctree-l2">
@@ -711,13 +711,18 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#configure-your-terminal">
-     Configure your terminal
+    <a class="reference internal nav-link" href="#basic-interaction-with-the-file-system">
+     Basic interaction with the file system
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#changing-directories">
-     Changing directories
+    <a class="reference internal nav-link" href="#id1">
+     Basic interaction with the file system
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#configure-your-terminal">
+     Configure your terminal
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -819,13 +824,18 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#configure-your-terminal">
-     Configure your terminal
+    <a class="reference internal nav-link" href="#basic-interaction-with-the-file-system">
+     Basic interaction with the file system
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#changing-directories">
-     Changing directories
+    <a class="reference internal nav-link" href="#id1">
+     Basic interaction with the file system
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#configure-your-terminal">
+     Configure your terminal
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
@@ -992,7 +1002,7 @@ The command <code class="docutils literal notranslate"><span class="pre">echo</s
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; date
-Thu Sep 22 13:09:48 UTC 2022
+Mon Sep 26 12:05:50 UTC 2022
 </pre></div>
 </div>
 </div>
@@ -1017,6 +1027,85 @@ runner
 </pre></div>
 </div>
 </section>
+<section id="basic-interaction-with-the-file-system">
+<h3>Basic interaction with the file system<a class="headerlink" href="#basic-interaction-with-the-file-system" title="Permalink to this headline">#</a></h3>
+<p><strong>Changing directories</strong></p>
+<p>The current directory is changed via the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command. Invoking no arguments changes to the user’s home directory, otherwise the
+target directory is specified. There exist a couple of special directories, which can also be used with other commands:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">~</span></code>: the user’s home directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">~username</span></code>: the home directory of user username</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.</span></code>: this directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">..</span></code>: above directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-</span></code>: last directory (cd command only)</p></li>
+</ul>
+<p>The current working directory can be shown with the <code class="docutils literal notranslate"><span class="pre">pwd</span></code> (print working directory) command.</p>
+<p><strong>Copy</strong>
+Files are copied with <code class="docutils literal notranslate"><span class="pre">cp</span></code>. After <code class="docutils literal notranslate"><span class="pre">cp</span></code>, source and destination must be specified:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">cp</span> <span class="n">folder1</span><span class="o">/</span><span class="n">file1</span><span class="o">.</span><span class="n">txt</span> <span class="n">folder2</span><span class="o">/</span><span class="n">file1</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>To copy to the current file path, specify <code class="docutils literal notranslate"><span class="pre">./</span></code> as the destination:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">cp</span> <span class="n">folder</span><span class="o">/</span><span class="n">file1</span><span class="o">.</span><span class="n">txt</span> <span class="o">./</span>
+</pre></div>
+</div>
+<p>To copy entire folders including their files and subfolders, the <code class="docutils literal notranslate"><span class="pre">-r</span></code> (recursively) option must be set:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">cp</span> <span class="o">-</span><span class="n">r</span> <span class="n">path</span><span class="o">/</span><span class="n">folder1</span> <span class="o">./</span>
+</pre></div>
+</div>
+<p><strong>Move</strong>
+The command to move files works similarly to copying. With <code class="docutils literal notranslate"><span class="pre">mv</span></code> files can be moved:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">mv</span> <span class="n">folder1</span><span class="o">/</span><span class="n">file1</span><span class="o">.</span><span class="n">txt</span>  <span class="o">./</span>
+</pre></div>
+</div>
+<p>The command can also be used to rename files:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">mv</span> <span class="n">file1</span><span class="o">.</span><span class="n">txt</span> <span class="n">file2</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>or folders:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">mv</span> <span class="n">folder1</span> <span class="n">folder2</span>
+</pre></div>
+</div>
+<p>To move multiple files, list them - the last parameter is the destination:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">mv</span> <span class="n">file1</span><span class="o">.</span><span class="n">txt</span> <span class="n">file2</span><span class="o">.</span><span class="n">txt</span> <span class="n">file3</span><span class="o">.</span><span class="n">txt</span><span class="o">.</span> <span class="n">data</span><span class="o">/</span>
+</pre></div>
+</div>
+<p><strong>Delete</strong>
+With <code class="docutils literal notranslate"><span class="pre">rm</span></code> files can be deleted:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">rm</span> <span class="n">myfile</span><span class="o">.</span><span class="n">txt</span>
+</pre></div>
+</div>
+<p>There are multiple ways to delete multiple files.
+You can list them:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">rm</span> <span class="n">file1</span> <span class="n">file</span> <span class="mi">2</span> <span class="n">file3</span>
+</pre></div>
+</div>
+<p>Or delete all files that contain a certain name:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">rm</span> <span class="o">*</span><span class="n">name</span><span class="o">*</span> 
+</pre></div>
+</div>
+<p>To delete folders including files and subfolders, the <code class="docutils literal notranslate"><span class="pre">-r</span></code> option must be set:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">rm</span> <span class="o">-</span><span class="n">r</span> <span class="n">folder1</span>
+</pre></div>
+</div>
+<p>Remove all files at a given location one can alos use the wildcard <code class="docutils literal notranslate"><span class="pre">*</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">rm</span> <span class="o">*</span>
+</pre></div>
+</div>
+</section>
+<section id="id1">
+<h3>Basic interaction with the file system<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
+<p>The current directory is changed via the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command. Invoking no arguments changes to the user’s home directory, otherwise the
+target directory is specified. There exist a couple of special directories, which can also be used with other commands:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">~</span></code>: the user’s home directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">~username</span></code>: the home directory of user username</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.</span></code>: this directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">..</span></code>: above directory</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-</span></code>: last directory (cd command only)</p></li>
+</ul>
+<p>The current working directory can be shown with the <code class="docutils literal notranslate"><span class="pre">pwd</span></code> (print working directory) command.</p>
+</section>
 <section id="configure-your-terminal">
 <h3>Configure your terminal<a class="headerlink" href="#configure-your-terminal" title="Permalink to this headline">#</a></h3>
 <p>The user can adjust their shell by setting up a configuration file that is called <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>. This is a basic text file, which is stored in the user’s home directory as a hidden file (indicated by the leading period in the file name). Typically this file does not exist right away, using for example the command<code class="docutils literal notranslate"><span class="pre">vim</span> <span class="pre">~/.bashrc</span></code> the file will be created otherwise it will just be opened for editing in the text editor <a class="reference external" href="https://www.vim.org/docs.php">Vim</a>. In the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> default settings can be stored. For instance, the command prompt can be changed from the generic default to show <code class="docutils literal notranslate"><span class="pre">user_name&#64;host</span></code> or often used modules could be pre-loaded, see section “Environment modules (Lmod)” below.</p>
@@ -1031,19 +1120,6 @@ runner
 </div>
 <p>Afterwards, hit <code class="docutils literal notranslate"><span class="pre">Esc</span></code> to go back into the normal mode. Type <code class="docutils literal notranslate"><span class="pre">:w</span></code> to save the changes and <code class="docutils literal notranslate"><span class="pre">:q</span></code> to quit Vim, or <code class="docutils literal notranslate"><span class="pre">:wq</span></code> to combine both commands. With <code class="docutils literal notranslate"><span class="pre">:q!</span></code> changes to the file are discarded before closing Vim.</p>
 <p>This changes the command prompt to show the user and host names.</p>
-</section>
-<section id="changing-directories">
-<h3>Changing directories<a class="headerlink" href="#changing-directories" title="Permalink to this headline">#</a></h3>
-<p>The current directory is changed via the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command. Invoking no arguments changes to the user’s home directory, otherwise the
-target directory is specified. There exist a couple of special directories, which can also be used with other commands:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">~</span></code>: the user’s home directory</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">~username</span></code>: the home directory of user username</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">.</span></code>: this directory</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">..</span></code>: above directory</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">-</span></code>: last directory (cd command only)</p></li>
-</ul>
-<p>The current working directory can be shown with the <code class="docutils literal notranslate"><span class="pre">pwd</span></code> (print working directory) command.</p>
 </section>
 <section id="arguments">
 <h3>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">#</a></h3>
@@ -1432,7 +1508,7 @@ logfile
 &gt; ls -lah
 total 112K
 drwxr-xr-x 17 runner docker 4.0K Apr 26  2021 .
-drwxr-xr-x  4 runner docker 4.0K Sep 22 13:09 ..
+drwxr-xr-x  4 runner docker 4.0K Sep 26 12:05 ..
 -rw-r--r--  1 runner docker   20 Apr 25  2021 .hidden_file_do_not_look_here
 -rw-r--r--  1 runner docker  816 Apr 26  2021 combined_logs
 -rw-r--r--  1 runner docker  591 Dec 12  2000 doc01.md
@@ -1443,21 +1519,21 @@ drwxr-xr-x  4 runner docker 4.0K Sep 22 13:09 ..
 -rw-r--r--  1 runner docker   60 Apr 26  2021 for-loop.sh
 -rw-r--r--  1 runner docker  113 Apr 25  2021 if-statement.sh
 -rw-r--r--  1 runner docker   62 Apr 26  2021 info.txt
-drwxr-xr-x  2 runner docker 4.0K Sep 22 13:09 rundir_01
-drwxr-xr-x  2 runner docker 4.0K Sep 22 13:09 rundir_02
-drwxr-xr-x  2 runner docker 4.0K Sep 22 13:09 rundir_03
-drwxr-xr-x  2 runner docker 4.0K Sep 22 13:09 rundir_04
-drwxr-xr-x  2 runner docker 4.0K Sep 22 13:09 rundir_05
-drwxr-xr-x  2 runner docker 4.0K Sep 22 13:09 rundir_06
-drwxr-xr-x  2 runner docker 4.0K Sep 22 13:09 rundir_07
-drwxr-xr-x  2 runner docker 4.0K Sep 22 13:09 rundir_08
-drwxr-xr-x  2 runner docker 4.0K Sep 22 13:09 rundir_09
-drwxr-xr-x  2 runner docker 4.0K Sep 22 13:09 rundir_10
-drwxr-xr-x  2 runner docker 4.0K Sep 22 13:09 rundir_11
-drwxr-xr-x  2 runner docker 4.0K Sep 22 13:09 rundir_12
-drwxr-xr-x  2 runner docker 4.0K Sep 22 13:09 rundir_13
+drwxr-xr-x  2 runner docker 4.0K Sep 26 12:05 rundir_01
+drwxr-xr-x  2 runner docker 4.0K Sep 26 12:05 rundir_02
+drwxr-xr-x  2 runner docker 4.0K Sep 26 12:05 rundir_03
+drwxr-xr-x  2 runner docker 4.0K Sep 26 12:05 rundir_04
+drwxr-xr-x  2 runner docker 4.0K Sep 26 12:05 rundir_05
+drwxr-xr-x  2 runner docker 4.0K Sep 26 12:05 rundir_06
+drwxr-xr-x  2 runner docker 4.0K Sep 26 12:05 rundir_07
+drwxr-xr-x  2 runner docker 4.0K Sep 26 12:05 rundir_08
+drwxr-xr-x  2 runner docker 4.0K Sep 26 12:05 rundir_09
+drwxr-xr-x  2 runner docker 4.0K Sep 26 12:05 rundir_10
+drwxr-xr-x  2 runner docker 4.0K Sep 26 12:05 rundir_11
+drwxr-xr-x  2 runner docker 4.0K Sep 26 12:05 rundir_12
+drwxr-xr-x  2 runner docker 4.0K Sep 26 12:05 rundir_13
 drwxr-xr-x  2 runner docker 4.0K Apr 25  2021 rundir_14
-drwxr-xr-x  2 runner docker 4.0K Sep 22 13:09 rundir_15
+drwxr-xr-x  2 runner docker 4.0K Sep 26 12:05 rundir_15
 </pre></div>
 </div>
 </div>
@@ -1477,20 +1553,20 @@ drwxr-xr-x 2 runner docker 4096 Apr 25  2021 rundir_14
 -rw-r--r-- 1 runner docker  816 Apr 26  2021 combined_logs
 -rw-r--r-- 1 runner docker   62 Apr 26  2021 info.txt
 -rw-r--r-- 1 runner docker   60 Apr 26  2021 for-loop.sh
-drwxr-xr-x 2 runner docker 4096 Sep 22 13:09 rundir_15
-drwxr-xr-x 2 runner docker 4096 Sep 22 13:09 rundir_13
-drwxr-xr-x 2 runner docker 4096 Sep 22 13:09 rundir_12
-drwxr-xr-x 2 runner docker 4096 Sep 22 13:09 rundir_11
-drwxr-xr-x 2 runner docker 4096 Sep 22 13:09 rundir_10
-drwxr-xr-x 2 runner docker 4096 Sep 22 13:09 rundir_09
-drwxr-xr-x 2 runner docker 4096 Sep 22 13:09 rundir_08
-drwxr-xr-x 2 runner docker 4096 Sep 22 13:09 rundir_07
-drwxr-xr-x 2 runner docker 4096 Sep 22 13:09 rundir_06
-drwxr-xr-x 2 runner docker 4096 Sep 22 13:09 rundir_05
-drwxr-xr-x 2 runner docker 4096 Sep 22 13:09 rundir_02
-drwxr-xr-x 2 runner docker 4096 Sep 22 13:09 rundir_01
-drwxr-xr-x 2 runner docker 4096 Sep 22 13:09 rundir_04
-drwxr-xr-x 2 runner docker 4096 Sep 22 13:09 rundir_03
+drwxr-xr-x 2 runner docker 4096 Sep 26 12:05 rundir_15
+drwxr-xr-x 2 runner docker 4096 Sep 26 12:05 rundir_13
+drwxr-xr-x 2 runner docker 4096 Sep 26 12:05 rundir_12
+drwxr-xr-x 2 runner docker 4096 Sep 26 12:05 rundir_11
+drwxr-xr-x 2 runner docker 4096 Sep 26 12:05 rundir_10
+drwxr-xr-x 2 runner docker 4096 Sep 26 12:05 rundir_09
+drwxr-xr-x 2 runner docker 4096 Sep 26 12:05 rundir_08
+drwxr-xr-x 2 runner docker 4096 Sep 26 12:05 rundir_07
+drwxr-xr-x 2 runner docker 4096 Sep 26 12:05 rundir_06
+drwxr-xr-x 2 runner docker 4096 Sep 26 12:05 rundir_05
+drwxr-xr-x 2 runner docker 4096 Sep 26 12:05 rundir_04
+drwxr-xr-x 2 runner docker 4096 Sep 26 12:05 rundir_03
+drwxr-xr-x 2 runner docker 4096 Sep 26 12:05 rundir_02
+drwxr-xr-x 2 runner docker 4096 Sep 26 12:05 rundir_01
 </pre></div>
 </div>
 </div>
@@ -1789,8 +1865,8 @@ With <code class="docutils literal notranslate"><span class="pre">git</span> <sp
 <section id="compile-software-from-git-repo">
 <h3>Compile software from Git repo<a class="headerlink" href="#compile-software-from-git-repo" title="Permalink to this headline">#</a></h3>
 <p>It may be necessary for users to compile necessary software themselves. For example, to account for the pre-installed libraries and dependencies on the target system. It also happens that one might need a specific software version that is not available in a package or with an installer. Consider the ongoing development of FDS. New functionality could be added that you might want to try out or a change is implemented that might be beneficial for your work. Or maybe you want to compare simulation results to older versions.</p>
-<p>The source code of FDS can be downloaded from the <a class="reference external" href="https://github.com/firemodels/fds">FDS GitHub repository</a>, following the green button at the top right on the main page of the git repo. One can download it as a compressed archive or clone the repo directly to disk, using ´git clone address/of/repo´ in the command line.</p>
-<p>In the directory <code class="docutils literal notranslate"><span class="pre">Build</span></code>is a <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file located (<code class="docutils literal notranslate"><span class="pre">*.md</span></code> is a plain text file to be interpreted as <a class="reference external" href="https://www.markdownguide.org/">Markdown</a>). It contains some information on the compilation process of FDS. Detailed instructions are given in the ´makefile´ for different operating systems and MPI versions.</p>
+<p>The source code of FDS can be downloaded from the <a class="reference external" href="https://github.com/firemodels/fds">FDS GitHub repository</a>, following the green button at the top right on the main page of the git repo. One can download it as a compressed archive or clone the repo directly to disk, using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">address/of/repo</span></code> in the command line.</p>
+<p>In the directory <code class="docutils literal notranslate"><span class="pre">Build</span></code> is a <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file located (<code class="docutils literal notranslate"><span class="pre">*.md</span></code> is a plain text file to be interpreted as <a class="reference external" href="https://www.markdownguide.org/">Markdown</a>). It contains some information on the compilation process of FDS. Detailed instructions are given in the <code class="docutils literal notranslate"><span class="pre">makefile</span></code> for different operating systems and MPI versions.</p>
 </section>
 </section>
 </section>
@@ -1832,7 +1908,7 @@ With <code class="docutils literal notranslate"><span class="pre">git</span> <sp
     <a class='right-next' id="next-link" href="02_hpc.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">High Performace Computing</p>
+        <p class="prev-next-title">High Performance Computing</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

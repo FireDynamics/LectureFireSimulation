@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Benchmarking" href="04_benchmarking.html" />
-    <link rel="prev" title="High Performace Computing" href="02_hpc.html" />
+    <link rel="prev" title="High Performance Computing" href="02_hpc.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -401,7 +401,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="02_hpc.html">
-     High Performace Computing
+     High Performance Computing
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -653,6 +653,11 @@ title="Print to PDF"
      SLURM
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#job-submission">
+     Job Submission
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -697,13 +702,6 @@ title="Print to PDF"
      FDS Modules on the CoBra Cluster
     </a>
    </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#job-submission">
-   Job Submission
-  </a>
-  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#single-job-on-jureca">
      Single Job on JURECA
@@ -765,6 +763,11 @@ title="Print to PDF"
      SLURM
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#job-submission">
+     Job Submission
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -809,13 +812,6 @@ title="Print to PDF"
      FDS Modules on the CoBra Cluster
     </a>
    </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#job-submission">
-   Job Submission
-  </a>
-  <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#single-job-on-jureca">
      Single Job on JURECA
@@ -894,7 +890,7 @@ title="Print to PDF"
 </section>
 <section id="slurm">
 <h3>SLURM<a class="headerlink" href="#slurm" title="Permalink to this headline">#</a></h3>
-<p>To efficiently use the provided resources of a large compute cluster, workload managers are used. A common workload manager is <a class="reference external" href="https://slurm.schedmd.com/documentation.html">SLURM</a>, which is also used on JURECA and Pleiades.</p>
+<p>A computer cluster is often used by a lot of users. Therefore, executing a program which needs a lot of the resources could slow down the network or even the OS. To efficiently use the provided resources of a large compute cluster, workload managers are used. A common workload manager is <a class="reference external" href="https://slurm.schedmd.com/documentation.html">SLURM</a>, which is also used on JURECA and Pleiades.</p>
 <p>Some of the basic commands are reproduced here. Many parameters can be used to control the behaviour of the individual commands. Look into the <a class="reference external" href="https://slurm.schedmd.com/documentation.html">documentation</a> for a comprehensive overview.</p>
 <p>An overview over all jobs in the queue is provided with:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; squeue
@@ -925,6 +921,13 @@ title="Print to PDF"
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; srun --partition=normal
 </pre></div>
 </div>
+</section>
+<section id="job-submission">
+<h3>Job Submission<a class="headerlink" href="#job-submission" title="Permalink to this headline">#</a></h3>
+<p>After the brief overview over the different
+recursively</p>
+<p>Instead of running our simulation on the cluster we either submit our simulation file to the queueing system or execute a submit code which includes the modules we need for FDS, sets the number of processes, theads and other important quantities.</p>
+<p>More information is provided in <a class="reference external" href="https://apps.fz-juelich.de/jsc/hps/jureca/batchsystem.html">JURECA’s batch system documentation</a> and <a class="reference external" href="http://www.pleiades.uni-wuppertal.de/index.php?id=slurm">Pleiades batch system</a>.</p>
 </section>
 </section>
 <section id="accessing-jureca">
@@ -998,11 +1001,6 @@ jrlogin06.jureca
 <p><code class="docutils literal notranslate"><span class="pre">module</span> <span class="pre">load</span> <span class="pre">FDS</span></code></p>
 <p>which sets up the environment to run FDS in parallel. The name of the FDS executable is <code class="docutils literal notranslate"><span class="pre">fds</span></code>.</p>
 </section>
-</section>
-<section id="job-submission">
-<h2>Job Submission<a class="headerlink" href="#job-submission" title="Permalink to this headline">#</a></h2>
-<p>A computercluster is often used by a lot of users. Therefore executing a programm which needs a lot of the CPU power could disturb other users by slowing down the rest of the softwares or even the OS. The solution to this is a queueing system which organizes the execution of many programms and manages the ressource distribution among them. JURECA and the CoBra-cluster use the software called Slurm for queueing and distributing to compute nodes. More information is provided in <a class="reference external" href="https://apps.fz-juelich.de/jsc/hps/jureca/batchsystem.html">JURECA’s batch system documentation</a> and <a class="reference external" href="http://www.pleiades.uni-wuppertal.de/index.php?id=slurm">Pleiades batch system</a>.</p>
-<p>Instead of running our simulation on the cluster we either submit our simulation file to the queueing system or execute a submit code which includes the modules we need for FDS, sets the number of processes, theads and other important quantities.</p>
 <section id="single-job-on-jureca">
 <h3>Single Job on JURECA<a class="headerlink" href="#single-job-on-jureca" title="Permalink to this headline">#</a></h3>
 <p>The structure of a Slurm job script is basically a shell script. This shell script will be executed by the batch system on the requested resource. The definition of the resource is done as comments (<code class="docutils literal notranslate"><span class="pre">#</span></code>) with the <code class="docutils literal notranslate"><span class="pre">SLURM</span></code> keywords. These are instructions for Slurm.</p>
@@ -1358,7 +1356,7 @@ rm $CHID.stop
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">High Performace Computing</p>
+            <p class="prev-next-title">High Performance Computing</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="04_benchmarking.html" title="next page">

@@ -1,19 +1,19 @@
 Traceback (most recent call last):
-  File "/opt/hostedtoolcache/Python/3.7.13/x64/lib/python3.7/site-packages/jupyter_cache/executors/utils.py", line 56, in single_nb_execution
+  File "/opt/hostedtoolcache/Python/3.7.14/x64/lib/python3.7/site-packages/jupyter_cache/executors/utils.py", line 56, in single_nb_execution
     record_timing=False,
-  File "/opt/hostedtoolcache/Python/3.7.13/x64/lib/python3.7/site-packages/nbclient/client.py", line 1204, in execute
+  File "/opt/hostedtoolcache/Python/3.7.14/x64/lib/python3.7/site-packages/nbclient/client.py", line 1204, in execute
     return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
-  File "/opt/hostedtoolcache/Python/3.7.13/x64/lib/python3.7/site-packages/nbclient/util.py", line 84, in wrapped
+  File "/opt/hostedtoolcache/Python/3.7.14/x64/lib/python3.7/site-packages/nbclient/util.py", line 84, in wrapped
     return just_run(coro(*args, **kwargs))
-  File "/opt/hostedtoolcache/Python/3.7.13/x64/lib/python3.7/site-packages/nbclient/util.py", line 62, in just_run
+  File "/opt/hostedtoolcache/Python/3.7.14/x64/lib/python3.7/site-packages/nbclient/util.py", line 62, in just_run
     return loop.run_until_complete(coro)
-  File "/opt/hostedtoolcache/Python/3.7.13/x64/lib/python3.7/asyncio/base_events.py", line 587, in run_until_complete
+  File "/opt/hostedtoolcache/Python/3.7.14/x64/lib/python3.7/asyncio/base_events.py", line 587, in run_until_complete
     return future.result()
-  File "/opt/hostedtoolcache/Python/3.7.13/x64/lib/python3.7/site-packages/nbclient/client.py", line 664, in async_execute
+  File "/opt/hostedtoolcache/Python/3.7.14/x64/lib/python3.7/site-packages/nbclient/client.py", line 664, in async_execute
     cell, index, execution_count=self.code_cells_executed + 1
-  File "/opt/hostedtoolcache/Python/3.7.13/x64/lib/python3.7/site-packages/nbclient/client.py", line 965, in async_execute_cell
+  File "/opt/hostedtoolcache/Python/3.7.14/x64/lib/python3.7/site-packages/nbclient/client.py", line 965, in async_execute_cell
     await self._check_raise_for_error(cell, cell_index, exec_reply)
-  File "/opt/hostedtoolcache/Python/3.7.13/x64/lib/python3.7/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+  File "/opt/hostedtoolcache/Python/3.7.14/x64/lib/python3.7/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
@@ -79,21 +79,21 @@ plt.close()
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mOSError[0m                                   Traceback (most recent call last)
-[0;32m/tmp/ipykernel_2119/3544137628.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_2085/3544137628.py[0m in [0;36m<module>[0;34m[0m
 [1;32m      1[0m [0mdata_root[0m [0;34m=[0m [0mroot[0m [0;34m+[0m [0;34m'data/heat_transfer/ht3d_solid/rundir'[0m[0;34m[0m[0;34m[0m[0m
 [0;32m----> 2[0;31m [0msim[0m [0;34m=[0m [0mfdsreader[0m[0;34m.[0m[0mSimulation[0m[0;34m([0m[0mdata_root[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m[1;32m      3[0m [0mslice_axial[0m [0;34m=[0m [0msim[0m[0;34m.[0m[0mslices[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
 [1;32m      4[0m [0mslice_steel[0m [0;34m=[0m [0msim[0m[0;34m.[0m[0mslices[0m[0;34m[[0m[0;36m1[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
 [1;32m      5[0m [0mslice_copper[0m [0;34m=[0m [0msim[0m[0;34m.[0m[0mslices[0m[0;34m[[0m[0;36m2[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
 
-[0;32m/opt/hostedtoolcache/Python/3.7.13/x64/lib/python3.7/site-packages/fdsreader/simulation.py[0m in [0;36m__new__[0;34m(cls, path)[0m
+[0;32m/opt/hostedtoolcache/Python/3.7.14/x64/lib/python3.7/site-packages/fdsreader/simulation.py[0m in [0;36m__new__[0;34m(cls, path)[0m
 [1;32m     58[0m [0;34m[0m[0m
 [1;32m     59[0m     [0;32mdef[0m [0m__new__[0m[0;34m([0m[0mcls[0m[0;34m,[0m [0mpath[0m[0;34m:[0m [0mstr[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
 [0;32m---> 60[0;31m         [0msmv_file_path[0m [0;34m=[0m [0mget_smv_file[0m[0;34m([0m[0mpath[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m[1;32m     61[0m         [0mroot_path[0m [0;34m=[0m [0mos[0m[0;34m.[0m[0mpath[0m[0;34m.[0m[0mdirname[0m[0;34m([0m[0msmv_file_path[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [1;32m     62[0m [0;34m[0m[0m
 
-[0;32m/opt/hostedtoolcache/Python/3.7.13/x64/lib/python3.7/site-packages/fdsreader/utils/data.py[0m in [0;36mget_smv_file[0;34m(path)[0m
+[0;32m/opt/hostedtoolcache/Python/3.7.14/x64/lib/python3.7/site-packages/fdsreader/utils/data.py[0m in [0;36mget_smv_file[0;34m(path)[0m
 [1;32m     95[0m         [0;32mreturn[0m [0mpath[0m [0;34m+[0m [0;34m".smv"[0m[0;34m[0m[0;34m[0m[0m
 [1;32m     96[0m     [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
 [0;32m---> 97[0;31m         [0;32mraise[0m [0mIOError[0m[0;34m([0m[0;34m"The given path does neither point to a directory nor a file: "[0m [0;34m+[0m [0mpath[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
