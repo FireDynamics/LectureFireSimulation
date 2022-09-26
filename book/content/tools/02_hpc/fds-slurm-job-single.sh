@@ -7,7 +7,7 @@
 #SBATCH --cpus-per-task=1
 #SBATCH --output=stdout.%j
 #SBATCH --error=stderr.%j
-#SBATCH --time=00:30:00
+#SBATCH --time=00:30:00  # days-hours:minutes:seconds
 
 # Set the number of OMP threads
 export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
@@ -19,6 +19,6 @@ module use -a ~arnold1/modules_fire/
 module load FDS/6.7.8-IntelCompiler_2021.4.0_IntelMPI_2021.4.0
 
 # Execute FDS, here it is assumed, that there is only one FDS input file
-# in the current directory. Additionally, srun uses implicitly the number 
+# in the current directory. Additionally, srun uses implicitly the number
 # of tasks specified in the SLURM header
 srun fds ./*.fds
