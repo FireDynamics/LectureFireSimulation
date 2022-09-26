@@ -66,7 +66,7 @@ This is explained in the [“Module Hierarchy” and “Searching for Modules”
 
 
 ### SLURM
-To efficiently use the provided resources of a large compute cluster, workload managers are used. A common workload manager is [SLURM](https://slurm.schedmd.com/documentation.html), which is also used on JURECA and Pleiades.
+A computer cluster is often used by a lot of users. Therefore, executing a program which needs a lot of the resources could slow down the network or even the OS. To efficiently use the provided resources of a large compute cluster, workload managers are used. A common workload manager is [SLURM](https://slurm.schedmd.com/documentation.html), which is also used on JURECA and Pleiades.
 
 Some of the basic commands are reproduced here. Many parameters can be used to control the behaviour of the individual commands. Look into the [documentation](https://slurm.schedmd.com/documentation.html) for a comprehensive overview.
 
@@ -115,7 +115,14 @@ Often different queues exist on the computers. These can be defined by the maxim
 > srun --partition=normal
 ```
 
+### Job Submission
 
+After the brief overview over the different
+recursively
+
+Instead of running our simulation on the cluster we either submit our simulation file to the queueing system or execute a submit code which includes the modules we need for FDS, sets the number of processes, theads and other important quantities.
+
+More information is provided in [JURECA's batch system documentation](https://apps.fz-juelich.de/jsc/hps/jureca/batchsystem.html) and [Pleiades batch system](http://www.pleiades.uni-wuppertal.de/index.php?id=slurm).
 
 
 ## Accessing JURECA
@@ -204,12 +211,6 @@ The (default) FDS module can be loaded with
 ```module load FDS```
 
 which sets up the environment to run FDS in parallel. The name of the FDS executable is `fds`.
-
-## Job Submission
-
-A computercluster is often used by a lot of users. Therefore executing a programm which needs a lot of the CPU power could disturb other users by slowing down the rest of the softwares or even the OS. The solution to this is a queueing system which organizes the execution of many programms and manages the ressource distribution among them. JURECA and the CoBra-cluster use the software called Slurm for queueing and distributing to compute nodes. More information is provided in [JURECA's batch system documentation](https://apps.fz-juelich.de/jsc/hps/jureca/batchsystem.html) and [Pleiades batch system](http://www.pleiades.uni-wuppertal.de/index.php?id=slurm).
-
-Instead of running our simulation on the cluster we either submit our simulation file to the queueing system or execute a submit code which includes the modules we need for FDS, sets the number of processes, theads and other important quantities.
 
 
 ### Single Job on JURECA

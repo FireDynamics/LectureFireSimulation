@@ -1,4 +1,4 @@
-# High Performace Computing
+# High Performance Computing
 
 ## Overview
 
