@@ -137,17 +137,37 @@ An interesting representation of the computer evolution is given by the [perform
 The system, which is used for this lecture is [JURECA](https://fz-juelich.de/ias/jsc/EN/Expertise/Supercomputers/JURECA/JURECA_node.html) at the Forschungszentrum Jülich.
 
 :::{figure-md} fig-hpc-jureca-dc
-<img src="https://fz-juelich.de/SharedDocs/Bilder/IAS/JSC/EN/galeries/JURECA/JURECA-DC.jpg?__blob=poster" width="80%">
+<img src="figs/jureca.png" width="60%">
 
-JURECA-DC cluster at the Forschungszentrum Jülich. Source: Forschungszentrum Jülich.
+JURECA-DC cluster at the Forschungszentrum Jülich.
 :::
 
-### CoBra Cluster
-
-Within the BMBF-funded project CoBra, the CCE chair will setup a computing cluster with a theoretical performance of about 100 TFLOP/s in 2021.
+### CoBra / Pleiades Cluster
 
 :::{figure-md} fig-hpc-cobra-logo
-<img src="./figs/cobra_logo_full.svg" width="80%">
+<img src="./figs/cobra_logo_full.svg" width="40%">
 
-CoBra project logo – an image of the cluster is yet to be included.
+CoBra project logo.
 :::
+
+Within the BMBF-funded project [CoBra](https://cce.uni-wuppertal.de/de/forschung/cobra/), the CCE chair contributes with hardware to the computing cluster [Pleiades](http://pleiades.uni-wuppertal.de) at the University of Wuppertal. Furter information about the hardware and software configuration of Pleiades is available [here](https://pleiadesbuw.github.io/PleiadesUserDocumentation/).
+
+:::{figure-md} fig-pleiades-cobra-rack
+<img src="figs/cobra-rack.png" width="30%">
+
+The CoBra rack as part of the Pleiades system at the University of Wuppertal.
+:::
+
+:::{figure-md} fig-pleiades-workernode
+<img src="figs/pleiades-workernode.png" width="80%">
+
+Outline of a Pleiades worker node.
+:::
+
+:::{figure-md} fig-pleiades-network
+<img src="figs/pleiades-network.png" width="80%">
+
+Overview of the Pleiades network.
+:::
+
+
