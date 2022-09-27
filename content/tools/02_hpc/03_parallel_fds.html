@@ -1013,8 +1013,8 @@ srun fds ./*.fds
 </div>
 <p>As FDS can utilise OpenMP, the according environment variable (<code class="docutils literal notranslate"><span class="pre">OMP_NUM_THREADS</span></code>) needs to be set. The above command sets it automatically to the number given by <code class="docutils literal notranslate"><span class="pre">cpus-per-task</span></code> in the SLURM section.</p>
 </li>
-<li><p><strong>Load FDS Modules</strong>
-Available Lmod modules are stored in different locations on both computers. On JURECA use:</p>
+<li><p><strong>Load FDS Modules</strong></p>
+<p>Available Lmod modules are stored in different locations on both computers. On JURECA use:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">use</span> <span class="o">-</span><span class="n">a</span> <span class="o">~</span><span class="n">arnold1</span><span class="o">/</span><span class="n">modules_fire</span><span class="o">/</span>
 <span class="n">module</span> <span class="n">load</span> <span class="n">FDS</span><span class="o">/</span><span class="mf">6.7.5</span><span class="o">-</span><span class="n">IntelComp2020</span><span class="mf">.2</span><span class="n">_ParaStationMPI_5</span><span class="mf">.4.7</span>
 </pre></div>
@@ -1171,9 +1171,9 @@ rm $CHID.stop
 </pre></div>
 </div>
 <ul class="simple">
-<li><p><strong>Be mindful of network traffic</strong>
-When your jobs require a lot of read and write access to disk it might be beneficial to store the files on the worker node during execution. Specifically, when the job is large, like a smoke extraction simulation in a warehouse with many meshes. Because all these attempts to read and write would be sent through the network between worker and login nodes and might  slow down the whole system. This is bad for you because the simulation takes longer to complete and bad for everyone else for the same reason.</p></li>
+<li><p><strong>Be mindful of network traffic</strong></p></li>
 </ul>
+<p>When your jobs require a lot of read and write access to disk it might be beneficial to store the files on the worker node during execution. Specifically, when the job is large, like a smoke extraction simulation in a warehouse with many meshes. Because all these attempts to read and write would be sent through the network between worker and login nodes and might  slow down the whole system. This is bad for you because the simulation takes longer to complete and bad for everyone else for the same reason.</p>
 </section>
 </section>
 </section>

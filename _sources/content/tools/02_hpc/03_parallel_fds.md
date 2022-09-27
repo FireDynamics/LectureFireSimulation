@@ -210,6 +210,7 @@ The SLURM keywords in the individual lines are described in more detail below.
   As FDS can utilise OpenMP, the according environment variable (`OMP_NUM_THREADS`) needs to be set. The above command sets it automatically to the number given by `cpus-per-task` in the SLURM section.
 
 * **Load FDS Modules**
+
   Available Lmod modules are stored in different locations on both computers. On JURECA use:
   ```
   module use -a ~arnold1/modules_fire/
@@ -293,6 +294,7 @@ When requesting resources think a bit how your job is structured and what your r
 ```
 
 * **Be mindful of network traffic**
+
 When your jobs require a lot of read and write access to disk it might be beneficial to store the files on the worker node during execution. Specifically, when the job is large, like a smoke extraction simulation in a warehouse with many meshes. Because all these attempts to read and write would be sent through the network between worker and login nodes and might  slow down the whole system. This is bad for you because the simulation takes longer to complete and bad for everyone else for the same reason.
 
 
