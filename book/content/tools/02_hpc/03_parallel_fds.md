@@ -23,16 +23,16 @@ With [Lmod](https://lmod.readthedocs.io/en/latest/) the user is able to dynamica
 
 Documentation of Lmod can be found [here](https://lmod.readthedocs.io/en/latest/010_user.html). Some of the most important commands are reproduced here.
 
-An overview over already loaded modules is provided with the following command:
-
-```none
-> module list
-```
-
 To find out what modules are available to be loaded, type:
 
 ```none
 > module avail
+```
+
+An overview over already loaded modules is provided with the following command:
+
+```none
+> module list
 ```
 
 Desired modules can simply loaded by typing:
