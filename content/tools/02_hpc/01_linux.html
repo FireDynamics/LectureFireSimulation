@@ -741,8 +741,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#putput-redirection">
-     Putput Redirection
+    <a class="reference internal nav-link" href="#output-redirection">
+     Output Redirection
     </a>
    </li>
   </ul>
@@ -849,8 +849,8 @@ title="Print to PDF"
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#putput-redirection">
-     Putput Redirection
+    <a class="reference internal nav-link" href="#output-redirection">
+     Output Redirection
     </a>
    </li>
   </ul>
@@ -961,7 +961,7 @@ title="Print to PDF"
 <p>In the following, some examples within a directory structure are used. The directory contents are stored in the archive <a class="reference download internal" download="" href="../../../_downloads/e48e9d53422a7d02f13b1af6717ab9b8/dir_structure_01.tar"><code class="xref download docutils literal notranslate"><span class="pre">dir_structure_01.tar</span></code></a>, which can be extracted after download by <code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">-xf</span> <span class="pre">dir_structure_01.tar</span></code>.</p>
 </div>
 <p>The shell keeps track of commands that have been used in its history. Individual entries can be accessed with the up/down arrow keys. A general overview over the history can be shown when using the <code class="docutils literal notranslate"><span class="pre">history</span></code> command. Hitting the “Cmd” and “R” keys, the user can search for commands in the history. Furthermore, the shell provides functionality to auto-complete commands by hitting the “tab” key during typing in of a command.
-The command <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">$SHELL</span></code> allows the user to get information about which shell they are working with right now. The shell behaviour can be individualised, by setting up configuration files like the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>, <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code> or <code class="docutils literal notranslate"><span class="pre">.bash_aliases</span></code>.</p>
+The command <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">$SHELL</span></code> allows the user to get information about which shell they are working with right now. The shell behaviour can be individualised, by setting up configuration files like the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>, <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code> or <code class="docutils literal notranslate"><span class="pre">.bash_aliases</span></code>. Note on Pleiades it is the <code class="docutils literal notranslate"><span class="pre">.profile</span></code> instead.</p>
 <section id="environment-variables">
 <h3>Environment variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">#</a></h3>
 <p>Most, probably all, shells offer environment variables. They store information, which can be used during the execution of the issued commands. In Bash the syntax for reading the content of a variable with the name <code class="docutils literal notranslate"><span class="pre">AVAR</span></code> is <code class="docutils literal notranslate"><span class="pre">$AVAR</span></code>, i.e. the <code class="docutils literal notranslate"><span class="pre">$</span></code> character is prepended. To define the variable or change its value, the sole variable name is used.</p>
@@ -992,7 +992,7 @@ The command <code class="docutils literal notranslate"><span class="pre">echo</s
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; date
-Tue Sep 27 15:18:34 UTC 2022
+Thu Sep 29 06:19:45 UTC 2022
 </pre></div>
 </div>
 </div>
@@ -1485,7 +1485,7 @@ logfile
 &gt; ls -lah
 total 112K
 drwxr-xr-x 17 runner docker 4.0K Apr 26  2021 .
-drwxr-xr-x  4 runner docker 4.0K Sep 27 15:18 ..
+drwxr-xr-x  4 runner docker 4.0K Sep 29 06:19 ..
 -rw-r--r--  1 runner docker   20 Apr 25  2021 .hidden_file_do_not_look_here
 -rw-r--r--  1 runner docker  816 Apr 26  2021 combined_logs
 -rw-r--r--  1 runner docker  591 Dec 12  2000 doc01.md
@@ -1496,21 +1496,21 @@ drwxr-xr-x  4 runner docker 4.0K Sep 27 15:18 ..
 -rw-r--r--  1 runner docker   60 Apr 26  2021 for-loop.sh
 -rw-r--r--  1 runner docker  113 Apr 25  2021 if-statement.sh
 -rw-r--r--  1 runner docker   62 Apr 26  2021 info.txt
-drwxr-xr-x  2 runner docker 4.0K Sep 27 15:18 rundir_01
-drwxr-xr-x  2 runner docker 4.0K Sep 27 15:18 rundir_02
-drwxr-xr-x  2 runner docker 4.0K Sep 27 15:18 rundir_03
-drwxr-xr-x  2 runner docker 4.0K Sep 27 15:18 rundir_04
-drwxr-xr-x  2 runner docker 4.0K Sep 27 15:18 rundir_05
-drwxr-xr-x  2 runner docker 4.0K Sep 27 15:18 rundir_06
-drwxr-xr-x  2 runner docker 4.0K Sep 27 15:18 rundir_07
-drwxr-xr-x  2 runner docker 4.0K Sep 27 15:18 rundir_08
-drwxr-xr-x  2 runner docker 4.0K Sep 27 15:18 rundir_09
-drwxr-xr-x  2 runner docker 4.0K Sep 27 15:18 rundir_10
-drwxr-xr-x  2 runner docker 4.0K Sep 27 15:18 rundir_11
-drwxr-xr-x  2 runner docker 4.0K Sep 27 15:18 rundir_12
-drwxr-xr-x  2 runner docker 4.0K Sep 27 15:18 rundir_13
+drwxr-xr-x  2 runner docker 4.0K Sep 29 06:19 rundir_01
+drwxr-xr-x  2 runner docker 4.0K Sep 29 06:19 rundir_02
+drwxr-xr-x  2 runner docker 4.0K Sep 29 06:19 rundir_03
+drwxr-xr-x  2 runner docker 4.0K Sep 29 06:19 rundir_04
+drwxr-xr-x  2 runner docker 4.0K Sep 29 06:19 rundir_05
+drwxr-xr-x  2 runner docker 4.0K Sep 29 06:19 rundir_06
+drwxr-xr-x  2 runner docker 4.0K Sep 29 06:19 rundir_07
+drwxr-xr-x  2 runner docker 4.0K Sep 29 06:19 rundir_08
+drwxr-xr-x  2 runner docker 4.0K Sep 29 06:19 rundir_09
+drwxr-xr-x  2 runner docker 4.0K Sep 29 06:19 rundir_10
+drwxr-xr-x  2 runner docker 4.0K Sep 29 06:19 rundir_11
+drwxr-xr-x  2 runner docker 4.0K Sep 29 06:19 rundir_12
+drwxr-xr-x  2 runner docker 4.0K Sep 29 06:19 rundir_13
 drwxr-xr-x  2 runner docker 4.0K Apr 25  2021 rundir_14
-drwxr-xr-x  2 runner docker 4.0K Sep 27 15:18 rundir_15
+drwxr-xr-x  2 runner docker 4.0K Sep 29 06:19 rundir_15
 </pre></div>
 </div>
 </div>
@@ -1530,20 +1530,20 @@ drwxr-xr-x 2 runner docker 4096 Apr 25  2021 rundir_14
 -rw-r--r-- 1 runner docker  816 Apr 26  2021 combined_logs
 -rw-r--r-- 1 runner docker   62 Apr 26  2021 info.txt
 -rw-r--r-- 1 runner docker   60 Apr 26  2021 for-loop.sh
-drwxr-xr-x 2 runner docker 4096 Sep 27 15:18 rundir_15
-drwxr-xr-x 2 runner docker 4096 Sep 27 15:18 rundir_13
-drwxr-xr-x 2 runner docker 4096 Sep 27 15:18 rundir_12
-drwxr-xr-x 2 runner docker 4096 Sep 27 15:18 rundir_11
-drwxr-xr-x 2 runner docker 4096 Sep 27 15:18 rundir_10
-drwxr-xr-x 2 runner docker 4096 Sep 27 15:18 rundir_09
-drwxr-xr-x 2 runner docker 4096 Sep 27 15:18 rundir_08
-drwxr-xr-x 2 runner docker 4096 Sep 27 15:18 rundir_07
-drwxr-xr-x 2 runner docker 4096 Sep 27 15:18 rundir_06
-drwxr-xr-x 2 runner docker 4096 Sep 27 15:18 rundir_05
-drwxr-xr-x 2 runner docker 4096 Sep 27 15:18 rundir_04
-drwxr-xr-x 2 runner docker 4096 Sep 27 15:18 rundir_03
-drwxr-xr-x 2 runner docker 4096 Sep 27 15:18 rundir_02
-drwxr-xr-x 2 runner docker 4096 Sep 27 15:18 rundir_01
+drwxr-xr-x 2 runner docker 4096 Sep 29 06:19 rundir_15
+drwxr-xr-x 2 runner docker 4096 Sep 29 06:19 rundir_13
+drwxr-xr-x 2 runner docker 4096 Sep 29 06:19 rundir_12
+drwxr-xr-x 2 runner docker 4096 Sep 29 06:19 rundir_11
+drwxr-xr-x 2 runner docker 4096 Sep 29 06:19 rundir_10
+drwxr-xr-x 2 runner docker 4096 Sep 29 06:19 rundir_09
+drwxr-xr-x 2 runner docker 4096 Sep 29 06:19 rundir_08
+drwxr-xr-x 2 runner docker 4096 Sep 29 06:19 rundir_07
+drwxr-xr-x 2 runner docker 4096 Sep 29 06:19 rundir_06
+drwxr-xr-x 2 runner docker 4096 Sep 29 06:19 rundir_05
+drwxr-xr-x 2 runner docker 4096 Sep 29 06:19 rundir_04
+drwxr-xr-x 2 runner docker 4096 Sep 29 06:19 rundir_03
+drwxr-xr-x 2 runner docker 4096 Sep 29 06:19 rundir_02
+drwxr-xr-x 2 runner docker 4096 Sep 29 06:19 rundir_01
 </pre></div>
 </div>
 </div>
@@ -1574,7 +1574,7 @@ drwxr-xr-x 2 runner docker 4096 Sep 27 15:18 rundir_01
 <p>Afterwards, hit <code class="docutils literal notranslate"><span class="pre">Esc</span></code> to go back into the normal mode. Type <code class="docutils literal notranslate"><span class="pre">:w</span></code> to save the changes and <code class="docutils literal notranslate"><span class="pre">:q</span></code> to quit Vim, or <code class="docutils literal notranslate"><span class="pre">:wq</span></code> to combine both commands. With <code class="docutils literal notranslate"><span class="pre">:q!</span></code> changes to the file are discarded before closing Vim.</p>
 <p>Now we need to set up a way to load the <code class="docutils literal notranslate"><span class="pre">.bash_aliases</span></code>. For this we open the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> and add the following lines:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load aliases.</span>
-<span class="k">if</span> <span class="p">[</span><span class="o">-</span><span class="n">f</span> <span class="o">~/.</span><span class="n">bash_aliases</span> <span class="p">];</span> <span class="n">then</span>
+<span class="k">if</span> <span class="p">[</span> <span class="o">-</span><span class="n">f</span> <span class="o">~/.</span><span class="n">bash_aliases</span> <span class="p">];</span> <span class="n">then</span>
 <span class="n">source</span> <span class="o">~/.</span><span class="n">bash_aliases</span>
 <span class="n">fi</span>
 </pre></div>
@@ -1671,8 +1671,8 @@ Run Time: 20714
 </div>
 </div>
 </section>
-<section id="putput-redirection">
-<h3>Putput Redirection<a class="headerlink" href="#putput-redirection" title="Permalink to this headline">#</a></h3>
+<section id="output-redirection">
+<h3>Output Redirection<a class="headerlink" href="#output-redirection" title="Permalink to this headline">#</a></h3>
 <p>The output of programs is either to</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">stdout</span></code>: the normal program output</p></li>
