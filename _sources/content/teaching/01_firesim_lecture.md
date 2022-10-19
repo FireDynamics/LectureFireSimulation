@@ -1,1 +1,0 @@
-# Fire Simulation Lecture @ BUW
