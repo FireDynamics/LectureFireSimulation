@@ -60,6 +60,28 @@ parts:
     - file: content/modelling/09_pyrolysis/01_fundamentals
     - file: content/modelling/09_pyrolysis/02_example
 
+
+####################
+# EXAMPLES 
+- caption: Examples
+  chapters:
+  ## BASIC
+  - file: content/examples/01_basic/00_overview
+    sections:
+    - file: content/examples/01_basic/01_mesh
+    - file: content/examples/01_basic/02_obst
+  ## INTERMEDIATE
+  # - file: content/examples/02_intermediate/00_overview
+  #   sections:
+  #   - file: content/examples/02_intermediate/01_mesh
+  #   - file: content/examples/02_intermediate/02_obst
+  # ## ADVANCED
+  # - file: content/examples/03_advanced/00_overview
+  #   sections:
+  #   - file: content/examples/03_advanced/01_mesh
+  #   - file: content/examples/03_advanced/02_obst
+
+
 ####################
 # TOOLS 
 - caption: Tools
@@ -83,3 +105,10 @@ parts:
     - file: content/tools/03_analysis/03_example_mccaffreyplumes
     - file: content/tools/03_analysis/02_fdsreader
     
+    
+####################
+# TEACHING 
+- caption: Teaching
+  chapters:
+  - file: content/teaching/01_firesim_lecture
+  - file: content/teaching/02_cobra_workshop
