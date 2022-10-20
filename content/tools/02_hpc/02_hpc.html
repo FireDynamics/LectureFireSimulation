@@ -370,13 +370,13 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../examples/01_basic/01_mesh.html">
-     Computational Domain
+    <a class="reference internal" href="../../examples/01_basic/01_basic_example_i.html">
+     Basic FDS Example I
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../examples/01_basic/02_obst.html">
-     Obstructions and Holes
+    <a class="reference internal" href="../../examples/01_basic/02_basic_example_ii.html">
+     Basic FDS Example II
     </a>
    </li>
   </ul>
@@ -847,11 +847,11 @@ title="Print to PDF"
 </ul>
 <p>HPC with computing power thousand times larger than personal computers allows to significantly reduce the computing time and allows to address new modelling challenges. This is also becoming true for fire safety science and engineering communities.</p>
 <p><em>Example:</em> A CFD application running for a week on thousand processors would need 20 years on a personal computer (assuming it provides enough memory).</p>
-<p>The evolution of computer technology shows one of the fastest developments of all technolgies. Considering the nubmer of transistors as a measure for a chip’s computing performance, the evolution shows that this number doubles every two years. This observation is called <a class="reference external" href="https://en.wikipedia.org/wiki/Moore%27s_law">Moore’s law</a>, see <a class="reference internal" href="#fig-hpc-moore"><span class="std std-numref">Fig. 13</span></a>.</p>
+<p>The evolution of computer technology shows one of the fastest developments of all technolgies. Considering the nubmer of transistors as a measure for a chip’s computing performance, the evolution shows that this number doubles every two years. This observation is called <a class="reference external" href="https://en.wikipedia.org/wiki/Moore%27s_law">Moore’s law</a>, see <a class="reference internal" href="#fig-hpc-moore"><span class="std std-numref">Fig. 14</span></a>.</p>
 <figure class="align-default" id="fig-hpc-moore">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/0/00/Moore%27s_Law_Transistor_Count_1970-2020.png"><img alt="https://upload.wikimedia.org/wikipedia/commons/0/00/Moore%27s_Law_Transistor_Count_1970-2020.png" src="https://upload.wikimedia.org/wikipedia/commons/0/00/Moore%27s_Law_Transistor_Count_1970-2020.png" style="width: 80%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 13 </span><span class="caption-text">The development of the transistor count in the last 5 decades. This observation is represented by Moore’s law. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Moore%27s_Law_Transistor_Count_1970-2020.png">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-hpc-moore" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">The development of the transistor count in the last 5 decades. This observation is represented by Moore’s law. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Moore%27s_Law_Transistor_Count_1970-2020.png">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-hpc-moore" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -860,17 +860,17 @@ title="Print to PDF"
 <section id="general-principle">
 <h3>General Principle<a class="headerlink" href="#general-principle" title="Permalink to this headline">#</a></h3>
 <p>An application, is in general a sequence of tasks. Here, a task can be understood as a group of commands or computations that can not be separated further, e.g. due to data dependency.</p>
-<p>Yet, there is not necessarily a dependency among the tasks. Thus, they can eventually be executed at the same time, see <a class="reference internal" href="#fig-hpc-fork"><span class="std std-numref">Fig. 14</span></a>. The process of distributing the tasks on multiple execution units (threads, cores, nodes) is called a fork, while the gathering of the results back to the main execution unit is called a join. During the fork, data and instructions have to be exchanged, thus this introduces an overhead, which is not present in a serial execution. The same is true for the join process, but an additional contribution to the overhead is induced by load balancing issues. Depending on the execution time of individual tasks, especially the longest task, the join process will be prolonged.</p>
+<p>Yet, there is not necessarily a dependency among the tasks. Thus, they can eventually be executed at the same time, see <a class="reference internal" href="#fig-hpc-fork"><span class="std std-numref">Fig. 15</span></a>. The process of distributing the tasks on multiple execution units (threads, cores, nodes) is called a fork, while the gathering of the results back to the main execution unit is called a join. During the fork, data and instructions have to be exchanged, thus this introduces an overhead, which is not present in a serial execution. The same is true for the join process, but an additional contribution to the overhead is induced by load balancing issues. Depending on the execution time of individual tasks, especially the longest task, the join process will be prolonged.</p>
 <figure class="align-default" id="fig-hpc-fork">
 <a class="reference internal image-reference" href="../../../_images/fork.png"><img alt="../../../_images/fork.png" src="../../../_images/fork.png" style="width: 80%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Serial and parallel execution of a set of tasks.</span><a class="headerlink" href="#fig-hpc-fork" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Serial and parallel execution of a set of tasks.</span><a class="headerlink" href="#fig-hpc-fork" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="speedup">
 <h3>Speedup<a class="headerlink" href="#speedup" title="Permalink to this headline">#</a></h3>
-<p>The maximal achievable speedup <span class="math notranslate nohighlight">\(\mf s\)</span>, with respect to a serial execution, on <span class="math notranslate nohighlight">\(\mf n\)</span> computing units is limited by the fraction of the execution that runs in parallel <span class="math notranslate nohighlight">\(\mf p\)</span>. This is reflected by Amdahl’s law, see equation <a class="reference internal" href="#equation-eq-amdahls-law">(1)</a> and <a class="reference internal" href="#fig-hpc-amdahl"><span class="std std-numref">Fig. 15</span></a>.</p>
+<p>The maximal achievable speedup <span class="math notranslate nohighlight">\(\mf s\)</span>, with respect to a serial execution, on <span class="math notranslate nohighlight">\(\mf n\)</span> computing units is limited by the fraction of the execution that runs in parallel <span class="math notranslate nohighlight">\(\mf p\)</span>. This is reflected by Amdahl’s law, see equation <a class="reference internal" href="#equation-eq-amdahls-law">(1)</a> and <a class="reference internal" href="#fig-hpc-amdahl"><span class="std std-numref">Fig. 16</span></a>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-amdahls-law">
 <span class="eqno">(1)<a class="headerlink" href="#equation-eq-amdahls-law" title="Permalink to this equation">#</a></span>\[
 s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)} 
@@ -878,7 +878,7 @@ s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)}
 <figure class="align-default" id="fig-hpc-amdahl">
 <a class="reference internal image-reference" href="../../../_images/amdahl.png"><img alt="../../../_images/amdahl.png" src="../../../_images/amdahl.png" style="width: 80%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Visualisation for Amdahl’s law.</span><a class="headerlink" href="#fig-hpc-amdahl" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Visualisation for Amdahl’s law.</span><a class="headerlink" href="#fig-hpc-amdahl" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The speedup may even decrease, as some operations become more expensive with increasing number of participating processes, e.g. synchronisation points, global data exchange or broadcasts.</p>
@@ -886,7 +886,7 @@ s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)}
 <figure class="align-default" id="fig-hpc-load-balance">
 <a class="reference internal image-reference" href="../../../_images/load_balance.png"><img alt="../../../_images/load_balance.png" src="../../../_images/load_balance.png" style="width: 80%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Example of load balancing.</span><a class="headerlink" href="#fig-hpc-load-balance" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text">Example of load balancing.</span><a class="headerlink" href="#fig-hpc-load-balance" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -903,7 +903,7 @@ s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)}
 <figure class="align-default" id="fig-hpc-domain-mpi">
 <a class="reference internal image-reference" href="../../../_images/decomp_mpi.png"><img alt="../../../_images/decomp_mpi.png" src="../../../_images/decomp_mpi.png" style="width: 40%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 17 </span><span class="caption-text">Domain decomposition of a simple computational grid, like in FDS. The data communication (arrows) is handled with MPI.</span><a class="headerlink" href="#fig-hpc-domain-mpi" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Domain decomposition of a simple computational grid, like in FDS. The data communication (arrows) is handled with MPI.</span><a class="headerlink" href="#fig-hpc-domain-mpi" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>As MPI is only a definition standard, there is more than one implementation of MPI. The most common MPI implementations are:</p>
@@ -914,11 +914,11 @@ s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)}
 </ul>
 <p>The MPI implementations include C/C++/FORTRAN header, libraries, compiler wrapper and a runtime environment.</p>
 <p>In contrast to MPI, OpenMP (or short OMP) is a standard, to implicitly distribute the execution on a shared memory system.</p>
-<p>OMP is implemented as pragmas for C/C++/FORTRAN, and are therefore non intrusive. The typical application is to decompose loops and advise the compiler or the runtime to distribute the loop iterations. The data is not distributed and stays in place, see <a class="reference internal" href="#fig-hpc-domain-omp"><span class="std std-numref">Fig. 18</span></a>.</p>
+<p>OMP is implemented as pragmas for C/C++/FORTRAN, and are therefore non intrusive. The typical application is to decompose loops and advise the compiler or the runtime to distribute the loop iterations. The data is not distributed and stays in place, see <a class="reference internal" href="#fig-hpc-domain-omp"><span class="std std-numref">Fig. 19</span></a>.</p>
 <figure class="align-default" id="fig-hpc-domain-omp">
 <a class="reference internal image-reference" href="../../../_images/decomp_openmp.png"><img alt="../../../_images/decomp_openmp.png" src="../../../_images/decomp_openmp.png" style="width: 40%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Domain decomposition with OpenMP.</span><a class="headerlink" href="#fig-hpc-domain-omp" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 19 </span><span class="caption-text">Domain decomposition with OpenMP.</span><a class="headerlink" href="#fig-hpc-domain-omp" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>However, the compiler or runtime must detect independent tasks. Loop carried dependencies may prevent parallelisation and data races may produce unpredictable results.</p>
@@ -934,7 +934,7 @@ s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)}
 <h2>Parallel Computer<a class="headerlink" href="#parallel-computer" title="Permalink to this headline">#</a></h2>
 <section id="components">
 <h3>Components<a class="headerlink" href="#components" title="Permalink to this headline">#</a></h3>
-<p>Parallel computers are often called, e.g., supercomputer, high performance computers or compute clusters. The configuration of a common modern parallel computer contains to following elements, see also <a class="reference internal" href="#fig-hpc-cluster"><span class="std std-numref">Fig. 19</span></a>.</p>
+<p>Parallel computers are often called, e.g., supercomputer, high performance computers or compute clusters. The configuration of a common modern parallel computer contains to following elements, see also <a class="reference internal" href="#fig-hpc-cluster"><span class="std std-numref">Fig. 20</span></a>.</p>
 <ul class="simple">
 <li><p><strong>Compute nodes</strong> are the nodes of the communication network. They consist of (multiple) CPUs, accelerators (e.g. GPU), memory and network interfaces.</p></li>
 <li><p><strong>Central Processing Units (CPU)</strong> do the actual computations. Modern CPUs have multiple physical cores, e.g. the AMD EPYC 7452 has 32 cores. Additionally, a node can support multiple processors, each with an own socket.</p></li>
@@ -947,7 +947,7 @@ s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)}
 <figure class="align-default" id="fig-hpc-cluster">
 <a class="reference internal image-reference" href="../../../_images/cluster.png"><img alt="../../../_images/cluster.png" src="../../../_images/cluster.png" style="width: 40%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 19 </span><span class="caption-text">A very generalistic representation of an element / node of a cluster.</span><a class="headerlink" href="#fig-hpc-cluster" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text">A very generalistic representation of an element / node of a cluster.</span><a class="headerlink" href="#fig-hpc-cluster" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -962,7 +962,7 @@ s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)}
 <figure class="align-default" id="fig-hpc-jureca-dc">
 <a class="reference internal image-reference" href="../../../_images/jureca.png"><img alt="../../../_images/jureca.png" src="../../../_images/jureca.png" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 20 </span><span class="caption-text">JURECA-DC cluster at the Forschungszentrum Jülich.</span><a class="headerlink" href="#fig-hpc-jureca-dc" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 21 </span><span class="caption-text">JURECA-DC cluster at the Forschungszentrum Jülich.</span><a class="headerlink" href="#fig-hpc-jureca-dc" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -971,26 +971,26 @@ s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)}
 <figure class="align-default" id="fig-hpc-cobra-logo">
 <a class="reference internal image-reference" href="../../../_images/cobra_logo_full.svg"><img alt="../../../_images/cobra_logo_full.svg" src="../../../_images/cobra_logo_full.svg" width="40%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 21 </span><span class="caption-text">CoBra project logo.</span><a class="headerlink" href="#fig-hpc-cobra-logo" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 22 </span><span class="caption-text">CoBra project logo.</span><a class="headerlink" href="#fig-hpc-cobra-logo" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Within the BMBF-funded project <a class="reference external" href="https://cce.uni-wuppertal.de/de/forschung/cobra/">CoBra</a>, the CCE chair contributes with hardware to the computing cluster <a class="reference external" href="http://pleiades.uni-wuppertal.de">Pleiades</a> at the University of Wuppertal. Furter information about the hardware and software configuration of Pleiades is available <a class="reference external" href="https://pleiadesbuw.github.io/PleiadesUserDocumentation/">here</a>.</p>
 <figure class="align-default" id="fig-pleiades-cobra-rack">
 <a class="reference internal image-reference" href="../../../_images/cobra-rack.png"><img alt="../../../_images/cobra-rack.png" src="../../../_images/cobra-rack.png" style="width: 30%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 22 </span><span class="caption-text">The CoBra rack as part of the Pleiades system at the University of Wuppertal.</span><a class="headerlink" href="#fig-pleiades-cobra-rack" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 23 </span><span class="caption-text">The CoBra rack as part of the Pleiades system at the University of Wuppertal.</span><a class="headerlink" href="#fig-pleiades-cobra-rack" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-pleiades-workernode">
 <a class="reference internal image-reference" href="../../../_images/pleiades-workernode.png"><img alt="../../../_images/pleiades-workernode.png" src="../../../_images/pleiades-workernode.png" style="width: 80%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 23 </span><span class="caption-text">Outline of a Pleiades worker node.</span><a class="headerlink" href="#fig-pleiades-workernode" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 24 </span><span class="caption-text">Outline of a Pleiades worker node.</span><a class="headerlink" href="#fig-pleiades-workernode" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-pleiades-network">
 <a class="reference internal image-reference" href="../../../_images/pleiades-network.png"><img alt="../../../_images/pleiades-network.png" src="../../../_images/pleiades-network.png" style="width: 80%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 24 </span><span class="caption-text">Overview of the Pleiades network.</span><a class="headerlink" href="#fig-pleiades-network" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 25 </span><span class="caption-text">Overview of the Pleiades network.</span><a class="headerlink" href="#fig-pleiades-network" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>

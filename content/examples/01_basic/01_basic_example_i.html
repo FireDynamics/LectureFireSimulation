@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Computational Domain &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
+    <title>Basic FDS Example I &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -51,11 +51,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/examples/01_basic/01_mesh.html" />
+    <script>window.MathJax = {"tex": {"macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}", "du": "\\dot{u}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/examples/01_basic/01_basic_example_i.html" />
     <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Obstructions and Holes" href="02_obst.html" />
+    <link rel="next" title="Basic FDS Example II" href="02_basic_example_ii.html" />
     <link rel="prev" title="Basic" href="00_overview.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -369,12 +371,12 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="current">
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Computational Domain
+     Basic FDS Example I
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="02_obst.html">
-     Obstructions and Holes
+    <a class="reference internal" href="02_basic_example_ii.html">
+     Basic FDS Example II
     </a>
    </li>
   </ul>
@@ -561,7 +563,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/FireDynamics/LectureFireSimulation/main?urlpath=tree/book/content/examples/01_basic/01_mesh.ipynb"
+        <a href="https://mybinder.org/v2/gh/FireDynamics/LectureFireSimulation/main?urlpath=tree/book/content/examples/01_basic/01_basic_example_i.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -579,7 +581,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://io.cce.uni-wuppertal.de/firesim_ss21/hub/user-redirect/git-pull?repo=https%3A//github.com/FireDynamics/LectureFireSimulation&urlpath=tree/LectureFireSimulation/book/content/examples/01_basic/01_mesh.ipynb&branch=main"
+        <a href="https://io.cce.uni-wuppertal.de/firesim_ss21/hub/user-redirect/git-pull?repo=https%3A//github.com/FireDynamics/LectureFireSimulation&urlpath=tree/LectureFireSimulation/book/content/examples/01_basic/01_basic_example_i.ipynb&branch=main"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -639,7 +641,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/examples/01_basic/01_mesh.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/examples/01_basic/01_basic_example_i.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -656,7 +658,7 @@ title="Open an issue"
       </li>
       
       <li>
-        <a href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/examples/01_basic/01_mesh.ipynb"
+        <a href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/examples/01_basic/01_basic_example_i.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -684,7 +686,7 @@ title="Edit this page"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../../_sources/content/examples/01_basic/01_mesh.ipynb"
+        <a href="../../../_sources/content/examples/01_basic/01_basic_example_i.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -721,23 +723,104 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#meta-data-of-simulation-setup-head-tail">
+   Meta Data of Simulation Setup (HEAD, TAIL)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bounds-of-time-and-space-mesh-time">
+   Bounds of Time and Space (MESH, TIME)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#time-time">
+     Time (TIME)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#space-mesh">
+     Space (MESH)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions">
+   Questions
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Computational Domain</h1>
+                <h1>Basic FDS Example I</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#meta-data-of-simulation-setup-head-tail">
+   Meta Data of Simulation Setup (HEAD, TAIL)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#bounds-of-time-and-space-mesh-time">
+   Bounds of Time and Space (MESH, TIME)
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#time-time">
+     Time (TIME)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#space-mesh">
+     Space (MESH)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions">
+   Questions
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -745,9 +828,7 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="computational-domain">
-<h1>Computational Domain<a class="headerlink" href="#computational-domain" title="Permalink to this headline">#</a></h1>
-<div class="cell tag_hide_cell docutils container">
+  <div class="cell tag_hide_cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -765,6 +846,76 @@ title="Print to PDF"
 </div>
 </div>
 </div>
+<section class="tex2jax_ignore mathjax_ignore" id="basic-fds-example-i">
+<h1>Basic FDS Example I<a class="headerlink" href="#basic-fds-example-i" title="Permalink to this headline">#</a></h1>
+<p>As a basic example we create a FDS simulation setup with a simple gas burner. The gas burner shall have an edge length of <span class="math notranslate nohighlight">\(\mf 0.4~m\)</span> and should be raised <span class="math notranslate nohighlight">\(\mf 0.2~m\)</span> above the ground. It shall provide <span class="math notranslate nohighlight">\(\mf 63~kW\)</span> in a steady-state. The computational domain shall be <span class="math notranslate nohighlight">\(\mf 2.0~m\)</span> tall and have an extent of <span class="math notranslate nohighlight">\(\mf 2.0~m\)</span> in the x and y axis respectively. The fluid cells shall be cube-shaped with an edge length of <span class="math notranslate nohighlight">\(\mf 0.2~m\)</span>. The overall simulation time should be <span class="math notranslate nohighlight">\(\mf 60~s\)</span>.</p>
+<p>For details on the pool fires and gas burners look at section Pool Fires.</p>
+<p>First you should create a new folder. In this directory the input file is to be saved later. All the generated output files will also be located here. It is useful to create individual directories for each simulation to not accidentially overwrite or mix up files. Create an empty plain text file. You could use any text editor (not a word processor) to create your text file. Although the file extenison does not matter, a common practice is to use the <code class="docutils literal notranslate"><span class="pre">.fds</span></code> extension.</p>
+<p>The syntax of FDS input files is given by FORTRAN name lists. These name lists start with an ampersand character and are followed by four capital letters. They end with a slash <code class="docutils literal notranslate"><span class="pre">/</span></code> character. Between these two, parameters of the respective name list can be provided, for example:</p>
+<p><code class="docutils literal notranslate"><span class="pre">&amp;NAME</span> <span class="pre">P1=value</span> <span class="pre">P2=value</span> <span class="pre">/</span></code></p>
+<p>The first entry in an FDS input file is <code class="docutils literal notranslate"><span class="pre">&amp;HEAD</span> <span class="pre">/</span></code> and it ends with <code class="docutils literal notranslate"><span class="pre">&amp;TAIL</span> <span class="pre">/</span></code>. In between head and tail of the file the definition of the simulation setup is provided by the user.</p>
+<section id="meta-data-of-simulation-setup-head-tail">
+<h2>Meta Data of Simulation Setup (HEAD, TAIL)<a class="headerlink" href="#meta-data-of-simulation-setup-head-tail" title="Permalink to this headline">#</a></h2>
+<p>Now you will start defining the simulation setup. Two parameters that can be provided to <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> name list are the character ID (<code class="docutils literal notranslate"><span class="pre">CHID</span></code>) and a title (<code class="docutils literal notranslate"><span class="pre">TITLE</span></code>). Both values are strings. The character ID is used to label all the files that are created during the simulation. It can be different from the file name of the FDS input file. The title is a human-readable short description of the setup. The file is closed out with <code class="docutils literal notranslate"><span class="pre">TAIL</span></code>.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CHID</span></code>: is the character ID. This is the string used to tag the output files.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TITLE</span></code>: is a descriptive text of your simulation.</p></li>
+</ul>
+</div>
+<p>Following the above, your input file should now contain the following lines:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">HEAD</span> <span class="n">CHID</span>  <span class="o">=</span> <span class="s1">&#39;Job_1&#39;</span><span class="p">,</span> 
+      <span class="n">TITLE</span> <span class="o">=</span> <span class="s1">&#39;Our first FDS simulation&#39;</span> <span class="o">/</span>
+
+<span class="o">&amp;</span><span class="n">TAIL</span> <span class="o">/</span>
+</pre></div>
+</div>
+</section>
+<section id="bounds-of-time-and-space-mesh-time">
+<h2>Bounds of Time and Space (MESH, TIME)<a class="headerlink" href="#bounds-of-time-and-space-mesh-time" title="Permalink to this headline">#</a></h2>
+<section id="time-time">
+<h3>Time (TIME)<a class="headerlink" href="#time-time" title="Permalink to this headline">#</a></h3>
+<p>The simulation time is specified in seconds, using the <code class="docutils literal notranslate"><span class="pre">TIME</span></code> name list. The parameter <code class="docutils literal notranslate"><span class="pre">T_END</span></code> determines when the simulation ought to stop. Obviously, this is the time <em>inside</em> the simulation and not the time the computer takes to conduct the simulation, which would be referred to as “wall clock time”. The start time (<code class="docutils literal notranslate"><span class="pre">T_BEGIN</span></code>) could be adjusted as well, but this is seldom necessary, it is <span class="math notranslate nohighlight">\(\mf 0~s\)</span> by default. The input line should now look like this:</p>
+<p><code class="docutils literal notranslate"><span class="pre">&amp;TIME</span> <span class="pre">T_END</span> <span class="pre">=</span> <span class="pre">60.</span> <span class="pre">/</span></code></p>
+<p>Aditionally, the rate at which data is saved can be controlled, from the <code class="docutils literal notranslate"><span class="pre">DUMP</span></code> name list. The parameter <code class="docutils literal notranslate"><span class="pre">NFRAMES</span></code> is used to divide the simulation time, i.e. <code class="docutils literal notranslate"><span class="pre">T_END</span></code> - <code class="docutils literal notranslate"><span class="pre">T_BEGIN</span></code>, into n frames. This is a global control, but different recording functions (<code class="docutils literal notranslate"><span class="pre">DEVC</span></code>, <code class="docutils literal notranslate"><span class="pre">SLCF</span></code>, etc.) can be controlled individually. Please refer to the users guide for detailed information how this can be achieved. To safe a single frame per second we use:</p>
+<p><code class="docutils literal notranslate"><span class="pre">&amp;DUMP</span> <span class="pre">NFRAMES=60</span> <span class="pre">/</span></code></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The grid and geometry can be checked in the following way:</p>
+<ul class="simple">
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">&amp;TIME</span> <span class="pre">T_END</span> <span class="pre">=</span> <span class="pre">0/</span></code> to your script, this will only build the geometry without actually running a simulation</p></li>
+<li><p>Save the FDS input file</p></li>
+<li><p>Run the fds input file</p></li>
+<li><p>Open the smokeview output file and check the geometry</p></li>
+<li><p>To display the grid, press <code class="docutils literal notranslate"><span class="pre">g</span></code></p></li>
+</ul>
+</div>
+</section>
+<section id="space-mesh">
+<h3>Space (MESH)<a class="headerlink" href="#space-mesh" title="Permalink to this headline">#</a></h3>
+<p>To conduct a simulation we need to  define a computational domain and a time frame.</p>
+<p>The domain is a cuboid shape that is divided in smaller volumes (cells), using the <code class="docutils literal notranslate"><span class="pre">MESH</span></code> name list. It can be given a label (<code class="docutils literal notranslate"><span class="pre">ID</span></code>) to organise larger files with many <code class="docutils literal notranslate"><span class="pre">MESH</span></code>es. The domain volume is defined by providing coordinates of two points of opposing corners, see <a class="reference internal" href="../../tools/01_fds_smv/02_fds_tutorial.html#fig-fdstutorial-coordinates"><span class="std std-numref">Fig. 6</span></a>. They define the bounding box (<code class="docutils literal notranslate"><span class="pre">XB</span></code>) of the volume. Their values are to be provided in meters.</p>
+<figure class="align-default" id="fig-fdstutorial-coordinates">
+<a class="reference internal image-reference" href="../../../_images/coordinates.png"><img alt="../../../_images/coordinates.png" src="../../../_images/coordinates.png" style="width: 60%;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">XB coordinate definition in fds.</span><a class="headerlink" href="#fig-fdstutorial-coordinates" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The coordinates of the points are provided as a list of six values. At first the two x-coordinates, followed by the two y- and then the two z-coordinates, like this: <code class="docutils literal notranslate"><span class="pre">XB</span> <span class="pre">=</span> <span class="pre">x1,x2,</span> <span class="pre">y1,y2,</span> <span class="pre">z1,z2,</span></code>. In our example case the domain is supposed to be a cube with an edge length of <span class="math notranslate nohighlight">\(\mf 2.0~m\)</span>. Let’s position it around the origin point in the x- and y-directions and start the z-axis at 0. This will lead to: <code class="docutils literal notranslate"><span class="pre">XB</span> <span class="pre">=</span> <span class="pre">-1.00,1.00,</span> <span class="pre">-1.00,1.00,</span> <span class="pre">0.00,2.00,</span></code>.</p>
+<p>The size of the fluid cells is indirectly defined, by dividing the domain along each axis. Thus, we need to provide integer values for each axis as the divisor. The parameter is <code class="docutils literal notranslate"><span class="pre">IJK</span></code>, where the “I” denotes the dividion along the x-axis, respectively “J” and “K” denote the y- and z-axis. Thus, getting to fluid cells of an edge length of <span class="math notranslate nohighlight">\(\mf 0.2~m\)</span>, each domain edge needs to be divided by 10.</p>
+<p>Combining all the above, the <code class="docutils literal notranslate"><span class="pre">MESH</span></code> definition should look like this:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span>  <span class="o">=</span> <span class="s1">&#39;Domain&#39;</span><span class="p">,</span>
+      <span class="n">IJK</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span>
+      <span class="n">XB</span>  <span class="o">=</span> <span class="o">-</span><span class="mf">1.00</span><span class="p">,</span><span class="mf">1.00</span><span class="p">,</span><span class="o">-</span><span class="mf">1.00</span><span class="p">,</span><span class="mf">1.00</span><span class="p">,</span><span class="mf">0.00</span><span class="p">,</span><span class="mf">2.00</span> <span class="o">/</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="questions">
+<h2>Questions<a class="headerlink" href="#questions" title="Permalink to this headline">#</a></h2>
+<p>How do you adjust the domain that the cells are cubes with an edge length of <span class="math notranslate nohighlight">\(\mf 0.1~m\)</span>?</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -801,10 +952,10 @@ title="Print to PDF"
             <p class="prev-next-title">Basic</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="02_obst.html" title="next page">
+    <a class='right-next' id="next-link" href="02_basic_example_ii.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Obstructions and Holes</p>
+        <p class="prev-next-title">Basic FDS Example II</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
