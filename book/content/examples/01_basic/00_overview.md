@@ -1,3 +1,3 @@
 # Basic
 
-This is a collection of basic exaples, which demonstrate the fundamental functionality of FDS.
+This is a collection of basic examples, which demonstrate the fundamental functionality of FDS.

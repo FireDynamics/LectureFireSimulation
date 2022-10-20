@@ -3,7 +3,7 @@ root: content/overview/01_overview
 parts:
 
 ####################
-# INTRODUCTION 
+# INTRODUCTION
 - caption: Introduction
   chapters:
   - file: content/overview/02_team
@@ -35,7 +35,7 @@ parts:
     sections:
     - file: content/modelling/04_thermodynamics/01_fundamentals
     - file: content/modelling/04_thermodynamics/02_example_energy_mass_transfer
-    
+
   - file: content/modelling/05_combustion/00_overview
     sections:
     - file: content/modelling/05_combustion/01_fundamentals
@@ -62,14 +62,14 @@ parts:
 
 
 ####################
-# EXAMPLES 
+# EXAMPLES
 - caption: Examples
   chapters:
   ## BASIC
   - file: content/examples/01_basic/00_overview
     sections:
-    - file: content/examples/01_basic/01_mesh
-    - file: content/examples/01_basic/02_obst
+    - file: content/examples/01_basic/01_basic_example_i
+    - file: content/examples/01_basic/02_basic_example_ii
   ## INTERMEDIATE
   # - file: content/examples/02_intermediate/00_overview
   #   sections:
@@ -83,7 +83,7 @@ parts:
 
 
 ####################
-# TOOLS 
+# TOOLS
 - caption: Tools
   chapters:
   - file: content/tools/01_fds_smv/00_overview
@@ -91,23 +91,23 @@ parts:
     - file: content/tools/01_fds_smv/01_fds_intro
     - file: content/tools/01_fds_smv/02_fds_tutorial
     - file: content/tools/01_fds_smv/03_smv
-    
+
   - file: content/tools/02_hpc/00_overview
     sections:
     - file: content/tools/02_hpc/01_linux
     - file: content/tools/02_hpc/02_hpc
     - file: content/tools/02_hpc/03_parallel_fds
     - file: content/tools/02_hpc/04_benchmarking
-    
+
   - file: content/tools/03_analysis/00_overview
     sections:
     - file: content/tools/03_analysis/01_python
     - file: content/tools/03_analysis/03_example_mccaffreyplumes
     - file: content/tools/03_analysis/02_fdsreader
-    
-    
+
+
 ####################
-# TEACHING 
+# TEACHING
 - caption: Teaching
   chapters:
   - file: content/teaching/01_firesim_lecture/00_overview
