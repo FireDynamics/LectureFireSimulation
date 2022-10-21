@@ -114,4 +114,8 @@ parts:
     sections:
     - file: content/teaching/01_firesim_lecture/01_week_01
     - file: content/teaching/01_firesim_lecture/02_week_02
-  - file: content/teaching/02_cobra_workshop
+  - file: content/teaching/02_cobra_workshop/00_overview
+    sections:
+    - file: content/teaching/02_cobra_workshop/01_ws_01
+    - file: content/teaching/02_cobra_workshop/02_ws_02
+    - file: content/teaching/02_cobra_workshop/03_ws_03
