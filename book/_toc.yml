@@ -71,13 +71,13 @@ parts:
     - file: content/examples/01_basic/01_basic_example_i
     - file: content/examples/01_basic/02_basic_example_ii
   ## INTERMEDIATE
-  # - file: content/examples/02_intermediate/00_overview
-  #   sections:
+  - file: content/examples/02_intermediate/00_overview
+    # sections:
   #   - file: content/examples/02_intermediate/01_mesh
   #   - file: content/examples/02_intermediate/02_obst
-  # ## ADVANCED
-  # - file: content/examples/03_advanced/00_overview
-  #   sections:
+  ## ADVANCED
+  - file: content/examples/03_advanced/00_overview
+    # sections:
   #   - file: content/examples/03_advanced/01_mesh
   #   - file: content/examples/03_advanced/02_obst
 
