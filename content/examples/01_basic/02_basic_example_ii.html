@@ -805,6 +805,159 @@ title="Print to PDF"
 <p>In this example we build on Basic Example I and construct a small room with a fire inside. This setup is based on the <a class="reference external" href="https://www.nist.gov/publications/flow-induced-fire-compartment">“Steckler compartments”</a> <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id6" title="K.D. Steckler, J.G. Quintiere, and W.J. Rinkinen. Flow induced by fire in a compartment. Symposium (International) on Combustion, 19(1):913–920, 1982. URL: https://www.nist.gov/publications/flow-induced-fire-compartment, doi:10.1016/s0082-0784(82)80267-1.">SQR82</a>]</span>.</p>
 <section id="file">
 <h2>File<a class="headerlink" href="#file" title="Permalink to this headline">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">HEAD</span> <span class="n">CHID</span>  <span class="o">=</span> <span class="s1">&#39;StecklerExample&#39;</span><span class="p">,</span> 
+      <span class="n">TITLE</span> <span class="o">=</span> <span class="s1">&#39;Example of a Steckler case, with 6/6 door&#39;</span> <span class="o">/</span>
+
+<span class="o">&amp;</span><span class="n">TIME</span> <span class="n">T_END</span><span class="o">=</span><span class="mf">1800.0</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">DUMP</span> <span class="n">NFRAMES</span><span class="o">=</span><span class="mi">1800</span> <span class="o">/</span>
+
+
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span>  <span class="o">=</span> <span class="s1">&#39;Domain_Simple&#39;</span><span class="p">,</span>
+      <span class="n">IJK</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span>
+      <span class="n">XB</span>  <span class="o">=</span> <span class="o">-</span><span class="mf">1.40</span><span class="p">,</span><span class="mf">2.60</span><span class="p">,</span><span class="o">-</span><span class="mf">1.40</span><span class="p">,</span><span class="mf">1.40</span><span class="p">,</span><span class="mf">0.00</span><span class="p">,</span><span class="mf">2.20</span> <span class="o">/</span>
+
+
+
+<span class="c1"># ---------------------------------------</span>
+<span class="c1"># Domain boundary</span>
+<span class="c1"># ---------------------------------------</span>
+
+<span class="o">&amp;</span><span class="n">VENT</span> <span class="n">MB</span><span class="o">=</span><span class="s1">&#39;XMAX&#39;</span><span class="p">,</span> <span class="n">SURF_ID</span><span class="o">=</span><span class="s1">&#39;OPEN&#39;</span> <span class="o">/</span>
+
+<span class="o">&amp;</span><span class="n">VENT</span> <span class="n">ID</span>      <span class="o">=</span> <span class="s1">&#39;OpenCeiling&#39;</span><span class="p">,</span>
+      <span class="n">SURF_ID</span> <span class="o">=</span> <span class="s1">&#39;OPEN&#39;</span><span class="p">,</span>
+      <span class="n">XB</span>      <span class="o">=</span> <span class="mf">1.51</span><span class="p">,</span><span class="mf">2.60</span><span class="p">,</span><span class="o">-</span><span class="mf">1.40</span><span class="p">,</span><span class="mf">1.40</span><span class="p">,</span><span class="mf">2.20</span><span class="p">,</span><span class="mf">2.20</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">VENT</span> <span class="n">ID</span>      <span class="o">=</span> <span class="s1">&#39;OpenLeft&#39;</span><span class="p">,</span>
+      <span class="n">SURF_ID</span> <span class="o">=</span> <span class="s1">&#39;OPEN&#39;</span><span class="p">,</span>
+      <span class="n">XB</span>      <span class="o">=</span> <span class="mf">1.51</span><span class="p">,</span><span class="mf">2.60</span><span class="p">,</span><span class="o">-</span><span class="mf">1.40</span><span class="p">,</span><span class="o">-</span><span class="mf">1.40</span><span class="p">,</span><span class="mf">0.00</span><span class="p">,</span><span class="mf">2.20</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">VENT</span> <span class="n">ID</span>      <span class="o">=</span> <span class="s1">&#39;OpenRight&#39;</span><span class="p">,</span>
+      <span class="n">SURF_ID</span> <span class="o">=</span> <span class="s1">&#39;OPEN&#39;</span><span class="p">,</span>
+      <span class="n">XB</span>      <span class="o">=</span> <span class="mf">1.51</span><span class="p">,</span><span class="mf">2.60</span><span class="p">,</span><span class="mf">1.40</span><span class="p">,</span><span class="mf">1.40</span><span class="p">,</span><span class="mf">0.00</span><span class="p">,</span><span class="mf">2.20</span> <span class="o">/</span>
+
+
+
+<span class="c1"># ---------------------------------------</span>
+<span class="c1"># Gas burner: propane</span>
+<span class="c1"># ---------------------------------------</span>
+<span class="o">&amp;</span><span class="n">SPEC</span> <span class="n">ID</span> <span class="o">=</span> <span class="s1">&#39;PROPANE&#39;</span> <span class="o">/</span>
+
+<span class="o">&amp;</span><span class="n">REAC</span> <span class="n">FUEL</span>       <span class="o">=</span> <span class="s1">&#39;PROPANE&#39;</span><span class="p">,</span>
+      <span class="n">SOOT_YIELD</span> <span class="o">=</span> <span class="mf">0.022</span> <span class="o">/</span>
+
+<span class="c1"># HRR: 62.9 kW</span>
+<span class="o">&amp;</span><span class="n">SURF</span> <span class="n">ID</span>         <span class="o">=</span> <span class="s1">&#39;BURNER&#39;</span><span class="p">,</span>
+      <span class="n">HRRPUA</span>     <span class="o">=</span> <span class="mf">393.74999999999994</span><span class="p">,</span>
+      <span class="n">SPEC_ID</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="s1">&#39;PROPANE&#39;</span>
+      <span class="n">COLOR</span>      <span class="o">=</span> <span class="s1">&#39;RASPBERRY&#39;</span> <span class="o">/</span>
+
+<span class="o">&amp;</span><span class="n">OBST</span> <span class="n">SURF_ID</span> <span class="o">=</span> <span class="s1">&#39;INERT&#39;</span><span class="p">,</span>
+      <span class="n">XB</span>      <span class="o">=</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.2</span> <span class="o">/</span>
+
+<span class="o">&amp;</span><span class="n">VENT</span> <span class="n">SURF_ID</span> <span class="o">=</span> <span class="s1">&#39;BURNER&#39;</span><span class="p">,</span>
+      <span class="n">XB</span>      <span class="o">=</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span> <span class="o">/</span>
+
+
+
+<span class="c1"># ---------------------------------------</span>
+<span class="c1"># Surface definition (boundary conditions)</span>
+<span class="c1"># ---------------------------------------</span>
+
+<span class="o">&amp;</span><span class="n">SURF</span> <span class="n">ID</span>                      <span class="o">=</span> <span class="s1">&#39;Wall Lining&#39;</span><span class="p">,</span>
+      <span class="n">COLOR</span>                   <span class="o">=</span> <span class="s1">&#39;BEIGE&#39;</span><span class="p">,</span>
+      <span class="n">DEFAULT</span>                 <span class="o">=</span> <span class="n">T</span><span class="p">,</span>
+      <span class="n">THICKNESS</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">)</span>          <span class="o">=</span> <span class="mf">0.0254</span><span class="p">,</span>
+      <span class="n">MATL_ID</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">:</span><span class="mi">1</span><span class="p">)</span>          <span class="o">=</span> <span class="s1">&#39;MARINITE&#39;</span><span class="p">,</span>
+      <span class="n">MATL_MASS_FRACTION</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span>
+
+
+<span class="o">&amp;</span><span class="n">MATL</span> <span class="n">ID</span>            <span class="o">=</span> <span class="s1">&#39;MARINITE&#39;</span>
+      <span class="n">EMISSIVITY</span>    <span class="o">=</span> <span class="mf">0.9</span>
+      <span class="n">DENSITY</span>       <span class="o">=</span> <span class="mf">737.</span>
+      <span class="n">SPECIFIC_HEAT</span> <span class="o">=</span> <span class="mf">1.2</span>
+      <span class="n">CONDUCTIVITY</span>  <span class="o">=</span> <span class="mf">0.12</span> <span class="o">/</span>
+
+
+
+<span class="c1"># ---------------------------------------</span>
+<span class="c1"># Geometrical Structure</span>
+<span class="c1"># ---------------------------------------</span>
+
+<span class="o">&amp;</span><span class="n">OBST</span> <span class="n">ID</span>        <span class="o">=</span> <span class="s1">&#39;Ceiling&#39;</span><span class="p">,</span>
+      <span class="n">SURF_ID</span>   <span class="o">=</span> <span class="s1">&#39;Wall Lining&#39;</span><span class="p">,</span>
+      <span class="n">BNDF_OBST</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span>
+      <span class="n">XB</span>        <span class="o">=</span> <span class="o">-</span><span class="mf">1.51</span><span class="p">,</span><span class="mf">1.51</span><span class="p">,</span><span class="o">-</span><span class="mf">1.51</span><span class="p">,</span><span class="mf">1.51</span><span class="p">,</span><span class="mf">2.20</span><span class="p">,</span><span class="mf">2.31</span> <span class="o">/</span>
+
+ <span class="n">OBST</span> <span class="n">ID</span>      <span class="o">=</span> <span class="s1">&#39;Floor&#39;</span><span class="p">,</span>
+      <span class="n">SURF_ID</span> <span class="o">=</span> <span class="s1">&#39;Wall Lining&#39;</span>
+      <span class="n">XB</span>      <span class="o">=</span> <span class="o">-</span><span class="mf">1.51</span><span class="p">,</span><span class="mf">2.60</span><span class="p">,</span><span class="o">-</span><span class="mf">1.51</span><span class="p">,</span><span class="mf">1.51</span><span class="p">,</span><span class="o">-</span><span class="mf">0.11</span><span class="p">,</span><span class="mf">0.00</span> <span class="o">/</span>
+
+ <span class="n">OBST</span> <span class="n">ID</span>      <span class="o">=</span> <span class="s1">&#39;WallBack&#39;</span><span class="p">,</span>
+      <span class="n">SURF_ID</span> <span class="o">=</span> <span class="s1">&#39;Wall Lining&#39;</span>
+      <span class="n">XB</span>      <span class="o">=</span> <span class="o">-</span><span class="mf">1.51</span><span class="p">,</span><span class="o">-</span><span class="mf">1.40</span><span class="p">,</span><span class="o">-</span><span class="mf">1.51</span><span class="p">,</span><span class="mf">1.51</span><span class="p">,</span><span class="mf">0.00</span><span class="p">,</span><span class="mf">2.20</span> <span class="o">/</span>
+
+<span class="o">&amp;</span><span class="n">OBST</span> <span class="n">ID</span>      <span class="o">=</span> <span class="s1">&#39;WallFront&#39;</span><span class="p">,</span>
+      <span class="n">SURF_ID</span> <span class="o">=</span> <span class="s1">&#39;Wall Lining&#39;</span>
+      <span class="n">XB</span>      <span class="o">=</span> <span class="mf">1.40</span><span class="p">,</span><span class="mf">1.51</span><span class="p">,</span><span class="o">-</span><span class="mf">1.51</span><span class="p">,</span><span class="mf">1.51</span><span class="p">,</span><span class="mf">0.00</span><span class="p">,</span><span class="mf">2.20</span> <span class="o">/</span>
+
+ <span class="n">OBST</span> <span class="n">ID</span>      <span class="o">=</span> <span class="s1">&#39;WallLeft&#39;</span><span class="p">,</span>
+      <span class="n">SURF_ID</span> <span class="o">=</span> <span class="s1">&#39;Wall Lining&#39;</span>
+      <span class="n">XB</span>      <span class="o">=</span> <span class="o">-</span><span class="mf">1.40</span><span class="p">,</span><span class="mf">1.40</span><span class="p">,</span><span class="o">-</span><span class="mf">1.51</span><span class="p">,</span><span class="o">-</span><span class="mf">1.40</span><span class="p">,</span><span class="mf">0.00</span><span class="p">,</span><span class="mf">2.20</span> <span class="o">/</span>
+
+<span class="o">&amp;</span><span class="n">OBST</span> <span class="n">ID</span>      <span class="o">=</span> <span class="s1">&#39;WallRight&#39;</span><span class="p">,</span>
+      <span class="n">SURF_ID</span> <span class="o">=</span> <span class="s1">&#39;Wall Lining&#39;</span><span class="p">,</span>
+      <span class="n">BNDF_OBST</span> <span class="o">=</span> <span class="n">T</span><span class="p">,</span>
+      <span class="n">XB</span>      <span class="o">=</span> <span class="o">-</span><span class="mf">1.40</span><span class="p">,</span><span class="mf">1.40</span><span class="p">,</span><span class="mf">1.40</span><span class="p">,</span><span class="mf">1.51</span><span class="p">,</span><span class="mf">0.00</span><span class="p">,</span><span class="mf">2.20</span> <span class="o">/</span>
+
+
+<span class="c1"># Cut out for door</span>
+<span class="o">&amp;</span><span class="n">HOLE</span> <span class="n">ID</span> <span class="o">=</span> <span class="s1">&#39;WallFront.001&#39;</span>
+      <span class="n">XB</span><span class="o">=</span><span class="mf">1.4050</span><span class="p">,</span><span class="mf">1.5150</span><span class="p">,</span><span class="o">-</span><span class="mf">0.40</span><span class="p">,</span><span class="mf">0.40</span><span class="p">,</span><span class="mf">0.00</span><span class="p">,</span><span class="mf">1.80</span> <span class="o">/</span>
+
+
+
+<span class="c1"># ---------------------------------------</span>
+<span class="c1"># Analytics</span>
+<span class="c1"># ---------------------------------------</span>
+
+<span class="o">&amp;</span><span class="n">SLCF</span> <span class="n">PBX</span>      <span class="o">=</span> <span class="mf">0.00</span>
+      <span class="n">QUANTITY</span> <span class="o">=</span> <span class="s1">&#39;TEMPERATURE&#39;</span><span class="p">,</span>
+      <span class="n">VECTOR</span>   <span class="o">=</span> <span class="o">.</span><span class="n">TRUE</span><span class="o">.</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">SLCF</span> <span class="n">PBY</span>      <span class="o">=</span> <span class="mf">0.00</span>
+      <span class="n">QUANTITY</span> <span class="o">=</span> <span class="s1">&#39;TEMPERATURE&#39;</span><span class="p">,</span>
+      <span class="n">VECTOR</span>   <span class="o">=</span> <span class="o">.</span><span class="n">TRUE</span><span class="o">.</span> <span class="o">/</span>
+
+<span class="o">&amp;</span><span class="n">SLCF</span> <span class="n">PBX</span>           <span class="o">=</span> <span class="mf">0.00</span>
+      <span class="n">QUANTITY</span>      <span class="o">=</span> <span class="s1">&#39;TEMPERATURE&#39;</span><span class="p">,</span>
+      <span class="n">CELL_CENTERED</span> <span class="o">=</span> <span class="o">.</span><span class="n">TRUE</span><span class="o">.</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">SLCF</span> <span class="n">PBY</span>           <span class="o">=</span> <span class="mf">0.00</span>
+      <span class="n">QUANTITY</span>      <span class="o">=</span> <span class="s1">&#39;TEMPERATURE&#39;</span><span class="p">,</span>
+      <span class="n">CELL_CENTERED</span> <span class="o">=</span> <span class="o">.</span><span class="n">TRUE</span><span class="o">.</span> <span class="o">/</span>
+
+
+<span class="o">&amp;</span><span class="n">BNDF</span> <span class="n">QUANTITY</span>      <span class="o">=</span> <span class="s1">&#39;WALL TEMPERATURE&#39;</span><span class="p">,</span>
+      <span class="n">CELL_CENTERED</span> <span class="o">=</span> <span class="n">T</span> <span class="o">/</span>
+
+
+<span class="o">&amp;</span><span class="n">DEVC</span> <span class="n">ID</span>       <span class="o">=</span><span class="s1">&#39;Temp_Door_Vertical_Centre&#39;</span><span class="p">,</span>
+      <span class="n">QUANTITY</span> <span class="o">=</span> <span class="s1">&#39;TEMPERATURE&#39;</span><span class="p">,</span>
+      <span class="n">POINTS</span>   <span class="o">=</span> <span class="mi">18</span><span class="p">,</span>
+      <span class="n">XB</span>       <span class="o">=</span> <span class="mf">1.45</span><span class="p">,</span><span class="mf">1.45</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span><span class="mf">1.75</span> <span class="o">/</span>
+
+<span class="o">&amp;</span><span class="n">DEVC</span> <span class="n">ID</span>       <span class="o">=</span><span class="s1">&#39;Temp_Wall_Vertical_Left&#39;</span><span class="p">,</span>
+      <span class="n">QUANTITY</span> <span class="o">=</span> <span class="s1">&#39;TEMPERATURE&#39;</span><span class="p">,</span>
+      <span class="n">POINTS</span>   <span class="o">=</span> <span class="mi">22</span><span class="p">,</span>
+      <span class="n">XB</span>       <span class="o">=</span> <span class="mf">1.25</span><span class="p">,</span><span class="mf">1.25</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.25</span><span class="p">,</span><span class="o">-</span><span class="mf">1.25</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span><span class="mf">2.15</span> <span class="o">/</span>
+
+<span class="o">&amp;</span><span class="n">DEVC</span> <span class="n">ID</span>       <span class="o">=</span><span class="s1">&#39;Temp_Wall_Vertical_Right&#39;</span><span class="p">,</span>
+      <span class="n">QUANTITY</span> <span class="o">=</span> <span class="s1">&#39;TEMPERATURE&#39;</span><span class="p">,</span>
+      <span class="n">POINTS</span>   <span class="o">=</span> <span class="mi">22</span><span class="p">,</span>
+      <span class="n">XB</span>       <span class="o">=</span> <span class="mf">1.25</span><span class="p">,</span><span class="mf">1.25</span><span class="p">,</span> <span class="mf">1.25</span><span class="p">,</span><span class="mf">1.25</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span><span class="mf">2.15</span> <span class="o">/</span>
+
+
+
+<span class="o">&amp;</span><span class="n">TAIL</span><span class="o">/</span>
+</pre></div>
+</div>
 </section>
 </section>
 

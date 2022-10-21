@@ -1104,9 +1104,9 @@ The predefined colors can be looked up in “Table 10.1: A sample of color defin
 </section>
 <section id="record-data-devc-slcf">
 <h2>Record Data (DEVC, SLCF)<a class="headerlink" href="#record-data-devc-slcf" title="Permalink to this headline">#</a></h2>
+<p>FDS has vast capabilities to record different data sets. Most of the data you would like to keep, you need to specifiy <em>before</em> the simulation is conducted. Here we provide only a very brief introduction to record data, for more details look into the other examples and the users guide. The focus is on devices <code class="docutils literal notranslate"><span class="pre">DEVC</span></code> and slices <code class="docutils literal notranslate"><span class="pre">SLCF</span></code>.</p>
 <section id="devices-devc">
 <h3>Devices (DEVC)<a class="headerlink" href="#devices-devc" title="Permalink to this headline">#</a></h3>
-<p>FDS has vast capabilities to record different data sets. Most of the data you would like to keep, you need to specifiy <em>before</em> the simulation is conducted. Here we provide only a very brief introduction to record data, for more details look into the other examples and the users guide. The focus is on devices <code class="docutils literal notranslate"><span class="pre">DEVC</span></code> and slices <code class="docutils literal notranslate"><span class="pre">SLCF</span></code>.</p>
 <p>To record the computed gas temperature above the burner we can use a point device (<code class="docutils literal notranslate"><span class="pre">DEVC</span></code>). A device can get a label (<code class="docutils literal notranslate"><span class="pre">ID</span></code>), which makes it much easier to identify in the comma separated value (CSV) file created during the simulation. It needs a location and a quantity.</p>
 <p>Locations can be provided in different ways, we focus her on a single point using <code class="docutils literal notranslate"><span class="pre">XYZ</span></code>. However, lines, planes and volumes are possible as well.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">QUANTITY</span></code> parameter expects a string to define what values are to be recorded. As an example, let’s take the gas temperature, using <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code>.</p>
@@ -1137,6 +1137,74 @@ The predefined colors can be looked up in “Table 10.1: A sample of color defin
 </section>
 <section id="file">
 <h2>File<a class="headerlink" href="#file" title="Permalink to this headline">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">HEAD</span> <span class="n">CHID</span>  <span class="o">=</span> <span class="s1">&#39;Ex1&#39;</span><span class="p">,</span>
+      <span class="n">TITLE</span> <span class="o">=</span> <span class="s1">&#39;Basic Example 1 - Gas Burner&#39;</span> <span class="o">/</span>
+
+<span class="o">&amp;</span><span class="n">TIME</span> <span class="n">T_END</span> <span class="o">=</span> <span class="mf">60.0</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">DUMP</span> <span class="n">NFRAMES</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">/</span>
+
+<span class="o">&amp;</span><span class="n">MESH</span> <span class="n">ID</span>  <span class="o">=</span> <span class="s1">&#39;Domain&#39;</span><span class="p">,</span>
+      <span class="n">IJK</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span>
+      <span class="n">XB</span>  <span class="o">=</span> <span class="o">-</span><span class="mf">1.00</span><span class="p">,</span><span class="mf">1.00</span><span class="p">,</span><span class="o">-</span><span class="mf">1.00</span><span class="p">,</span><span class="mf">1.00</span><span class="p">,</span><span class="mf">0.00</span><span class="p">,</span><span class="mf">2.00</span> <span class="o">/</span>
+
+
+
+<span class="c1"># ---------------------------------------</span>
+<span class="c1"># Domain boundary</span>
+<span class="c1"># ---------------------------------------</span>
+
+<span class="o">&amp;</span><span class="n">VENT</span> <span class="n">MB</span><span class="o">=</span><span class="s1">&#39;XMIN&#39;</span><span class="p">,</span> <span class="n">SURF_ID</span><span class="o">=</span><span class="s1">&#39;OPEN&#39;</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">VENT</span> <span class="n">MB</span><span class="o">=</span><span class="s1">&#39;XMAX&#39;</span><span class="p">,</span> <span class="n">SURF_ID</span><span class="o">=</span><span class="s1">&#39;OPEN&#39;</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">VENT</span> <span class="n">MB</span><span class="o">=</span><span class="s1">&#39;YMIN&#39;</span><span class="p">,</span> <span class="n">SURF_ID</span><span class="o">=</span><span class="s1">&#39;OPEN&#39;</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">VENT</span> <span class="n">MB</span><span class="o">=</span><span class="s1">&#39;YMAX&#39;</span><span class="p">,</span> <span class="n">SURF_ID</span><span class="o">=</span><span class="s1">&#39;OPEN&#39;</span> <span class="o">/</span>
+
+<span class="o">&amp;</span><span class="n">VENT</span> <span class="n">MB</span><span class="o">=</span><span class="s1">&#39;ZMAX&#39;</span><span class="p">,</span> <span class="n">SURF_ID</span><span class="o">=</span><span class="s1">&#39;OPEN&#39;</span> <span class="o">/</span>
+
+
+
+<span class="c1"># ---------------------------------------</span>
+<span class="c1"># Gas burner: propane</span>
+<span class="c1"># ---------------------------------------</span>
+
+<span class="o">&amp;</span><span class="n">SPEC</span> <span class="n">ID</span> <span class="o">=</span> <span class="s1">&#39;PROPANE&#39;</span> <span class="o">/</span>
+
+<span class="o">&amp;</span><span class="n">REAC</span> <span class="n">FUEL</span>       <span class="o">=</span> <span class="s1">&#39;PROPANE&#39;</span><span class="p">,</span>
+      <span class="n">SOOT_YIELD</span> <span class="o">=</span> <span class="mf">0.022</span> <span class="o">/</span>
+
+<span class="c1"># HRR: 62.9 kW</span>
+<span class="o">&amp;</span><span class="n">SURF</span> <span class="n">ID</span>         <span class="o">=</span> <span class="s1">&#39;Burner&#39;</span><span class="p">,</span>
+      <span class="n">COLOR</span>      <span class="o">=</span> <span class="s1">&#39;RASPBERRY&#39;</span><span class="p">,</span>
+      <span class="n">HRRPUA</span>     <span class="o">=</span> <span class="mf">393.74999999999994</span> <span class="o">/</span>
+
+<span class="o">&amp;</span><span class="n">OBST</span> <span class="n">ID</span>      <span class="o">=</span> <span class="s1">&#39;BurnerBase&#39;</span><span class="p">,</span>
+      <span class="n">SURF_ID</span> <span class="o">=</span> <span class="s1">&#39;INERT&#39;</span><span class="p">,</span>
+      <span class="n">XB</span>      <span class="o">=</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.2</span> <span class="o">/</span>
+
+<span class="o">&amp;</span><span class="n">VENT</span> <span class="n">ID</span>      <span class="o">=</span> <span class="s1">&#39;BurnerOutlet&#39;</span><span class="p">,</span>
+      <span class="n">SURF_ID</span> <span class="o">=</span> <span class="s1">&#39;Burner&#39;</span><span class="p">,</span>
+      <span class="n">XB</span>      <span class="o">=</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span> <span class="o">/</span>
+
+
+
+<span class="c1"># ---------------------------------------</span>
+<span class="c1"># Analysis</span>
+<span class="c1"># ---------------------------------------</span>
+
+<span class="o">&amp;</span><span class="n">DEVC</span> <span class="n">ID</span>       <span class="o">=</span> <span class="s1">&#39;Temp_1m&#39;</span><span class="p">,</span>
+      <span class="n">XYZ</span>      <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span>
+      <span class="n">QUANTITY</span> <span class="o">=</span> <span class="s1">&#39;TEMPERATURE&#39;</span> <span class="o">/</span>
+
+
+<span class="o">&amp;</span><span class="n">SLCF</span> <span class="n">PBX</span>           <span class="o">=</span> <span class="mf">0.00</span><span class="p">,</span>
+      <span class="n">QUANTITY</span>      <span class="o">=</span> <span class="s1">&#39;TEMPERATURE&#39;</span><span class="p">,</span>
+      <span class="n">CELL_CENTERED</span> <span class="o">=</span> <span class="o">.</span><span class="n">TRUE</span><span class="o">.</span> <span class="o">/</span>
+
+
+
+<span class="o">&amp;</span><span class="n">TAIL</span> <span class="o">/</span>
+
+</pre></div>
+</div>
 </section>
 <section id="questions-and-tasks">
 <h2>Questions and Tasks<a class="headerlink" href="#questions-and-tasks" title="Permalink to this headline">#</a></h2>
