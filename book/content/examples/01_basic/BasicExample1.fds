@@ -1,0 +1,66 @@
+&HEAD CHID  = 'Ex1',
+      TITLE = 'Basic Example 1 - Gas Burner' /
+
+&TIME T_END = 60.0 /
+&DUMP NFRAMES = 60 /
+
+&MESH ID  = 'Domain',
+      IJK = 10,10,10,
+      XB  = -1.00,1.00,-1.00,1.00,0.00,2.00 /
+
+
+
+# ---------------------------------------
+# Domain boundary
+# ---------------------------------------
+
+&VENT MB='XMIN', SURF_ID='OPEN' /
+&VENT MB='XMAX', SURF_ID='OPEN' /
+&VENT MB='YMIN', SURF_ID='OPEN' /
+&VENT MB='YMAX', SURF_ID='OPEN' /
+
+&VENT MB='ZMAX', SURF_ID='OPEN' /
+
+
+
+# ---------------------------------------
+# Gas burner: propane
+# ---------------------------------------
+
+&SPEC ID = 'PROPANE' /
+
+&REAC FUEL       = 'PROPANE',
+      SOOT_YIELD = 0.022 /
+
+# HRR: 62.9 kW
+&SURF ID         = 'Burner',
+      COLOR      = 'RASPBERRY',
+      HRRPUA     = 393.74999999999994 /
+
+&OBST ID      = 'BurnerBase',
+      SURF_ID = 'INERT',
+      XB      = -0.2, 0.2, -0.2, 0.2, 0.0, 0.2 /
+
+&VENT ID      = 'BurnerOutlet',
+      SURF_ID = 'Burner',
+      XB      = -0.2, 0.2, -0.2, 0.2, 0.2, 0.2 /
+
+
+
+# ---------------------------------------
+# Analysis
+# ---------------------------------------
+
+&DEVC ID       = 'Temp_1m',
+      XYZ      = 0.1, 0.1, 1.3,
+      QUANTITY = 'TEMPERATURE' /
+
+
+&SLCF PBX           = 0.00,
+      QUANTITY      = 'TEMPERATURE',
+      CELL_CENTERED = .TRUE. /
+
+
+
+&TAIL /
+
