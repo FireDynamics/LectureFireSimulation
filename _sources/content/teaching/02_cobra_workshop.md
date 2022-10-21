@@ -1,1 +1,0 @@
-# CoBra Workshop

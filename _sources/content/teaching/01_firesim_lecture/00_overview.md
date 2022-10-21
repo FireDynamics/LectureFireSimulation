@@ -1,6 +1,6 @@
 # Fire Simulation Lecture @ BUW
 
-The structure of the lecture [Fire Simulation](https://cce.uni-wuppertal.de/en/teaching/fire-simulation/) tought at the University of Wuppertal is split into two parts. This is due to the fact that two groups of students with different extents visit this course.
+The structure of the lecture [Fire Simulation](https://cce.uni-wuppertal.de/en/teaching/fire-simulation/) taught at the University of Wuppertal is split into two parts. This is due to the fact that two groups of students with different extents visit this course.
 
 **Fire Simulation I (FS I):** XYZ
 
