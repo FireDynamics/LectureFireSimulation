@@ -4,7 +4,7 @@ The CoBra workshop series is aimed at professional fire safety engineers. Its go
 
 Each iteration of the workshop is distributed over two days. The training takes place in the afternoon of the first day and in the morning of the following day.
 
-**Workshop I, Intro High Performance Computing:** XYZ
+**Workshop I, Introduction to High Performance Computing:** XYZ
 
 **Workshop II, Data Analysis:** XYZ
 
