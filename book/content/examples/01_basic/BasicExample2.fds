@@ -1,4 +1,5 @@
-&HEAD CHID='StecklerExample', TITLE='Example of a Steckler case, with 6/6 door' /
+&HEAD CHID  = 'StecklerExample', 
+      TITLE = 'Example of a Steckler case, with 6/6 door' /
 
 &TIME T_END=1800.0 /
 &DUMP NFRAMES=1800 /
