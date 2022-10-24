@@ -137,13 +137,13 @@
       TIME_HISTORY = T,
       XB           = 1.45,1.45, 0.05,0.05, 0.05,1.75 /
 
-&DEVC ID           ='Temp_Corner_Vertical_Left',
+&DEVC ID           = 'Temp_Corner_Vertical_Left',
       QUANTITY     = 'TEMPERATURE',
       POINTS       = 22,
       TIME_HISTORY = T,
       XB           = 1.25,1.25, -1.25,-1.25, 0.05,2.15 /
 
-&DEVC ID           ='Temp_Corner_Vertical_Right',
+&DEVC ID           = 'Temp_Corner_Vertical_Right',
       QUANTITY     = 'TEMPERATURE',
       POINTS       = 22,
       TIME_HISTORY = T,
