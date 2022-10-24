@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Intermediate" href="../02_intermediate/00_overview.html" />
+    <link rel="next" title="Basic Example III" href="03_basic_example_iii.html" />
     <link rel="prev" title="Basic FDS Example I" href="01_basic_example_i.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -375,6 +375,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
      Basic FDS Example II
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_basic_example_iii.html">
+     Basic Example III
     </a>
    </li>
   </ul>
@@ -846,13 +851,13 @@ title="Print to PDF"
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="basic-fds-example-ii">
 <h1>Basic FDS Example II<a class="headerlink" href="#basic-fds-example-ii" title="Permalink to this headline">#</a></h1>
-<p>In this example we build on Basic Example I and construct a small room with a fire inside. This setup is based on the <a class="reference external" href="https://www.nist.gov/publications/flow-induced-fire-compartment">“Steckler compartments”</a> <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id6" title="K.D. Steckler, J.G. Quintiere, and W.J. Rinkinen. Flow induced by fire in a compartment. Symposium (International) on Combustion, 19(1):913–920, 1982. URL: https://www.nist.gov/publications/flow-induced-fire-compartment, doi:10.1016/s0082-0784(82)80267-1.">SQR82</a>]</span>.</p>
+<p>In this example we build on Basic Example I and construct a small room with a fire inside. This setup is based on the <a class="reference external" href="https://www.nist.gov/publications/flow-induced-fire-compartment">“Steckler compartments”</a> <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id6" title="K.D. Steckler, J.G. Quintiere, and W.J. Rinkinen. Flow induced by fire in a compartment. Symposium (International) on Combustion, 19(1):913–920, 1982. URL: https://www.nist.gov/publications/flow-induced-fire-compartment, doi:10.1016/s0082-0784(82)80267-1.">SQR82</a>]</span>. An introduction is also provided in <a class="reference internal" href="../../modelling/03_compartments/01_fundamentals.html"><span class="doc std std-doc">Compartment Fires section</span></a>.</p>
 <section id="file">
 <h2>File<a class="headerlink" href="#file" title="Permalink to this headline">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">HEAD</span> <span class="n">CHID</span>  <span class="o">=</span> <span class="s1">&#39;StecklerExample&#39;</span><span class="p">,</span> 
       <span class="n">TITLE</span> <span class="o">=</span> <span class="s1">&#39;Example of a Steckler case, with 6/6 door&#39;</span> <span class="o">/</span>
 
-<span class="o">&amp;</span><span class="n">TIME</span> <span class="n">T_END</span><span class="o">=</span><span class="mf">1800.0</span> <span class="o">/</span>
+<span class="o">&amp;</span><span class="n">TIME</span> <span class="n">T_END</span><span class="o">=</span><span class="mf">1800.0</span><span class="p">,</span> <span class="n">TIME_SHRINK_FACTOR</span> <span class="o">=</span> <span class="mf">10.</span> <span class="o">/</span>
 <span class="o">&amp;</span><span class="n">DUMP</span> <span class="n">NFRAMES</span><span class="o">=</span><span class="mi">1800</span> <span class="o">/</span>
 
 
@@ -1039,10 +1044,10 @@ title="Print to PDF"
             <p class="prev-next-title">Basic FDS Example I</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../02_intermediate/00_overview.html" title="next page">
+    <a class='right-next' id="next-link" href="03_basic_example_iii.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Intermediate</p>
+        <p class="prev-next-title">Basic Example III</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

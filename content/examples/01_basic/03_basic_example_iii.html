@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>5.2. Modelling &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
+    <title>Basic Example III &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -53,12 +53,12 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"tex": {"macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}", "du": "\\dot{u}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/modelling/05_combustion/02_modelling.html" />
+    <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/examples/01_basic/03_basic_example_iii.html" />
     <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="5.3. Example – Closed Volume" href="03_closed_volume_example.html" />
-    <link rel="prev" title="5.1. Fundamentals" href="01_fundamentals.html" />
+    <link rel="next" title="Intermediate" href="../02_intermediate/00_overview.html" />
+    <link rel="prev" title="Basic FDS Example II" href="02_basic_example_ii.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -140,9 +140,9 @@ const thebe_selector_output = ".output, .cell_output"
   Modelling
  </span>
 </p>
-<ul class="current nav bd-sidenav">
+<ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../01_general/00_overview.html">
+  <a class="reference internal" href="../../modelling/01_general/00_overview.html">
    1. Modelling Fires
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
@@ -152,24 +152,24 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../01_general/01_processes.html">
+    <a class="reference internal" href="../../modelling/01_general/01_processes.html">
      1.1. Physical and Chemical Processes
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../01_general/02_fse.html">
+    <a class="reference internal" href="../../modelling/01_general/02_fse.html">
      1.2. Fire Safety Engineering
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../01_general/03_approaches.html">
+    <a class="reference internal" href="../../modelling/01_general/03_approaches.html">
      1.3. Modelling Approaches
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../02_fluids/00_overview.html">
+  <a class="reference internal" href="../../modelling/02_fluids/00_overview.html">
    2. Fluid Dynamics
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
@@ -179,24 +179,24 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../02_fluids/01_fluids.html">
+    <a class="reference internal" href="../../modelling/02_fluids/01_fluids.html">
      2.1. Fluids
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../02_fluids/02_cfd.html">
+    <a class="reference internal" href="../../modelling/02_fluids/02_cfd.html">
      2.2. Computational Fluid Dynamics
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../02_fluids/03_turbulence.html">
+    <a class="reference internal" href="../../modelling/02_fluids/03_turbulence.html">
      2.3. Turbulence
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../03_compartments/00_overview.html">
+  <a class="reference internal" href="../../modelling/03_compartments/00_overview.html">
    3. Compartment Fires
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
@@ -206,24 +206,24 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../03_compartments/01_fundamentals.html">
+    <a class="reference internal" href="../../modelling/03_compartments/01_fundamentals.html">
      3.1. Fundamentals
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../03_compartments/03_pool_example.html">
+    <a class="reference internal" href="../../modelling/03_compartments/03_pool_example.html">
      3.2. Example – Pool Fire
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../03_compartments/04_steckler_example.html">
+    <a class="reference internal" href="../../modelling/03_compartments/04_steckler_example.html">
      3.3. Example - Steckler Compartment
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../04_thermodynamics/00_overview.html">
+  <a class="reference internal" href="../../modelling/04_thermodynamics/00_overview.html">
    4. Thermodynamics
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
@@ -233,51 +233,51 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04_thermodynamics/01_fundamentals.html">
+    <a class="reference internal" href="../../modelling/04_thermodynamics/01_fundamentals.html">
      4.1. Fundamentals
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../04_thermodynamics/02_example_energy_mass_transfer.html">
+    <a class="reference internal" href="../../modelling/04_thermodynamics/02_example_energy_mass_transfer.html">
      4.2. Energy and Mass Transfer
     </a>
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00_overview.html">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../modelling/05_combustion/00_overview.html">
    5. Combustion
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
   <label for="toctree-checkbox-5">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="01_fundamentals.html">
+    <a class="reference internal" href="../../modelling/05_combustion/01_fundamentals.html">
      5.1. Fundamentals
     </a>
    </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/05_combustion/02_modelling.html">
      5.2. Modelling
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="03_closed_volume_example.html">
+    <a class="reference internal" href="../../modelling/05_combustion/03_closed_volume_example.html">
      5.3. Example – Closed Volume
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="04_burner_example.html">
+    <a class="reference internal" href="../../modelling/05_combustion/04_burner_example.html">
      5.4. Wolfhard-Parker Burner
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../06_heat_transfer/00_overview.html">
+  <a class="reference internal" href="../../modelling/06_heat_transfer/00_overview.html">
    6. Heat Transfer
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
@@ -287,29 +287,29 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../06_heat_transfer/01_fundamentals.html">
+    <a class="reference internal" href="../../modelling/06_heat_transfer/01_fundamentals.html">
      6.1. Fundamentals
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../06_heat_transfer/02_heat_transfer_example.html">
+    <a class="reference internal" href="../../modelling/06_heat_transfer/02_heat_transfer_example.html">
      6.2. Example – Heat Transfer
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../06_heat_transfer/03_validation_example.html">
+    <a class="reference internal" href="../../modelling/06_heat_transfer/03_validation_example.html">
      6.3. Validation – Heat Transfer
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../06_heat_transfer/04_ht3d_example.html">
+    <a class="reference internal" href="../../modelling/06_heat_transfer/04_ht3d_example.html">
      6.4. Example – 3D Heat Transfer
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../07_particles/00_overview.html">
+  <a class="reference internal" href="../../modelling/07_particles/00_overview.html">
    7. Particles
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
@@ -319,19 +319,19 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../07_particles/01_fundamentals.html">
+    <a class="reference internal" href="../../modelling/07_particles/01_fundamentals.html">
      7.1. Modelling
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../07_particles/02_example_spray.html">
+    <a class="reference internal" href="../../modelling/07_particles/02_example_spray.html">
      7.2. Example – Sprays
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../09_pyrolysis/00_overview.html">
+  <a class="reference internal" href="../../modelling/09_pyrolysis/00_overview.html">
    8. Pyrolysis
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
@@ -341,12 +341,12 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../09_pyrolysis/01_fundamentals.html">
+    <a class="reference internal" href="../../modelling/09_pyrolysis/01_fundamentals.html">
      8.1. Fundamentals
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../09_pyrolysis/02_example.html">
+    <a class="reference internal" href="../../modelling/09_pyrolysis/02_example.html">
      8.2. Example - Gasification of PMMA
     </a>
    </li>
@@ -358,41 +358,41 @@ const thebe_selector_output = ".output, .cell_output"
   Examples
  </span>
 </p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../examples/01_basic/00_overview.html">
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_overview.html">
    Basic
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
   <label for="toctree-checkbox-9">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
+  <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="../../examples/01_basic/01_basic_example_i.html">
+    <a class="reference internal" href="01_basic_example_i.html">
      Basic FDS Example I
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../examples/01_basic/02_basic_example_ii.html">
+    <a class="reference internal" href="02_basic_example_ii.html">
      Basic FDS Example II
     </a>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../examples/01_basic/03_basic_example_iii.html">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Basic Example III
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../../examples/02_intermediate/00_overview.html">
+  <a class="reference internal" href="../02_intermediate/00_overview.html">
    Intermediate
   </a>
  </li>
  <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../examples/03_advanced/00_overview.html">
+  <a class="reference internal" href="../03_advanced/00_overview.html">
    Advanced
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
@@ -402,7 +402,7 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../examples/03_advanced/01_example_mccaffreyplumes.html">
+    <a class="reference internal" href="../03_advanced/01_example_mccaffreyplumes.html">
      Example: McCaffrey plume experiments
     </a>
    </li>
@@ -612,7 +612,7 @@ title="Toggle navigation"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="https://mybinder.org/v2/gh/FireDynamics/LectureFireSimulation/main?urlpath=tree/book/content/modelling/05_combustion/02_modelling.ipynb"
+        <a href="https://mybinder.org/v2/gh/FireDynamics/LectureFireSimulation/main?urlpath=tree/book/content/examples/01_basic/03_basic_example_iii.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -630,7 +630,7 @@ title="Launch on Binder"
       </li>
       
       <li>
-        <a href="https://io.cce.uni-wuppertal.de/firesim_ss21/hub/user-redirect/git-pull?repo=https%3A//github.com/FireDynamics/LectureFireSimulation&urlpath=tree/LectureFireSimulation/book/content/modelling/05_combustion/02_modelling.ipynb&branch=main"
+        <a href="https://io.cce.uni-wuppertal.de/firesim_ss21/hub/user-redirect/git-pull?repo=https%3A//github.com/FireDynamics/LectureFireSimulation&urlpath=tree/LectureFireSimulation/book/content/examples/01_basic/03_basic_example_iii.ipynb&branch=main"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -690,7 +690,7 @@ title="Source repository"
       </li>
       
       <li>
-        <a href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/modelling/05_combustion/02_modelling.html&body=Your%20issue%20content%20here."
+        <a href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/examples/01_basic/03_basic_example_iii.html&body=Your%20issue%20content%20here."
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -707,7 +707,7 @@ title="Open an issue"
       </li>
       
       <li>
-        <a href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/modelling/05_combustion/02_modelling.ipynb"
+        <a href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/examples/01_basic/03_basic_example_iii.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -735,7 +735,7 @@ title="Edit this page"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="../../../_sources/content/modelling/05_combustion/02_modelling.ipynb"
+        <a href="../../../_sources/content/examples/01_basic/03_basic_example_iii.ipynb"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -795,13 +795,23 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#conserved-scalar-formulation">
-   Conserved Scalar Formulation
+  <a class="reference internal nav-link" href="#setup-description">
+   Setup Description
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#finite-rate-formulation">
-   Finite Rate Formulation
+  <a class="reference internal nav-link" href="#determine-the-desired-hrr">
+   Determine the Desired HRR
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#read-simulation-response">
+   Read Simulation Response
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compare-response-to-target">
+   Compare Response to Target
   </a>
  </li>
 </ul>
@@ -813,7 +823,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Modelling</h1>
+                <h1>Basic Example III</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -824,13 +834,23 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#conserved-scalar-formulation">
-   Conserved Scalar Formulation
+  <a class="reference internal nav-link" href="#setup-description">
+   Setup Description
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#finite-rate-formulation">
-   Finite Rate Formulation
+  <a class="reference internal nav-link" href="#determine-the-desired-hrr">
+   Determine the Desired HRR
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#read-simulation-response">
+   Read Simulation Response
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#compare-response-to-target">
+   Compare Response to Target
   </a>
  </li>
 </ul>
@@ -843,120 +863,233 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="modelling">
-<h1><span class="section-number">5.2. </span>Modelling<a class="headerlink" href="#modelling" title="Permalink to this headline">#</a></h1>
-<section id="conserved-scalar-formulation">
-<h2>Conserved Scalar Formulation<a class="headerlink" href="#conserved-scalar-formulation" title="Permalink to this headline">#</a></h2>
-<p>A simple combustion modelling approach is the assumption that chemical processes are infinitely fast, the so called mixed-is-burnt model. It is assumed, that the instantaneous thermostatic state is related to a scalar quantity known as mixture fraction <span class="math notranslate nohighlight">\(\mf f =f(\vec{x},t)\)</span>. It is an artificial quantity that describes the mixing of species and varies in space in time. The individual species concentrations are derived from the mixture fraction.</p>
-<p>Given a reaction volume, with an inflow of two (representative) species, e.g. fuel <span class="math notranslate nohighlight">\(\mf Y_F\)</span> and air <span class="math notranslate nohighlight">\(\mf Y_A\)</span>, and an outflow of a mixture <span class="math notranslate nohighlight">\(\mf Y_M\)</span>, the mixture fraction <span class="math notranslate nohighlight">\(\mf f\)</span> is defined as</p>
-<div class="math notranslate nohighlight">
-\[
-\mf f Y_F + (1-f)Y_A = Y_M \quad \Rightarrow \quad f=\frac{Y_M - Y_A}{Y_F - Y_A} \quad .
-\]</div>
-<figure class="align-default" id="fig-comb-mf-mixing">
-<a class="reference internal image-reference" href="../../../_images/mixture-volume.svg"><img alt="../../../_images/mixture-volume.svg" src="../../../_images/mixture-volume.svg" width="60%" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 5.14 </span><span class="caption-text">Concept of a mixture / reaction volume.</span><a class="headerlink" href="#fig-comb-mf-mixing" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>Based on that scalar value, the products of the reaction / combustion are determined, as well as the released chemical energy. Following this definition, a volume containing just air leads to <span class="math notranslate nohighlight">\(\mf f=0\)</span> and one with only fuel is represented by <span class="math notranslate nohighlight">\(\mf f=1\)</span>. The flame is represented with <span class="math notranslate nohighlight">\(\mf f_{st}\)</span> as the stochiometric mixture of the fuel and the oxydant. In <a class="reference internal" href="#fig-comb-mf-table"><span class="std std-numref">Fig. 5.15</span></a> an example for a simple single step reaction, involving oxygen (<span class="math notranslate nohighlight">\(\mf Y_O\)</span>), an inert gas (<span class="math notranslate nohighlight">\(\mf Y_I\)</span>), fuel (<span class="math notranslate nohighlight">\(\mf Y_F\)</span>), and combustion products (<span class="math notranslate nohighlight">\(\mf Y_P\)</span>) is given.</p>
-<figure class="align-default" id="fig-comb-mf-table">
-<a class="reference internal image-reference" href="../../../_images/mixture-fraction-simple.svg"><img alt="../../../_images/mixture-fraction-simple.svg" src="../../../_images/mixture-fraction-simple.svg" width="80%" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 5.15 </span><span class="caption-text">Mixture fraction model for a simple single step combustion reaction.</span><a class="headerlink" href="#fig-comb-mf-table" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>For a more complex description of, e.g. methane combustion, there are according approaches to generate the mixture-fraction functions for the species concentrations. <a class="reference internal" href="#fig-comb-mf-methane-major"><span class="std std-numref">Fig. 5.16</span></a> and <a class="reference internal" href="#fig-comb-mf-methane-minor"><span class="std std-numref">Fig. 5.17</span></a> illustrate one of them.</p>
-<figure class="align-default" id="fig-comb-mf-methane-major">
-<a class="reference internal image-reference" href="../../../_images/yeoh-mixture-fraction-methane-major.png"><img alt="../../../_images/yeoh-mixture-fraction-methane-major.png" src="../../../_images/yeoh-mixture-fraction-methane-major.png" style="width: 80%;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 5.16 </span><span class="caption-text">The major species concentrations for a mixture fraction model with 11 species for the methane combustion. Source: <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id3" title="Guan Heng Yeoh and Kwok Kit Yuen. Computational Fluid Dynamics in Fire Engineering. Butterworth-Heinemann, 2009. ISBN 9780750685894. doi:10.1016/b978-0-7506-8589-4.00008-9.">YY09</a>]</span>.</span><a class="headerlink" href="#fig-comb-mf-methane-major" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<figure class="align-default" id="fig-comb-mf-methane-minor">
-<a class="reference internal image-reference" href="../../../_images/yeoh-mixture-fraction-methane-minor.png"><img alt="../../../_images/yeoh-mixture-fraction-methane-minor.png" src="../../../_images/yeoh-mixture-fraction-methane-minor.png" style="width: 80%;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 5.17 </span><span class="caption-text">The minor species concentrations for a mixture fraction model with 11 species for the methane combustion. Source: <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id3" title="Guan Heng Yeoh and Kwok Kit Yuen. Computational Fluid Dynamics in Fire Engineering. Butterworth-Heinemann, 2009. ISBN 9780750685894. doi:10.1016/b978-0-7506-8589-4.00008-9.">YY09</a>]</span>.</span><a class="headerlink" href="#fig-comb-mf-methane-minor" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>An example for a measurement of the species concentration and temperature as a function of the mixture fraction for a hydrogen-nitrogen mixture fuel is shown in <a class="reference internal" href="#fig-comb-mf-measurement-h2n2"><span class="std std-numref">Fig. 5.18</span></a>.</p>
-<figure class="align-default" id="fig-comb-mf-measurement-h2n2">
-<a class="reference internal image-reference" href="../../../_images/yang-measured-mf-h2n2.png"><img alt="../../../_images/yang-measured-mf-h2n2.png" src="../../../_images/yang-measured-mf-h2n2.png" style="width: 60%;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 5.18 </span><span class="caption-text">Measured concentration and temperature values for a laminar (subfigure a and b) and a turbulent flame (subfigures c and d). Source: <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id2" title="Chaobo Yang, Hao Tang, and Gaetano Magnotti. High-speed 1D Raman analyzer for temperature and major species measurements in a combustion environment. Optics Letters, 45(10):2817, 2020. doi:10.1364/ol.390299.">YTM20</a>]</span>.</span><a class="headerlink" href="#fig-comb-mf-measurement-h2n2" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>The mixture fraction itself is a conserved scalar and is advected by the flow. Thus its transport equation is the following</p>
-<div class="math notranslate nohighlight">
-\[
-\mf \partial_t \left(\rho\, f\right) + \nabla\cdot(\rho\vec{v}\,f) = \nabla \cdot \frac{\mu}{Sc} \nabla f \quad .
-\]</div>
-<p>Here the diffusion is approximation is based on the viscosity and the Schmidt number (<span class="math notranslate nohighlight">\(\mf Sc\)</span>). In case of a turbulence modell, the according effective values have to be used.</p>
+  <div class="cell tag_hide_cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="c1"># check for set environment variable JB_NOSHOW</span>
+<span class="n">show</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">if</span> <span class="s1">&#39;JB_NOSHOW&#39;</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
+    <span class="n">show</span> <span class="o">=</span> <span class="kc">False</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="basic-example-iii">
+<h1>Basic Example III<a class="headerlink" href="#basic-example-iii" title="Permalink to this headline">#</a></h1>
+<section id="setup-description">
+<h2>Setup Description<a class="headerlink" href="#setup-description" title="Permalink to this headline">#</a></h2>
+<p>We start out with the simulation setup from <a class="reference internal" href="01_basic_example_i.html"><span class="doc std std-doc">Basic Example I</span></a>. The goal is to ensure that the desired heat release of the burner was set up in the simulation. We are going to use Python to compare the simulation response with the target, using <a class="reference external" href="https://jupyter.org/">JupyterLab</a>.</p>
+<p>FDS creates a couple of files, a very basic one is the <code class="docutils literal notranslate"><span class="pre">CHID_hrr.csv</span></code>. It contains general information of the simulation, for example the released heat, mass and energy losses. This file is a good first stop, to asses if the simulation is setup correctly.</p>
 </section>
-<section id="finite-rate-formulation">
-<h2>Finite Rate Formulation<a class="headerlink" href="#finite-rate-formulation" title="Permalink to this headline">#</a></h2>
-<p>To allow for finite rate reactions, the concentrations of all involved species must be computed.</p>
-<p>In a system with <span class="math notranslate nohighlight">\(\mf N\)</span> species, the mass fractions <span class="math notranslate nohighlight">\(\mf Y_i\)</span> are given by</p>
-<div class="math notranslate nohighlight">
-\[
-\mf Y_i = \frac{m_i}{M}\quad \mbox{with the total mass} \quad M = \sum_{i=1}^N m_i \quad \mbox{and}\quad \sum_{i=1}^N Y_i = 1
-\]</div>
-<p>The volume fraction <span class="math notranslate nohighlight">\(\mf X_i\)</span> is defined in an alalogous way.</p>
-<p>The conservation equation for the i-th species takes the following form</p>
-<div class="math notranslate nohighlight">
-\[
-\mf \partial_t (\rho Y_i) + \nabla\cdot(\rho\vec{v} Y_i) = \nabla\cdot(\rho D_i \nabla Y_i) + R_i
-\]</div>
-<p>with the diffusion coefficient <span class="math notranslate nohighlight">\(\mf D_i\)</span> and the reaction rate <span class="math notranslate nohighlight">\(\mf R_i\)</span>.</p>
-<p>In general the diffusion coefficient <span class="math notranslate nohighlight">\(\mf D_i\)</span> is different for each species is different. However, a commonly used approximation is to assume that all species have the same diffusion properties</p>
-<div class="math notranslate nohighlight">
-\[
-\mf \rho D_i = \frac{\mu}{Sc_i} \approx \frac{\mu}{Sc}
-\]</div>
-<p>Therefore a global <span class="math notranslate nohighlight">\(\mf D\)</span> is found with a usually prescribed Schmidt number of 0.7, which allows to compute the dynamics of multiple species as one. This is the lumped species approach.
-In the lumped species approach, related primitive species <span class="math notranslate nohighlight">\(\mf Y_\alpha\)</span>, e.g. nitrogen, oxygen, and carbon dioxide, are transported together. The classification into three lumped species <span class="math notranslate nohighlight">\(\mf Z_A\)</span> (air), <span class="math notranslate nohighlight">\(\mf Z_F\)</span> (fuel) and <span class="math notranslate nohighlight">\(\mf Z_P\)</span> (products) leads in the case of methane combustion</p>
-<div class="math notranslate nohighlight">
-\[
-\mf CH_4 + 2 \left(O_2 + \frac{0.79}{0.21} N_2\right) \rightarrow CO_2 + 2H_2O + 2\frac{0.79}{0.21}N_2
-\]</div>
-<p>to the following relation</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\mf \left(\begin{array}{ccc} 0.77 &amp; 0.00 &amp; 0.73 \\ 0.23 &amp; 0.00 &amp; 0.00 \\ 0.00 &amp; 1.00 &amp; 0.00 \\ 0.00 &amp; 0.00 &amp; 0.15 \\ 0.00 &amp; 0.00 &amp; 0.12 \end{array}\right) \cdot \left(\begin{array}{c} Z_A \\ Z_F \\ Z_P\end{array}\right) = \left(\begin{array}{c} Y_{N_2} \\ Y_{O_2} \\ Y_{CH_4} \\ Y_{CO_2} \\ Y_{H_2O}\end{array}\right)
-\end{split}\]</div>
-<p>This approach allows to significantly reduce the cost of the computation of the transport process. The transport of scalars is an advection-diffusion equation including source terms. In the case of the lumped species <span class="math notranslate nohighlight">\(\mf Z_\alpha\)</span> it takes the following form:</p>
-<div class="math notranslate nohighlight">
-\[
-\mf \partial_t (\rho Z_\alpha) + \nabla\cdot\left(\rho Z_\alpha \vec{v}\right) = \nabla\cdot\left(\rho D_\alpha \nabla Z_\alpha\right) + \dot{m}_\alpha + \dot{m}_{b, \alpha}
-\]</div>
-<p>with the diffusion coefficient <span class="math notranslate nohighlight">\(\mf D_\alpha\)</span> and the mass sources <span class="math notranslate nohighlight">\(\mf \dot{m}_\alpha\)</span>. The solution of this set of equations must satisfy the realizability condition, which is</p>
-<div class="math notranslate nohighlight">
-\[
-\mf Y_\alpha \geq 0 \quad \text{and} \quad \sum Y_\alpha = 1 \quad .
-\]</div>
-<p>The zoo of possible reactions may be formalized into a general stoichiometric equation for the j-th reaction (with a total of <span class="math notranslate nohighlight">\(\mf N\)</span> species):</p>
-<div class="math notranslate nohighlight">
-\[
-\mf \sum_{i=1}^N \nu_{i,j}' C_{i} \ \ \underset{k_{b,j}}{\stackrel{k_{f,j}}{\rightleftharpoons}} \ \ \sum_{i=1}^N \nu_{i,j}'' C_{i}
-\]</div>
-<p>with <span class="math notranslate nohighlight">\(\mf \nu'\)</span> and <span class="math notranslate nohighlight">\(\mf \nu''\)</span> being the stoichiometric coefficients for the reactants and products.</p>
-<p>The reaction rate for the j-th reaction is therefore</p>
-<div class="math notranslate nohighlight">
-\[
-\mf R_j \propto k_{f,j} \prod_{i+1}^N C_i^{n_{i,j}'} - k_{b,j} \prod_{i+1}^N C_i^{n_{i,j}''}
-\]</div>
-<p>with the reaction rates in forward direction <span class="math notranslate nohighlight">\(\mf k_{f,j}\)</span> and backward direction <span class="math notranslate nohighlight">\(\mf k_{b,j}\)</span>, as well as the rate exponents <span class="math notranslate nohighlight">\(\mf n_{i,j}'\)</span> and <span class="math notranslate nohighlight">\(\mf n_{i,j}''\)</span>. This equation misses the third body effects, which set the proportionality constant.</p>
-<p>In the case of the reaction</p>
-<div class="math notranslate nohighlight">
-\[
-\mf CO + OH \rightleftharpoons CO_2 + H
-\]</div>
-<p>the stoichiometric coefficients are all unity. This is also true for the rate exponents. Therefore</p>
-<div class="math notranslate nohighlight">
-\[
-\mf R = k_f C_{CO}C_{OH} - k_b C_{CO_2}C_{H}
-\]</div>
-<p>The forward reaction rate may be computed using Arrhenius expression and the backward rate is given by an equilibrium condition.</p>
+<section id="determine-the-desired-hrr">
+<h2>Determine the Desired HRR<a class="headerlink" href="#determine-the-desired-hrr" title="Permalink to this headline">#</a></h2>
+<p>As mentioned in <a class="reference internal" href="01_basic_example_i.html"><span class="doc std std-doc">Basic Example I</span></a>, we can use the <code class="docutils literal notranslate"><span class="pre">HRRPUA</span></code> parameter to set up a simple gas burner. In the simulation description it is stated that the burner is to be delivering a heat release rate (HRR) of <span class="math notranslate nohighlight">\(\mf 63~kW\)</span>. To set up the appropriate <code class="docutils literal notranslate"><span class="pre">HRRPUA</span></code> value we need to divide the HRR by the burning area, i.e. the area that is to be introducing the combustible gas into the domain. According to the description, the burner is a square with an edge length of <span class="math notranslate nohighlight">\(\mf 0.4~m\)</span>. Thus, we compute the <code class="docutils literal notranslate"><span class="pre">HRRPUA</span></code> value <span class="math notranslate nohighlight">\(\mf 63~kW / (0.4~m \times 0.4~m)\)</span> to be about <span class="math notranslate nohighlight">\(\mf 393.75~kW/m^2\)</span>.</p>
+<p>This seems to be quite straight foward, so what is the need to check it again? The first and obvious part of the answer is: to make sure we didn’t make an error in the calculation. Secondly, in FDS all <code class="docutils literal notranslate"><span class="pre">OBST</span></code> and <code class="docutils literal notranslate"><span class="pre">VENT</span></code> need to align with the fluid cell sizes defined in the <code class="docutils literal notranslate"><span class="pre">MESH</span></code>. In cases where the <code class="docutils literal notranslate"><span class="pre">VENT</span></code> would not fit, FDS automatically adjusts their position. Thus, the <code class="docutils literal notranslate"><span class="pre">VENT</span></code> area can change and therefore the amount of combustible gas introduced into the domain.</p>
+</section>
+<section id="read-simulation-response">
+<h2>Read Simulation Response<a class="headerlink" href="#read-simulation-response" title="Permalink to this headline">#</a></h2>
+<p>From the <code class="docutils literal notranslate"><span class="pre">CHID_hrr.csv</span></code> we are interested in the column with the header label “HRR”. Note the structure of the <code class="docutils literal notranslate"><span class="pre">CHID_hrr.csv</span></code> file: the first line contains the units of the data in the respective column, the second line contains the column headers then comes the data.</p>
+<p>There are many different way to read comma separated value (CSV) files in Python. Here the focus is on the Pandas package.</p>
+<p>First, the path to the file needs to be set up. Python provides many different ways to accomplish this. Here we are using the <code class="docutils literal notranslate"><span class="pre">os</span></code> package. With <code class="docutils literal notranslate"><span class="pre">os.path.join(&quot;your&quot;,</span> <span class="pre">&quot;path&quot;,</span> <span class="pre">&quot;here&quot;)</span></code> the labels of files as directories are provided, separated by commas. This builds a path specifically for the operating this script is executed on. This is helpful when sharing scripts between different machines, for example when using Windows on your local workstation but Linux on a remote compute cluster.</p>
+<p>Then, the file is read as a <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code>, using Pandas. The package is imported in the beginning of the file: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">pandas</span> <span class="pre">as</span> <span class="pre">pd</span></code>. It provides the method <code class="docutils literal notranslate"><span class="pre">read_csv()</span></code>. This method needs to get the location of the file, here from the variable <code class="docutils literal notranslate"><span class="pre">hrr_path</span></code>. Furthermore, it needs to know which line is to be used as column headers. Since the first line contains the units and the holumn headers are in the second line, we set <code class="docutils literal notranslate"><span class="pre">header=1</span></code> (numbering in Python starts from 0). DataFrames provide some convenience functionalities, for example <code class="docutils literal notranslate"><span class="pre">head()</span></code> and <code class="docutils literal notranslate"><span class="pre">tail()</span></code>. They show the column headers and the first, or last, five lines.</p>
+<p>Let’s read the <code class="docutils literal notranslate"><span class="pre">CHID_hrr.csv</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set path to file.</span>
+<span class="n">hrr_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="s2">&quot;Ex1_hrr.csv&quot;</span><span class="p">)</span>
+<span class="c1"># Read SV file as Pandas DataFrame.</span>
+<span class="n">hrr_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">hrr_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Check result.</span>
+<span class="n">hrr_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Time</th>
+      <th>HRR</th>
+      <th>Q_RADI</th>
+      <th>Q_CONV</th>
+      <th>Q_COND</th>
+      <th>Q_DIFF</th>
+      <th>Q_PRES</th>
+      <th>Q_PART</th>
+      <th>Q_ENTH</th>
+      <th>Q_TOTAL</th>
+      <th>MLR_AIR</th>
+      <th>MLR_PROPANE</th>
+      <th>MLR_PRODUCTS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>-6.802389e-08</td>
+      <td>4.440892e-19</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>-6.802389e-08</td>
+      <td>0.0</td>
+      <td>0.000000</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1.033925</td>
+      <td>83.281562</td>
+      <td>-1.648879e+01</td>
+      <td>1.097219e+00</td>
+      <td>-0.134247</td>
+      <td>-0.001532</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>22.367290</td>
+      <td>6.775421e+01</td>
+      <td>0.0</td>
+      <td>0.000720</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2.013308</td>
+      <td>78.585038</td>
+      <td>-2.733659e+01</td>
+      <td>-6.555959e+00</td>
+      <td>-0.344925</td>
+      <td>-0.003698</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>52.008916</td>
+      <td>4.434387e+01</td>
+      <td>0.0</td>
+      <td>0.001246</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3.006514</td>
+      <td>60.888075</td>
+      <td>-1.466148e+01</td>
+      <td>-6.623389e+01</td>
+      <td>-0.335589</td>
+      <td>-0.004035</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-21.164841</td>
+      <td>-2.034691e+01</td>
+      <td>0.0</td>
+      <td>0.001361</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4.011369</td>
+      <td>62.306540</td>
+      <td>-1.485718e+01</td>
+      <td>-4.732209e+01</td>
+      <td>-0.362806</td>
+      <td>-0.004093</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>-0.429241</td>
+      <td>-2.396315e-01</td>
+      <td>0.0</td>
+      <td>0.001379</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>With the DataFrames one can access the individual columns by their labels, using for example <code class="docutils literal notranslate"><span class="pre">hrr_df[&quot;Time&quot;]</span></code>. If the header of a column is a continous string, i.e. no spaces, one can also access the column directly using the dot-notation: <code class="docutils literal notranslate"><span class="pre">hrr_df.HRR</span></code>. Both are demonstrated in the plot below.</p>
+<p>Using <code class="docutils literal notranslate"><span class="pre">list(DataFrame)</span></code>, one gets a list with the column headers in order from left to right:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Overview of the header labels.</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">hrr_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Time&#39;,
+ &#39;HRR&#39;,
+ &#39;Q_RADI&#39;,
+ &#39;Q_CONV&#39;,
+ &#39;Q_COND&#39;,
+ &#39;Q_DIFF&#39;,
+ &#39;Q_PRES&#39;,
+ &#39;Q_PART&#39;,
+ &#39;Q_ENTH&#39;,
+ &#39;Q_TOTAL&#39;,
+ &#39;MLR_AIR&#39;,
+ &#39;MLR_PROPANE&#39;,
+ &#39;MLR_PRODUCTS&#39;]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="compare-response-to-target">
+<h2>Compare Response to Target<a class="headerlink" href="#compare-response-to-target" title="Permalink to this headline">#</a></h2>
+<p>To compare if the target value was reached, we simply plot the HRR development over time. As a visual aid, we also plot a dashed line representing the target values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot target.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">65</span><span class="p">],</span>
+         <span class="p">[</span><span class="mi">63</span><span class="p">,</span> <span class="mi">63</span><span class="p">],</span>
+         <span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span>
+         <span class="n">linestyle</span><span class="o">=</span><span class="s2">&quot;--&quot;</span><span class="p">,</span>
+         <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Target&quot;</span><span class="p">)</span>
+
+<span class="c1"># Plot sim response.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">hrr_df</span><span class="p">[</span><span class="s2">&quot;Time&quot;</span><span class="p">],</span> 
+         <span class="n">hrr_df</span><span class="o">.</span><span class="n">HRR</span><span class="p">,</span>
+         <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Simulation&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># Plot meta data.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time / s&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;HRR / kW&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/03_basic_example_iii_8_0.png" src="../../../_images/03_basic_example_iii_8_0.png" />
+</div>
+</div>
 </section>
 </section>
 
@@ -973,7 +1106,7 @@ In the lumped species approach, related primitive species <span class="math notr
         },
         kernelOptions: {
             kernelName: "python3",
-            path: "./content/modelling/05_combustion"
+            path: "./content/examples/01_basic"
         },
         predefinedOutput: true
     }
@@ -987,17 +1120,17 @@ In the lumped species approach, related primitive species <span class="math notr
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="01_fundamentals.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="02_basic_example_ii.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title"><span class="section-number">5.1. </span>Fundamentals</p>
+            <p class="prev-next-title">Basic FDS Example II</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="03_closed_volume_example.html" title="next page">
+    <a class='right-next' id="next-link" href="../02_intermediate/00_overview.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">5.3. </span>Example – Closed Volume</p>
+        <p class="prev-next-title">Intermediate</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

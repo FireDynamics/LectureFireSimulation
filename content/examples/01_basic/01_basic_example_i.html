@@ -379,6 +379,11 @@ const thebe_selector_output = ".output, .cell_output"
      Basic FDS Example II
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_basic_example_iii.html">
+     Basic Example III
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toctree-l1">
@@ -835,6 +840,13 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#design-boundary-conditions-surf">
    Design Boundary Conditions (SURF)
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-simple-gas-burner">
+     A Simple Gas Burner
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#assign-boundary-conditions-vent">
@@ -933,6 +945,13 @@ title="Print to PDF"
   <a class="reference internal nav-link" href="#design-boundary-conditions-surf">
    Design Boundary Conditions (SURF)
   </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#a-simple-gas-burner">
+     A Simple Gas Burner
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#assign-boundary-conditions-vent">
@@ -1004,13 +1023,13 @@ title="Print to PDF"
 <section id="fds-input-files">
 <h2>FDS Input Files<a class="headerlink" href="#fds-input-files" title="Permalink to this headline">#</a></h2>
 <p>First you should create a new folder. In this directory the input file is to be saved later. All the generated output files will also be located here. It is useful to create individual directories for each simulation to not accidentially overwrite or mix up files. Create an empty plain text file. You could use any text editor (not a word processor) to create your text file. Although the file extenison does not matter, a common practice is to use the <code class="docutils literal notranslate"><span class="pre">.fds</span></code> extension.</p>
-<p>The syntax of FDS input files is given by FORTRAN name lists. These name lists start with an ampersand character and are followed by four capital letters. They end with a slash <code class="docutils literal notranslate"><span class="pre">/</span></code> character. Between these two, parameters of the respective name list can be provided, for example:</p>
+<p>The syntax of FDS input files is given by FORTRAN namelists. These namelists start with an ampersand <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> character and are followed by four capital letters. They end with a slash <code class="docutils literal notranslate"><span class="pre">/</span></code> character. Between these two, parameters of the respective namelist can be provided, for example:</p>
 <p><code class="docutils literal notranslate"><span class="pre">&amp;NAME</span> <span class="pre">P1=value</span> <span class="pre">P2=value</span> <span class="pre">/</span></code></p>
 <p>The first entry in an FDS input file is <code class="docutils literal notranslate"><span class="pre">&amp;HEAD</span> <span class="pre">/</span></code> and it ends with <code class="docutils literal notranslate"><span class="pre">&amp;TAIL</span> <span class="pre">/</span></code>. In between head and tail of the file the definition of the simulation setup is provided by the user.</p>
 </section>
 <section id="meta-data-of-simulation-setup-head-tail">
 <h2>Meta Data of Simulation Setup (HEAD, TAIL)<a class="headerlink" href="#meta-data-of-simulation-setup-head-tail" title="Permalink to this headline">#</a></h2>
-<p>Now we will start defining the simulation setup. Two parameters that can be provided to the <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> name list are a character ID (<code class="docutils literal notranslate"><span class="pre">CHID</span></code>) and a title (<code class="docutils literal notranslate"><span class="pre">TITLE</span></code>). Both values are strings. The character ID is used to label all the files that are created during the simulation. It can be different from the file name of the FDS input file. As a short-hand, files are also referred to by using the <code class="docutils literal notranslate"><span class="pre">CHID</span></code>, for example <code class="docutils literal notranslate"><span class="pre">CHID_devc.csv</span></code>, since only the <code class="docutils literal notranslate"><span class="pre">CHID</span></code>-part is variable.</p>
+<p>Now we will start defining the simulation setup. Two parameters that can be provided to the <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> namelist are a character ID (<code class="docutils literal notranslate"><span class="pre">CHID</span></code>) and a title (<code class="docutils literal notranslate"><span class="pre">TITLE</span></code>). Both values are strings. The character ID is used to label all the files that are created during the simulation. It can be different from the file name of the FDS input file. As a short-hand, files are also referred to by using the <code class="docutils literal notranslate"><span class="pre">CHID</span></code>, for example <code class="docutils literal notranslate"><span class="pre">CHID_devc.csv</span></code>, since only the <code class="docutils literal notranslate"><span class="pre">CHID</span></code>-part is variable.</p>
 <p>The title is a human-readable short description of the setup.</p>
 <p>The file is closed out with <code class="docutils literal notranslate"><span class="pre">TAIL</span></code>.</p>
 <p>Following the above, your input file should now contain the following lines:</p>
@@ -1032,10 +1051,10 @@ title="Print to PDF"
 <h2>Bounds of Time and Space (MESH, TIME)<a class="headerlink" href="#bounds-of-time-and-space-mesh-time" title="Permalink to this headline">#</a></h2>
 <section id="time-time">
 <h3>Time (TIME)<a class="headerlink" href="#time-time" title="Permalink to this headline">#</a></h3>
-<p>The simulation time is specified in seconds, using the <code class="docutils literal notranslate"><span class="pre">TIME</span></code> name list. The parameter <code class="docutils literal notranslate"><span class="pre">T_END</span></code> determines when the simulation ought to stop. Obviously, this is the time <em>inside</em> the simulation and not the time the computer takes to conduct the simulation, which would be referred to as “wall clock time”. The start time (<code class="docutils literal notranslate"><span class="pre">T_BEGIN</span></code>) could be adjusted as well, but this is seldom necessary, it is <span class="math notranslate nohighlight">\(\mf 0~s\)</span> by default. The input line should now look like this:</p>
+<p>The simulation time is specified in seconds, using the <code class="docutils literal notranslate"><span class="pre">TIME</span></code> namelist. The parameter <code class="docutils literal notranslate"><span class="pre">T_END</span></code> determines when the simulation ought to stop. Obviously, this is the time <em>inside</em> the simulation and not the time the computer takes to conduct the simulation, which would be referred to as “wall clock time”. The start time (<code class="docutils literal notranslate"><span class="pre">T_BEGIN</span></code>) could be adjusted as well, but this is seldom necessary, it is <span class="math notranslate nohighlight">\(\mf 0~s\)</span> by default. The input line should now look like this:</p>
 <p><code class="docutils literal notranslate"><span class="pre">&amp;TIME</span> <span class="pre">T_END</span> <span class="pre">=</span> <span class="pre">60.</span> <span class="pre">/</span></code></p>
 <p>Setting <code class="docutils literal notranslate"><span class="pre">T_END</span> <span class="pre">=</span> <span class="pre">0</span></code> will lead to FDS only setting up the simulation without running it. It also creates a Smokeview file, which can be used to check if everything is set up correctly.</p>
-<p>Aditionally, the rate at which data is saved can be controlled, from the <code class="docutils literal notranslate"><span class="pre">DUMP</span></code> name list. The parameter <code class="docutils literal notranslate"><span class="pre">NFRAMES</span></code> is used to divide the simulation time, i.e. <code class="docutils literal notranslate"><span class="pre">T_END</span></code> - <code class="docutils literal notranslate"><span class="pre">T_BEGIN</span></code>, into n frames. This is a global control, but different recording functions (<code class="docutils literal notranslate"><span class="pre">DEVC</span></code>, <code class="docutils literal notranslate"><span class="pre">SLCF</span></code>, etc.) can be controlled individually. Please refer to the users guide for detailed information how this can be achieved. To safe a single frame per second we use:</p>
+<p>Aditionally, the rate at which data is saved can be controlled, from the <code class="docutils literal notranslate"><span class="pre">DUMP</span></code> namelist. The parameter <code class="docutils literal notranslate"><span class="pre">NFRAMES</span></code> is used to divide the simulation time, i.e. <code class="docutils literal notranslate"><span class="pre">T_END</span></code> - <code class="docutils literal notranslate"><span class="pre">T_BEGIN</span></code>, into n frames. This is a global control, but different recording functions (<code class="docutils literal notranslate"><span class="pre">DEVC</span></code>, <code class="docutils literal notranslate"><span class="pre">SLCF</span></code>, etc.) can be controlled individually. Please refer to the users guide for detailed information how this can be achieved. To safe a single frame per second we use:</p>
 <p><code class="docutils literal notranslate"><span class="pre">&amp;DUMP</span> <span class="pre">NFRAMES=60</span> <span class="pre">/</span></code></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1052,7 +1071,7 @@ title="Print to PDF"
 <section id="space-mesh">
 <h3>Space (MESH)<a class="headerlink" href="#space-mesh" title="Permalink to this headline">#</a></h3>
 <p>To conduct a simulation we need to  define a computational domain and a time frame.</p>
-<p>The domain is a rectangular cuboid shape that is divided in smaller volumes (cells) which are also rectangular cuboids, using the <code class="docutils literal notranslate"><span class="pre">MESH</span></code> name list. It can be given a label (<code class="docutils literal notranslate"><span class="pre">ID</span></code>) to organise larger files with many <code class="docutils literal notranslate"><span class="pre">MESH</span></code>es. The domain volume is defined by providing coordinates of two points of opposing corners, see <a class="reference internal" href="#fig-fdstutorial-coordinates-xb"><span class="std std-numref">Fig. 2</span></a>. They define the bounding box (<code class="docutils literal notranslate"><span class="pre">XB</span></code>) of the volume. Their values are to be provided in meters.</p>
+<p>The domain is a rectangular cuboid shape that is divided in smaller volumes (cells) which are also rectangular cuboids, using the <code class="docutils literal notranslate"><span class="pre">MESH</span></code> namelist. It can be given a label (<code class="docutils literal notranslate"><span class="pre">ID</span></code>) to organise larger files with many <code class="docutils literal notranslate"><span class="pre">MESH</span></code>es. The domain volume is defined by providing coordinates of two points of opposing corners, see <a class="reference internal" href="#fig-fdstutorial-coordinates-xb"><span class="std std-numref">Fig. 2</span></a>. They define the bounding box (<code class="docutils literal notranslate"><span class="pre">XB</span></code>) of the volume. Their values are to be provided in meters.</p>
 <figure class="align-default" id="fig-fdstutorial-coordinates-xb">
 <a class="reference internal image-reference" href="../../../_images/coordinates.png"><img alt="../../../_images/coordinates.png" src="../../../_images/coordinates.png" style="width: 60%;" /></a>
 <figcaption>
@@ -1071,8 +1090,8 @@ title="Print to PDF"
 </section>
 <section id="obstruct-the-flow-field-obst">
 <h2>Obstruct the Flow Field (OBST)<a class="headerlink" href="#obstruct-the-flow-field-obst" title="Permalink to this headline">#</a></h2>
-<p>The flow field can be obstructed by using the <code class="docutils literal notranslate"><span class="pre">OBST</span></code> name list. This essentially defines which cells are blocked for the flow field. For boundary conditions see section below.</p>
-<p>FDS fundamentally works with a rectangular grid and all elements need to be aligned to it. This means essentially that all obstructions are rectangular objects as well. Right now, some effort is put into the development to allow non-rectangular objects (<code class="docutils literal notranslate"><span class="pre">GEOM</span></code>). Since this name list is in active development, it will not be covered here.</p>
+<p>The flow field can be obstructed by using the <code class="docutils literal notranslate"><span class="pre">OBST</span></code> namelist. This essentially defines which cells are blocked for the flow field. For boundary conditions see section below.</p>
+<p>FDS fundamentally works with a rectangular grid and all elements need to be aligned to it. This means essentially that all obstructions are rectangular objects as well. Right now, some effort is put into the development to allow non-rectangular objects (<code class="docutils literal notranslate"><span class="pre">GEOM</span></code>). Since this namelist is in active development, it will not be covered here.</p>
 <p>To define the volume of an obstruction we use the same syntax for bounding boxes (<code class="docutils literal notranslate"><span class="pre">XB</span></code>), as described with the <code class="docutils literal notranslate"><span class="pre">MESH</span></code> above.</p>
 <p>The initial description of the example simulation setup states that the burner shall have an edge length of <span class="math notranslate nohighlight">\(\mf 0.4~m\)</span> and be raised <span class="math notranslate nohighlight">\(\mf 0.2~m\)</span> off the ground. We accomplish this by using an obstruction, centered around the world origin. This should lead to the following line:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">OBST</span> <span class="n">ID</span>  <span class="o">=</span> <span class="s1">&#39;BurnerBase&#39;</span><span class="p">,</span>
@@ -1082,7 +1101,7 @@ title="Print to PDF"
 </section>
 <section id="gas-phase-combustion-reac">
 <h2>Gas Phase Combustion (REAC)<a class="headerlink" href="#gas-phase-combustion-reac" title="Permalink to this headline">#</a></h2>
-<p>To initialise a fire, combustible gas needs to be introduced into the fluid domain. Its reaction is controlled using the <code class="docutils literal notranslate"><span class="pre">REAC</span></code> name list.</p>
+<p>To initialise a fire, combustible gas needs to be introduced into the fluid domain. Its reaction is controlled using the <code class="docutils literal notranslate"><span class="pre">REAC</span></code> namelist.</p>
 <p>FDS requires to be provided the stoichiometry of the gas phase combustion reactions. However, in a limited selection of cases the stoichiometry can be computed internally. This is also referred to as “simple chemistry”, see users guide for more details. FDS comes with a couple of predefined gaseous species, that can be found in “table 14.4: Pre-defined gas and liquid species” in the users guide. Combustible species listed there can be used with the simple chemistry, via the <code class="docutils literal notranslate"><span class="pre">FUEL</span></code> parameter.</p>
 <p>Furthermore, a “surrogate fuel” concept is employed in FDS, together with the simple chemistry. It uses a single species for all gas phase combustion reactions, but scales their mass loss based on their respective heat of combustion. See “Chapter 15 Combustion” in the users guide.</p>
 <p>Using the simple chemistry approach, yields of soot (<code class="docutils literal notranslate"><span class="pre">SOOT_YIELD</span></code>) and carbon monoxide (<code class="docutils literal notranslate"><span class="pre">CO_YIELD</span></code>) can be set. By default the yields are set to zero. Adding a soot yield will also lead to some indication of smoke in Smokeview.</p>
@@ -1095,8 +1114,8 @@ title="Print to PDF"
 <section id="design-boundary-conditions-surf">
 <h2>Design Boundary Conditions (SURF)<a class="headerlink" href="#design-boundary-conditions-surf" title="Permalink to this headline">#</a></h2>
 <p>Obstructions define cells that are blocked for the flow field. Their surface also has an impact on the gas phase, for example due to heat transfer. This is controlled by defining and assigning boundary conditions. By default FDS assigns the <code class="docutils literal notranslate"><span class="pre">INERT</span></code> boundary condition, visualised by the yellow color.</p>
-<p>Boundary conditions are called “surfaces” in FDS and are defined using the <code class="docutils literal notranslate"><span class="pre">SURF</span></code> name list. Each surface definition needs to get a label (<code class="docutils literal notranslate"><span class="pre">ID</span></code>), which is used to connect it to the desired cells, i.e. obstructions or vents.</p>
-<p>The <code class="docutils literal notranslate"><span class="pre">SURF</span></code> name list, has a couple of special features to make life a bit easier for the user. There is a boolean flag to set a given surface as the default, conveniently called <code class="docutils literal notranslate"><span class="pre">DEFAULT</span></code>.</p>
+<p>Boundary conditions are called “surfaces” in FDS and are defined using the <code class="docutils literal notranslate"><span class="pre">SURF</span></code> namelist. Each surface definition needs to get a label (<code class="docutils literal notranslate"><span class="pre">ID</span></code>), which is used to connect it to the desired cells, i.e. obstructions or vents.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">SURF</span></code> namelist, has a couple of special features to make life a bit easier for the user. There is a boolean flag to set a given surface as the default, conveniently called <code class="docutils literal notranslate"><span class="pre">DEFAULT</span></code>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>In FDS booleans can be used as a long or short form. The long form is encapsulated by periods “<code class="docutils literal notranslate"><span class="pre">.</span></code>”:</p>
@@ -1115,6 +1134,8 @@ The predefined colors can be looked up in “Table 10.1: A sample of color defin
 <p class="admonition-title">Tip</p>
 <p>Use colors at least during the design process of your simulation setup as a visual aid to make sure that individual boundary conditions are assigned to the correct places.</p>
 </div>
+<section id="a-simple-gas-burner">
+<h3>A Simple Gas Burner<a class="headerlink" href="#a-simple-gas-burner" title="Permalink to this headline">#</a></h3>
 <p>Furthermore, there is the <code class="docutils literal notranslate"><span class="pre">HRRPUA</span></code> parameter. It assignes a <em>H</em>eat <em>R</em>elease <em>R</em>ate <em>P</em>er <em>U</em>nit <em>A</em>rea as boundary conditions, in <span class="math notranslate nohighlight">\(\mf kW/m^2\)</span>. It takes the surface area of the cells and scales the released combustible mass accordingly, see the pool fire section for more details. Now, to get our desired <span class="math notranslate nohighlight">\(\mf 63~kW\)</span> we need to divide it by the surface area of the burner. According to the description, the burner is a square with an edge length of <span class="math notranslate nohighlight">\(\mf 0.4~m\)</span>. Thus, we compute the <code class="docutils literal notranslate"><span class="pre">HRRPUA</span></code> value <span class="math notranslate nohighlight">\(\mf 63~kW / (0.4~m \times 0.4~m)\)</span> to be about <span class="math notranslate nohighlight">\(\mf 393.75~kW/m^2\)</span>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1127,10 +1148,11 @@ The predefined colors can be looked up in “Table 10.1: A sample of color defin
 </pre></div>
 </div>
 </section>
+</section>
 <section id="assign-boundary-conditions-vent">
 <h2>Assign Boundary Conditions (VENT)<a class="headerlink" href="#assign-boundary-conditions-vent" title="Permalink to this headline">#</a></h2>
 <p>There are different ways in FDS to assign boundary conditions to obstructions. Some short-hand solutions are available in the <code class="docutils literal notranslate"><span class="pre">OBST</span></code> definitions: <code class="docutils literal notranslate"><span class="pre">SURF_ID</span></code>, <code class="docutils literal notranslate"><span class="pre">SURF_IDS</span></code> and <code class="docutils literal notranslate"><span class="pre">SURF_ID6</span></code>. With <code class="docutils literal notranslate"><span class="pre">SURF_ID</span></code> all six sides of the rectangular cuboid are assigned the same boundary condition. A bit more granular is <code class="docutils literal notranslate"><span class="pre">SURF_IDS</span></code>, which allows access to the top, sides and bottom of an obstruction. Most granular is <code class="docutils literal notranslate"><span class="pre">SURF_ID6</span></code>, where all faces are accessible individually (-x, +x, -y, +y,-z, +z). For the last two options, arrays of strings are to be provided for each of the options, i.e. <code class="docutils literal notranslate"><span class="pre">SURF_IDS</span> <span class="pre">=</span> <span class="pre">'top',</span> <span class="pre">'sides',</span> <span class="pre">'bottom'</span></code>.</p>
-<p>In most cases an obstruction is covering many cells but only a subset of them should be assigned a specific boundary condition. This subset can be defined using the <code class="docutils literal notranslate"><span class="pre">VENT</span></code> name list. In this example we use this to assign the burner boundary to the top of the obstruction defined above. To define the dimensions of the vent, we use the bounding box again, just set the hight to zero, i.e. z1 and z2 get the same value:</p>
+<p>In most cases an obstruction is covering many cells but only a subset of them should be assigned a specific boundary condition. This subset can be defined using the <code class="docutils literal notranslate"><span class="pre">VENT</span></code> namelist. In this example we use this to assign the burner boundary to the top of the obstruction defined above. To define the dimensions of the vent, we use the bounding box again, just set the hight to zero, i.e. z1 and z2 get the same value:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">VENT</span> <span class="n">ID</span>      <span class="o">=</span> <span class="s1">&#39;BurnerOutlet&#39;</span><span class="p">,</span>
       <span class="n">SURF_ID</span> <span class="o">=</span> <span class="s1">&#39;Burner&#39;</span><span class="p">,</span>
       <span class="n">XB</span>      <span class="o">=</span> <span class="o">-</span><span class="mf">0.20</span><span class="p">,</span><span class="mf">0.20</span><span class="p">,</span><span class="o">-</span><span class="mf">0.20</span><span class="p">,</span><span class="mf">0.20</span><span class="p">,</span><span class="mf">0.20</span><span class="p">,</span><span class="mf">0.20</span> <span class="o">/</span>
@@ -1167,7 +1189,7 @@ The predefined colors can be looked up in “Table 10.1: A sample of color defin
 </section>
 <section id="slices-slcf">
 <h3>Slices (SLCF)<a class="headerlink" href="#slices-slcf" title="Permalink to this headline">#</a></h3>
-<p>Many gas phase quantities can also be recorded as animated slices across the domain, using the <code class="docutils literal notranslate"><span class="pre">SLCF</span></code> name list. The locations of the slices can be defined as planes, using for example the <code class="docutils literal notranslate"><span class="pre">PBX</span></code> parameter. This will create a plane which extents along the y- and z-axis, it will be moved along the x-axis (unit: meter). A quantity needs to be provided, here the gas temperature. Furthermore, the <code class="docutils literal notranslate"><span class="pre">CELL_CENTERED</span></code> flag can be set to force FDS to record data at the cell centeres. It will then also show up in Smokeview not as interpolated data. Below is an exaple input:</p>
+<p>Many gas phase quantities can also be recorded as animated slices across the domain, using the <code class="docutils literal notranslate"><span class="pre">SLCF</span></code> namelist. The locations of the slices can be defined as planes, using for example the <code class="docutils literal notranslate"><span class="pre">PBX</span></code> parameter. This will create a plane which extents along the y- and z-axis, it will be moved along the x-axis (unit: meter). A quantity needs to be provided, here the gas temperature. Furthermore, the <code class="docutils literal notranslate"><span class="pre">CELL_CENTERED</span></code> flag can be set to force FDS to record data at the cell centeres. It will then also show up in Smokeview not as interpolated data. Below is an exaple input:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">SLCF</span> <span class="n">PBX</span>           <span class="o">=</span> <span class="mf">0.00</span><span class="p">,</span>
       <span class="n">QUANTITY</span>      <span class="o">=</span> <span class="s1">&#39;TEMPERATURE&#39;</span><span class="p">,</span>
       <span class="n">CELL_CENTERED</span> <span class="o">=</span> <span class="o">.</span><span class="n">TRUE</span><span class="o">.</span> <span class="o">/</span>
@@ -1254,7 +1276,7 @@ The predefined colors can be looked up in “Table 10.1: A sample of color defin
 <h2>Questions and Tasks<a class="headerlink" href="#questions-and-tasks" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>How do you adjust the domain, that the fluid cells are cubes with an edge length of <span class="math notranslate nohighlight">\(\mf 0.1~m\)</span>?</p></li>
-<li><p>Given the original <code class="docutils literal notranslate"><span class="pre">MESH</span></code> of the example above, what happens when you set the z2 coordinate to <span class="math notranslate nohighlight">\(\mf 0.24~m\)</span>?</p></li>
+<li><p>Given the original <code class="docutils literal notranslate"><span class="pre">MESH</span></code> of the example above, what happens when you set the z2 coordinate of the ‘BurnerBase’ <code class="docutils literal notranslate"><span class="pre">OBST</span></code> to <span class="math notranslate nohighlight">\(\mf 0.24~m\)</span>?</p></li>
 <li><p>Change the combustible gas to toluene.</p></li>
 <li><p>Add a CO yield of 0.01 g/g.</p></li>
 <li><p>Start from closed domain boundaries and open only a section on the face in the positive x direction, between the heights of <span class="math notranslate nohighlight">\(\mf 0.6~m\)</span> to <span class="math notranslate nohighlight">\(\mf 1.6~m\)</span>.</p></li>
@@ -1262,6 +1284,8 @@ The predefined colors can be looked up in “Table 10.1: A sample of color defin
 <li><p>In your own words, explain the surrogate fuel concept in FDS.</p></li>
 <li><p>Add a slice for gas temperatures on the y-axis at <span class="math notranslate nohighlight">\(\mf 0.2~m\)</span>.</p></li>
 <li><p>Add a slice that shows you the gas velocity.</p></li>
+<li><p>Add a slice that allows you to determine that the CO yield works.</p></li>
+<li><p>Add a slice that allows you to determine if toluene is introduced.</p></li>
 </ul>
 </section>
 </section>
