@@ -2,7 +2,7 @@
       TITLE = 'Example of a Steckler case, with 6/6 door' /
 
 &TIME T_END=1800.0, TIME_SHRINK_FACTOR = 10. /
-&DUMP NFRAMES=1800 /
+&DUMP NFRAMES=180 /
 
 
 &MESH ID  = 'Domain_Simple',

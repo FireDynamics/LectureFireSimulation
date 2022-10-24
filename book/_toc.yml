@@ -118,5 +118,5 @@ parts:
   - file: content/teaching/02_cobra_workshop/00_overview
     sections:
     - file: content/teaching/02_cobra_workshop/01_ws_01
-    - file: content/teaching/02_cobra_workshop/02_ws_02
-    - file: content/teaching/02_cobra_workshop/03_ws_03
+    - file: content/teaching/02_cobra_workshop/02_ws_01
+    - file: content/teaching/02_cobra_workshop/03_ws_01

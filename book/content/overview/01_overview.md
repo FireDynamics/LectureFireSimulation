@@ -12,15 +12,15 @@ However, this script is very short and will remain so. Much of the content is al
 
 As the script is under development, we welcome constructive suggestions and your feedback. This way you can support our whole fire science community.
 
-**For the University of Wuppertal students: All organisational information on the procedure can be found on the [CCE website on the fire simulations lecture](https://cce.uni-wuppertal.de/de/lehre/numerische-brandsimulationen.html).** 
+**For the University of Wuppertal students: All organisational information on the procedure can be found on the [CCE website on the fire simulations lecture](https://cce.uni-wuppertal.de/de/lehre/numerische-brandsimulationen.html).**
 
 ## Contents of the Lecture Notes
 
-* It is planned, that this script will not only contain the contents of the lecture *Fire Simulations* but also other contents linked to this lecture, such as *FDS Data Analysis* and *Using High Performance Computers for Fire Simulations*. In the course of the lecture, we will announce the contents relevant for you accordingly. 
+* It is planned, that this script will not only contain the contents of the lecture *Fire Simulations* but also other contents linked to this lecture, such as *FDS Data Analysis* and *Using High Performance Computers for Fire Simulations*. In the course of the lecture, we will announce the contents relevant for you accordingly.
 * The script also contains exercises for all topics, with and without solution paths, but always with a result or the possibility of validating your solution.
-* Do not print out the script or save it elsewhere. This way you have the latest version, which is continuously improved and supplemented with content. 
+* Do not print out the script or save it elsewhere. This way you have the latest version, which is continuously improved and supplemented with content.
 * The script will always remain freely accessible.
-* The lecture notes and exercises are designed for **FDS version 6.7.5**, and thus may not be valid / reproducable for other versions. 
+* The lecture notes and exercises are designed for **FDS version 6.7.5**, and thus may not be valid / reproducable for other versions.
 
 ## Contributors
 
@@ -34,12 +34,13 @@ Contributors to the development of the script and the exercises are (in alphabet
 * Jan Vogelsang
 * My Linh Würzburger
 * Tássia Quaresma
+* Lilli Klein
 
 ## Theses
 
-We offer theses (BA, MA, PhD) on many different topics. 
+We offer theses (BA, MA, PhD) on many different topics.
 * an overview of topics and previously supervised theses can be found on the [thesis website](https://cce.uni-wuppertal.de/index.php?id=4171&L=0)
-* The [overview of our publications](https://www.fz-juelich.de/ias/ias-7/EN/AboutUs/Staff/Current/Arnold_Lukas/publication_node.html) can also help you to find a topic. 
+* The [overview of our publications](https://www.fz-juelich.de/ias/ias-7/EN/AboutUs/Staff/Current/Arnold_Lukas/publication_node.html) can also help you to find a topic.
 * If you are interested, please contact Lukas Arnold [@ University of Wuppertal](https://cce.uni-wuppertal.de/en/staff.html) or [@ Forschungszentrum Jülich](https://www.fz-juelich.de/ias/ias-7/EN/AboutUs/Staff/Current/Arnold_Lukas/main.html)
 
 ## Acknowledgements
@@ -57,7 +58,7 @@ The software tools used in the lecture and the creation of the materials are mos
 How to reach us:
 * As a participant of the lecture: best via the associated moodle course
 * External interested parties best used our <a href="mailto:cce@lists.uni-wuppertal.de">email list</a>.
-* Contact details for individuals can be found on the [staff website](https://cce.uni-wuppertal.de/index.php?id=4186&L=0) 
+* Contact details for individuals can be found on the [staff website](https://cce.uni-wuppertal.de/index.php?id=4186&L=0)
 
 
 ## License
