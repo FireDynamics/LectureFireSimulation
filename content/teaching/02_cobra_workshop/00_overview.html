@@ -384,17 +384,34 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../examples/02_intermediate/00_overview.html">
    Intermediate
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../examples/02_intermediate/01_data_analysis_01.html">
+     Data Analysis I
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../examples/02_intermediate/02_adjust_fds_input.html">
+     Adjust FDS Input Files
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../examples/03_advanced/00_overview.html">
    Advanced
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-  <label for="toctree-checkbox-10">
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -417,8 +434,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../../tools/01_fds_smv/00_overview.html">
    FDS and SMV
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-  <label for="toctree-checkbox-11">
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -444,8 +461,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../../tools/02_hpc/00_overview.html">
    HPC
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
-  <label for="toctree-checkbox-12">
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -476,8 +493,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../../tools/03_analysis/00_overview.html">
    Data Analysis
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
-  <label for="toctree-checkbox-13">
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -510,8 +527,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../01_firesim_lecture/00_overview.html">
    Fire Simulation Lecture @ BUW
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
-  <label for="toctree-checkbox-14">
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -532,8 +549,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="current reference internal" href="#">
    CoBra Workshop
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
-  <label for="toctree-checkbox-15">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -541,16 +558,6 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="01_ws_01.html">
      CoBra Workshop I
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_ws_02.html">
-     CoBra Workshop II
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="03_ws_03.html">
-     CoBra Workshop III
     </a>
    </li>
   </ul>
@@ -751,9 +758,18 @@ title="Print to PDF"
 <h1>CoBra Workshop<a class="headerlink" href="#cobra-workshop" title="Permalink to this headline">#</a></h1>
 <p>The CoBra workshop series is aimed at professional fire safety engineers. Its goal is to provide further training on the usage of high performance computing clusters and data analysis in the field of fire and smoke spread simulation. It builds on the <a class="reference external" href="https://cce.uni-wuppertal.de/en/teaching/fire-simulation/">Fire Simulation</a> lecture, taught at the University of Wuppertal.</p>
 <p>Each iteration of the workshop is distributed over two days. The training takes place in the afternoon of the first day and in the morning of the following day.</p>
-<p><strong>Workshop I, Introduction to High Performance Computing:</strong> XYZ</p>
-<p><strong>Workshop II, Data Analysis:</strong> XYZ</p>
-<p><strong>Workshop III, Automation(?):</strong> XYZ</p>
+<p><strong>Workshop I, Introduction to High Performance Computing:</strong></p>
+<ul class="simple">
+<li><p><a class="reference internal" href="01_ws_01.html"><span class="doc std std-doc">Schedule</span></a></p></li>
+</ul>
+<p><strong>Workshop II, Data Analysis:</strong></p>
+<ul class="simple">
+<li><p><span class="xref myst">Schedule</span></p></li>
+</ul>
+<p><strong>Workshop III, Automation(?):</strong></p>
+<ul class="simple">
+<li><p><span class="xref myst">Schedule</span></p></li>
+</ul>
 <div class="toctree-wrapper compound">
 </div>
 </section>

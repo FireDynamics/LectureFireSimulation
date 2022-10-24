@@ -384,17 +384,34 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../examples/02_intermediate/00_overview.html">
    Intermediate
   </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../examples/02_intermediate/01_data_analysis_01.html">
+     Data Analysis I
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../examples/02_intermediate/02_adjust_fds_input.html">
+     Adjust FDS Input Files
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../examples/03_advanced/00_overview.html">
    Advanced
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-  <label for="toctree-checkbox-10">
+  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -417,8 +434,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../01_fds_smv/00_overview.html">
    FDS and SMV
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-  <label for="toctree-checkbox-11">
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -444,8 +461,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="00_overview.html">
    HPC
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
-  <label for="toctree-checkbox-12">
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -476,8 +493,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../03_analysis/00_overview.html">
    Data Analysis
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
-  <label for="toctree-checkbox-13">
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -510,8 +527,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../../teaching/01_firesim_lecture/00_overview.html">
    Fire Simulation Lecture @ BUW
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
-  <label for="toctree-checkbox-14">
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -532,8 +549,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="../../teaching/02_cobra_workshop/00_overview.html">
    CoBra Workshop
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
-  <label for="toctree-checkbox-15">
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -541,16 +558,6 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../../teaching/02_cobra_workshop/01_ws_01.html">
      CoBra Workshop I
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../teaching/02_cobra_workshop/02_ws_02.html">
-     CoBra Workshop II
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../teaching/02_cobra_workshop/03_ws_03.html">
-     CoBra Workshop III
     </a>
    </li>
   </ul>
@@ -1104,7 +1111,7 @@ The command <code class="docutils literal notranslate"><span class="pre">echo</s
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; date
-Mon Oct 24 10:29:35 UTC 2022
+Mon Oct 24 13:04:46 UTC 2022
 </pre></div>
 </div>
 </div>
@@ -1597,7 +1604,7 @@ logfile
 &gt; ls -lah
 total 112K
 drwxr-xr-x 17 runner docker 4.0K Apr 26  2021 .
-drwxr-xr-x  4 runner docker 4.0K Oct 24 10:29 ..
+drwxr-xr-x  4 runner docker 4.0K Oct 24 13:04 ..
 -rw-r--r--  1 runner docker   20 Apr 25  2021 .hidden_file_do_not_look_here
 -rw-r--r--  1 runner docker  816 Apr 26  2021 combined_logs
 -rw-r--r--  1 runner docker  591 Dec 12  2000 doc01.md
@@ -1608,21 +1615,21 @@ drwxr-xr-x  4 runner docker 4.0K Oct 24 10:29 ..
 -rw-r--r--  1 runner docker   60 Apr 26  2021 for-loop.sh
 -rw-r--r--  1 runner docker  113 Apr 25  2021 if-statement.sh
 -rw-r--r--  1 runner docker   62 Apr 26  2021 info.txt
-drwxr-xr-x  2 runner docker 4.0K Oct 24 10:29 rundir_01
-drwxr-xr-x  2 runner docker 4.0K Oct 24 10:29 rundir_02
-drwxr-xr-x  2 runner docker 4.0K Oct 24 10:29 rundir_03
-drwxr-xr-x  2 runner docker 4.0K Oct 24 10:29 rundir_04
-drwxr-xr-x  2 runner docker 4.0K Oct 24 10:29 rundir_05
-drwxr-xr-x  2 runner docker 4.0K Oct 24 10:29 rundir_06
-drwxr-xr-x  2 runner docker 4.0K Oct 24 10:29 rundir_07
-drwxr-xr-x  2 runner docker 4.0K Oct 24 10:29 rundir_08
-drwxr-xr-x  2 runner docker 4.0K Oct 24 10:29 rundir_09
-drwxr-xr-x  2 runner docker 4.0K Oct 24 10:29 rundir_10
-drwxr-xr-x  2 runner docker 4.0K Oct 24 10:29 rundir_11
-drwxr-xr-x  2 runner docker 4.0K Oct 24 10:29 rundir_12
-drwxr-xr-x  2 runner docker 4.0K Oct 24 10:29 rundir_13
+drwxr-xr-x  2 runner docker 4.0K Oct 24 13:04 rundir_01
+drwxr-xr-x  2 runner docker 4.0K Oct 24 13:04 rundir_02
+drwxr-xr-x  2 runner docker 4.0K Oct 24 13:04 rundir_03
+drwxr-xr-x  2 runner docker 4.0K Oct 24 13:04 rundir_04
+drwxr-xr-x  2 runner docker 4.0K Oct 24 13:04 rundir_05
+drwxr-xr-x  2 runner docker 4.0K Oct 24 13:04 rundir_06
+drwxr-xr-x  2 runner docker 4.0K Oct 24 13:04 rundir_07
+drwxr-xr-x  2 runner docker 4.0K Oct 24 13:04 rundir_08
+drwxr-xr-x  2 runner docker 4.0K Oct 24 13:04 rundir_09
+drwxr-xr-x  2 runner docker 4.0K Oct 24 13:04 rundir_10
+drwxr-xr-x  2 runner docker 4.0K Oct 24 13:04 rundir_11
+drwxr-xr-x  2 runner docker 4.0K Oct 24 13:04 rundir_12
+drwxr-xr-x  2 runner docker 4.0K Oct 24 13:04 rundir_13
 drwxr-xr-x  2 runner docker 4.0K Apr 25  2021 rundir_14
-drwxr-xr-x  2 runner docker 4.0K Oct 24 10:29 rundir_15
+drwxr-xr-x  2 runner docker 4.0K Oct 24 13:04 rundir_15
 </pre></div>
 </div>
 </div>
@@ -1642,20 +1649,20 @@ drwxr-xr-x 2 runner docker 4096 Apr 25  2021 rundir_14
 -rw-r--r-- 1 runner docker  816 Apr 26  2021 combined_logs
 -rw-r--r-- 1 runner docker   62 Apr 26  2021 info.txt
 -rw-r--r-- 1 runner docker   60 Apr 26  2021 for-loop.sh
-drwxr-xr-x 2 runner docker 4096 Oct 24 10:29 rundir_15
-drwxr-xr-x 2 runner docker 4096 Oct 24 10:29 rundir_13
-drwxr-xr-x 2 runner docker 4096 Oct 24 10:29 rundir_12
-drwxr-xr-x 2 runner docker 4096 Oct 24 10:29 rundir_11
-drwxr-xr-x 2 runner docker 4096 Oct 24 10:29 rundir_10
-drwxr-xr-x 2 runner docker 4096 Oct 24 10:29 rundir_09
-drwxr-xr-x 2 runner docker 4096 Oct 24 10:29 rundir_08
-drwxr-xr-x 2 runner docker 4096 Oct 24 10:29 rundir_07
-drwxr-xr-x 2 runner docker 4096 Oct 24 10:29 rundir_06
-drwxr-xr-x 2 runner docker 4096 Oct 24 10:29 rundir_05
-drwxr-xr-x 2 runner docker 4096 Oct 24 10:29 rundir_04
-drwxr-xr-x 2 runner docker 4096 Oct 24 10:29 rundir_03
-drwxr-xr-x 2 runner docker 4096 Oct 24 10:29 rundir_02
-drwxr-xr-x 2 runner docker 4096 Oct 24 10:29 rundir_01
+drwxr-xr-x 2 runner docker 4096 Oct 24 13:04 rundir_15
+drwxr-xr-x 2 runner docker 4096 Oct 24 13:04 rundir_13
+drwxr-xr-x 2 runner docker 4096 Oct 24 13:04 rundir_12
+drwxr-xr-x 2 runner docker 4096 Oct 24 13:04 rundir_11
+drwxr-xr-x 2 runner docker 4096 Oct 24 13:04 rundir_10
+drwxr-xr-x 2 runner docker 4096 Oct 24 13:04 rundir_09
+drwxr-xr-x 2 runner docker 4096 Oct 24 13:04 rundir_08
+drwxr-xr-x 2 runner docker 4096 Oct 24 13:04 rundir_07
+drwxr-xr-x 2 runner docker 4096 Oct 24 13:04 rundir_06
+drwxr-xr-x 2 runner docker 4096 Oct 24 13:04 rundir_05
+drwxr-xr-x 2 runner docker 4096 Oct 24 13:04 rundir_04
+drwxr-xr-x 2 runner docker 4096 Oct 24 13:04 rundir_03
+drwxr-xr-x 2 runner docker 4096 Oct 24 13:04 rundir_02
+drwxr-xr-x 2 runner docker 4096 Oct 24 13:04 rundir_01
 </pre></div>
 </div>
 </div>
