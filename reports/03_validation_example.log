@@ -28,7 +28,7 @@ dev = pd.read_csv(file , delimiter=',', skiprows=1)
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-[0;32m/tmp/ipykernel_1993/4140597811.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_2188/4140597811.py[0m in [0;36m<module>[0;34m[0m
 [1;32m      5[0m [0mdata_root[0m [0;34m=[0m [0mroot[0m [0;34m+[0m [0;34m'data/heat_transfer/radiation_validation/rundir/'[0m[0;34m[0m[0;34m[0m[0m
 [1;32m      6[0m [0mfile[0m [0;34m=[0m [0mdata_root[0m [0;34m+[0m [0;34m'radiation_line.csv'[0m[0;34m[0m[0;34m[0m[0m
 [0;32m----> 7[0;31m [0mdev[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0mfile[0m [0;34m,[0m [0mdelimiter[0m[0;34m=[0m[0;34m','[0m[0;34m,[0m [0mskiprows[0m[0;34m=[0m[0;36m1[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
