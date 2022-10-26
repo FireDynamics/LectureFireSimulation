@@ -1,21 +1,160 @@
-&HEAD CHID = 'output_fdsreader_example', TITLE = 'Example simulation for the fdsreader module'  / 
+&HEAD CHID='StecklerExample', TITLE='Example of a Steckler case, with 3/6 door' /
 
-&MESH IJK = 25,25,50, XB = -2.5,2.5, -2.5,2.5, 0.0,10 / 
+&TIME T_END=1800.0 /
+&DUMP NFRAMES=1800 /
 
-&TIME T_END = 10.0 / 
+&MISC BNDF_DEFAULT=F /
 
-&REAC FUEL = 'METHANE' /
 
-&SURF ID = 'BURNER', HRRPUA = 1000., COLOR = 'RASPBERRY' /
-&VENT XB = -0.5,0.5, -0.5,0.5, 0.0, 0.0, SURF_ID='BURNER' /
+IJK = 20,14,11
+IJK = 40,28,22
+IJK = 60,42,33
+IJK = 120,84,66
 
-&SLCF PBY = 0, QUANTITY = 'TEMPERATURE', CELL_CENTERED = .TRUE. /
-&SLCF PBY = 0, QUANTITY = 'VELOCITY', CELL_CENTERED = .TRUE. /
+&MESH ID  = 'Domain_Simple',
+      IJK = 40,28,22,
+      XB  = -1.40,2.60,-1.40,1.40,0.00,2.20 /
 
-&DEVC ID='T_1.0', XYZ=0.0, 0.0, 1.0, QUANTITY='TEMPERATURE' /
-&DEVC ID='T_2.0', XYZ=0.0, 0.0, 2.0, QUANTITY='TEMPERATURE' /
-&DEVC ID='T_3.0', XYZ=0.0, 0.0, 3.0, QUANTITY='TEMPERATURE' /
-&DEVC ID='T_4.0', XYZ=0.0, 0.0, 4.0, QUANTITY='TEMPERATURE' /
-&DEVC ID='T_5.0', XYZ=0.0, 0.0, 5.0, QUANTITY='TEMPERATURE' /
+ MESH ID  = 'Domain_A_low',
+      IJK = 20,28,22,
+      XB  = -1.40,0.60,-1.40,1.40,0.00,2.20 /
+ MESH ID  = 'Domain_B_low',
+      IJK = 20,28,22,
+      XB  =  0.60,2.60,-1.40,1.40,0.00,2.20 /
 
-&TAIL /
+ MESH ID  = 'Domain_A_high',
+      IJK = 60,84,66,
+      XB  = -1.40,0.60,-1.40,1.40,0.00,2.20 /
+ MESH ID  = 'Domain_B_high',
+      IJK = 60,84,66,
+      XB  =  0.60,2.60,-1.40,1.40,0.00,2.20 /
+
+
+
+
+&VENT MB='XMAX', SURF_ID='OPEN' /
+
+&VENT ID      = 'OpenCeiling',
+      SURF_ID = 'OPEN',
+      XB      = 1.51,2.60,-1.40,1.40,2.20,2.20 /
+&VENT ID      = 'OpenLeft',
+      SURF_ID = 'OPEN',
+      XB      = 1.51,2.60,-1.40,-1.40,0.00,2.20 /
+&VENT ID      = 'OpenRight',
+      SURF_ID = 'OPEN',
+      XB      = 1.51,2.60,1.40,1.40,0.00,2.20 /
+
+# ---------------------------------------
+# Gas burner: propane
+# ---------------------------------------
+&SPEC ID = 'PROPANE' /
+
+&REAC FUEL       = 'PROPANE',
+      SOOT_YIELD = 0.022 /
+
+# HRR: 62.9 kW
+&SURF ID         = 'BURNER',
+      HRRPUA     = 393.74999999999994,
+      SPEC_ID(1) = 'PROPANE'
+      COLOR      = 'RASPBERRY' /
+
+&OBST SURF_ID = 'INERT',
+      XB      = -0.2, 0.2, -0.2, 0.2, 0.0, 0.2 /
+
+&VENT SURF_ID = 'BURNER',
+      XB      = -0.2, 0.2, -0.2, 0.2, 0.2, 0.2 /
+
+
+
+# ---------------------------------------
+# Surface definition (boundary conditions)
+# ---------------------------------------
+
+&SURF ID                      = 'Wall Lining',
+      COLOR                   = 'BEIGE',
+      DEFAULT                 = T,
+      THICKNESS(1:1)          = 0.0254,
+      MATL_ID(1,1:1)          = 'MARINITE',
+      MATL_MASS_FRACTION(1,1) = 1.0 /
+
+
+&MATL ID            = 'MARINITE'
+      EMISSIVITY    = 0.9
+      DENSITY       = 737.
+      SPECIFIC_HEAT = 1.2
+      CONDUCTIVITY  = 0.12 /
+
+
+
+# ---------------------------------------
+# Geometrical Structure
+# ---------------------------------------
+
+&OBST ID        = 'Ceiling',
+      SURF_ID   = 'Wall Lining',
+      BNDF_OBST = T,
+      XB        = -1.51,1.51,-1.51,1.51,2.20,2.31 /
+
+ OBST ID      = 'Floor',
+      SURF_ID = 'Wall Lining'
+      XB      = -1.51,2.60,-1.51,1.51,-0.11,0.00 /
+
+ OBST ID      = 'WallBack',
+      SURF_ID = 'Wall Lining'
+      XB      = -1.51,-1.40,-1.51,1.51,0.00,2.20 /
+
+&OBST ID      = 'WallFront',
+      SURF_ID = 'Wall Lining'
+      XB      = 1.40,1.51,-1.51,1.51,0.00,2.20 /
+
+ OBST ID      = 'WallLeft',
+      SURF_ID = 'Wall Lining'
+      XB      = -1.40,1.40,-1.51,-1.40,0.00,2.20 /
+
+&OBST ID      = 'WallRight',
+      SURF_ID = 'Wall Lining',
+      BNDF_OBST = T,
+      XB      = -1.40,1.40,1.40,1.51,0.00,2.20 /
+
+
+# Cut out for door
+&HOLE ID = 'WallFront.001'
+      XB=1.4050,1.5150,-0.2000,0.2000,0.0000,1.8000 /
+
+
+
+# ---------------------------------------
+# Analytics
+# ---------------------------------------
+
+&SLCF PBX      = 0.00
+      QUANTITY = 'TEMPERATURE',
+      VECTOR   = .TRUE. /
+&SLCF PBY      = 0.00
+      QUANTITY = 'TEMPERATURE',
+      VECTOR   = .TRUE. /
+
+&SLCF PBX           = 0.00
+      QUANTITY      = 'TEMPERATURE',
+      CELL_CENTERED = .TRUE. /
+&SLCF PBY           = 0.00
+      QUANTITY      = 'TEMPERATURE',
+      CELL_CENTERED = .TRUE. /
+
+
+&BNDF QUANTITY      = 'WALL TEMPERATURE',
+      CELL_CENTERED = T /
+
+&DEVC ID       = 'Temp_Door_Low',
+      QUANTITY = 'TEMPERATURE',
+      XYZ      = 1.45, 0.05, 0.1 /
+
+&DEVC ID       = 'Temp_Door_Mid',
+      QUANTITY = 'TEMPERATURE',
+      XYZ      = 1.45, 0.05, 1.0 /
+
+&DEVC ID       = 'Temp_Door_High',
+      QUANTITY = 'TEMPERATURE',
+      XYZ      = 1.45, 0.05, 1.65 /
+
+&TAIL/
