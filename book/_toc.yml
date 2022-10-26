@@ -71,15 +71,18 @@ parts:
     - file: content/examples/01_basic/01_basic_example_i
     - file: content/examples/01_basic/02_basic_example_ii
     - file: content/examples/01_basic/03_basic_example_iii
+    - file: content/examples/01_basic/04_basic_example_iv
   ## INTERMEDIATE
   - file: content/examples/02_intermediate/00_overview
     sections:
     - file: content/examples/02_intermediate/01_data_analysis_01
     - file: content/examples/02_intermediate/02_adjust_fds_input
+    - file: content/examples/02_intermediate/03_work_flow
   ## ADVANCED
   - file: content/examples/03_advanced/00_overview
     sections:
     - file: content/examples/03_advanced/01_example_mccaffreyplumes
+    - file: content/examples/03_advanced/02_example_stecklercompartments
   #   - file: content/examples/03_advanced/02_obst
 
 
