@@ -79,6 +79,7 @@ parts:
     - file: content/examples/02_intermediate/01_data_analysis_01
     - file: content/examples/02_intermediate/02_adjust_fds_input
     - file: content/examples/02_intermediate/03_work_flow
+    - file: content/examples/02_intermediate/04_repeated_sim_exec
   ## ADVANCED
   - file: content/examples/03_advanced/00_overview
     sections:
