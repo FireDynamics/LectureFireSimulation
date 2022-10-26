@@ -938,12 +938,6 @@ title="Print to PDF"
 
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
 <span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
-
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="c1"># check for set environment variable JB_NOSHOW</span>
-<span class="n">show</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="k">if</span> <span class="s1">&#39;JB_NOSHOW&#39;</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
-    <span class="n">show</span> <span class="o">=</span> <span class="kc">False</span>
 </pre></div>
 </div>
 </div>
@@ -984,7 +978,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1.8.6&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1.8.7&#39;
 </pre></div>
 </div>
 </div>
@@ -1021,7 +1015,7 @@ title="Print to PDF"
 <p>The variable <code class="docutils literal notranslate"><span class="pre">sim</span></code> contains information about the mesh (<code class="docutils literal notranslate"><span class="pre">MESH</span></code>), four slices (<code class="docutils literal notranslate"><span class="pre">SLCF</span></code>) and four point measurements (<code class="docutils literal notranslate"><span class="pre">DEVC</span></code>). The additional device – there were just three defined in the FDS input file – is the time column.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>You can use the autocomplete function in Jupyter. This way you can quickly see available data structures and functions, especially in complex data types as the <code class="docutils literal notranslate"><span class="pre">Simulation</span></code> object.</p>
+<p>You can use the autocomplete function in Jupyter. This way you can quickly see available data structures and functions, especially in complex data types as the Simulation object.</p>
 </div>
 </section>
 <section id="device-data">
@@ -1124,13 +1118,9 @@ ID: Temp_Door_High,	 quantity: TEMPERATURE, 	 position: (1.45, 0.05, 1.65)
 <span class="c1"># save output to file</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figs/device_demo_01.svg&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
 
-<span class="c1"># supress double output on webpage </span>
-<span class="k">if</span> <span class="ow">not</span> <span class="n">show</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../../_images/02_fdsreader_28_0.png" src="../../../_images/02_fdsreader_28_0.png" />
 </div>
 </div>
 <figure class="align-default" id="fig-fdsreader-device-demo-plot-01">
@@ -1159,13 +1149,9 @@ ID: Temp_Door_High,	 quantity: TEMPERATURE, 	 position: (1.45, 0.05, 1.65)
 <span class="c1"># save output to file</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figs/device_demo_02.svg&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
 
-<span class="c1"># supress double output on webpage </span>
-<span class="k">if</span> <span class="ow">not</span> <span class="n">show</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../../_images/02_fdsreader_31_0.png" src="../../../_images/02_fdsreader_31_0.png" />
 </div>
 </div>
 <figure class="align-default" id="fig-fdsreader-device-demo-plot-02">
@@ -1199,13 +1185,9 @@ ID: Temp_Door_High,	 quantity: TEMPERATURE, 	 position: (1.45, 0.05, 1.65)
 <span class="c1"># save output to file</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figs/hrr_demo_01.svg&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
 
-<span class="c1"># supress double output on webpage </span>
-<span class="k">if</span> <span class="ow">not</span> <span class="n">show</span><span class="p">:</span> <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../../_images/02_fdsreader_34_0.png" src="../../../_images/02_fdsreader_34_0.png" />
 </div>
 </div>
 <figure class="align-default" id="fig-fdsreader-hrr-demo-plot-01">
@@ -1218,19 +1200,42 @@ ID: Temp_Door_High,	 quantity: TEMPERATURE, 	 position: (1.45, 0.05, 1.65)
 <section id="slice-data">
 <h3>Slice Data<a class="headerlink" href="#slice-data" title="Permalink to this headline">#</a></h3>
 <p>Data generated by <code class="docutils literal notranslate"><span class="pre">SLCF</span></code> directives span over two or three spatial dimensions plus the time dimension. Besides that, they can be distributed across multiple meshes.</p>
+<p>The data of a slice is stored for each mesh individually. In this simple example, there is only a single mesh, yet for formal consistency it still needs to be referred.</p>
+<p>The data sturcutre is as follows</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sim</span><span class="o">.</span><span class="n">slices</span><span class="p">[</span><span class="n">sliceid</span><span class="p">][</span><span class="n">meshid</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">timestep</span><span class="p">,</span> <span class="n">direction1</span><span class="p">,</span> <span class="n">direction2</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>where <code class="docutils literal notranslate"><span class="pre">sliceid</span></code> is just the index of the slice, <code class="docutils literal notranslate"><span class="pre">meshid</span></code> is the index of the mesh, here in this example 0, and the reference to the data is given by the time step id and then the two spatial indices (for two dimensional slices).</p>
+<p>In general there are multiple slice objects available:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># print available slice data</span>
 <span class="k">for</span> <span class="nb">slice</span> <span class="ow">in</span> <span class="n">sim</span><span class="o">.</span><span class="n">slices</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="nb">slice</span><span class="o">.</span><span class="n">quantity</span><span class="p">,</span> <span class="nb">slice</span><span class="o">.</span><span class="n">extent</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Slice Type [2D/3D]: </span><span class="si">{</span><span class="nb">slice</span><span class="o">.</span><span class="n">type</span><span class="si">}</span><span class="se">\n</span><span class="s2">  Quantity: </span><span class="si">{</span><span class="nb">slice</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> 
+          <span class="sa">f</span><span class="s2">&quot;  Physical Extent: </span><span class="si">{</span><span class="nb">slice</span><span class="o">.</span><span class="n">extent</span><span class="si">}</span><span class="se">\n</span><span class="s2">  Orientation [1/2/3]: </span><span class="si">{</span><span class="nb">slice</span><span class="o">.</span><span class="n">orientation</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Quantity(&#39;TEMPERATURE&#39;) Extent([0.00, 0.00] x [-1.40, 1.40] x [0.00, 2.20])
-Quantity(&#39;TEMPERATURE&#39;) Extent([-1.40, 2.60] x [0.00, 0.00] x [0.00, 2.20])
-Quantity(&#39;TEMPERATURE&#39;) Extent([0.10, 0.10] x [-1.40, 1.40] x [0.00, 2.20])
-Quantity(&#39;TEMPERATURE&#39;) Extent([-1.40, 2.60] x [0.10, 0.10] x [0.00, 2.20])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Slice Type [2D/3D]: 2D
+  Quantity: TEMPERATURE
+   Physical Extent: Extent([0.00, 0.00] x [-1.40, 1.40] x [0.00, 2.20])
+  Orientation [1/2/3]: 1
+
+Slice Type [2D/3D]: 2D
+  Quantity: TEMPERATURE
+   Physical Extent: Extent([-1.40, 2.60] x [0.00, 0.00] x [0.00, 2.20])
+  Orientation [1/2/3]: 2
+
+Slice Type [2D/3D]: 2D
+  Quantity: TEMPERATURE
+   Physical Extent: Extent([0.10, 0.10] x [-1.40, 1.40] x [0.00, 2.20])
+  Orientation [1/2/3]: 1
+
+Slice Type [2D/3D]: 2D
+  Quantity: TEMPERATURE
+   Physical Extent: Extent([-1.40, 2.60] x [0.10, 0.10] x [0.00, 2.20])
+  Orientation [1/2/3]: 2
 </pre></div>
 </div>
 </div>
@@ -1251,12 +1256,6 @@ Simulation time: 700.0132
 </div>
 </div>
 </div>
-<p>The data of a slice is stored for each mesh individually. In this simple example, there is only a single mesh, yet for formal consistency it still needs to be referred.</p>
-<p>The sturcutre is as follows</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sim</span><span class="o">.</span><span class="n">slices</span><span class="p">[</span><span class="n">sliceid</span><span class="p">][</span><span class="n">meshid</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">timestep</span><span class="p">,</span> <span class="n">direction1</span><span class="p">,</span> <span class="n">direction2</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>where <code class="docutils literal notranslate"><span class="pre">sliceid</span></code> is just the index of the slice, <code class="docutils literal notranslate"><span class="pre">meshid</span></code> is the index of the mesh, here 0, and the reference to the data is given by the time step id and then the two spatial indices.</p>
 <p>The following example illustrates the visualisation of the data and steps needed to adjust the representation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1266,7 +1265,7 @@ Simulation time: 700.0132
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/02_fdsreader_42_0.png" src="../../../_images/02_fdsreader_42_0.png" />
+<img alt="../../../_images/02_fdsreader_43_0.png" src="../../../_images/02_fdsreader_43_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1277,7 +1276,7 @@ Simulation time: 700.0132
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/02_fdsreader_43_0.png" src="../../../_images/02_fdsreader_43_0.png" />
+<img alt="../../../_images/02_fdsreader_44_0.png" src="../../../_images/02_fdsreader_44_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1289,7 +1288,7 @@ Simulation time: 700.0132
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/02_fdsreader_44_0.png" src="../../../_images/02_fdsreader_44_0.png" />
+<img alt="../../../_images/02_fdsreader_45_0.png" src="../../../_images/02_fdsreader_45_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1309,7 +1308,7 @@ Simulation time: 700.0132
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;z coordinate / m&#39;)
 </pre></div>
 </div>
-<img alt="../../../_images/02_fdsreader_45_1.png" src="../../../_images/02_fdsreader_45_1.png" />
+<img alt="../../../_images/02_fdsreader_46_1.png" src="../../../_images/02_fdsreader_46_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1324,7 +1323,7 @@ Simulation time: 700.0132
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/02_fdsreader_46_0.png" src="../../../_images/02_fdsreader_46_0.png" />
+<img alt="../../../_images/02_fdsreader_47_0.png" src="../../../_images/02_fdsreader_47_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1345,7 +1344,7 @@ Simulation time: 700.0132
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/02_fdsreader_47_0.png" src="../../../_images/02_fdsreader_47_0.png" />
+<img alt="../../../_images/02_fdsreader_48_0.png" src="../../../_images/02_fdsreader_48_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1365,10 +1364,10 @@ Simulation time: 700.0132
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/02_fdsreader_48_0.png" src="../../../_images/02_fdsreader_48_0.png" />
-<img alt="../../../_images/02_fdsreader_48_1.png" src="../../../_images/02_fdsreader_48_1.png" />
-<img alt="../../../_images/02_fdsreader_48_2.png" src="../../../_images/02_fdsreader_48_2.png" />
-<img alt="../../../_images/02_fdsreader_48_3.png" src="../../../_images/02_fdsreader_48_3.png" />
+<img alt="../../../_images/02_fdsreader_49_0.png" src="../../../_images/02_fdsreader_49_0.png" />
+<img alt="../../../_images/02_fdsreader_49_1.png" src="../../../_images/02_fdsreader_49_1.png" />
+<img alt="../../../_images/02_fdsreader_49_2.png" src="../../../_images/02_fdsreader_49_2.png" />
+<img alt="../../../_images/02_fdsreader_49_3.png" src="../../../_images/02_fdsreader_49_3.png" />
 </div>
 </div>
 </section>
