@@ -79,7 +79,7 @@ plt.close()
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mOSError[0m                                   Traceback (most recent call last)
-[0;32m/tmp/ipykernel_2542/3544137628.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_1984/3544137628.py[0m in [0;36m<module>[0;34m[0m
 [1;32m      1[0m [0mdata_root[0m [0;34m=[0m [0mroot[0m [0;34m+[0m [0;34m'data/heat_transfer/ht3d_solid/rundir'[0m[0;34m[0m[0;34m[0m[0m
 [0;32m----> 2[0;31m [0msim[0m [0;34m=[0m [0mfdsreader[0m[0;34m.[0m[0mSimulation[0m[0;34m([0m[0mdata_root[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m[1;32m      3[0m [0mslice_axial[0m [0;34m=[0m [0msim[0m[0;34m.[0m[0mslices[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
