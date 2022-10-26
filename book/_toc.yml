@@ -72,6 +72,7 @@ parts:
     - file: content/examples/01_basic/02_basic_example_ii
     - file: content/examples/01_basic/03_basic_example_iii
     - file: content/examples/01_basic/04_basic_example_iv
+    - file: content/examples/01_basic/05_basic_example_v
   ## INTERMEDIATE
   - file: content/examples/02_intermediate/00_overview
     sections:
