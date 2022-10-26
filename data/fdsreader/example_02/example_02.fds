@@ -104,18 +104,17 @@
 # ---------------------------------------
 
 &SLCF PBX      = 0.00
-      QUANTITY = 'TEMPERATURE',
-      VECTOR   = .TRUE. /
+      QUANTITY = 'TEMPERATURE' /
 &SLCF PBY      = 0.00
-      QUANTITY = 'TEMPERATURE',
-      VECTOR   = .TRUE. /
+      QUANTITY = 'TEMPERATURE' /
 
 &SLCF PBX           = 0.00
-      QUANTITY      = 'TEMPERATURE',
-      CELL_CENTERED = .TRUE. /
+      QUANTITY      = 'W-VELOCITY' /
 &SLCF PBY           = 0.00
-      QUANTITY      = 'TEMPERATURE',
-      CELL_CENTERED = .TRUE. /
+      QUANTITY      = 'U-VELOCITY' /
+
+&SLCF PBZ           = 1.80
+      QUANTITY      = 'W-VELOCITY' /
 
 &BNDF QUANTITY      = 'WALL TEMPERATURE',
       CELL_CENTERED = T /
