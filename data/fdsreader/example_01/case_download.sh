@@ -7,7 +7,7 @@ LABEL=`cat label`
 ZIPFILE=$LABEL.zip
 ZIPFILELOG=$LABEL.log
 
-URL_ROOT="https://fz-juelich.sciebo.de/s/3ldKV8hYgDQbKWx/download?path=%2F&files="
+URL_ROOT="https://uni-wuppertal.sciebo.de/s/p8nn60Kmtd3qoRt/download?path=%2F&files="
 
 # redirect all following stdout + stderr to log file
 {
