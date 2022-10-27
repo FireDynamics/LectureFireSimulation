@@ -83,10 +83,12 @@ parts:
   ## ADVANCED
   - file: content/examples/03_advanced/00_overview
     sections:
-    - file: content/examples/03_advanced/01_example_mccaffreyplumes
+    # - file: content/examples/03_advanced/01_example_mccaffreyplumes
+    - file: content/examples/03_advanced/McCaffrey
     - file: content/examples/03_advanced/02_example_stecklercompartments
     - file: content/examples/03_advanced/03_example_zukoskiplumes
   #   - file: content/examples/03_advanced/02_obst
+
 
 
 ####################
