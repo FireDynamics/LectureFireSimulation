@@ -888,6 +888,11 @@ title="Print to PDF"
      Accessing Slice Data
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#boundary-data">
+     Boundary Data
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -954,6 +959,11 @@ title="Print to PDF"
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#accessing-slice-data">
      Accessing Slice Data
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#boundary-data">
+     Boundary Data
     </a>
    </li>
   </ul>
@@ -1922,7 +1932,7 @@ SubSlice(shape=(21, 23), mesh=Domain_B, extent=Extent([0.60, 2.60] x [0.00, 0.00
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;numpy.ndarray&#39;&gt;
-(303, 41, 23)
+(1801, 41, 23)
 </pre></div>
 </div>
 </div>
@@ -1941,7 +1951,7 @@ SubSlice(shape=(21, 23), mesh=Domain_B, extent=Extent([0.60, 2.60] x [0.00, 0.00
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x136e6a260&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x11f8af250&gt;
 </pre></div>
 </div>
 <img alt="../../../_images/02_fdsreader_74_1.png" src="../../../_images/02_fdsreader_74_1.png" />
@@ -2032,6 +2042,113 @@ SubSlice(shape=(21, 23), mesh=Domain_B, extent=Extent([0.60, 2.60] x [0.00, 0.00
 </div>
 <div class="cell_output docutils container">
 <img alt="../../../_images/02_fdsreader_83_0.png" src="../../../_images/02_fdsreader_83_0.png" />
+</div>
+</div>
+</section>
+<section id="boundary-data">
+<h3>Boundary Data<a class="headerlink" href="#boundary-data" title="Permalink to this headline">#</a></h3>
+<p>In a similar manner as the slice data, the boudary data of obstructions can be accessed. As this data is bound to an obstruction in FDS, it is part of each individual obstruction object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sim</span><span class="o">.</span><span class="n">obstructions</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ObstructionCollection([Obstruction(id=1, Bounding-Box=Extent([-0.20, 0.20] x [-0.20, 0.20] x [0.00, 0.20]), SubObstructions=1),
+Obstruction(id=2, Bounding-Box=Extent([-1.40, 1.51] x [-1.40, 1.40] x [2.20, 2.20]), SubObstructions=2, Quantities=[&#39;temp&#39;]),
+Obstruction(id=4, Bounding-Box=Extent([-1.40, 1.40] x [1.40, 1.40] x [0.00, 2.20]), SubObstructions=2, Quantities=[&#39;temp&#39;]),
+Obstruction(id=3, Bounding-Box=Extent([1.41, 1.51] x [-0.20, 0.20] x [0.00, 0.00]), SubObstructions=1)])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">sim</span><span class="o">.</span><span class="n">obstructions</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;ID: </span><span class="si">{</span><span class="n">o</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">; has data: </span><span class="si">{</span><span class="n">o</span><span class="o">.</span><span class="n">has_boundary_data</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">o</span><span class="o">.</span><span class="n">has_boundary_data</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;  orientations: </span><span class="si">{</span><span class="n">o</span><span class="o">.</span><span class="n">orientations</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;  quantities: </span><span class="si">{</span><span class="n">o</span><span class="o">.</span><span class="n">quantities</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;  number of involved meshes: </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">meshes</span><span class="p">)</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ID: 1; has data: False
+ID: 2; has data: True
+  orientations: [-3]
+  quantities: [Quantity(&#39;WALL TEMPERATURE&#39;)]
+  number of involved meshes: 2
+ID: 4; has data: True
+  orientations: [-2]
+  quantities: [Quantity(&#39;WALL TEMPERATURE&#39;)]
+  number of involved meshes: 2
+ID: 3; has data: False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s select the boundary at the ceiling, i.e. the one with orientation <code class="docutils literal notranslate"><span class="pre">-3</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obst</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">obstructions</span><span class="o">.</span><span class="n">get_by_id</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">obst</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Obstruction(id=2, Bounding-Box=Extent([-1.40, 1.51] x [-1.40, 1.40] x [2.20, 2.20]), SubObstructions=2, Quantities=[&#39;temp&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<p>The time step index and the global, due to multiple meshes involved, data structure. The function <code class="docutils literal notranslate"><span class="pre">get_global_boundary_data_arrays</span></code> needs the quantity and the orientation to create a numpy data object.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obst</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">obstructions</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">it</span> <span class="o">=</span> <span class="n">obst</span><span class="o">.</span><span class="n">get_nearest_timestep</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">obst</span><span class="o">.</span><span class="n">get_global_boundary_data_arrays</span><span class="p">(</span><span class="s1">&#39;WALL TEMPERATURE&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;shape of the data object: </span><span class="si">{</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>shape of the data object: (1801, 29, 28)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">it</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> 
+           <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="n">obst</span><span class="o">.</span><span class="n">bounding_box</span><span class="o">.</span><span class="n">as_list</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x10ff42da0&gt;
+</pre></div>
+</div>
+<img alt="../../../_images/02_fdsreader_92_1.png" src="../../../_images/02_fdsreader_92_1.png" />
+</div>
+</div>
+<p>In the same mannor as above, e.g. time series at a given point on the boundary can be created. For a point at the center of the boundary, this could be something like this:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ix</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span>
+<span class="n">iy</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">obst</span><span class="o">.</span><span class="n">times</span><span class="p">,</span> <span class="n">data</span><span class="p">[:,</span> <span class="n">ix</span><span class="p">,</span> <span class="n">iy</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time / s&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">obst</span><span class="o">.</span><span class="n">quantities</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1"> / </span><span class="si">{</span><span class="n">obst</span><span class="o">.</span><span class="n">quantities</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">unit</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/02_fdsreader_94_0.png" src="../../../_images/02_fdsreader_94_0.png" />
 </div>
 </div>
 </section>
