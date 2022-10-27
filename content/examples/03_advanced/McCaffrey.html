@@ -1,0 +1,2008 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>McCaffrey Plumes &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <script src="../../../_static/clipboard.min.js"></script>
+    <script src="../../../_static/copybutton.js"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/examples/03_advanced/McCaffrey.html" />
+    <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Steckler Compartments" href="02_example_stecklercompartments.html" />
+    <link rel="prev" title="Advanced" href="00_overview.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../../_static/cce_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Fire Simulation <br> Lecture Notes</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../overview/01_overview.html">
+                    Overview
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Introduction
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../overview/02_team.html">
+   Team Fire Dynamics
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../overview/03_references.html">
+   References
+  </a>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Modelling
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../modelling/01_general/00_overview.html">
+   1. Modelling Fires
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/01_general/01_processes.html">
+     1.1. Physical and Chemical Processes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/01_general/02_fse.html">
+     1.2. Fire Safety Engineering
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/01_general/03_approaches.html">
+     1.3. Modelling Approaches
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../modelling/02_fluids/00_overview.html">
+   2. Fluid Dynamics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/02_fluids/01_fluids.html">
+     2.1. Fluids
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/02_fluids/02_cfd.html">
+     2.2. Computational Fluid Dynamics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/02_fluids/03_turbulence.html">
+     2.3. Turbulence
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../modelling/03_compartments/00_overview.html">
+   3. Compartment Fires
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/03_compartments/01_fundamentals.html">
+     3.1. Fundamentals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/03_compartments/03_pool_example.html">
+     3.2. Example – Pool Fire
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/03_compartments/04_steckler_example.html">
+     3.3. Example - Steckler Compartment
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../modelling/04_thermodynamics/00_overview.html">
+   4. Thermodynamics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/04_thermodynamics/01_fundamentals.html">
+     4.1. Fundamentals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/04_thermodynamics/02_example_energy_mass_transfer.html">
+     4.2. Energy and Mass Transfer
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../modelling/05_combustion/00_overview.html">
+   5. Combustion
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+  <label for="toctree-checkbox-5">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/05_combustion/01_fundamentals.html">
+     5.1. Fundamentals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/05_combustion/02_modelling.html">
+     5.2. Modelling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/05_combustion/03_closed_volume_example.html">
+     5.3. Example – Closed Volume
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/05_combustion/04_burner_example.html">
+     5.4. Wolfhard-Parker Burner
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../modelling/06_heat_transfer/00_overview.html">
+   6. Heat Transfer
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/06_heat_transfer/01_fundamentals.html">
+     6.1. Fundamentals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/06_heat_transfer/02_heat_transfer_example.html">
+     6.2. Example – Heat Transfer
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/06_heat_transfer/03_validation_example.html">
+     6.3. Validation – Heat Transfer
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/06_heat_transfer/04_ht3d_example.html">
+     6.4. Example – 3D Heat Transfer
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../modelling/07_particles/00_overview.html">
+   7. Particles
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <label for="toctree-checkbox-7">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/07_particles/01_fundamentals.html">
+     7.1. Modelling
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/07_particles/02_example_spray.html">
+     7.2. Example – Sprays
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../modelling/09_pyrolysis/00_overview.html">
+   8. Pyrolysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/09_pyrolysis/01_fundamentals.html">
+     8.1. Fundamentals
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../modelling/09_pyrolysis/02_example.html">
+     8.2. Example - Gasification of PMMA
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Examples
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../01_basic/00_overview.html">
+   Basic
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_basic/01_basic_example_i.html">
+     Basic FDS Example I
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_basic/02_basic_example_ii.html">
+     Basic FDS Example II
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_basic/03_basic_example_iii.html">
+     Basic Example III
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_basic/04_basic_example_iv.html">
+     Basic Example IV
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../01_basic/05_basic_example_v.html">
+     Basic Example V
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../02_intermediate/00_overview.html">
+   Intermediate
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+  <label for="toctree-checkbox-10">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_intermediate/01_data_analysis_01.html">
+     Data Analysis I
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_intermediate/02_adjust_fds_input.html">
+     Adjust FDS Input Files
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_intermediate/03_work_flow.html">
+     Work Flow Proposal
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../02_intermediate/04_repeated_sim_exec.html">
+     Repetitive Execution of Scripts
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="00_overview.html">
+   Advanced
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+  <label for="toctree-checkbox-11">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     McCaffrey Plumes
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="02_example_stecklercompartments.html">
+     Steckler Compartments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="03_example_zukoskiplumes.html">
+     Zukoski Plumes
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Tools
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tools/01_fds_smv/00_overview.html">
+   FDS and SMV
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/01_fds_smv/01_fds_intro.html">
+     FDS Overview
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/01_fds_smv/02_fds_tutorial.html">
+     FDS Basic Example
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/01_fds_smv/03_smv.html">
+     Smokeview Basics
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tools/02_hpc/00_overview.html">
+   HPC
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/02_hpc/01_linux.html">
+     Linux
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/02_hpc/02_hpc.html">
+     High Performance Computing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/02_hpc/03_parallel_fds.html">
+     Parallel Execution of FDS
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/02_hpc/04_benchmarking.html">
+     Benchmarking
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../tools/03_analysis/00_overview.html">
+   Data Analysis
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+  <label for="toctree-checkbox-14">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/03_analysis/01_python.html">
+     Python
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/03_analysis/03_example_mccaffreyplumes.html">
+     Example: McCaffrey plume experiments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../tools/03_analysis/02_fdsreader.html">
+     fdsreader Module
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Teaching
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../teaching/01_firesim_lecture/00_overview.html">
+   Fire Simulation Lecture @ BUW
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+  <label for="toctree-checkbox-15">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../teaching/01_firesim_lecture/01_week_01.html">
+     Week 1
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../teaching/01_firesim_lecture/02_week_02.html">
+     Week 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../teaching/02_cobra_workshop/00_overview.html">
+   CoBra Workshop
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+  <label for="toctree-checkbox-16">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../teaching/02_cobra_workshop/01_ws_01.html">
+     CoBra Workshop I
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../teaching/02_cobra_workshop/02_ws_01.html">
+     CoBra Workshop II
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../teaching/02_cobra_workshop/03_ws_01.html">
+     CoBra Workshop III
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/FireDynamics/LectureFireSimulation/main?urlpath=tree/book/content/examples/03_advanced/McCaffrey.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://io.cce.uni-wuppertal.de/firesim_ss21/hub/user-redirect/git-pull?repo=https%3A//github.com/FireDynamics/LectureFireSimulation&urlpath=tree/LectureFireSimulation/book/content/examples/03_advanced/McCaffrey.ipynb&branch=main"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on JupyterHub"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../../_static/images/logo_jupyterhub.svg">
+  </span>
+<span class="headerbtn__text-container">JupyterHub</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/FireDynamics/LectureFireSimulation"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/examples/03_advanced/McCaffrey.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/examples/03_advanced/McCaffrey.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Edit this page"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="headerbtn__text-container">suggest edit</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../../_sources/content/examples/03_advanced/McCaffrey.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   McCaffrey Plumes
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setup-description">
+     Setup Description
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#some-basic-setup">
+     Some Basic Setup
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#read-experiment-data">
+     Read Experiment Data
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-experiment-data">
+     Plot Experiment Data
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#read-simulation-response">
+     Read Simulation Response
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assess-the-simulation-response">
+   Assess the Simulation Response
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-temperature-data">
+     Plot Temperature Data
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#slcf">
+     SLCF
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>McCaffrey Plumes</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   McCaffrey Plumes
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#setup-description">
+     Setup Description
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#some-basic-setup">
+     Some Basic Setup
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#read-experiment-data">
+     Read Experiment Data
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-experiment-data">
+     Plot Experiment Data
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#read-simulation-response">
+     Read Simulation Response
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assess-the-simulation-response">
+   Assess the Simulation Response
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#plot-temperature-data">
+     Plot Temperature Data
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#slcf">
+     SLCF
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">fdsreader</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">Processing</span> <span class="k">as</span> <span class="nn">proc</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">importlib</span> <span class="kn">import</span> <span class="n">reload</span>
+
+
+<span class="c1"># Reload Python modules for changes that occurred during runtime.</span>
+<span class="n">reload</span><span class="p">(</span><span class="n">proc</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="mccaffrey-plumes">
+<h1>McCaffrey Plumes<a class="headerlink" href="#mccaffrey-plumes" title="Permalink to this headline">#</a></h1>
+<section id="setup-description">
+<h2>Setup Description<a class="headerlink" href="#setup-description" title="Permalink to this headline">#</a></h2>
+<p>The simulations are based on the different setups of the <a class="reference external" href="https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nbsir79-1910.pdf">McCaffrey plume experiments</a>, which are proposed and discussed in the <a class="reference internal" href="../../modelling/03_compartments/03_pool_example.html#extra-task"><span class="std std-ref">Extra Task: Simulation of a purely buoyant diffusion flame</span></a>. The goal is to reproduce aspects of McCaffreys work, like determining the temperature and velocity changes on the plume centre axis over the height.</p>
+<p>In this example, the directory for our project is called <code class="docutils literal notranslate"><span class="pre">FirePlumes</span></code>. Inside the project directory, three other directories are created: one to store the jupyter notebooks <code class="docutils literal notranslate"><span class="pre">RunReports</span></code>, one for the simulations <code class="docutils literal notranslate"><span class="pre">McCaffrey</span></code>, and one for general information <code class="docutils literal notranslate"><span class="pre">GeneralInformation</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">McCaffrey</span></code> directory contains different simulations of the McCaffrey setup. In <code class="docutils literal notranslate"><span class="pre">GeneralInformation</span></code> files containing the extracted experiment data are located. These data series were extracted using the <a class="reference internal" href="../01_basic/04_basic_example_iv.html"><span class="doc std std-doc">WebPlotDigitizer</span></a>. The Jupyter notebooks are to be located in <code class="docutils literal notranslate"><span class="pre">RunReports</span></code>.</p>
+<p>As structure it is recommended that the user creates directories labeled based on the experiment setup, for example <code class="docutils literal notranslate"><span class="pre">14kW</span></code>. This way data can nicely be accessed when following this example here. Furthermore, simulations are performed with differernt resolutions, based on the reference cell. Simulations of these groups are referred to by the resolutin with respect to the reference cell and are stored in according directories. For example the “C5” directory contains simulations for which the reference cell was divided by 5 in each direction.</p>
+</section>
+<section id="some-basic-setup">
+<h2>Some Basic Setup<a class="headerlink" href="#some-basic-setup" title="Permalink to this headline">#</a></h2>
+<p>Sometimes it is helpful to keep track of the versions of the used packages. This can be accomplished with the following input.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Package Versions&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;---------------------&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Pandas version: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">__version__</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Numpy version: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">__version__</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Matplotlib version: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">matplotlib</span><span class="o">.</span><span class="n">__version__</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;fdsreader version: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">fdsreader</span><span class="o">.</span><span class="n">__version__</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Package Versions
+---------------------
+Pandas version: 1.5.0
+Numpy version: 1.23.3
+Matplotlib version: 3.6.0
+fdsreader version: 1.8.4
+</pre></div>
+</div>
+</div>
+</div>
+<p>It is also helpful to have the current working directory stored in a variable for easy access.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Get current working directory.</span>
+<span class="n">cwd</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+<span class="n">cwd</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;/media/tristan/Extra Drive 1/git/LectureFireSimulation/book/content/examples/03_advanced&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the following code block general information necessary for this notebook is stored. For example, path to different directories that contain static information, such as directories containing experiment data or path fragments to different sub-sets of simulations.</p>
+<p>Furthermore, functionality is provided that creates an output directory, if it does not exist. The path to this output directory is stored in a variable for easy access during this norebook. When keeping the same strategy across similar notebooks for different projects, one only needs to adjust the directory lable in this cell and can always call the respective variable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># General information used in this notebook.</span>
+
+<span class="c1"># Define base path to McCaffrey simulations.</span>
+<span class="c1"># add &quot;..&quot; as first element in os.path.join()</span>
+<span class="n">mcc_sim_base_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;McCaffreyPlumes&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># Path to experiment data.</span>
+<span class="c1"># add &quot;..&quot; as first element in os.path.join()</span>
+<span class="n">exp_base_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;GeneralInformation&quot;</span><span class="p">,</span> <span class="s2">&quot;ExperimentData&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># Initialise data collection.</span>
+<span class="n">plume_sims</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">plume_sims</span><span class="p">[</span><span class="s2">&quot;McCaffrey&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">plume_sims</span><span class="p">[</span><span class="s2">&quot;McCaffrey&quot;</span><span class="p">][</span><span class="s2">&quot;Exp&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;14kW&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;Burner&quot;</span><span class="p">:</span> <span class="mf">14.4</span><span class="p">,</span> 
+        <span class="s2">&quot;Marker&quot;</span><span class="p">:</span> <span class="s1">&#39;o&#39;</span><span class="p">},</span>
+    <span class="s2">&quot;22kW&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;Burner&quot;</span><span class="p">:</span> <span class="mf">21.7</span><span class="p">,</span>
+        <span class="s2">&quot;Marker&quot;</span><span class="p">:</span> <span class="s1">&#39;h&#39;</span><span class="p">},</span>
+    <span class="s2">&quot;33kW&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;Burner&quot;</span><span class="p">:</span> <span class="mf">33.0</span><span class="p">,</span>
+        <span class="s2">&quot;Marker&quot;</span><span class="p">:</span> <span class="s1">&#39;^&#39;</span><span class="p">},</span>
+    <span class="s2">&quot;45kW&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;Burner&quot;</span><span class="p">:</span> <span class="mf">44.9</span><span class="p">,</span>
+        <span class="s2">&quot;Marker&quot;</span><span class="p">:</span> <span class="s1">&#39;s&#39;</span><span class="p">},</span>
+    <span class="s2">&quot;57kW&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;Burner&quot;</span><span class="p">:</span> <span class="mf">57.5</span><span class="p">,</span>
+        <span class="s2">&quot;Marker&quot;</span><span class="p">:</span> <span class="s1">&#39;D&#39;</span><span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="c1"># # Directory used to collect the output produced by this notebook.</span>
+<span class="c1"># output_dir = &quot;OutputMcCaffrey&quot;</span>
+<span class="c1"># if not os.path.isdir(output_dir):</span>
+<span class="c1">#     os.mkdir(output_dir)</span>
+<span class="c1">#     print(&quot;* Output directory created.&quot;)</span>
+<span class="c1"># else:</span>
+<span class="c1">#     print(&quot;* Output directory already exists.&quot;)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>* Output directory already exists.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check dictionary for data collection.</span>
+<span class="n">plume_sims</span><span class="p">[</span><span class="s2">&quot;McCaffrey&quot;</span><span class="p">][</span><span class="s2">&quot;Exp&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;14kW&#39;: {&#39;Burner&#39;: 14.4, &#39;Marker&#39;: &#39;o&#39;},
+ &#39;22kW&#39;: {&#39;Burner&#39;: 21.7, &#39;Marker&#39;: &#39;h&#39;},
+ &#39;33kW&#39;: {&#39;Burner&#39;: 33.0, &#39;Marker&#39;: &#39;^&#39;},
+ &#39;45kW&#39;: {&#39;Burner&#39;: 44.9, &#39;Marker&#39;: &#39;s&#39;},
+ &#39;57kW&#39;: {&#39;Burner&#39;: 57.5, &#39;Marker&#39;: &#39;D&#39;}}
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="read-experiment-data">
+<h2>Read Experiment Data<a class="headerlink" href="#read-experiment-data" title="Permalink to this headline">#</a></h2>
+<p>In the following block the experiment data is read. These fdata sets are also stored in the same dictionary with all the data series from the simulations. This keeps everthing nicely organised.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read temperature expertiment data.</span>
+
+<span class="c1"># Temperature file name base.</span>
+<span class="n">mcc_temp_label</span> <span class="o">=</span> <span class="s2">&quot;McCaffrey_Temperature_</span><span class="si">{}</span><span class="s2">.csv&quot;</span>
+
+
+<span class="c1"># Shortend for convenience.</span>
+<span class="n">mcc_exp</span> <span class="o">=</span> <span class="n">plume_sims</span><span class="p">[</span><span class="s2">&quot;McCaffrey&quot;</span><span class="p">][</span><span class="s2">&quot;Exp&quot;</span><span class="p">]</span>
+
+<span class="c1"># Go over all experiment setups.</span>
+<span class="k">for</span> <span class="n">exp_label</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">mcc_exp</span><span class="p">):</span>
+    <span class="c1">#print(exp_label)</span>
+    <span class="c1"># Build file label from dictionary keys.</span>
+    <span class="n">file_label</span> <span class="o">=</span> <span class="n">mcc_temp_label</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">exp_label</span><span class="p">)</span>
+    <span class="c1"># Build file path to experiment data.</span>
+    <span class="n">exp_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">exp_base_path</span><span class="p">,</span> <span class="n">file_label</span><span class="p">)</span>
+    
+    <span class="c1"># Read file as Pandas DataFrame.</span>
+    <span class="n">exp_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">exp_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="c1"># Collect DataFrame.</span>
+    <span class="n">mcc_exp</span><span class="p">[</span><span class="n">exp_label</span><span class="p">][</span><span class="s2">&quot;Temperature&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">exp_df</span>
+    
+    
+<span class="c1"># Check result.</span>
+<span class="n">plume_sims</span><span class="p">[</span><span class="s2">&quot;McCaffrey&quot;</span><span class="p">][</span><span class="s2">&quot;Exp&quot;</span><span class="p">][</span><span class="s2">&quot;14kW&quot;</span><span class="p">][</span><span class="s2">&quot;Temperature&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Height</th>
+      <th>Temperature</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.015375</td>
+      <td>749.297459</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.017051</td>
+      <td>756.967266</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.020437</td>
+      <td>787.727232</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.023999</td>
+      <td>809.319913</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.027351</td>
+      <td>820.929903</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read velocity expertiment data.</span>
+
+<span class="c1"># Temperature file name base.</span>
+<span class="n">mcc_temp_label</span> <span class="o">=</span> <span class="s2">&quot;McCaffrey_Velocity_</span><span class="si">{}</span><span class="s2">.csv&quot;</span>
+
+
+<span class="c1"># Shortend for convenience.</span>
+<span class="n">mcc_exp</span> <span class="o">=</span> <span class="n">plume_sims</span><span class="p">[</span><span class="s2">&quot;McCaffrey&quot;</span><span class="p">][</span><span class="s2">&quot;Exp&quot;</span><span class="p">]</span>
+
+<span class="c1"># Go over all experiment setups.</span>
+<span class="k">for</span> <span class="n">exp_label</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">mcc_exp</span><span class="p">):</span>
+    <span class="c1">#print(exp_label)</span>
+    <span class="c1"># Build file label from dictionary keys.</span>
+    <span class="n">file_label</span> <span class="o">=</span> <span class="n">mcc_temp_label</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">exp_label</span><span class="p">)</span>
+    <span class="c1"># Build file path to experiment data.</span>
+    <span class="n">exp_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">exp_base_path</span><span class="p">,</span> <span class="n">file_label</span><span class="p">)</span>
+    
+    <span class="c1"># Read file as Pandas DataFrame.</span>
+    <span class="n">exp_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">exp_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="c1"># Collect DataFrame.</span>
+    <span class="n">mcc_exp</span><span class="p">[</span><span class="n">exp_label</span><span class="p">][</span><span class="s2">&quot;Velocity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">exp_df</span>
+    
+    
+<span class="c1"># Check result.</span>
+<span class="n">plume_sims</span><span class="p">[</span><span class="s2">&quot;McCaffrey&quot;</span><span class="p">][</span><span class="s2">&quot;Exp&quot;</span><span class="p">][</span><span class="s2">&quot;14kW&quot;</span><span class="p">][</span><span class="s2">&quot;Velocity&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Height</th>
+      <th>Velocity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.015426</td>
+      <td>0.748036</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.017185</td>
+      <td>0.839401</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.020562</td>
+      <td>0.936540</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.023999</td>
+      <td>1.052238</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.027461</td>
+      <td>1.145382</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read idealised data.</span>
+
+<span class="c1"># Idealised data file names.</span>
+<span class="n">mcc_tempideal_label</span> <span class="o">=</span> <span class="s2">&quot;McCaffrey_Temperature_Idealised.csv&quot;</span>
+<span class="n">mcc_veloideal_label</span> <span class="o">=</span> <span class="s2">&quot;McCaffrey_Velocity_Idealised.csv&quot;</span>
+
+
+<span class="c1"># Shortend for convenience.</span>
+<span class="n">plume_sims</span><span class="p">[</span><span class="s2">&quot;McCaffrey&quot;</span><span class="p">][</span><span class="s2">&quot;Ideal&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">mcc_ideal</span> <span class="o">=</span> <span class="n">plume_sims</span><span class="p">[</span><span class="s2">&quot;McCaffrey&quot;</span><span class="p">][</span><span class="s2">&quot;Ideal&quot;</span><span class="p">]</span>
+
+<span class="c1"># Build file path to experiment data.</span>
+<span class="n">exp_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">exp_base_path</span><span class="p">,</span> <span class="n">mcc_tempideal_label</span><span class="p">)</span>
+<span class="c1"># Read file as Pandas DataFrame.</span>
+<span class="n">exp_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">exp_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># Collect DataFrame.</span>
+<span class="n">mcc_ideal</span><span class="p">[</span><span class="s2">&quot;Temperature&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">exp_df</span>
+
+<span class="c1"># Build file path to experiment data.</span>
+<span class="n">exp_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">exp_base_path</span><span class="p">,</span> <span class="n">mcc_veloideal_label</span><span class="p">)</span>
+<span class="c1"># Read file as Pandas DataFrame.</span>
+<span class="n">exp_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">exp_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># Collect DataFrame.</span>
+<span class="n">mcc_ideal</span><span class="p">[</span><span class="s2">&quot;Velocity&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">exp_df</span>
+    
+    
+<span class="c1"># Check result.</span>
+<span class="n">plume_sims</span><span class="p">[</span><span class="s2">&quot;McCaffrey&quot;</span><span class="p">][</span><span class="s2">&quot;Ideal&quot;</span><span class="p">][</span><span class="s2">&quot;Velocity&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Height</th>
+      <th>Velocity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.008</td>
+      <td>0.6</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.080</td>
+      <td>1.9</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.200</td>
+      <td>1.9</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.600</td>
+      <td>1.3</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="plot-experiment-data">
+<h2>Plot Experiment Data<a class="headerlink" href="#plot-experiment-data" title="Permalink to this headline">#</a></h2>
+<p>After the experiment data was read, now we create plots to get an overview on it.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the temperature experiment data.</span>
+
+<span class="c1"># Define ticks and tick labels.</span>
+<span class="n">x_ticks</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.008</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span><span class="mf">0.03</span><span class="p">,</span><span class="mf">0.04</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.06</span><span class="p">,</span><span class="mf">0.08</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.6</span><span class="p">]</span>
+<span class="n">x_ticklabels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;0.008&quot;</span><span class="p">,</span> <span class="s2">&quot;0.01&quot;</span><span class="p">,</span> <span class="s2">&quot;0.02&quot;</span><span class="p">,</span><span class="s2">&quot;0.03&quot;</span><span class="p">,</span><span class="s2">&quot;0.04&quot;</span><span class="p">,</span><span class="s2">&quot;0.05&quot;</span><span class="p">,</span><span class="s2">&quot;0.06&quot;</span><span class="p">,</span><span class="s2">&quot;0.08&quot;</span><span class="p">,</span><span class="s2">&quot;0.1&quot;</span><span class="p">,</span><span class="s2">&quot;0.2&quot;</span><span class="p">,</span><span class="s2">&quot;0.3&quot;</span><span class="p">,</span><span class="s2">&quot;0.4&quot;</span><span class="p">,</span><span class="s2">&quot;0.5&quot;</span><span class="p">,</span><span class="s2">&quot;0.6&quot;</span><span class="p">]</span>
+<span class="n">y_ticks</span> <span class="o">=</span> <span class="p">[</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">600</span><span class="p">,</span><span class="mi">700</span><span class="p">,</span><span class="mi">800</span><span class="p">,</span><span class="mi">900</span><span class="p">]</span>
+<span class="n">y_ticklabels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;40&quot;</span><span class="p">,</span><span class="s2">&quot;50&quot;</span><span class="p">,</span><span class="s2">&quot;60&quot;</span><span class="p">,</span><span class="s2">&quot;80&quot;</span><span class="p">,</span><span class="s2">&quot;100&quot;</span><span class="p">,</span><span class="s2">&quot;200&quot;</span><span class="p">,</span><span class="s2">&quot;300&quot;</span><span class="p">,</span><span class="s2">&quot;400&quot;</span><span class="p">,</span><span class="s2">&quot;500&quot;</span><span class="p">,</span><span class="s2">&quot;600&quot;</span><span class="p">,</span><span class="s2">&quot;700&quot;</span><span class="p">,</span><span class="s2">&quot;800&quot;</span><span class="p">,</span><span class="s2">&quot;900&quot;</span><span class="p">]</span>
+
+
+<span class="c1"># Set up plotting.</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># Shortend for convenience.</span>
+<span class="n">mcc_exp</span> <span class="o">=</span> <span class="n">plume_sims</span><span class="p">[</span><span class="s2">&quot;McCaffrey&quot;</span><span class="p">][</span><span class="s2">&quot;Exp&quot;</span><span class="p">]</span>
+<span class="n">mcc_ideal</span> <span class="o">=</span> <span class="n">plume_sims</span><span class="p">[</span><span class="s2">&quot;McCaffrey&quot;</span><span class="p">][</span><span class="s2">&quot;Ideal&quot;</span><span class="p">]</span>
+<span class="c1"># Go over all experiment setups.</span>
+<span class="k">for</span> <span class="n">exp_label</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">mcc_exp</span><span class="p">):</span>
+    
+    <span class="n">height</span> <span class="o">=</span> <span class="n">mcc_exp</span><span class="p">[</span><span class="n">exp_label</span><span class="p">][</span><span class="s2">&quot;Temperature&quot;</span><span class="p">][</span><span class="s2">&quot;Height&quot;</span><span class="p">]</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">mcc_exp</span><span class="p">[</span><span class="n">exp_label</span><span class="p">][</span><span class="s2">&quot;Temperature&quot;</span><span class="p">][</span><span class="s2">&quot;Temperature&quot;</span><span class="p">]</span>
+    <span class="n">plot_marker</span> <span class="o">=</span> <span class="n">mcc_exp</span><span class="p">[</span><span class="n">exp_label</span><span class="p">][</span><span class="s2">&quot;Marker&quot;</span><span class="p">]</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">height</span><span class="p">,</span>
+             <span class="n">temp</span><span class="p">,</span>
+             <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="n">plot_marker</span><span class="p">,</span>
+             <span class="n">fillstyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span>
+             <span class="n">label</span><span class="o">=</span><span class="n">exp_label</span><span class="p">)</span>
+    
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mcc_ideal</span><span class="p">[</span><span class="s2">&quot;Temperature&quot;</span><span class="p">][</span><span class="s2">&quot;Height&quot;</span><span class="p">],</span> 
+         <span class="n">mcc_ideal</span><span class="p">[</span><span class="s2">&quot;Temperature&quot;</span><span class="p">][</span><span class="s2">&quot;Temperature&quot;</span><span class="p">],</span> 
+         <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># Plot meta data.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">0.008</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Normalised Height / m * kW^(2/5)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Temperature / °C&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">x_ticks</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">x_ticklabels</span><span class="p">,</span> <span class="n">rotation</span> <span class="o">=</span> <span class="mi">90</span><span class="p">,</span> 
+                   <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">y_ticks</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">y_ticklabels</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+
+<span class="c1"># # Save image.</span>
+<span class="c1"># file_label = f&quot;McCaffrey_Experiment_Temp.png&quot;</span>
+<span class="c1"># plot_path = os.path.join(output_dir, </span>
+<span class="c1">#                          file_label)</span>
+<span class="c1"># plt.savefig(plot_path, dpi=320)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/McCaffrey_15_0.png" src="../../../_images/McCaffrey_15_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the velocity experiment data.</span>
+
+<span class="c1"># Define ticks and tick labels.</span>
+<span class="n">x_ticks</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.008</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span><span class="mf">0.03</span><span class="p">,</span><span class="mf">0.04</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.06</span><span class="p">,</span><span class="mf">0.08</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.6</span><span class="p">]</span>
+<span class="n">x_ticklabels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;0.008&quot;</span><span class="p">,</span> <span class="s2">&quot;0.01&quot;</span><span class="p">,</span> <span class="s2">&quot;0.02&quot;</span><span class="p">,</span><span class="s2">&quot;0.03&quot;</span><span class="p">,</span><span class="s2">&quot;0.04&quot;</span><span class="p">,</span><span class="s2">&quot;0.05&quot;</span><span class="p">,</span><span class="s2">&quot;0.06&quot;</span><span class="p">,</span><span class="s2">&quot;0.08&quot;</span><span class="p">,</span><span class="s2">&quot;0.1&quot;</span><span class="p">,</span><span class="s2">&quot;0.2&quot;</span><span class="p">,</span><span class="s2">&quot;0.3&quot;</span><span class="p">,</span><span class="s2">&quot;0.4&quot;</span><span class="p">,</span><span class="s2">&quot;0.5&quot;</span><span class="p">,</span><span class="s2">&quot;0.6&quot;</span><span class="p">]</span>
+<span class="n">y_ticks</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.6</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">,</span><span class="mf">3.0</span><span class="p">]</span>
+<span class="n">y_ticklabels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;0.2&quot;</span><span class="p">,</span><span class="s2">&quot;0.3&quot;</span><span class="p">,</span><span class="s2">&quot;0.4&quot;</span><span class="p">,</span><span class="s2">&quot;0.5&quot;</span><span class="p">,</span><span class="s2">&quot;0.6&quot;</span><span class="p">,</span><span class="s2">&quot;0.8&quot;</span><span class="p">,</span><span class="s2">&quot;1.0&quot;</span><span class="p">,</span><span class="s2">&quot;2.0&quot;</span><span class="p">,</span><span class="s2">&quot;3.0&quot;</span><span class="p">]</span>
+
+
+<span class="c1"># Set up plotting.</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># Shortend for convenience.</span>
+<span class="n">mcc_exp</span> <span class="o">=</span> <span class="n">plume_sims</span><span class="p">[</span><span class="s2">&quot;McCaffrey&quot;</span><span class="p">][</span><span class="s2">&quot;Exp&quot;</span><span class="p">]</span>
+<span class="n">mcc_ideal</span> <span class="o">=</span> <span class="n">plume_sims</span><span class="p">[</span><span class="s2">&quot;McCaffrey&quot;</span><span class="p">][</span><span class="s2">&quot;Ideal&quot;</span><span class="p">]</span>
+<span class="c1"># Go over all experiment setups.</span>
+<span class="k">for</span> <span class="n">exp_label</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">mcc_exp</span><span class="p">):</span>
+    
+    <span class="n">height</span> <span class="o">=</span> <span class="n">mcc_exp</span><span class="p">[</span><span class="n">exp_label</span><span class="p">][</span><span class="s2">&quot;Velocity&quot;</span><span class="p">][</span><span class="s2">&quot;Height&quot;</span><span class="p">]</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">mcc_exp</span><span class="p">[</span><span class="n">exp_label</span><span class="p">][</span><span class="s2">&quot;Velocity&quot;</span><span class="p">][</span><span class="s2">&quot;Velocity&quot;</span><span class="p">]</span>
+    <span class="n">plot_marker</span> <span class="o">=</span> <span class="n">mcc_exp</span><span class="p">[</span><span class="n">exp_label</span><span class="p">][</span><span class="s2">&quot;Marker&quot;</span><span class="p">]</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">height</span><span class="p">,</span>
+             <span class="n">temp</span><span class="p">,</span>
+             <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="n">plot_marker</span><span class="p">,</span>
+             <span class="n">fillstyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span>
+             <span class="n">label</span><span class="o">=</span><span class="n">exp_label</span><span class="p">)</span>
+    
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mcc_ideal</span><span class="p">[</span><span class="s2">&quot;Velocity&quot;</span><span class="p">][</span><span class="s2">&quot;Height&quot;</span><span class="p">],</span> 
+         <span class="n">mcc_ideal</span><span class="p">[</span><span class="s2">&quot;Velocity&quot;</span><span class="p">][</span><span class="s2">&quot;Velocity&quot;</span><span class="p">],</span> 
+         <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># Plot meta data.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">0.008</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Normalised Height / m * kW^(2/5)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Velocity / m/s&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">x_ticks</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">x_ticklabels</span><span class="p">,</span> <span class="n">rotation</span> <span class="o">=</span> <span class="mi">90</span><span class="p">,</span> 
+                   <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">y_ticks</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">y_ticklabels</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+
+<span class="c1"># # Save image.</span>
+<span class="c1"># file_label = f&quot;McCaffrey_Experiment_Velo.png&quot;</span>
+<span class="c1"># plot_path = os.path.join(output_dir, </span>
+<span class="c1">#                          file_label)</span>
+<span class="c1"># plt.savefig(plot_path, dpi=320)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/McCaffrey_16_0.png" src="../../../_images/McCaffrey_16_0.png" />
+</div>
+</div>
+</section>
+<section id="read-simulation-response">
+<h2>Read Simulation Response<a class="headerlink" href="#read-simulation-response" title="Permalink to this headline">#</a></h2>
+<p>Let’s read the simulation responses. We make use of the <a class="reference internal" href="../../tools/03_analysis/02_fdsreader.html"><span class="doc std std-doc">fdsreader</span></a> and store the simulation objects in the data collection dictionary.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialise data collection.</span>
+<span class="n">plume_sims</span><span class="p">[</span><span class="s2">&quot;McCaffrey&quot;</span><span class="p">][</span><span class="s2">&quot;Sim&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+<span class="n">mcc_sims</span> <span class="o">=</span> <span class="n">plume_sims</span><span class="p">[</span><span class="s2">&quot;McCaffrey&quot;</span><span class="p">][</span><span class="s2">&quot;Sim&quot;</span><span class="p">]</span>
+<span class="n">mcc_labels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">plume_sims</span><span class="p">[</span><span class="s2">&quot;McCaffrey&quot;</span><span class="p">][</span><span class="s2">&quot;Exp&quot;</span><span class="p">])</span>
+
+<span class="c1"># Which sets to read?</span>
+<span class="n">resolutions</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;C5&quot;</span><span class="p">]</span>
+
+<span class="c1"># Read data sets.</span>
+<span class="k">for</span> <span class="n">resolution</span> <span class="ow">in</span> <span class="n">resolutions</span><span class="p">:</span>
+    <span class="c1"># Add new dictionary per set.</span>
+    <span class="n">mcc_sims</span><span class="p">[</span><span class="n">resolution</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    
+    <span class="c1"># Go over the experiment labels.</span>
+    <span class="k">for</span> <span class="n">mcc_label</span> <span class="ow">in</span> <span class="n">mcc_labels</span><span class="p">:</span>
+        <span class="c1"># Build path to simulation.</span>
+        <span class="n">sim_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">mcc_sim_base_path</span><span class="p">,</span> 
+                                <span class="n">resolution</span><span class="p">,</span> <span class="n">mcc_label</span><span class="p">)</span>
+        
+        <span class="c1"># Check if FDS simulation exists.</span>
+        <span class="n">out_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">sim_path</span><span class="p">,</span> <span class="s2">&quot;McCaffrey.out&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">out_path</span><span class="p">):</span>
+            <span class="c1"># Read simulation data.</span>
+            <span class="n">fdssim</span> <span class="o">=</span> <span class="n">fdsreader</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">sim_path</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;- FDS sim. read: </span><span class="si">{</span><span class="n">resolution</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">mcc_label</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Handle exception.</span>
+            <span class="n">fdssim</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;* None (</span><span class="si">{</span><span class="n">resolution</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">mcc_label</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Collect FDS simulation result.</span>
+        <span class="n">mcc_sims</span><span class="p">[</span><span class="n">resolution</span><span class="p">][</span><span class="n">mcc_label</span><span class="p">]</span> <span class="o">=</span> <span class="n">fdssim</span>
+    
+
+<span class="c1"># Check result.</span>
+<span class="n">plume_sims</span><span class="p">[</span><span class="s2">&quot;McCaffrey&quot;</span><span class="p">][</span><span class="s2">&quot;Sim&quot;</span><span class="p">][</span><span class="s2">&quot;C5&quot;</span><span class="p">][</span><span class="s2">&quot;14kW&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>* None (C5, 14kW)
+* None (C5, 22kW)
+* None (C5, 33kW)
+* None (C5, 45kW)
+* None (C5, 57kW)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plume_sims</span><span class="p">[</span><span class="s2">&quot;McCaffrey&quot;</span><span class="p">][</span><span class="s2">&quot;Sim&quot;</span><span class="p">][</span><span class="s2">&quot;C5&quot;</span><span class="p">][</span><span class="s2">&quot;14kW&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>To make life a bit easier further down the line, the column headers are grouped in lists based on their quantity. Since all simulation setups are essentially the same, except for the ehergy release.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Sort the DEVC data series.</span>
+<span class="n">headers_temp</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+<span class="n">headers_tc</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+
+<span class="c1"># Get DEVC info, for convenience.</span>
+<span class="n">devcs</span> <span class="o">=</span> <span class="n">plume_sims</span><span class="p">[</span><span class="s2">&quot;McCaffrey&quot;</span><span class="p">][</span><span class="s2">&quot;Sim&quot;</span><span class="p">][</span><span class="s2">&quot;C5&quot;</span><span class="p">][</span><span class="s2">&quot;14kW&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">devices</span>
+
+<span class="c1"># Go over all DEVC and get their ID.</span>
+<span class="k">for</span> <span class="n">devc</span> <span class="ow">in</span> <span class="n">devcs</span><span class="p">:</span>
+    <span class="k">if</span> <span class="s2">&quot;Temp_&quot;</span> <span class="ow">in</span> <span class="n">devc</span><span class="o">.</span><span class="n">id</span><span class="p">:</span>
+        <span class="n">headers_temp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">devc</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="s2">&quot;TC_&quot;</span> <span class="ow">in</span> <span class="n">devc</span><span class="o">.</span><span class="n">id</span><span class="p">:</span>
+        <span class="n">headers_tc</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">devc</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="assess-the-simulation-response">
+<h1>Assess the Simulation Response<a class="headerlink" href="#assess-the-simulation-response" title="Permalink to this headline">#</a></h1>
+<p>Two types of devices are present in the simulation: thermocouples and temperature. We llok at these first. Afterwards we look into information from the slice files.</p>
+<section id="plot-temperature-data">
+<h2>Plot Temperature Data<a class="headerlink" href="#plot-temperature-data" title="Permalink to this headline">#</a></h2>
+<p>To compare the simulation results we utilise the plot created above. They are already prepared here. Now, for each simulation setup the height of the devices needs to be scaled by the energy release of the burner.</p>
+<p>First, lets plot a single data series, the “14kW” case of the “C5” resolution. Note, the parameters are provided as variables, such that they can easily be transformed into a loop in a further step.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the temperature data.</span>
+
+<span class="c1"># Define ticks and tick labels.</span>
+<span class="n">x_ticks</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.008</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span><span class="mf">0.03</span><span class="p">,</span><span class="mf">0.04</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.06</span><span class="p">,</span><span class="mf">0.08</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.6</span><span class="p">]</span>
+<span class="n">x_ticklabels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;0.008&quot;</span><span class="p">,</span> <span class="s2">&quot;0.01&quot;</span><span class="p">,</span> <span class="s2">&quot;0.02&quot;</span><span class="p">,</span><span class="s2">&quot;0.03&quot;</span><span class="p">,</span><span class="s2">&quot;0.04&quot;</span><span class="p">,</span><span class="s2">&quot;0.05&quot;</span><span class="p">,</span><span class="s2">&quot;0.06&quot;</span><span class="p">,</span><span class="s2">&quot;0.08&quot;</span><span class="p">,</span><span class="s2">&quot;0.1&quot;</span><span class="p">,</span><span class="s2">&quot;0.2&quot;</span><span class="p">,</span><span class="s2">&quot;0.3&quot;</span><span class="p">,</span><span class="s2">&quot;0.4&quot;</span><span class="p">,</span><span class="s2">&quot;0.5&quot;</span><span class="p">,</span><span class="s2">&quot;0.6&quot;</span><span class="p">]</span>
+<span class="n">y_ticks</span> <span class="o">=</span> <span class="p">[</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">600</span><span class="p">,</span><span class="mi">700</span><span class="p">,</span><span class="mi">800</span><span class="p">,</span><span class="mi">900</span><span class="p">]</span>
+<span class="n">y_ticklabels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;40&quot;</span><span class="p">,</span><span class="s2">&quot;50&quot;</span><span class="p">,</span><span class="s2">&quot;60&quot;</span><span class="p">,</span><span class="s2">&quot;80&quot;</span><span class="p">,</span><span class="s2">&quot;100&quot;</span><span class="p">,</span><span class="s2">&quot;200&quot;</span><span class="p">,</span><span class="s2">&quot;300&quot;</span><span class="p">,</span><span class="s2">&quot;400&quot;</span><span class="p">,</span><span class="s2">&quot;500&quot;</span><span class="p">,</span><span class="s2">&quot;600&quot;</span><span class="p">,</span><span class="s2">&quot;700&quot;</span><span class="p">,</span><span class="s2">&quot;800&quot;</span><span class="p">,</span><span class="s2">&quot;900&quot;</span><span class="p">]</span>
+
+
+<span class="c1"># Set up plotting.</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># Experiment</span>
+<span class="c1"># ---------------</span>
+<span class="c1"># Shortend for convenience.</span>
+<span class="n">mcc_exp</span> <span class="o">=</span> <span class="n">plume_sims</span><span class="p">[</span><span class="s2">&quot;McCaffrey&quot;</span><span class="p">][</span><span class="s2">&quot;Exp&quot;</span><span class="p">]</span>
+<span class="n">mcc_ideal</span> <span class="o">=</span> <span class="n">plume_sims</span><span class="p">[</span><span class="s2">&quot;McCaffrey&quot;</span><span class="p">][</span><span class="s2">&quot;Ideal&quot;</span><span class="p">]</span>
+<span class="c1"># Go over all experiment setups.</span>
+<span class="k">for</span> <span class="n">exp_label</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">mcc_exp</span><span class="p">):</span>
+    
+    <span class="n">height</span> <span class="o">=</span> <span class="n">mcc_exp</span><span class="p">[</span><span class="n">exp_label</span><span class="p">][</span><span class="s2">&quot;Temperature&quot;</span><span class="p">][</span><span class="s2">&quot;Height&quot;</span><span class="p">]</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">mcc_exp</span><span class="p">[</span><span class="n">exp_label</span><span class="p">][</span><span class="s2">&quot;Temperature&quot;</span><span class="p">][</span><span class="s2">&quot;Temperature&quot;</span><span class="p">]</span>
+    <span class="n">plot_marker</span> <span class="o">=</span> <span class="n">mcc_exp</span><span class="p">[</span><span class="n">exp_label</span><span class="p">][</span><span class="s2">&quot;Marker&quot;</span><span class="p">]</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">height</span><span class="p">,</span>
+             <span class="n">temp</span><span class="p">,</span>
+             <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="n">plot_marker</span><span class="p">,</span>
+             <span class="n">fillstyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span>
+             <span class="n">label</span><span class="o">=</span><span class="n">exp_label</span><span class="p">)</span>
+    
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mcc_ideal</span><span class="p">[</span><span class="s2">&quot;Temperature&quot;</span><span class="p">][</span><span class="s2">&quot;Height&quot;</span><span class="p">],</span> 
+         <span class="n">mcc_ideal</span><span class="p">[</span><span class="s2">&quot;Temperature&quot;</span><span class="p">][</span><span class="s2">&quot;Temperature&quot;</span><span class="p">],</span> 
+         <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># Simulation</span>
+<span class="c1"># ---------------</span>
+
+<span class="c1"># </span>
+<span class="n">resolution</span> <span class="o">=</span> <span class="s2">&quot;C5&quot;</span>
+<span class="n">mcc_label</span> <span class="o">=</span> <span class="s2">&quot;14kW&quot;</span>
+<span class="n">hrr</span> <span class="o">=</span> <span class="n">mcc_exp</span><span class="p">[</span><span class="n">mcc_label</span><span class="p">][</span><span class="s2">&quot;Burner&quot;</span><span class="p">]</span>
+<span class="n">plot_marker</span> <span class="o">=</span> <span class="n">mcc_exp</span><span class="p">[</span><span class="n">mcc_label</span><span class="p">][</span><span class="s2">&quot;Marker&quot;</span><span class="p">]</span>
+
+<span class="c1"># Determine normalised heights.</span>
+<span class="n">norm_height</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.03</span><span class="p">,</span><span class="mf">6.57</span><span class="p">,</span><span class="mi">110</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">hrr</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Shortend for convenience.</span>
+<span class="n">mcc_sim_data</span> <span class="o">=</span> <span class="n">plume_sims</span><span class="p">[</span><span class="s2">&quot;McCaffrey&quot;</span><span class="p">][</span><span class="s2">&quot;Sim&quot;</span><span class="p">][</span><span class="n">resolution</span><span class="p">][</span><span class="n">mcc_label</span><span class="p">]</span>
+<span class="n">norm_height</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.03</span><span class="p">,</span><span class="mf">6.57</span><span class="p">,</span><span class="mi">110</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">hrr</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">devcs</span> <span class="o">=</span> <span class="n">mcc_sim_data</span><span class="o">.</span><span class="n">devices</span>
+<span class="k">for</span> <span class="n">header_id</span><span class="p">,</span> <span class="n">header</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">headers_temp</span><span class="p">):</span>
+    <span class="n">new_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">devcs</span><span class="p">[</span><span class="n">header</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">35</span><span class="p">:])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">norm_height</span><span class="p">[</span><span class="n">header_id</span><span class="p">],</span>
+             <span class="n">new_y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">fillstyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span>
+             <span class="n">marker</span><span class="o">=</span><span class="n">plot_marker</span><span class="p">)</span>
+
+<span class="c1"># </span>
+<span class="n">resolution</span> <span class="o">=</span> <span class="s2">&quot;C5&quot;</span>
+<span class="n">mcc_label</span> <span class="o">=</span> <span class="s2">&quot;57kW&quot;</span>
+<span class="n">hrr</span> <span class="o">=</span> <span class="n">mcc_exp</span><span class="p">[</span><span class="n">mcc_label</span><span class="p">][</span><span class="s2">&quot;Burner&quot;</span><span class="p">]</span>
+<span class="n">plot_marker</span> <span class="o">=</span> <span class="n">mcc_exp</span><span class="p">[</span><span class="n">mcc_label</span><span class="p">][</span><span class="s2">&quot;Marker&quot;</span><span class="p">]</span>
+
+<span class="c1"># Determine normalised heights.</span>
+<span class="n">norm_height</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.03</span><span class="p">,</span><span class="mf">6.57</span><span class="p">,</span><span class="mi">110</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">hrr</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">5</span><span class="p">))</span>
+
+<span class="c1"># Shortend for convenience.</span>
+<span class="n">mcc_sim_data</span> <span class="o">=</span> <span class="n">plume_sims</span><span class="p">[</span><span class="s2">&quot;McCaffrey&quot;</span><span class="p">][</span><span class="s2">&quot;Sim&quot;</span><span class="p">][</span><span class="n">resolution</span><span class="p">][</span><span class="n">mcc_label</span><span class="p">]</span>
+<span class="n">norm_height</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.03</span><span class="p">,</span><span class="mf">6.57</span><span class="p">,</span><span class="mi">110</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">hrr</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">devcs</span> <span class="o">=</span> <span class="n">mcc_sim_data</span><span class="o">.</span><span class="n">devices</span>
+<span class="k">for</span> <span class="n">header_id</span><span class="p">,</span> <span class="n">header</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">headers_temp</span><span class="p">):</span>
+    <span class="n">new_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">devcs</span><span class="p">[</span><span class="n">header</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">35</span><span class="p">:])</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">norm_height</span><span class="p">[</span><span class="n">header_id</span><span class="p">],</span>
+             <span class="n">new_y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">fillstyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span>
+             <span class="n">marker</span><span class="o">=</span><span class="n">plot_marker</span><span class="p">)</span>
+
+
+
+<span class="c1"># Plot meta data.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">0.008</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Normalised Height / m * kW^(2/5)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Temperature / °C&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">x_ticks</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">x_ticklabels</span><span class="p">,</span> <span class="n">rotation</span> <span class="o">=</span> <span class="mi">90</span><span class="p">,</span> 
+                   <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">y_ticks</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">y_ticklabels</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+
+<span class="c1"># # Save image.</span>
+<span class="c1"># file_label = f&quot;McCaffrey_Temp.png&quot;</span>
+<span class="c1"># plot_path = os.path.join(output_dir, </span>
+<span class="c1">#                          file_label)</span>
+<span class="c1"># plt.savefig(plot_path, dpi=320)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s create a loop, since it is now working for a single data series. We can easily built on the variables set up earlier.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot the temperature data.</span>
+
+<span class="c1"># Define ticks and tick labels.</span>
+<span class="n">x_ticks</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.008</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span><span class="mf">0.03</span><span class="p">,</span><span class="mf">0.04</span><span class="p">,</span><span class="mf">0.05</span><span class="p">,</span><span class="mf">0.06</span><span class="p">,</span><span class="mf">0.08</span><span class="p">,</span><span class="mf">0.1</span><span class="p">,</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.3</span><span class="p">,</span><span class="mf">0.4</span><span class="p">,</span><span class="mf">0.5</span><span class="p">,</span><span class="mf">0.6</span><span class="p">]</span>
+<span class="n">x_ticklabels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;0.008&quot;</span><span class="p">,</span> <span class="s2">&quot;0.01&quot;</span><span class="p">,</span> <span class="s2">&quot;0.02&quot;</span><span class="p">,</span><span class="s2">&quot;0.03&quot;</span><span class="p">,</span><span class="s2">&quot;0.04&quot;</span><span class="p">,</span><span class="s2">&quot;0.05&quot;</span><span class="p">,</span><span class="s2">&quot;0.06&quot;</span><span class="p">,</span><span class="s2">&quot;0.08&quot;</span><span class="p">,</span><span class="s2">&quot;0.1&quot;</span><span class="p">,</span><span class="s2">&quot;0.2&quot;</span><span class="p">,</span><span class="s2">&quot;0.3&quot;</span><span class="p">,</span><span class="s2">&quot;0.4&quot;</span><span class="p">,</span><span class="s2">&quot;0.5&quot;</span><span class="p">,</span><span class="s2">&quot;0.6&quot;</span><span class="p">]</span>
+<span class="n">y_ticks</span> <span class="o">=</span> <span class="p">[</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">60</span><span class="p">,</span><span class="mi">80</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">600</span><span class="p">,</span><span class="mi">700</span><span class="p">,</span><span class="mi">800</span><span class="p">,</span><span class="mi">900</span><span class="p">]</span>
+<span class="n">y_ticklabels</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;40&quot;</span><span class="p">,</span><span class="s2">&quot;50&quot;</span><span class="p">,</span><span class="s2">&quot;60&quot;</span><span class="p">,</span><span class="s2">&quot;80&quot;</span><span class="p">,</span><span class="s2">&quot;100&quot;</span><span class="p">,</span><span class="s2">&quot;200&quot;</span><span class="p">,</span><span class="s2">&quot;300&quot;</span><span class="p">,</span><span class="s2">&quot;400&quot;</span><span class="p">,</span><span class="s2">&quot;500&quot;</span><span class="p">,</span><span class="s2">&quot;600&quot;</span><span class="p">,</span><span class="s2">&quot;700&quot;</span><span class="p">,</span><span class="s2">&quot;800&quot;</span><span class="p">,</span><span class="s2">&quot;900&quot;</span><span class="p">]</span>
+
+
+<span class="c1"># Set up plotting.</span>
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+
+<span class="c1"># Experiment</span>
+<span class="c1"># ---------------</span>
+<span class="c1"># Shortend for convenience.</span>
+<span class="n">mcc_exp</span> <span class="o">=</span> <span class="n">plume_sims</span><span class="p">[</span><span class="s2">&quot;McCaffrey&quot;</span><span class="p">][</span><span class="s2">&quot;Exp&quot;</span><span class="p">]</span>
+<span class="n">mcc_ideal</span> <span class="o">=</span> <span class="n">plume_sims</span><span class="p">[</span><span class="s2">&quot;McCaffrey&quot;</span><span class="p">][</span><span class="s2">&quot;Ideal&quot;</span><span class="p">]</span>
+<span class="c1"># Go over all experiment setups.</span>
+<span class="k">for</span> <span class="n">exp_label</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">mcc_exp</span><span class="p">):</span>
+    
+    <span class="n">height</span> <span class="o">=</span> <span class="n">mcc_exp</span><span class="p">[</span><span class="n">exp_label</span><span class="p">][</span><span class="s2">&quot;Temperature&quot;</span><span class="p">][</span><span class="s2">&quot;Height&quot;</span><span class="p">]</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">mcc_exp</span><span class="p">[</span><span class="n">exp_label</span><span class="p">][</span><span class="s2">&quot;Temperature&quot;</span><span class="p">][</span><span class="s2">&quot;Temperature&quot;</span><span class="p">]</span>
+    <span class="n">plot_marker</span> <span class="o">=</span> <span class="n">mcc_exp</span><span class="p">[</span><span class="n">exp_label</span><span class="p">][</span><span class="s2">&quot;Marker&quot;</span><span class="p">]</span>
+    
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">height</span><span class="p">,</span>
+             <span class="n">temp</span><span class="p">,</span>
+             <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="n">plot_marker</span><span class="p">,</span>
+             <span class="n">fillstyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span>
+             <span class="n">label</span><span class="o">=</span><span class="n">exp_label</span><span class="p">)</span>
+    
+    
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">mcc_ideal</span><span class="p">[</span><span class="s2">&quot;Temperature&quot;</span><span class="p">][</span><span class="s2">&quot;Height&quot;</span><span class="p">],</span> 
+         <span class="n">mcc_ideal</span><span class="p">[</span><span class="s2">&quot;Temperature&quot;</span><span class="p">][</span><span class="s2">&quot;Temperature&quot;</span><span class="p">],</span> 
+         <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+
+<span class="c1"># Simulation</span>
+<span class="c1"># ---------------</span>
+
+<span class="k">for</span> <span class="n">exp_label</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">mcc_exp</span><span class="p">):</span>
+    <span class="n">resolution</span> <span class="o">=</span> <span class="s2">&quot;C5&quot;</span>
+<span class="c1">#     exp_label = &quot;14kW&quot;</span>
+    <span class="n">hrr</span> <span class="o">=</span> <span class="n">mcc_exp</span><span class="p">[</span><span class="n">exp_label</span><span class="p">][</span><span class="s2">&quot;Burner&quot;</span><span class="p">]</span>
+    <span class="n">plot_marker</span> <span class="o">=</span> <span class="n">mcc_exp</span><span class="p">[</span><span class="n">exp_label</span><span class="p">][</span><span class="s2">&quot;Marker&quot;</span><span class="p">]</span>
+
+    <span class="c1"># Determine normalised heights.</span>
+    <span class="n">norm_height</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.03</span><span class="p">,</span><span class="mf">6.57</span><span class="p">,</span><span class="mi">110</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">hrr</span><span class="o">**</span><span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="mi">5</span><span class="p">))</span>
+
+    <span class="c1"># Shortend for convenience.</span>
+    <span class="n">mcc_sim_data</span> <span class="o">=</span> <span class="n">plume_sims</span><span class="p">[</span><span class="s2">&quot;McCaffrey&quot;</span><span class="p">][</span><span class="s2">&quot;Sim&quot;</span><span class="p">][</span><span class="n">resolution</span><span class="p">][</span><span class="n">exp_label</span><span class="p">]</span>
+    
+    <span class="c1"># Get DEVC data.</span>
+    <span class="n">devcs</span> <span class="o">=</span> <span class="n">mcc_sim_data</span><span class="o">.</span><span class="n">devices</span>
+    <span class="k">for</span> <span class="n">header_id</span><span class="p">,</span> <span class="n">header</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">headers_temp</span><span class="p">):</span>
+        <span class="n">new_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">devcs</span><span class="p">[</span><span class="n">header</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">35</span><span class="p">:])</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">norm_height</span><span class="p">[</span><span class="n">header_id</span><span class="p">],</span>
+                 <span class="n">new_y</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">fillstyle</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">,</span>
+                 <span class="n">marker</span><span class="o">=</span><span class="n">plot_marker</span><span class="p">)</span>
+
+
+<span class="c1"># Plot meta data.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="mf">0.008</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Normalised Height / m * kW^(2/5)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Temperature / °C&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="n">x_ticks</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="n">x_ticklabels</span><span class="p">,</span> <span class="n">rotation</span> <span class="o">=</span> <span class="mi">90</span><span class="p">,</span> 
+                   <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;center&quot;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticks</span><span class="p">(</span><span class="n">y_ticks</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_yticklabels</span><span class="p">(</span><span class="n">y_ticklabels</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s2">&quot;right&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+
+<span class="c1"># # Save image.</span>
+<span class="c1"># file_label = f&quot;McCaffrey_Temp.png&quot;</span>
+<span class="c1"># plot_path = os.path.join(output_dir, </span>
+<span class="c1">#                          file_label)</span>
+<span class="c1"># plt.savefig(plot_path, dpi=320)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="slcf">
+<h2>SLCF<a class="headerlink" href="#slcf" title="Permalink to this headline">#</a></h2>
+<p>Next we take a look at the <code class="docutils literal notranslate"><span class="pre">SLCF</span></code> data. The simulations contain vertical slices at a single location and multiple horizontal at different heights above the burner. Quantities provided are <code class="docutils literal notranslate"><span class="pre">TEMPAERTURE</span></code>, <code class="docutils literal notranslate"><span class="pre">DENSITY</span></code> and velocities by component, for example <code class="docutils literal notranslate"><span class="pre">W-VELOCITY</span></code>. Given this information, how could the mass flow be determined?</p>
+<p>First lets have a look at the content of fdsreader simulation object, with respect to the slices.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resolution</span> <span class="o">=</span> <span class="s2">&quot;C5&quot;</span>
+<span class="n">mcc_label</span> <span class="o">=</span> <span class="s2">&quot;57kW&quot;</span>
+<span class="n">mcc_sim_data</span> <span class="o">=</span> <span class="n">plume_sims</span><span class="p">[</span><span class="s2">&quot;McCaffrey&quot;</span><span class="p">][</span><span class="s2">&quot;Sim&quot;</span><span class="p">][</span><span class="n">resolution</span><span class="p">][</span><span class="n">mcc_label</span><span class="p">]</span>
+
+<span class="c1"># Check content.</span>
+<span class="n">mcc_sim_data</span><span class="o">.</span><span class="n">slices</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We can pick a horizontal slice and a time step. Again think about setting up variables for easier access later on.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Choose parameters to get desired slice and time step.</span>
+<span class="n">resolution</span> <span class="o">=</span> <span class="s2">&quot;C5&quot;</span>
+<span class="n">mcc_label</span> <span class="o">=</span> <span class="s2">&quot;57kW&quot;</span>
+<span class="n">n_slcf</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">sim_time</span> <span class="o">=</span> <span class="mi">30</span>  <span class="c1"># s</span>
+
+
+<span class="c1"># Finally, also the extend is specified to move from index to physical space.</span>
+<span class="n">mcc_slcf_data</span> <span class="o">=</span> <span class="n">plume_sims</span><span class="p">[</span><span class="s2">&quot;McCaffrey&quot;</span><span class="p">][</span><span class="s2">&quot;Sim&quot;</span><span class="p">][</span><span class="n">resolution</span><span class="p">][</span><span class="n">mcc_label</span><span class="p">]</span><span class="o">.</span><span class="n">slices</span>
+<span class="n">time_step</span> <span class="o">=</span> <span class="n">mcc_slcf_data</span><span class="p">[</span><span class="n">n_slcf</span><span class="p">]</span><span class="o">.</span><span class="n">get_nearest_timestep</span><span class="p">(</span><span class="n">sim_time</span><span class="p">)</span>
+<span class="n">sim_time_actual</span> <span class="o">=</span> <span class="n">mcc_slcf_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">times</span><span class="p">[</span><span class="n">time_step</span><span class="p">]</span>
+<span class="c1"># </span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Time step: </span><span class="si">{</span><span class="n">time_step</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Simulation time: </span><span class="si">{</span><span class="n">sim_time_actual</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># Plot the slice information as image.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">mcc_slcf_data</span><span class="p">[</span><span class="n">n_slcf</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">time_step</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> 
+           <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span>
+           <span class="n">vmax</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span>
+           <span class="n">extent</span><span class="o">=</span><span class="n">mcc_slcf_data</span><span class="p">[</span><span class="n">n_slcf</span><span class="p">]</span><span class="o">.</span><span class="n">extent</span><span class="o">.</span><span class="n">as_list</span><span class="p">())</span>
+
+
+<span class="c1"># Plot meta data.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Temperature / °C&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x coordinate / m&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;z coordinate / m&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>It might be useful to limit the area of slice to an area closer around the plume. For this we can set up some frame. First the number of cells is extracted. We know from the setup the number of cells is uneven and also there is an equal amount of cells in x and y directions. Thus we define the frame from a single number, here labelled <code class="docutils literal notranslate"><span class="pre">cut_start</span></code>, and use it to compute <code class="docutils literal notranslate"><span class="pre">cut_end</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Choose parameters to get desired slice and time step.</span>
+<span class="n">resolution</span> <span class="o">=</span> <span class="s2">&quot;C5&quot;</span>
+<span class="n">mcc_label</span> <span class="o">=</span> <span class="s2">&quot;57kW&quot;</span>
+<span class="n">n_slcf</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">sim_time</span> <span class="o">=</span> <span class="mi">30</span>  <span class="c1"># s</span>
+
+<span class="c1"># Define window to cut SLCF data.</span>
+<span class="n">cut_start_x</span> <span class="o">=</span> <span class="mi">10</span>
+
+<span class="n">cut_end_x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">45</span> <span class="o">-</span> <span class="n">cut_start_x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cut_start_x</span><span class="p">,</span> <span class="n">cut_end_x</span><span class="p">,</span> <span class="n">cut_end_x</span> <span class="o">-</span> <span class="n">cut_start_x</span><span class="p">)</span>
+
+<span class="c1"># Finally, also the extend is specified to move from index to physical space.</span>
+<span class="n">mcc_slcf_data</span> <span class="o">=</span> <span class="n">plume_sims</span><span class="p">[</span><span class="s2">&quot;McCaffrey&quot;</span><span class="p">][</span><span class="s2">&quot;Sim&quot;</span><span class="p">][</span><span class="n">resolution</span><span class="p">][</span><span class="n">mcc_label</span><span class="p">]</span><span class="o">.</span><span class="n">slices</span>
+<span class="n">time_step</span> <span class="o">=</span> <span class="n">mcc_slcf_data</span><span class="p">[</span><span class="n">n_slcf</span><span class="p">]</span><span class="o">.</span><span class="n">get_nearest_timestep</span><span class="p">(</span><span class="n">sim_time</span><span class="p">)</span>
+<span class="n">sim_time_actual</span> <span class="o">=</span> <span class="n">mcc_slcf_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">times</span><span class="p">[</span><span class="n">time_step</span><span class="p">]</span>
+<span class="c1"># </span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Time step: </span><span class="si">{</span><span class="n">time_step</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Simulation time: </span><span class="si">{</span><span class="n">sim_time_actual</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">mcc_slcf_data</span><span class="p">[</span><span class="n">n_slcf</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">time_step</span><span class="p">,</span>
+                                         <span class="n">cut_start_x</span><span class="p">:</span><span class="n">cut_end_x</span><span class="p">,</span>
+                                         <span class="n">cut_start_x</span><span class="p">:</span><span class="n">cut_end_x</span><span class="p">],</span> 
+           <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span>
+           <span class="n">vmax</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span>
+           <span class="n">extent</span><span class="o">=</span><span class="n">mcc_slcf_data</span><span class="p">[</span><span class="n">n_slcf</span><span class="p">]</span><span class="o">.</span><span class="n">extent</span><span class="o">.</span><span class="n">as_list</span><span class="p">())</span>
+
+
+<span class="c1"># Plot meta data.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;Temperature / °C&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x coordinate / m&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;z coordinate / m&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In the McCaffrey experiments the recorded data was averaged over time. We can make use of <code class="docutils literal notranslate"><span class="pre">np.average()</span></code> to average the over a couple of frames for each cell.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_slcf</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">cut_start_x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">n_frames</span> <span class="o">=</span> <span class="o">-</span><span class="mi">30</span>
+
+<span class="n">n_x_cells</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">slices</span><span class="p">[</span><span class="n">n_slcf</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">size</span>
+<span class="n">cut_end_x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">45</span> <span class="o">-</span> <span class="n">cut_start_x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cut_start_x</span><span class="p">,</span> <span class="n">cut_end_x</span><span class="p">,</span> <span class="n">cut_end_x</span> <span class="o">-</span> <span class="n">cut_start_x</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">slices</span><span class="p">[</span><span class="n">n_slcf</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">n_frames</span><span class="p">:,</span>
+                                                 <span class="n">cut_start_x</span><span class="p">:</span><span class="n">cut_end_x</span><span class="p">,</span>
+                                                 <span class="n">cut_start_x</span><span class="p">:</span><span class="n">cut_end_x</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> 
+           <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span>
+           <span class="n">vmax</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
+           <span class="n">extent</span><span class="o">=</span><span class="n">sim</span><span class="o">.</span><span class="n">slices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">extent</span><span class="o">.</span><span class="n">as_list</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>With setting an unequal window, we can extract rows  of cells and plot their data. Use this functionality to determine the averaged temperature and velocity profiles at different heights across the plume centre.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># n_slcf = 5</span>
+<span class="c1"># cut_start_x = 15</span>
+<span class="n">n_frames</span> <span class="o">=</span> <span class="o">-</span><span class="mi">35</span>
+
+<span class="n">cut_end_x</span> <span class="o">=</span> <span class="p">(</span><span class="mi">45</span> <span class="o">-</span> <span class="n">cut_start_x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cut_start_x</span><span class="p">,</span> <span class="n">cut_end_x</span><span class="p">,</span> <span class="n">cut_end_x</span> <span class="o">-</span> <span class="n">cut_start_x</span><span class="p">)</span>
+
+<span class="n">cut_start_y</span> <span class="o">=</span> <span class="mi">22</span>
+<span class="n">cut_end_y</span> <span class="o">=</span> <span class="p">(</span><span class="mi">45</span> <span class="o">-</span> <span class="n">cut_start_y</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cut_start_y</span><span class="p">,</span> <span class="n">cut_end_y</span><span class="p">,</span> <span class="n">cut_end_y</span> <span class="o">-</span> <span class="n">cut_start_y</span><span class="p">)</span>
+
+<span class="n">cross_section</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">average</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">slices</span><span class="p">[</span><span class="n">slcf_id</span><span class="o">+</span><span class="mi">16</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">n_frames</span><span class="p">:,</span>
+                                                 <span class="n">cut_start_x</span><span class="p">:</span><span class="n">cut_end_x</span><span class="p">,</span>
+                                                 <span class="n">cut_start_y</span><span class="p">:</span><span class="n">cut_end_y</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cross_section</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./content/examples/03_advanced"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="00_overview.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Advanced</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="02_example_stecklercompartments.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Steckler Compartments</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    <div class="extra_footer">
+      <p>
+<img src='https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg' height='31'/>
+| By Team Fire | Contacts and Infos: <a href='https://cce.uni-wuppertal.de/en.html'>CCE@BUW</a> and <a href='https://www.fz-juelich.de/ias/ias-7/EN/Research/Fire_Dynamics/_node.html'>IAS-7@FZJ</a>
+</br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</p>
+
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

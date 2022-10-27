@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Zukoski Plumes" href="03_example_zukoskiplumes.html" />
-    <link rel="prev" title="McCaffrey Plume Experiments" href="01_example_mccaffreyplumes.html" />
+    <link rel="prev" title="McCaffrey Plumes" href="McCaffrey.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -437,8 +437,8 @@ const thebe_selector_output = ".output, .cell_output"
   </label>
   <ul class="current">
    <li class="toctree-l2">
-    <a class="reference internal" href="01_example_mccaffreyplumes.html">
-     McCaffrey Plume Experiments
+    <a class="reference internal" href="McCaffrey.html">
+     McCaffrey Plumes
     </a>
    </li>
    <li class="toctree-l2 current active">
@@ -904,6 +904,25 @@ title="Print to PDF"
 <p>We start out with the simulation setup from <span class="xref myst">Basic Example I</span>. The goal is to ensure that the desired heat release of the burner was set up in the simulation. We are going to use Python to compare the simulation response with the target, using <a class="reference external" href="https://jupyter.org/">JupyterLab</a>.</p>
 <p>and <a class="reference external" href="https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nbsir83-2801.pdf">Flame Induced Flows Through Room
 Openings - Flow Coefficients</a></p>
+<p>In this example, the directory for our project is called <code class="docutils literal notranslate"><span class="pre">Compartments</span></code>. Inside the project directory, three other directories are created: one to store the jupyter notebooks <code class="docutils literal notranslate"><span class="pre">RunReports</span></code>, one for the simulations <code class="docutils literal notranslate"><span class="pre">Steckler</span></code>, and one for general information <code class="docutils literal notranslate"><span class="pre">GeneralInformation</span></code>. To follow this example, save the notebooks in the <code class="docutils literal notranslate"><span class="pre">RunReports</span></code> directory and use the <code class="docutils literal notranslate"><span class="pre">Steckler</span></code> directory as storage for the simulations.</p>
+<p>The simulations contain different versions of the Steckler setup. This comprises different resolutions and different firesources with a larger room size. A couple of devices are located vertically in the centre of the doorway and in the corners of the smaller room. Furthermore, multiple slices are located at various positions. Two slices cut in the x and y direction through the burner and one slice covers the cross section of the doorway. Quantities recorded are <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code>, <code class="docutils literal notranslate"><span class="pre">VELOCITY</span></code>, <code class="docutils literal notranslate"><span class="pre">DENSITY</span></code> and <code class="docutils literal notranslate"><span class="pre">soot</span></code>. Furthermore, wall temperatures are recoreded using <code class="docutils literal notranslate"><span class="pre">BNDF</span></code> for te ceiling and the side wall.</p>
+<p>With the given information, the goal is to determine the height of the gas layers, mass flows in and out of the room and surface temperatures of the side wall. Furthermore, develop a criterion to determine if the hot gas layer is stable.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># General information</span>
+
+
+<span class="c1"># # Directory used to collect the output produced by this notebook.</span>
+<span class="c1"># output_dir = &quot;OutputMcCaffrey&quot;</span>
+<span class="c1"># if not os.path.isdir(output_dir):</span>
+<span class="c1">#     os.mkdir(output_dir)</span>
+<span class="c1">#     print(&quot;* Output directory created.&quot;)</span>
+<span class="c1"># else:</span>
+<span class="c1">#     print(&quot;* Output directory already exists.&quot;)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -934,11 +953,11 @@ Openings - Flow Coefficients</a></p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="01_example_mccaffreyplumes.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="McCaffrey.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">McCaffrey Plume Experiments</p>
+            <p class="prev-next-title">McCaffrey Plumes</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="03_example_zukoskiplumes.html" title="next page">
