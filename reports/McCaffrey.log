@@ -34,7 +34,7 @@ for devc in devcs:
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mAttributeError[0m                            Traceback (most recent call last)
-[0;32m/tmp/ipykernel_2453/1960550569.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_2152/1960550569.py[0m in [0;36m<module>[0;34m[0m
 [1;32m      4[0m [0;34m[0m[0m
 [1;32m      5[0m [0;31m# Get DEVC info, for convenience.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
 [0;32m----> 6[0;31m [0mdevcs[0m [0;34m=[0m [0mplume_sims[0m[0;34m[[0m[0;34m"McCaffrey"[0m[0;34m][0m[0;34m[[0m[0;34m"Sim"[0m[0;34m][0m[0;34m[[0m[0;34m"C5"[0m[0;34m][0m[0;34m[[0m[0;34m"14kW"[0m[0;34m][0m[0;34m.[0m[0mdevices[0m[0;34m[0m[0;34m[0m[0m
