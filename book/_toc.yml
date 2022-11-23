@@ -80,6 +80,7 @@ parts:
     - file: content/examples/02_intermediate/02_adjust_fds_input
     - file: content/examples/02_intermediate/03_work_flow
     - file: content/examples/02_intermediate/04_repeated_sim_exec
+    - file: content/examples/02_intermediate/05_data_analysis_02
   ## ADVANCED
   - file: content/examples/03_advanced/00_overview
     sections:
