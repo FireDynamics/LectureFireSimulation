@@ -1168,7 +1168,7 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1.8.7&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1.9.1&#39;
 </pre></div>
 </div>
 </div>
@@ -1594,7 +1594,7 @@ Simulation time: 25.02111
            <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span>
            <span class="n">vmax</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
            <span class="n">extent</span><span class="o">=</span><span class="n">slc</span><span class="o">.</span><span class="n">extent</span><span class="o">.</span><span class="n">as_list</span><span class="p">())</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;temperature / C&#39;</span><span class="p">);</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s1">&#39;temperature / C&#39;</span><span class="p">,</span> <span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">);</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;x coordinate / m&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;z coordinate / m&#39;</span><span class="p">)</span>
 
@@ -1611,6 +1611,7 @@ Simulation time: 25.02111
 <p><span class="caption-number">Fig. 41 </span><span class="caption-text">Visualization of a slice.</span><a class="headerlink" href="#fig-fdsreader-slice-imshow-03" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
+<p>Obstructions can be visualised using masks, i.e. the data points which lie inside an obstacle will be marked non-valid as an not-a-number (nan) value.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Example for a multi plot</span>
@@ -1923,13 +1924,13 @@ SubSlice(shape=(21, 23), mesh=Domain_B, extent=Extent([0.60, 2.60] x [0.00, 0.00
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/02_fdsreader_70_0.png" src="../../../_images/02_fdsreader_70_0.png" />
+<img alt="../../../_images/02_fdsreader_71_0.png" src="../../../_images/02_fdsreader_71_0.png" />
 </div>
 </div>
 <p>In order to merge the subslices, the <code class="docutils literal notranslate"><span class="pre">to_global</span></code> function can be used.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gslice</span> <span class="o">=</span> <span class="n">slc</span><span class="o">.</span><span class="n">to_global</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gslice</span><span class="p">,</span> <span class="n">gcoord</span> <span class="o">=</span> <span class="n">slc</span><span class="o">.</span><span class="n">to_global</span><span class="p">(</span><span class="n">return_coordinates</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">gslice</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">gslice</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
@@ -1956,10 +1957,10 @@ SubSlice(shape=(21, 23), mesh=Domain_B, extent=Extent([0.60, 2.60] x [0.00, 0.00
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x11f8af250&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x1250b3f10&gt;
 </pre></div>
 </div>
-<img alt="../../../_images/02_fdsreader_74_1.png" src="../../../_images/02_fdsreader_74_1.png" />
+<img alt="../../../_images/02_fdsreader_75_1.png" src="../../../_images/02_fdsreader_75_1.png" />
 </div>
 </div>
 </section>
@@ -1988,28 +1989,16 @@ SubSlice(shape=(21, 23), mesh=Domain_B, extent=Extent([0.60, 2.60] x [0.00, 0.00
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax1</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">ax2</span> <span class="o">=</span> <span class="n">ax1</span><span class="o">.</span><span class="n">twiny</span><span class="p">()</span>
 
-<span class="c1"># select spatial index</span>
-<span class="n">ix</span> <span class="o">=</span> <span class="mi">29</span>
+<span class="c1"># select spatial index (ix) based on physical position (x0)</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="mf">1.25</span>
+<span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">gcoord</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">x0</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">u_slice</span><span class="p">[</span><span class="n">it</span><span class="p">][</span><span class="n">ix</span><span class="p">,:],</span> <span class="nb">range</span><span class="p">(</span><span class="mi">23</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;x-velocity&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_slice</span><span class="p">[</span><span class="n">it</span><span class="p">][</span><span class="n">ix</span><span class="p">,:],</span> <span class="nb">range</span><span class="p">(</span><span class="mi">23</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;temperature&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">u_slice</span><span class="p">[</span><span class="n">it</span><span class="p">][</span><span class="n">ix</span><span class="p">,:],</span> <span class="n">gcoord</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;x-velocity&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t_slice</span><span class="p">[</span><span class="n">it</span><span class="p">][</span><span class="n">ix</span><span class="p">,:],</span> <span class="n">gcoord</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;temperature&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">)</span>
 <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;velocity / m/s&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">)</span>
 <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;temperature / C&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;height / m&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../../_images/02_fdsreader_79_0.png" src="../../../_images/02_fdsreader_79_0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># illustrate the location of the extracted data</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">u_slice</span><span class="p">[</span><span class="n">it</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> 
-           <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">ix</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
@@ -2017,12 +2006,29 @@ SubSlice(shape=(21, 23), mesh=Domain_B, extent=Extent([0.60, 2.60] x [0.00, 0.00
 <img alt="../../../_images/02_fdsreader_80_0.png" src="../../../_images/02_fdsreader_80_0.png" />
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># illustrate the location of the extracted data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">u_slice</span><span class="p">[</span><span class="n">it</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> 
+           <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span>
+           <span class="n">extent</span><span class="o">=</span><span class="n">slc</span><span class="o">.</span><span class="n">extent</span><span class="o">.</span><span class="n">as_list</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">();</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../../_images/02_fdsreader_81_0.png" src="../../../_images/02_fdsreader_81_0.png" />
+</div>
+</div>
 <p>The time evolution of a quantity at a given location is accessed in a similar way.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># select spatial index</span>
-<span class="n">ix</span> <span class="o">=</span> <span class="mi">25</span>
-<span class="n">iy</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">x0</span> <span class="o">=</span> <span class="mf">1.25</span>
+<span class="n">z0</span> <span class="o">=</span> <span class="mf">1.50</span>
+<span class="n">ix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">gcoord</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">x0</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">iy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">gcoord</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">z0</span><span class="p">)[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">slc</span><span class="o">.</span><span class="n">times</span><span class="p">,</span> <span class="n">t_slice</span><span class="p">[:,</span> <span class="n">ix</span><span class="p">,</span> <span class="n">iy</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;time / s&#39;</span><span class="p">)</span>
@@ -2032,21 +2038,22 @@ SubSlice(shape=(21, 23), mesh=Domain_B, extent=Extent([0.60, 2.60] x [0.00, 0.00
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/02_fdsreader_82_0.png" src="../../../_images/02_fdsreader_82_0.png" />
+<img alt="../../../_images/02_fdsreader_83_0.png" src="../../../_images/02_fdsreader_83_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># illustrate the location of the extracted data</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">t_slice</span><span class="p">[</span><span class="n">it</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> 
-           <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">ix</span><span class="p">,</span> <span class="n">iy</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+           <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span>
+           <span class="n">extent</span><span class="o">=</span><span class="n">slc</span><span class="o">.</span><span class="n">extent</span><span class="o">.</span><span class="n">as_list</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x0</span><span class="p">,</span> <span class="n">z0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">();</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/02_fdsreader_83_0.png" src="../../../_images/02_fdsreader_83_0.png" />
+<img alt="../../../_images/02_fdsreader_84_0.png" src="../../../_images/02_fdsreader_84_0.png" />
 </div>
 </div>
 </section>
@@ -2136,7 +2143,7 @@ ID: 3; has data: False
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x10ff42da0&gt;
 </pre></div>
 </div>
-<img alt="../../../_images/02_fdsreader_92_1.png" src="../../../_images/02_fdsreader_92_1.png" />
+<img alt="../../../_images/02_fdsreader_93_1.png" src="../../../_images/02_fdsreader_93_1.png" />
 </div>
 </div>
 <p>In the same mannor as above, e.g. time series at a given point on the boundary can be created. For a point at the center of the boundary, this could be something like this:</p>
@@ -2153,7 +2160,7 @@ ID: 3; has data: False
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/02_fdsreader_94_0.png" src="../../../_images/02_fdsreader_94_0.png" />
+<img alt="../../../_images/02_fdsreader_95_0.png" src="../../../_images/02_fdsreader_95_0.png" />
 </div>
 </div>
 </section>
