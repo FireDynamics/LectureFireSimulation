@@ -1300,74 +1300,107 @@ Cell Qty: 19008 | Size: 0.100·0.100·0.100m | Aspect: 1.0 | Poisson: No
 </section>
 <section id="smoke-layer">
 <h2>Smoke layer<a class="headerlink" href="#smoke-layer" title="Permalink to this headline">#</a></h2>
+<p>In this example, the smoke layer height is analysed. The distinction made here is based on a simple threshold in temperature: The local smoke layer height is given by the lowest point above a given temperature. The evaluation is done based on a slice across the burner and normal to the x-direction.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">slc</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">slices</span><span class="o">.</span><span class="n">get_by_id</span><span class="p">(</span><span class="s1">&#39;BurnerTempX&#39;</span><span class="p">)</span>
-<span class="n">slc_data</span> <span class="o">=</span> <span class="n">slc</span><span class="o">.</span><span class="n">to_global</span><span class="p">(</span><span class="n">masked</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>
-<span class="n">slc_coords</span> <span class="o">=</span> <span class="n">slc</span><span class="o">.</span><span class="n">get_coordinates</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># find the slice</span>
+<span class="n">slc</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">slices</span><span class="o">.</span><span class="n">get_by_id</span><span class="p">(</span><span class="s1">&#39;BurnerTempX&#39;</span><span class="p">)</span>
+
+<span class="c1"># convert it to a global data structure and get the coordinates</span>
+<span class="n">slc_data</span><span class="p">,</span> <span class="n">slc_coords</span> <span class="o">=</span> <span class="n">slc</span><span class="o">.</span><span class="n">to_global</span><span class="p">(</span><span class="n">masked</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">return_coordinates</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+<p>First, the data at a arbitrary point in time is visualsied. The white parts represent the obsticles.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">it</span> <span class="o">=</span> <span class="n">slc</span><span class="o">.</span><span class="n">get_nearest_timestep</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># pick a time index</span>
+<span class="n">it</span> <span class="o">=</span> <span class="n">slc</span><span class="o">.</span><span class="n">get_nearest_timestep</span><span class="p">(</span><span class="mi">150</span><span class="p">)</span>
+
+<span class="c1"># visualise the data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">slc_data</span><span class="p">[</span><span class="n">it</span><span class="p">,:,:]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="n">slc</span><span class="o">.</span><span class="n">extent</span><span class="o">.</span><span class="n">as_list</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Temperature at t=</span><span class="si">{</span><span class="n">slc</span><span class="o">.</span><span class="n">times</span><span class="p">[</span><span class="n">it</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">s&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;y position / m&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;z position / m&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">slc</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1"> / </span><span class="si">{</span><span class="n">slc</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">unit</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">)</span>
+
+<span class="c1"># save output to file</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figs/appartment_temp_slice.svg&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<figure class="align-default" id="fig-example-dataanalysis2-smoke-temp-slice">
+<a class="reference internal image-reference" href="../../../_images/appartment_temp_slice.svg"><img alt="../../../_images/appartment_temp_slice.svg" src="../../../_images/appartment_temp_slice.svg" width="100%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Temperature slice across the burner.</span><a class="headerlink" href="#fig-example-dataanalysis2-smoke-temp-slice" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Now, for each y-position the z-indices are found, where the temperature exceedes the limit temperature. The lowest value is the smoke layer height at the y-position.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set temperature limit</span>
+<span class="n">temperature_limit</span> <span class="o">=</span> <span class="mi">75</span>
+
+<span class="c1"># create a data array to store the local height values, default </span>
+<span class="c1"># is the maximal z-coordinate</span>
+<span class="n">layer_height</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">slc_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">slc_coords</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># loop over all indices</span>
+<span class="k">for</span> <span class="n">ix</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">layer_height</span><span class="p">)):</span>
+    <span class="c1"># find indices which exceed the limit</span>
+    <span class="n">lt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">slc_data</span><span class="p">[</span><span class="n">it</span><span class="p">,</span> <span class="n">ix</span><span class="p">,</span> <span class="p">:]</span> <span class="o">&gt;</span> <span class="n">temperature_limit</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="c1"># if there are any, pick the lowest one</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lt</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">layer_height</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span> <span class="o">=</span> <span class="n">slc_coords</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">][</span><span class="n">lt</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>The resulting values can now be plotted over the slice file, to chech for plausibility.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># slice data</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">slc_data</span><span class="p">[</span><span class="n">it</span><span class="p">,:,:]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="n">slc</span><span class="o">.</span><span class="n">extent</span><span class="o">.</span><span class="n">as_list</span><span class="p">())</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Temperature at t=</span><span class="si">{</span><span class="n">slc</span><span class="o">.</span><span class="n">times</span><span class="p">[</span><span class="n">it</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">s&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;y position / m&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;z position / m&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">slc</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1"> / </span><span class="si">{</span><span class="n">slc</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">unit</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../../_images/05_data_analysis_02_19_0.png" src="../../../_images/05_data_analysis_02_19_0.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperature_limit</span> <span class="o">=</span> <span class="mi">100</span>
 
-<span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">slc_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">slc_coords</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="c1"># smoke layer height</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">slc_coords</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="n">layer_height</span><span class="p">,</span> <span class="s1">&#39;.-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 
-<span class="k">for</span> <span class="n">ix</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">ndindex</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">shape</span><span class="p">):</span>
-    <span class="n">lt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">slc_data</span><span class="p">[</span><span class="n">it</span><span class="p">,</span> <span class="n">ix</span><span class="p">,</span> <span class="p">:]</span> <span class="o">&gt;</span> <span class="n">temperature_limit</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lt</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">res</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span> <span class="o">=</span> <span class="n">slc_coords</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">][</span><span class="n">lt</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+<span class="c1"># save output to file</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figs/appartment_temp_slice_height.svg&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 </div>
+<figure class="align-default" id="fig-example-dataanalysis2-smoke-temp-slice-height">
+<a class="reference internal image-reference" href="../../../_images/appartment_temp_slice_height.svg"><img alt="../../../_images/appartment_temp_slice_height.svg" src="../../../_images/appartment_temp_slice_height.svg" width="100%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Temperature slice with the local smoke layer height.</span><a class="headerlink" href="#fig-example-dataanalysis2-smoke-temp-slice-height" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Using the above approach for a single point in time, a loop over all times can be used to compute, e.g., the mean and standard deviation of the smoke layer height.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">slc_data</span><span class="p">[</span><span class="n">it</span><span class="p">,:,:]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="n">slc</span><span class="o">.</span><span class="n">extent</span><span class="o">.</span><span class="n">as_list</span><span class="p">())</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Temperature at t=</span><span class="si">{</span><span class="n">slc</span><span class="o">.</span><span class="n">times</span><span class="p">[</span><span class="n">it</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">s&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;y position / m&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;z position / m&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">slc</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1"> / </span><span class="si">{</span><span class="n">slc</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">unit</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">);</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">slc_coords</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">],</span> <span class="n">res</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D at 0x139750160&gt;]
-</pre></div>
-</div>
-<img alt="../../../_images/05_data_analysis_02_21_1.png" src="../../../_images/05_data_analysis_02_21_1.png" />
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperature_limit</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">layer_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">slc</span><span class="o">.</span><span class="n">times</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">layer_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">slc</span><span class="o">.</span><span class="n">times</span><span class="p">)</span>
 <span class="n">layer_stddev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">slc</span><span class="o">.</span><span class="n">times</span><span class="p">)</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">slc_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
 <span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">slc</span><span class="o">.</span><span class="n">times</span><span class="p">)):</span>
 
-    <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">slc_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">slc_coords</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="n">res</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">slc_coords</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
-    <span class="k">for</span> <span class="n">ix</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">ndindex</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">shape</span><span class="p">):</span>
-        <span class="n">lt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">slc_data</span><span class="p">[</span><span class="n">it</span><span class="p">,</span> <span class="n">ix</span><span class="p">,</span> <span class="p">:]</span> <span class="o">&gt;</span> <span class="n">temperature_limit</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">ix</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">res</span><span class="p">)):</span>
+        <span class="n">lt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">slc_data</span><span class="p">[</span><span class="n">it</span><span class="p">,</span> <span class="n">ix</span><span class="p">,</span> <span class="p">:]</span> <span class="o">&gt;</span> <span class="n">temperature_limit</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lt</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">res</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span> <span class="o">=</span> <span class="n">slc_coords</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">][</span><span class="n">lt</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
             
@@ -1379,12 +1412,18 @@ Cell Qty: 19008 | Size: 0.100·0.100·0.100m | Aspect: 1.0 | Poisson: No
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">slc</span><span class="o">.</span><span class="n">times</span><span class="p">,</span> <span class="n">layer_mean</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Mean Smoke Layer Height&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot the mean and stddev values as functions of time</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">slc</span><span class="o">.</span><span class="n">times</span><span class="p">,</span> <span class="n">layer_mean</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Mean Smoke Layer Height&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">slc</span><span class="o">.</span><span class="n">times</span><span class="p">,</span> <span class="n">layer_stddev</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Stddev of Smoke Layer Height&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time / s&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Height / m&#39;</span><span class="p">)</span>
+
+<span class="c1"># save output to file</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figs/appartment_layer_mean_stddev.svg&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1392,71 +1431,126 @@ Cell Qty: 19008 | Size: 0.100·0.100·0.100m | Aspect: 1.0 | Poisson: No
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Height / m&#39;)
 </pre></div>
 </div>
-<img alt="../../../_images/05_data_analysis_02_23_1.png" src="../../../_images/05_data_analysis_02_23_1.png" />
+<img alt="../../../_images/05_data_analysis_02_29_1.png" src="../../../_images/05_data_analysis_02_29_1.png" />
 </div>
 </div>
+<figure class="align-default" id="fig-example-dataanalysis2-layer-mean-stddev">
+<a class="reference internal image-reference" href="../../../_images/appartment_layer_mean_stddev.svg"><img alt="../../../_images/appartment_layer_mean_stddev.svg" src="../../../_images/appartment_layer_mean_stddev.svg" width="100%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Temporal development of the mean and stdandard deviation of the smoke layer height.</span><a class="headerlink" href="#fig-example-dataanalysis2-layer-mean-stddev" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Both values can be combined and visualised jointly, where the standard deviation is used to indicate a fluctuation band around the mean value.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">slc</span><span class="o">.</span><span class="n">times</span><span class="p">,</span> <span class="n">layer_mean</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Mean Smoke Layer Height&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot the mean</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">slc</span><span class="o">.</span><span class="n">times</span><span class="p">,</span> <span class="n">layer_mean</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Mean Smoke Layer Height&#39;</span><span class="p">)</span>
+
+<span class="c1"># plot a band around the mean, using the stddev as band borders</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">slc</span><span class="o">.</span><span class="n">times</span><span class="p">,</span> <span class="n">layer_mean</span><span class="o">-</span><span class="n">layer_stddev</span><span class="p">,</span> <span class="n">layer_mean</span><span class="o">+</span><span class="n">layer_stddev</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+
+<span class="c1"># show the floor for reference</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time / s&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Height / m&#39;</span><span class="p">)</span>
+
+<span class="c1"># save output to file</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figs/appartment_layer_mean_band.svg&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Height / m&#39;)
+</div>
+<figure class="align-default" id="fig-example-dataanalysis2-layer-mean-band">
+<a class="reference internal image-reference" href="../../../_images/appartment_layer_mean_band.svg"><img alt="../../../_images/appartment_layer_mean_band.svg" src="../../../_images/appartment_layer_mean_band.svg" width="100%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Temporal development of the mean and stdandard deviation of the smoke layer height.</span><a class="headerlink" href="#fig-example-dataanalysis2-layer-mean-band" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>If parts of the region shall be excluded in the analysis, a coordinate dependent mask can be used for this.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># find indices, where the y coordinate is between the given values</span>
+<span class="n">ymin</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">ymax</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">coord_mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">slc_coords</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">ymin</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">slc_coords</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">ymax</span><span class="p">))</span>
 </pre></div>
 </div>
-<img alt="../../../_images/05_data_analysis_02_24_1.png" src="../../../_images/05_data_analysis_02_24_1.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">temperature_limit</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="n">layer_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">slc</span><span class="o">.</span><span class="n">times</span><span class="p">)</span>
-<span class="n">layer_stddev</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">slc</span><span class="o">.</span><span class="n">times</span><span class="p">)</span>
-<span class="n">ymin</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">ymax</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">((</span><span class="n">slc_coords</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">ymin</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">slc_coords</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">ymax</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># slice data</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">slc_data</span><span class="p">[</span><span class="n">it</span><span class="p">,:,:]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">extent</span><span class="o">=</span><span class="n">slc</span><span class="o">.</span><span class="n">extent</span><span class="o">.</span><span class="n">as_list</span><span class="p">())</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Temperature at t=</span><span class="si">{</span><span class="n">slc</span><span class="o">.</span><span class="n">times</span><span class="p">[</span><span class="n">it</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">s&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;y position / m&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;z position / m&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">slc</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1"> / </span><span class="si">{</span><span class="n">slc</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">unit</span><span class="si">}</span><span class="s1">&#39;</span> <span class="p">);</span>
 
-<span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">slc</span><span class="o">.</span><span class="n">times</span><span class="p">)):</span>
+<span class="c1"># smoke layer height</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">slc_coords</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">][</span><span class="n">coord_mask</span><span class="p">],</span> <span class="n">layer_height</span><span class="p">[</span><span class="n">coord_mask</span><span class="p">],</span> <span class="s1">&#39;.-&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
 
-    <span class="n">res</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">slc_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">slc_coords</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="c1"># save output to file</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figs/appartment_temp_slice_height_mask.svg&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<figure class="align-default" id="fig-example-dataanalysis2-smoke-temp-slice-height-mask">
+<a class="reference internal image-reference" href="../../../_images/appartment_temp_slice_height_mask.svg"><img alt="../../../_images/appartment_temp_slice_height_mask.svg" src="../../../_images/appartment_temp_slice_height_mask.svg" width="100%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Temperature slice with the local smoke layer height, limited to the masked region.</span><a class="headerlink" href="#fig-example-dataanalysis2-smoke-temp-slice-height-mask" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The above procedure can be reused, yet the computation of the mean and standard deviation is carried out on the masked values.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">it</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">slc</span><span class="o">.</span><span class="n">times</span><span class="p">)):</span>
+
+    <span class="n">res</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">slc_coords</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
     <span class="k">for</span> <span class="n">ix</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">ndindex</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">shape</span><span class="p">):</span>
         <span class="n">lt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">slc_data</span><span class="p">[</span><span class="n">it</span><span class="p">,</span> <span class="n">ix</span><span class="p">,</span> <span class="p">:]</span> <span class="o">&gt;</span> <span class="n">temperature_limit</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">lt</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="n">res</span><span class="p">[</span><span class="n">ix</span><span class="p">]</span> <span class="o">=</span> <span class="n">slc_coords</span><span class="p">[</span><span class="s1">&#39;z&#39;</span><span class="p">][</span><span class="n">lt</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
-            
-    <span class="n">layer_mean</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="n">mask</span><span class="p">])</span>
-    <span class="n">layer_stddev</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="n">mask</span><span class="p">])</span>
+    
+    <span class="c1"># computation is carried out on the masked values now</span>
+    <span class="n">layer_mean</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="n">coord_mask</span><span class="p">])</span>
+    <span class="n">layer_stddev</span><span class="p">[</span><span class="n">it</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="n">coord_mask</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">slc</span><span class="o">.</span><span class="n">times</span><span class="p">,</span> <span class="n">layer_mean</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Mean Smoke Layer Height&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># same plot as above</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">slc</span><span class="o">.</span><span class="n">times</span><span class="p">,</span> <span class="n">layer_mean</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Mean Smoke Layer Height&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">slc</span><span class="o">.</span><span class="n">times</span><span class="p">,</span> <span class="n">layer_mean</span><span class="o">-</span><span class="n">layer_stddev</span><span class="p">,</span> <span class="n">layer_mean</span><span class="o">+</span><span class="n">layer_stddev</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time / s&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Height / m&#39;</span><span class="p">)</span>
+
+<span class="c1"># save output to file</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figs/appartment_layer_mean_band_mask.svg&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Height / m&#39;)
-</pre></div>
 </div>
-<img alt="../../../_images/05_data_analysis_02_26_1.png" src="../../../_images/05_data_analysis_02_26_1.png" />
-</div>
-</div>
+<figure class="align-default" id="fig-example-dataanalysis2-layer-mean-band-mask">
+<a class="reference internal image-reference" href="../../../_images/appartment_layer_mean_band_mask.svg"><img alt="../../../_images/appartment_layer_mean_band_mask.svg" src="../../../_images/appartment_layer_mean_band_mask.svg" width="100%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text">Temporal development of the mean and stdandard deviation of the smoke layer height in the masked region.</span><a class="headerlink" href="#fig-example-dataanalysis2-layer-mean-band-mask" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 </section>
 

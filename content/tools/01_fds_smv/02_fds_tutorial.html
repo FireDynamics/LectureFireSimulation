@@ -1030,11 +1030,11 @@ title="Print to PDF"
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="fds-basic-example">
 <h1>FDS Basic Example<a class="headerlink" href="#fds-basic-example" title="Permalink to this headline">#</a></h1>
-<p>In this part we will guide you on how to set up your input file for a FDS simulation. A propane fire within a room will be simulated. The room is pictured in <a class="reference internal" href="#fig-fdstutorial-dimensions"><span class="std std-numref">Fig. 8</span></a>. In the middel of the room there will be an object with dimensions <span class="math notranslate nohighlight">\(\mf 1~m\times 1~m\times 0.5~m\)</span>, the heat release rate of the fire is <span class="math notranslate nohighlight">\(\mf 600~kW/m^2\)</span></p>
+<p>In this part we will guide you on how to set up your input file for a FDS simulation. A propane fire within a room will be simulated. The room is pictured in <a class="reference internal" href="#fig-fdstutorial-dimensions"><span class="std std-numref">Fig. 14</span></a>. In the middel of the room there will be an object with dimensions <span class="math notranslate nohighlight">\(\mf 1~m\times 1~m\times 0.5~m\)</span>, the heat release rate of the fire is <span class="math notranslate nohighlight">\(\mf 600~kW/m^2\)</span></p>
 <figure class="align-default" id="fig-fdstutorial-dimensions">
 <a class="reference internal image-reference" href="../../../_images/room_dimensions.png"><img alt="../../../_images/room_dimensions.png" src="../../../_images/room_dimensions.png" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Geometry and dimensions of the room.</span><a class="headerlink" href="#fig-fdstutorial-dimensions" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Geometry and dimensions of the room.</span><a class="headerlink" href="#fig-fdstutorial-dimensions" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>First you should make a new folder. In this folder you will create the input file and all the generated output files will also be located in this folder. Create an empty plain text file. You could use any text editor (not a word processor) to create your text file. Although the file extenison does not matter, a common practice is to use the <code class="docutils literal notranslate"><span class="pre">.fds</span></code> extension.</p>
@@ -1054,19 +1054,19 @@ title="Print to PDF"
 </section>
 <section id="step-2-setting-up-the-computational-domain">
 <h2>Step 2: Setting up the computational domain<a class="headerlink" href="#step-2-setting-up-the-computational-domain" title="Permalink to this headline">#</a></h2>
-<p>In the third step the domain of the simulation is set-up. This is done by creating a mesh (<code class="docutils literal notranslate"><span class="pre">MESH</span></code>). The domain in this example is represended by a single mesh, which is specified by its coordinates <code class="docutils literal notranslate"><span class="pre">XB</span> <span class="pre">=</span> <span class="pre">X1,X2,</span> <span class="pre">Y1,Y2,</span> <span class="pre">Z1,Z2</span></code>, see <a class="reference internal" href="#fig-fdstutorial-coordinates"><span class="std std-numref">Fig. 9</span></a> and by the number of cells in each direction <code class="docutils literal notranslate"><span class="pre">IJK</span> <span class="pre">=</span> <span class="pre">nx,</span> <span class="pre">ny,</span> <span class="pre">nz</span></code>. Here, we choose the following values</p>
+<p>In the third step the domain of the simulation is set-up. This is done by creating a mesh (<code class="docutils literal notranslate"><span class="pre">MESH</span></code>). The domain in this example is represended by a single mesh, which is specified by its coordinates <code class="docutils literal notranslate"><span class="pre">XB</span> <span class="pre">=</span> <span class="pre">X1,X2,</span> <span class="pre">Y1,Y2,</span> <span class="pre">Z1,Z2</span></code>, see <a class="reference internal" href="#fig-fdstutorial-coordinates"><span class="std std-numref">Fig. 15</span></a> and by the number of cells in each direction <code class="docutils literal notranslate"><span class="pre">IJK</span> <span class="pre">=</span> <span class="pre">nx,</span> <span class="pre">ny,</span> <span class="pre">nz</span></code>. Here, we choose the following values</p>
 <p><code class="docutils literal notranslate"><span class="pre">&amp;MESH</span> <span class="pre">XB=0,2,0,4,0,2.5,</span> <span class="pre">IJK=20,40,25/</span></code></p>
 <figure class="align-default" id="fig-fdstutorial-coordinates">
 <a class="reference internal image-reference" href="../../../_images/coordinates1.png"><img alt="../../../_images/coordinates1.png" src="../../../_images/coordinates1.png" style="width: 20%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 9 </span><span class="caption-text">XB coordinate definition in fds.</span><a class="headerlink" href="#fig-fdstutorial-coordinates" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">XB coordinate definition in fds.</span><a class="headerlink" href="#fig-fdstutorial-coordinates" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>The domain in this example is vizualised in <a class="reference internal" href="#fig-fdstutorial-domain"><span class="std std-numref">Fig. 10</span></a>.</p>
+<p>The domain in this example is vizualised in <a class="reference internal" href="#fig-fdstutorial-domain"><span class="std std-numref">Fig. 16</span></a>.</p>
 <figure class="align-default" id="fig-fdstutorial-domain">
 <a class="reference internal image-reference" href="../../../_images/grid.png"><img alt="../../../_images/grid.png" src="../../../_images/grid.png" style="width: 40%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Vizualisation of the domain.</span><a class="headerlink" href="#fig-fdstutorial-domain" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Vizualisation of the domain.</span><a class="headerlink" href="#fig-fdstutorial-domain" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="admonition tip">
@@ -1096,7 +1096,7 @@ title="Print to PDF"
 <figure class="align-default" id="fig-fdstutorial-room-geometry">
 <a class="reference internal image-reference" href="../../../_images/door.png"><img alt="../../../_images/door.png" src="../../../_images/door.png" style="width: 40%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 11 </span><span class="caption-text">The geometry of the room.</span><a class="headerlink" href="#fig-fdstutorial-room-geometry" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text">The geometry of the room.</span><a class="headerlink" href="#fig-fdstutorial-room-geometry" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
