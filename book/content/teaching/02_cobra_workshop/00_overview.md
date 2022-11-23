@@ -7,8 +7,8 @@ Each iteration of the workshop is distributed over two days. The training takes 
 **Workshop I, Introduction to High Performance Computing:**
 - [Schedule](01_ws_01)
 
-**Workshop II, Data Analysis:**
+**Workshop II, Data Analysis I:**
 - [Schedule](02_ws_01)
 
-**Workshop III, Automation(?):**
+**Workshop III, Data Analysis II:**
 - [Schedule](03_ws_01)
