@@ -999,6 +999,10 @@ title="Print to PDF"
 <p>In this example, the directory for our project is called <code class="docutils literal notranslate"><span class="pre">FirePlumes</span></code>. Inside the project directory, three other directories are created: one to store the jupyter notebooks <code class="docutils literal notranslate"><span class="pre">RunReports</span></code>, one for the simulations <code class="docutils literal notranslate"><span class="pre">McCaffrey</span></code>, and one for general information <code class="docutils literal notranslate"><span class="pre">GeneralInformation</span></code>.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">McCaffrey</span></code> directory contains different simulations of the McCaffrey setup. In <code class="docutils literal notranslate"><span class="pre">GeneralInformation</span></code> files containing the extracted experiment data are located. These data series were extracted using the <a class="reference internal" href="../01_basic/04_basic_example_iv.html"><span class="doc std std-doc">WebPlotDigitizer</span></a>. The Jupyter notebooks are to be located in <code class="docutils literal notranslate"><span class="pre">RunReports</span></code>.</p>
 <p>As structure it is recommended that the user creates directories labeled based on the experiment setup, for example <code class="docutils literal notranslate"><span class="pre">14kW</span></code>. This way data can nicely be accessed when following this example here. Furthermore, simulations are performed with differernt resolutions, based on the reference cell. Simulations of these groups are referred to by the resolutin with respect to the reference cell and are stored in according directories. For example the “C5” directory contains simulations for which the reference cell was divided by 5 in each direction.</p>
+<div class="tip admonition">
+<p class="admonition-title">Precomputed simulation data</p>
+<p><a class="reference external" href="https://uni-wuppertal.sciebo.de/s/p8nn60Kmtd3qoRt/download?path=%2F&amp;files=fdsreader_example_01.zip">Download link</a></p>
+</div>
 </section>
 <section id="some-basic-setup">
 <h2>Some Basic Setup<a class="headerlink" href="#some-basic-setup" title="Permalink to this headline">#</a></h2>
@@ -1114,7 +1118,7 @@ fdsreader version: 1.8.4
 </section>
 <section id="read-experiment-data">
 <h2>Read Experiment Data<a class="headerlink" href="#read-experiment-data" title="Permalink to this headline">#</a></h2>
-<p>In the following block the experiment data is read. These fdata sets are also stored in the same dictionary with all the data series from the simulations. This keeps everthing nicely organised.</p>
+<p>In the following block the experiment data is read. These data sets are also stored in the same dictionary with all the data series from the simulations. This keeps everthing nicely organised.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read temperature expertiment data.</span>
@@ -1433,7 +1437,7 @@ fdsreader version: 1.8.4
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/McCaffrey_15_0.png" src="../../../_images/McCaffrey_15_0.png" />
+<img alt="../../../_images/McCaffrey_16_0.png" src="../../../_images/McCaffrey_16_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1501,7 +1505,7 @@ fdsreader version: 1.8.4
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/McCaffrey_16_0.png" src="../../../_images/McCaffrey_16_0.png" />
+<img alt="../../../_images/McCaffrey_17_0.png" src="../../../_images/McCaffrey_17_0.png" />
 </div>
 </div>
 </section>
