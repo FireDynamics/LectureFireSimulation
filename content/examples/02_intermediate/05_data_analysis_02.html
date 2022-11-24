@@ -1361,7 +1361,7 @@ Cell Qty: 19008 | Size: 0.100·0.100·0.100m | Aspect: 1.0 | Poisson: No
 </div>
 </div>
 </div>
-<p>The resulting values can now be plotted over the slice file, to chech for plausibility.</p>
+<p>The resulting values can now be plotted over the slice file, to check for plausibility.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># slice data</span>
@@ -1435,13 +1435,12 @@ Cell Qty: 19008 | Size: 0.100·0.100·0.100m | Aspect: 1.0 | Poisson: No
 <img alt="../../../_images/05_data_analysis_02_29_1.png" src="../../../_images/05_data_analysis_02_29_1.png" />
 </div>
 </div>
-<figure class="align-default" id="fig-example-dataanalysis2-layer-mean-stddev">
-<a class="reference internal image-reference" href="../../../_images/appartment_layer_mean_stddev.svg"><img alt="../../../_images/appartment_layer_mean_stddev.svg" src="../../../_images/appartment_layer_mean_stddev.svg" width="100%" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Temporal development of the mean and stdandard deviation of the smoke layer height.</span><a class="headerlink" href="#fig-example-dataanalysis2-layer-mean-stddev" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>Both values can be combined and visualised jointly, where the standard deviation is used to indicate a fluctuation band around the mean value.</p>
+<!-- :::{figure-md} fig-example-dataanalysis2-layer-mean-stddev
+
+<img src="figs/appartment_layer_mean_stddev.svg" width="100%">
+
+Temporal development of the mean and stdandard deviation of the smoke layer height.
+::: --><p>Both values can be combined and visualised jointly, where the standard deviation is used to indicate a fluctuation band around the mean value.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot the mean</span>
@@ -1468,7 +1467,7 @@ Cell Qty: 19008 | Size: 0.100·0.100·0.100m | Aspect: 1.0 | Poisson: No
 <figure class="align-default" id="fig-example-dataanalysis2-layer-mean-band">
 <a class="reference internal image-reference" href="../../../_images/appartment_layer_mean_band.svg"><img alt="../../../_images/appartment_layer_mean_band.svg" src="../../../_images/appartment_layer_mean_band.svg" width="100%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Temporal development of the mean and stdandard deviation of the smoke layer height.</span><a class="headerlink" href="#fig-example-dataanalysis2-layer-mean-band" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Temporal development of the mean and stdandard deviation of the smoke layer height.</span><a class="headerlink" href="#fig-example-dataanalysis2-layer-mean-band" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>If parts of the region shall be excluded in the analysis, a coordinate dependent mask can be used for this.</p>
@@ -1505,7 +1504,7 @@ Cell Qty: 19008 | Size: 0.100·0.100·0.100m | Aspect: 1.0 | Poisson: No
 <figure class="align-default" id="fig-example-dataanalysis2-smoke-temp-slice-height-mask">
 <a class="reference internal image-reference" href="../../../_images/appartment_temp_slice_height_mask.svg"><img alt="../../../_images/appartment_temp_slice_height_mask.svg" src="../../../_images/appartment_temp_slice_height_mask.svg" width="100%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Temperature slice with the local smoke layer height, limited to the masked region.</span><a class="headerlink" href="#fig-example-dataanalysis2-smoke-temp-slice-height-mask" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Temperature slice with the local smoke layer height, limited to the masked region.</span><a class="headerlink" href="#fig-example-dataanalysis2-smoke-temp-slice-height-mask" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The above procedure can be reused, yet the computation of the mean and standard deviation is carried out on the masked values.</p>
@@ -1549,7 +1548,7 @@ Cell Qty: 19008 | Size: 0.100·0.100·0.100m | Aspect: 1.0 | Poisson: No
 <figure class="align-default" id="fig-example-dataanalysis2-layer-mean-band-mask">
 <a class="reference internal image-reference" href="../../../_images/appartment_layer_mean_band_mask.svg"><img alt="../../../_images/appartment_layer_mean_band_mask.svg" src="../../../_images/appartment_layer_mean_band_mask.svg" width="100%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 11 </span><span class="caption-text">Temporal development of the mean and stdandard deviation of the smoke layer height in the masked region.</span><a class="headerlink" href="#fig-example-dataanalysis2-layer-mean-band-mask" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Temporal development of the mean and stdandard deviation of the smoke layer height in the masked region.</span><a class="headerlink" href="#fig-example-dataanalysis2-layer-mean-band-mask" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
