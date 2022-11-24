@@ -1919,14 +1919,21 @@ SubSlice(shape=(21, 23), mesh=Domain_B, extent=Extent([0.60, 2.60] x [0.00, 0.00
     <span class="n">axs</span><span class="o">.</span><span class="n">flat</span><span class="p">[</span><span class="n">ax_count</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">slc</span><span class="o">.</span><span class="n">extent_dirs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1"> / m&#39;</span><span class="p">)</span>
     <span class="n">axs</span><span class="o">.</span><span class="n">flat</span><span class="p">[</span><span class="n">ax_count</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">slc</span><span class="o">.</span><span class="n">extent_dirs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1"> / m&#39;</span><span class="p">)</span>
     <span class="n">ax_count</span> <span class="o">+=</span> <span class="mi">1</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="c1"># save output to file</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figs/multi_slice_separate.svg&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<img alt="../../../_images/02_fdsreader_71_0.png" src="../../../_images/02_fdsreader_71_0.png" />
 </div>
-</div>
+<figure class="align-default" id="fig-fdsreader-multi-slice-separate">
+<a class="reference internal image-reference" href="../../../_images/multi_slice_separate.svg"><img alt="../../../_images/multi_slice_separate.svg" src="../../../_images/multi_slice_separate.svg" width="80%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 48 </span><span class="caption-text">Individual visualization of slices on two meshes.</span><a class="headerlink" href="#fig-fdsreader-multi-slice-separate" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 <p>In order to merge the subslices, the <code class="docutils literal notranslate"><span class="pre">to_global</span></code> function can be used.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1952,17 +1959,21 @@ SubSlice(shape=(21, 23), mesh=Domain_B, extent=Extent([0.60, 2.60] x [0.00, 0.00
            <span class="n">vmax</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">slc</span><span class="o">.</span><span class="n">extent_dirs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1"> / m&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">slc</span><span class="o">.</span><span class="n">extent_dirs</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1"> / m&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">orientation</span><span class="o">=</span><span class="s1">&#39;horizontal&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">slc</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1"> / </span><span class="si">{</span><span class="n">slc</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">unit</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># save output to file</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figs/multi_slice_global.svg&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x1250b3f10&gt;
-</pre></div>
 </div>
-<img alt="../../../_images/02_fdsreader_75_1.png" src="../../../_images/02_fdsreader_75_1.png" />
-</div>
-</div>
+<figure class="align-default" id="fig-fdsreader-multi-slice-global">
+<a class="reference internal image-reference" href="../../../_images/multi_slice_global.svg"><img alt="../../../_images/multi_slice_global.svg" src="../../../_images/multi_slice_global.svg" width="80%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 49 </span><span class="caption-text">Visualization of a global, i.e. merged, slice.</span><a class="headerlink" href="#fig-fdsreader-multi-slice-global" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="accessing-slice-data">
 <h3>Accessing Slice Data<a class="headerlink" href="#accessing-slice-data" title="Permalink to this headline">#</a></h3>
@@ -2003,7 +2014,7 @@ SubSlice(shape=(21, 23), mesh=Domain_B, extent=Extent([0.60, 2.60] x [0.00, 0.00
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/02_fdsreader_80_0.png" src="../../../_images/02_fdsreader_80_0.png" />
+<img alt="../../../_images/02_fdsreader_82_0.png" src="../../../_images/02_fdsreader_82_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2018,7 +2029,7 @@ SubSlice(shape=(21, 23), mesh=Domain_B, extent=Extent([0.60, 2.60] x [0.00, 0.00
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/02_fdsreader_81_0.png" src="../../../_images/02_fdsreader_81_0.png" />
+<img alt="../../../_images/02_fdsreader_83_0.png" src="../../../_images/02_fdsreader_83_0.png" />
 </div>
 </div>
 <p>The time evolution of a quantity at a given location is accessed in a similar way.</p>
@@ -2038,7 +2049,7 @@ SubSlice(shape=(21, 23), mesh=Domain_B, extent=Extent([0.60, 2.60] x [0.00, 0.00
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/02_fdsreader_83_0.png" src="../../../_images/02_fdsreader_83_0.png" />
+<img alt="../../../_images/02_fdsreader_85_0.png" src="../../../_images/02_fdsreader_85_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -2053,7 +2064,7 @@ SubSlice(shape=(21, 23), mesh=Domain_B, extent=Extent([0.60, 2.60] x [0.00, 0.00
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/02_fdsreader_84_0.png" src="../../../_images/02_fdsreader_84_0.png" />
+<img alt="../../../_images/02_fdsreader_86_0.png" src="../../../_images/02_fdsreader_86_0.png" />
 </div>
 </div>
 </section>
@@ -2143,7 +2154,7 @@ ID: 3; has data: False
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x10ff42da0&gt;
 </pre></div>
 </div>
-<img alt="../../../_images/02_fdsreader_93_1.png" src="../../../_images/02_fdsreader_93_1.png" />
+<img alt="../../../_images/02_fdsreader_95_1.png" src="../../../_images/02_fdsreader_95_1.png" />
 </div>
 </div>
 <p>In the same mannor as above, e.g. time series at a given point on the boundary can be created. For a point at the center of the boundary, this could be something like this:</p>
@@ -2160,7 +2171,7 @@ ID: 3; has data: False
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/02_fdsreader_95_0.png" src="../../../_images/02_fdsreader_95_0.png" />
+<img alt="../../../_images/02_fdsreader_97_0.png" src="../../../_images/02_fdsreader_97_0.png" />
 </div>
 </div>
 </section>
