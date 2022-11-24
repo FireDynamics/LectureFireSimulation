@@ -1,0 +1,240 @@
+&HEAD CHID  = 'McCaffrey',
+      TITLE = 'McCaffrey test case' /
+
+&TIME T_END = 300.0, TIME_SHRINK_FACTOR = 10. /
+&DUMP NFRAMES = 150 /
+
+&MISC SIMULATION_MODE = 'LES' /
+
+
+&MESH ID  = 'Domain',
+      IJK = 45,45,120,
+      XB  = -1.35,1.35, -1.35,1.35, -0.60,6.60 /
+
+ MESH ID  = 'Domain',
+      IJK = 135,135,360,
+      XB  = -1.35,1.35, -1.35,1.35, -0.60,6.60 /
+
+
+
+
+
+# ---------------------------------------
+# Domain boundary
+# ---------------------------------------
+
+&VENT MB='XMIN', SURF_ID='OPEN' /
+&VENT MB='XMAX', SURF_ID='OPEN' /
+&VENT MB='YMIN', SURF_ID='OPEN' /
+&VENT MB='YMAX', SURF_ID='OPEN' /
+
+&VENT MB='ZMAX', SURF_ID='OPEN' /
+
+
+
+# ---------------------------------------
+# Gas burner: methane
+# ---------------------------------------
+&SPEC ID = 'METHANE' /
+
+&REAC FUEL               = 'METHANE',
+      SOOT_YIELD         = 0.022,
+      RADIATIVE_FRACTION = 0.2 /
+
+# Burners:
+14kW, 22kW, 33kW, 45kW, 57kW
+&SURF ID         = 'BURNER',
+      HRRPUA     = 638.8888888888889,
+      COLOR      = 'RASPBERRY' /
+
+
+&OBST ID = 'BurnerBase',
+      XB = -0.15,0.15, -0.15,0.15, -0.72,0.00 /
+
+&VENT ID      = 'BurnerOutlet',
+      SURF_ID = 'BURNER',
+      XB      = -0.15,0.15, -0.15,0.15, 0.00,0.00 /
+
+&HEAD CHID  = 'McCaffrey',
+      TITLE = 'McCaffrey test case' /
+
+
+
+# ---------------------------------------
+# Geometrical Structure
+# ---------------------------------------
+
+&OBST ID = 'Ground',
+      XB = -1.51,1.51, -1.51,1.51, -0.9,-0.72 /
+
+
+
+# ---------------------------------------
+# Analytics
+# ---------------------------------------
+
+&DEVC ID           = 'Temp_Centre',
+      POINTS       = 110,
+      QUANTITY     = 'TEMPERATURE',
+      TIME_HISTORY = T,
+      XB           = 0.00,0.00, 0.00,0.00, 0.03,6.57 /
+
+&DEVC ID           = 'TC_Centre',
+      POINTS       = 110,
+      QUANTITY     = 'THERMOCOUPLE',
+      TIME_HISTORY = T,
+      XB           = 0.00,0.00, 0.00,0.00, 0.03,6.57 /
+
+
+
+&SLCF PBZ           = 0.21,
+      QUANTITY      = 'TEMPERATURE',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 0.51,
+      QUANTITY      = 'TEMPERATURE',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 1.29,
+      QUANTITY      = 'TEMPERATURE',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 2.25,
+      QUANTITY      = 'TEMPERATURE',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 3.27,
+      QUANTITY      = 'TEMPERATURE',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 4.29,
+      QUANTITY      = 'TEMPERATURE',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 5.25,
+      QUANTITY      = 'TEMPERATURE',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 6.27,
+      QUANTITY      = 'TEMPERATURE',
+      CELL_CENTERED = T /
+
+
+&SLCF PBZ           = 0.21,
+      QUANTITY      = 'DENSITY',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 0.51,
+      QUANTITY      = 'DENSITY',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 1.29,
+      QUANTITY      = 'DENSITY',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 2.25,
+      QUANTITY      = 'DENSITY',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 3.27,
+      QUANTITY      = 'DENSITY',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 4.29,
+      QUANTITY      = 'DENSITY',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 5.25,
+      QUANTITY      = 'DENSITY',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 6.27,
+      QUANTITY      = 'DENSITY',
+      CELL_CENTERED = T /
+
+
+&SLCF PBZ           = 0.21,
+      QUANTITY      = 'U-VELOCITY',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 0.51,
+      QUANTITY      = 'U-VELOCITY',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 1.29,
+      QUANTITY      = 'U-VELOCITY',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 2.25,
+      QUANTITY      = 'U-VELOCITY',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 3.27,
+      QUANTITY      = 'U-VELOCITY',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 4.29,
+      QUANTITY      = 'U-VELOCITY',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 5.25,
+      QUANTITY      = 'U-VELOCITY',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 6.27,
+      QUANTITY      = 'U-VELOCITY',
+      CELL_CENTERED = T /
+
+
+&SLCF PBZ           = 0.21,
+      QUANTITY      = 'V-VELOCITY',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 0.51,
+      QUANTITY      = 'V-VELOCITY',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 1.29,
+      QUANTITY      = 'V-VELOCITY',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 2.25,
+      QUANTITY      = 'V-VELOCITY',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 3.27,
+      QUANTITY      = 'V-VELOCITY',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 4.29,
+      QUANTITY      = 'V-VELOCITY',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 5.25,
+      QUANTITY      = 'V-VELOCITY',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 6.27,
+      QUANTITY      = 'V-VELOCITY',
+      CELL_CENTERED = T /
+
+
+&SLCF PBZ           = 0.21,
+      QUANTITY      = 'W-VELOCITY',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 0.51,
+      QUANTITY      = 'W-VELOCITY',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 1.29,
+      QUANTITY      = 'W-VELOCITY',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 2.25,
+      QUANTITY      = 'W-VELOCITY',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 3.27,
+      QUANTITY      = 'W-VELOCITY',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 4.29,
+      QUANTITY      = 'W-VELOCITY',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 5.25,
+      QUANTITY      = 'W-VELOCITY',
+      CELL_CENTERED = T /
+&SLCF PBZ           = 6.27,
+      QUANTITY      = 'W-VELOCITY',
+      CELL_CENTERED = T /
+
+
+
+&SLCF PBX           = 0.0,
+      QUANTITY      = 'TEMPERATURE',
+      CELL_CENTERED = T /
+
+
+&SLCF PBX           = 0.0,
+      QUANTITY      = 'DENSITY',
+      CELL_CENTERED = T /
+
+
+&SLCF PBX           = 0.0,
+      QUANTITY      = 'W-VELOCITY',
+      CELL_CENTERED = T /
+
+
+
+&BNDF QUANTITY="WALL TEMPERATURE" /
+
+
+&TAIL /
