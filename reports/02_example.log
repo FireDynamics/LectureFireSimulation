@@ -66,7 +66,7 @@ plt.grid()
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mUnicodeDecodeError[0m                        Traceback (most recent call last)
-[0;32m/tmp/ipykernel_2595/1765425619.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_2485/1765425619.py[0m in [0;36m<module>[0;34m[0m
 [1;32m      6[0m [0;34m[0m[0m
 [1;32m      7[0m [0;34m[0m[0m
 [0;32m----> 8[0;31m [0mTGA_data[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0mTGA_Data[0m[0;34m,[0m [0msep[0m[0;34m=[0m[0;34m','[0m[0;34m,[0m [0mnames[0m[0;34m=[0m[0;34m[[0m[0;34m'Time(s)'[0m[0;34m,[0m [0;34m'Temperature(C)'[0m[0;34m,[0m [0;34m'Mass(mg)'[0m[0;34m][0m[0;34m,[0m [0mskiprows[0m[0;34m=[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
