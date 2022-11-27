@@ -1,0 +1,40 @@
+&HEAD CHID  = 'InputTemplate',
+      TITLE = 'Basic template file for learning string replacement' /
+
+&TIME T_END = 30.0 /
+
+
+
+&MESH ID  = 'Domain',
+      IJK = 10,10,10,
+      XB  = 0.00,2.00, 0.00,2.00, 0.00,2.00 /
+
+
+
+# ---------------------------------------
+# Gas burner: methane
+# ---------------------------------------
+
+&REAC FUEL       = 'METHANE',
+      SOOT_YIELD = 0.022 /
+
+&SURF ID         = 'BURNER',
+      HRRPUA     = 160.0,
+      COLOR      = 'RASPBERRY' /
+
+
+&VENT ID      = 'BurnerOutlet',
+      SURF_ID = 'BURNER',
+      XB      = 0.80,1.20, 0.80,1.20, 0.00,0.00 /
+
+
+
+# ---------------------------------------
+# Analytics
+# ---------------------------------------
+
+#Devices#
+
+
+
+&TAIL /

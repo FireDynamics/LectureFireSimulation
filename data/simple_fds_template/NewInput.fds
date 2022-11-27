@@ -1,0 +1,62 @@
+&HEAD CHID  = 'InputTemplate',
+      TITLE = 'Basic template file for learning string replacement' /
+
+&TIME T_END = 30.0 /
+
+
+
+&MESH ID  = 'Domain',
+      IJK = 10,10,10,
+      XB  = 0.00,2.00, 0.00,2.00, 0.00,2.00 /
+
+
+
+# ---------------------------------------
+# Gas burner: methane
+# ---------------------------------------
+
+&REAC FUEL       = 'METHANE',
+      SOOT_YIELD = 0.022 /
+
+&SURF ID         = 'BURNER',
+      HRRPUA     = 160.0,
+      COLOR      = 'RASPBERRY' /
+
+
+&VENT ID      = 'BurnerOutlet',
+      SURF_ID = 'BURNER',
+      XB      = 0.80,1.20, 0.80,1.20, 0.00,0.00 /
+
+
+
+# ---------------------------------------
+# Analytics
+# ---------------------------------------
+
+&DEVC ID = 'TEMP_z00', XYZ = 0.0, 0.0, 0.05, QUANTITY = 'TEMPERATURE' /
+&DEVC ID = 'TEMP_z01', XYZ = 0.0, 0.0, 0.15, QUANTITY = 'TEMPERATURE' /
+&DEVC ID = 'TEMP_z02', XYZ = 0.0, 0.0, 0.25, QUANTITY = 'TEMPERATURE' /
+&DEVC ID = 'TEMP_z03', XYZ = 0.0, 0.0, 0.35, QUANTITY = 'TEMPERATURE' /
+&DEVC ID = 'TEMP_z04', XYZ = 0.0, 0.0, 0.45, QUANTITY = 'TEMPERATURE' /
+&DEVC ID = 'TEMP_z05', XYZ = 0.0, 0.0, 0.55, QUANTITY = 'TEMPERATURE' /
+&DEVC ID = 'TEMP_z06', XYZ = 0.0, 0.0, 0.65, QUANTITY = 'TEMPERATURE' /
+&DEVC ID = 'TEMP_z07', XYZ = 0.0, 0.0, 0.75, QUANTITY = 'TEMPERATURE' /
+&DEVC ID = 'TEMP_z08', XYZ = 0.0, 0.0, 0.85, QUANTITY = 'TEMPERATURE' /
+&DEVC ID = 'TEMP_z09', XYZ = 0.0, 0.0, 0.95, QUANTITY = 'TEMPERATURE' /
+
+&DEVC ID = 'THER_z00', XYZ = 0.0, 0.0, 0.05, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'THER_z01', XYZ = 0.0, 0.0, 0.15, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'THER_z02', XYZ = 0.0, 0.0, 0.25, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'THER_z03', XYZ = 0.0, 0.0, 0.35, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'THER_z04', XYZ = 0.0, 0.0, 0.45, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'THER_z05', XYZ = 0.0, 0.0, 0.55, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'THER_z06', XYZ = 0.0, 0.0, 0.65, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'THER_z07', XYZ = 0.0, 0.0, 0.75, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'THER_z08', XYZ = 0.0, 0.0, 0.85, QUANTITY = 'THERMOCOUPLE' /
+&DEVC ID = 'THER_z09', XYZ = 0.0, 0.0, 0.95, QUANTITY = 'THERMOCOUPLE' /
+
+
+
+
+
+&TAIL /
