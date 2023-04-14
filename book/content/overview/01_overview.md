@@ -2,7 +2,7 @@
 
 ## General Information
 
-The lecture *Fire Simulations* at the University of Wuppertal is organised by the chair [Computational Civil Engineering (CCE)](https://cce.uni-wuppertal.de/). The 2019 founded chair is mainly concerned with the research and development of new computer-based models. The focus of the application is the numerical simulation of fire and smoke propagation in buildings.  
+The lecture *Fire Simulations* at the University of Wuppertal is organised by the chair of [Computational Civil Engineering (CCE)](https://cce.uni-wuppertal.de/). The 2019 founded chair is mainly concerned with the research and development of new computer-based models. The focus of the application is the numerical simulation of fire and smoke propagation in buildings.  
 
 ![topics](./figs/fire_banner.png)
 
@@ -20,7 +20,7 @@ As the script is under development, we welcome constructive suggestions and your
 * The script also contains exercises for all topics, with and without solution paths, but always with a result or the possibility of validating your solution.
 * Do not print out the script or save it elsewhere. This way you have the latest version, which is continuously improved and supplemented with content.
 * The script will always remain freely accessible.
-* The lecture notes and exercises are designed for **FDS version 6.7.5**, and thus may not be valid / reproducable for other versions.
+* The lecture notes and exercises are designed for **FDS version 6.7.5**, and thus may not be valid / reproducible for other versions.
 
 ## Contributors
 
@@ -29,19 +29,20 @@ Contributors to the development of the script and the exercises are (in alphabet
 * Lukas Arnold
 * Kristian Börger
 * Tristan Hehnen
+* Lilli Klein
 * Karen de Lannoye
 * Keyvan Najarian
+* Tássia Quaresma
 * Jan Vogelsang
 * My Linh Würzburger
-* Tássia Quaresma
-* Lilli Klein
+
 
 ## Theses
 
 We offer theses (BA, MA, PhD) on many different topics.
-* an overview of topics and previously supervised theses can be found on the [thesis website](https://cce.uni-wuppertal.de/index.php?id=4171&L=0)
-* The [overview of our publications](https://www.fz-juelich.de/ias/ias-7/EN/AboutUs/Staff/Current/Arnold_Lukas/publication_node.html) can also help you to find a topic.
-* If you are interested, please contact Lukas Arnold [@ University of Wuppertal](https://cce.uni-wuppertal.de/en/staff.html) or [@ Forschungszentrum Jülich](https://www.fz-juelich.de/ias/ias-7/EN/AboutUs/Staff/Current/Arnold_Lukas/main.html)
+* an overview of topics and previously supervised theses can be found on the [thesis website](https://cce.uni-wuppertal.de/en/theses/)
+* The [overview of our publications](https://cce.uni-wuppertal.de/en/research/) can also help you find
+* If you are interested, please contact Lukas Arnold [@ University of Wuppertal](https://cce.uni-wuppertal.de/en/team/) or [@ Forschungszentrum Jülich](https://www.fz-juelich.de/ias/ias-7/EN/AboutUs/Staff/Current/Arnold_Lukas/main.html)
 
 ## Acknowledgements
 
@@ -58,7 +59,7 @@ The software tools used in the lecture and the creation of the materials are mos
 How to reach us:
 * As a participant of the lecture: best via the associated moodle course
 * External interested parties best used our <a href="mailto:cce@lists.uni-wuppertal.de">email list</a>.
-* Contact details for individuals can be found on the [staff website](https://cce.uni-wuppertal.de/index.php?id=4186&L=0)
+* Contact details for individuals can be found on the [staff website](https://cce.uni-wuppertal.de/en/team/)
 
 
 ## License

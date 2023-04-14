@@ -1,6 +1,6 @@
 # Team Fire Dynamics
 
-The *Team Fire Dynamics* is a joint team of members of the chair [Computational Civil Engineering (CCE)](https://cce.uni-wuppertal.de/en.html) at the University of Wupperta (BUW) and the [Fire Dynamics](https://www.fz-juelich.de/ias/ias-7/EN/Research/Fire_Dynamics/_node.html) division, which is part of the [Institute for Advanced Simulation (IAS-7)](https://www.fz-juelich.de/ias/ias-7) at the [Forschungszentrum Jülich (FZJ)](https://www.fz-juelich.de).
+The *Team Fire Dynamics* is a joint team of members of the chair of [Computational Civil Engineering (CCE)](https://cce.uni-wuppertal.de/en.html) at the University of Wuppertal (BUW) and the [Fire Dynamics](https://www.fz-juelich.de/ias/ias-7/EN/Research/Fire_Dynamics/_node.html) division, which is part of the [Institute for Advanced Simulation (IAS-7)](https://www.fz-juelich.de/ias/ias-7) at the [Forschungszentrum Jülich (FZJ)](https://www.fz-juelich.de).
 
 The CCE chair is mainly concerned with the research and development of new computer-based models. The focus of the application here is fire and smoke propagation in buildings. 
 
@@ -10,7 +10,7 @@ The simulation models we develop and use are mostly based on computational fluid
 
 :::{figure-md} fig-jureca
 
-<img src="https://www.fz-juelich.de/SharedDocs/Bilder/IAS/JSC/EN/galeries/JURECA/JURECA.jpg?__blob=poster" width="80%">
+<img src="https://www.fz-juelich.de/en/ias/jsc/systems/supercomputers/jureca/jureca-dc.jpeg/@@images/image" width="80%">
 
 JURECA supercomputer. Source: Forschungszentrum Jülich
 :::
