@@ -1,49 +1,60 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Basic FDS Example I &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -53,63 +64,95 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"tex": {"macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}", "du": "\\dot{u}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/examples/01_basic/01_basic_example_i';</script>
     <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/examples/01_basic/01_basic_example_i.html" />
     <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Basic FDS Example II" href="02_basic_example_ii.html" />
     <link rel="prev" title="Basic" href="00_overview.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../overview/01_overview.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../../_static/cce_logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Fire Simulation <br> Lecture Notes</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../../../_static/cce_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/cce_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -118,940 +161,399 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Introduction
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../overview/02_team.html">
-   Team Fire Dynamics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../overview/03_references.html">
-   References
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/02_team.html">Team Fire Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/03_references.html">References</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Modelling
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modelling</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../modelling/01_general/00_overview.html">
-   1. Modelling Fires
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/01_general/01_processes.html">
-     1.1. Physical and Chemical Processes
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/01_general/02_fse.html">
-     1.2. Fire Safety Engineering
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/01_general/03_approaches.html">
-     1.3. Modelling Approaches
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../modelling/02_fluids/00_overview.html">
-   2. Fluid Dynamics
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/02_fluids/01_fluids.html">
-     2.1. Fluids
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/02_fluids/02_cfd.html">
-     2.2. Computational Fluid Dynamics
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/02_fluids/03_turbulence.html">
-     2.3. Turbulence
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../modelling/03_compartments/00_overview.html">
-   3. Compartment Fires
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/03_compartments/01_fundamentals.html">
-     3.1. Fundamentals
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/03_compartments/03_pool_example.html">
-     3.2. Example – Pool Fire
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/03_compartments/04_steckler_example.html">
-     3.3. Example - Steckler Compartment
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../modelling/04_thermodynamics/00_overview.html">
-   4. Thermodynamics
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/04_thermodynamics/01_fundamentals.html">
-     4.1. Fundamentals
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/04_thermodynamics/02_example_energy_mass_transfer.html">
-     4.2. Energy and Mass Transfer
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../modelling/05_combustion/00_overview.html">
-   5. Combustion
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/05_combustion/01_fundamentals.html">
-     5.1. Fundamentals
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/05_combustion/02_modelling.html">
-     5.2. Modelling
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/05_combustion/03_closed_volume_example.html">
-     5.3. Example – Closed Volume
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/05_combustion/04_burner_example.html">
-     5.4. Wolfhard-Parker Burner
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../modelling/06_heat_transfer/00_overview.html">
-   6. Heat Transfer
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/06_heat_transfer/01_fundamentals.html">
-     6.1. Fundamentals
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/06_heat_transfer/02_heat_transfer_example.html">
-     6.2. Example – Heat Transfer
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/06_heat_transfer/03_validation_example.html">
-     6.3. Validation – Heat Transfer
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/06_heat_transfer/04_ht3d_example.html">
-     6.4. Example – 3D Heat Transfer
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../modelling/07_particles/00_overview.html">
-   7. Particles
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/07_particles/01_fundamentals.html">
-     7.1. Modelling
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/07_particles/02_example_spray.html">
-     7.2. Example – Sprays
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../modelling/09_pyrolysis/00_overview.html">
-   8. Pyrolysis
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-  <label for="toctree-checkbox-8">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/09_pyrolysis/01_fundamentals.html">
-     8.1. Fundamentals
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/09_pyrolysis/02_example.html">
-     8.2. Example - Gasification of PMMA
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modelling/01_general/00_overview.html">1. Modelling Fires</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/01_general/01_processes.html">1.1. Physical and Chemical Processes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/01_general/02_fse.html">1.2. Fire Safety Engineering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/01_general/03_approaches.html">1.3. Modelling Approaches</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Examples
- </span>
-</p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modelling/02_fluids/00_overview.html">2. Fluid Dynamics</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/02_fluids/01_fluids.html">2.1. Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/02_fluids/02_cfd.html">2.2. Computational Fluid Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/02_fluids/03_turbulence.html">2.3. Turbulence</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modelling/03_compartments/00_overview.html">3. Compartment Fires</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/03_compartments/01_fundamentals.html">3.1. Fundamentals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/03_compartments/03_pool_example.html">3.2. Example – Pool Fire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/03_compartments/04_steckler_example.html">3.3. Example - Steckler Compartment</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modelling/04_thermodynamics/00_overview.html">4. Thermodynamics</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/04_thermodynamics/01_fundamentals.html">4.1. Fundamentals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/04_thermodynamics/02_example_energy_mass_transfer.html">4.2. Energy and Mass Transfer</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modelling/05_combustion/00_overview.html">5. Combustion</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/05_combustion/01_fundamentals.html">5.1. Fundamentals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/05_combustion/02_modelling.html">5.2. Modelling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/05_combustion/03_closed_volume_example.html">5.3. Example – Closed Volume</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/05_combustion/04_burner_example.html">5.4. Wolfhard-Parker Burner</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modelling/06_heat_transfer/00_overview.html">6. Heat Transfer</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/06_heat_transfer/01_fundamentals.html">6.1. Fundamentals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/06_heat_transfer/02_heat_transfer_example.html">6.2. Example – Heat Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/06_heat_transfer/03_validation_example.html">6.3. Validation – Heat Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/06_heat_transfer/04_ht3d_example.html">6.4. Example – 3D Heat Transfer</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modelling/07_particles/00_overview.html">7. Particles</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/07_particles/01_fundamentals.html">7.1. Modelling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/07_particles/02_example_spray.html">7.2. Example – Sprays</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modelling/09_pyrolysis/00_overview.html">8. Pyrolysis</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/09_pyrolysis/01_fundamentals.html">8.1. Fundamentals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/09_pyrolysis/02_example.html">8.2. Example - Gasification of PMMA</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00_overview.html">
-   Basic
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-  <label for="toctree-checkbox-9">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Basic FDS Example I
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_basic_example_ii.html">
-     Basic FDS Example II
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="03_basic_example_iii.html">
-     Basic Example III
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="04_basic_example_iv.html">
-     Basic Example IV
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="05_basic_example_v.html">
-     Basic Example V
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../02_intermediate/00_overview.html">
-   Intermediate
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-  <label for="toctree-checkbox-10">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02_intermediate/01_data_analysis_01.html">
-     Data Analysis I
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02_intermediate/02_adjust_fds_input.html">
-     Adjust FDS Input Files
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02_intermediate/03_work_flow.html">
-     Work Flow Proposal
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02_intermediate/04_repeated_sim_exec.html">
-     Repetitive Execution of Scripts
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02_intermediate/05_data_analysis_02.html">
-     Data Analysis II
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../02_intermediate/06_build_fds_input.html">
-     Build FDS Input Lines Using Python String Manipulation
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../03_advanced/00_overview.html">
-   Advanced
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-  <label for="toctree-checkbox-11">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../03_advanced/McCaffrey.html">
-     McCaffrey Plumes
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../03_advanced/02_example_stecklercompartments.html">
-     Steckler Compartments
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../03_advanced/03_example_zukoskiplumes.html">
-     Zukoski Plumes
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="00_overview.html">Basic</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Basic FDS Example I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_basic_example_ii.html">Basic FDS Example II</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_basic_example_iii.html">Basic Example III</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_basic_example_iv.html">Basic Example IV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="05_basic_example_v.html">Basic Example V</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Tools
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../tools/01_fds_smv/00_overview.html">
-   FDS and SMV
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
-  <label for="toctree-checkbox-12">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tools/01_fds_smv/01_fds_intro.html">
-     FDS Overview
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tools/01_fds_smv/02_fds_tutorial.html">
-     FDS Basic Example
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tools/01_fds_smv/03_smv.html">
-     Smokeview Basics
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../tools/02_hpc/00_overview.html">
-   HPC
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
-  <label for="toctree-checkbox-13">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tools/02_hpc/01_linux.html">
-     Linux
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tools/02_hpc/02_hpc.html">
-     High Performance Computing
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tools/02_hpc/03_parallel_fds.html">
-     Parallel Execution of FDS
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tools/02_hpc/04_benchmarking.html">
-     Benchmarking
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../tools/03_analysis/00_overview.html">
-   Data Analysis
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
-  <label for="toctree-checkbox-14">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tools/03_analysis/01_python.html">
-     Python
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tools/03_analysis/03_example_mccaffreyplumes.html">
-     Example: McCaffrey plume experiments
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../tools/03_analysis/02_fdsreader.html">
-     fdsreader Module
-    </a>
-   </li>
-  </ul>
- </li>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../02_intermediate/00_overview.html">Intermediate</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../02_intermediate/01_data_analysis_01.html">Data Analysis I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_intermediate/02_adjust_fds_input.html">Adjust FDS Input Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_intermediate/03_work_flow.html">Work Flow Proposal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_intermediate/04_repeated_sim_exec.html">Repetitive Execution of Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_intermediate/05_data_analysis_02.html">Data Analysis II</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_intermediate/06_build_fds_input.html">Build FDS Input Lines Using Python String Manipulation</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Teaching
- </span>
-</p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03_advanced/00_overview.html">Advanced</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03_advanced/McCaffrey.html">McCaffrey Plumes</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../03_advanced/02_example_stecklercompartments.html">Steckler Compartments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_advanced/03_example_zukoskiplumes.html">Zukoski Plumes</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tools</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../teaching/01_firesim_lecture/00_overview.html">
-   Fire Simulation Lecture @ BUW
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
-  <label for="toctree-checkbox-15">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../teaching/01_firesim_lecture/01_week_01.html">
-     Week 1
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../teaching/01_firesim_lecture/02_week_02.html">
-     Week 2
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../teaching/02_cobra_workshop/00_overview.html">
-   CoBra Workshop
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
-  <label for="toctree-checkbox-16">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../teaching/02_cobra_workshop/01_ws_01.html">
-     CoBra Workshop I
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../teaching/02_cobra_workshop/02_ws_01.html">
-     CoBra Workshop II
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../teaching/02_cobra_workshop/03_ws_01.html">
-     CoBra Workshop III
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tools/01_fds_smv/00_overview.html">FDS and SMV</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tools/01_fds_smv/01_fds_intro.html">FDS Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tools/01_fds_smv/02_fds_tutorial.html">FDS Basic Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tools/01_fds_smv/03_smv.html">Smokeview Basics</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tools/02_hpc/00_overview.html">HPC</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tools/02_hpc/01_linux.html">Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tools/02_hpc/02_hpc.html">High Performance Computing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tools/02_hpc/03_parallel_fds.html">Parallel Execution of FDS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tools/02_hpc/04_benchmarking.html">Benchmarking</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../tools/03_analysis/00_overview.html">Data Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../tools/03_analysis/01_python.html">Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../tools/03_analysis/03_example_mccaffreyplumes.html">Example: McCaffrey plume experiments</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../../tools/03_analysis/02_fdsreader.html">fdsreader Module</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Teaching</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../teaching/01_firesim_lecture/00_overview.html">Fire Simulation Lecture @ BUW</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../teaching/01_firesim_lecture/01_week_01.html">Week 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../teaching/01_firesim_lecture/02_week_02.html">Week 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../teaching/02_cobra_workshop/00_overview.html">CoBra Workshop</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../teaching/02_cobra_workshop/01_ws_01.html">CoBra Workshop I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../teaching/02_cobra_workshop/02_ws_01.html">CoBra Workshop II</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../teaching/02_cobra_workshop/03_ws_01.html">CoBra Workshop III</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/FireDynamics/LectureFireSimulation/main?urlpath=tree/book/content/examples/01_basic/01_basic_example_i.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
   
-    <img src="../../../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
+  <div id="rtd-footer-container"></div>
 
-      </li>
+
+      </div>
       
-      <li>
-        <a href="https://io.cce.uni-wuppertal.de/firesim_ss21/hub/user-redirect/git-pull?repo=https%3A//github.com/FireDynamics/LectureFireSimulation&urlpath=tree/LectureFireSimulation/book/content/examples/01_basic/01_basic_example_i.ipynb&branch=main"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on JupyterHub"
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://io.cce.uni-wuppertal.de/firesim_ss21/hub/user-redirect/git-pull?repo=https%3A//github.com/FireDynamics/LectureFireSimulation&urlpath=tree/LectureFireSimulation/book/content/examples/01_basic/01_basic_example_i.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../../../_static/images/logo_jupyterhub.svg">
   </span>
-<span class="headerbtn__text-container">JupyterHub</span>
+<span class="btn__text-container">JupyterHub</span>
 </a>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/FireDynamics/LectureFireSimulation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/examples/01_basic/01_basic_example_i.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/examples/01_basic/01_basic_example_i.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/content/examples/01_basic/01_basic_example_i.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/FireDynamics/LectureFireSimulation"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/examples/01_basic/01_basic_example_i.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/examples/01_basic/01_basic_example_i.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Edit this page"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-pencil-alt"></i>
-  </span>
-<span class="headerbtn__text-container">suggest edit</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../../_sources/content/examples/01_basic/01_basic_example_i.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#simulation-setup-description">
-   Simulation Setup Description
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fds-input-files">
-   FDS Input Files
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#meta-data-of-simulation-setup-head-tail">
-   Meta Data of Simulation Setup (HEAD, TAIL)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bounds-of-time-and-space-mesh-time">
-   Bounds of Time and Space (MESH, TIME)
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#time-time">
-     Time (TIME)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#space-mesh">
-     Space (MESH)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#obstruct-the-flow-field-obst">
-   Obstruct the Flow Field (OBST)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#gas-phase-combustion-reac">
-   Gas Phase Combustion (REAC)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#design-boundary-conditions-surf">
-   Design Boundary Conditions (SURF)
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#a-simple-gas-burner">
-     A Simple Gas Burner
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#assign-boundary-conditions-vent">
-   Assign Boundary Conditions (VENT)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#record-data-devc-slcf">
-   Record Data (DEVC, SLCF)
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#devices-devc">
-     Devices (DEVC)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#slices-slcf">
-     Slices (SLCF)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#file">
-   File
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#questions-and-tasks">
-   Questions and Tasks
-  </a>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Basic FDS Example I</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#simulation-setup-description">
-   Simulation Setup Description
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#fds-input-files">
-   FDS Input Files
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#meta-data-of-simulation-setup-head-tail">
-   Meta Data of Simulation Setup (HEAD, TAIL)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bounds-of-time-and-space-mesh-time">
-   Bounds of Time and Space (MESH, TIME)
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#time-time">
-     Time (TIME)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#space-mesh">
-     Space (MESH)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#obstruct-the-flow-field-obst">
-   Obstruct the Flow Field (OBST)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#gas-phase-combustion-reac">
-   Gas Phase Combustion (REAC)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#design-boundary-conditions-surf">
-   Design Boundary Conditions (SURF)
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#a-simple-gas-burner">
-     A Simple Gas Burner
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#assign-boundary-conditions-vent">
-   Assign Boundary Conditions (VENT)
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#record-data-devc-slcf">
-   Record Data (DEVC, SLCF)
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#devices-devc">
-     Devices (DEVC)
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#slices-slcf">
-     Slices (SLCF)
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#file">
-   File
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#questions-and-tasks">
-   Questions and Tasks
-  </a>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Basic FDS Example I</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-setup-description">Simulation Setup Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fds-input-files">FDS Input Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meta-data-of-simulation-setup-head-tail">Meta Data of Simulation Setup (HEAD, TAIL)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bounds-of-time-and-space-mesh-time">Bounds of Time and Space (MESH, TIME)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-time">Time (TIME)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#space-mesh">Space (MESH)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obstruct-the-flow-field-obst">Obstruct the Flow Field (OBST)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gas-phase-combustion-reac">Gas Phase Combustion (REAC)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-boundary-conditions-surf">Design Boundary Conditions (SURF)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-gas-burner">A Simple Gas Burner</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assign-boundary-conditions-vent">Assign Boundary Conditions (VENT)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#record-data-devc-slcf">Record Data (DEVC, SLCF)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#devices-devc">Devices (DEVC)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slices-slcf">Slices (SLCF)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file">File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-and-tasks">Questions and Tasks</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <div class="cell tag_hide_cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
@@ -1071,14 +573,14 @@ title="Print to PDF"
 </div>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="basic-fds-example-i">
-<h1>Basic FDS Example I<a class="headerlink" href="#basic-fds-example-i" title="Permalink to this headline">#</a></h1>
+<h1>Basic FDS Example I<a class="headerlink" href="#basic-fds-example-i" title="Permalink to this heading">#</a></h1>
 <section id="simulation-setup-description">
-<h2>Simulation Setup Description<a class="headerlink" href="#simulation-setup-description" title="Permalink to this headline">#</a></h2>
+<h2>Simulation Setup Description<a class="headerlink" href="#simulation-setup-description" title="Permalink to this heading">#</a></h2>
 <p>As a basic example we create a FDS simulation setup with a simple propane gas burner. A soot yield of <span class="math notranslate nohighlight">\(\mf 0.022~g/g\)</span> is to be used. The gas burner shall have an edge length of <span class="math notranslate nohighlight">\(\mf 0.4~m\)</span> and should be raised <span class="math notranslate nohighlight">\(\mf 0.2~m\)</span> above the ground. It shall provide <span class="math notranslate nohighlight">\(\mf 63~kW\)</span> in a steady-state. The computational domain shall be <span class="math notranslate nohighlight">\(\mf 2.0~m\)</span> tall and have an extent of <span class="math notranslate nohighlight">\(\mf 2.0~m\)</span> in the x and y axis respectively. The fluid cells shall be cube-shaped with an edge length of <span class="math notranslate nohighlight">\(\mf 0.2~m\)</span>. The overall simulation time should be <span class="math notranslate nohighlight">\(\mf 60~s\)</span>.</p>
 <p>For details on the pool fires and gas burners look at section Pool Fires.</p>
 </section>
 <section id="fds-input-files">
-<h2>FDS Input Files<a class="headerlink" href="#fds-input-files" title="Permalink to this headline">#</a></h2>
+<h2>FDS Input Files<a class="headerlink" href="#fds-input-files" title="Permalink to this heading">#</a></h2>
 <p>First you should create a new folder. In this directory the input file is to be saved later. All the generated output files will also be located here. It is useful to create individual directories for each simulation to not accidentially overwrite or mix up files. Create an empty plain text file. You could use any text editor (not a word processor) to create your text file. Although the file extenison does not matter, a common practice is to use the <code class="docutils literal notranslate"><span class="pre">.fds</span></code> extension.</p>
 <p>The syntax of FDS input files is given by FORTRAN namelists. These namelists start with an ampersand <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> character and are followed by four capital letters. They end with a slash <code class="docutils literal notranslate"><span class="pre">/</span></code> character. Between these two, parameters of the respective namelist can be provided, for example:</p>
 <p><code class="docutils literal notranslate"><span class="pre">&amp;NAME</span> <span class="pre">P1=value</span> <span class="pre">P2=value</span> <span class="pre">/</span></code></p>
@@ -1086,7 +588,7 @@ title="Print to PDF"
 <p>Note: The individual file paths are likely different on your system, depending on your file structure.</p>
 </section>
 <section id="meta-data-of-simulation-setup-head-tail">
-<h2>Meta Data of Simulation Setup (HEAD, TAIL)<a class="headerlink" href="#meta-data-of-simulation-setup-head-tail" title="Permalink to this headline">#</a></h2>
+<h2>Meta Data of Simulation Setup (HEAD, TAIL)<a class="headerlink" href="#meta-data-of-simulation-setup-head-tail" title="Permalink to this heading">#</a></h2>
 <p>Now we will start defining the simulation setup. Two parameters that can be provided to the <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> namelist are a character ID (<code class="docutils literal notranslate"><span class="pre">CHID</span></code>) and a title (<code class="docutils literal notranslate"><span class="pre">TITLE</span></code>). Both values are strings. The character ID is used to label all the files that are created during the simulation. It can be different from the file name of the FDS input file. As a short-hand, files are also referred to by using the <code class="docutils literal notranslate"><span class="pre">CHID</span></code>, for example <code class="docutils literal notranslate"><span class="pre">CHID_devc.csv</span></code>, since only the <code class="docutils literal notranslate"><span class="pre">CHID</span></code>-part is variable.</p>
 <p>The title is a human-readable short description of the setup.</p>
 <p>The file is closed out with <code class="docutils literal notranslate"><span class="pre">TAIL</span></code>.</p>
@@ -1106,9 +608,9 @@ title="Print to PDF"
 </div>
 </section>
 <section id="bounds-of-time-and-space-mesh-time">
-<h2>Bounds of Time and Space (MESH, TIME)<a class="headerlink" href="#bounds-of-time-and-space-mesh-time" title="Permalink to this headline">#</a></h2>
+<h2>Bounds of Time and Space (MESH, TIME)<a class="headerlink" href="#bounds-of-time-and-space-mesh-time" title="Permalink to this heading">#</a></h2>
 <section id="time-time">
-<h3>Time (TIME)<a class="headerlink" href="#time-time" title="Permalink to this headline">#</a></h3>
+<h3>Time (TIME)<a class="headerlink" href="#time-time" title="Permalink to this heading">#</a></h3>
 <p>The simulation time is specified in seconds, using the <code class="docutils literal notranslate"><span class="pre">TIME</span></code> namelist. The parameter <code class="docutils literal notranslate"><span class="pre">T_END</span></code> determines when the simulation ought to stop. Obviously, this is the time <em>inside</em> the simulation and not the time the computer takes to conduct the simulation, which would be referred to as “wall clock time”. The start time (<code class="docutils literal notranslate"><span class="pre">T_BEGIN</span></code>) could be adjusted as well, but this is seldom necessary, it is <span class="math notranslate nohighlight">\(\mf 0~s\)</span> by default. The input line should now look like this:</p>
 <p><code class="docutils literal notranslate"><span class="pre">&amp;TIME</span> <span class="pre">T_END</span> <span class="pre">=</span> <span class="pre">60.</span> <span class="pre">/</span></code></p>
 <p>Setting <code class="docutils literal notranslate"><span class="pre">T_END</span> <span class="pre">=</span> <span class="pre">0</span></code> will lead to FDS only setting up the simulation without running it. It also creates a Smokeview file, which can be used to check if everything is set up correctly.</p>
@@ -1127,7 +629,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="space-mesh">
-<h3>Space (MESH)<a class="headerlink" href="#space-mesh" title="Permalink to this headline">#</a></h3>
+<h3>Space (MESH)<a class="headerlink" href="#space-mesh" title="Permalink to this heading">#</a></h3>
 <p>To conduct a simulation we need to  define a computational domain and a time frame.</p>
 <p>The domain is a rectangular cuboid shape that is divided in smaller volumes (cells) which are also rectangular cuboids, using the <code class="docutils literal notranslate"><span class="pre">MESH</span></code> namelist. It can be given a label (<code class="docutils literal notranslate"><span class="pre">ID</span></code>) to organise larger files with many <code class="docutils literal notranslate"><span class="pre">MESH</span></code>es. The domain volume is defined by providing coordinates of two points of opposing corners, see <a class="reference internal" href="#fig-fdstutorial-coordinates-xb"><span class="std std-numref">Fig. 2</span></a>. They define the bounding box (<code class="docutils literal notranslate"><span class="pre">XB</span></code>) of the volume. Their values are to be provided in meters.</p>
 <figure class="align-default" id="fig-fdstutorial-coordinates-xb">
@@ -1147,7 +649,7 @@ title="Print to PDF"
 </section>
 </section>
 <section id="obstruct-the-flow-field-obst">
-<h2>Obstruct the Flow Field (OBST)<a class="headerlink" href="#obstruct-the-flow-field-obst" title="Permalink to this headline">#</a></h2>
+<h2>Obstruct the Flow Field (OBST)<a class="headerlink" href="#obstruct-the-flow-field-obst" title="Permalink to this heading">#</a></h2>
 <p>The flow field can be obstructed by using the <code class="docutils literal notranslate"><span class="pre">OBST</span></code> namelist. This essentially defines which cells are blocked for the flow field. For boundary conditions see section below.</p>
 <p>FDS fundamentally works with a rectangular grid and all elements need to be aligned to it. This means essentially that all obstructions are rectangular objects as well. Right now, some effort is put into the development to allow non-rectangular objects (<code class="docutils literal notranslate"><span class="pre">GEOM</span></code>). Since this namelist is in active development, it will not be covered here.</p>
 <p>To define the volume of an obstruction we use the same syntax for bounding boxes (<code class="docutils literal notranslate"><span class="pre">XB</span></code>), as described with the <code class="docutils literal notranslate"><span class="pre">MESH</span></code> above.</p>
@@ -1158,7 +660,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="gas-phase-combustion-reac">
-<h2>Gas Phase Combustion (REAC)<a class="headerlink" href="#gas-phase-combustion-reac" title="Permalink to this headline">#</a></h2>
+<h2>Gas Phase Combustion (REAC)<a class="headerlink" href="#gas-phase-combustion-reac" title="Permalink to this heading">#</a></h2>
 <p>To initialise a fire, combustible gas needs to be introduced into the fluid domain. Its reaction is controlled using the <code class="docutils literal notranslate"><span class="pre">REAC</span></code> namelist.</p>
 <p>FDS requires to be provided the stoichiometry of the gas phase combustion reactions. However, in a limited selection of cases the stoichiometry can be computed internally. This is also referred to as “simple chemistry”, see users guide for more details. FDS comes with a couple of predefined gaseous species, that can be found in “table 14.4: Pre-defined gas and liquid species” in the users guide. Combustible species listed there can be used with the simple chemistry, via the <code class="docutils literal notranslate"><span class="pre">FUEL</span></code> parameter.</p>
 <p>Furthermore, a “surrogate fuel” concept is employed in FDS, together with the simple chemistry. It uses a single species for all gas phase combustion reactions, but scales their mass loss based on their respective heat of combustion. See “Chapter 15 Combustion” in the users guide.</p>
@@ -1170,7 +672,7 @@ title="Print to PDF"
 </div>
 </section>
 <section id="design-boundary-conditions-surf">
-<h2>Design Boundary Conditions (SURF)<a class="headerlink" href="#design-boundary-conditions-surf" title="Permalink to this headline">#</a></h2>
+<h2>Design Boundary Conditions (SURF)<a class="headerlink" href="#design-boundary-conditions-surf" title="Permalink to this heading">#</a></h2>
 <p>Obstructions define cells that are blocked for the flow field. Their surface also has an impact on the gas phase, for example due to heat transfer. This is controlled by defining and assigning boundary conditions. By default FDS assigns the <code class="docutils literal notranslate"><span class="pre">INERT</span></code> boundary condition, visualised by the yellow color.</p>
 <p>Boundary conditions are called “surfaces” in FDS and are defined using the <code class="docutils literal notranslate"><span class="pre">SURF</span></code> namelist. Each surface definition needs to get a label (<code class="docutils literal notranslate"><span class="pre">ID</span></code>), which is used to connect it to the desired cells, i.e. obstructions or vents.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">SURF</span></code> namelist, has a couple of special features to make life a bit easier for the user. There is a boolean flag to set a given surface as the default, conveniently called <code class="docutils literal notranslate"><span class="pre">DEFAULT</span></code>.</p>
@@ -1193,7 +695,7 @@ The predefined colors can be looked up in “Table 10.1: A sample of color defin
 <p>Use colors at least during the design process of your simulation setup as a visual aid to make sure that individual boundary conditions are assigned to the correct places.</p>
 </div>
 <section id="a-simple-gas-burner">
-<h3>A Simple Gas Burner<a class="headerlink" href="#a-simple-gas-burner" title="Permalink to this headline">#</a></h3>
+<h3>A Simple Gas Burner<a class="headerlink" href="#a-simple-gas-burner" title="Permalink to this heading">#</a></h3>
 <p>Furthermore, there is the <code class="docutils literal notranslate"><span class="pre">HRRPUA</span></code> parameter. It assignes a <em>H</em>eat <em>R</em>elease <em>R</em>ate <em>P</em>er <em>U</em>nit <em>A</em>rea as boundary conditions, in <span class="math notranslate nohighlight">\(\mf kW/m^2\)</span>. It takes the surface area of the cells and scales the released combustible mass accordingly, see the pool fire section for more details. Now, to get our desired <span class="math notranslate nohighlight">\(\mf 63~kW\)</span> we need to divide it by the surface area of the burner. According to the description, the burner is a square with an edge length of <span class="math notranslate nohighlight">\(\mf 0.4~m\)</span>. Thus, we compute the <code class="docutils literal notranslate"><span class="pre">HRRPUA</span></code> value <span class="math notranslate nohighlight">\(\mf 63~kW / (0.4~m \times 0.4~m)\)</span> to be about <span class="math notranslate nohighlight">\(\mf 393.75~kW/m^2\)</span>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1208,7 +710,7 @@ The predefined colors can be looked up in “Table 10.1: A sample of color defin
 </section>
 </section>
 <section id="assign-boundary-conditions-vent">
-<h2>Assign Boundary Conditions (VENT)<a class="headerlink" href="#assign-boundary-conditions-vent" title="Permalink to this headline">#</a></h2>
+<h2>Assign Boundary Conditions (VENT)<a class="headerlink" href="#assign-boundary-conditions-vent" title="Permalink to this heading">#</a></h2>
 <p>There are different ways in FDS to assign boundary conditions to obstructions. Some short-hand solutions are available in the <code class="docutils literal notranslate"><span class="pre">OBST</span></code> definitions: <code class="docutils literal notranslate"><span class="pre">SURF_ID</span></code>, <code class="docutils literal notranslate"><span class="pre">SURF_IDS</span></code> and <code class="docutils literal notranslate"><span class="pre">SURF_ID6</span></code>. With <code class="docutils literal notranslate"><span class="pre">SURF_ID</span></code> all six sides of the rectangular cuboid are assigned the same boundary condition. A bit more granular is <code class="docutils literal notranslate"><span class="pre">SURF_IDS</span></code>, which allows access to the top, sides and bottom of an obstruction. Most granular is <code class="docutils literal notranslate"><span class="pre">SURF_ID6</span></code>, where all faces are accessible individually (-x, +x, -y, +y,-z, +z). For the last two options, arrays of strings are to be provided for each of the options, i.e. <code class="docutils literal notranslate"><span class="pre">SURF_IDS</span> <span class="pre">=</span> <span class="pre">'top',</span> <span class="pre">'sides',</span> <span class="pre">'bottom'</span></code>.</p>
 <p>In most cases an obstruction is covering many cells but only a subset of them should be assigned a specific boundary condition. This subset can be defined using the <code class="docutils literal notranslate"><span class="pre">VENT</span></code> namelist. In this example we use this to assign the burner boundary to the top of the obstruction defined above. To define the dimensions of the vent, we use the bounding box again, just set the hight to zero, i.e. z1 and z2 get the same value:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">VENT</span> <span class="n">ID</span>      <span class="o">=</span> <span class="s1">&#39;BurnerOutlet&#39;</span><span class="p">,</span>
@@ -1227,10 +729,10 @@ The predefined colors can be looked up in “Table 10.1: A sample of color defin
 </div>
 </section>
 <section id="record-data-devc-slcf">
-<h2>Record Data (DEVC, SLCF)<a class="headerlink" href="#record-data-devc-slcf" title="Permalink to this headline">#</a></h2>
+<h2>Record Data (DEVC, SLCF)<a class="headerlink" href="#record-data-devc-slcf" title="Permalink to this heading">#</a></h2>
 <p>FDS has vast capabilities to record different data sets. Most of the data you would like to keep, you need to specifiy <em>before</em> the simulation is conducted. Here we provide only a very brief introduction to record data, for more details look into the other examples and the users guide. The focus is on devices <code class="docutils literal notranslate"><span class="pre">DEVC</span></code> and slices <code class="docutils literal notranslate"><span class="pre">SLCF</span></code>.</p>
 <section id="devices-devc">
-<h3>Devices (DEVC)<a class="headerlink" href="#devices-devc" title="Permalink to this headline">#</a></h3>
+<h3>Devices (DEVC)<a class="headerlink" href="#devices-devc" title="Permalink to this heading">#</a></h3>
 <p>To record the computed gas temperature above the burner we can use a point device (<code class="docutils literal notranslate"><span class="pre">DEVC</span></code>). A device can get a label (<code class="docutils literal notranslate"><span class="pre">ID</span></code>), which makes it much easier to identify in the comma separated value (CSV) file created during the simulation. It needs a location and a quantity.</p>
 <p>Locations can be provided in different ways, we focus her on a single point using <code class="docutils literal notranslate"><span class="pre">XYZ</span></code>. However, lines, planes and volumes are possible as well.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">QUANTITY</span></code> parameter expects a string to define what values are to be recorded. As an example, let’s take the gas temperature, using <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code>.</p>
@@ -1246,7 +748,7 @@ The predefined colors can be looked up in “Table 10.1: A sample of color defin
 </div>
 </section>
 <section id="slices-slcf">
-<h3>Slices (SLCF)<a class="headerlink" href="#slices-slcf" title="Permalink to this headline">#</a></h3>
+<h3>Slices (SLCF)<a class="headerlink" href="#slices-slcf" title="Permalink to this heading">#</a></h3>
 <p>Many gas phase quantities can also be recorded as animated slices across the domain, using the <code class="docutils literal notranslate"><span class="pre">SLCF</span></code> namelist. The locations of the slices can be defined as planes, using for example the <code class="docutils literal notranslate"><span class="pre">PBX</span></code> parameter. This will create a plane which extents along the y- and z-axis, it will be moved along the x-axis (unit: meter). A quantity needs to be provided, here the gas temperature. Furthermore, the <code class="docutils literal notranslate"><span class="pre">CELL_CENTERED</span></code> flag can be set to force FDS to record data at the cell centeres. It will then also show up in Smokeview not as interpolated data. Below is an exaple input:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">SLCF</span> <span class="n">PBX</span>           <span class="o">=</span> <span class="mf">0.00</span><span class="p">,</span>
       <span class="n">QUANTITY</span>      <span class="o">=</span> <span class="s1">&#39;TEMPERATURE&#39;</span><span class="p">,</span>
@@ -1260,7 +762,7 @@ The predefined colors can be looked up in “Table 10.1: A sample of color defin
 </section>
 </section>
 <section id="file">
-<h2>File<a class="headerlink" href="#file" title="Permalink to this headline">#</a></h2>
+<h2>File<a class="headerlink" href="#file" title="Permalink to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">HEAD</span> <span class="n">CHID</span>  <span class="o">=</span> <span class="s1">&#39;Ex1&#39;</span><span class="p">,</span>
       <span class="n">TITLE</span> <span class="o">=</span> <span class="s1">&#39;Basic Example 1 - Gas Burner&#39;</span> <span class="o">/</span>
 
@@ -1331,7 +833,7 @@ The predefined colors can be looked up in “Table 10.1: A sample of color defin
 </div>
 </section>
 <section id="questions-and-tasks">
-<h2>Questions and Tasks<a class="headerlink" href="#questions-and-tasks" title="Permalink to this headline">#</a></h2>
+<h2>Questions and Tasks<a class="headerlink" href="#questions-and-tasks" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
 <li><p>How do you adjust the domain, that the fluid cells are cubes with an edge length of <span class="math notranslate nohighlight">\(\mf 0.1~m\)</span>?</p></li>
 <li><p>Given the original <code class="docutils literal notranslate"><span class="pre">MESH</span></code> of the example above, what happens when you set the z2 coordinate of the ‘BurnerBase’ <code class="docutils literal notranslate"><span class="pre">OBST</span></code> to <span class="math notranslate nohighlight">\(\mf 0.24~m\)</span>?</p></li>
@@ -1360,7 +862,7 @@ The predefined colors can be looked up in “Table 10.1: A sample of color defin
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./content/examples/01_basic"
         },
         predefinedOutput: true
@@ -1368,55 +870,123 @@ The predefined colors can be looked up in “Table 10.1: A sample of color defin
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="00_overview.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Basic</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="00_overview.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Basic</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="02_basic_example_ii.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="02_basic_example_ii.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Basic FDS Example II</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+</div></div>
   
-    <div class="extra_footer">
-      <p>
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulation-setup-description">Simulation Setup Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fds-input-files">FDS Input Files</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#meta-data-of-simulation-setup-head-tail">Meta Data of Simulation Setup (HEAD, TAIL)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bounds-of-time-and-space-mesh-time">Bounds of Time and Space (MESH, TIME)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#time-time">Time (TIME)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#space-mesh">Space (MESH)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#obstruct-the-flow-field-obst">Obstruct the Flow Field (OBST)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gas-phase-combustion-reac">Gas Phase Combustion (REAC)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#design-boundary-conditions-surf">Design Boundary Conditions (SURF)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-simple-gas-burner">A Simple Gas Burner</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#assign-boundary-conditions-vent">Assign Boundary Conditions (VENT)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#record-data-devc-slcf">Record Data (DEVC, SLCF)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#devices-devc">Devices (DEVC)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slices-slcf">Slices (SLCF)</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#file">File</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#questions-and-tasks">Questions and Tasks</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
 <img src='https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg' height='31'/>
 | By Team Fire | Contacts and Infos: <a href='https://cce.uni-wuppertal.de/en.html'>CCE@BUW</a> and <a href='https://www.fz-juelich.de/ias/ias-7/EN/Research/Fire_Dynamics/_node.html'>IAS-7@FZJ</a>
 </br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
 </p>
 
-    </div>
-</p>
-        </footer>
-    </div>
-    
 </div>
+  </div>
+  
+</div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>

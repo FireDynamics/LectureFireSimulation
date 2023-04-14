@@ -1,0 +1,74 @@
+Traceback (most recent call last):
+  File "/opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/jupyter_cache/executors/utils.py", line 64, in single_nb_execution
+    **kwargs,
+  File "/opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/asyncio/base_events.py", line 587, in run_until_complete
+    return future.result()
+  File "/opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/nbclient/client.py", line 664, in async_execute
+    cell, index, execution_count=self.code_cells_executed + 1
+  File "/opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/opt/hostedtoolcache/Python/3.7.16/x64/lib/python3.7/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+list_q = ['PRESSURE', 'BACKGROUND PRESSURE']
+
+it = sim.slices[0].get_nearest_timestep(250)
+
+for q in list_q:
+    slice = sim.slices.filter_by_quantity(q)[0]
+    
+#     print(slice)
+    ### fds / fdsreader BUG workaround BEGIN
+    ### Issue due to SLCF located at MESH boundary
+    to_del = []
+    for s in slice:
+        if s.extent._extents[1][0] > 0:
+            to_del.append(s.mesh)
+    for m in to_del:
+        del slice._subslices[m]
+        
+    extent = (slice.extent[0][0], slice.extent[0][1], 
+              slice.extent[2][0], slice.extent[2][1])
+#     print(extent)
+    ### fds / fdsreader BUG workaround END
+    
+    slice_data = slice.to_global()
+    
+    if np.min(slice_data[it]) < 0:
+        v_abs_max = np.max(np.abs(slice_data[it]))
+        vmin = -v_abs_max
+        vmax = v_abs_max
+    else:
+        vmin = np.min(slice_data[it])
+        vmax = np.max(slice_data[it])
+    
+    plt.imshow(slice_data[it].T,
+               vmin = vmin, vmax = vmax,
+               origin='lower', 
+               extent=extent,
+               cmap='seismic')
+    q = slice.quantity.quantity
+    u = slice.quantity.unit
+    plt.colorbar(label=f"{q} / {u}")
+    plt.show()
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mNameError[0m                                 Traceback (most recent call last)
+[0;32m/tmp/ipykernel_2020/2485182956.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0mlist_q[0m [0;34m=[0m [0;34m[[0m[0;34m'PRESSURE'[0m[0;34m,[0m [0;34m'BACKGROUND PRESSURE'[0m[0;34m][0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0;34m[0m[0m
+[0;32m----> 3[0;31m [0mit[0m [0;34m=[0m [0msim[0m[0;34m.[0m[0mslices[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m.[0m[0mget_nearest_timestep[0m[0;34m([0m[0;36m250[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0;34m[0m[0m
+[1;32m      5[0m [0;32mfor[0m [0mq[0m [0;32min[0m [0mlist_q[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mNameError[0m: name 'sim' is not defined
+NameError: name 'sim' is not defined
+

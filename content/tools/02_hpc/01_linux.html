@@ -1,49 +1,60 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Linux &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/clipboard.min.js"></script>
     <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -51,63 +62,95 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'content/tools/02_hpc/01_linux';</script>
     <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/tools/02_hpc/01_linux.html" />
     <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="High Performance Computing" href="02_hpc.html" />
     <link rel="prev" title="HPC" href="00_overview.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../overview/01_overview.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../../_static/cce_logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Fire Simulation <br> Lecture Notes</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../../../_static/cce_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../../_static/cce_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -116,948 +159,400 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Introduction
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Introduction</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../overview/02_team.html">
-   Team Fire Dynamics
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../overview/03_references.html">
-   References
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/02_team.html">Team Fire Dynamics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/03_references.html">References</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Modelling
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Modelling</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../modelling/01_general/00_overview.html">
-   1. Modelling Fires
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/01_general/01_processes.html">
-     1.1. Physical and Chemical Processes
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/01_general/02_fse.html">
-     1.2. Fire Safety Engineering
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/01_general/03_approaches.html">
-     1.3. Modelling Approaches
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../modelling/02_fluids/00_overview.html">
-   2. Fluid Dynamics
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/02_fluids/01_fluids.html">
-     2.1. Fluids
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/02_fluids/02_cfd.html">
-     2.2. Computational Fluid Dynamics
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/02_fluids/03_turbulence.html">
-     2.3. Turbulence
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../modelling/03_compartments/00_overview.html">
-   3. Compartment Fires
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/03_compartments/01_fundamentals.html">
-     3.1. Fundamentals
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/03_compartments/03_pool_example.html">
-     3.2. Example – Pool Fire
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/03_compartments/04_steckler_example.html">
-     3.3. Example - Steckler Compartment
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../modelling/04_thermodynamics/00_overview.html">
-   4. Thermodynamics
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/04_thermodynamics/01_fundamentals.html">
-     4.1. Fundamentals
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/04_thermodynamics/02_example_energy_mass_transfer.html">
-     4.2. Energy and Mass Transfer
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../modelling/05_combustion/00_overview.html">
-   5. Combustion
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
-  <label for="toctree-checkbox-5">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/05_combustion/01_fundamentals.html">
-     5.1. Fundamentals
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/05_combustion/02_modelling.html">
-     5.2. Modelling
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/05_combustion/03_closed_volume_example.html">
-     5.3. Example – Closed Volume
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/05_combustion/04_burner_example.html">
-     5.4. Wolfhard-Parker Burner
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../modelling/06_heat_transfer/00_overview.html">
-   6. Heat Transfer
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
-  <label for="toctree-checkbox-6">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/06_heat_transfer/01_fundamentals.html">
-     6.1. Fundamentals
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/06_heat_transfer/02_heat_transfer_example.html">
-     6.2. Example – Heat Transfer
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/06_heat_transfer/03_validation_example.html">
-     6.3. Validation – Heat Transfer
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/06_heat_transfer/04_ht3d_example.html">
-     6.4. Example – 3D Heat Transfer
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../modelling/07_particles/00_overview.html">
-   7. Particles
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
-  <label for="toctree-checkbox-7">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/07_particles/01_fundamentals.html">
-     7.1. Modelling
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/07_particles/02_example_spray.html">
-     7.2. Example – Sprays
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../modelling/09_pyrolysis/00_overview.html">
-   8. Pyrolysis
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
-  <label for="toctree-checkbox-8">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/09_pyrolysis/01_fundamentals.html">
-     8.1. Fundamentals
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../modelling/09_pyrolysis/02_example.html">
-     8.2. Example - Gasification of PMMA
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modelling/01_general/00_overview.html">1. Modelling Fires</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/01_general/01_processes.html">1.1. Physical and Chemical Processes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/01_general/02_fse.html">1.2. Fire Safety Engineering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/01_general/03_approaches.html">1.3. Modelling Approaches</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Examples
- </span>
-</p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modelling/02_fluids/00_overview.html">2. Fluid Dynamics</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/02_fluids/01_fluids.html">2.1. Fluids</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/02_fluids/02_cfd.html">2.2. Computational Fluid Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/02_fluids/03_turbulence.html">2.3. Turbulence</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modelling/03_compartments/00_overview.html">3. Compartment Fires</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/03_compartments/01_fundamentals.html">3.1. Fundamentals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/03_compartments/03_pool_example.html">3.2. Example – Pool Fire</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/03_compartments/04_steckler_example.html">3.3. Example - Steckler Compartment</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modelling/04_thermodynamics/00_overview.html">4. Thermodynamics</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/04_thermodynamics/01_fundamentals.html">4.1. Fundamentals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/04_thermodynamics/02_example_energy_mass_transfer.html">4.2. Energy and Mass Transfer</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modelling/05_combustion/00_overview.html">5. Combustion</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/05_combustion/01_fundamentals.html">5.1. Fundamentals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/05_combustion/02_modelling.html">5.2. Modelling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/05_combustion/03_closed_volume_example.html">5.3. Example – Closed Volume</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/05_combustion/04_burner_example.html">5.4. Wolfhard-Parker Burner</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modelling/06_heat_transfer/00_overview.html">6. Heat Transfer</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/06_heat_transfer/01_fundamentals.html">6.1. Fundamentals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/06_heat_transfer/02_heat_transfer_example.html">6.2. Example – Heat Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/06_heat_transfer/03_validation_example.html">6.3. Validation – Heat Transfer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/06_heat_transfer/04_ht3d_example.html">6.4. Example – 3D Heat Transfer</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modelling/07_particles/00_overview.html">7. Particles</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/07_particles/01_fundamentals.html">7.1. Modelling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/07_particles/02_example_spray.html">7.2. Example – Sprays</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../modelling/09_pyrolysis/00_overview.html">8. Pyrolysis</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/09_pyrolysis/01_fundamentals.html">8.1. Fundamentals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../modelling/09_pyrolysis/02_example.html">8.2. Example - Gasification of PMMA</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../examples/01_basic/00_overview.html">
-   Basic
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
-  <label for="toctree-checkbox-9">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../examples/01_basic/01_basic_example_i.html">
-     Basic FDS Example I
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../examples/01_basic/02_basic_example_ii.html">
-     Basic FDS Example II
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../examples/01_basic/03_basic_example_iii.html">
-     Basic Example III
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../examples/01_basic/04_basic_example_iv.html">
-     Basic Example IV
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../examples/01_basic/05_basic_example_v.html">
-     Basic Example V
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../examples/02_intermediate/00_overview.html">
-   Intermediate
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
-  <label for="toctree-checkbox-10">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../examples/02_intermediate/01_data_analysis_01.html">
-     Data Analysis I
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../examples/02_intermediate/02_adjust_fds_input.html">
-     Adjust FDS Input Files
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../examples/02_intermediate/03_work_flow.html">
-     Work Flow Proposal
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../examples/02_intermediate/04_repeated_sim_exec.html">
-     Repetitive Execution of Scripts
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../examples/02_intermediate/05_data_analysis_02.html">
-     Data Analysis II
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../examples/02_intermediate/06_build_fds_input.html">
-     Build FDS Input Lines Using Python String Manipulation
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../examples/03_advanced/00_overview.html">
-   Advanced
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
-  <label for="toctree-checkbox-11">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../examples/03_advanced/McCaffrey.html">
-     McCaffrey Plumes
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../examples/03_advanced/02_example_stecklercompartments.html">
-     Steckler Compartments
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../examples/03_advanced/03_example_zukoskiplumes.html">
-     Zukoski Plumes
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../examples/01_basic/00_overview.html">Basic</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/01_basic/01_basic_example_i.html">Basic FDS Example I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/01_basic/02_basic_example_ii.html">Basic FDS Example II</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/01_basic/03_basic_example_iii.html">Basic Example III</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/01_basic/04_basic_example_iv.html">Basic Example IV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/01_basic/05_basic_example_v.html">Basic Example V</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Tools
- </span>
-</p>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../examples/02_intermediate/00_overview.html">Intermediate</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/02_intermediate/01_data_analysis_01.html">Data Analysis I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/02_intermediate/02_adjust_fds_input.html">Adjust FDS Input Files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/02_intermediate/03_work_flow.html">Work Flow Proposal</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/02_intermediate/04_repeated_sim_exec.html">Repetitive Execution of Scripts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/02_intermediate/05_data_analysis_02.html">Data Analysis II</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/02_intermediate/06_build_fds_input.html">Build FDS Input Lines Using Python String Manipulation</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../examples/03_advanced/00_overview.html">Advanced</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/03_advanced/McCaffrey.html">McCaffrey Plumes</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../../examples/03_advanced/02_example_stecklercompartments.html">Steckler Compartments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/03_advanced/03_example_zukoskiplumes.html">Zukoski Plumes</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Tools</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../01_fds_smv/00_overview.html">
-   FDS and SMV
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
-  <label for="toctree-checkbox-12">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../01_fds_smv/01_fds_intro.html">
-     FDS Overview
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../01_fds_smv/02_fds_tutorial.html">
-     FDS Basic Example
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../01_fds_smv/03_smv.html">
-     Smokeview Basics
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="00_overview.html">
-   HPC
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
-  <label for="toctree-checkbox-13">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Linux
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="02_hpc.html">
-     High Performance Computing
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="03_parallel_fds.html">
-     Parallel Execution of FDS
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="04_benchmarking.html">
-     Benchmarking
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../03_analysis/00_overview.html">
-   Data Analysis
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
-  <label for="toctree-checkbox-14">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../03_analysis/01_python.html">
-     Python
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../03_analysis/03_example_mccaffreyplumes.html">
-     Example: McCaffrey plume experiments
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../03_analysis/02_fdsreader.html">
-     fdsreader Module
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../01_fds_smv/00_overview.html">FDS and SMV</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../01_fds_smv/01_fds_intro.html">FDS Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01_fds_smv/02_fds_tutorial.html">FDS Basic Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../01_fds_smv/03_smv.html">Smokeview Basics</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Teaching
- </span>
-</p>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="00_overview.html">HPC</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Linux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_hpc.html">High Performance Computing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_parallel_fds.html">Parallel Execution of FDS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_benchmarking.html">Benchmarking</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../03_analysis/00_overview.html">Data Analysis</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../03_analysis/01_python.html">Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_analysis/03_example_mccaffreyplumes.html">Example: McCaffrey plume experiments</a></li>
+
+
+<li class="toctree-l2"><a class="reference internal" href="../03_analysis/02_fdsreader.html">fdsreader Module</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Teaching</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../teaching/01_firesim_lecture/00_overview.html">
-   Fire Simulation Lecture @ BUW
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
-  <label for="toctree-checkbox-15">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../teaching/01_firesim_lecture/01_week_01.html">
-     Week 1
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../teaching/01_firesim_lecture/02_week_02.html">
-     Week 2
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../teaching/02_cobra_workshop/00_overview.html">
-   CoBra Workshop
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
-  <label for="toctree-checkbox-16">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../teaching/02_cobra_workshop/01_ws_01.html">
-     CoBra Workshop I
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../teaching/02_cobra_workshop/02_ws_01.html">
-     CoBra Workshop II
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../teaching/02_cobra_workshop/03_ws_01.html">
-     CoBra Workshop III
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../teaching/01_firesim_lecture/00_overview.html">Fire Simulation Lecture @ BUW</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../teaching/01_firesim_lecture/01_week_01.html">Week 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../teaching/01_firesim_lecture/02_week_02.html">Week 2</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../teaching/02_cobra_workshop/00_overview.html">CoBra Workshop</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../teaching/02_cobra_workshop/01_ws_01.html">CoBra Workshop I</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../teaching/02_cobra_workshop/02_ws_01.html">CoBra Workshop II</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../teaching/02_cobra_workshop/03_ws_01.html">CoBra Workshop III</a></li>
+</ul>
+</li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/FireDynamics/LectureFireSimulation/main?urlpath=tree/book/content/tools/02_hpc/01_linux.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
   
-    <img src="../../../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
+  <div id="rtd-footer-container"></div>
 
-      </li>
+
+      </div>
       
-      <li>
-        <a href="https://io.cce.uni-wuppertal.de/firesim_ss21/hub/user-redirect/git-pull?repo=https%3A//github.com/FireDynamics/LectureFireSimulation&urlpath=tree/LectureFireSimulation/book/content/tools/02_hpc/01_linux.ipynb&branch=main"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on JupyterHub"
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://io.cce.uni-wuppertal.de/firesim_ss21/hub/user-redirect/git-pull?repo=https%3A//github.com/FireDynamics/LectureFireSimulation&urlpath=tree/LectureFireSimulation/book/content/tools/02_hpc/01_linux.ipynb&branch=main" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onJupyterHub"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../../../_static/images/logo_jupyterhub.svg">
   </span>
-<span class="headerbtn__text-container">JupyterHub</span>
+<span class="btn__text-container">JupyterHub</span>
 </a>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/FireDynamics/LectureFireSimulation" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/tools/02_hpc/01_linux.ipynb" target="_blank"
+   class="btn btn-sm btn-source-edit-button dropdown-item"
+   title="Suggest edit"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-pencil-alt"></i>
+  </span>
+<span class="btn__text-container">Suggest edit</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/tools/02_hpc/01_linux.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../../_sources/content/tools/02_hpc/01_linux.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/FireDynamics/LectureFireSimulation"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/FireDynamics/LectureFireSimulation/issues/new?title=Issue%20on%20page%20%2Fcontent/tools/02_hpc/01_linux.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/FireDynamics/LectureFireSimulation/edit/main/book/content/tools/02_hpc/01_linux.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Edit this page"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-pencil-alt"></i>
-  </span>
-<span class="headerbtn__text-container">suggest edit</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../../_sources/content/tools/02_hpc/01_linux.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#philosophy">
-   Philosophy
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#directories">
-   Directories
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#terminal-shell">
-   Terminal &amp; Shell
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bash-basics">
-   Bash Basics
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#environment-variables">
-     Environment variables
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#command-execution">
-     Command execution
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#basic-interaction-with-the-file-system">
-     Basic interaction with the file system
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#configure-your-terminal">
-     Configure your terminal
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#arguments">
-     Arguments
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#listing-directories">
-     Listing directories
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#aliases">
-     Aliases
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#wildcards">
-     Wildcards
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#output-redirection">
-     Output Redirection
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bash-programming">
-   Bash Programming
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#advanced">
-   Advanced
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#git-and-github">
-     Git and GitHub
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#compile-software-from-git-repo">
-     Compile software from Git repo
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Linux</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#philosophy">
-   Philosophy
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#directories">
-   Directories
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#terminal-shell">
-   Terminal &amp; Shell
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bash-basics">
-   Bash Basics
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#environment-variables">
-     Environment variables
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#command-execution">
-     Command execution
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#basic-interaction-with-the-file-system">
-     Basic interaction with the file system
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#configure-your-terminal">
-     Configure your terminal
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#arguments">
-     Arguments
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#listing-directories">
-     Listing directories
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#aliases">
-     Aliases
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#wildcards">
-     Wildcards
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#output-redirection">
-     Output Redirection
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#bash-programming">
-   Bash Programming
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#advanced">
-   Advanced
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#git-and-github">
-     Git and GitHub
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#compile-software-from-git-repo">
-     Compile software from Git repo
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Linux</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#philosophy">Philosophy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#directories">Directories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terminal-shell">Terminal &amp; Shell</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bash-basics">Bash Basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-variables">Environment variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#command-execution">Command execution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-interaction-with-the-file-system">Basic interaction with the file system</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-your-terminal">Configure your terminal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arguments">Arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listing-directories">Listing directories</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aliases">Aliases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wildcards">Wildcards</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#output-redirection">Output Redirection</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bash-programming">Bash Programming</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced">Advanced</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#git-and-github">Git and GitHub</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compile-software-from-git-repo">Compile software from Git repo</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
                 
-              <div>
-                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
   <section class="tex2jax_ignore mathjax_ignore" id="linux">
-<h1>Linux<a class="headerlink" href="#linux" title="Permalink to this headline">#</a></h1>
+<h1>Linux<a class="headerlink" href="#linux" title="Permalink to this heading">#</a></h1>
 <figure class="align-default" id="fig-tux">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" width="20%" /></a>
 <figcaption>
@@ -1073,9 +568,9 @@ title="Print to PDF"
 </figcaption>
 </figure>
 <section id="philosophy">
-<h2>Philosophy<a class="headerlink" href="#philosophy" title="Permalink to this headline">#</a></h2>
+<h2>Philosophy<a class="headerlink" href="#philosophy" title="Permalink to this heading">#</a></h2>
 <p>The UNIX and UNIX-like based operating systems have the following philosophy:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>write computer programs, that solve a single task, but very efficient</p></li>
 <li><p>write computer programs, such that they can work together</p></li>
 <li><p>write computer programs, that process simple text streams</p></li>
@@ -1084,7 +579,7 @@ title="Print to PDF"
 <p>Unlike desktop systems, most high performance computing (HPC) systems are operated in a command line based way. Therefore, the main content of this section focusses on the usage of command line tools.</p>
 </section>
 <section id="directories">
-<h2>Directories<a class="headerlink" href="#directories" title="Permalink to this headline">#</a></h2>
+<h2>Directories<a class="headerlink" href="#directories" title="Permalink to this heading">#</a></h2>
 <p>Linux uses a tree directory structure, which originates at the so called root <code class="docutils literal notranslate"><span class="pre">/</span></code>. All subdirectories are located in the same directory tree.</p>
 <p>A path, i.e. the location of a file or directory, is a sequence of directories starting at the root and which are separated with <code class="docutils literal notranslate"><span class="pre">/</span></code>. Figure <a class="reference internal" href="#fig-linux-directory-comparison"><span class="std std-numref">Fig. 20</span></a> illustrates the differences and common aspects of the three most popular types of operating systems for desktop computers.</p>
 <figure class="align-default" id="fig-linux-directory-comparison">
@@ -1108,7 +603,7 @@ title="Print to PDF"
 <p>In order to express paths which are located towards the root, each level above can be adressed with a <code class="docutils literal notranslate"><span class="pre">..</span></code>.</p>
 </section>
 <section id="terminal-shell">
-<h2>Terminal &amp; Shell<a class="headerlink" href="#terminal-shell" title="Permalink to this headline">#</a></h2>
+<h2>Terminal &amp; Shell<a class="headerlink" href="#terminal-shell" title="Permalink to this heading">#</a></h2>
 <p>A terminal is a device or (nowadays) a computer program that allows the user to interact with a computer. Besides the physical attendence at a terminal, terminal emulators allow to detach that requirement. There are terminal emulator applications that run locally, like Xterm or Konsole, but it is also possible to remotely connect terminals, e.g. with ssh. A command-line shell, or just shell, is a user interface to the terminal and thus the operating system.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -1124,7 +619,7 @@ title="Print to PDF"
 </ul>
 </section>
 <section id="bash-basics">
-<h2>Bash Basics<a class="headerlink" href="#bash-basics" title="Permalink to this headline">#</a></h2>
+<h2>Bash Basics<a class="headerlink" href="#bash-basics" title="Permalink to this heading">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>In the following, some examples within a directory structure are used. The directory contents are stored in the archive <a class="reference download internal" download="" href="../../../_downloads/e48e9d53422a7d02f13b1af6717ab9b8/dir_structure_01.tar"><code class="xref download docutils literal notranslate"><span class="pre">dir_structure_01.tar</span></code></a>, which can be extracted after download by <code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">-xf</span> <span class="pre">dir_structure_01.tar</span></code>.</p>
@@ -1132,7 +627,7 @@ title="Print to PDF"
 <p>The shell keeps track of commands that have been used in its history. Individual entries can be accessed with the up/down arrow keys. A general overview over the history can be shown when using the <code class="docutils literal notranslate"><span class="pre">history</span></code> command. Hitting the “Cmd” and “R” keys, the user can search for commands in the history. Furthermore, the shell provides functionality to auto-complete commands by hitting the “tab” key during typing in of a command.
 The command <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">$SHELL</span></code> allows the user to get information about which shell they are working with right now. The shell behaviour can be individualised, by setting up configuration files like the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>, <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code> or <code class="docutils literal notranslate"><span class="pre">.bash_aliases</span></code>. Note on Pleiades it is the <code class="docutils literal notranslate"><span class="pre">.profile</span></code> instead.</p>
 <section id="environment-variables">
-<h3>Environment variables<a class="headerlink" href="#environment-variables" title="Permalink to this headline">#</a></h3>
+<h3>Environment variables<a class="headerlink" href="#environment-variables" title="Permalink to this heading">#</a></h3>
 <p>Most, probably all, shells offer environment variables. They store information, which can be used during the execution of the issued commands. In Bash the syntax for reading the content of a variable with the name <code class="docutils literal notranslate"><span class="pre">AVAR</span></code> is <code class="docutils literal notranslate"><span class="pre">$AVAR</span></code>, i.e. the <code class="docutils literal notranslate"><span class="pre">$</span></code> character is prepended. To define the variable or change its value, the sole variable name is used.</p>
 <p>There exist many environment variables, depending on the operating system and the used shell. Some common ones are:</p>
 <ul class="simple">
@@ -1144,7 +639,7 @@ The command <code class="docutils literal notranslate"><span class="pre">echo</s
 </ul>
 </section>
 <section id="command-execution">
-<h3>Command execution<a class="headerlink" href="#command-execution" title="Permalink to this headline">#</a></h3>
+<h3>Command execution<a class="headerlink" href="#command-execution" title="Permalink to this heading">#</a></h3>
 <p>A command or program is executed by typing its name:</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -1161,7 +656,7 @@ The command <code class="docutils literal notranslate"><span class="pre">echo</s
 <div class="cell tag_remove_input docutils container">
 <div class="cell_output docutils container">
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; date
-Tue Nov 29 21:36:44 UTC 2022
+Fri Apr 14 09:42:45 UTC 2023
 </pre></div>
 </div>
 </div>
@@ -1187,7 +682,7 @@ runner
 </div>
 </section>
 <section id="basic-interaction-with-the-file-system">
-<h3>Basic interaction with the file system<a class="headerlink" href="#basic-interaction-with-the-file-system" title="Permalink to this headline">#</a></h3>
+<h3>Basic interaction with the file system<a class="headerlink" href="#basic-interaction-with-the-file-system" title="Permalink to this heading">#</a></h3>
 <p><strong>Changing directories</strong></p>
 <p>The current directory is changed via the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command. Invoking no arguments changes to the user’s home directory, otherwise the
 target directory is specified. There exist a couple of special directories, which can also be used with other commands:</p>
@@ -1253,7 +748,7 @@ You can list them:</p>
 </div>
 </section>
 <section id="configure-your-terminal">
-<h3>Configure your terminal<a class="headerlink" href="#configure-your-terminal" title="Permalink to this headline">#</a></h3>
+<h3>Configure your terminal<a class="headerlink" href="#configure-your-terminal" title="Permalink to this heading">#</a></h3>
 <p>The user can adjust their shell by setting up a configuration file that is called <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>. This is a basic text file, which is stored in the user’s home directory as a hidden file (indicated by the leading period in the file name). Typically this file does not exist right away, using for example the command<code class="docutils literal notranslate"><span class="pre">vim</span> <span class="pre">~/.bashrc</span></code> the file will be created otherwise it will just be opened for editing in the text editor <a class="reference external" href="https://www.vim.org/docs.php">Vim</a>. In the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> default settings can be stored. For instance, the command prompt can be changed from the generic default to show <code class="docutils literal notranslate"><span class="pre">user_name&#64;host</span></code> or often used modules could be pre-loaded, see section “Environment modules (Lmod)” below.</p>
 <p>Let’s try it out. First we create/open the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file in Vim, assuming we are in the users home directory.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">vim</span> <span class="o">~/.</span><span class="n">bashrc</span>
@@ -1268,7 +763,7 @@ You can list them:</p>
 <p>This changes the command prompt to show the user and host names.</p>
 </section>
 <section id="arguments">
-<h3>Arguments<a class="headerlink" href="#arguments" title="Permalink to this headline">#</a></h3>
+<h3>Arguments<a class="headerlink" href="#arguments" title="Permalink to this heading">#</a></h3>
 <p>In general, issued commands accept arguments. These can be either named arguments, which need to be explicitly indicated, or positional arguments, which are identified by their position.</p>
 <p>Arguments are separated by a space character.</p>
 <p>Further information about the accepted arguments is either available by using the <code class="docutils literal notranslate"><span class="pre">man</span></code> command, which prints the manual for a command. The name of the command is passed as an argument. In the following example, the manual page for <code class="docutils literal notranslate"><span class="pre">grep</span></code> is shown. This application searches files or given input for a given search pattern.</p>
@@ -1602,7 +1097,7 @@ Try &#39;grep --help&#39; for more information.
 <p>Besides the named arguments, there are two positional arguments: <code class="docutils literal notranslate"><span class="pre">pattern</span></code> and <code class="docutils literal notranslate"><span class="pre">file</span> <span class="pre">...</span></code>. The first one defines the search pattern and the second one defines one or multiple files to be searched in.</p>
 </section>
 <section id="listing-directories">
-<h3>Listing directories<a class="headerlink" href="#listing-directories" title="Permalink to this headline">#</a></h3>
+<h3>Listing directories<a class="headerlink" href="#listing-directories" title="Permalink to this heading">#</a></h3>
 <p>The content of a directory is displayed with <code class="docutils literal notranslate"><span class="pre">ls</span></code>. Without arguments it shows the current directory, otherwise the target directory.</p>
 <p>Some common options:</p>
 <ul class="simple">
@@ -1654,7 +1149,7 @@ logfile
 &gt; ls -lah
 total 112K
 drwxr-xr-x 17 runner docker 4.0K Apr 26  2021 .
-drwxr-xr-x  4 runner docker 4.0K Nov 29 21:36 ..
+drwxr-xr-x  4 runner docker 4.0K Apr 14 09:42 ..
 -rw-r--r--  1 runner docker   20 Apr 25  2021 .hidden_file_do_not_look_here
 -rw-r--r--  1 runner docker  816 Apr 26  2021 combined_logs
 -rw-r--r--  1 runner docker  591 Dec 12  2000 doc01.md
@@ -1665,21 +1160,21 @@ drwxr-xr-x  4 runner docker 4.0K Nov 29 21:36 ..
 -rw-r--r--  1 runner docker   60 Apr 26  2021 for-loop.sh
 -rw-r--r--  1 runner docker  113 Apr 25  2021 if-statement.sh
 -rw-r--r--  1 runner docker   62 Apr 26  2021 info.txt
-drwxr-xr-x  2 runner docker 4.0K Nov 29 21:36 rundir_01
-drwxr-xr-x  2 runner docker 4.0K Nov 29 21:36 rundir_02
-drwxr-xr-x  2 runner docker 4.0K Nov 29 21:36 rundir_03
-drwxr-xr-x  2 runner docker 4.0K Nov 29 21:36 rundir_04
-drwxr-xr-x  2 runner docker 4.0K Nov 29 21:36 rundir_05
-drwxr-xr-x  2 runner docker 4.0K Nov 29 21:36 rundir_06
-drwxr-xr-x  2 runner docker 4.0K Nov 29 21:36 rundir_07
-drwxr-xr-x  2 runner docker 4.0K Nov 29 21:36 rundir_08
-drwxr-xr-x  2 runner docker 4.0K Nov 29 21:36 rundir_09
-drwxr-xr-x  2 runner docker 4.0K Nov 29 21:36 rundir_10
-drwxr-xr-x  2 runner docker 4.0K Nov 29 21:36 rundir_11
-drwxr-xr-x  2 runner docker 4.0K Nov 29 21:36 rundir_12
-drwxr-xr-x  2 runner docker 4.0K Nov 29 21:36 rundir_13
+drwxr-xr-x  2 runner docker 4.0K Apr 14 09:42 rundir_01
+drwxr-xr-x  2 runner docker 4.0K Apr 14 09:42 rundir_02
+drwxr-xr-x  2 runner docker 4.0K Apr 14 09:42 rundir_03
+drwxr-xr-x  2 runner docker 4.0K Apr 14 09:42 rundir_04
+drwxr-xr-x  2 runner docker 4.0K Apr 14 09:42 rundir_05
+drwxr-xr-x  2 runner docker 4.0K Apr 14 09:42 rundir_06
+drwxr-xr-x  2 runner docker 4.0K Apr 14 09:42 rundir_07
+drwxr-xr-x  2 runner docker 4.0K Apr 14 09:42 rundir_08
+drwxr-xr-x  2 runner docker 4.0K Apr 14 09:42 rundir_09
+drwxr-xr-x  2 runner docker 4.0K Apr 14 09:42 rundir_10
+drwxr-xr-x  2 runner docker 4.0K Apr 14 09:42 rundir_11
+drwxr-xr-x  2 runner docker 4.0K Apr 14 09:42 rundir_12
+drwxr-xr-x  2 runner docker 4.0K Apr 14 09:42 rundir_13
 drwxr-xr-x  2 runner docker 4.0K Apr 25  2021 rundir_14
-drwxr-xr-x  2 runner docker 4.0K Nov 29 21:36 rundir_15
+drwxr-xr-x  2 runner docker 4.0K Apr 14 09:42 rundir_15
 </pre></div>
 </div>
 </div>
@@ -1699,27 +1194,27 @@ drwxr-xr-x 2 runner docker 4096 Apr 25  2021 rundir_14
 -rw-r--r-- 1 runner docker  816 Apr 26  2021 combined_logs
 -rw-r--r-- 1 runner docker   62 Apr 26  2021 info.txt
 -rw-r--r-- 1 runner docker   60 Apr 26  2021 for-loop.sh
-drwxr-xr-x 2 runner docker 4096 Nov 29 21:36 rundir_15
-drwxr-xr-x 2 runner docker 4096 Nov 29 21:36 rundir_13
-drwxr-xr-x 2 runner docker 4096 Nov 29 21:36 rundir_12
-drwxr-xr-x 2 runner docker 4096 Nov 29 21:36 rundir_11
-drwxr-xr-x 2 runner docker 4096 Nov 29 21:36 rundir_10
-drwxr-xr-x 2 runner docker 4096 Nov 29 21:36 rundir_09
-drwxr-xr-x 2 runner docker 4096 Nov 29 21:36 rundir_08
-drwxr-xr-x 2 runner docker 4096 Nov 29 21:36 rundir_07
-drwxr-xr-x 2 runner docker 4096 Nov 29 21:36 rundir_06
-drwxr-xr-x 2 runner docker 4096 Nov 29 21:36 rundir_05
-drwxr-xr-x 2 runner docker 4096 Nov 29 21:36 rundir_04
-drwxr-xr-x 2 runner docker 4096 Nov 29 21:36 rundir_03
-drwxr-xr-x 2 runner docker 4096 Nov 29 21:36 rundir_02
-drwxr-xr-x 2 runner docker 4096 Nov 29 21:36 rundir_01
+drwxr-xr-x 2 runner docker 4096 Apr 14 09:42 rundir_15
+drwxr-xr-x 2 runner docker 4096 Apr 14 09:42 rundir_13
+drwxr-xr-x 2 runner docker 4096 Apr 14 09:42 rundir_12
+drwxr-xr-x 2 runner docker 4096 Apr 14 09:42 rundir_11
+drwxr-xr-x 2 runner docker 4096 Apr 14 09:42 rundir_10
+drwxr-xr-x 2 runner docker 4096 Apr 14 09:42 rundir_09
+drwxr-xr-x 2 runner docker 4096 Apr 14 09:42 rundir_08
+drwxr-xr-x 2 runner docker 4096 Apr 14 09:42 rundir_07
+drwxr-xr-x 2 runner docker 4096 Apr 14 09:42 rundir_06
+drwxr-xr-x 2 runner docker 4096 Apr 14 09:42 rundir_05
+drwxr-xr-x 2 runner docker 4096 Apr 14 09:42 rundir_04
+drwxr-xr-x 2 runner docker 4096 Apr 14 09:42 rundir_03
+drwxr-xr-x 2 runner docker 4096 Apr 14 09:42 rundir_02
+drwxr-xr-x 2 runner docker 4096 Apr 14 09:42 rundir_01
 </pre></div>
 </div>
 </div>
 </div>
 </section>
 <section id="aliases">
-<h3>Aliases<a class="headerlink" href="#aliases" title="Permalink to this headline">#</a></h3>
+<h3>Aliases<a class="headerlink" href="#aliases" title="Permalink to this heading">#</a></h3>
 <p>The user can personalise their environment in different ways. For example it is possible to define so-called “aliases”. An “alias” allows the user to set up individualised short form commands. For example, a command to call a program with an often used set of parameters could be attached to an alias. Assume we were to use the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command often, together with the parameters to give the long output (<code class="docutils literal notranslate"><span class="pre">-l</span></code>) for all file in a directory (<code class="docutils literal notranslate"><span class="pre">-a</span></code>) in human-readable form (<code class="docutils literal notranslate"><span class="pre">-h</span></code>), i.e. <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-lah</span></code>. We could give it a short form command, for example <code class="docutils literal notranslate"><span class="pre">lsa</span></code>, by typing <code class="docutils literal notranslate"><span class="pre">alias</span> <span class="pre">lsa='ls</span> <span class="pre">-lah'</span></code> in the command line. However, this definition will only exist as long as the session is active. To make it permanent, it needs to be stored in a script which is loaded when a new session is started. Typically, these definitions are stored in files within the user home directory, specifically the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> or better the <code class="docutils literal notranslate"><span class="pre">.bash_aliases</span></code> files. These are simple text files, if they don’t exist they can be easily created. For example using <code class="docutils literal notranslate"><span class="pre">vim</span> <span class="pre">~/.bash_aliases</span></code>. In the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> a command needs then to be written to read the <code class="docutils literal notranslate"><span class="pre">.bash_aliases</span></code>.</p>
 <p>Let’s try it out. First we navigate to the users home directory.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">cd</span> <span class="o">~</span>
@@ -1761,7 +1256,7 @@ drwxr-xr-x 2 runner docker 4096 Nov 29 21:36 rundir_01
 <p>When on a computer that uses the SLURM scheduler (see subsection “SLURM” in the “Parallel Execution of FDS”), it shows all queued jobs of the user (<code class="docutils literal notranslate"><span class="pre">$USER</span></code>).</p>
 </section>
 <section id="wildcards">
-<h3>Wildcards<a class="headerlink" href="#wildcards" title="Permalink to this headline">#</a></h3>
+<h3>Wildcards<a class="headerlink" href="#wildcards" title="Permalink to this heading">#</a></h3>
 <p>Wildcards are used to provide a matching pattern for the shell, which are generally called <a class="reference external" href="https://en.wikipedia.org/wiki/Glob_(programming)">glob patterns</a>. First, the shell will evaluate the pattern and search for matching paths. Then it will expand the wildcard pattern with the explicit list of the results, which typically is passed to an applicaiton.</p>
 <p>Some common wildcards are:</p>
 <ul class="simple">
@@ -1841,7 +1336,7 @@ Run Time: 20714
 </div>
 </section>
 <section id="output-redirection">
-<h3>Output Redirection<a class="headerlink" href="#output-redirection" title="Permalink to this headline">#</a></h3>
+<h3>Output Redirection<a class="headerlink" href="#output-redirection" title="Permalink to this heading">#</a></h3>
 <p>The output of programs is either to</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">stdout</span></code>: the normal program output</p></li>
@@ -1915,7 +1410,7 @@ Run Time: 20714
 </section>
 </section>
 <section id="bash-programming">
-<h2>Bash Programming<a class="headerlink" href="#bash-programming" title="Permalink to this headline">#</a></h2>
+<h2>Bash Programming<a class="headerlink" href="#bash-programming" title="Permalink to this heading">#</a></h2>
 <p>Just as a starting point, a few examples on how to do looping and branchig in a bash script are shown here.</p>
 <p>A shell script can be executed either</p>
 <ul class="simple">
@@ -1930,8 +1425,8 @@ Run Time: 20714
 </ul>
 <p><strong>Example:</strong> Simple loop over all files and directroies.</p>
 <p><em>Script listing:</em></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> i <span class="k">in</span> *<span class="p">;</span> <span class="k">do</span> 
-    <span class="nb">echo</span> <span class="s2">&quot;Found directory element: &quot;</span> <span class="nv">$i</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span>*<span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Found directory element: &quot;</span><span class="w"> </span><span class="nv">$i</span>
 <span class="k">done</span>
 </pre></div>
 </div>
@@ -1969,12 +1464,12 @@ Found directory element:  rundir_15
 </div>
 <p><strong>Example:</strong> Simple if-statement to check for the existance of a file.</p>
 <p><em>Script listing:</em></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="s2">&quot;Checking for file:&quot;</span> <span class="nv">$1</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Checking for file:&quot;</span><span class="w"> </span><span class="nv">$1</span>
 
-<span class="k">if</span> <span class="o">[</span> -e <span class="nv">$1</span> <span class="o">]</span><span class="p">;</span> <span class="k">then</span>
-    <span class="nb">echo</span> <span class="s2">&quot;File exists&quot;</span> 
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span>-e<span class="w"> </span><span class="nv">$1</span><span class="w"> </span><span class="o">]</span><span class="p">;</span><span class="w"> </span><span class="k">then</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;File exists&quot;</span><span class="w"> </span>
 <span class="k">else</span>
-    <span class="nb">echo</span> <span class="s2">&quot;File does not exists&quot;</span> 
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;File does not exists&quot;</span><span class="w"> </span>
 <span class="k">fi</span>
 </pre></div>
 </div>
@@ -1999,9 +1494,9 @@ File exists
 </div>
 </section>
 <section id="advanced">
-<h2>Advanced<a class="headerlink" href="#advanced" title="Permalink to this headline">#</a></h2>
+<h2>Advanced<a class="headerlink" href="#advanced" title="Permalink to this heading">#</a></h2>
 <section id="git-and-github">
-<h3>Git and GitHub<a class="headerlink" href="#git-and-github" title="Permalink to this headline">#</a></h3>
+<h3>Git and GitHub<a class="headerlink" href="#git-and-github" title="Permalink to this heading">#</a></h3>
 <p>GitHub is a web hosting service for distributed version control using Git. Git allows collaborative software development, while keeping track of changes to the code. This code can be hosted in open-access repositories via GitHub, like the <a class="reference external" href="https://github.com/firemodels/fds">FDS repository</a> for example. Operating systems like Linux or MacOS often come with Git integrated and can directly be used from the terminal. Windows users might need to install an application, for example the graphical user interface <a class="reference external" href="https://desktop.github.com/">GitHub Desktop</a> or the lightweight <a class="reference external" href="https://gitforwindows.org/">git for windows</a>.</p>
 <p>Version control systems allow the creation of <a class="reference external" href="https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell">branches</a> to the code base, as well as keeping track of <a class="reference external" href="https://git-scm.com/docs/git-commit">individual changes</a>. Branches can be used to implement new features, solve bugs or further the development of new software versions, without affecting the stable version. Commits are incremental changes to the code itself. At any given time the user can change the branches and commits to work with specific versions of the software. On the web page of the repository there are a couple of tabs at the top of the page. On the right hand side is the tab “Insights”. Clicking on it and then on the left hand side “Network” gives a brief graphical overview over commits and branches.
 Typically, the user would clone the repository to their computer, work on the software locally, collect changes into commits and push these changes to the online repository later on. One can also download the repository as a zip archive.</p>
@@ -2009,7 +1504,7 @@ Typically, the user would clone the repository to their computer, work on the so
 With <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">branch_label</span></code> one can change to a different branch. When only <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span></code> is typed and one hits the Tab-key all available branch labels are shown. Furthermore, individual commits can be loaded by using the commit instead of the branch <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">commit_id</span></code>.</p>
 </section>
 <section id="compile-software-from-git-repo">
-<h3>Compile software from Git repo<a class="headerlink" href="#compile-software-from-git-repo" title="Permalink to this headline">#</a></h3>
+<h3>Compile software from Git repo<a class="headerlink" href="#compile-software-from-git-repo" title="Permalink to this heading">#</a></h3>
 <p>It may be necessary for users to compile necessary software themselves. For example, to account for the pre-installed libraries and dependencies on the target system. It also happens that one might need a specific software version that is not available in a package or with an installer. Consider the ongoing development of FDS. New functionality could be added that you might want to try out or a change is implemented that might be beneficial for your work. Or maybe you want to compare simulation results to older versions.</p>
 <p>The source code of FDS can be downloaded from the <a class="reference external" href="https://github.com/firemodels/fds">FDS GitHub repository</a>, following the green button at the top right on the main page of the git repo. One can download it as a compressed archive or clone the repo directly to disk, using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">address/of/repo</span></code> in the command line.</p>
 <p>In the directory <code class="docutils literal notranslate"><span class="pre">Build</span></code> is a <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file located (<code class="docutils literal notranslate"><span class="pre">*.md</span></code> is a plain text file to be interpreted as <a class="reference external" href="https://www.markdownguide.org/">Markdown</a>). It contains some information on the compilation process of FDS. Detailed instructions are given in the <code class="docutils literal notranslate"><span class="pre">makefile</span></code> for different operating systems and MPI versions.</p>
@@ -2029,7 +1524,7 @@ With <code class="docutils literal notranslate"><span class="pre">git</span> <sp
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./content/tools/02_hpc"
         },
         predefinedOutput: true
@@ -2037,55 +1532,122 @@ With <code class="docutils literal notranslate"><span class="pre">git</span> <sp
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="00_overview.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">HPC</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="00_overview.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">HPC</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="02_hpc.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="02_hpc.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">High Performance Computing</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
-</div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+</div></div>
   
-    <div class="extra_footer">
-      <p>
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#philosophy">Philosophy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#directories">Directories</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terminal-shell">Terminal &amp; Shell</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bash-basics">Bash Basics</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#environment-variables">Environment variables</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#command-execution">Command execution</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-interaction-with-the-file-system">Basic interaction with the file system</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#configure-your-terminal">Configure your terminal</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#arguments">Arguments</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listing-directories">Listing directories</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#aliases">Aliases</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#wildcards">Wildcards</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#output-redirection">Output Redirection</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#bash-programming">Bash Programming</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#advanced">Advanced</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#git-and-github">Git and GitHub</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#compile-software-from-git-repo">Compile software from Git repo</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  <p>
 <img src='https://mirrors.creativecommons.org/presskit/buttons/88x31/svg/by-sa.svg' height='31'/>
 | By Team Fire | Contacts and Infos: <a href='https://cce.uni-wuppertal.de/en.html'>CCE@BUW</a> and <a href='https://www.fz-juelich.de/ias/ias-7/EN/Research/Fire_Dynamics/_node.html'>IAS-7@FZJ</a>
 </br>Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
 </p>
 
-    </div>
-</p>
-        </footer>
-    </div>
-    
 </div>
+  </div>
+  
+</div>
+          </footer>
+        
 
-
-      </div>
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
