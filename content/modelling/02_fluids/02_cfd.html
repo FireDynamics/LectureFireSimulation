@@ -559,14 +559,19 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="cell tag_hide_cell docutils container">
+  <div class="cell tag_hide_cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="c1"># Set the matplotlib output to svg</span>
-<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">set_matplotlib_formats</span>
-<span class="n">set_matplotlib_formats</span><span class="p">(</span><span class="s1">&#39;svg&#39;</span><span class="p">)</span>
+<span class="c1"># from IPython.display import set_matplotlib_formats</span>
+<span class="c1"># set_matplotlib_formats(&#39;svg&#39;)</span>
 
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="c1"># check for set environment variable JB_NOSHOW</span>
@@ -576,12 +581,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_2071/1656943405.py:6: DeprecationWarning: `set_matplotlib_formats` is deprecated since IPython 7.23, directly use `matplotlib_inline.backend_inline.set_matplotlib_formats()`
-  set_matplotlib_formats(&#39;svg&#39;)
-</pre></div>
-</div>
-</div>
+</details>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="computational-fluid-dynamics">
 <h1><span class="section-number">2.2. </span>Computational Fluid Dynamics<a class="headerlink" href="#computational-fluid-dynamics" title="Permalink to this heading">#</a></h1>
@@ -635,7 +635,12 @@ document.write(`
 \mf f(x) = \frac{x}{10} + \frac{1}{1+x^2}
 \]</div>
 <p>at the evaluation point <span class="math notranslate nohighlight">\(\mf x_0 = 2.0\)</span>.</p>
-<div class="cell tag_hide_cell docutils container">
+<div class="cell tag_hide_cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># definition of the example function and its analytical derivatives</span>
 <span class="k">def</span> <span class="nf">fnk</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">derivative</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
@@ -651,8 +656,14 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell tag_hide_cell docutils container">
+<div class="cell tag_hide_cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># set interval for x</span>
 <span class="n">xb</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
@@ -761,8 +772,41 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>The following figures illustrate the according Taylor approximations for up to <span class="math notranslate nohighlight">\(\mf n=3\)</span>.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-0">
+f(x)</label><div class="sd-tab-content docutils">
+<img src="./figs/taylor_fnk.svg" width="90%">
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-1">
+n=0</label><div class="sd-tab-content docutils">
+<img src="./figs/taylor_ts0.svg" width="90%">
+</div>
+<input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-2">
+n=1</label><div class="sd-tab-content docutils">
+<img src="./figs/taylor_ts1.svg" width="90%">
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-3">
+n=2</label><div class="sd-tab-content docutils">
+<img src="./figs/taylor_ts2.svg" width="90%">
+</div>
+<input id="sd-tab-item-4" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-4">
+n=3</label><div class="sd-tab-content docutils">
+<img src="./figs/taylor_ts3.svg" width="90%">
+</div>
+<input id="sd-tab-item-5" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-5">
+n in [0,…,3]</label><div class="sd-tab-content docutils">
+<img src="./figs/taylor_all.svg" width="90%">
+</div>
+</div>
 </section>
 <section id="derivatives">
 <h3>Derivatives<a class="headerlink" href="#derivatives" title="Permalink to this heading">#</a></h3>
@@ -778,7 +822,12 @@ document.write(`
 \]</div>
 <p>Thus with this formula, it becomes possible to approximate the value of the derivative based on two values of the function, here at <span class="math notranslate nohighlight">\(\mf x_0\)</span> and <span class="math notranslate nohighlight">\(\mf x_0 + h\)</span>.</p>
 <p>A graphical representation of equation <a class="reference internal" href="#equation-eq-fdm-fwd-frst">(2.16)</a> is shown below. It demonstrates the formula for <span class="math notranslate nohighlight">\(\mf h=1\)</span>.</p>
-<div class="cell tag_hide_input docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># fix value of h</span>
 <span class="n">h</span> <span class="o">=</span> <span class="mi">1</span>
@@ -821,6 +870,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <figure class="align-default" id="fig-fwd-difference">
 <a class="reference internal image-reference" href="../../../_images/derivative_forward.svg"><img alt="../../../_images/derivative_forward.svg" src="../../../_images/derivative_forward.svg" width="90%" /></a>
@@ -833,7 +883,12 @@ document.write(`
 <span class="eqno">(2.17)<a class="headerlink" href="#equation-eq-fdm-backward-frst" title="Permalink to this equation">#</a></span>\[
 \mf f'(x_0) = \frac{f(x_0) - f(x_0 - h)}{h} + \mathcal{O}(h)\quad .
 \]</div>
-<div class="cell tag_hide_cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># function value at x0-h</span>
 <span class="n">f_nh</span> <span class="o">=</span> <span class="n">fnk</span><span class="p">(</span><span class="n">x0</span> <span class="o">-</span> <span class="n">h</span><span class="p">)</span>
@@ -870,6 +925,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <figure class="align-default" id="fig-bck-difference">
 <a class="reference internal image-reference" href="../../../_images/derivative_backward.svg"><img alt="../../../_images/derivative_backward.svg" src="../../../_images/derivative_backward.svg" width="90%" /></a>
@@ -897,7 +953,12 @@ document.write(`
 \mf f'(x_0) = \frac{f(x_0+h) - f(x_0-h)}{2h} + \mathcal{O}(h^2)\quad .
 \]</div>
 <p>The central differences formula is graphicaly represented in the following figure.</p>
-<div class="cell tag_hide_cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># compite difference in function values</span>
 <span class="c1"># f0p0 is the function (p0) value at x0 (f0)</span>
@@ -934,6 +995,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <figure class="align-default" id="fig-cnt-difference">
 <a class="reference internal image-reference" href="../../../_images/derivative_central.svg"><img alt="../../../_images/derivative_central.svg" src="../../../_images/derivative_central.svg" width="90%" /></a>
@@ -942,7 +1004,12 @@ document.write(`
 </figcaption>
 </figure>
 <p>All three presented methods are shown in a joint illustration in the next figure.</p>
-<div class="cell tag_hide_cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># plot function f(x)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;$\sf f(x)$&#39;</span><span class="p">)</span>
@@ -972,6 +1039,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <figure class="align-default" id="fig-all-difference">
 <a class="reference internal image-reference" href="../../../_images/derivative_all.svg"><img alt="../../../_images/derivative_all.svg" src="../../../_images/derivative_all.svg" width="90%" /></a>
@@ -1027,7 +1095,12 @@ document.write(`
 <p>where the index indicating the position on the spatial mesh is placed as a subscript.</p>
 <p>The above definitions and the following examples are for a one-dimensional setup. In general, fire simulations are solved on a three-dimensional domain, with the according quantities for the y- and z-direction, i.e. <span class="math notranslate nohighlight">\(\mf \Delta y, \Delta z\)</span>.</p>
 <p><strong>Example of a discretisation:</strong> Given <span class="math notranslate nohighlight">\(\mf n_x = 20\)</span>, the function in equation <a class="reference internal" href="#equation-eq-cfd-example-fnk">(2.14)</a> takes the following discrete representation.</p>
-<div class="cell tag_hide_cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nx</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">dx</span> <span class="o">=</span> <span class="p">(</span><span class="n">xe</span> <span class="o">-</span> <span class="n">xb</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">nx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
@@ -1058,6 +1131,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <figure class="align-default" id="fig-cfd-discretisation">
 <a class="reference internal image-reference" href="../../../_images/discretisation.svg"><img alt="../../../_images/discretisation.svg" src="../../../_images/discretisation.svg" width="90%" /></a>
@@ -1070,7 +1144,12 @@ document.write(`
 <h3>Discrete Derivatives<a class="headerlink" href="#discrete-derivatives" title="Permalink to this heading">#</a></h3>
 <p>Given the approximation formulas and a discretised function, it becomes possible to compute the function’s derivative only with the usage of its values. The approximation formulas are evaluated with <span class="math notranslate nohighlight">\(\mf h = \Delta x\)</span>.</p>
 <p>For the function shown above and using the central differences second order <a class="reference internal" href="#equation-eq-cfd-central-derivative-snd">(2.20)</a>, plus the directional derivatives <a class="reference internal" href="#equation-eq-cfd-directional-derivative-snd">(2.21)</a> at the boundaries, the approximated derivative is shown in the following figure.</p>
-<div class="cell tag_hide_cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># function to compute the first derivative with the </span>
 <span class="c1"># central differencing scheme</span>
@@ -1089,8 +1168,14 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell tag_hide_cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># analytical solution of the derivative for comparison</span>
 <span class="n">fp</span> <span class="o">=</span> <span class="n">fnk</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">derivative</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -1122,6 +1207,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <figure class="align-default" id="fig-cfd-discrete-derivative">
 <a class="reference internal image-reference" href="../../../_images/discrete-derivative.svg"><img alt="../../../_images/discrete-derivative.svg" src="../../../_images/discrete-derivative.svg" width="90%" /></a>
@@ -1156,7 +1242,12 @@ document.write(`
 \mf RMSE(\Delta f) = \sqrt{\frac{1}{n_x}\sum_{i=0}^{n_x-1}\left(\Delta f_i\right)^2}\quad .
 \]</div>
 <p>For the example function of the previous section, the approximation error can be computed for various values of <span class="math notranslate nohighlight">\(\mf \Delta x\)</span>, as shown in the following figure. As expected for the second order approximation scheme, the error behaves similar to a quadratic function. However, due to the finite representation of floating point numbers, the convergence stops, when round-off error start to dominate.</p>
-<div class="cell tag_hide_cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dx_list</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="n">rmse_list</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1223,8 +1314,14 @@ dx=9.16e-05 --&gt; rmse=2.39e-09
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell tag_hide_cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">dx_list</span><span class="p">,</span> <span class="n">rmse_list</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;computed&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">dx_list</span><span class="p">,</span> <span class="n">rmse_list</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
@@ -1248,6 +1345,7 @@ dx=9.16e-05 --&gt; rmse=2.39e-09
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <figure class="align-default" id="fig-cfd-approximation-error">
 <a class="reference internal image-reference" href="../../../_images/approximation_error.svg"><img alt="../../../_images/approximation_error.svg" src="../../../_images/approximation_error.svg" width="90%" /></a>
