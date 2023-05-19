@@ -551,7 +551,12 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="cell tag_hide_cell docutils container">
+  <div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Needed for Markdown output from Python cells</span>
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Markdown</span> <span class="k">as</span> <span class="n">md</span>
@@ -561,6 +566,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="fds-basic-example">
 <h1>FDS Basic Example<a class="headerlink" href="#fds-basic-example" title="Permalink to this heading">#</a></h1>
@@ -689,7 +695,12 @@ The slice file is now displayed, you can play with the setting of smokeview to c
 <section id="reading-out-the-device-file">
 <h2>7.2 Reading out the device file<a class="headerlink" href="#reading-out-the-device-file" title="Permalink to this heading">#</a></h2>
 <p>The temperature measured by the device is stored in a CSV file, <code class="docutils literal notranslate"><span class="pre">CHID_devc.csv</span></code>. The data in the csv file can be read out and plotted with a programm of your preference. We would like to encourage you to read out the data and plot the data with Python. Bellow you can find the example for reading out the data with python.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">File_location</span> <span class="o">=</span> <span class="s1">&#39;../../../../data/fds_tutorial/tutorial_01/rundir/out_tutorial_01_devc.csv&#39;</span>
 
@@ -765,10 +776,16 @@ The slice file is now displayed, you can play with the setting of smokeview to c
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>In the above code the data is read in using the pandas package. Pandas is a powerfull package from python for handling CSV or Microsoft Excel files, more info on the package can be found here: <a class="reference external" href="https://pandas.pydata.org">pandas module</a>.</p>
 <p>Now that the data has been imported, the plots can be generated. In order to do so the matplotlib.pyplot libary from python will be used.</p>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span> 
 
@@ -782,10 +799,16 @@ The slice file is now displayed, you can play with the setting of smokeview to c
 <div class="cell_output docutils container">
 <img alt="../../../_images/604466b98a61a411fcbc45355b31ce3d166eee2120754e292a9a3c4df5545b7c.png" src="../../../_images/604466b98a61a411fcbc45355b31ce3d166eee2120754e292a9a3c4df5545b7c.png" />
 </div>
+</details>
 </div>
 <section id="fdsreader">
 <h3>7.3 fdsreader<a class="headerlink" href="#fdsreader" title="Permalink to this heading">#</a></h3>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fdsreader</span>
 
@@ -793,8 +816,14 @@ The slice file is now displayed, you can play with the setting of smokeview to c
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">Simulation</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">Simulation</span><span class="o">.</span><span class="n">devices</span><span class="p">[</span><span class="s2">&quot;TEMPERATURE_DEVICE&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
 
@@ -806,6 +835,7 @@ The slice file is now displayed, you can play with the setting of smokeview to c
 <div class="cell_output docutils container">
 <img alt="../../../_images/604466b98a61a411fcbc45355b31ce3d166eee2120754e292a9a3c4df5545b7c.png" src="../../../_images/604466b98a61a411fcbc45355b31ce3d166eee2120754e292a9a3c4df5545b7c.png" />
 </div>
+</details>
 </div>
 </section>
 </section>
