@@ -150,7 +150,7 @@ More information is provided in [JURECA's batch system documentation](https://ap
 
 The structure of a SLURM job script is basically that of a shell script. This shell script will be executed by the batch system on the requested resource. The definition of the resource is done as comments (`#`) with the `SLURM` keywords. These are instructions for SLURM.
 
-A simple example for a SLURM job scipt ({download}`fds-slurm-job-single.sh`) is given below. It executes FDS for a single FDS input file.
+A simple example for a SLURM job scipt ({download}`fds-slurm-job-single.sh`) on JURECA is given below. An example for the Pleiades system ({download}`fds-slurm-job-single_pleiades.sh`) follows a similar structure. Both execute FDS for a single FDS input file.
 
 ```{literalinclude} ./fds-slurm-job-single.sh
 ```
@@ -258,6 +258,9 @@ The SLURM keywords in the individual lines are described in more detail below.
 
 ```{note}
 It is important to keep in mind, that JURECA's usage concept is to assign compute nodes **exclusively** to a single job. Thus, the resources used are given by the number of nodes used and the wall clock time. In the current setup the `dc-cpu` partition has nodes with 128 cores, so even if jobs use just a few cores, the account is charged with 128 cores (a full node).
+```
+
+```{literalinclude} ./fds-slurm-job-single_pleiades.sh
 ```
 
 * **Submit job script**
