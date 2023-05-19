@@ -536,6 +536,24 @@ document.write(`
 <p>Most Linux and MacOS systems have a SSH client installed. On Windows, you can use tools like <a class="reference external" href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">PuTTY</a> for the connection per terminal and <a class="reference external" href="https://winscp.net/eng/download.php">WinSCP</a> to copy files with a graphical user interface.</p>
 <p>Depending on your SSH client, there are various ways to generate a SSH key pair (public and private). It should always be protected with a passphrase.</p>
 <p>One of the safety measures on JURECA is, that you need to specify the IP range from which you access the system, see <a class="reference external" href="https://apps.fz-juelich.de/jsc/hps/jureca/access.html#key-upload-key-restriction">key restrictions</a>. If you use VPN, e.g. provided by the University of Wuppertal, your <code class="docutils literal notranslate"><span class="pre">from</span></code> statement could include <code class="docutils literal notranslate"><span class="pre">*.uni-wuppertal.de</span></code>.</p>
+<figure class="align-default" id="fig-hpc-ssh1">
+<a class="reference internal image-reference" href="../../../_images/ssh_connection_1.svg"><img alt="../../../_images/ssh_connection_1.svg" src="../../../_images/ssh_connection_1.svg" width="100%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 34 </span><span class="caption-text">SSH connection scenario, where the user types in the password every time an SSH connection is established.</span><a class="headerlink" href="#fig-hpc-ssh1" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fig-hpc-ssh2">
+<a class="reference internal image-reference" href="../../../_images/ssh_connection_2.svg"><img alt="../../../_images/ssh_connection_2.svg" src="../../../_images/ssh_connection_2.svg" width="100%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 35 </span><span class="caption-text">SSH connection scenario, which uses a public-private key pair for authentification. The passphrase for the private key needs to be manualy provided each time the key is accessed.</span><a class="headerlink" href="#fig-hpc-ssh2" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<figure class="align-default" id="fig-hpc-ssh3">
+<a class="reference internal image-reference" href="../../../_images/ssh_connection_3.svg"><img alt="../../../_images/ssh_connection_3.svg" src="../../../_images/ssh_connection_3.svg" width="100%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 36 </span><span class="caption-text">SSH connection scenario, including an SSH agent to manage the passphrases of the private keys located at the local machine. No manual input is needed to access the private keys.</span><a class="headerlink" href="#fig-hpc-ssh3" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
 </section>
 <section id="environment-modules-lmod">
 <h3>Environment modules (Lmod)<a class="headerlink" href="#environment-modules-lmod" title="Permalink to this heading">#</a></h3>

@@ -17,6 +17,23 @@ Depending on your SSH client, there are various ways to generate a SSH key pair 
 
 One of the safety measures on JURECA is, that you need to specify the IP range from which you access the system, see [key restrictions](https://apps.fz-juelich.de/jsc/hps/jureca/access.html#key-upload-key-restriction). If you use VPN, e.g. provided by the University of Wuppertal, your `from` statement could include `*.uni-wuppertal.de`.
 
+:::{figure-md} fig-hpc-ssh1
+<img src="./figs/ssh_connection_1.svg" width="100%">
+
+SSH connection scenario, where the user types in the password every time an SSH connection is established.
+:::
+
+:::{figure-md} fig-hpc-ssh2
+<img src="./figs/ssh_connection_2.svg" width="100%">
+
+SSH connection scenario, which uses a public-private key pair for authentification. The passphrase for the private key needs to be manualy provided each time the key is accessed. 
+:::
+
+:::{figure-md} fig-hpc-ssh3
+<img src="./figs/ssh_connection_3.svg" width="100%">
+
+SSH connection scenario, including an SSH agent to manage the passphrases of the private keys located at the local machine. No manual input is needed to access the private keys.
+:::
 
 ### Environment modules (Lmod)
 With [Lmod](https://lmod.readthedocs.io/en/latest/) the user is able to dynamically change the terminal environment. This is convenient for example when different simulation software versions are to be used. See below for guides of the modules on the systems JURECA and Pleiades.
