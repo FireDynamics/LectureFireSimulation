@@ -5,13 +5,9 @@
 #SBATCH --job-name=my_FDS_simulation
 #SBATCH --partition=normal
 #SBATCH --ntasks=16
-#SBATCH --cpus-per-task=1
 #SBATCH --output=stdout.%j
 #SBATCH --error=stderr.%j
 #SBATCH --time=00:30:00  # days-hours:minutes:seconds
-
-# Set the number of OMP threads
-export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
 
 # Add firesim modules
 module use -a ~larnold/modules/
