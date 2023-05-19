@@ -657,7 +657,12 @@ document.write(`
 </figcaption>
 </figure>
 <p>Alternatively, the <code class="docutils literal notranslate"><span class="pre">SLCF</span></code> can be analyzed with the <strong>fdsreader</strong>.</p>
-<div class="cell tag_hide_cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fdsreader</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -674,8 +679,14 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell tag_hide_cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_root</span> <span class="o">=</span> <span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;data/pool_fire/1mw_sealed&#39;</span>
 <span class="n">sim</span> <span class="o">=</span> <span class="n">fdsreader</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">data_root</span><span class="p">)</span>
@@ -721,6 +732,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <figure class="align-default" id="fig-pool-fire-temp-slice">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_1mw_temperatures_slice.svg"><img alt="../../../_images/pool_fire_1mw_temperatures_slice.svg" src="../../../_images/pool_fire_1mw_temperatures_slice.svg" width="60%" /></a>
@@ -728,7 +740,12 @@ document.write(`
 <p><span class="caption-number">Fig. 3.11 </span><span class="caption-text">Visualization of the instantaneous (<span class="math notranslate nohighlight">\(\sf t=19.63~s\)</span>) <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> values in the y-z-slice <span class="math notranslate nohighlight">\(\sf y=0~m\)</span> with python / matplotlib. The data was obtained via the <strong>fdsreader</strong>.</span><a class="headerlink" href="#fig-pool-fire-temp-slice" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<div class="cell tag_hide_cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fdsreader.bndf.utils</span> <span class="kn">import</span> <span class="n">sort_patches_cartesian</span>
 <span class="n">data_root</span> <span class="o">=</span> <span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;data/pool_fire/bndf&#39;</span>
@@ -774,6 +791,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p><strong>2. Solution</strong></p>
 <div class="cell tag_hide_cell docutils container">
@@ -806,7 +824,12 @@ document.write(`
 </div>
 </div>
 </div>
-<div class="cell tag_hide_cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_root</span> <span class="o">=</span> <span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;data/pool_fire/10mw_open&#39;</span>
 <span class="n">sim</span> <span class="o">=</span> <span class="n">fdsreader</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">data_root</span><span class="p">)</span><span class="c1"># Vector Plots</span>
@@ -836,10 +859,16 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p><strong>3. Solution</strong></p>
 <p>The fluctuation of the HRR curve increases at higher levels. A drop in the released energy with time indicates a lower oxygen level due to the sealed compartment.</p>
-<div class="cell tag_hide_cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_root</span> <span class="o">=</span> <span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;data/pool_fire/100kw_sealed&#39;</span>
 <span class="n">sim</span> <span class="o">=</span> <span class="n">fdsreader</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">data_root</span><span class="p">)</span>
@@ -856,8 +885,14 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell tag_hide_cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_root</span> <span class="o">=</span> <span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;data/pool_fire/1mw_sealed&#39;</span>
 <span class="n">sim</span> <span class="o">=</span> <span class="n">fdsreader</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">data_root</span><span class="p">)</span>
@@ -874,8 +909,14 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell tag_hide_cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_root</span> <span class="o">=</span> <span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;data/pool_fire/10mw_sealed&#39;</span>
 <span class="n">sim</span> <span class="o">=</span> <span class="n">fdsreader</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">data_root</span><span class="p">)</span>
@@ -904,6 +945,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 </section>
 <section id="extra-task-simulation-of-a-purely-buoyant-diffusion-flame">
@@ -1088,7 +1130,12 @@ L = 0.235 \cdot \dot{Q}^{2/5} - 1.02 \cdot D
 </table>
 </div>
 <p><em><strong>FDS Devices</strong></em></p>
-<div class="cell tag_hide_cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.patches</span> <span class="k">as</span> <span class="nn">mpatches</span>
 <span class="kn">from</span> <span class="nn">matplotlib.lines</span> <span class="kn">import</span> <span class="n">Line2D</span>
@@ -1130,6 +1177,7 @@ L = 0.235 \cdot \dot{Q}^{2/5} - 1.02 \cdot D
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p><strong>2. Solution</strong></p>
 <figure class="align-default" id="fig-pool-fire-hrr">
@@ -1208,7 +1256,12 @@ t = \frac{\dot{q}'' \cdot A_{Fire}}{\alpha} = \frac{250 \cdot 1}{0.04689} \appro
 </pre></div>
 </div>
 </div>
-<div class="cell tag_hide_cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="mf">0.04689</span>
 <span class="n">Qdot_max</span> <span class="o">=</span> <span class="mi">250</span>
@@ -1302,8 +1355,14 @@ t = \frac{\dot{q}'' \cdot A_{Fire}}{\alpha} = \frac{250 \cdot 1}{0.04689} \appro
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell tag_hide_cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_root</span> <span class="o">=</span> <span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;data/pool_fire/ramp_spread/rundir&#39;</span>
 <span class="n">sim</span> <span class="o">=</span> <span class="n">fdsreader</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">data_root</span><span class="p">)</span>
@@ -1324,6 +1383,7 @@ t = \frac{\dot{q}'' \cdot A_{Fire}}{\alpha} = \frac{250 \cdot 1}{0.04689} \appro
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <figure class="align-default" id="fig-pool-fire-hrr-spread">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_10mw_sealed_hrr_spread.svg"><img alt="../../../_images/pool_fire_10mw_sealed_hrr_spread.svg" src="../../../_images/pool_fire_10mw_sealed_hrr_spread.svg" width="80%" /></a>
@@ -1352,7 +1412,12 @@ $<span class="math notranslate nohighlight">\(\small\sf \dot{Q} = \Delta h_{c,ef
 </pre></div>
 </div>
 </div>
-<div class="cell tag_hide_cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">125</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">175</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">225</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">275</span> <span class="p">]</span>
 <span class="n">mass_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4000</span><span class="p">,</span> <span class="mi">3900</span><span class="p">,</span> <span class="mi">3500</span><span class="p">,</span> <span class="mi">3040</span><span class="p">,</span> <span class="mi">2800</span><span class="p">,</span> <span class="mi">2400</span><span class="p">,</span> <span class="mi">1800</span><span class="p">,</span> <span class="mi">1120</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
@@ -1387,8 +1452,14 @@ $<span class="math notranslate nohighlight">\(\small\sf \dot{Q} = \Delta h_{c,ef
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell tag_hide_cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot HRR from Simulation</span>
 <span class="n">data_root</span> <span class="o">=</span> <span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;data/pool_fire/ramp_heptane/rundir&#39;</span>
@@ -1408,6 +1479,7 @@ $<span class="math notranslate nohighlight">\(\small\sf \dot{Q} = \Delta h_{c,ef
 <div class="cell_output docutils container">
 <img alt="../../../_images/c4225edc75b2d9a16436564f3a67826a1396d158c01581d9cacb5272d3afc021.png" src="../../../_images/c4225edc75b2d9a16436564f3a67826a1396d158c01581d9cacb5272d3afc021.png" />
 </div>
+</details>
 </div>
 <figure class="align-default" id="fig-pool-fire-hrr-ramp">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_hrr_heptane_ramp.svg"><img alt="../../../_images/pool_fire_hrr_heptane_ramp.svg" src="../../../_images/pool_fire_hrr_heptane_ramp.svg" width="80%" /></a>
@@ -1427,7 +1499,12 @@ $<span class="math notranslate nohighlight">\(\small\sf \dot{Q} = \Delta h_{c,ef
 <li><p>Check grid convergence for the respective resolutions of the domain based on temperature and velocity criteria</p></li>
 </ol>
 <p><strong>Solution:</strong></p>
-<div class="cell tag_hide_cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">data_root</span> <span class="o">=</span> <span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;data/pool_fire/gc_3_1/rundir&#39;</span>
@@ -1466,8 +1543,14 @@ $<span class="math notranslate nohighlight">\(\small\sf \dot{Q} = \Delta h_{c,ef
 </pre></div>
 </div>
 </div>
+</details>
 </div>
-<div class="cell tag_hide_cell docutils container">
+<div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">window</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="k">for</span> <span class="n">n_cells</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2000</span><span class="p">,</span> <span class="mi">31250</span><span class="p">,</span> <span class="mi">250000</span><span class="p">]:</span>
@@ -1483,6 +1566,7 @@ $<span class="math notranslate nohighlight">\(\small\sf \dot{Q} = \Delta h_{c,ef
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <figure class="align-default" id="fig-pool-fire-benchmarking">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_benchmarking.svg"><img alt="../../../_images/pool_fire_benchmarking.svg" src="../../../_images/pool_fire_benchmarking.svg" width="80%" /></a>
