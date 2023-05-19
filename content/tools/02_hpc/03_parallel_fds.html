@@ -758,7 +758,7 @@ module load FDS/6.8.0_IntelComp_IntelMPI.2021.2_mkl
 # Execute FDS, here it is assumed, that there is only one FDS input file
 # in the current directory. Additionally, srun uses implicitly the number
 # of tasks specified in the SLURM header
-srun fds ./*.fds
+mpiexec fds ./*.fds
 </pre></div>
 </div>
 <ul class="simple">
