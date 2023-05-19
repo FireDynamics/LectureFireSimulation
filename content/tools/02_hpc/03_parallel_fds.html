@@ -629,7 +629,7 @@ document.write(`
 <section id="single-job">
 <h4>Single Job<a class="headerlink" href="#single-job" title="Permalink to this heading">#</a></h4>
 <p>The structure of a SLURM job script is basically that of a shell script. This shell script will be executed by the batch system on the requested resource. The definition of the resource is done as comments (<code class="docutils literal notranslate"><span class="pre">#</span></code>) with the <code class="docutils literal notranslate"><span class="pre">SLURM</span></code> keywords. These are instructions for SLURM.</p>
-<p>A simple example for a SLURM job scipt (<a class="reference download internal" download="" href="../../../_downloads/c61518e40ff31654179d1fe90690a792/fds-slurm-job-single.sh"><code class="xref download docutils literal notranslate"><span class="pre">fds-slurm-job-single.sh</span></code></a>) is given below. It executes FDS for a single FDS input file.</p>
+<p>A simple example for a SLURM job scipt (<a class="reference download internal" download="" href="../../../_downloads/c61518e40ff31654179d1fe90690a792/fds-slurm-job-single.sh"><code class="xref download docutils literal notranslate"><span class="pre">fds-slurm-job-single.sh</span></code></a>) on JURECA is given below. An example for the Pleiades system (<a class="reference download internal" download="" href="../../../_downloads/4d3769ec94538d21c04509058f40ae13/fds-slurm-job-single_pleiades.sh"><code class="xref download docutils literal notranslate"><span class="pre">fds-slurm-job-single_pleiades.sh</span></code></a>) follows a similar structure. Both execute FDS for a single FDS input file.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/bash -x
 
 #SBATCH --job-name=my_FDS_simulation
@@ -735,6 +735,31 @@ srun fds ./*.fds
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>It is important to keep in mind, that JURECA’s usage concept is to assign compute nodes <strong>exclusively</strong> to a single job. Thus, the resources used are given by the number of nodes used and the wall clock time. In the current setup the <code class="docutils literal notranslate"><span class="pre">dc-cpu</span></code> partition has nodes with 128 cores, so even if jobs use just a few cores, the account is charged with 128 cores (a full node).</p>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/bash -x
+
+#SBATCH --job-name=my_FDS_simulation
+#SBATCH --partition=normal
+#SBATCH --ntasks=16
+#SBATCH --cpus-per-task=1
+#SBATCH --output=stdout.%j
+#SBATCH --error=stderr.%j
+#SBATCH --time=00:30:00  # days-hours:minutes:seconds
+
+# Set the number of OMP threads
+export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
+
+# Add firesim modules
+module use -a ~larnold/modules/
+
+# Load FDS in the version 6.8.0
+module load FDS/6.8.0_IntelComp_IntelMPI.2021.2_mkl
+
+# Execute FDS, here it is assumed, that there is only one FDS input file
+# in the current directory. Additionally, srun uses implicitly the number
+# of tasks specified in the SLURM header
+srun fds ./*.fds
+</pre></div>
 </div>
 <ul class="simple">
 <li><p><strong>Submit job script</strong></p></li>
