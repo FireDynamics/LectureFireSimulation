@@ -658,31 +658,27 @@ module load FDS/6.7.8-IntelCompiler_2021.4.0_IntelMPI_2021.4.0
 srun fds ./*.fds
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/bash -x
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash -x</span>
 
-##########   PLEIADES   ##########
+<span class="c1">##########   PLEIADES   ##########</span>
 
-#SBATCH --job-name=my_FDS_simulation
-#SBATCH --partition=normal
-#SBATCH --ntasks=16
-#SBATCH --cpus-per-task=1
-#SBATCH --output=stdout.%j
-#SBATCH --error=stderr.%j
-#SBATCH --time=00:30:00  # days-hours:minutes:seconds
+<span class="c1">#SBATCH --job-name=my_FDS_simulation</span>
+<span class="c1">#SBATCH --partition=normal</span>
+<span class="c1">#SBATCH --ntasks=16</span>
+<span class="c1">#SBATCH --output=stdout.%j</span>
+<span class="c1">#SBATCH --error=stderr.%j</span>
+<span class="c1">#SBATCH --time=00:30:00  # days-hours:minutes:seconds</span>
 
-# Set the number of OMP threads
-export OMP_NUM_THREADS=${SLURM_CPUS_PER_TASK}
+<span class="c1"># Add firesim modules</span>
+<span class="n">module</span> <span class="n">use</span> <span class="o">-</span><span class="n">a</span> <span class="o">~</span><span class="n">larnold</span><span class="o">/</span><span class="n">modules</span><span class="o">/</span>
 
-# Add firesim modules
-module use -a ~larnold/modules/
+<span class="c1"># Load FDS in the version 6.8.0</span>
+<span class="n">module</span> <span class="n">load</span> <span class="n">FDS</span><span class="o">/</span><span class="mf">6.8.0</span><span class="n">_IntelComp_IntelMPI</span><span class="mf">.2021.2</span><span class="n">_mkl</span>
 
-# Load FDS in the version 6.8.0
-module load FDS/6.8.0_IntelComp_IntelMPI.2021.2_mkl
-
-# Execute FDS, here it is assumed, that there is only one FDS input file
-# in the current directory. Additionally, srun uses implicitly the number
-# of tasks specified in the SLURM header
-mpiexec fds ./*.fds
+<span class="c1"># Execute FDS, here it is assumed, that there is only one FDS input file</span>
+<span class="c1"># in the current directory. Additionally, srun uses implicitly the number</span>
+<span class="c1"># of tasks specified in the SLURM header</span>
+<span class="n">mpiexec</span> <span class="n">fds</span> <span class="o">./*.</span><span class="n">fds</span>
 </pre></div>
 </div>
 <p>The SLURM keywords in the individual lines are described in more detail below.</p>
