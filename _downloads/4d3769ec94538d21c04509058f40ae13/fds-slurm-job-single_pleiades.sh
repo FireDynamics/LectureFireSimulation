@@ -1,5 +1,7 @@
 #!/bin/bash -x
 
+##########   PLEIADES   ##########
+
 #SBATCH --job-name=my_FDS_simulation
 #SBATCH --partition=normal
 #SBATCH --ntasks=16

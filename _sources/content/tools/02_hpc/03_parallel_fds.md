@@ -155,6 +155,8 @@ A simple example for a SLURM job scipt ({download}`fds-slurm-job-single.sh`) on 
 ```{literalinclude} ./fds-slurm-job-single.sh
 ```
 
+```{literalinclude} ./fds-slurm-job-single_pleiades.sh
+```
 
 
 The SLURM keywords in the individual lines are described in more detail below.
@@ -258,9 +260,6 @@ The SLURM keywords in the individual lines are described in more detail below.
 
 ```{note}
 It is important to keep in mind, that JURECA's usage concept is to assign compute nodes **exclusively** to a single job. Thus, the resources used are given by the number of nodes used and the wall clock time. In the current setup the `dc-cpu` partition has nodes with 128 cores, so even if jobs use just a few cores, the account is charged with 128 cores (a full node).
-```
-
-```{literalinclude} ./fds-slurm-job-single_pleiades.sh
 ```
 
 * **Submit job script**

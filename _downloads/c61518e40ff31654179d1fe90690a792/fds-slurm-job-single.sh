@@ -1,5 +1,7 @@
 #!/bin/bash -x
 
+##########   JURECA   ##########
+
 #SBATCH --job-name=my_FDS_simulation
 #SBATCH --account=ias-7
 #SBATCH --partition=dc-cpu
