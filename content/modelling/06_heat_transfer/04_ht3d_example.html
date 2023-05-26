@@ -652,30 +652,6 @@ The 1D model is based on the one-cell method. For the coupling between solid and
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">data_root</span> <span class="o">=</span> <span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;data/heat_transfer/ht3d_solid/rundir&#39;</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">sim</span> <span class="o">=</span> <span class="n">fdsreader</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">data_root</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">slice_axial</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">slices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">slice_steel</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">slices</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.10.11/x64/lib/python3.10/site-packages/fdsreader/simulation.py:60,</span> in <span class="ni">Simulation.__new__</span><span class="nt">(cls, path)</span>
-<span class="g g-Whitespace">     </span><span class="mi">59</span> <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">60</span>     <span class="n">smv_file_path</span> <span class="o">=</span> <span class="n">get_smv_file</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">61</span>     <span class="n">root_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">smv_file_path</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">63</span>     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">smv_file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">infile</span><span class="p">:</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.10.11/x64/lib/python3.10/site-packages/fdsreader/utils/data.py:97,</span> in <span class="ni">get_smv_file</span><span class="nt">(path)</span>
-<span class="g g-Whitespace">     </span><span class="mi">95</span>     <span class="k">return</span> <span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;.smv&quot;</span>
-<span class="g g-Whitespace">     </span><span class="mi">96</span> <span class="k">else</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">97</span>     <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span><span class="s2">&quot;The given path does neither point to a directory nor a file: &quot;</span> <span class="o">+</span> <span class="n">path</span><span class="p">)</span>
-
-<span class="ne">OSError</span>: The given path does neither point to a directory nor a file: ../../../../data/heat_transfer/ht3d_solid/rundir
-</pre></div>
-</div>
-</div>
 </div>
 <figure class="align-default" id="ht3d-beam-temperatures">
 <a class="reference internal image-reference" href="../../../_images/beam_temperatures_section_solid.svg"><img alt="../../../_images/beam_temperatures_section_solid.svg" src="../../../_images/beam_temperatures_section_solid.svg" width="80%" /></a>

@@ -542,19 +542,72 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="example-pool-fire">
+  <div class="cell tag_hide-cell docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell content</span>
+<span class="expanded">Hide code cell content</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import numpy as np</span>
+<span class="c1"># import matplotlib.pyplot as plt</span>
+<span class="c1"># import fdsreader</span>
+
+<span class="c1"># # Set the matplotlib output to svg</span>
+<span class="c1"># from IPython.display import set_matplotlib_formats</span>
+<span class="c1"># set_matplotlib_formats(&#39;svg&#39;)</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="c1"># params = {&#39;mathtext.default&#39;: &#39;regular&#39; }</span>
+<span class="c1"># params = {&#39;text.usetex&#39;: True, &#39;font.family&#39;: &#39;sans-serif&#39;, &#39;figure.dpi&#39;: 400}</span>
+<span class="c1"># params = {&#39;text.usetex&#39;: True, &#39;figure.dpi&#39;: 400}</span>
+<span class="c1"># plt.rcParams.update(params)</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;svg.hashsalt&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;seed&#39;</span>
+<span class="n">svg_metadata</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Date&#39;</span><span class="p">:</span><span class="kc">None</span><span class="p">}</span>
+
+<span class="c1"># plt.rcParams[&#39;text.latex.preamble&#39;] = [</span>
+<span class="c1">#        r&#39;\usepackage{siunitx}&#39;,   # i need upright \micro symbols, but you need...</span>
+<span class="c1">#        r&#39;\sisetup{detect-all}&#39;,   # ...this to force siunitx to actually use your fonts</span>
+<span class="c1">#        r&#39;\usepackage{helvet}&#39;,    # set the normal font here</span>
+<span class="c1">#        r&#39;\usepackage{sansmath}&#39;,  # load up the sansmath so that math -&gt; helvet</span>
+<span class="c1">#        r&#39;\sansmath&#39;               # &lt;- tricky! -- gotta actually tell tex to use!</span>
+<span class="c1"># ]</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">set</span><span class="p">()</span>
+<span class="c1">#sns.set(style=&quot;whitegrid&quot;)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_style</span><span class="p">(</span><span class="s1">&#39;ticks&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">set_context</span><span class="p">(</span><span class="s2">&quot;notebook&quot;</span><span class="p">,</span> <span class="n">font_scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">rc</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;lines.linewidth&quot;</span><span class="p">:</span> <span class="mf">1.5</span><span class="p">})</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="c1"># check for set environment variable JB_NOSHOW</span>
+<span class="n">show</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="k">if</span> <span class="s1">&#39;JB_NOSHOW&#39;</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="p">:</span>
+    <span class="n">show</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="kn">import</span> <span class="nn">fdsreader</span>
+</pre></div>
+</div>
+</div>
+</details>
+</div>
+<section class="tex2jax_ignore mathjax_ignore" id="example-pool-fire">
 <h1><span class="section-number">3.2. </span>Example – Pool Fire<a class="headerlink" href="#example-pool-fire" title="Permalink to this heading">#</a></h1>
 <section id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this heading">#</a></h2>
-<p>Pool fires are interesting for studiyng fire development, because they are relatively easy to handle. One needs a fire proof pan, for example made out of steel sheets, and fill in a combustible liquid. Shortly after ignition it reaches a quasi steady-state, due to the evaporation of the liquid. One of the shortcomings of pool fires is their limited fuel supply. This is one of the reasons why gas burners are often used in fire experiments. That, and the good reproducability associated with gas burners as ignition source. Also in FDS, most pool fire simulations are modelled as gas burners (<a class="reference external" href="https://github.com/firemodels/fds/releases/tag/FDS6.7.5">see Section “11.4 Simple Pyrolysis Models” in the FDS User’s Guide</a>).</p>
+<p>Pool fires are interesting for studying fire development, because they are relatively easy to handle. One needs a fireproof pan, for example made out of steel sheets, and fill in a combustible liquid. Shortly after ignition, it reaches a quasi steady-state, due to the evaporation of the liquid. One of the shortcomings of pool fires is their limited fuel supply. This is one of the reasons why gas burners are often used in fire experiments. That, and the good reproducibility associated with gas burners as ignition source. Also in FDS, most pool fire simulations are modelled as gas burners (<a class="reference external" href="https://github.com/firemodels/fds/releases/tag/FDS6.7.5">see Section “11.4 Simple Pyrolysis Models” in the FDS User’s Guide</a>).</p>
 <p>This example illustrates the setup and analysis of a minimalist FDS simulation. Starting from a simple pool fire with a fixed heat release rate, the model is extended by various parameters. The results are then validated by comparison with simple analytical methods.</p>
 </section>
 <section id="setup">
 <h2>Setup<a class="headerlink" href="#setup" title="Permalink to this heading">#</a></h2>
-<p>A pool fire scenario is considered as an example of a FDS simulation. The pool surface area is <span class="math notranslate nohighlight">\(\small\sf 1~m^2\)</span> and it is located at <span class="math notranslate nohighlight">\(z = 0\)</span>. The heat release rate of the fire is <span class="math notranslate nohighlight">\(\small\sf 10~MW\)</span>. The lateral and top boundaries of the simulation domain are sealed and the extension of the computational domain is</p>
+<p>A pool fire scenario is considered as an example of a FDS simulation. The pool surface area is <span class="math notranslate nohighlight">\(\mf 1~m^2\)</span> and it is located at <span class="math notranslate nohighlight">\(\mf z = 0\)</span>. The heat release rate of the fire is <span class="math notranslate nohighlight">\(\mf 10~MW\)</span>. The lateral and top boundaries of the simulation domain are sealed and the extension of the computational domain is</p>
 <div class="math notranslate nohighlight">
-\[\small\sf [-2.5~m, 2.5~m] \times [-2.5~m, 2.5~m] \times [0~m, 10~m]\]</div>
-<p>with a grid resolution of <span class="math notranslate nohighlight">\(\small\sf 0.2~m\)</span>.</p>
+\[\mf [-2.5~m, 2.5~m] \times [-2.5~m, 2.5~m] \times [0~m, 10~m]\]</div>
+<p>with a grid resolution of <span class="math notranslate nohighlight">\(\mf 0.2~m\)</span>.</p>
 </section>
 <section id="fds-input-file">
 <h2>FDS Input File<a class="headerlink" href="#fds-input-file" title="Permalink to this heading">#</a></h2>
@@ -635,25 +688,25 @@ document.write(`
 </div>
 <p><strong>Task:</strong></p>
 <ol class="arabic simple">
-<li><p>Add a temperature slice at <span class="math notranslate nohighlight">\(\small\sf y=0~m\)</span> and watch the output via smokeview. Change the output by varying the color scaling and crop the data at an upper and lower boundary. Create snapshots for three points in time, e.g. <span class="math notranslate nohighlight">\(\small\sf 5~s\)</span>, <span class="math notranslate nohighlight">\(\small\sf 10~s\)</span> and <span class="math notranslate nohighlight">\(\small\sf 20~s\)</span>. Add appropriate axes labels to the smokeview output to check the slice orientation. Refer to section 5.2 “Data Bounds” and 14.4 “TICKS and LABEL keywords” of <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.6/SMV_User_Guide.pdf">Smokeview User’s Guide</a> for more information on how to change the output properties of slices.</p></li>
-<li><p>Visualize the velocity vector field in the plume axis at <span class="math notranslate nohighlight">\(\small\sf t \approx 20~s\)</span> for <span class="math notranslate nohighlight">\(\small\sf y=0~m\)</span>.</p>
+<li><p>Add a temperature slice at <span class="math notranslate nohighlight">\(\mf y=0~m\)</span> and watch the output via smokeview. Change the output by varying the color scaling and crop the data at an upper and lower boundary. Create snapshots for three points in time, e.g. <span class="math notranslate nohighlight">\(\mf 5~s\)</span>, <span class="math notranslate nohighlight">\(\mf 10~s\)</span> and <span class="math notranslate nohighlight">\(\mf 20~s\)</span>. Add appropriate axes labels to the smokeview output to check the slice orientation. Refer to section 5.2 “Data Bounds” and 14.4 “TICKS and LABEL keywords” of <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.6/SMV_User_Guide.pdf">Smokeview User’s Guide</a> for more information on how to change the output properties of slices.</p></li>
+<li><p>Visualize the velocity vector field in the plume axis at <span class="math notranslate nohighlight">\(\mf t \approx 20~s\)</span> for <span class="math notranslate nohighlight">\(\mf y=0~m\)</span>.</p>
 <ul class="simple">
 <li><p>Extra task: Open the sealed domain on at least one side and observe the change in the flow field.</p></li>
 </ul>
 </li>
-<li><p>Plot the computed heat release rate (HRR) from the pool_fire_hrr.csv file against the given input HRR of the FDS file. Discuss the differences and what these are related to. Run simulations for HRR of <span class="math notranslate nohighlight">\(\small\sf 100~kW\)</span>, <span class="math notranslate nohighlight">\(\small\sf 1~MW\)</span> and <span class="math notranslate nohighlight">\(\small\sf 10~MW\)</span>.</p></li>
+<li><p>Plot the computed heat release rate (HRR) from the pool_fire_hrr.csv file against the given input HRR of the FDS file. Discuss the differences and what these are related to. Run simulations for HRR of <span class="math notranslate nohighlight">\(\mf 100~kW\)</span>, <span class="math notranslate nohighlight">\(\mf 1~MW\)</span> and <span class="math notranslate nohighlight">\(\mf 10~MW\)</span>.</p></li>
 </ol>
 <p><strong>1. Solution</strong></p>
 <figure class="align-default" id="fig-pool-fire-temp-timesteps">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_temp_timesteps.png"><img alt="../../../_images/pool_fire_temp_timesteps.png" src="../../../_images/pool_fire_temp_timesteps.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.9 </span><span class="caption-text">Visualization of the instantaneous <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> values in the x-z-level at <span class="math notranslate nohighlight">\(\sf y=0~m\)</span> for different timesteps (<span class="math notranslate nohighlight">\(\sf t=5.03~s\)</span>), (<span class="math notranslate nohighlight">\(\sf t=10.03~s\)</span>), (<span class="math notranslate nohighlight">\(\sf t=20.03~s\)</span>) The attribute <code class="docutils literal notranslate"><span class="pre">CELL_CENTERED</span></code>, prevents the values between the cell boundaries from being interpolated.</span><a class="headerlink" href="#fig-pool-fire-temp-timesteps" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.9 </span><span class="caption-text">Visualization of the instantaneous <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> values in the x-z-level at <span class="math notranslate nohighlight">\(\mf y=0~m\)</span> for different timesteps (<span class="math notranslate nohighlight">\(\mf t=5.03~s\)</span>), (<span class="math notranslate nohighlight">\(\mf t=10.03~s\)</span>), (<span class="math notranslate nohighlight">\(\mf t=20.03~s\)</span>) The attribute <code class="docutils literal notranslate"><span class="pre">CELL_CENTERED</span></code>, prevents the values between the cell boundaries from being interpolated.</span><a class="headerlink" href="#fig-pool-fire-temp-timesteps" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-pool-fire-temp-bounds-trunc">
 <a class="reference internal image-reference" href="../../../_images/pool_fire_temp_bounds_trunc.png"><img alt="../../../_images/pool_fire_temp_bounds_trunc.png" src="../../../_images/pool_fire_temp_bounds_trunc.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.10 </span><span class="caption-text">Visualization of the instantaneous <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> values in the x-z-slice at <span class="math notranslate nohighlight">\(\sf y=0~m\)</span> at (<span class="math notranslate nohighlight">\(\sf t=19.63~s\)</span>) The upper data bound is set to 1200 and 800. The data is truncated beyond 100.</span><a class="headerlink" href="#fig-pool-fire-temp-bounds-trunc" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.10 </span><span class="caption-text">Visualization of the instantaneous <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> values in the x-z-slice at <span class="math notranslate nohighlight">\(\mf y=0~m\)</span> at (<span class="math notranslate nohighlight">\(\mf t=19.63~s\)</span>) The upper data bound is set to 1200 and 800. The data is truncated beyond 100.</span><a class="headerlink" href="#fig-pool-fire-temp-bounds-trunc" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Alternatively, the <code class="docutils literal notranslate"><span class="pre">SLCF</span></code> can be analyzed with the <strong>fdsreader</strong>.</p>
@@ -664,32 +717,9 @@ document.write(`
 <span class="expanded">Hide code cell content</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fdsreader</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;lines.linewidth&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="c1"># plt.rcParams[&#39;figure.dpi&#39;] = 150</span>
-<span class="c1"># plt.rcParams.update({</span>
-<span class="c1">#     &quot;text.usetex&quot;: True,</span>
-<span class="c1">#     &quot;font.family&quot;: &quot;sans-serif&quot;,</span>
-<span class="c1">#     &quot;font.sans-serif&quot;: [&quot;Helvetica&quot;]})</span>
-
-<span class="n">root</span> <span class="o">=</span> <span class="s1">&#39;../../../../&#39;</span>
-</pre></div>
-</div>
-</div>
-</details>
-</div>
-<div class="cell tag_hide-cell docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell content</span>
-<span class="expanded">Hide code cell content</span>
-</summary>
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_root</span> <span class="o">=</span> <span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;data/pool_fire/1mw_sealed&#39;</span>
-<span class="n">sim</span> <span class="o">=</span> <span class="n">fdsreader</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">data_root</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_root</span> <span class="o">=</span> <span class="s1">&#39;data&#39;</span>
+<span class="n">data_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_root</span><span class="p">,</span> <span class="s1">&#39;pool_fire&#39;</span><span class="p">,</span> <span class="s1">&#39;1mw_sealed&#39;</span><span class="p">)</span>
+<span class="n">sim</span> <span class="o">=</span> <span class="n">fdsreader</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
 <span class="n">slice_temp</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">slices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">time</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">time_index</span> <span class="o">=</span> <span class="n">slice_temp</span><span class="o">.</span><span class="n">get_nearest_timestep</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
@@ -706,32 +736,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">OSError</span><span class="g g-Whitespace">                                   </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">data_root</span> <span class="o">=</span> <span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;data/pool_fire/1mw_sealed&#39;</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">sim</span> <span class="o">=</span> <span class="n">fdsreader</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">data_root</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">slice_temp</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">slices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">time</span> <span class="o">=</span> <span class="mi">20</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.10.11/x64/lib/python3.10/site-packages/fdsreader/simulation.py:60,</span> in <span class="ni">Simulation.__new__</span><span class="nt">(cls, path)</span>
-<span class="g g-Whitespace">     </span><span class="mi">59</span> <span class="k">def</span> <span class="fm">__new__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
-<span class="ne">---&gt; </span><span class="mi">60</span>     <span class="n">smv_file_path</span> <span class="o">=</span> <span class="n">get_smv_file</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">61</span>     <span class="n">root_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">smv_file_path</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">63</span>     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">smv_file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">infile</span><span class="p">:</span>
-
-<span class="nn">File /opt/hostedtoolcache/Python/3.10.11/x64/lib/python3.10/site-packages/fdsreader/utils/data.py:92,</span> in <span class="ni">get_smv_file</span><span class="nt">(path)</span>
-<span class="g g-Whitespace">     </span><span class="mi">90</span>         <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span><span class="s2">&quot;There are multiple simulations in the directory: &quot;</span> <span class="o">+</span> <span class="n">path</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">91</span>     <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">files</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<span class="ne">---&gt; </span><span class="mi">92</span>         <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span><span class="s2">&quot;No simulations were found in the directory: &quot;</span> <span class="o">+</span> <span class="n">path</span><span class="p">)</span>
-<span class="g g-Whitespace">     </span><span class="mi">93</span>     <span class="k">return</span> <span class="n">files</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="g g-Whitespace">     </span><span class="mi">94</span> <span class="k">elif</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;.smv&quot;</span><span class="p">):</span>
-
-<span class="ne">OSError</span>: No simulations were found in the directory: ../../../../data/pool_fire/1mw_sealed
-</pre></div>
-</div>
-</div>
 </details>
 </div>
 <figure class="align-default" id="fig-pool-fire-temp-slice">
@@ -740,6 +744,7 @@ document.write(`
 <p><span class="caption-number">Fig. 3.11 </span><span class="caption-text">Visualization of the instantaneous (<span class="math notranslate nohighlight">\(\sf t=19.63~s\)</span>) <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code> values in the y-z-slice <span class="math notranslate nohighlight">\(\sf y=0~m\)</span> with python / matplotlib. The data was obtained via the <strong>fdsreader</strong>.</span><a class="headerlink" href="#fig-pool-fire-temp-slice" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
+<p><strong>2. Solution</strong></p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -747,57 +752,8 @@ document.write(`
 <span class="expanded">Hide code cell content</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">fdsreader.bndf.utils</span> <span class="kn">import</span> <span class="n">sort_patches_cartesian</span>
-<span class="n">data_root</span> <span class="o">=</span> <span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;data/pool_fire/bndf&#39;</span>
-<span class="n">sim</span> <span class="o">=</span> <span class="n">fdsreader</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">data_root</span><span class="p">)</span>
-<span class="n">obst</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">obstructions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="n">orientation</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-<span class="n">quantity</span> <span class="o">=</span> <span class="s2">&quot;AST&quot;</span>
-<span class="n">patches</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">sub_obst</span> <span class="ow">in</span> <span class="n">obst</span><span class="o">.</span><span class="n">filter_by_orientation</span><span class="p">(</span><span class="n">orientation</span><span class="p">):</span>
-    <span class="c1"># Get boundary data for a specific quantity</span>
-    <span class="n">sub_obst_data</span> <span class="o">=</span> <span class="n">sub_obst</span><span class="o">.</span><span class="n">get_data</span><span class="p">(</span><span class="n">quantity</span><span class="p">)</span>
-    <span class="n">patches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sub_obst_data</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">orientation</span><span class="p">])</span>
-
-<span class="c1"># Combine patches to a single face for plotting</span>
-<span class="n">patches</span> <span class="o">=</span> <span class="n">sort_patches_cartesian</span><span class="p">(</span><span class="n">patches</span><span class="p">)</span>
-
-<span class="n">shape_dim1</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">patch_row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">patch_row</span> <span class="ow">in</span> <span class="n">patches</span><span class="p">])</span>
-<span class="n">shape_dim2</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">patch</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">patch</span> <span class="ow">in</span> <span class="n">patches</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
-<span class="n">n_t</span> <span class="o">=</span> <span class="n">patches</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">n_t</span>  <span class="c1"># Number of timesteps</span>
-
-<span class="n">face</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="n">n_t</span><span class="p">,</span> <span class="n">shape_dim1</span><span class="p">,</span> <span class="n">shape_dim2</span><span class="p">))</span>
-<span class="n">dim1_pos</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">dim2_pos</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">patch_row</span> <span class="ow">in</span> <span class="n">patches</span><span class="p">:</span>
-    <span class="n">d1</span> <span class="o">=</span> <span class="n">patch_row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-    <span class="k">for</span> <span class="n">patch</span> <span class="ow">in</span> <span class="n">patch_row</span><span class="p">:</span>
-        <span class="n">d2</span> <span class="o">=</span> <span class="n">patch</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">face</span><span class="p">[:,</span> <span class="n">dim1_pos</span><span class="p">:</span><span class="n">dim1_pos</span> <span class="o">+</span> <span class="n">d1</span><span class="p">,</span>
-        <span class="n">dim2_pos</span><span class="p">:</span><span class="n">dim2_pos</span> <span class="o">+</span> <span class="n">d2</span><span class="p">]</span> <span class="o">=</span> <span class="n">patch</span><span class="o">.</span><span class="n">data</span>
-        <span class="n">dim2_pos</span> <span class="o">+=</span> <span class="n">d2</span>
-    <span class="n">dim1_pos</span> <span class="o">+=</span> <span class="n">d1</span>
-    <span class="n">dim2_pos</span> <span class="o">=</span> <span class="mi">0</span>
-
-<span class="n">t</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
-<span class="n">plot</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">face</span><span class="p">[</span><span class="n">t</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="s2">&quot;lower&quot;</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">&quot;jet&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="s2">&quot;Temperature / $\sf ^\circ C$&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$\sf N_{cells,x}$ / -&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;$\sf N_{cells,y}$ / -&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="s1">&#39;figs/pool_fire_bndf_ast.svg&#39;</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">&#39;tight&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</details>
-</div>
-<p><strong>2. Solution</strong></p>
-<div class="cell tag_hide_cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_root</span> <span class="o">=</span> <span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;data/pool_fire/10mw_sealed&#39;</span>
-<span class="n">sim</span> <span class="o">=</span> <span class="n">fdsreader</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">data_root</span><span class="p">)</span><span class="c1"># Vector Plots</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_dir</span> <span class="o">=</span> <span class="s1">&#39;data/pool_fire/10mw_sealed&#39;</span>
+<span class="n">sim</span> <span class="o">=</span> <span class="n">fdsreader</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span><span class="c1"># Vector Plots</span>
 <span class="n">time</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">time_index</span> <span class="o">=</span> <span class="n">slice_temp</span><span class="o">.</span><span class="n">get_nearest_timestep</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
 
@@ -823,6 +779,7 @@ document.write(`
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
@@ -831,8 +788,8 @@ document.write(`
 <span class="expanded">Hide code cell content</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_root</span> <span class="o">=</span> <span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;data/pool_fire/10mw_open&#39;</span>
-<span class="n">sim</span> <span class="o">=</span> <span class="n">fdsreader</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">data_root</span><span class="p">)</span><span class="c1"># Vector Plots</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_dir</span> <span class="o">=</span> <span class="s1">&#39;data/pool_fire/10mw_open&#39;</span>
+<span class="n">sim</span> <span class="o">=</span> <span class="n">fdsreader</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span><span class="c1"># Vector Plots</span>
 <span class="n">time</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">time_index</span> <span class="o">=</span> <span class="n">slice_temp</span><span class="o">.</span><span class="n">get_nearest_timestep</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
 
@@ -861,6 +818,18 @@ document.write(`
 </div>
 </details>
 </div>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-0">
+10 MW, sealed domain</label><div class="sd-tab-content docutils">
+<img src="figs/pool_fire_velocity_vector_sealed.svg" width="60%">
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-1">
+10 MW, open domain</label><div class="sd-tab-content docutils">
+<img src="figs/pool_fire_velocity_vector_open.svg" width="60%">
+</div>
+</div>
 <p><strong>3. Solution</strong></p>
 <p>The fluctuation of the HRR curve increases at higher levels. A drop in the released energy with time indicates a lower oxygen level due to the sealed compartment.</p>
 <div class="cell tag_hide-cell docutils container">
@@ -870,8 +839,8 @@ document.write(`
 <span class="expanded">Hide code cell content</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_root</span> <span class="o">=</span> <span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;data/pool_fire/100kw_sealed&#39;</span>
-<span class="n">sim</span> <span class="o">=</span> <span class="n">fdsreader</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">data_root</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_dir</span> <span class="o">=</span> <span class="s1">&#39;data/pool_fire/100kw_sealed&#39;</span>
+<span class="n">sim</span> <span class="o">=</span> <span class="n">fdsreader</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">hrr</span><span class="p">[</span><span class="s2">&quot;Time&quot;</span><span class="p">],</span> <span class="n">sim</span><span class="o">.</span><span class="n">hrr</span><span class="p">[</span><span class="s2">&quot;HRR&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;simulation&#39;</span><span class="p">)</span>
 <span class="n">t_min_max</span> <span class="o">=</span> <span class="p">[</span><span class="n">sim</span><span class="o">.</span><span class="n">hrr</span><span class="p">[</span><span class="s2">&quot;Time&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">sim</span><span class="o">.</span><span class="n">hrr</span><span class="p">[</span><span class="s2">&quot;Time&quot;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
 <span class="n">hrr_prescribed</span> <span class="o">=</span> <span class="mi">100</span>
@@ -894,8 +863,8 @@ document.write(`
 <span class="expanded">Hide code cell content</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_root</span> <span class="o">=</span> <span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;data/pool_fire/1mw_sealed&#39;</span>
-<span class="n">sim</span> <span class="o">=</span> <span class="n">fdsreader</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">data_root</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_dir</span> <span class="o">=</span> <span class="s1">&#39;data/pool_fire/1mw_sealed&#39;</span>
+<span class="n">sim</span> <span class="o">=</span> <span class="n">fdsreader</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">hrr</span><span class="p">[</span><span class="s2">&quot;Time&quot;</span><span class="p">],</span> <span class="n">sim</span><span class="o">.</span><span class="n">hrr</span><span class="p">[</span><span class="s2">&quot;HRR&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;simulation&#39;</span><span class="p">)</span>
 <span class="n">t_min_max</span> <span class="o">=</span> <span class="p">[</span><span class="n">sim</span><span class="o">.</span><span class="n">hrr</span><span class="p">[</span><span class="s2">&quot;Time&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">sim</span><span class="o">.</span><span class="n">hrr</span><span class="p">[</span><span class="s2">&quot;Time&quot;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
 <span class="n">hrr_prescribed</span> <span class="o">=</span> <span class="mi">1000</span>
@@ -918,8 +887,8 @@ document.write(`
 <span class="expanded">Hide code cell content</span>
 </summary>
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_root</span> <span class="o">=</span> <span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;data/pool_fire/10mw_sealed&#39;</span>
-<span class="n">sim</span> <span class="o">=</span> <span class="n">fdsreader</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">data_root</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_dir</span> <span class="o">=</span> <span class="s1">&#39;data/pool_fire/10mw_sealed&#39;</span>
+<span class="n">sim</span> <span class="o">=</span> <span class="n">fdsreader</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">hrr</span><span class="p">[</span><span class="s2">&quot;Time&quot;</span><span class="p">],</span> <span class="n">sim</span><span class="o">.</span><span class="n">hrr</span><span class="p">[</span><span class="s2">&quot;HRR&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;simulation&#39;</span><span class="p">)</span>
 <span class="n">t_min_max</span> <span class="o">=</span> <span class="p">[</span><span class="n">sim</span><span class="o">.</span><span class="n">hrr</span><span class="p">[</span><span class="s2">&quot;Time&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">sim</span><span class="o">.</span><span class="n">hrr</span><span class="p">[</span><span class="s2">&quot;Time&quot;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
 <span class="n">hrr_prescribed</span> <span class="o">=</span> <span class="mi">10000</span>
@@ -933,19 +902,24 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [3],</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">data_root</span> <span class="o">=</span> <span class="n">root</span> <span class="o">+</span> <span class="s1">&#39;data/pool_fire/10mw_sealed&#39;</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">sim</span> <span class="o">=</span> <span class="n">fdsreader</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">data_root</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">hrr</span><span class="p">[</span><span class="s2">&quot;Time&quot;</span><span class="p">],</span> <span class="n">sim</span><span class="o">.</span><span class="n">hrr</span><span class="p">[</span><span class="s2">&quot;HRR&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;simulation&#39;</span><span class="p">)</span>
-
-<span class="ne">NameError</span>: name &#39;root&#39; is not defined
-</pre></div>
-</div>
-</div>
 </details>
+</div>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-2" name="sd-tab-set-1" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-2">
+100 kW</label><div class="sd-tab-content docutils">
+<img src="figs/pool_fire_100kw_sealed_hrr.svg" width="80%">
+</div>
+<input id="sd-tab-item-3" name="sd-tab-set-1" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-3">
+1 MW</label><div class="sd-tab-content docutils">
+<img src="figs/pool_fire_1mw_sealed_hrr.svg" width="80%">
+</div>
+<input id="sd-tab-item-4" name="sd-tab-set-1" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-4">
+10 MW</label><div class="sd-tab-content docutils">
+<img src="figs/pool_fire_10mw_sealed_hrr.svg" width="80%">
+</div>
 </div>
 </section>
 <section id="extra-task-simulation-of-a-purely-buoyant-diffusion-flame">
@@ -1592,16 +1566,16 @@ $<span class="math notranslate nohighlight">\(\small\sf \dot{Q} = \Delta h_{c,ef
         },
         codeMirrorConfig: {
             theme: "abcdef",
-            mode: "python"
+            mode: "fire_sim_lecture_2023.05"
         },
         kernelOptions: {
-            name: "python3",
+            name: "fire_sim_lecture_2023.05",
             path: "./content/modelling/03_compartments"
         },
         predefinedOutput: true
     }
     </script>
-    <script>kernelName = 'python3'</script>
+    <script>kernelName = 'fire_sim_lecture_2023.05'</script>
 
                 </article>
               
