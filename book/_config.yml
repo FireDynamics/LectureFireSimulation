@@ -12,7 +12,7 @@ exclude_patterns : [.venv/*]
 ###############################################################################
 # Execution settings
 execute:
-  execute_notebooks : cache
+  execute_notebooks : off
 
 ###############################################################################
 # TOC settings
