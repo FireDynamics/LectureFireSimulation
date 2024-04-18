@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>5.4. Wolfhard-Parker Burner &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
   
@@ -19,52 +18,49 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=ed0cee17" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/modelling/05_combustion/04_burner_example';</script>
     <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/modelling/05_combustion/04_burner_example.html" />
-    <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
+    <link rel="icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="6. Heat Transfer" href="../06_heat_transfer/00_overview.html" />
@@ -78,7 +74,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -113,11 +117,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -132,9 +139,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../overview/01_overview.html">
+  
   
   
   
@@ -144,12 +153,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../../_static/cce_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../../_static/cce_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../../_static/cce_logo.png" class="logo__image only-light" alt="Fire Simulation <br> Lecture Notes - Home"/>
+    <script>document.write(`<img src="../../../_static/cce_logo.png" class="logo__image only-dark" alt="Fire Simulation <br> Lecture Notes - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -479,20 +499,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -531,18 +553,18 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="wolfhard-parker-burner">
-<h1><span class="section-number">5.4. </span>Wolfhard-Parker Burner<a class="headerlink" href="#wolfhard-parker-burner" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">5.4. </span>Wolfhard-Parker Burner<a class="headerlink" href="#wolfhard-parker-burner" title="Link to this heading">#</a></h1>
 <section id="the-experiments">
-<h2>The Experiments<a class="headerlink" href="#the-experiments" title="Permalink to this heading">#</a></h2>
+<h2>The Experiments<a class="headerlink" href="#the-experiments" title="Link to this heading">#</a></h2>
 <p>In the article <a class="reference external" href="https://iopscience.iop.org/article/10.1088/0370-1298/62/11/305">A New Technique for the Spectroscopic Examination of Flames at Normal Pressures</a>, published in 1949, H. G. Wolfhard and W. G. Parker presented a gas burner to study laminar diffusion flames. Up to this point, diffusion flames were studied on circular tubes, which makes it difficult to pin-point locations of specific reactions within the flame. For one, because of the circular geometry optical measurement methods collect data from multiple reaction zones. Furthermore, the optical thickness of the individual zones, specifically on the inside of the circle, is very thin.</p>
 <p>The Wolfhard-Parker burner produces flat laminar diffusion flames. Thus, facilitates the accurate localisation of the different processes. The burner consists of two rectangular ducts with a cross section of 50 mm by 7 mm, that touch each other at a long edge. One of the ducts provides a fuel gas, while the other provides the oxydiser, here oxygen. Both ducts are located within a third duct, which is used to produce a stream of nitrogen completely surrounding the other two streams. These ducts are located at the bottom of the burner and the combustion products are extracted at the top. The flow velocity of the nitrogen is carefully calibrated, such that the puffing can be prevented and a stable flat flame forms. The flow velocities for the fuel and the oxygen are set to about 20 cm/s. Combustion takes place along the interface between the two main gas streams.</p>
 <figure class="align-default" id="fig-comb-wpb-overview">
 <a class="reference internal image-reference" href="../../../_images/WPB_Overview.png"><img alt="../../../_images/WPB_Overview.png" src="../../../_images/WPB_Overview.png" style="width: 40%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 5.26 </span><span class="caption-text">Schematic overview over the Wolfhard-Parker burner.</span><a class="headerlink" href="#fig-comb-wpb-overview" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 5.26 </span><span class="caption-text">Schematic overview over the Wolfhard-Parker burner.</span><a class="headerlink" href="#fig-comb-wpb-overview" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Three different fuels have been used: hydrogen (H2), ammonia (NH3) and methane (CH4). It is shown in the article that the flame leans more towards one side of the burner. The reason is described to be the different diffusion rates between the fuels and the oxygen. Thus, it is pointed out that no relationship is made between the dimensions of the burner and the locations in the flame interface.</p>
@@ -550,23 +572,23 @@ document.write(`
 <figure class="align-default" id="fig-comb-wpb-flat-flame-ch4o2">
 <a class="reference internal image-reference" href="../../../_images/WPB_MethaneOxygenFlatDiffusionFlame.png"><img alt="../../../_images/WPB_MethaneOxygenFlatDiffusionFlame.png" src="../../../_images/WPB_MethaneOxygenFlatDiffusionFlame.png" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 5.27 </span><span class="caption-text">Temperature and species distribution in the flat methane-oxygen flame.</span><a class="headerlink" href="#fig-comb-wpb-flat-flame-ch4o2" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 5.27 </span><span class="caption-text">Temperature and species distribution in the flat methane-oxygen flame.</span><a class="headerlink" href="#fig-comb-wpb-flat-flame-ch4o2" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>It is described that the fuels form different flames. Hydrogen forms a blue continuum across the reaction zone. Ammonia forms two distinct zones. The zone on the fuel side is a thin yellow layer, while on the oxygen side a blue continuum exists. Both zones are clearly divided by “a dark space”, which is similar to the zone of the methane flame. For the ammonia flame it is reported that, based on the measured spectra, oxygen and NH3 never come into direct contact. The reaction appears to take place only due to intermediate products.</p>
 </section>
 <section id="the-simulations">
-<h2>The Simulations<a class="headerlink" href="#the-simulations" title="Permalink to this heading">#</a></h2>
+<h2>The Simulations<a class="headerlink" href="#the-simulations" title="Link to this heading">#</a></h2>
 <p>The Wolfhard-Parker burner is implemented in FDS in a simplified way. No effort is made to implement chemical reactions with the different sub reactions, but it is assumed that the fuel and oxygen react directly. Two vents, for oxidiser and fuel, are positioned in the simulation according to the setup in the experiment. They have both are 50 mm long and 7 mm wide. They are surrounded by a nitrogen flow. It was manually calibrated, such that its flow velocity matches the velocity of the flame. Above the vents a series of devices is located, at a height of 12 mm, to mimic the measurement location described in the article.</p>
 <figure class="align-default" id="fig-comb-wpb-sim-overview">
 <a class="reference internal image-reference" href="../../../_images/WPB_Overview_HiRes.png"><img alt="../../../_images/WPB_Overview_HiRes.png" src="../../../_images/WPB_Overview_HiRes.png" style="width: 40%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 5.28 </span><span class="caption-text">Schematic overview over the simulation setup of the Wolfhard-Parker burner.</span><a class="headerlink" href="#fig-comb-wpb-sim-overview" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 5.28 </span><span class="caption-text">Schematic overview over the simulation setup of the Wolfhard-Parker burner.</span><a class="headerlink" href="#fig-comb-wpb-sim-overview" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="tasks">
-<h2>Tasks<a class="headerlink" href="#tasks" title="Permalink to this heading">#</a></h2>
+<h2>Tasks<a class="headerlink" href="#tasks" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>Using the DEVC data, create a plot that allows you to determine the quasi-steady state.</p></li>
 <li><p>Reproduce figure 2 with the DEVC data, including the reaction zone.</p></li>
@@ -600,11 +622,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="03_closed_volume_example.html"
@@ -624,10 +645,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -635,6 +653,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -662,6 +681,7 @@ document.write(`
   
   <div class="footer-item">
     
+
   </div>
   
   <div class="footer-item">
@@ -689,8 +709,8 @@ document.write(`
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

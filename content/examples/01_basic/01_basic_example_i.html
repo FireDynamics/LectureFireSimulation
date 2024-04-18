@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Basic FDS Example I &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
   
@@ -19,54 +18,51 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=ed0cee17" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"tex": {"macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}", "du": "\\dot{u}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/examples/01_basic/01_basic_example_i';</script>
     <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/examples/01_basic/01_basic_example_i.html" />
-    <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
+    <link rel="icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Basic FDS Example II" href="02_basic_example_ii.html" />
@@ -80,7 +76,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -115,11 +119,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -134,9 +141,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../overview/01_overview.html">
+  
   
   
   
@@ -146,12 +155,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../../_static/cce_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../../_static/cce_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../../_static/cce_logo.png" class="logo__image only-light" alt="Fire Simulation <br> Lecture Notes - Home"/>
+    <script>document.write(`<img src="../../../_static/cce_logo.png" class="logo__image only-dark" alt="Fire Simulation <br> Lecture Notes - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -481,20 +501,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -552,7 +574,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <div class="cell tag_hide_cell docutils container">
 <div class="cell_input docutils container">
@@ -573,14 +595,14 @@ document.write(`
 </div>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="basic-fds-example-i">
-<h1>Basic FDS Example I<a class="headerlink" href="#basic-fds-example-i" title="Permalink to this heading">#</a></h1>
+<h1>Basic FDS Example I<a class="headerlink" href="#basic-fds-example-i" title="Link to this heading">#</a></h1>
 <section id="simulation-setup-description">
-<h2>Simulation Setup Description<a class="headerlink" href="#simulation-setup-description" title="Permalink to this heading">#</a></h2>
+<h2>Simulation Setup Description<a class="headerlink" href="#simulation-setup-description" title="Link to this heading">#</a></h2>
 <p>As a basic example we create a FDS simulation setup with a simple propane gas burner. A soot yield of <span class="math notranslate nohighlight">\(\mf 0.022~g/g\)</span> is to be used. The gas burner shall have an edge length of <span class="math notranslate nohighlight">\(\mf 0.4~m\)</span> and should be raised <span class="math notranslate nohighlight">\(\mf 0.2~m\)</span> above the ground. It shall provide <span class="math notranslate nohighlight">\(\mf 63~kW\)</span> in a steady-state. The computational domain shall be <span class="math notranslate nohighlight">\(\mf 2.0~m\)</span> tall and have an extent of <span class="math notranslate nohighlight">\(\mf 2.0~m\)</span> in the x and y axis respectively. The fluid cells shall be cube-shaped with an edge length of <span class="math notranslate nohighlight">\(\mf 0.2~m\)</span>. The overall simulation time should be <span class="math notranslate nohighlight">\(\mf 60~s\)</span>.</p>
 <p>For details on the pool fires and gas burners look at section Pool Fires.</p>
 </section>
 <section id="fds-input-files">
-<h2>FDS Input Files<a class="headerlink" href="#fds-input-files" title="Permalink to this heading">#</a></h2>
+<h2>FDS Input Files<a class="headerlink" href="#fds-input-files" title="Link to this heading">#</a></h2>
 <p>First you should create a new folder. In this directory the input file is to be saved later. All the generated output files will also be located here. It is useful to create individual directories for each simulation to not accidentially overwrite or mix up files. Create an empty plain text file. You could use any text editor (not a word processor) to create your text file. Although the file extenison does not matter, a common practice is to use the <code class="docutils literal notranslate"><span class="pre">.fds</span></code> extension.</p>
 <p>The syntax of FDS input files is given by FORTRAN namelists. These namelists start with an ampersand <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> character and are followed by four capital letters. They end with a slash <code class="docutils literal notranslate"><span class="pre">/</span></code> character. Between these two, parameters of the respective namelist can be provided, for example:</p>
 <p><code class="docutils literal notranslate"><span class="pre">&amp;NAME</span> <span class="pre">P1=value</span> <span class="pre">P2=value</span> <span class="pre">/</span></code></p>
@@ -588,7 +610,7 @@ document.write(`
 <p>Note: The individual file paths are likely different on your system, depending on your file structure.</p>
 </section>
 <section id="meta-data-of-simulation-setup-head-tail">
-<h2>Meta Data of Simulation Setup (HEAD, TAIL)<a class="headerlink" href="#meta-data-of-simulation-setup-head-tail" title="Permalink to this heading">#</a></h2>
+<h2>Meta Data of Simulation Setup (HEAD, TAIL)<a class="headerlink" href="#meta-data-of-simulation-setup-head-tail" title="Link to this heading">#</a></h2>
 <p>Now we will start defining the simulation setup. Two parameters that can be provided to the <code class="docutils literal notranslate"><span class="pre">HEAD</span></code> namelist are a character ID (<code class="docutils literal notranslate"><span class="pre">CHID</span></code>) and a title (<code class="docutils literal notranslate"><span class="pre">TITLE</span></code>). Both values are strings. The character ID is used to label all the files that are created during the simulation. It can be different from the file name of the FDS input file. As a short-hand, files are also referred to by using the <code class="docutils literal notranslate"><span class="pre">CHID</span></code>, for example <code class="docutils literal notranslate"><span class="pre">CHID_devc.csv</span></code>, since only the <code class="docutils literal notranslate"><span class="pre">CHID</span></code>-part is variable.</p>
 <p>The title is a human-readable short description of the setup.</p>
 <p>The file is closed out with <code class="docutils literal notranslate"><span class="pre">TAIL</span></code>.</p>
@@ -608,9 +630,9 @@ document.write(`
 </div>
 </section>
 <section id="bounds-of-time-and-space-mesh-time">
-<h2>Bounds of Time and Space (MESH, TIME)<a class="headerlink" href="#bounds-of-time-and-space-mesh-time" title="Permalink to this heading">#</a></h2>
+<h2>Bounds of Time and Space (MESH, TIME)<a class="headerlink" href="#bounds-of-time-and-space-mesh-time" title="Link to this heading">#</a></h2>
 <section id="time-time">
-<h3>Time (TIME)<a class="headerlink" href="#time-time" title="Permalink to this heading">#</a></h3>
+<h3>Time (TIME)<a class="headerlink" href="#time-time" title="Link to this heading">#</a></h3>
 <p>The simulation time is specified in seconds, using the <code class="docutils literal notranslate"><span class="pre">TIME</span></code> namelist. The parameter <code class="docutils literal notranslate"><span class="pre">T_END</span></code> determines when the simulation ought to stop. Obviously, this is the time <em>inside</em> the simulation and not the time the computer takes to conduct the simulation, which would be referred to as “wall clock time”. The start time (<code class="docutils literal notranslate"><span class="pre">T_BEGIN</span></code>) could be adjusted as well, but this is seldom necessary, it is <span class="math notranslate nohighlight">\(\mf 0~s\)</span> by default. The input line should now look like this:</p>
 <p><code class="docutils literal notranslate"><span class="pre">&amp;TIME</span> <span class="pre">T_END</span> <span class="pre">=</span> <span class="pre">60.</span> <span class="pre">/</span></code></p>
 <p>Setting <code class="docutils literal notranslate"><span class="pre">T_END</span> <span class="pre">=</span> <span class="pre">0</span></code> will lead to FDS only setting up the simulation without running it. It also creates a Smokeview file, which can be used to check if everything is set up correctly.</p>
@@ -629,13 +651,13 @@ document.write(`
 </div>
 </section>
 <section id="space-mesh">
-<h3>Space (MESH)<a class="headerlink" href="#space-mesh" title="Permalink to this heading">#</a></h3>
+<h3>Space (MESH)<a class="headerlink" href="#space-mesh" title="Link to this heading">#</a></h3>
 <p>To conduct a simulation we need to  define a computational domain and a time frame.</p>
 <p>The domain is a rectangular cuboid shape that is divided in smaller volumes (cells) which are also rectangular cuboids, using the <code class="docutils literal notranslate"><span class="pre">MESH</span></code> namelist. It can be given a label (<code class="docutils literal notranslate"><span class="pre">ID</span></code>) to organise larger files with many <code class="docutils literal notranslate"><span class="pre">MESH</span></code>es. The domain volume is defined by providing coordinates of two points of opposing corners, see <a class="reference internal" href="#fig-fdstutorial-coordinates-xb"><span class="std std-numref">Fig. 2</span></a>. They define the bounding box (<code class="docutils literal notranslate"><span class="pre">XB</span></code>) of the volume. Their values are to be provided in meters.</p>
 <figure class="align-default" id="fig-fdstutorial-coordinates-xb">
 <a class="reference internal image-reference" href="../../../_images/coordinates.png"><img alt="../../../_images/coordinates.png" src="../../../_images/coordinates.png" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Coordinate definition for bounding boxes (<code class="docutils literal notranslate"><span class="pre">XB</span></code>) in FDS.</span><a class="headerlink" href="#fig-fdstutorial-coordinates-xb" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Coordinate definition for bounding boxes (<code class="docutils literal notranslate"><span class="pre">XB</span></code>) in FDS.</span><a class="headerlink" href="#fig-fdstutorial-coordinates-xb" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The coordinates of the points are provided as a list of six values. At first the two x-coordinates, followed by the two y- and then the two z-coordinates, like this: <code class="docutils literal notranslate"><span class="pre">XB</span> <span class="pre">=</span> <span class="pre">x1,x2,</span> <span class="pre">y1,y2,</span> <span class="pre">z1,z2,</span></code>. In our example case the domain is supposed to be a cube with an edge length of <span class="math notranslate nohighlight">\(\mf 2.0~m\)</span>. Let’s position it around the origin point in the x- and y-directions and start the z-axis at 0. This will lead to: <code class="docutils literal notranslate"><span class="pre">XB</span> <span class="pre">=</span> <span class="pre">-1.00,1.00,</span> <span class="pre">-1.00,1.00,</span> <span class="pre">0.00,2.00,</span></code>.</p>
@@ -649,7 +671,7 @@ document.write(`
 </section>
 </section>
 <section id="obstruct-the-flow-field-obst">
-<h2>Obstruct the Flow Field (OBST)<a class="headerlink" href="#obstruct-the-flow-field-obst" title="Permalink to this heading">#</a></h2>
+<h2>Obstruct the Flow Field (OBST)<a class="headerlink" href="#obstruct-the-flow-field-obst" title="Link to this heading">#</a></h2>
 <p>The flow field can be obstructed by using the <code class="docutils literal notranslate"><span class="pre">OBST</span></code> namelist. This essentially defines which cells are blocked for the flow field. For boundary conditions see section below.</p>
 <p>FDS fundamentally works with a rectangular grid and all elements need to be aligned to it. This means essentially that all obstructions are rectangular objects as well. Right now, some effort is put into the development to allow non-rectangular objects (<code class="docutils literal notranslate"><span class="pre">GEOM</span></code>). Since this namelist is in active development, it will not be covered here.</p>
 <p>To define the volume of an obstruction we use the same syntax for bounding boxes (<code class="docutils literal notranslate"><span class="pre">XB</span></code>), as described with the <code class="docutils literal notranslate"><span class="pre">MESH</span></code> above.</p>
@@ -660,7 +682,7 @@ document.write(`
 </div>
 </section>
 <section id="gas-phase-combustion-reac">
-<h2>Gas Phase Combustion (REAC)<a class="headerlink" href="#gas-phase-combustion-reac" title="Permalink to this heading">#</a></h2>
+<h2>Gas Phase Combustion (REAC)<a class="headerlink" href="#gas-phase-combustion-reac" title="Link to this heading">#</a></h2>
 <p>To initialise a fire, combustible gas needs to be introduced into the fluid domain. Its reaction is controlled using the <code class="docutils literal notranslate"><span class="pre">REAC</span></code> namelist.</p>
 <p>FDS requires to be provided the stoichiometry of the gas phase combustion reactions. However, in a limited selection of cases the stoichiometry can be computed internally. This is also referred to as “simple chemistry”, see users guide for more details. FDS comes with a couple of predefined gaseous species, that can be found in “table 14.4: Pre-defined gas and liquid species” in the users guide. Combustible species listed there can be used with the simple chemistry, via the <code class="docutils literal notranslate"><span class="pre">FUEL</span></code> parameter.</p>
 <p>Furthermore, a “surrogate fuel” concept is employed in FDS, together with the simple chemistry. It uses a single species for all gas phase combustion reactions, but scales their mass loss based on their respective heat of combustion. See “Chapter 15 Combustion” in the users guide.</p>
@@ -672,7 +694,7 @@ document.write(`
 </div>
 </section>
 <section id="design-boundary-conditions-surf">
-<h2>Design Boundary Conditions (SURF)<a class="headerlink" href="#design-boundary-conditions-surf" title="Permalink to this heading">#</a></h2>
+<h2>Design Boundary Conditions (SURF)<a class="headerlink" href="#design-boundary-conditions-surf" title="Link to this heading">#</a></h2>
 <p>Obstructions define cells that are blocked for the flow field. Their surface also has an impact on the gas phase, for example due to heat transfer. This is controlled by defining and assigning boundary conditions. By default FDS assigns the <code class="docutils literal notranslate"><span class="pre">INERT</span></code> boundary condition, visualised by the yellow color.</p>
 <p>Boundary conditions are called “surfaces” in FDS and are defined using the <code class="docutils literal notranslate"><span class="pre">SURF</span></code> namelist. Each surface definition needs to get a label (<code class="docutils literal notranslate"><span class="pre">ID</span></code>), which is used to connect it to the desired cells, i.e. obstructions or vents.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">SURF</span></code> namelist, has a couple of special features to make life a bit easier for the user. There is a boolean flag to set a given surface as the default, conveniently called <code class="docutils literal notranslate"><span class="pre">DEFAULT</span></code>.</p>
@@ -695,7 +717,7 @@ The predefined colors can be looked up in “Table 10.1: A sample of color defin
 <p>Use colors at least during the design process of your simulation setup as a visual aid to make sure that individual boundary conditions are assigned to the correct places.</p>
 </div>
 <section id="a-simple-gas-burner">
-<h3>A Simple Gas Burner<a class="headerlink" href="#a-simple-gas-burner" title="Permalink to this heading">#</a></h3>
+<h3>A Simple Gas Burner<a class="headerlink" href="#a-simple-gas-burner" title="Link to this heading">#</a></h3>
 <p>Furthermore, there is the <code class="docutils literal notranslate"><span class="pre">HRRPUA</span></code> parameter. It assignes a <em>H</em>eat <em>R</em>elease <em>R</em>ate <em>P</em>er <em>U</em>nit <em>A</em>rea as boundary conditions, in <span class="math notranslate nohighlight">\(\mf kW/m^2\)</span>. It takes the surface area of the cells and scales the released combustible mass accordingly, see the pool fire section for more details. Now, to get our desired <span class="math notranslate nohighlight">\(\mf 63~kW\)</span> we need to divide it by the surface area of the burner. According to the description, the burner is a square with an edge length of <span class="math notranslate nohighlight">\(\mf 0.4~m\)</span>. Thus, we compute the <code class="docutils literal notranslate"><span class="pre">HRRPUA</span></code> value <span class="math notranslate nohighlight">\(\mf 63~kW / (0.4~m \times 0.4~m)\)</span> to be about <span class="math notranslate nohighlight">\(\mf 393.75~kW/m^2\)</span>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -710,7 +732,7 @@ The predefined colors can be looked up in “Table 10.1: A sample of color defin
 </section>
 </section>
 <section id="assign-boundary-conditions-vent">
-<h2>Assign Boundary Conditions (VENT)<a class="headerlink" href="#assign-boundary-conditions-vent" title="Permalink to this heading">#</a></h2>
+<h2>Assign Boundary Conditions (VENT)<a class="headerlink" href="#assign-boundary-conditions-vent" title="Link to this heading">#</a></h2>
 <p>There are different ways in FDS to assign boundary conditions to obstructions. Some short-hand solutions are available in the <code class="docutils literal notranslate"><span class="pre">OBST</span></code> definitions: <code class="docutils literal notranslate"><span class="pre">SURF_ID</span></code>, <code class="docutils literal notranslate"><span class="pre">SURF_IDS</span></code> and <code class="docutils literal notranslate"><span class="pre">SURF_ID6</span></code>. With <code class="docutils literal notranslate"><span class="pre">SURF_ID</span></code> all six sides of the rectangular cuboid are assigned the same boundary condition. A bit more granular is <code class="docutils literal notranslate"><span class="pre">SURF_IDS</span></code>, which allows access to the top, sides and bottom of an obstruction. Most granular is <code class="docutils literal notranslate"><span class="pre">SURF_ID6</span></code>, where all faces are accessible individually (-x, +x, -y, +y,-z, +z). For the last two options, arrays of strings are to be provided for each of the options, i.e. <code class="docutils literal notranslate"><span class="pre">SURF_IDS</span> <span class="pre">=</span> <span class="pre">'top',</span> <span class="pre">'sides',</span> <span class="pre">'bottom'</span></code>.</p>
 <p>In most cases an obstruction is covering many cells but only a subset of them should be assigned a specific boundary condition. This subset can be defined using the <code class="docutils literal notranslate"><span class="pre">VENT</span></code> namelist. In this example we use this to assign the burner boundary to the top of the obstruction defined above. To define the dimensions of the vent, we use the bounding box again, just set the hight to zero, i.e. z1 and z2 get the same value:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">VENT</span> <span class="n">ID</span>      <span class="o">=</span> <span class="s1">&#39;BurnerOutlet&#39;</span><span class="p">,</span>
@@ -729,10 +751,10 @@ The predefined colors can be looked up in “Table 10.1: A sample of color defin
 </div>
 </section>
 <section id="record-data-devc-slcf">
-<h2>Record Data (DEVC, SLCF)<a class="headerlink" href="#record-data-devc-slcf" title="Permalink to this heading">#</a></h2>
+<h2>Record Data (DEVC, SLCF)<a class="headerlink" href="#record-data-devc-slcf" title="Link to this heading">#</a></h2>
 <p>FDS has vast capabilities to record different data sets. Most of the data you would like to keep, you need to specifiy <em>before</em> the simulation is conducted. Here we provide only a very brief introduction to record data, for more details look into the other examples and the users guide. The focus is on devices <code class="docutils literal notranslate"><span class="pre">DEVC</span></code> and slices <code class="docutils literal notranslate"><span class="pre">SLCF</span></code>.</p>
 <section id="devices-devc">
-<h3>Devices (DEVC)<a class="headerlink" href="#devices-devc" title="Permalink to this heading">#</a></h3>
+<h3>Devices (DEVC)<a class="headerlink" href="#devices-devc" title="Link to this heading">#</a></h3>
 <p>To record the computed gas temperature above the burner we can use a point device (<code class="docutils literal notranslate"><span class="pre">DEVC</span></code>). A device can get a label (<code class="docutils literal notranslate"><span class="pre">ID</span></code>), which makes it much easier to identify in the comma separated value (CSV) file created during the simulation. It needs a location and a quantity.</p>
 <p>Locations can be provided in different ways, we focus her on a single point using <code class="docutils literal notranslate"><span class="pre">XYZ</span></code>. However, lines, planes and volumes are possible as well.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">QUANTITY</span></code> parameter expects a string to define what values are to be recorded. As an example, let’s take the gas temperature, using <code class="docutils literal notranslate"><span class="pre">TEMPERATURE</span></code>.</p>
@@ -748,7 +770,7 @@ The predefined colors can be looked up in “Table 10.1: A sample of color defin
 </div>
 </section>
 <section id="slices-slcf">
-<h3>Slices (SLCF)<a class="headerlink" href="#slices-slcf" title="Permalink to this heading">#</a></h3>
+<h3>Slices (SLCF)<a class="headerlink" href="#slices-slcf" title="Link to this heading">#</a></h3>
 <p>Many gas phase quantities can also be recorded as animated slices across the domain, using the <code class="docutils literal notranslate"><span class="pre">SLCF</span></code> namelist. The locations of the slices can be defined as planes, using for example the <code class="docutils literal notranslate"><span class="pre">PBX</span></code> parameter. This will create a plane which extents along the y- and z-axis, it will be moved along the x-axis (unit: meter). A quantity needs to be provided, here the gas temperature. Furthermore, the <code class="docutils literal notranslate"><span class="pre">CELL_CENTERED</span></code> flag can be set to force FDS to record data at the cell centeres. It will then also show up in Smokeview not as interpolated data. Below is an exaple input:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">SLCF</span> <span class="n">PBX</span>           <span class="o">=</span> <span class="mf">0.00</span><span class="p">,</span>
       <span class="n">QUANTITY</span>      <span class="o">=</span> <span class="s1">&#39;TEMPERATURE&#39;</span><span class="p">,</span>
@@ -762,7 +784,7 @@ The predefined colors can be looked up in “Table 10.1: A sample of color defin
 </section>
 </section>
 <section id="file">
-<h2>File<a class="headerlink" href="#file" title="Permalink to this heading">#</a></h2>
+<h2>File<a class="headerlink" href="#file" title="Link to this heading">#</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&amp;</span><span class="n">HEAD</span> <span class="n">CHID</span>  <span class="o">=</span> <span class="s1">&#39;Ex1&#39;</span><span class="p">,</span>
       <span class="n">TITLE</span> <span class="o">=</span> <span class="s1">&#39;Basic Example 1 - Gas Burner&#39;</span> <span class="o">/</span>
 
@@ -833,7 +855,7 @@ The predefined colors can be looked up in “Table 10.1: A sample of color defin
 </div>
 </section>
 <section id="questions-and-tasks">
-<h2>Questions and Tasks<a class="headerlink" href="#questions-and-tasks" title="Permalink to this heading">#</a></h2>
+<h2>Questions and Tasks<a class="headerlink" href="#questions-and-tasks" title="Link to this heading">#</a></h2>
 <ul class="simple">
 <li><p>How do you adjust the domain, that the fluid cells are cubes with an edge length of <span class="math notranslate nohighlight">\(\mf 0.1~m\)</span>?</p></li>
 <li><p>Given the original <code class="docutils literal notranslate"><span class="pre">MESH</span></code> of the example above, what happens when you set the z2 coordinate of the ‘BurnerBase’ <code class="docutils literal notranslate"><span class="pre">OBST</span></code> to <span class="math notranslate nohighlight">\(\mf 0.24~m\)</span>?</p></li>
@@ -875,11 +897,10 @@ The predefined colors can be looked up in “Table 10.1: A sample of color defin
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="00_overview.html"
@@ -899,10 +920,7 @@ The predefined colors can be looked up in “Table 10.1: A sample of color defin
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -910,6 +928,7 @@ The predefined colors can be looked up in “Table 10.1: A sample of color defin
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -956,6 +975,7 @@ The predefined colors can be looked up in “Table 10.1: A sample of color defin
   
   <div class="footer-item">
     
+
   </div>
   
   <div class="footer-item">
@@ -983,8 +1003,8 @@ The predefined colors can be looked up in “Table 10.1: A sample of color defin
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

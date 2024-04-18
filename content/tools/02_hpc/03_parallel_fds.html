@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Parallel Execution of FDS &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
   
@@ -19,52 +18,49 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=ed0cee17" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/tools/02_hpc/03_parallel_fds';</script>
     <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/tools/02_hpc/03_parallel_fds.html" />
-    <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
+    <link rel="icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Benchmarking" href="04_benchmarking.html" />
@@ -78,7 +74,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -113,11 +117,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -132,9 +139,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../overview/01_overview.html">
+  
   
   
   
@@ -144,12 +153,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../../_static/cce_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../../_static/cce_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../../_static/cce_logo.png" class="logo__image only-light" alt="Fire Simulation <br> Lecture Notes - Home"/>
+    <script>document.write(`<img src="../../../_static/cce_logo.png" class="logo__image only-dark" alt="Fire Simulation <br> Lecture Notes - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -448,20 +468,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -522,16 +544,16 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="parallel-execution-of-fds">
-<h1>Parallel Execution of FDS<a class="headerlink" href="#parallel-execution-of-fds" title="Permalink to this heading">#</a></h1>
+<h1>Parallel Execution of FDS<a class="headerlink" href="#parallel-execution-of-fds" title="Link to this heading">#</a></h1>
 <section id="basics">
-<h2>Basics<a class="headerlink" href="#basics" title="Permalink to this heading">#</a></h2>
+<h2>Basics<a class="headerlink" href="#basics" title="Link to this heading">#</a></h2>
 <p>Below two different HPC clusters are discussed. Make sure to look into the system that you will be working on. The computer <a class="reference external" href="https://www.fz-juelich.de/en/ias/jsc/systems/supercomputers/jureca">JURECA</a> is located at the Forschungszentrum Jülich (FZJ) and <a class="reference external" href="https://pleiades.uni-wuppertal.de/en/">Pleiades</a> is located at the Bergische Universität Wuppertal (BUW), both in Germany.</p>
 <p>Follow the respective link to the documentation of <a class="reference external" href="https://apps.fz-juelich.de/jsc/hps/jureca/index.html">JURECA</a> or <a class="reference external" href="https://pleiadesbuw.github.io/PleiadesUserDocumentation/">Pleiades</a>.</p>
 <section id="ssh">
-<h3>SSH<a class="headerlink" href="#ssh" title="Permalink to this heading">#</a></h3>
+<h3>SSH<a class="headerlink" href="#ssh" title="Link to this heading">#</a></h3>
 <p>To reach the compute clusters you need to log in via the <a class="reference external" href="https://en.wikipedia.org/wiki/Secure_Shell_Protocol">secure shell protocol (SSH)</a>.</p>
 <p>Most Linux and MacOS systems have a SSH client installed. On Windows, you can use tools like <a class="reference external" href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">PuTTY</a> for the connection per terminal and <a class="reference external" href="https://winscp.net/eng/download.php">WinSCP</a> to copy files with a graphical user interface.</p>
 <p>Depending on your SSH client, there are various ways to generate a SSH key pair (public and private). It should always be protected with a passphrase.</p>
@@ -539,24 +561,24 @@ document.write(`
 <figure class="align-default" id="fig-hpc-ssh1">
 <a class="reference internal image-reference" href="../../../_images/ssh_connection_1.svg"><img alt="../../../_images/ssh_connection_1.svg" src="../../../_images/ssh_connection_1.svg" width="100%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 34 </span><span class="caption-text">SSH connection scenario, where the user types in the password every time an SSH connection is established.</span><a class="headerlink" href="#fig-hpc-ssh1" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 34 </span><span class="caption-text">SSH connection scenario, where the user types in the password every time an SSH connection is established.</span><a class="headerlink" href="#fig-hpc-ssh1" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-hpc-ssh2">
 <a class="reference internal image-reference" href="../../../_images/ssh_connection_2.svg"><img alt="../../../_images/ssh_connection_2.svg" src="../../../_images/ssh_connection_2.svg" width="100%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 35 </span><span class="caption-text">SSH connection scenario, which uses a public-private key pair for authentification. The passphrase for the private key needs to be manualy provided each time the key is accessed.</span><a class="headerlink" href="#fig-hpc-ssh2" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 35 </span><span class="caption-text">SSH connection scenario, which uses a public-private key pair for authentification. The passphrase for the private key needs to be manualy provided each time the key is accessed.</span><a class="headerlink" href="#fig-hpc-ssh2" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-hpc-ssh3">
 <a class="reference internal image-reference" href="../../../_images/ssh_connection_3.svg"><img alt="../../../_images/ssh_connection_3.svg" src="../../../_images/ssh_connection_3.svg" width="100%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 36 </span><span class="caption-text">SSH connection scenario, including an SSH agent to manage the passphrases of the private keys located at the local machine. No manual input is needed to access the private keys.</span><a class="headerlink" href="#fig-hpc-ssh3" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 36 </span><span class="caption-text">SSH connection scenario, including an SSH agent to manage the passphrases of the private keys located at the local machine. No manual input is needed to access the private keys.</span><a class="headerlink" href="#fig-hpc-ssh3" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="environment-modules-lmod">
-<h3>Environment modules (Lmod)<a class="headerlink" href="#environment-modules-lmod" title="Permalink to this heading">#</a></h3>
+<h3>Environment modules (Lmod)<a class="headerlink" href="#environment-modules-lmod" title="Link to this heading">#</a></h3>
 <p>With <a class="reference external" href="https://lmod.readthedocs.io/en/latest/">Lmod</a> the user is able to dynamically change the terminal environment. This is convenient for example when different simulation software versions are to be used. See below for guides of the modules on the systems JURECA and Pleiades.</p>
 <p>Documentation of Lmod can be found <a class="reference external" href="https://lmod.readthedocs.io/en/latest/010_user.html">here</a>. Some of the most important commands are reproduced here.</p>
 <p>To find out what modules are available to be loaded, type:</p>
@@ -587,7 +609,7 @@ document.write(`
 <p>This is explained in the <a class="reference external" href="https://lmod.readthedocs.io/en/latest/010_user.html">“Module Hierarchy” and “Searching for Modules” sections</a>.</p>
 </section>
 <section id="slurm">
-<h3>SLURM<a class="headerlink" href="#slurm" title="Permalink to this heading">#</a></h3>
+<h3>SLURM<a class="headerlink" href="#slurm" title="Link to this heading">#</a></h3>
 <p>A computer cluster is often used by a lot of users. Therefore, executing a program which needs a lot of the resources could slow down the network or even the OS. To efficiently use the provided resources of a large compute cluster, workload managers are used. A common workload manager is <a class="reference external" href="https://slurm.schedmd.com/documentation.html">SLURM</a>, which is also used on JURECA and Pleiades.</p>
 <p>Some of the basic commands are reproduced here. Many parameters can be used to control the behaviour of the individual commands. Look into the <a class="reference external" href="https://slurm.schedmd.com/documentation.html">documentation</a> for a comprehensive overview.</p>
 <p>An overview over all jobs in the queue is provided with:</p>
@@ -622,12 +644,12 @@ document.write(`
 <p>More information about the available queues and their time limits can be retrieved by the <code class="docutils literal notranslate"><span class="pre">sinfo</span></code> command:</p>
 </section>
 <section id="job-submission">
-<h3>Job Submission<a class="headerlink" href="#job-submission" title="Permalink to this heading">#</a></h3>
+<h3>Job Submission<a class="headerlink" href="#job-submission" title="Link to this heading">#</a></h3>
 <p>After the brief overview over the different different commands above let’s go into a bit more detail now. Focus is on setting up scripts that define a job and send it to the scheduler. Generally, one would not run jobs manually since it somewhat defeats the purpose of a resource management system.</p>
 <p>Instead of running our simulation on the cluster we either submit our simulation file to the queuing system or execute a submit code which includes the modules we need for FDS, sets the number of processes, threads and other important quantities.</p>
 <p>More information is provided in <a class="reference external" href="https://apps.fz-juelich.de/jsc/hps/jureca/batchsystem.html">JURECA’s batch system documentation</a> and <a class="reference external" href="http://www.pleiades.uni-wuppertal.de/index.php?id=slurm">Pleiades batch system</a>.</p>
 <section id="single-job">
-<h4>Single Job<a class="headerlink" href="#single-job" title="Permalink to this heading">#</a></h4>
+<h4>Single Job<a class="headerlink" href="#single-job" title="Link to this heading">#</a></h4>
 <p>The structure of a SLURM job script is basically that of a shell script. This shell script will be executed by the batch system on the requested resource. The definition of the resource is done as comments (<code class="docutils literal notranslate"><span class="pre">#</span></code>) with the <code class="docutils literal notranslate"><span class="pre">SLURM</span></code> keywords. These are instructions for SLURM.</p>
 <p>A simple example for a SLURM job scipt (<a class="reference download internal" download="" href="../../../_downloads/c61518e40ff31654179d1fe90690a792/fds-slurm-job-single.sh"><code class="xref download docutils literal notranslate"><span class="pre">fds-slurm-job-single.sh</span></code></a>) on JURECA is given below. An example for the Pleiades system (<a class="reference download internal" download="" href="../../../_downloads/4d3769ec94538d21c04509058f40ae13/fds-slurm-job-single_pleiades.sh"><code class="xref download docutils literal notranslate"><span class="pre">fds-slurm-job-single_pleiades.sh</span></code></a>) follows a similar structure. Both execute FDS for a single FDS input file.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>#!/bin/bash -x
@@ -774,7 +796,7 @@ srun fds ./*.fds
 </div>
 </section>
 <section id="chain-jobs">
-<h4>Chain Jobs<a class="headerlink" href="#chain-jobs" title="Permalink to this heading">#</a></h4>
+<h4>Chain Jobs<a class="headerlink" href="#chain-jobs" title="Link to this heading">#</a></h4>
 <p>As there are time limits of 24 hours on JURECA and up to seven days on Pleiades, each job that needs more time has to restart at some point. The following scripts automate the process for FDS on JURECA. It is important that the FDS input file has the <code class="docutils literal notranslate"><span class="pre">RESTART</span></code> parameter is explicitly defined in the input file and set to <code class="docutils literal notranslate"><span class="pre">.FALSE.</span></code>. The script will look up this parameter in the input and replace it with <code class="docutils literal notranslate"><span class="pre">.TRUE.</span></code>.</p>
 <p>Also, it is in general useful to have FDS create intermediate restart files to prevent data loss when some crash happens - which happens more often than you might expect…</p>
 <p>The main idea is to invoke multiple jobs (<a class="reference download internal" download="" href="../../../_downloads/0d1c3cadb0cd08b5a4c8d8cdc927d199/fds-slurm-chain-starter.sh"><code class="xref download docutils literal notranslate"><span class="pre">fds-slurm-chain-starter.sh</span></code></a>) with a dependency, i.e. a chain is created, so that the jobs are consecutively executed. The two primary ways are <code class="docutils literal notranslate"><span class="pre">-d</span> <span class="pre">afterok</span></code> to start the next job if the one before completed successfully or <code class="docutils literal notranslate"><span class="pre">-d</span> <span class="pre">afternotok</span></code> to start it even if the one before crashed.</p>
@@ -879,7 +901,7 @@ rm $CHID.stop
 </div>
 </section>
 <section id="some-pointers-and-best-practice">
-<h4>Some pointers and best practice<a class="headerlink" href="#some-pointers-and-best-practice" title="Permalink to this heading">#</a></h4>
+<h4>Some pointers and best practice<a class="headerlink" href="#some-pointers-and-best-practice" title="Link to this heading">#</a></h4>
 <ul class="simple">
 <li><p><strong>Be mindful of the structure of your job</strong></p></li>
 </ul>
@@ -897,14 +919,14 @@ rm $CHID.stop
 </section>
 </section>
 <section id="accessing-jureca">
-<h2>Accessing JURECA<a class="headerlink" href="#accessing-jureca" title="Permalink to this heading">#</a></h2>
+<h2>Accessing JURECA<a class="headerlink" href="#accessing-jureca" title="Link to this heading">#</a></h2>
 <section id="accounts-and-accounting">
-<h3>Accounts and Accounting<a class="headerlink" href="#accounts-and-accounting" title="Permalink to this heading">#</a></h3>
+<h3>Accounts and Accounting<a class="headerlink" href="#accounts-and-accounting" title="Link to this heading">#</a></h3>
 <p>You should have received an invitation email, which asks you to register in the account management system. Once registered, you will receive an individual username and be asked to upload your login keys. Your account is managed via <a class="reference external" href="https://judoor.fz-juelich.de/login">JuDoor</a>.</p>
 <p>Furthermore, the account is connected one or more projects and thus some budget of computing time. The user needs to specify which budget to draw from, when setting up jobs. The resource management system SLURM has a parameter for this: <code class="docutils literal notranslate"><span class="pre">--account=budget_name</span></code>.</p>
 </section>
 <section id="login">
-<h3>Login<a class="headerlink" href="#login" title="Permalink to this heading">#</a></h3>
+<h3>Login<a class="headerlink" href="#login" title="Link to this heading">#</a></h3>
 <p>Connecting to JURECA is done via SSH. It is recommended to read the user documentation, which can be found here: <a class="reference external" href="https://apps.fz-juelich.de/jsc/hps/jureca/access.html">access JURECA using SSH</a>.</p>
 <p>In order to login to JURECA on a Linux or MacOS you just need to execute</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; ssh username1@jureca.fz-juelich.de
@@ -934,7 +956,7 @@ jrlogin06.jureca
 </div>
 </section>
 <section id="fds-modules-on-jureca">
-<h3>FDS Modules on JURECA<a class="headerlink" href="#fds-modules-on-jureca" title="Permalink to this heading">#</a></h3>
+<h3>FDS Modules on JURECA<a class="headerlink" href="#fds-modules-on-jureca" title="Link to this heading">#</a></h3>
 <p>Modules offer a flexible environment to manage multiple versions of software. This system is also used on JURECA: <a class="reference external" href="https://apps.fz-juelich.de/jsc/hps/jureca/software-modules.html">Module usage on JURECA</a>.</p>
 <p>As the FDS (and some other) modules are not globally installed, they need to be added to the user’s environment. This can be done with</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">module</span> <span class="n">use</span> <span class="o">-</span><span class="n">a</span> <span class="o">~</span><span class="n">arnold1</span><span class="o">/</span><span class="n">modules_fire</span><span class="o">/</span>
@@ -951,17 +973,17 @@ jrlogin06.jureca
 </section>
 </section>
 <section id="accessing-the-pleiades-cluster-cobra">
-<h2>Accessing the Pleiades Cluster / CoBra<a class="headerlink" href="#accessing-the-pleiades-cluster-cobra" title="Permalink to this heading">#</a></h2>
+<h2>Accessing the Pleiades Cluster / CoBra<a class="headerlink" href="#accessing-the-pleiades-cluster-cobra" title="Link to this heading">#</a></h2>
 <section id="accounts">
-<h3>Accounts<a class="headerlink" href="#accounts" title="Permalink to this heading">#</a></h3>
+<h3>Accounts<a class="headerlink" href="#accounts" title="Link to this heading">#</a></h3>
 <p>Please contact Lukas for an account.</p>
 </section>
 <section id="id1">
-<h3>Login<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<h3>Login<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <p>Connecting to Pleiades is done via SSH. Using the provided credentials, you can use SSH to login to the front-end <code class="docutils literal notranslate"><span class="pre">fugg1.pleiades.uni-wuppertal.de</span></code> from within the university’s network.</p>
 </section>
 <section id="fds-modules-on-the-pleiades-cluster">
-<h3>FDS Modules on the Pleiades Cluster<a class="headerlink" href="#fds-modules-on-the-pleiades-cluster" title="Permalink to this heading">#</a></h3>
+<h3>FDS Modules on the Pleiades Cluster<a class="headerlink" href="#fds-modules-on-the-pleiades-cluster" title="Link to this heading">#</a></h3>
 <p>On Pleiades, the modules need to be added to the user’s environment with</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">module</span> <span class="n">use</span> <span class="o">-</span><span class="n">a</span> <span class="o">/</span><span class="n">beegfs</span><span class="o">/</span><span class="n">larnold</span><span class="o">/</span><span class="n">modules</span>
 </pre></div>
@@ -974,7 +996,7 @@ jrlogin06.jureca
 </section>
 </section>
 <section id="mesh-decomposition">
-<h2>Mesh Decomposition<a class="headerlink" href="#mesh-decomposition" title="Permalink to this heading">#</a></h2>
+<h2>Mesh Decomposition<a class="headerlink" href="#mesh-decomposition" title="Link to this heading">#</a></h2>
 <p>Python scipt to automate decomposition of a single <code class="docutils literal notranslate"><span class="pre">MESH</span></code> statement: <a class="reference download internal" download="" href="../../../_downloads/4017b6458e61599216f92ef0948c18f7/decompose_fds_mesh.py"><code class="xref download docutils literal notranslate"><span class="pre">decompose_fds_mesh.py</span></code></a>.</p>
 <p>Usage: <code class="docutils literal notranslate"><span class="pre">python</span> <span class="pre">decompose_fds_mesh.py</span> <span class="pre">MESH</span> <span class="pre">DECOMPOSITION</span></code></p>
 <p><strong>One mesh, i.e. no decompositon</strong></p>
@@ -1091,11 +1113,10 @@ jrlogin06.jureca
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="02_hpc.html"
@@ -1115,10 +1136,7 @@ jrlogin06.jureca
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1126,6 +1144,7 @@ jrlogin06.jureca
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1175,6 +1194,7 @@ jrlogin06.jureca
   
   <div class="footer-item">
     
+
   </div>
   
   <div class="footer-item">
@@ -1202,8 +1222,8 @@ jrlogin06.jureca
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Data Analysis II &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
   
@@ -19,54 +18,51 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=ed0cee17" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"tex": {"macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}", "du": "\\dot{u}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/examples/02_intermediate/05_data_analysis_02';</script>
     <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/examples/02_intermediate/05_data_analysis_02.html" />
-    <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
+    <link rel="icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Build FDS Input Lines Using Python String Manipulation" href="06_build_fds_input.html" />
@@ -80,7 +76,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -115,11 +119,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -134,9 +141,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../overview/01_overview.html">
+  
   
   
   
@@ -146,12 +155,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../../_static/cce_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../../_static/cce_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../../_static/cce_logo.png" class="logo__image only-light" alt="Fire Simulation <br> Lecture Notes - Home"/>
+    <script>document.write(`<img src="../../../_static/cce_logo.png" class="logo__image only-dark" alt="Fire Simulation <br> Lecture Notes - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -481,20 +501,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -532,7 +554,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <div class="cell tag_hide_cell docutils container">
 <div class="cell_input docutils container">
@@ -551,12 +573,12 @@ document.write(`
 </div>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="data-analysis-ii">
-<h1>Data Analysis II<a class="headerlink" href="#data-analysis-ii" title="Permalink to this heading">#</a></h1>
+<h1>Data Analysis II<a class="headerlink" href="#data-analysis-ii" title="Link to this heading">#</a></h1>
 <p>This example demonstrates an analysis of slice data, here to determine the map of available safe egress time (ASET) and the temporal evolution of the smoke layer height. The used scenario is a multi-room appartment.</p>
 <figure class="align-default" id="fig-example-dataanalysis2-scenario-geometry">
 <a class="reference internal image-reference" href="../../../_images/appartment_geometry.png"><img alt="../../../_images/appartment_geometry.png" src="../../../_images/appartment_geometry.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Visualization of the appartment geometry.</span><a class="headerlink" href="#fig-example-dataanalysis2-scenario-geometry" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Visualization of the appartment geometry.</span><a class="headerlink" href="#fig-example-dataanalysis2-scenario-geometry" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="tip dropdown admonition">
@@ -810,9 +832,9 @@ Cell Qty: 19008 | Size: 0.100·0.100·0.100m | Aspect: 1.0 | Poisson: No
 </div>
 <div class="tip admonition">
 <p class="admonition-title">Precomputed simulation data</p>
-<p><a class="reference external" href="https://uni-wuppertal.sciebo.de/s/p8nn60Kmtd3qoRt/download?path=%2F&amp;files=compartment_appartment_01.zip">Download link</a></p>
+<p><a class="reference external" href="https://uni-wuppertal.sciebo.de/s/p8nn60Kmtd3qoRt/download?path=%2F&amp;amp;files=compartment_appartment_01.zip">Download link</a></p>
 </div>
-<p>As shown in <span class="xref myst">the introduction to fdsreader</span>, the FDS simulation results can be read as Python data structures. The simulation consists out of eight meshes.</p>
+<p>As shown in <a class="reference internal" href="#../../tools/03_analysis/02_fdsreaders"><span class="xref myst">the introduction to fdsreader</span></a>, the FDS simulation results can be read as Python data structures. The simulation consists out of eight meshes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path_to_data</span> <span class="o">=</span> <span class="s1">&#39;data/compartment/appartment_01/rundir&#39;</span>
@@ -833,7 +855,7 @@ Cell Qty: 19008 | Size: 0.100·0.100·0.100m | Aspect: 1.0 | Poisson: No
 </div>
 </div>
 <section id="aset-map">
-<h2>ASET Map<a class="headerlink" href="#aset-map" title="Permalink to this heading">#</a></h2>
+<h2>ASET Map<a class="headerlink" href="#aset-map" title="Link to this heading">#</a></h2>
 <p>This section demonstrate how to compute ASET maps based on the procedure described in <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id2" title="Benjamin Schröder, Lukas Arnold, and Armin Seyfried. A map representation of the ASET-RSET concept. Fire Safety Journal, 115:103154, 2020. doi:10.1016/j.firesaf.2020.103154.">SAS20</a>]</span>. The basic idea is to determine for each position in the compartment the first time that a tenability criterion is exceeded. The result is a time map.</p>
 <p>Although the procedure is based on multiple criteria, for simlicity only one quantity, here the soot density, is used. Its values are evaluated in a z-normal slice at an arbitrary height of <span class="math notranslate nohighlight">\(\SI{1.5}{\meter}\)</span>.</p>
 <div class="cell docutils container">
@@ -875,7 +897,7 @@ Cell Qty: 19008 | Size: 0.100·0.100·0.100m | Aspect: 1.0 | Poisson: No
 <figure class="align-default" id="fig-example-dataanalysis2-soot-z">
 <a class="reference internal image-reference" href="../../../_images/appartment_soot_z.svg"><img alt="../../../_images/appartment_soot_z.svg" src="../../../_images/appartment_soot_z.svg" width="100%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Visualization of the soot density.</span><a class="headerlink" href="#fig-example-dataanalysis2-soot-z" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 4 </span><span class="caption-text">Visualization of the soot density.</span><a class="headerlink" href="#fig-example-dataanalysis2-soot-z" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Now, the local ASET values are computed:</p>
@@ -934,12 +956,12 @@ Cell Qty: 19008 | Size: 0.100·0.100·0.100m | Aspect: 1.0 | Poisson: No
 <figure class="align-default" id="fig-example-dataanalysis2-aset-map">
 <a class="reference internal image-reference" href="../../../_images/appartment_aset_map.svg"><img alt="../../../_images/appartment_aset_map.svg" src="../../../_images/appartment_aset_map.svg" width="100%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 5 </span><span class="caption-text">ASET map for the outlined scenario.</span><a class="headerlink" href="#fig-example-dataanalysis2-aset-map" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">ASET map for the outlined scenario.</span><a class="headerlink" href="#fig-example-dataanalysis2-aset-map" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="smoke-layer">
-<h2>Smoke layer<a class="headerlink" href="#smoke-layer" title="Permalink to this heading">#</a></h2>
+<h2>Smoke layer<a class="headerlink" href="#smoke-layer" title="Link to this heading">#</a></h2>
 <p>In this example, the smoke layer height is analysed. The distinction made here is based on a simple threshold in temperature: The local smoke layer height is given by the lowest point above a given temperature. The evaluation is done based on a slice across the burner and normal to the x-direction.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -976,7 +998,7 @@ Cell Qty: 19008 | Size: 0.100·0.100·0.100m | Aspect: 1.0 | Poisson: No
 <figure class="align-default" id="fig-example-dataanalysis2-smoke-temp-slice">
 <a class="reference internal image-reference" href="../../../_images/appartment_temp_slice.svg"><img alt="../../../_images/appartment_temp_slice.svg" src="../../../_images/appartment_temp_slice.svg" width="100%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Temperature slice across the burner.</span><a class="headerlink" href="#fig-example-dataanalysis2-smoke-temp-slice" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Temperature slice across the burner.</span><a class="headerlink" href="#fig-example-dataanalysis2-smoke-temp-slice" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Now, for each y-position the z-indices are found, where the temperature exceedes the limit temperature. The lowest value is the smoke layer height at the y-position.</p>
@@ -1024,7 +1046,7 @@ Cell Qty: 19008 | Size: 0.100·0.100·0.100m | Aspect: 1.0 | Poisson: No
 <figure class="align-default" id="fig-example-dataanalysis2-smoke-temp-slice-height">
 <a class="reference internal image-reference" href="../../../_images/appartment_temp_slice_height.svg"><img alt="../../../_images/appartment_temp_slice_height.svg" src="../../../_images/appartment_temp_slice_height.svg" width="100%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Temperature slice with the local smoke layer height.</span><a class="headerlink" href="#fig-example-dataanalysis2-smoke-temp-slice-height" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">Temperature slice with the local smoke layer height.</span><a class="headerlink" href="#fig-example-dataanalysis2-smoke-temp-slice-height" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Using the above approach for a single point in time, a loop over all times can be used to compute, e.g., the mean and standard deviation of the smoke layer height.</p>
@@ -1106,7 +1128,7 @@ Temporal development of the mean and stdandard deviation of the smoke layer heig
 <figure class="align-default" id="fig-example-dataanalysis2-layer-mean-band">
 <a class="reference internal image-reference" href="../../../_images/appartment_layer_mean_band.svg"><img alt="../../../_images/appartment_layer_mean_band.svg" src="../../../_images/appartment_layer_mean_band.svg" width="100%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Temporal development of the mean and stdandard deviation of the smoke layer height.</span><a class="headerlink" href="#fig-example-dataanalysis2-layer-mean-band" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Temporal development of the mean and stdandard deviation of the smoke layer height.</span><a class="headerlink" href="#fig-example-dataanalysis2-layer-mean-band" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>If parts of the region shall be excluded in the analysis, a coordinate dependent mask can be used for this.</p>
@@ -1143,7 +1165,7 @@ Temporal development of the mean and stdandard deviation of the smoke layer heig
 <figure class="align-default" id="fig-example-dataanalysis2-smoke-temp-slice-height-mask">
 <a class="reference internal image-reference" href="../../../_images/appartment_temp_slice_height_mask.svg"><img alt="../../../_images/appartment_temp_slice_height_mask.svg" src="../../../_images/appartment_temp_slice_height_mask.svg" width="100%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Temperature slice with the local smoke layer height, limited to the masked region.</span><a class="headerlink" href="#fig-example-dataanalysis2-smoke-temp-slice-height-mask" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Temperature slice with the local smoke layer height, limited to the masked region.</span><a class="headerlink" href="#fig-example-dataanalysis2-smoke-temp-slice-height-mask" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The above procedure can be reused, yet the computation of the mean and standard deviation is carried out on the masked values.</p>
@@ -1187,7 +1209,7 @@ Temporal development of the mean and stdandard deviation of the smoke layer heig
 <figure class="align-default" id="fig-example-dataanalysis2-layer-mean-band-mask">
 <a class="reference internal image-reference" href="../../../_images/appartment_layer_mean_band_mask.svg"><img alt="../../../_images/appartment_layer_mean_band_mask.svg" src="../../../_images/appartment_layer_mean_band_mask.svg" width="100%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Temporal development of the mean and stdandard deviation of the smoke layer height in the masked region.</span><a class="headerlink" href="#fig-example-dataanalysis2-layer-mean-band-mask" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Temporal development of the mean and stdandard deviation of the smoke layer height in the masked region.</span><a class="headerlink" href="#fig-example-dataanalysis2-layer-mean-band-mask" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -1218,11 +1240,10 @@ Temporal development of the mean and stdandard deviation of the smoke layer heig
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="04_repeated_sim_exec.html"
@@ -1242,10 +1263,7 @@ Temporal development of the mean and stdandard deviation of the smoke layer heig
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1253,6 +1271,7 @@ Temporal development of the mean and stdandard deviation of the smoke layer heig
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1279,6 +1298,7 @@ Temporal development of the mean and stdandard deviation of the smoke layer heig
   
   <div class="footer-item">
     
+
   </div>
   
   <div class="footer-item">
@@ -1306,8 +1326,8 @@ Temporal development of the mean and stdandard deviation of the smoke layer heig
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

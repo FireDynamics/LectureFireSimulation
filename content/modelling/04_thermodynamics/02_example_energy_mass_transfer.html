@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>4.2. Energy and Mass Transfer &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
   
@@ -19,52 +18,49 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=ed0cee17" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/modelling/04_thermodynamics/02_example_energy_mass_transfer';</script>
     <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/modelling/04_thermodynamics/02_example_energy_mass_transfer.html" />
-    <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
+    <link rel="icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="5. Combustion" href="../05_combustion/00_overview.html" />
@@ -78,7 +74,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -113,11 +117,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -132,9 +139,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../overview/01_overview.html">
+  
   
   
   
@@ -144,12 +153,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../../_static/cce_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../../_static/cce_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../../_static/cce_logo.png" class="logo__image only-light" alt="Fire Simulation <br> Lecture Notes - Home"/>
+    <script>document.write(`<img src="../../../_static/cce_logo.png" class="logo__image only-dark" alt="Fire Simulation <br> Lecture Notes - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -479,20 +499,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -535,17 +557,17 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="energy-and-mass-transfer">
-<h1><span class="section-number">4.2. </span>Energy and Mass Transfer<a class="headerlink" href="#energy-and-mass-transfer" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">4.2. </span>Energy and Mass Transfer<a class="headerlink" href="#energy-and-mass-transfer" title="Link to this heading">#</a></h1>
 <p>This example builds on the “Steckler compartment”  <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id7" title="K.D. Steckler, J.G. Quintiere, and W.J. Rinkinen. Flow induced by fire in a compartment. Symposium (International) on Combustion, 19(1):913–920, 1982. URL: https://www.nist.gov/publications/flow-induced-fire-compartment, doi:10.1016/s0082-0784(82)80267-1.">SQR82</a>]</span> and the <code class="docutils literal notranslate"><span class="pre">energy_budget</span></code> discussion in the (FDS Verification Guide, 7.2.1 The Heat from a Fire). It provides a brief overview over energy and mass transfer in terms of a simulation of a room fire experiment. As an example, the room setup with a door was chosen. The door is located at the centre of the front wall. It is 1.80 m high and 0.60 m wide.</p>
 <p>You are provided with a pre-built FDS input file (<a class="reference download internal" download="" href="../../../_downloads/822b05038a5850fd1d8822fe69b6562c/EnergyMassTransfer.fds"><code class="xref download docutils literal notranslate"><span class="pre">EnergyMassTransfer.fds</span></code></a>), which needs to be completed and adjusted through the course of this exercise. The geometry of the compartment is based on the Steckler compartment. The fluid cells are cube-shaped with an edge length of 10 cm. Thus, the ceiling height is slightly larger to align with the mesh resolution, i.e. 2.20 m instead of 2.18 m. The top surface of the burner is raised to a height of 0.30 m. It has a squared cross section with an edge length of 0.40 m. In this exercise the burner shall be supplied with propane as fuel (heat of combustion: 46420.0 kJ/kg, soot yield: 20 g/g, CO yield: 10 g/g).</p>
 <section id="tasks">
-<h2>Tasks<a class="headerlink" href="#tasks" title="Permalink to this heading">#</a></h2>
+<h2>Tasks<a class="headerlink" href="#tasks" title="Link to this heading">#</a></h2>
 <p>The tasks are designed with FDS 6.7.5 in mind. For more information of specific functions please consult the respective Users Guide <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id11" title="Kevin McGrattan, Simo Hostikka, Jason Floyd, Randall McDermott, and Marcos Vanella. Fire Dynamics Simulator User's Guide – Version 6.7.5. Technical Report, NIST, 2020. URL: https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf.">MHF+20d</a>]</span>.</p>
 <section id="step-0-set-up-the-simulation">
-<h3>Step 0 - Set Up the Simulation<a class="headerlink" href="#step-0-set-up-the-simulation" title="Permalink to this heading">#</a></h3>
+<h3>Step 0 - Set Up the Simulation<a class="headerlink" href="#step-0-set-up-the-simulation" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Set up the FDS input such that the gas burner provides an energy release rate of about 63 kW.</p></li>
 <li><p>Implement slice files for density, temperature and pressure. All should show the cell-centered values.</p></li>
@@ -555,18 +577,18 @@ document.write(`
 <figure class="align-default" id="fig-checkerr">
 <a class="reference internal image-reference" href="../../../_images/CheckERR.svg"><img alt="../../../_images/CheckERR.svg" src="../../../_images/CheckERR.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 4.2 </span><span class="caption-text">Check the energy release rate of the gas burner.</span><a class="headerlink" href="#fig-checkerr" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 4.2 </span><span class="caption-text">Check the energy release rate of the gas burner.</span><a class="headerlink" href="#fig-checkerr" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-exampleslcf">
 <a class="reference internal image-reference" href="../../../_images/ExampleSLCF.png"><img alt="../../../_images/ExampleSLCF.png" src="../../../_images/ExampleSLCF.png" style="width: 80%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 4.3 </span><span class="caption-text">Example for slice location.</span><a class="headerlink" href="#fig-exampleslcf" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 4.3 </span><span class="caption-text">Example for slice location.</span><a class="headerlink" href="#fig-exampleslcf" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="step-1-energy-transfer">
-<h3>Step 1 - Energy Transfer<a class="headerlink" href="#step-1-energy-transfer" title="Permalink to this heading">#</a></h3>
+<h3>Step 1 - Energy Transfer<a class="headerlink" href="#step-1-energy-transfer" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Determine the radiative fraction of the flame (Users Guide, Chapter 16 Radiation).</p></li>
 <li><p>Determine energy conservation (Users Guide, Chapter 21.10.1 Heat Release Rate).</p></li>
@@ -574,12 +596,12 @@ document.write(`
 <figure class="align-default" id="fig-checkenergyconservation">
 <a class="reference internal image-reference" href="../../../_images/CheckEnergyConservation.svg"><img alt="../../../_images/CheckEnergyConservation.svg" src="../../../_images/CheckEnergyConservation.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 4.4 </span><span class="caption-text">Check the energy conservation.</span><a class="headerlink" href="#fig-checkenergyconservation" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 4.4 </span><span class="caption-text">Check the energy conservation.</span><a class="headerlink" href="#fig-checkenergyconservation" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="step-2-mass-transfer">
-<h3>Step 2 - Mass Transfer<a class="headerlink" href="#step-2-mass-transfer" title="Permalink to this heading">#</a></h3>
+<h3>Step 2 - Mass Transfer<a class="headerlink" href="#step-2-mass-transfer" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Calculate the mass flux of fuel needed to achieve the desired energy release rate.</p></li>
 <li><p>Record the gas temperatures in a vertical line across the centre of the doorway, within the cell centres. Also, record the gas velocities at the same locations. The results should be data-time series. Furthermore, set up devices across the door area to record the mass flow in and out of the compartment. (Chapter 21.2 Device Output: The DEVC Namelist Group, Chapter 21.10.20 Gas Velocity, Chapter 21.10.13 Spatially-Integrated Outputs)</p></li>
@@ -592,30 +614,30 @@ document.write(`
 <figure class="align-default" id="fig-checkdoorwaytemperatures">
 <a class="reference internal image-reference" href="../../../_images/CheckDoorwayTemperatures.svg"><img alt="../../../_images/CheckDoorwayTemperatures.svg" src="../../../_images/CheckDoorwayTemperatures.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 4.5 </span><span class="caption-text">Temperatures in the doorway for a selected number of sensors to determine when a quasi-steady state is reached.</span><a class="headerlink" href="#fig-checkdoorwaytemperatures" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 4.5 </span><span class="caption-text">Temperatures in the doorway for a selected number of sensors to determine when a quasi-steady state is reached.</span><a class="headerlink" href="#fig-checkdoorwaytemperatures" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-doorwaytemperatureavrg">
 <a class="reference internal image-reference" href="../../../_images/DoorwayTemperatureAvrg.svg"><img alt="../../../_images/DoorwayTemperatureAvrg.svg" src="../../../_images/DoorwayTemperatureAvrg.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 4.6 </span><span class="caption-text">Temperatures in the centre of the doorway over the hight, averaged from 400 s to 500 s.</span><a class="headerlink" href="#fig-doorwaytemperatureavrg" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 4.6 </span><span class="caption-text">Temperatures in the centre of the doorway over the hight, averaged from 400 s to 500 s.</span><a class="headerlink" href="#fig-doorwaytemperatureavrg" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-doorwayvelocityavrg">
 <a class="reference internal image-reference" href="../../../_images/DoorwayVelocityAvrg.svg"><img alt="../../../_images/DoorwayVelocityAvrg.svg" src="../../../_images/DoorwayVelocityAvrg.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 4.7 </span><span class="caption-text">Velocities in the centre of the doorway over the hight, averaged from 400 s to 500 s.</span><a class="headerlink" href="#fig-doorwayvelocityavrg" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 4.7 </span><span class="caption-text">Velocities in the centre of the doorway over the hight, averaged from 400 s to 500 s.</span><a class="headerlink" href="#fig-doorwayvelocityavrg" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-checkmassflowcompartment">
 <a class="reference internal image-reference" href="../../../_images/CheckMassFlowCompartment.svg"><img alt="../../../_images/CheckMassFlowCompartment.svg" src="../../../_images/CheckMassFlowCompartment.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 4.8 </span><span class="caption-text">Mass flow through the doorway in and out of the compartment.</span><a class="headerlink" href="#fig-checkmassflowcompartment" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 4.8 </span><span class="caption-text">Mass flow through the doorway in and out of the compartment.</span><a class="headerlink" href="#fig-checkmassflowcompartment" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="step-3-pressure-build-up">
-<h3>Step 3 - Pressure Build Up<a class="headerlink" href="#step-3-pressure-build-up" title="Permalink to this heading">#</a></h3>
+<h3>Step 3 - Pressure Build Up<a class="headerlink" href="#step-3-pressure-build-up" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Close the door in the simulation and record the pressure change in the compartment (DEVC). Assuming the door would open towards the inside of the compartment. How large would be the force a fire fighter needs to exert to open it after 25 s of simulation time?</p></li>
 </ul>
@@ -648,11 +670,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="01_fundamentals.html"
@@ -672,10 +693,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -683,6 +701,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -714,6 +733,7 @@ document.write(`
   
   <div class="footer-item">
     
+
   </div>
   
   <div class="footer-item">
@@ -741,8 +761,8 @@ document.write(`
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

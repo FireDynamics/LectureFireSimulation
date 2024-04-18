@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>High Performance Computing &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
   
@@ -19,54 +18,51 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=ed0cee17" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"tex": {"macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}", "du": "\\dot{u}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/tools/02_hpc/02_hpc';</script>
     <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/tools/02_hpc/02_hpc.html" />
-    <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
+    <link rel="icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Parallel Execution of FDS" href="03_parallel_fds.html" />
@@ -80,7 +76,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -115,11 +119,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -134,9 +141,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../overview/01_overview.html">
+  
   
   
   
@@ -146,12 +155,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../../_static/cce_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../../_static/cce_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../../_static/cce_logo.png" class="logo__image only-light" alt="Fire Simulation <br> Lecture Notes - Home"/>
+    <script>document.write(`<img src="../../../_static/cce_logo.png" class="logo__image only-dark" alt="Fire Simulation <br> Lecture Notes - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -450,20 +470,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -513,12 +535,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="high-performance-computing">
-<h1>High Performance Computing<a class="headerlink" href="#high-performance-computing" title="Permalink to this heading">#</a></h1>
+<h1>High Performance Computing<a class="headerlink" href="#high-performance-computing" title="Link to this heading">#</a></h1>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>Many scientific and engineering problems require a large amount of computing time and memory. This is generally only available on supercomputers / high performance computing (HPC) systems.</p>
 <p>Typical applications are:</p>
 <ul class="simple">
@@ -531,34 +553,34 @@ document.write(`
 <figure class="align-default" id="fig-hpc-moore">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/0/00/Moore%27s_Law_Transistor_Count_1970-2020.png"><img alt="https://upload.wikimedia.org/wikipedia/commons/0/00/Moore%27s_Law_Transistor_Count_1970-2020.png" src="https://upload.wikimedia.org/wikipedia/commons/0/00/Moore%27s_Law_Transistor_Count_1970-2020.png" style="width: 80%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 22 </span><span class="caption-text">The development of the transistor count in the last 5 decades. This observation is represented by Moore’s law. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Moore%27s_Law_Transistor_Count_1970-2020.png">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-hpc-moore" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 22 </span><span class="caption-text">The development of the transistor count in the last 5 decades. This observation is represented by Moore’s law. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Moore%27s_Law_Transistor_Count_1970-2020.png">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-hpc-moore" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="parallel-execution">
-<h2>Parallel Execution<a class="headerlink" href="#parallel-execution" title="Permalink to this heading">#</a></h2>
+<h2>Parallel Execution<a class="headerlink" href="#parallel-execution" title="Link to this heading">#</a></h2>
 <section id="general-principle">
-<h3>General Principle<a class="headerlink" href="#general-principle" title="Permalink to this heading">#</a></h3>
+<h3>General Principle<a class="headerlink" href="#general-principle" title="Link to this heading">#</a></h3>
 <p>An application, is in general a sequence of tasks. Here, a task can be understood as a group of commands or computations that can not be separated further, e.g. due to data dependency.</p>
 <p>Yet, there is not necessarily a dependency among the tasks. Thus, they can eventually be executed at the same time, see <a class="reference internal" href="#fig-hpc-fork"><span class="std std-numref">Fig. 23</span></a>. The process of distributing the tasks on multiple execution units (threads, cores, nodes) is called a fork, while the gathering of the results back to the main execution unit is called a join. During the fork, data and instructions have to be exchanged, thus this introduces an overhead, which is not present in a serial execution. The same is true for the join process, but an additional contribution to the overhead is induced by load balancing issues. Depending on the execution time of individual tasks, especially the longest task, the join process will be prolonged.</p>
 <figure class="align-default" id="fig-hpc-fork">
 <a class="reference internal image-reference" href="../../../_images/fork.png"><img alt="../../../_images/fork.png" src="../../../_images/fork.png" style="width: 80%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 23 </span><span class="caption-text">Serial and parallel execution of a set of tasks.</span><a class="headerlink" href="#fig-hpc-fork" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 23 </span><span class="caption-text">Serial and parallel execution of a set of tasks.</span><a class="headerlink" href="#fig-hpc-fork" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="speedup">
-<h3>Speedup<a class="headerlink" href="#speedup" title="Permalink to this heading">#</a></h3>
+<h3>Speedup<a class="headerlink" href="#speedup" title="Link to this heading">#</a></h3>
 <p>The maximal achievable speedup <span class="math notranslate nohighlight">\(\mf s\)</span>, with respect to a serial execution, on <span class="math notranslate nohighlight">\(\mf n\)</span> computing units is limited by the fraction of the execution that runs in parallel <span class="math notranslate nohighlight">\(\mf p\)</span>. This is reflected by Amdahl’s law, see equation <a class="reference internal" href="#equation-eq-amdahls-law">(1)</a> and <a class="reference internal" href="#fig-hpc-amdahl"><span class="std std-numref">Fig. 24</span></a>.</p>
 <div class="math notranslate nohighlight" id="equation-eq-amdahls-law">
-<span class="eqno">(1)<a class="headerlink" href="#equation-eq-amdahls-law" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(1)<a class="headerlink" href="#equation-eq-amdahls-law" title="Link to this equation">#</a></span>\[
 s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)} 
 \]</div>
 <figure class="align-default" id="fig-hpc-amdahl">
 <a class="reference internal image-reference" href="../../../_images/amdahl.png"><img alt="../../../_images/amdahl.png" src="../../../_images/amdahl.png" style="width: 80%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 24 </span><span class="caption-text">Visualisation for Amdahl’s law.</span><a class="headerlink" href="#fig-hpc-amdahl" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 24 </span><span class="caption-text">Visualisation for Amdahl’s law.</span><a class="headerlink" href="#fig-hpc-amdahl" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The speedup may even decrease, as some operations become more expensive with increasing number of participating processes, e.g. synchronisation points, global data exchange or broadcasts.</p>
@@ -566,12 +588,12 @@ s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)}
 <figure class="align-default" id="fig-hpc-load-balance">
 <a class="reference internal image-reference" href="../../../_images/load_balance.png"><img alt="../../../_images/load_balance.png" src="../../../_images/load_balance.png" style="width: 80%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 25 </span><span class="caption-text">Example of load balancing.</span><a class="headerlink" href="#fig-hpc-load-balance" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 25 </span><span class="caption-text">Example of load balancing.</span><a class="headerlink" href="#fig-hpc-load-balance" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="parallelisation">
-<h3>Parallelisation<a class="headerlink" href="#parallelisation" title="Permalink to this heading">#</a></h3>
+<h3>Parallelisation<a class="headerlink" href="#parallelisation" title="Link to this heading">#</a></h3>
 <p>In general, there is a zoo of possibilities to parallelise an application. In FDS, two of them are utilised:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Message_Passing_Interface">Message Passing Interface (MPI)</a></p></li>
@@ -583,7 +605,7 @@ s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)}
 <figure class="align-default" id="fig-hpc-domain-mpi">
 <a class="reference internal image-reference" href="../../../_images/decomp_mpi.png"><img alt="../../../_images/decomp_mpi.png" src="../../../_images/decomp_mpi.png" style="width: 40%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 26 </span><span class="caption-text">Domain decomposition of a simple computational grid, like in FDS. The data communication (arrows) is handled with MPI.</span><a class="headerlink" href="#fig-hpc-domain-mpi" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 26 </span><span class="caption-text">Domain decomposition of a simple computational grid, like in FDS. The data communication (arrows) is handled with MPI.</span><a class="headerlink" href="#fig-hpc-domain-mpi" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>As MPI is only a definition standard, there is more than one implementation of MPI. The most common MPI implementations are:</p>
@@ -598,7 +620,7 @@ s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)}
 <figure class="align-default" id="fig-hpc-domain-omp">
 <a class="reference internal image-reference" href="../../../_images/decomp_openmp.png"><img alt="../../../_images/decomp_openmp.png" src="../../../_images/decomp_openmp.png" style="width: 40%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 27 </span><span class="caption-text">Domain decomposition with OpenMP.</span><a class="headerlink" href="#fig-hpc-domain-omp" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 27 </span><span class="caption-text">Domain decomposition with OpenMP.</span><a class="headerlink" href="#fig-hpc-domain-omp" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>However, the compiler or runtime must detect independent tasks. Loop carried dependencies may prevent parallelisation and data races may produce unpredictable results.</p>
@@ -611,9 +633,9 @@ s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)}
 </section>
 </section>
 <section id="parallel-computer">
-<h2>Parallel Computer<a class="headerlink" href="#parallel-computer" title="Permalink to this heading">#</a></h2>
+<h2>Parallel Computer<a class="headerlink" href="#parallel-computer" title="Link to this heading">#</a></h2>
 <section id="components">
-<h3>Components<a class="headerlink" href="#components" title="Permalink to this heading">#</a></h3>
+<h3>Components<a class="headerlink" href="#components" title="Link to this heading">#</a></h3>
 <p>Parallel computers are often called, e.g., supercomputer, high performance computers or compute clusters. The configuration of a common modern parallel computer contains to following elements, see also <a class="reference internal" href="#fig-hpc-cluster"><span class="std std-numref">Fig. 28</span></a>.</p>
 <ul class="simple">
 <li><p><strong>Compute nodes</strong> are the nodes of the communication network. They consist of (multiple) CPUs, accelerators (e.g. GPU), memory and network interfaces.</p></li>
@@ -627,50 +649,50 @@ s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)}
 <figure class="align-default" id="fig-hpc-cluster">
 <a class="reference internal image-reference" href="../../../_images/cluster.png"><img alt="../../../_images/cluster.png" src="../../../_images/cluster.png" style="width: 40%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 28 </span><span class="caption-text">A very generalistic representation of an element / node of a cluster.</span><a class="headerlink" href="#fig-hpc-cluster" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 28 </span><span class="caption-text">A very generalistic representation of an element / node of a cluster.</span><a class="headerlink" href="#fig-hpc-cluster" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="performance">
-<h3>Performance<a class="headerlink" href="#performance" title="Permalink to this heading">#</a></h3>
+<h3>Performance<a class="headerlink" href="#performance" title="Link to this heading">#</a></h3>
 <p>One way to express the computing power of a computer system, is to estimate the number of floating point operations (FLOP) per second. This theoretical value represents the peak performance. There exist multiple benchmarks to establish an application oriented value. One of them is a benchmark based on the <a class="reference external" href="https://en.wikipedia.org/wiki/LINPACK">LINPACK library</a> for linear algebra. Although this benchmark may in many cases not represent the performance of individual applications, it is commonly used for a global comparison of computer systems, like in the <a class="reference external" href="https://www.top500.org">TOP500 list</a>.</p>
 <p>An interesting representation of the computer evolution is given by the <a class="reference external" href="https://www.top500.org/statistics/perfdevel/">performance development of the TOP500 List</a>. It further demonstrates the fast technological development, e.g. a notebook with a theoretical peak performance of about 200~GFLOP/s would head the TOP500 list in 1996 and would be still on the list till 2002.</p>
 </section>
 <section id="jureca">
-<h3>JURECA<a class="headerlink" href="#jureca" title="Permalink to this heading">#</a></h3>
+<h3>JURECA<a class="headerlink" href="#jureca" title="Link to this heading">#</a></h3>
 <p>The system, which is used for this lecture is <a class="reference external" href="https://fz-juelich.de/ias/jsc/EN/Expertise/Supercomputers/JURECA/JURECA_node.html">JURECA</a> at the Forschungszentrum Jülich.</p>
 <figure class="align-default" id="fig-hpc-jureca-dc">
 <a class="reference internal image-reference" href="../../../_images/jureca.png"><img alt="../../../_images/jureca.png" src="../../../_images/jureca.png" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 29 </span><span class="caption-text">JURECA-DC cluster at the Forschungszentrum Jülich.</span><a class="headerlink" href="#fig-hpc-jureca-dc" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 29 </span><span class="caption-text">JURECA-DC cluster at the Forschungszentrum Jülich.</span><a class="headerlink" href="#fig-hpc-jureca-dc" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="cobra-pleiades-cluster">
-<h3>CoBra / Pleiades Cluster<a class="headerlink" href="#cobra-pleiades-cluster" title="Permalink to this heading">#</a></h3>
+<h3>CoBra / Pleiades Cluster<a class="headerlink" href="#cobra-pleiades-cluster" title="Link to this heading">#</a></h3>
 <figure class="align-default" id="fig-hpc-cobra-logo">
 <a class="reference internal image-reference" href="../../../_images/cobra_logo_full.svg"><img alt="../../../_images/cobra_logo_full.svg" src="../../../_images/cobra_logo_full.svg" width="40%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 30 </span><span class="caption-text">CoBra project logo.</span><a class="headerlink" href="#fig-hpc-cobra-logo" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 30 </span><span class="caption-text">CoBra project logo.</span><a class="headerlink" href="#fig-hpc-cobra-logo" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Within the BMBF-funded project <a class="reference external" href="https://cce.uni-wuppertal.de/de/forschung/cobra/">CoBra</a>, the CCE chair contributes with hardware to the computing cluster <a class="reference external" href="http://pleiades.uni-wuppertal.de">Pleiades</a> at the University of Wuppertal. Furter information about the hardware and software configuration of Pleiades is available <a class="reference external" href="https://pleiadesbuw.github.io/PleiadesUserDocumentation/">here</a>.</p>
 <figure class="align-default" id="fig-pleiades-cobra-rack">
 <a class="reference internal image-reference" href="../../../_images/cobra-rack.png"><img alt="../../../_images/cobra-rack.png" src="../../../_images/cobra-rack.png" style="width: 30%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 31 </span><span class="caption-text">The CoBra rack as part of the Pleiades system at the University of Wuppertal.</span><a class="headerlink" href="#fig-pleiades-cobra-rack" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 31 </span><span class="caption-text">The CoBra rack as part of the Pleiades system at the University of Wuppertal.</span><a class="headerlink" href="#fig-pleiades-cobra-rack" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-pleiades-workernode">
 <a class="reference internal image-reference" href="../../../_images/pleiades-workernode.png"><img alt="../../../_images/pleiades-workernode.png" src="../../../_images/pleiades-workernode.png" style="width: 80%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 32 </span><span class="caption-text">Outline of a Pleiades worker node.</span><a class="headerlink" href="#fig-pleiades-workernode" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 32 </span><span class="caption-text">Outline of a Pleiades worker node.</span><a class="headerlink" href="#fig-pleiades-workernode" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-pleiades-network">
 <a class="reference internal image-reference" href="../../../_images/pleiades-network.png"><img alt="../../../_images/pleiades-network.png" src="../../../_images/pleiades-network.png" style="width: 80%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 33 </span><span class="caption-text">Overview of the Pleiades network.</span><a class="headerlink" href="#fig-pleiades-network" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 33 </span><span class="caption-text">Overview of the Pleiades network.</span><a class="headerlink" href="#fig-pleiades-network" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -702,11 +724,10 @@ s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)}
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="01_linux.html"
@@ -726,10 +747,7 @@ s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)}
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -737,6 +755,7 @@ s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)}
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -775,6 +794,7 @@ s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)}
   
   <div class="footer-item">
     
+
   </div>
   
   <div class="footer-item">
@@ -802,8 +822,8 @@ s(n, p) = \frac{1}{p+\frac{1}{n}(1-p)}
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

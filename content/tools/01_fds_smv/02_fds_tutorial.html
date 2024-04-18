@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>FDS Basic Example &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
   
@@ -19,54 +18,51 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=ed0cee17" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"tex": {"macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}", "du": "\\dot{u}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/tools/01_fds_smv/02_fds_tutorial';</script>
     <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/tools/01_fds_smv/02_fds_tutorial.html" />
-    <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
+    <link rel="icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Smokeview Basics" href="03_smv.html" />
@@ -80,7 +76,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -115,11 +119,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -134,9 +141,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../overview/01_overview.html">
+  
   
   
   
@@ -146,12 +155,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../../_static/cce_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../../_static/cce_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../../_static/cce_logo.png" class="logo__image only-light" alt="Fire Simulation <br> Lecture Notes - Home"/>
+    <script>document.write(`<img src="../../../_static/cce_logo.png" class="logo__image only-dark" alt="Fire Simulation <br> Lecture Notes - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -481,20 +501,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -549,7 +571,7 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
@@ -569,17 +591,17 @@ document.write(`
 </details>
 </div>
 <section class="tex2jax_ignore mathjax_ignore" id="fds-basic-example">
-<h1>FDS Basic Example<a class="headerlink" href="#fds-basic-example" title="Permalink to this heading">#</a></h1>
+<h1>FDS Basic Example<a class="headerlink" href="#fds-basic-example" title="Link to this heading">#</a></h1>
 <p>In this part we will guide you on how to set up your input file for a FDS simulation. A propane fire within a room will be simulated. The room is pictured in <a class="reference internal" href="#fig-fdstutorial-dimensions"><span class="std std-numref">Fig. 13</span></a>. In the middel of the room there will be an object with dimensions <span class="math notranslate nohighlight">\(\mf 1~m\times 1~m\times 0.5~m\)</span>, the heat release rate of the fire is <span class="math notranslate nohighlight">\(\mf 600~kW/m^2\)</span></p>
 <figure class="align-default" id="fig-fdstutorial-dimensions">
 <a class="reference internal image-reference" href="../../../_images/room_dimensions.png"><img alt="../../../_images/room_dimensions.png" src="../../../_images/room_dimensions.png" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Geometry and dimensions of the room.</span><a class="headerlink" href="#fig-fdstutorial-dimensions" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Geometry and dimensions of the room.</span><a class="headerlink" href="#fig-fdstutorial-dimensions" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>First you should make a new folder. In this folder you will create the input file and all the generated output files will also be located in this folder. Create an empty plain text file. You could use any text editor (not a word processor) to create your text file. Although the file extenison does not matter, a common practice is to use the <code class="docutils literal notranslate"><span class="pre">.fds</span></code> extension.</p>
 <section id="step-1-setting-up-the-input-file">
-<h2>Step 1: Setting up the input file<a class="headerlink" href="#step-1-setting-up-the-input-file" title="Permalink to this heading">#</a></h2>
+<h2>Step 1: Setting up the input file<a class="headerlink" href="#step-1-setting-up-the-input-file" title="Link to this heading">#</a></h2>
 <p>Now you will start creating the input file. The syntax of FDS input files is given by FORTRAN name lists. Each entry is encapsulated by <code class="docutils literal notranslate"><span class="pre">&amp;</span></code> and <code class="docutils literal notranslate"><span class="pre">/</span></code> and contains a name and parameters:</p>
 <p><code class="docutils literal notranslate"><span class="pre">&amp;NAME</span> <span class="pre">P1=value</span> <span class="pre">P2=value</span> <span class="pre">/</span></code></p>
 <p>The first line of your file should be the header line (<code class="docutils literal notranslate"><span class="pre">HEAD</span></code>).</p>
@@ -593,20 +615,20 @@ document.write(`
 <p>All other input parameters and set-ups come between the first and the last line.</p>
 </section>
 <section id="step-2-setting-up-the-computational-domain">
-<h2>Step 2: Setting up the computational domain<a class="headerlink" href="#step-2-setting-up-the-computational-domain" title="Permalink to this heading">#</a></h2>
+<h2>Step 2: Setting up the computational domain<a class="headerlink" href="#step-2-setting-up-the-computational-domain" title="Link to this heading">#</a></h2>
 <p>In the third step the domain of the simulation is set-up. This is done by creating a mesh (<code class="docutils literal notranslate"><span class="pre">MESH</span></code>). The domain in this example is represended by a single mesh, which is specified by its coordinates <code class="docutils literal notranslate"><span class="pre">XB</span> <span class="pre">=</span> <span class="pre">X1,X2,</span> <span class="pre">Y1,Y2,</span> <span class="pre">Z1,Z2</span></code>, see <a class="reference internal" href="#fig-fdstutorial-coordinates"><span class="std std-numref">Fig. 14</span></a> and by the number of cells in each direction <code class="docutils literal notranslate"><span class="pre">IJK</span> <span class="pre">=</span> <span class="pre">nx,</span> <span class="pre">ny,</span> <span class="pre">nz</span></code>. Here, we choose the following values</p>
 <p><code class="docutils literal notranslate"><span class="pre">&amp;MESH</span> <span class="pre">XB=0,2,0,4,0,2.5,</span> <span class="pre">IJK=20,40,25/</span></code></p>
 <figure class="align-default" id="fig-fdstutorial-coordinates">
 <a class="reference internal image-reference" href="../../../_images/coordinates1.png"><img alt="../../../_images/coordinates1.png" src="../../../_images/coordinates1.png" style="width: 20%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 14 </span><span class="caption-text">XB coordinate definition in fds.</span><a class="headerlink" href="#fig-fdstutorial-coordinates" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">XB coordinate definition in fds.</span><a class="headerlink" href="#fig-fdstutorial-coordinates" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The domain in this example is vizualised in <a class="reference internal" href="#fig-fdstutorial-domain"><span class="std std-numref">Fig. 15</span></a>.</p>
 <figure class="align-default" id="fig-fdstutorial-domain">
 <a class="reference internal image-reference" href="../../../_images/grid.png"><img alt="../../../_images/grid.png" src="../../../_images/grid.png" style="width: 40%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Vizualisation of the domain.</span><a class="headerlink" href="#fig-fdstutorial-domain" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Vizualisation of the domain.</span><a class="headerlink" href="#fig-fdstutorial-domain" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="admonition tip">
@@ -622,26 +644,26 @@ document.write(`
 </div>
 </section>
 <section id="step-3-duration-of-the-simulation">
-<h2>Step 3: duration of the simulation<a class="headerlink" href="#step-3-duration-of-the-simulation" title="Permalink to this heading">#</a></h2>
+<h2>Step 3: duration of the simulation<a class="headerlink" href="#step-3-duration-of-the-simulation" title="Link to this heading">#</a></h2>
 <p>In the input file it should be specified how long the simulation is supposed to run. This can be done with the following statement, the simulation time is specified in seconds:</p>
 <p><code class="docutils literal notranslate"><span class="pre">&amp;TIME</span> <span class="pre">T_END</span> <span class="pre">=</span> <span class="pre">60.</span> <span class="pre">/</span></code></p>
 <p>Additionlly, the rate at which the output files are written should be speciied. This can be done with the following statement, where NFRAMES indicate how many outputfiles will be written during the simulation.</p>
 <p><code class="docutils literal notranslate"><span class="pre">&amp;DUMP</span> <span class="pre">NFRAMES=60</span> <span class="pre">/</span></code></p>
 </section>
 <section id="step-4-model-openings">
-<h2>Step 4: Model openings<a class="headerlink" href="#step-4-model-openings" title="Permalink to this heading">#</a></h2>
+<h2>Step 4: Model openings<a class="headerlink" href="#step-4-model-openings" title="Link to this heading">#</a></h2>
 <p>The room has one door, this needs to be moddeled as an opening. The VENT command can be used to model openings, XB specifies the coordinates of the opening.</p>
 <p><code class="docutils literal notranslate"><span class="pre">&amp;VENT</span> <span class="pre">XB=0.5,1.5,4,4,0,2,</span> <span class="pre">SURF_ID='OPEN'/</span></code></p>
 <p>The geometry for this example is showen in the following figure.</p>
 <figure class="align-default" id="fig-fdstutorial-room-geometry">
 <a class="reference internal image-reference" href="../../../_images/door.png"><img alt="../../../_images/door.png" src="../../../_images/door.png" style="width: 40%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 16 </span><span class="caption-text">The geometry of the room.</span><a class="headerlink" href="#fig-fdstutorial-room-geometry" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text">The geometry of the room.</span><a class="headerlink" href="#fig-fdstutorial-room-geometry" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="step-5-add-a-fire">
-<h2>Step 5: Add a Fire<a class="headerlink" href="#step-5-add-a-fire" title="Permalink to this heading">#</a></h2>
+<h2>Step 5: Add a Fire<a class="headerlink" href="#step-5-add-a-fire" title="Link to this heading">#</a></h2>
 <p>This is done in two parts. First the fuel needs to be defined. A list with pre-defined fuels in fds can be found in the FDS user manual. In this example propane will be used as reaction fuel. The command for the input file is:</p>
 <p><code class="docutils literal notranslate"><span class="pre">&amp;REAC</span> <span class="pre">FUEL</span> <span class="pre">=</span> <span class="pre">'PROPANE'</span> <span class="pre">/</span></code></p>
 <p>Next, the object that is burning needs to be defined. This will be done by using the following command.</p>
@@ -654,7 +676,7 @@ document.write(`
 <p><code class="docutils literal notranslate"><span class="pre">&amp;SURF</span> <span class="pre">ID</span> <span class="pre">=</span> <span class="pre">'Fire',</span> <span class="pre">HRRPUA</span> <span class="pre">=</span> <span class="pre">600/</span></code></p>
 </section>
 <section id="step-6-output">
-<h2>Step 6: Output<a class="headerlink" href="#step-6-output" title="Permalink to this heading">#</a></h2>
+<h2>Step 6: Output<a class="headerlink" href="#step-6-output" title="Link to this heading">#</a></h2>
 <p>In this example the temperature of the air near the ceiling will be measured/studied as output parameter. There are two main ways to do this. The first one is over a device and the second one is by a slice.</p>
 <p><strong>Devices</strong></p>
 <p>Devices in fds are used to include e.g. thermocouples, sprinklers, … in the simulation. Every device gets several properties assigned.</p>
@@ -677,10 +699,10 @@ document.write(`
 <p>The input file is now completed.</p>
 </section>
 <section id="step-7-reading-the-output">
-<h2>Step 7: Reading the output<a class="headerlink" href="#step-7-reading-the-output" title="Permalink to this heading">#</a></h2>
+<h2>Step 7: Reading the output<a class="headerlink" href="#step-7-reading-the-output" title="Link to this heading">#</a></h2>
 <p>The simulation has generated some output data. In this section it will be introduced, where you can find this data and how this can be read out.</p>
 <section id="smokeview">
-<h3>7.1 Smokeview<a class="headerlink" href="#smokeview" title="Permalink to this heading">#</a></h3>
+<h3>7.1 Smokeview<a class="headerlink" href="#smokeview" title="Link to this heading">#</a></h3>
 <p>The input file contained a slice file, this recorded the temperature over the plain <span class="math notranslate nohighlight">\(\mf y=2\)</span> during the simulation. The recorded temperature can be displayed in smokeview. First, the smokeview file needs to be opened, this can be done over the commandline by: smokeview filename.smv. To display the slice file, follow the following steps</p>
 <ul class="simple">
 <li><p>Press right mouse button</p></li>
@@ -693,7 +715,7 @@ The slice file is now displayed, you can play with the setting of smokeview to c
 </section>
 </section>
 <section id="reading-out-the-device-file">
-<h2>7.2 Reading out the device file<a class="headerlink" href="#reading-out-the-device-file" title="Permalink to this heading">#</a></h2>
+<h2>7.2 Reading out the device file<a class="headerlink" href="#reading-out-the-device-file" title="Link to this heading">#</a></h2>
 <p>The temperature measured by the device is stored in a CSV file, <code class="docutils literal notranslate"><span class="pre">CHID_devc.csv</span></code>. The data in the csv file can be read out and plotted with a programm of your preference. We would like to encourage you to read out the data and plot the data with Python. Bellow you can find the example for reading out the data with python.</p>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
@@ -735,7 +757,7 @@ The slice file is now displayed, you can play with the setting of smokeview to c
 </details>
 </div>
 <section id="fdsreader">
-<h3>7.3 fdsreader<a class="headerlink" href="#fdsreader" title="Permalink to this heading">#</a></h3>
+<h3>7.3 fdsreader<a class="headerlink" href="#fdsreader" title="Link to this heading">#</a></h3>
 <div class="cell tag_hide-cell docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -773,10 +795,10 @@ The slice file is now displayed, you can play with the setting of smokeview to c
 </section>
 </section>
 <section id="extra-exercises">
-<h2>Extra exercises<a class="headerlink" href="#extra-exercises" title="Permalink to this heading">#</a></h2>
+<h2>Extra exercises<a class="headerlink" href="#extra-exercises" title="Link to this heading">#</a></h2>
 <p>In this section you can find some exercises to make yourself more familiar with setting up an fds file.</p>
 <section id="exercise-1-extend-the-current-input-file">
-<h3>Exercise 1: extend the current input file<a class="headerlink" href="#exercise-1-extend-the-current-input-file" title="Permalink to this heading">#</a></h3>
+<h3>Exercise 1: extend the current input file<a class="headerlink" href="#exercise-1-extend-the-current-input-file" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>Measure the temperature with a thermocouple on the line x=1, y = 1.5 every 0.5 cm in the z-direction. Make a plot with displaying the temperature measurements of all the thermocouples in the simulation.</p></li>
 <li><p>Add a window to the room. The windows center should be located at x=1, y=2, z = 0. The window is 1m by 1m.</p></li>
@@ -784,7 +806,7 @@ The slice file is now displayed, you can play with the setting of smokeview to c
 </ul>
 </section>
 <section id="exercise-2-setting-up-a-new-simulation">
-<h3>Exercise 2: setting up a new simulation<a class="headerlink" href="#exercise-2-setting-up-a-new-simulation" title="Permalink to this heading">#</a></h3>
+<h3>Exercise 2: setting up a new simulation<a class="headerlink" href="#exercise-2-setting-up-a-new-simulation" title="Link to this heading">#</a></h3>
 <p>Concider a one room garden house. The garden house has the following properties:</p>
 <ul class="simple">
 <li><p>Dimensions: 3m x 3m x2m</p></li>
@@ -824,11 +846,10 @@ The slice file is now displayed, you can play with the setting of smokeview to c
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="01_fds_intro.html"
@@ -848,10 +869,7 @@ The slice file is now displayed, you can play with the setting of smokeview to c
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -859,6 +877,7 @@ The slice file is now displayed, you can play with the setting of smokeview to c
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -902,6 +921,7 @@ The slice file is now displayed, you can play with the setting of smokeview to c
   
   <div class="footer-item">
     
+
   </div>
   
   <div class="footer-item">
@@ -929,8 +949,8 @@ The slice file is now displayed, you can play with the setting of smokeview to c
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

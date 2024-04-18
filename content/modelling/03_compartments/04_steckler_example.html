@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>3.3. Example - Steckler Compartment &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
   
@@ -19,54 +18,51 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=ed0cee17" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"tex": {"macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}", "du": "\\dot{u}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/modelling/03_compartments/04_steckler_example';</script>
     <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/modelling/03_compartments/04_steckler_example.html" />
-    <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
+    <link rel="icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="4. Thermodynamics" href="../04_thermodynamics/00_overview.html" />
@@ -80,7 +76,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -115,11 +119,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -134,9 +141,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../overview/01_overview.html">
+  
   
   
   
@@ -146,12 +155,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../../_static/cce_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../../_static/cce_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../../_static/cce_logo.png" class="logo__image only-light" alt="Fire Simulation <br> Lecture Notes - Home"/>
+    <script>document.write(`<img src="../../../_static/cce_logo.png" class="logo__image only-dark" alt="Fire Simulation <br> Lecture Notes - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -481,20 +501,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -541,18 +563,18 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="example-steckler-compartment">
-<h1><span class="section-number">3.3. </span>Example - Steckler Compartment<a class="headerlink" href="#example-steckler-compartment" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">3.3. </span>Example - Steckler Compartment<a class="headerlink" href="#example-steckler-compartment" title="Link to this heading">#</a></h1>
 <section id="experimental-setup">
-<h2>Experimental Setup<a class="headerlink" href="#experimental-setup" title="Permalink to this heading">#</a></h2>
+<h2>Experimental Setup<a class="headerlink" href="#experimental-setup" title="Link to this heading">#</a></h2>
 <p>In 1982 a series of 55 full-scale experiments was coducted by K.D. Steckler, J.G. Quintiere, W.J. Rinkinen <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id7" title="K.D. Steckler, J.G. Quintiere, and W.J. Rinkinen. Flow induced by fire in a compartment. Symposium (International) on Combustion, 19(1):913–920, 1982. URL: https://www.nist.gov/publications/flow-induced-fire-compartment, doi:10.1016/s0082-0784(82)80267-1.">SQR82</a>]</span>. In this study they investigated a compartment with the size of <span class="math notranslate nohighlight">\(\mf 2.8~m \times 2.8~m \times 2.18~m\)</span>.</p>
 <p>This compartment had an opening, either a door or a window, with a variable width. Inside the compartment a gas burner with a variable heating power was placed at different locations. The measured data are the temperature and velocity profiles (w.r.t. to height) inside the compartment and in the opening.</p>
 <p>All gemetrical details, the experimental matrix and the measurement data can be found in the original publication <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id7" title="K.D. Steckler, J.G. Quintiere, and W.J. Rinkinen. Flow induced by fire in a compartment. Symposium (International) on Combustion, 19(1):913–920, 1982. URL: https://www.nist.gov/publications/flow-induced-fire-compartment, doi:10.1016/s0082-0784(82)80267-1.">SQR82</a>]</span>.</p>
 </section>
 <section id="initial-fds-setup">
-<h2>Initial FDS Setup<a class="headerlink" href="#initial-fds-setup" title="Permalink to this heading">#</a></h2>
+<h2>Initial FDS Setup<a class="headerlink" href="#initial-fds-setup" title="Link to this heading">#</a></h2>
 <p>There are two specifics to be pointed to in this setup, which is based on the validation cases provided with FDS.</p>
 <ul class="simple">
 <li><p>The <code class="docutils literal notranslate"><span class="pre">TIME_SHRINK_FACTOR=10.</span></code> acceletes the computation if a steady-state condition is to be expected. It basically reduces the time for the solids to reach an equilibrium. See section 6.2.3 (Special Topic: Steady-State Applications) in <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id11" title="Kevin McGrattan, Simo Hostikka, Jason Floyd, Randall McDermott, and Marcos Vanella. Fire Dynamics Simulator User's Guide – Version 6.7.5. Technical Report, NIST, 2020. URL: https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf.">MHF+20d</a>]</span>.</p></li>
@@ -598,37 +620,37 @@ document.write(`
 </div>
 </section>
 <section id="tasks">
-<h2>Tasks<a class="headerlink" href="#tasks" title="Permalink to this heading">#</a></h2>
+<h2>Tasks<a class="headerlink" href="#tasks" title="Link to this heading">#</a></h2>
 <p>Based on the initial FDS setup from above, the following steps are to be conducted in order to simulate test number 13.</p>
 <section id="step-0-reading">
-<h3>Step 0 – Reading<a class="headerlink" href="#step-0-reading" title="Permalink to this heading">#</a></h3>
+<h3>Step 0 – Reading<a class="headerlink" href="#step-0-reading" title="Link to this heading">#</a></h3>
 <p>Familiarise yourself with the work of Steckler et al., especially for the test number 13.</p>
 </section>
 <section id="step-1-opening">
-<h3>Step 1 – Opening<a class="headerlink" href="#step-1-opening" title="Permalink to this heading">#</a></h3>
+<h3>Step 1 – Opening<a class="headerlink" href="#step-1-opening" title="Link to this heading">#</a></h3>
 <p>Add an opening to the FDS input file, with the extension given by the experimental setup.</p>
 <p>Which grid resolution <span class="math notranslate nohighlight">\(\mf \Delta x\)</span> is defined in the initial FDS setup?</p>
-<p>Check your setup, especially the opening’s width with smokeview by executing FDS with a zero simulation time. It is helpful to display the grid and turn on the projection method to a size preserving mode, see the keyboard shortcut section in <span class="xref myst">SMV Basics</span>. <a class="reference internal" href="#fig-steckler-opening"><span class="std std-numref">Fig. 3.26</span></a> illustrates an example of a suitable view on an opening.</p>
+<p>Check your setup, especially the opening’s width with smokeview by executing FDS with a zero simulation time. It is helpful to display the grid and turn on the projection method to a size preserving mode, see the keyboard shortcut section in <a class="reference internal" href="#../../tools/01_fds_smv/02_smv"><span class="xref myst">SMV Basics</span></a>. <a class="reference internal" href="#fig-steckler-opening"><span class="std std-numref">Fig. 3.26</span></a> illustrates an example of a suitable view on an opening.</p>
 <figure class="align-default" id="fig-steckler-opening">
 <a class="reference internal image-reference" href="../../../_images/steckler_opening.png"><img alt="../../../_images/steckler_opening.png" src="../../../_images/steckler_opening.png" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.26 </span><span class="caption-text">Check for the opening size.</span><a class="headerlink" href="#fig-steckler-opening" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.26 </span><span class="caption-text">Check for the opening size.</span><a class="headerlink" href="#fig-steckler-opening" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="step-2-hrr">
-<h3>Step 2 – HRR<a class="headerlink" href="#step-2-hrr" title="Permalink to this heading">#</a></h3>
+<h3>Step 2 – HRR<a class="headerlink" href="#step-2-hrr" title="Link to this heading">#</a></h3>
 <p>In the initial setup, there is already a surface property defined. Adopt the specific heat release rate to match the one in test number 13 and add a surface tempertaure of <span class="math notranslate nohighlight">\(\mf 100~^\circ C\)</span>. This elevated temperature represents the hot surface of the burner.</p>
 <p>Plot the heat release rate like in <a class="reference internal" href="#fig-steckler-20cm-hrr"><span class="std std-numref">Fig. 3.27</span></a>, where the curve is shown for the full simulation time.</p>
 <figure class="align-default" id="fig-steckler-20cm-hrr">
 <a class="reference internal image-reference" href="../../../_images/steckler_20cm_hrr.svg"><img alt="../../../_images/steckler_20cm_hrr.svg" src="../../../_images/steckler_20cm_hrr.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.27 </span><span class="caption-text">Comparison of the targeted heat realease rate and the one achieved in the simulations.</span><a class="headerlink" href="#fig-steckler-20cm-hrr" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.27 </span><span class="caption-text">Comparison of the targeted heat realease rate and the one achieved in the simulations.</span><a class="headerlink" href="#fig-steckler-20cm-hrr" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="step-3-output">
-<h3>Step 3 – Output<a class="headerlink" href="#step-3-output" title="Permalink to this heading">#</a></h3>
+<h3>Step 3 – Output<a class="headerlink" href="#step-3-output" title="Link to this heading">#</a></h3>
 <p>Add multiple devices at the center of the opening, from the bottom to the top of the opening. The quantities to monitor are the gas temperature and the gas velocity.</p>
 <p>How many devices should be used?</p>
 <p>There are two ways to setup the devices:</p>
@@ -640,36 +662,36 @@ document.write(`
 <figure class="align-default" id="fig-steckler-devices">
 <a class="reference internal image-reference" href="../../../_images/steckler_devices.png"><img alt="../../../_images/steckler_devices.png" src="../../../_images/steckler_devices.png" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.28 </span><span class="caption-text">Check for the device positioning.</span><a class="headerlink" href="#fig-steckler-devices" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.28 </span><span class="caption-text">Check for the device positioning.</span><a class="headerlink" href="#fig-steckler-devices" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Additionally, check if the quasi steady-state is reached in the simulations, like shown in <a class="reference internal" href="#fig-steckler-20cm-temp-devc"><span class="std std-numref">Fig. 3.29</span></a>.</p>
 <figure class="align-default" id="fig-steckler-20cm-temp-devc">
 <a class="reference internal image-reference" href="../../../_images/steckler_20cm_temp-devc.svg"><img alt="../../../_images/steckler_20cm_temp-devc.svg" src="../../../_images/steckler_20cm_temp-devc.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.29 </span><span class="caption-text">Time series of a point temperature measurement in the opening.</span><a class="headerlink" href="#fig-steckler-20cm-temp-devc" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.29 </span><span class="caption-text">Time series of a point temperature measurement in the opening.</span><a class="headerlink" href="#fig-steckler-20cm-temp-devc" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="step-4-comparison-with-the-experiment">
-<h3>Step 4 – Comparison with the Experiment<a class="headerlink" href="#step-4-comparison-with-the-experiment" title="Permalink to this heading">#</a></h3>
+<h3>Step 4 – Comparison with the Experiment<a class="headerlink" href="#step-4-comparison-with-the-experiment" title="Link to this heading">#</a></h3>
 <p>Plot the simulation results for temperature and velocity as time averaged values during the quasi steady-state. Add to these plots the experimental data stated by the study, here you can use the central values (in x-direction). A common representation is to use the y-axis of the plot for the height and the x-axis for the values.</p>
 <p>Your results may look like those in <a class="reference internal" href="#fig-steckler-20cm-temp-exp"><span class="std std-numref">Fig. 3.30</span></a> and <a class="reference internal" href="#fig-steckler-20cm-velo-exp"><span class="std std-numref">Fig. 3.31</span></a>.</p>
 <figure class="align-default" id="fig-steckler-20cm-temp-exp">
 <a class="reference internal image-reference" href="../../../_images/steckler_20cm_temp-exp.svg"><img alt="../../../_images/steckler_20cm_temp-exp.svg" src="../../../_images/steckler_20cm_temp-exp.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.30 </span><span class="caption-text">Comparison of the predicted temperature profile with experimental data.</span><a class="headerlink" href="#fig-steckler-20cm-temp-exp" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.30 </span><span class="caption-text">Comparison of the predicted temperature profile with experimental data.</span><a class="headerlink" href="#fig-steckler-20cm-temp-exp" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-steckler-20cm-velo-exp">
 <a class="reference internal image-reference" href="../../../_images/steckler_20cm_velo-exp.svg"><img alt="../../../_images/steckler_20cm_velo-exp.svg" src="../../../_images/steckler_20cm_velo-exp.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.31 </span><span class="caption-text">Comparison of the predicted velocity profile with experimental data.</span><a class="headerlink" href="#fig-steckler-20cm-velo-exp" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.31 </span><span class="caption-text">Comparison of the predicted velocity profile with experimental data.</span><a class="headerlink" href="#fig-steckler-20cm-velo-exp" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="step-5-grid-resolution">
-<h3>Step 5 – Grid Resolution<a class="headerlink" href="#step-5-grid-resolution" title="Permalink to this heading">#</a></h3>
+<h3>Step 5 – Grid Resolution<a class="headerlink" href="#step-5-grid-resolution" title="Link to this heading">#</a></h3>
 <p>Reduce the grid resolution by a factor of two and four.</p>
 <p>Note: check the total heat release rate!</p>
 <p>How does the simulation time change? If you want to reduce the computational time, you can run FDS in parallel, see <a class="reference internal" href="../../tools/02_hpc/03_parallel_fds.html"><span class="doc std std-doc">parallel execution</span></a> for more details.</p>
@@ -677,13 +699,13 @@ document.write(`
 <figure class="align-default" id="fig-steckler-20cm-temp-grid-sensitivity">
 <a class="reference internal image-reference" href="../../../_images/steckler_20cm_temp-grid-sensitivity.svg"><img alt="../../../_images/steckler_20cm_temp-grid-sensitivity.svg" src="../../../_images/steckler_20cm_temp-grid-sensitivity.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.32 </span><span class="caption-text">Grid sensitivity of the temperature profile.</span><a class="headerlink" href="#fig-steckler-20cm-temp-grid-sensitivity" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.32 </span><span class="caption-text">Grid sensitivity of the temperature profile.</span><a class="headerlink" href="#fig-steckler-20cm-temp-grid-sensitivity" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-steckler-20cm-velo-grid-sensitivity">
 <a class="reference internal image-reference" href="../../../_images/steckler_20cm_velo-grid-sensitivity.svg"><img alt="../../../_images/steckler_20cm_velo-grid-sensitivity.svg" src="../../../_images/steckler_20cm_velo-grid-sensitivity.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.33 </span><span class="caption-text">Grid sensitivity of the velocity profile.</span><a class="headerlink" href="#fig-steckler-20cm-velo-grid-sensitivity" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.33 </span><span class="caption-text">Grid sensitivity of the velocity profile.</span><a class="headerlink" href="#fig-steckler-20cm-velo-grid-sensitivity" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -715,11 +737,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="03_pool_example.html"
@@ -739,10 +760,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -750,6 +768,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -785,6 +804,7 @@ document.write(`
   
   <div class="footer-item">
     
+
   </div>
   
   <div class="footer-item">
@@ -812,8 +832,8 @@ document.write(`
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

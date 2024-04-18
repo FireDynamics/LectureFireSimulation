@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>1.3. Modelling Approaches &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
   
@@ -19,54 +18,51 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=ed0cee17" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"tex": {"macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}", "du": "\\dot{u}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/modelling/01_general/03_approaches';</script>
     <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/modelling/01_general/03_approaches.html" />
-    <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
+    <link rel="icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="2. Fluid Dynamics" href="../02_fluids/00_overview.html" />
@@ -80,7 +76,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -115,11 +119,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -134,9 +141,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../overview/01_overview.html">
+  
   
   
   
@@ -146,12 +155,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../../_static/cce_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../../_static/cce_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../../_static/cce_logo.png" class="logo__image only-light" alt="Fire Simulation <br> Lecture Notes - Home"/>
+    <script>document.write(`<img src="../../../_static/cce_logo.png" class="logo__image only-dark" alt="Fire Simulation <br> Lecture Notes - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -450,20 +470,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -505,18 +527,18 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="modelling-approaches">
-<h1><span class="section-number">1.3. </span>Modelling Approaches<a class="headerlink" href="#modelling-approaches" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">1.3. </span>Modelling Approaches<a class="headerlink" href="#modelling-approaches" title="Link to this heading">#</a></h1>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>Fire safety science (FSS) and fire safety engineering (FSE) is not limited to describe fires and their impact on building structures, yet other topics, like evacuation or risk analysis, are not part of this lecture. The understanding and description of fires allow for technical and organisational (active and preventive) measures to limit or even prevent damage. In general, these descriptions lead to the development of mathematical models, which are validated using physical and chemical experiments. From the practical point of view, these models are applied to design and evaluate safety concepts.</p>
 <p>The development of analytical and numerical models aims to describe processes and / or the impacts related to fires. This is true for compartment as well as wildland fires and covers many aspects, like the height of the hot gas layer, the speed and direction at which flames propagate, the toxicity of smoke or the activation and effectivenes of technical measures.</p>
 <p>Models range from empirical data models to models based on first principles. Yet, mostly experiments are needed to adjust unknown model parameters and to validate the predictive capabilities of a model.</p>
 <p>A brief and by far not complete or accurate overview of the historical time scales of scientific development, which modern day approaches are based on, is given in the following table.</p>
 <table class="table table-right" id="tab-history-overview">
-<caption><span class="caption-number">Table 1.3 </span><span class="caption-text">Brief historic overview of scientific development</span><a class="headerlink" href="#tab-history-overview" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-number">Table 1.3 </span><span class="caption-text">Brief historic overview of scientific development</span><a class="headerlink" href="#tab-history-overview" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Time</p></th>
 <th class="head"><p>Event</p></th>
@@ -576,7 +598,7 @@ document.write(`
 </table>
 </section>
 <section id="experiments">
-<h2>Experiments<a class="headerlink" href="#experiments" title="Permalink to this heading">#</a></h2>
+<h2>Experiments<a class="headerlink" href="#experiments" title="Link to this heading">#</a></h2>
 <p>Models have little to no value if they are not supported by experiments. Thus the design and conduction of experiments on various scales is the fundament of fire safety science and engineering. Some experimental aspects in the context of experiments are:</p>
 <ul class="simple">
 <li><p>material flamability tests</p></li>
@@ -587,19 +609,19 @@ document.write(`
 <figure class="align-default" id="fig-exp-cone-calorimeter">
 <a class="reference internal image-reference" href="../../../_images/cone_calorimeter.png"><img alt="../../../_images/cone_calorimeter.png" src="../../../_images/cone_calorimeter.png" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.13 </span><span class="caption-text">Example for a bench-scale experiment: a cone calorimeter. The sample size is about <span class="math notranslate nohighlight">\(\sf\small 10~cm \times 10~cm\)</span>.</span><a class="headerlink" href="#fig-exp-cone-calorimeter" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.13 </span><span class="caption-text">Example for a bench-scale experiment: a cone calorimeter. The sample size is about <span class="math notranslate nohighlight">\(\sf\small 10~cm \times 10~cm\)</span>.</span><a class="headerlink" href="#fig-exp-cone-calorimeter" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-exp-orpheus">
 <a class="reference internal image-reference" href="../../../_images/orpheus.jpeg"><img alt="../../../_images/orpheus.jpeg" src="../../../_images/orpheus.jpeg" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.14 </span><span class="caption-text">Example for a real-scale experiment: hot gas experiments within a metro station. These experiments were conducted by I.F.I. Aachen, Germany, within the <a class="reference external" href="http://www.orpheus-projekt.de">ORPHEUS</a> project.</span><a class="headerlink" href="#fig-exp-orpheus" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.14 </span><span class="caption-text">Example for a real-scale experiment: hot gas experiments within a metro station. These experiments were conducted by I.F.I. Aachen, Germany, within the <a class="reference external" href="http://www.orpheus-projekt.de">ORPHEUS</a> project.</span><a class="headerlink" href="#fig-exp-orpheus" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Experiments differ from tests. While a test checks for a property or a result, there is no explicit aim to gain scientific insight from it. In an experiment the outcome is designed with an open question and aims to extend the knowledge base with new findigs.</p>
 </section>
 <section id="analytical-models">
-<h2>Analytical Models<a class="headerlink" href="#analytical-models" title="Permalink to this heading">#</a></h2>
+<h2>Analytical Models<a class="headerlink" href="#analytical-models" title="Link to this heading">#</a></h2>
 <p>The first kind of models are analytical models. They are either based on empirical data and are thus just their mathematical representation. Or, they are based on fundamental approximations and symmetries, which lead to a closed analytical solution.</p>
 <p>Despite their, sometimes very limitting, approximations, they offer a tool to quickly estimate the quantities of interest. In addition, they can be directly integrated into other, potentially more complex, models. Another important aspect is, that analytical models can be checked by a reader, as it is in general possible to write down all needed input parameters.</p>
 <p>Of course, due to the underlying simplifications and assumptions, their applicability is limited.</p>
@@ -608,12 +630,12 @@ document.write(`
 <figure class="align-default" id="fig-exp-plume-profile">
 <a class="reference internal image-reference" href="../../../_images/plume-profile-yokoi.png"><img alt="../../../_images/plume-profile-yokoi.png" src="../../../_images/plume-profile-yokoi.png" style="width: 40%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.15 </span><span class="caption-text">Example for experimentally captured normalised temperature profiles of a plume. Source: <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id24" title="Sizuo Yokoi. Study on the prevention of fire-spread caused by hot upward current. BRI Report, 1960.">Yok60</a>]</span>.</span><a class="headerlink" href="#fig-exp-plume-profile" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.15 </span><span class="caption-text">Example for experimentally captured normalised temperature profiles of a plume. Source: <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id24" title="Sizuo Yokoi. Study on the prevention of fire-spread caused by hot upward current. BRI Report, 1960.">Yok60</a>]</span>.</span><a class="headerlink" href="#fig-exp-plume-profile" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The temperature rise <span class="math notranslate nohighlight">\(\mf \Delta T\)</span> in a turbulent plume may be generally approximated by:</p>
 <div class="math notranslate nohighlight" id="equation-eq-deltat-plume">
-<span class="eqno">(1.1)<a class="headerlink" href="#equation-eq-deltat-plume" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(1.1)<a class="headerlink" href="#equation-eq-deltat-plume" title="Link to this equation">#</a></span>\[
 \mf \Delta T(z, r) = T_m(z) \cdot\exp\left(-\beta\left(\frac{r}{b(z)}\right)^2\right)
 \]</div>
 <p>where</p>
@@ -646,19 +668,19 @@ document.write(`
 <figure class="align-default" id="fig-exp-analytical-mass-flow">
 <a class="reference internal image-reference" href="../../../_images/compartment_flow_central_labeled.svg"><img alt="../../../_images/compartment_flow_central_labeled.svg" src="../../../_images/compartment_flow_central_labeled.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.16 </span><span class="caption-text">Illustration of the quantities involved in the analytical estimation of the plume mass flow <span class="math notranslate nohighlight">\(\mf \dm_{pl}\)</span>.</span><a class="headerlink" href="#fig-exp-analytical-mass-flow" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.16 </span><span class="caption-text">Illustration of the quantities involved in the analytical estimation of the plume mass flow <span class="math notranslate nohighlight">\(\mf \dm_{pl}\)</span>.</span><a class="headerlink" href="#fig-exp-analytical-mass-flow" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Following, e.g. <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id21" title="VDI. VDI 6019 – Part 2 – Engineering methods for the dimensioning of systems for the removal of smoke from buildings. Technical Report, VDI, 2009.">VDI09</a>]</span>, the plume mass flow <span class="math notranslate nohighlight">\(\mf \dm_{pl}\)</span> can be directly computed, whereas two regimes need to be considered separately. These are distinguished by the ratio of the distance of the fire to the smoke layer <span class="math notranslate nohighlight">\(\mf z_{eff}\)</span> and the square root of the fire area <span class="math notranslate nohighlight">\(\mf A_{fire}\)</span>, i.e. <span class="math notranslate nohighlight">\(\sf \sqrt{A_{fire}}\)</span>.</p>
 <p><strong>Jet formation regime</strong></p>
 <p>In the case of</p>
 <div class="math notranslate nohighlight" id="equation-eq-za-ratio">
-<span class="eqno">(1.2)<a class="headerlink" href="#equation-eq-za-ratio" title="Permalink to this equation">#</a></span>\[ 
+<span class="eqno">(1.2)<a class="headerlink" href="#equation-eq-za-ratio" title="Link to this equation">#</a></span>\[ 
 \mf \frac{z_{eff}}{\sqrt{A_{fire}}} \le 2 \quad ,
 \]</div>
 <p>the mass flow can be computed as</p>
 <div class="math notranslate nohighlight" id="equation-eq-dmpl-jet">
-<span class="eqno">(1.3)<a class="headerlink" href="#equation-eq-dmpl-jet" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(1.3)<a class="headerlink" href="#equation-eq-dmpl-jet" title="Link to this equation">#</a></span>\[
 \mf \dm_{pl} = C_1 \cdot z^{1.5}_{eff}\cdot \sqrt{4\pi A_{fire}}\quad .
 \]</div>
 <p>The free parameter, here the induction coefficient <span class="math notranslate nohighlight">\(\mf C_1\)</span>, takes a value of <span class="math notranslate nohighlight">\(\mf 0.19~kg\,m^{-5/2}\,s^{–1}\)</span>.</p>
@@ -673,7 +695,7 @@ document.write(`
 <p><strong>Similarity regime</strong></p>
 <p>If the equation <a class="reference internal" href="#equation-eq-za-ratio">(1.2)</a> is not valid, the plume is in the so called similarity regime. Here the plume can be handled as an undisturbed plume, as the distance to smoke layer is large compared to the initial width of the plume. In this case there are multiple possible approaches to describe the plume. One of them is based on the Heskestad plume model and predicts the plume mass flow as</p>
 <div class="math notranslate nohighlight" id="equation-eq-dmpl-similarity">
-<span class="eqno">(1.4)<a class="headerlink" href="#equation-eq-dmpl-similarity" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(1.4)<a class="headerlink" href="#equation-eq-dmpl-similarity" title="Link to this equation">#</a></span>\[
 \mf \dm_{pl} = C_2\cdot \dQ_{conv}\cdot \left( z_{eff} - z_0 \right)^{5/3} \quad .
 \]</div>
 <p>The additional quantities needed for the evaluation are:</p>
@@ -701,12 +723,12 @@ document.write(`
 </ul>
 </section>
 <section id="single-compartment-fire">
-<h2>Single Compartment Fire<a class="headerlink" href="#single-compartment-fire" title="Permalink to this heading">#</a></h2>
+<h2>Single Compartment Fire<a class="headerlink" href="#single-compartment-fire" title="Link to this heading">#</a></h2>
 <p>For illustrating the following models, a canonical compartment fire setup is used, see <a class="reference internal" href="#fig-compartment-flow-basic"><span class="std std-numref">Fig. 1.17</span></a>. It consists of a single compartment with a localised fire. The only opening to the ambient is a door.</p>
 <figure class="align-default" id="fig-compartment-flow-basic">
 <a class="reference internal image-reference" href="../../../_images/compartment_door_flow_labeled.svg"><img alt="../../../_images/compartment_door_flow_labeled.svg" src="../../../_images/compartment_door_flow_labeled.svg" width="60%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.17 </span><span class="caption-text">Flows and regimes in a canonical compartment fire with a single opening, here a door.</span><a class="headerlink" href="#fig-compartment-flow-basic" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.17 </span><span class="caption-text">Flows and regimes in a canonical compartment fire with a single opening, here a door.</span><a class="headerlink" href="#fig-compartment-flow-basic" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>In a very simplified representation, the following phenomena can be observed:</p>
@@ -717,12 +739,12 @@ document.write(`
 </ul>
 </section>
 <section id="zone-models">
-<h2>Zone Models<a class="headerlink" href="#zone-models" title="Permalink to this heading">#</a></h2>
+<h2>Zone Models<a class="headerlink" href="#zone-models" title="Link to this heading">#</a></h2>
 <p>The above figure <a class="reference internal" href="#fig-compartment-flow-basic"><span class="std std-numref">Fig. 1.17</span></a> indicates that the domain of interest can be separated into two zones: an upper and a lower layer, see <a class="reference internal" href="#fig-two-zone-model"><span class="std std-numref">Fig. 1.18</span></a>. Zone models use this separation to simplify the overall scenario and predict the physical (e.g. temperature) and geometrical (e.g. height) properties of the zones.</p>
 <figure class="align-default" id="fig-two-zone-model">
 <a class="reference internal image-reference" href="../../../_images/compartment_zone_model.svg"><img alt="../../../_images/compartment_zone_model.svg" src="../../../_images/compartment_zone_model.svg" width="60%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.18 </span><span class="caption-text">Illustration of a simple two zone – the upper hot and the lower cold gas layer – model.</span><a class="headerlink" href="#fig-two-zone-model" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.18 </span><span class="caption-text">Illustration of a simple two zone – the upper hot and the lower cold gas layer – model.</span><a class="headerlink" href="#fig-two-zone-model" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <aside class="margin sidebar">
@@ -732,50 +754,50 @@ document.write(`
 <p>In the following, the <a class="reference external" href="https://pages.nist.gov/cfast/index.html">Consolidated Fire And Smoke Transport (CFAST)</a> model <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id17" title="Richard D. Peacock, Kevin B. McGrattan, Glenn P. Forney, and Paul A. Reneke. CFAST–Consolidated Model of Fire Growth and Smoke Transport (Version 7) Volume 1: Technical Reference Guide. Technical Report, National Institute of Standards and Technology, 2021. URL: https://pages.nist.gov/cfast/manuals.html.">PMFR21</a>]</span> is used to demonstrate the approach of zone models. Here, the physical quantities like temperature <span class="math notranslate nohighlight">\(\mf T_i\)</span>, volume <span class="math notranslate nohighlight">\(\mf V_i\)</span>, and pressure <span class="math notranslate nohighlight">\(\mf p\)</span> for each layer, i.e. <span class="math notranslate nohighlight">\(\mf i\in [u,l]\)</span>, are computed. These are single values, which represent the whole zone.</p>
 <p>Using the ideal gas law, equation <a class="reference internal" href="#equation-eq-zone-model-ideal-gas-law">(1.5)</a>, the mass <span class="math notranslate nohighlight">\(\mf m_i\)</span> of a layer can be computed.</p>
 <div class="math notranslate nohighlight" id="equation-eq-zone-model-ideal-gas-law">
-<span class="eqno">(1.5)<a class="headerlink" href="#equation-eq-zone-model-ideal-gas-law" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(1.5)<a class="headerlink" href="#equation-eq-zone-model-ideal-gas-law" title="Link to this equation">#</a></span>\[
 \mf pV_i = m_i R T_i
 \]</div>
 <p>Where <span class="math notranslate nohighlight">\(\mf R\)</span> is the specific gas constant, here with a value of approximately <span class="math notranslate nohighlight">\(\mf 290~J\,kg^{-1}\,K^{-1}\)</span> for air. The change of internal energy of a zone is described by the sum of all heat sources <span class="math notranslate nohighlight">\(\mf \dq_i\)</span> and the work done by the change of the layer’s volume, i.e. <span class="math notranslate nohighlight">\(\mf p\cdot dV_i/dt\)</span>:</p>
 <div class="math notranslate nohighlight" id="equation-eq-zone-model-internal-energy">
-<span class="eqno">(1.6)<a class="headerlink" href="#equation-eq-zone-model-internal-energy" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(1.6)<a class="headerlink" href="#equation-eq-zone-model-internal-energy" title="Link to this equation">#</a></span>\[
 \mf \frac{d}{dt}\left( c_v m_i T_i\right) = \dq_i - p\frac{dV_i}{dt}\quad,
 \]</div>
 <p>with the specific heat capacity at constant volume <span class="math notranslate nohighlight">\(\mf c_v\)</span>.</p>
 <p>Besides the handling of boundary conditions and other additional processes, a set of coupled ordinary differential equations is derived to prescribe the evolution of the pressure</p>
 <div class="math notranslate nohighlight" id="equation-eq-zone-mode-pressure">
-<span class="eqno">(1.7)<a class="headerlink" href="#equation-eq-zone-mode-pressure" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(1.7)<a class="headerlink" href="#equation-eq-zone-mode-pressure" title="Link to this equation">#</a></span>\[
 \mf \frac{dp}{dt} = \frac{\gamma - 1}{V} (\dq_l + \dq_u)\quad, and
 \]</div>
 <p>the upper volume</p>
 <div class="math notranslate nohighlight" id="equation-eq-zone-mode-vu">
-<span class="eqno">(1.8)<a class="headerlink" href="#equation-eq-zone-mode-vu" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(1.8)<a class="headerlink" href="#equation-eq-zone-mode-vu" title="Link to this equation">#</a></span>\[
 \mf \frac{dV_u}{dt} = \frac{1}{p\gamma}\left((\gamma-1)\dq_u - V_u \frac{dp}{dt}  \right)\quad ,
 \]</div>
 <p>where the lower volume <span class="math notranslate nohighlight">\(\mf V_l\)</span> can be computed with the given total volumen of the compartment <span class="math notranslate nohighlight">\(\mf V\)</span> as <span class="math notranslate nohighlight">\(\mf V_l = V - V_u\)</span>. The temperature development in each layer is given by</p>
 <div class="math notranslate nohighlight" id="equation-eq-zone-mode-tu">
-<span class="eqno">(1.9)<a class="headerlink" href="#equation-eq-zone-mode-tu" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(1.9)<a class="headerlink" href="#equation-eq-zone-mode-tu" title="Link to this equation">#</a></span>\[
 \mf \frac{dT_u}{dt} = \frac{1}{c_p m_u}\left( \dq_u - c_p \dm_u T_u + V_u \frac{dp}{dt}\right)\quad, and
 \]</div>
 <div class="math notranslate nohighlight" id="equation-eq-zone-mode-tl">
-<span class="eqno">(1.10)<a class="headerlink" href="#equation-eq-zone-mode-tl" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(1.10)<a class="headerlink" href="#equation-eq-zone-mode-tl" title="Link to this equation">#</a></span>\[
 \mf \frac{dT_l}{dt} = \frac{1}{c_p m_l}\left( \dq_l - c_p \dm_l T_l + V_l \frac{dp}{dt}\right)\quad .
 \]</div>
 <p>This set of equations can be numericaly solved and leads to a time-dependent solution for the four stated quantities.</p>
 </section>
 <section id="field-models">
-<h2>Field Models<a class="headerlink" href="#field-models" title="Permalink to this heading">#</a></h2>
+<h2>Field Models<a class="headerlink" href="#field-models" title="Link to this heading">#</a></h2>
 <p>While zone models decompose the domain of interest into few regions, field models discretise the volume with a three-dimensional mesh, see <a class="reference internal" href="#fig-field-model"><span class="std std-numref">Fig. 1.19</span></a>. This discretisation is needed to numerically solve a set of partial differential equations for quantities like density, velocity, pressure and enthalpy in each node of the mesh.</p>
 <figure class="align-default" id="fig-field-model">
 <a class="reference internal image-reference" href="../../../_images/compartment_field_model.svg"><img alt="../../../_images/compartment_field_model.svg" src="../../../_images/compartment_field_model.svg" width="60%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.19 </span><span class="caption-text">Illustration of the domain discretisation in a field model.</span><a class="headerlink" href="#fig-field-model" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.19 </span><span class="caption-text">Illustration of the domain discretisation in a field model.</span><a class="headerlink" href="#fig-field-model" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The solid objects in the domain have to be represented in the mesh and at these positions, boundary conditions need to be evaluated. As a result of the according numerical solution procedure, spatially and temporaly resolved values for the above mentioned quantities are computed. See <a class="reference internal" href="#fig-field-model-temperatures"><span class="std std-numref">Fig. 1.20</span></a> for an illustrative representation of a temperature field at one point in time.</p>
 <figure class="align-default" id="fig-field-model-temperatures">
 <a class="reference internal image-reference" href="../../../_images/compartment_field_model_temperatures.svg"><img alt="../../../_images/compartment_field_model_temperatures.svg" src="../../../_images/compartment_field_model_temperatures.svg" width="60%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 1.20 </span><span class="caption-text">Illustration of the temperature values in each element (cell) of the domain discretisation.</span><a class="headerlink" href="#fig-field-model-temperatures" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 1.20 </span><span class="caption-text">Illustration of the temperature values in each element (cell) of the domain discretisation.</span><a class="headerlink" href="#fig-field-model-temperatures" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The main content of this lecture are the numerical models and solution approaches applied in field models. This methodology is in general called computational fluid dynamics (CFD), where fire simulations are a specialised topic within a very broad range of applications. The simulation model described in this lecture is the <a class="reference external" href="https://pages.nist.gov/fds-smv/index.html">Fire Dynamics Simulator (FDS)</a>.</p>
@@ -807,11 +829,10 @@ document.write(`
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="02_fse.html"
@@ -831,10 +852,7 @@ document.write(`
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -842,6 +860,7 @@ document.write(`
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -872,6 +891,7 @@ document.write(`
   
   <div class="footer-item">
     
+
   </div>
   
   <div class="footer-item">
@@ -899,8 +919,8 @@ document.write(`
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

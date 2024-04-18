@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Python &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
   
@@ -19,52 +18,49 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=ed0cee17" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/tools/03_analysis/01_python';</script>
     <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/tools/03_analysis/01_python.html" />
-    <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
+    <link rel="icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="Example: McCaffrey plume experiments" href="03_example_mccaffreyplumes.html" />
@@ -78,7 +74,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -113,11 +117,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -132,9 +139,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../overview/01_overview.html">
+  
   
   
   
@@ -144,12 +153,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../../_static/cce_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../../_static/cce_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../../_static/cce_logo.png" class="logo__image only-light" alt="Fire Simulation <br> Lecture Notes - Home"/>
+    <script>document.write(`<img src="../../../_static/cce_logo.png" class="logo__image only-dark" alt="Fire Simulation <br> Lecture Notes - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -479,20 +499,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -552,22 +574,22 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="python">
-<h1>Python<a class="headerlink" href="#python" title="Permalink to this heading">#</a></h1>
+<h1>Python<a class="headerlink" href="#python" title="Link to this heading">#</a></h1>
 <section id="disclaimer">
-<h2>Disclaimer<a class="headerlink" href="#disclaimer" title="Permalink to this heading">#</a></h2>
+<h2>Disclaimer<a class="headerlink" href="#disclaimer" title="Link to this heading">#</a></h2>
 <p>This lecutre is not a programming lecture. However, for scientific data visualization and analysis, as well as for model development, programming skills are handy. Therefore these lecture notes offer the basics to be able to start using Python and understand how they work. All exercises can be done without writing code, but this lecutre can be used as a chance to start programming.</p>
 <p>If you see potential for your future work, there is plenty of material on Python programming in the world wide web. Yet, I would like to point out, that we offer a Python introduction within the lecure <a class="reference external" href="https://firedynamics.github.io/LectureComputerScience">Computer Science (in German)</a>.</p>
 <p>Beside this section, which gives an overview of the Python fundamentals, it will be assumed, that the reader is familiar with Python.</p>
 </section>
 <section id="why-python">
-<h2>Why Python?<a class="headerlink" href="#why-python" title="Permalink to this heading">#</a></h2>
+<h2>Why Python?<a class="headerlink" href="#why-python" title="Link to this heading">#</a></h2>
 <figure class="align-default" id="fig-python-logo">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/f/f8/Python_logo_and_wordmark.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/f/f8/Python_logo_and_wordmark.svg" src="https://upload.wikimedia.org/wikipedia/commons/f/f8/Python_logo_and_wordmark.svg" width="60%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 37 </span><span class="caption-text">Python logo. Soruce: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Python_logo_and_wordmark.svg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-python-logo" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 37 </span><span class="caption-text">Python logo. Soruce: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Python_logo_and_wordmark.svg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-python-logo" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>In contrast to computer programs, Python scripts are not executed, but interpreted by a Python interpreter. This has advantages, like portability, and disadvantages, like potential performance issues.</p>
@@ -581,7 +603,7 @@ document.write(`
 <p>The Python developers provide guidelines on code structure and readability. Even though they are primarily aimed at code development for Python, it is a good starting point for projects. However, individual projects might have their own guides.</p>
 <p>The reader is specifically directed to <a class="reference external" href="https://peps.python.org/pep-0008/">PEP 8 – Style Guide for Python Code</a> and <a class="reference external" href="https://peps.python.org/pep-0020/">PEP 20 – The Zen of Python</a>.</p>
 <section id="the-zen-of-python">
-<h3>The Zen of Python<a class="headerlink" href="#the-zen-of-python" title="Permalink to this heading">#</a></h3>
+<h3>The Zen of Python<a class="headerlink" href="#the-zen-of-python" title="Link to this heading">#</a></h3>
 <p>One of the key insights is code is read much more often than it is written, see PEP 8.</p>
 <ul class="simple">
 <li><p>Beautiful is better than ugly.</p></li>
@@ -607,7 +629,7 @@ document.write(`
 </section>
 </section>
 <section id="how-to-learn-python">
-<h2>How to Learn Python<a class="headerlink" href="#how-to-learn-python" title="Permalink to this heading">#</a></h2>
+<h2>How to Learn Python<a class="headerlink" href="#how-to-learn-python" title="Link to this heading">#</a></h2>
 <p>Some thoughts on learning Python programming, by Guido van Rossum.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -631,9 +653,9 @@ document.write(`
 </div>
 </section>
 <section id="basics">
-<h2>Basics<a class="headerlink" href="#basics" title="Permalink to this heading">#</a></h2>
+<h2>Basics<a class="headerlink" href="#basics" title="Link to this heading">#</a></h2>
 <section id="python-interpreter">
-<h3>Python Interpreter<a class="headerlink" href="#python-interpreter" title="Permalink to this heading">#</a></h3>
+<h3>Python Interpreter<a class="headerlink" href="#python-interpreter" title="Link to this heading">#</a></h3>
 <p>A Python script is a text file, which can be executed in a shell, by invoking</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">python</span> <span class="n">script</span><span class="o">.</span><span class="n">py</span>
 </pre></div>
@@ -650,7 +672,7 @@ document.write(`
 <p>In this example, the version 3 of Python needs to be explicitly stated. In general, version 2 of Python should not be used anymore, yet there may exist OS components, which rely on verion 2, thus it is still always available.</p>
 </section>
 <section id="jupyter">
-<h3>Jupyter<a class="headerlink" href="#jupyter" title="Permalink to this heading">#</a></h3>
+<h3>Jupyter<a class="headerlink" href="#jupyter" title="Link to this heading">#</a></h3>
 <p>In this lecture, we will use <a class="reference external" href="https://jupyter.org/">Jupyter</a> as an interactive Python editor. Jupyter notebooks allow to work with so called cells. They may be either Python code, that can be executed cell-wise, or markdown text, to include descriptive information to the script. In contrast to Jupyter, JupyterLab provides a new flexible interface for working with Jupyter notebooks.</p>
 <p>JupyterLab</p>
 <ul class="simple">
@@ -669,7 +691,7 @@ document.write(`
 </ul>
 </section>
 <section id="jupyterhub-at-pleiades">
-<h3>JupyterHub at Pleiades<a class="headerlink" href="#jupyterhub-at-pleiades" title="Permalink to this heading">#</a></h3>
+<h3>JupyterHub at Pleiades<a class="headerlink" href="#jupyterhub-at-pleiades" title="Link to this heading">#</a></h3>
 <p>In the lecutre, we use a <a class="reference external" href="https://jupyterhub.pleiades.uni-wuppertal.de/">JupyterHub</a> service, which runs on the Pleiades cluster, see the <a class="reference external" href="https://pleiadesbuw.github.io/PleiadesUserDocumentation/jupyter">documentation</a>. This is very convinient, as it allows to directly access the data computed on the cluster. Yet, as this is a system with many users with different requirements, there are only generic configurations for the JupyterLab servers. The individual kernels, i.e. the Python interpreter which are executing the notebook, need to be created within the required environment. The following script outlines one possible way to create specific kernels, which are reasonable for this context. Three steps are needed:</p>
 <ol class="arabic simple">
 <li><p>Create a Python virtual environment (<code class="docutils literal notranslate"><span class="pre">venv</span></code>)</p></li>
@@ -717,7 +739,7 @@ document.write(`
 </div>
 </section>
 <section id="syntax">
-<h3>Syntax<a class="headerlink" href="#syntax" title="Permalink to this heading">#</a></h3>
+<h3>Syntax<a class="headerlink" href="#syntax" title="Link to this heading">#</a></h3>
 <p>The syntax of Python is very simple:</p>
 <ul class="simple">
 <li><p>tokens (variables, operators, etc.) can be separated by multiple spaces, but indentation matters</p></li>
@@ -741,7 +763,7 @@ document.write(`
 <p>Here, there exist three level of indentation, which are indicated as a sequance of four spaces. An alternative to spaces is the usage of tabs.</p>
 </section>
 <section id="operators">
-<h3>Operators<a class="headerlink" href="#operators" title="Permalink to this heading">#</a></h3>
+<h3>Operators<a class="headerlink" href="#operators" title="Link to this heading">#</a></h3>
 <p>Some of the main operators used in Python:</p>
 <ul class="simple">
 <li><p>value assignment: =</p></li>
@@ -801,7 +823,7 @@ document.write(`
 </div>
 </section>
 <section id="variables">
-<h3>Variables<a class="headerlink" href="#variables" title="Permalink to this heading">#</a></h3>
+<h3>Variables<a class="headerlink" href="#variables" title="Link to this heading">#</a></h3>
 <p>Variables are used to store values, which can be referenced or changed during execution. In contrast to many other programming languages, variables do not need an explicit type declaration.</p>
 <p>To assign a value to a variable, the assignment operator <code class="docutils literal notranslate"><span class="pre">=</span></code> is used. The general form is given by</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">variable_name</span> <span class="o">=</span> <span class="n">value</span>
@@ -846,7 +868,7 @@ document.write(`
 </ul>
 </section>
 <section id="functions">
-<h3>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">#</a></h3>
+<h3>Functions<a class="headerlink" href="#functions" title="Link to this heading">#</a></h3>
 <p>Functions allow to encapsulate frequent and common tasks. The are called by their name, followed by <code class="docutils literal notranslate"><span class="pre">()</span></code>, that may contain function arguments, separated by a <code class="docutils literal notranslate"><span class="pre">,</span></code>. An optional return value may be passed by a function.</p>
 <p>The general form is</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">return_value</span> <span class="o">=</span> <span class="n">function_name</span><span class="p">(</span><span class="n">argument_1</span><span class="p">,</span> <span class="n">argument_2</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
@@ -911,7 +933,7 @@ Minimal value: 5
 </section>
 </section>
 <section id="lists">
-<h2>Lists<a class="headerlink" href="#lists" title="Permalink to this heading">#</a></h2>
+<h2>Lists<a class="headerlink" href="#lists" title="Link to this heading">#</a></h2>
 <p>A list is a ordered set of values. Each element can be of every possible type, including an other list. To define a list, square brackets <code class="docutils literal notranslate"><span class="pre">[]</span></code> are used:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">list_name</span> <span class="o">=</span> <span class="p">[</span><span class="n">e1</span><span class="p">,</span> <span class="n">e2</span><span class="p">,</span> <span class="n">e3</span><span class="p">]</span>
 </pre></div>
@@ -990,7 +1012,7 @@ Full list : [22.4, -30.7, 55.5, -0.34, 0.5, 112.4]
 </div>
 </section>
 <section id="strings">
-<h2>Strings<a class="headerlink" href="#strings" title="Permalink to this heading">#</a></h2>
+<h2>Strings<a class="headerlink" href="#strings" title="Link to this heading">#</a></h2>
 <p>Strings are sets of characters to represent text or numbers in a human readable sense. They can be explicitly definded with <code class="docutils literal notranslate"><span class="pre">''</span></code> or <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">string_name</span> <span class="o">=</span> <span class="s2">&quot;This is a short text.&quot;</span>
 </pre></div>
@@ -1039,14 +1061,14 @@ Computational Civil Engineering, University of Wuppertal, established in 2019
 </div>
 </section>
 <section id="flow-control">
-<h2>Flow Control<a class="headerlink" href="#flow-control" title="Permalink to this heading">#</a></h2>
+<h2>Flow Control<a class="headerlink" href="#flow-control" title="Link to this heading">#</a></h2>
 <p>There exist two main structures, which are common in many programming languages and allow to build a complex execution flow.</p>
 <ul class="simple">
 <li><p><strong>Loops</strong> repeat a set of expressions (loop body) for a given loop variable. The value of the loop variable iterates throug a list of values.</p></li>
 <li><p><strong>Branching</strong> allows to execute expressions depending on a condition.</p></li>
 </ul>
 <section id="loops">
-<h3>Loops<a class="headerlink" href="#loops" title="Permalink to this heading">#</a></h3>
+<h3>Loops<a class="headerlink" href="#loops" title="Link to this heading">#</a></h3>
 <p>The basic structure of a loop is</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># loop header</span>
 <span class="k">for</span> <span class="n">loop_variable</span> <span class="ow">in</span> <span class="n">loop_values</span><span class="p">:</span>
@@ -1124,7 +1146,7 @@ Computational Civil Engineering, University of Wuppertal, established in 2019
 </div>
 </section>
 <section id="branching">
-<h3>Branching<a class="headerlink" href="#branching" title="Permalink to this heading">#</a></h3>
+<h3>Branching<a class="headerlink" href="#branching" title="Link to this heading">#</a></h3>
 <p>In order to control the execution flow, branching or if-statements are used. An if-statement uses the <code class="docutils literal notranslate"><span class="pre">if</span></code> and optionally the <code class="docutils literal notranslate"><span class="pre">else</span></code> keywords, closes its definition with a <code class="docutils literal notranslate"><span class="pre">:</span></code> and takes the follwoing general form</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">conditon</span><span class="p">:</span>
     <span class="c1"># if-true body</span>
@@ -1185,7 +1207,7 @@ The number 9 is odd.
 </section>
 </section>
 <section id="modules">
-<h2>Modules<a class="headerlink" href="#modules" title="Permalink to this heading">#</a></h2>
+<h2>Modules<a class="headerlink" href="#modules" title="Link to this heading">#</a></h2>
 <p>In this lecture, we will use a couple of modules, which implement a lot of functionality, like numerical scheme, data input and output as well as data visualisation.</p>
 <p>To make the content of a module available in a script, it needs to be imported:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">module_name</span> <span class="k">as</span> <span class="nn">short_name</span>
@@ -1246,11 +1268,10 @@ The number 9 is odd.
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="00_overview.html"
@@ -1270,10 +1291,7 @@ The number 9 is odd.
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1281,6 +1299,7 @@ The number 9 is odd.
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1329,6 +1348,7 @@ The number 9 is odd.
   
   <div class="footer-item">
     
+
   </div>
   
   <div class="footer-item">
@@ -1356,8 +1376,8 @@ The number 9 is odd.
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

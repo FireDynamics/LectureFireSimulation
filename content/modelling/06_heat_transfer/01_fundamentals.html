@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>6.1. Fundamentals &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
   
@@ -19,54 +18,51 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=ed0cee17" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"tex": {"macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}", "du": "\\dot{u}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/modelling/06_heat_transfer/01_fundamentals';</script>
     <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/modelling/06_heat_transfer/01_fundamentals.html" />
-    <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
+    <link rel="icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="6.2. Example – Heat Transfer" href="02_heat_transfer_example.html" />
@@ -80,7 +76,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -115,11 +119,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -134,9 +141,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../overview/01_overview.html">
+  
   
   
   
@@ -146,12 +155,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../../_static/cce_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../../_static/cce_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../../_static/cce_logo.png" class="logo__image only-light" alt="Fire Simulation <br> Lecture Notes - Home"/>
+    <script>document.write(`<img src="../../../_static/cce_logo.png" class="logo__image only-dark" alt="Fire Simulation <br> Lecture Notes - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -481,20 +501,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -542,10 +564,10 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="fundamentals">
-<h1><span class="section-number">6.1. </span>Fundamentals<a class="headerlink" href="#fundamentals" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">6.1. </span>Fundamentals<a class="headerlink" href="#fundamentals" title="Link to this heading">#</a></h1>
 <div class="cell tag_hide_cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
@@ -568,7 +590,7 @@ document.write(`
 <figure class="align-default" id="fig-heat-transfer-overview">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/f/f4/Heat-transmittance-means2.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/f/f4/Heat-transmittance-means2.jpg" src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Heat-transmittance-means2.jpg" style="width: 40%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.1 </span><span class="caption-text">Schematic illustration of the various heat transfer modes. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Heat-transmittance-means2.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-heat-transfer-overview" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.1 </span><span class="caption-text">Schematic illustration of the various heat transfer modes. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Heat-transmittance-means2.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-heat-transfer-overview" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <ul class="simple">
@@ -577,14 +599,14 @@ document.write(`
 <li><p><strong>radiation</strong>: heating of walls and fuel sources due to hot gases and soot</p></li>
 </ul>
 <section id="heat-conduction">
-<h2>Heat Conduction<a class="headerlink" href="#heat-conduction" title="Permalink to this heading">#</a></h2>
+<h2>Heat Conduction<a class="headerlink" href="#heat-conduction" title="Link to this heading">#</a></h2>
 <p>The heat conduction in solids is different for (electric) insulators and (electric) conductors.
 While there are no free electrons in an insulator the conduction is mainly due to phonons, i.e. atom oscillations in the ordered lattice.</p>
 <p>In addition to this transport mechanism, the free electrons in conductors allow to significantly increase the heat conducting capacity. Therefore, (electric) conductors are better heat conductors than (electric) insulators.</p>
 <figure class="align-default" id="fig-heat-conduction-solid">
 <a class="reference internal image-reference" href="../../../_images/solid-oszillations.svg"><img alt="../../../_images/solid-oszillations.svg" src="../../../_images/solid-oszillations.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.2 </span><span class="caption-text">Illustrative representation of heat conduction in a solid. Particle ensembles with high temperature (red) have higher oscillation amplitutes as those at medium (yellow) or low (blue) temperature.</span><a class="headerlink" href="#fig-heat-conduction-solid" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.2 </span><span class="caption-text">Illustrative representation of heat conduction in a solid. Particle ensembles with high temperature (red) have higher oscillation amplitutes as those at medium (yellow) or low (blue) temperature.</span><a class="headerlink" href="#fig-heat-conduction-solid" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>In gases and fluids, particles are not in fixed positions. They collide with each other and thus transfer energy and momentum. If the mean free length is small (w.r.t. the system size) then the collisions tend to establish an equilibrium.</p>
@@ -597,7 +619,7 @@ While there are no free electrons in an insulator the conduction is mainly due t
 <figure class="align-default" id="fig-heat-conduction-fluid">
 <a class="reference internal image-reference" href="../../../_images/gas-collisions.svg"><img alt="../../../_images/gas-collisions.svg" src="../../../_images/gas-collisions.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.3 </span><span class="caption-text">Illustrative representation of heat conduction in a fluid. Particle from warm regions have more (thermal) kinetic energy and transfer it to particles with lower one.</span><a class="headerlink" href="#fig-heat-conduction-fluid" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.3 </span><span class="caption-text">Illustrative representation of heat conduction in a fluid. Particle from warm regions have more (thermal) kinetic energy and transfer it to particles with lower one.</span><a class="headerlink" href="#fig-heat-conduction-fluid" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>In general, all heat conduction processes may be modelled with the (differential) Fourier’s law</p>
@@ -631,14 +653,14 @@ While there are no free electrons in an insulator the conduction is mainly due t
 <figure class="align-default" id="fig-heat-conduction-1d">
 <a class="reference internal image-reference" href="../../../_images/1D-heat-conduction.svg"><img alt="../../../_images/1D-heat-conduction.svg" src="../../../_images/1D-heat-conduction.svg" width="60%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.4 </span><span class="caption-text">Schematics of the temperature profile in a one dimensional setup. The heat flux is based on the temperature difference between the heated side (<span class="math notranslate nohighlight">\(\mf T_0\)</span>) and the backward side (<span class="math notranslate nohighlight">\(\mf T_B\)</span>). Thermally thin and thick materials have a different temporal scales.</span><a class="headerlink" href="#fig-heat-conduction-1d" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.4 </span><span class="caption-text">Schematics of the temperature profile in a one dimensional setup. The heat flux is based on the temperature difference between the heated side (<span class="math notranslate nohighlight">\(\mf T_0\)</span>) and the backward side (<span class="math notranslate nohighlight">\(\mf T_B\)</span>). Thermally thin and thick materials have a different temporal scales.</span><a class="headerlink" href="#fig-heat-conduction-1d" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="convective-heat-transfer">
-<h2>Convective Heat Transfer<a class="headerlink" href="#convective-heat-transfer" title="Permalink to this heading">#</a></h2>
+<h2>Convective Heat Transfer<a class="headerlink" href="#convective-heat-transfer" title="Link to this heading">#</a></h2>
 <section id="fluid-phase">
-<h3>Fluid Phase<a class="headerlink" href="#fluid-phase" title="Permalink to this heading">#</a></h3>
+<h3>Fluid Phase<a class="headerlink" href="#fluid-phase" title="Link to this heading">#</a></h3>
 <p>The convective heat transfer is not a principle physical phenomenon. The transfer is due to medium movement which is driven by density fluctuations in a gravitational field.</p>
 <p>There exist basically two regimes for convective heat transfer:</p>
 <ul class="simple">
@@ -648,13 +670,13 @@ While there are no free electrons in an insulator the conduction is mainly due t
 <figure class="align-default" id="fig-heat-convection-scheme">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/f/f5/ConvectionCells.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/f/f5/ConvectionCells.svg" src="https://upload.wikimedia.org/wikipedia/commons/f/f5/ConvectionCells.svg" width="60%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.5 </span><span class="caption-text">General representation of the convective heat transfer. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:ConvectionCells.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-heat-convection-scheme" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.5 </span><span class="caption-text">General representation of the convective heat transfer. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:ConvectionCells.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-heat-convection-scheme" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/TB_Dlq57OLQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </section>
 <section id="fluid-solid-interface">
-<h3>Fluid-Solid Interface<a class="headerlink" href="#fluid-solid-interface" title="Permalink to this heading">#</a></h3>
+<h3>Fluid-Solid Interface<a class="headerlink" href="#fluid-solid-interface" title="Link to this heading">#</a></h3>
 <p>The heat flux <span class="math notranslate nohighlight">\(\mf q\)</span> through a surface <span class="math notranslate nohighlight">\(\mf A\)</span> is given by the temperature difference of the gas <span class="math notranslate nohighlight">\(\mf T_g\)</span> and the solid wall <span class="math notranslate nohighlight">\(\mf T_w\)</span>, by Newton’s cooling law</p>
 <div class="math notranslate nohighlight">
 \[
@@ -675,14 +697,14 @@ While there are no free electrons in an insulator the conduction is mainly due t
 </section>
 </section>
 <section id="thermal-radiation">
-<h2>Thermal Radiation<a class="headerlink" href="#thermal-radiation" title="Permalink to this heading">#</a></h2>
+<h2>Thermal Radiation<a class="headerlink" href="#thermal-radiation" title="Link to this heading">#</a></h2>
 <section id="electromagnetic-waves">
-<h3>Electromagnetic Waves<a class="headerlink" href="#electromagnetic-waves" title="Permalink to this heading">#</a></h3>
+<h3>Electromagnetic Waves<a class="headerlink" href="#electromagnetic-waves" title="Link to this heading">#</a></h3>
 <p>The physical principles of radiative heat transfer is the fact, that all matter with finite temperature emit electromagnetic waves, which travel with the speed of light (<span class="math notranslate nohighlight">\(\mf c\approx 3\cdot 10^8 m/s\)</span>). An overview of the electromagnetic spectrum is given in <a class="reference internal" href="#fig-heat-em-spectrum-overview"><span class="std std-numref">Fig. 6.6</span></a>.</p>
 <figure class="align-default" id="fig-heat-em-spectrum-overview">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/c/cf/EM_Spectrum_Properties_edit.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/c/cf/EM_Spectrum_Properties_edit.svg" src="https://upload.wikimedia.org/wikipedia/commons/c/cf/EM_Spectrum_Properties_edit.svg" width="100%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.6 </span><span class="caption-text">The electromagnetic spectrum. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:EM_Spectrum_Properties_edit.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-heat-em-spectrum-overview" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.6 </span><span class="caption-text">The electromagnetic spectrum. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:EM_Spectrum_Properties_edit.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-heat-em-spectrum-overview" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The emitted energy spectrum, <span class="math notranslate nohighlight">\(\mf I\)</span> as a funktion of the wave frequency <span class="math notranslate nohighlight">\(\mf \nu\)</span>, of the so called black body radiation is given by Planck’s law</p>
@@ -850,7 +872,7 @@ While there are no free electrons in an insulator the conduction is mainly due t
 <figure class="align-default" id="fig-radi-full-spectrum">
 <a class="reference internal image-reference" href="../../../_images/radiative-spectrum-full.svg"><img alt="../../../_images/radiative-spectrum-full.svg" src="../../../_images/radiative-spectrum-full.svg" width="100%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.7 </span><span class="caption-text">Radiative emission spectrum.</span><a class="headerlink" href="#fig-radi-full-spectrum" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.7 </span><span class="caption-text">Radiative emission spectrum.</span><a class="headerlink" href="#fig-radi-full-spectrum" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>With higher surface temperature</p>
@@ -861,18 +883,18 @@ While there are no free electrons in an insulator the conduction is mainly due t
 <figure class="align-default" id="fig-heat-em-colors">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/5/5a/Example_incandescence_colors_%28temperature_range_550_-_1300_C%29.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/5/5a/Example_incandescence_colors_%28temperature_range_550_-_1300_C%29.svg" src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Example_incandescence_colors_%28temperature_range_550_-_1300_C%29.svg" width="30%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.8 </span><span class="caption-text">Approximation of the color of an incandescent object. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Example_incandescence_colors_(temperature_range_550_-_1300_C).svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-heat-em-colors" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.8 </span><span class="caption-text">Approximation of the color of an incandescent object. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Example_incandescence_colors_(temperature_range_550_-_1300_C).svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-heat-em-colors" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-heat-em-hot-metal">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/a/a9/Hot_metalwork.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/a/a9/Hot_metalwork.jpg" src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Hot_metalwork.jpg" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.9 </span><span class="caption-text">Hot metal. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Hot_metalwork.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-heat-em-hot-metal" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.9 </span><span class="caption-text">Hot metal. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Hot_metalwork.jpg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-heat-em-hot-metal" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="emitted-power">
-<h3>Emitted Power<a class="headerlink" href="#emitted-power" title="Permalink to this heading">#</a></h3>
+<h3>Emitted Power<a class="headerlink" href="#emitted-power" title="Link to this heading">#</a></h3>
 <p>The total energy (<span class="math notranslate nohighlight">\(\mf E_b\)</span>) emitted by a black body radiator is described by the Stefan-Boltzmann law</p>
 <div class="math notranslate nohighlight">
 \[
@@ -894,7 +916,7 @@ While there are no free electrons in an insulator the conduction is mainly due t
 <figure class="align-default" id="fig-heat-radiation-surface">
 <a class="reference internal image-reference" href="../../../_images/radiation-interaction.svg"><img alt="../../../_images/radiation-interaction.svg" src="../../../_images/radiation-interaction.svg" width="60%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.10 </span><span class="caption-text">Interaction of incident radiation with a solid body.</span><a class="headerlink" href="#fig-heat-radiation-surface" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.10 </span><span class="caption-text">Interaction of incident radiation with a solid body.</span><a class="headerlink" href="#fig-heat-radiation-surface" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The energy flux <span class="math notranslate nohighlight">\(\mf Q_{1\rightarrow 2}\)</span> from a diffusive radiator surface <span class="math notranslate nohighlight">\(\mf A_1\)</span> to an other surface <span class="math notranslate nohighlight">\(\mf A_2\)</span> is given by</p>
@@ -910,13 +932,13 @@ While there are no free electrons in an insulator the conduction is mainly due t
 <figure class="align-default" id="fig-heat-radiation-general-viewfactor">
 <a class="reference internal image-reference" href="../../../_images/radiation-general-viewfactor.svg"><img alt="../../../_images/radiation-general-viewfactor.svg" src="../../../_images/radiation-general-viewfactor.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.11 </span><span class="caption-text">General view factor between infinitesimal surface elements.</span><a class="headerlink" href="#fig-heat-radiation-general-viewfactor" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.11 </span><span class="caption-text">General view factor between infinitesimal surface elements.</span><a class="headerlink" href="#fig-heat-radiation-general-viewfactor" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>There exist integrated results for many configurations, like shown in the appendix D (Configuration Factors) in <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id19" title="SFPE. SFPE Handbook of Fire Protection Engineering. Springer, 5th edition, 2016. ISBN 9781493925643. doi:10.1007/978-1-4939-2565-0.">SFPE16</a>]</span>.</p>
 </section>
 <section id="radiation-transfer">
-<h3>Radiation Transfer<a class="headerlink" href="#radiation-transfer" title="Permalink to this heading">#</a></h3>
+<h3>Radiation Transfer<a class="headerlink" href="#radiation-transfer" title="Link to this heading">#</a></h3>
 <p>The transport of radiation through a medium must include the following processes:</p>
 <ul class="simple">
 <li><p>absorption,</p></li>
@@ -927,7 +949,7 @@ While there are no free electrons in an insulator the conduction is mainly due t
 <figure class="align-default" id="fig-heat-radiation-general-transfer">
 <a class="reference internal image-reference" href="../../../_images/yeoh-radiation-transfer.png"><img alt="../../../_images/yeoh-radiation-transfer.png" src="../../../_images/yeoh-radiation-transfer.png" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.12 </span><span class="caption-text">Radiation transfer in a medium. Source: <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id4" title="Guan Heng Yeoh and Kwok Kit Yuen. Computational Fluid Dynamics in Fire Engineering. Butterworth-Heinemann, 2009. ISBN 9780750685894. doi:10.1016/b978-0-7506-8589-4.00008-9.">YY09</a>]</span>.</span><a class="headerlink" href="#fig-heat-radiation-general-transfer" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.12 </span><span class="caption-text">Radiation transfer in a medium. Source: <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id4" title="Guan Heng Yeoh and Kwok Kit Yuen. Computational Fluid Dynamics in Fire Engineering. Butterworth-Heinemann, 2009. ISBN 9780750685894. doi:10.1016/b978-0-7506-8589-4.00008-9.">YY09</a>]</span>.</span><a class="headerlink" href="#fig-heat-radiation-general-transfer" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The change of monochromatic intensity <span class="math notranslate nohighlight">\(\mf I_\lambda\)</span> in a control volume in the direction <span class="math notranslate nohighlight">\(\mf \vec{s}\)</span> is given by</p>
@@ -958,13 +980,13 @@ While there are no free electrons in an insulator the conduction is mainly due t
 <figure class="align-default" id="fig-heat-radiation-gas-emissivity">
 <a class="reference internal image-reference" href="../../../_images/yeoh-radiation-gas-emissivity.png"><img alt="../../../_images/yeoh-radiation-gas-emissivity.png" src="../../../_images/yeoh-radiation-gas-emissivity.png" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.13 </span><span class="caption-text">Emissivity spectrum of <span class="math notranslate nohighlight">\(\mf CO_2\)</span> and <span class="math notranslate nohighlight">\(\mf H_2O\)</span>. Source: <span id="id4">[<a class="reference internal" href="../../overview/03_references.html#id4" title="Guan Heng Yeoh and Kwok Kit Yuen. Computational Fluid Dynamics in Fire Engineering. Butterworth-Heinemann, 2009. ISBN 9780750685894. doi:10.1016/b978-0-7506-8589-4.00008-9.">YY09</a>]</span>.</span><a class="headerlink" href="#fig-heat-radiation-gas-emissivity" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.13 </span><span class="caption-text">Emissivity spectrum of <span class="math notranslate nohighlight">\(\mf CO_2\)</span> and <span class="math notranslate nohighlight">\(\mf H_2O\)</span>. Source: <span id="id4">[<a class="reference internal" href="../../overview/03_references.html#id4" title="Guan Heng Yeoh and Kwok Kit Yuen. Computational Fluid Dynamics in Fire Engineering. Butterworth-Heinemann, 2009. ISBN 9780750685894. doi:10.1016/b978-0-7506-8589-4.00008-9.">YY09</a>]</span>.</span><a class="headerlink" href="#fig-heat-radiation-gas-emissivity" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-heat-radiation-soot-emissivity">
 <a class="reference internal image-reference" href="../../../_images/yeoh-radiation-spectrum-soot.png"><img alt="../../../_images/yeoh-radiation-spectrum-soot.png" src="../../../_images/yeoh-radiation-spectrum-soot.png" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.14 </span><span class="caption-text">Emissivity spectrum of soot compared to a black body radiator. Source: <span id="id5">[<a class="reference internal" href="../../overview/03_references.html#id4" title="Guan Heng Yeoh and Kwok Kit Yuen. Computational Fluid Dynamics in Fire Engineering. Butterworth-Heinemann, 2009. ISBN 9780750685894. doi:10.1016/b978-0-7506-8589-4.00008-9.">YY09</a>]</span>.</span><a class="headerlink" href="#fig-heat-radiation-soot-emissivity" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.14 </span><span class="caption-text">Emissivity spectrum of soot compared to a black body radiator. Source: <span id="id5">[<a class="reference internal" href="../../overview/03_references.html#id4" title="Guan Heng Yeoh and Kwok Kit Yuen. Computational Fluid Dynamics in Fire Engineering. Butterworth-Heinemann, 2009. ISBN 9780750685894. doi:10.1016/b978-0-7506-8589-4.00008-9.">YY09</a>]</span>.</span><a class="headerlink" href="#fig-heat-radiation-soot-emissivity" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -996,11 +1018,10 @@ While there are no free electrons in an insulator the conduction is mainly due t
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="00_overview.html"
@@ -1020,10 +1041,7 @@ While there are no free electrons in an insulator the conduction is mainly due t
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1031,6 +1049,7 @@ While there are no free electrons in an insulator the conduction is mainly due t
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1067,6 +1086,7 @@ While there are no free electrons in an insulator the conduction is mainly due t
   
   <div class="footer-item">
     
+
   </div>
   
   <div class="footer-item">
@@ -1094,8 +1114,8 @@ While there are no free electrons in an insulator the conduction is mainly due t
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

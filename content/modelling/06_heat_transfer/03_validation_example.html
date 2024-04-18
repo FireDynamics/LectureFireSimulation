@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>6.3. Validation – Heat Transfer &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
   
@@ -19,54 +18,51 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=ed0cee17" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"tex": {"macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}", "du": "\\dot{u}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/modelling/06_heat_transfer/03_validation_example';</script>
     <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/modelling/06_heat_transfer/03_validation_example.html" />
-    <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
+    <link rel="icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="6.4. Example – 3D Heat Transfer" href="04_ht3d_example.html" />
@@ -80,7 +76,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -115,11 +119,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -134,9 +141,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../overview/01_overview.html">
+  
   
   
   
@@ -146,12 +155,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../../_static/cce_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../../_static/cce_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../../_static/cce_logo.png" class="logo__image only-light" alt="Fire Simulation <br> Lecture Notes - Home"/>
+    <script>document.write(`<img src="../../../_static/cce_logo.png" class="logo__image only-dark" alt="Fire Simulation <br> Lecture Notes - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -481,20 +501,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -563,41 +585,41 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="validation-heat-transfer">
-<h1><span class="section-number">6.3. </span>Validation – Heat Transfer<a class="headerlink" href="#validation-heat-transfer" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">6.3. </span>Validation – Heat Transfer<a class="headerlink" href="#validation-heat-transfer" title="Link to this heading">#</a></h1>
 <p>ASTM E1355 - 12 <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id22" title="ASTM. ASTM E1355-12, Standard Guide for Evaluating the Predictive Capabilities of Deterministic Fire Models. Technical Report, American Society for Testing and Materials, 2012.">ASTM12</a>]</span> is the ‘Standard Guide for Evaluating the Predictive Capability of Deterministic Fire Models’
 It provides a methodology for evaluating the predictive capabilities of a fire model for a specific use. The intent is to cover the whole range of deterministic numerical models which might be used in evaluating the effects of fires in and on structures. It gives a general definition of the terms verification and validation:</p>
 <section id="verification">
-<h2>Verification<a class="headerlink" href="#verification" title="Permalink to this heading">#</a></h2>
+<h2>Verification<a class="headerlink" href="#verification" title="Link to this heading">#</a></h2>
 <p>The process of determining that the implementation of a calculation method accurately represents the developer’s conceptual description of the calculation method and the solution to the calculation method. It does not imply that the governing equations are appropriate; only that the equations are being solved correctly.</p>
 </section>
 <section id="validation">
-<h2>Validation<a class="headerlink" href="#validation" title="Permalink to this heading">#</a></h2>
+<h2>Validation<a class="headerlink" href="#validation" title="Link to this heading">#</a></h2>
 <p>The process of determining the degree to which a calculation method is an accurate representation of the real world from the perspective of the intended uses of the calculation method. It typically involves comparing model results with experimental measurement. Differences that cannot be explained in terms of numerical errors in the model or uncertainty in the measurements are attributed to the assumptions and simplifications of the physical model.</p>
 <figure class="align-default" id="fig-validation-flowchart">
 <a class="reference internal image-reference" href="../../../_images/validation_verification.svg"><img alt="../../../_images/validation_verification.svg" src="../../../_images/validation_verification.svg" width="60%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.28 </span><span class="caption-text">Validation and Verification</span><a class="headerlink" href="#fig-validation-flowchart" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.28 </span><span class="caption-text">Validation and Verification</span><a class="headerlink" href="#fig-validation-flowchart" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <section id="reality-of-interest">
-<h3>Reality of interest<a class="headerlink" href="#reality-of-interest" title="Permalink to this heading">#</a></h3>
+<h3>Reality of interest<a class="headerlink" href="#reality-of-interest" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>physical system, data source</p></li>
 <li><p>hierarchy of experiments, unit</p></li>
 </ul>
 </section>
 <section id="mathematical-model">
-<h3>Mathematical model<a class="headerlink" href="#mathematical-model" title="Permalink to this heading">#</a></h3>
+<h3>Mathematical model<a class="headerlink" href="#mathematical-model" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>conceptual and mathematical model</p></li>
 <li><p>PDEs, geometry, boundary- and initial conditions</p></li>
 </ul>
 </section>
 <section id="computer-model">
-<h3>Computer model<a class="headerlink" href="#computer-model" title="Permalink to this heading">#</a></h3>
+<h3>Computer model<a class="headerlink" href="#computer-model" title="Link to this heading">#</a></h3>
 <ul class="simple">
 <li><p>implementation of mathematical model</p></li>
 <li><p>numerical solver and algorithms</p></li>
@@ -605,54 +627,54 @@ It provides a methodology for evaluating the predictive capabilities of a fire m
 <p><span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id22" title="ASTM. ASTM E1355-12, Standard Guide for Evaluating the Predictive Capabilities of Deterministic Fire Models. Technical Report, American Society for Testing and Materials, 2012.">ASTM12</a>]</span> describes three basic types of validation calculations:</p>
 </section>
 <section id="blind-calculation">
-<h3>Blind Calculation:<a class="headerlink" href="#blind-calculation" title="Permalink to this heading">#</a></h3>
+<h3>Blind Calculation:<a class="headerlink" href="#blind-calculation" title="Link to this heading">#</a></h3>
 <p>The model user is provided with a basic description of the scenario to be modeled. For this application, the problem description is not exact; the model user is responsible for developing appropriate model inputs from the problem description, including additional details of the geometry, material properties, and fire description, as appropriate.  Additional details necessary to simulate the scenario with a specific model are left to the judgment of the model user.  In addition to illustrating the comparability of models in actual end-use conditions, this will test the ability of those who use the model to develop appropriate input data for the models.</p>
 </section>
 <section id="specified-calculation">
-<h3>Specified Calculation:<a class="headerlink" href="#specified-calculation" title="Permalink to this heading">#</a></h3>
+<h3>Specified Calculation:<a class="headerlink" href="#specified-calculation" title="Link to this heading">#</a></h3>
 <p>The model user is provided with a complete detailed description of model inputs, including geometry, material properties, and fire description. As a follow-on to the blind calculation, this test provides a more careful comparison of the underlying physics in the models with a more completely specified scenario.</p>
 </section>
 <section id="open-calculation">
-<h3>Open Calculation<a class="headerlink" href="#open-calculation" title="Permalink to this heading">#</a></h3>
+<h3>Open Calculation<a class="headerlink" href="#open-calculation" title="Link to this heading">#</a></h3>
 <p>The model user is provided with the most complete information about the scenario,including geometry, material properties, fire description, and the results of experimental tests or bench-mark model runs which were used in the evaluation of the blind or specified calculations of the scenario. Deficiencies in available input (used for the blind calculation) should become most apparent with comparison of the open and blind calculation.</p>
 </section>
 </section>
 <section id="documentation-of-validation-and-verification-in-fds">
-<h2>Documentation of validation and verification in FDS<a class="headerlink" href="#documentation-of-validation-and-verification-in-fds" title="Permalink to this heading">#</a></h2>
+<h2>Documentation of validation and verification in FDS<a class="headerlink" href="#documentation-of-validation-and-verification-in-fds" title="Link to this heading">#</a></h2>
 <p>The National Institute of Standards and Technology (NIST) provides separate documentations for the Fire Dynamics Simulator (FDS) and its visualization tool Smokeview (SMV). Each of these programs is accompanied by a user manual and a technical reference guide, which are continuously updated upon every minor release.</p>
 <section id="fds-user-s-guide">
-<h3>FDS User’s Guide<a class="headerlink" href="#fds-user-s-guide" title="Permalink to this heading">#</a></h3>
+<h3>FDS User’s Guide<a class="headerlink" href="#fds-user-s-guide" title="Link to this heading">#</a></h3>
 <p>The <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">FDS User’s Guide</a> explains how to use the Fire Dynamics Simulator (FDS) but gives little to none theoretically background on fire dynamics.</p>
 </section>
 <section id="techical-reference-guide">
-<h3>Techical Reference Guide<a class="headerlink" href="#techical-reference-guide" title="Permalink to this heading">#</a></h3>
+<h3>Techical Reference Guide<a class="headerlink" href="#techical-reference-guide" title="Link to this heading">#</a></h3>
 <p>The FDS Technical Reference Guide is based in part on the ASTM E1355 - 12 <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id22" title="ASTM. ASTM E1355-12, Standard Guide for Evaluating the Predictive Capabilities of Deterministic Fire Models. Technical Report, American Society for Testing and Materials, 2012.">ASTM12</a>]</span>.
 It is a four volume set of companion documents.</p>
 <section id="technical-reference-guide-volume-1-mathematical-model">
-<h4>Technical Reference Guide Volume 1: Mathematical Model<a class="headerlink" href="#technical-reference-guide-volume-1-mathematical-model" title="Permalink to this heading">#</a></h4>
+<h4>Technical Reference Guide Volume 1: Mathematical Model<a class="headerlink" href="#technical-reference-guide-volume-1-mathematical-model" title="Link to this heading">#</a></h4>
 <p>The <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_Technical_Reference_Guide.pdf">Technical Reference Guide Volume 1: Mathematical Model</a> provides the theoretical (mathematical and physical) basis for the Fire Dynamics Simulator (FDS), according to <span id="id4">[<a class="reference internal" href="../../overview/03_references.html#id22" title="ASTM. ASTM E1355-12, Standard Guide for Evaluating the Predictive Capabilities of Deterministic Fire Models. Technical Report, American Society for Testing and Materials, 2012.">ASTM12</a>]</span> .</p>
 </section>
 <section id="technical-reference-guide-volume-2-verification">
-<h4>Technical Reference Guide Volume 2: Verification<a class="headerlink" href="#technical-reference-guide-volume-2-verification" title="Permalink to this heading">#</a></h4>
+<h4>Technical Reference Guide Volume 2: Verification<a class="headerlink" href="#technical-reference-guide-volume-2-verification" title="Link to this heading">#</a></h4>
 <p>The <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_Verification_Guide.pdf">Technical Reference Guide Volume 2: Verification</a> contains several analytical and numerical tests as well as sensitivity analyses and code checking algorithms for basic test cases.</p>
 </section>
 <section id="technical-reference-guide-volume-3-validation">
-<h4>Technical Reference Guide Volume 3: Validation<a class="headerlink" href="#technical-reference-guide-volume-3-validation" title="Permalink to this heading">#</a></h4>
+<h4>Technical Reference Guide Volume 3: Validation<a class="headerlink" href="#technical-reference-guide-volume-3-validation" title="Link to this heading">#</a></h4>
 <p><a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_Validation_Guide.pdf">Technical Reference Guide Volume 3: Validation</a> is a survey of several experiments that were mainly conducted at the NIST laboratories. The predictions from the numerical model are compared to measurements from the experiments.</p>
 </section>
 <section id="technical-reference-guide-volume-4-configuration-management-plan">
-<h4>Technical Reference Guide Volume 4: Configuration Management Plan<a class="headerlink" href="#technical-reference-guide-volume-4-configuration-management-plan" title="Permalink to this heading">#</a></h4>
+<h4>Technical Reference Guide Volume 4: Configuration Management Plan<a class="headerlink" href="#technical-reference-guide-volume-4-configuration-management-plan" title="Link to this heading">#</a></h4>
 <p><a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_Config_Management_Plan.pdf">Technical Reference Guide Volume 4: Configuration Management Plan</a> describes the policies and procedures for developing and maintaining the Fire Dynamics Simulator (FDS) and the companion visualization program, Smokeview (SMV). It is referred to as a Software Quality Assurance Plan according to IEEE Standard 828 and <span id="id5">[<a class="reference internal" href="../../overview/03_references.html#id22" title="ASTM. ASTM E1355-12, Standard Guide for Evaluating the Predictive Capabilities of Deterministic Fire Models. Technical Report, American Society for Testing and Materials, 2012.">ASTM12</a>]</span>.</p>
 </section>
 </section>
 </section>
 <section id="validation-verification-example">
-<h2>Validation / Verification example<a class="headerlink" href="#validation-verification-example" title="Permalink to this heading">#</a></h2>
+<h2>Validation / Verification example<a class="headerlink" href="#validation-verification-example" title="Link to this heading">#</a></h2>
 <p>In order to calculate the incident heat flux, a concept called view factor is used. View factor is the proportion of the radiation which leaves the transmitter surface and strikes the receiver surface.</p>
 <figure class="align-default" id="fig-validation-viewfactor">
 <a class="reference internal image-reference" href="../../../_images/device_viewfactor.png"><img alt="../../../_images/device_viewfactor.png" src="../../../_images/device_viewfactor.png" style="width: 70%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.29 </span><span class="caption-text">The green point is the point on a target surface to be evaluated. It is the projection of a device on the hot surface.</span><a class="headerlink" href="#fig-validation-viewfactor" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.29 </span><span class="caption-text">The green point is the point on a target surface to be evaluated. It is the projection of a device on the hot surface.</span><a class="headerlink" href="#fig-validation-viewfactor" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>The total heat flux that reaches the device is the sum of heat fluxes of all subsurfaces. The following equations calculate the fractional heat flux for the individual subsurfaces expressed by viewfactors <span class="math notranslate nohighlight">\(\mf \phi\)</span> for simple cases:</p>
@@ -670,7 +692,7 @@ It is a four volume set of companion documents.</p>
 \]</div>
 <p>Stefan–Boltzmann constant is: $<span class="math notranslate nohighlight">\( \mf \sigma = 5.67 \cdot 10^{-8} \frac{W}{m^2 \cdot K^4}= 5.67 \cdot 10^{-11} \frac{kW}{m^2 \cdot K^4}\)</span>$</p>
 <section id="task">
-<h3>Task<a class="headerlink" href="#task" title="Permalink to this heading">#</a></h3>
+<h3>Task<a class="headerlink" href="#task" title="Link to this heading">#</a></h3>
 <p>The FDS input file <a class="reference download internal" download="" href="../../../_downloads/7ad2addc9b20822808af2f249e009480/radiation_validation.fds"><code class="xref download docutils literal notranslate"><span class="pre">radiation_validation.fds</span></code></a> is used for this simulation. Given is a room with one hot wall, <span class="math notranslate nohighlight">\(\mf temperature = 91.2717 °C\)</span> and other cold surfaces, <span class="math notranslate nohighlight">\(\mf temperature = -272.15 °C\)</span>. Ten devices are defined for measuring the incident and radiative heat fluxes on both front and adjacent sides of the hot wall diagonally, as it is shown below.</p>
 <p>In order to omit the influence of convective heat transfer, there should be no air in the room, which is considered in the input file by
 <code class="docutils literal notranslate"><span class="pre">SOLID_PHASE_ONLY</span> <span class="pre">=</span> <span class="pre">.TRUE.</span></code> on the <code class="docutils literal notranslate"><span class="pre">MISC</span></code> line.
@@ -678,7 +700,7 @@ The objective of this task is to validate the results of the FDS simulation with
 <figure class="align-default" id="fig-validation-geometry">
 <a class="reference internal image-reference" href="../../../_images/room_geometry.png"><img alt="../../../_images/room_geometry.png" src="../../../_images/room_geometry.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.30 </span><span class="caption-text">The geometry, location of the hot surface and the devices.</span><a class="headerlink" href="#fig-validation-geometry" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.30 </span><span class="caption-text">The geometry, location of the hot surface and the devices.</span><a class="headerlink" href="#fig-validation-geometry" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <ol class="arabic">
@@ -694,7 +716,7 @@ The objective of this task is to validate the results of the FDS simulation with
 </ol>
 </section>
 <section id="input-file-parameters-explained">
-<h3>Input file parameters explained<a class="headerlink" href="#input-file-parameters-explained" title="Permalink to this heading">#</a></h3>
+<h3>Input file parameters explained<a class="headerlink" href="#input-file-parameters-explained" title="Link to this heading">#</a></h3>
 <p>Regarding <code class="docutils literal notranslate"><span class="pre">RADI</span></code> namelist in the input file, the frequency of calls to the radiation solver can be changed from every <span class="math notranslate nohighlight">\(\mf 3\)</span> time steps with an integer
 called <code class="docutils literal notranslate"><span class="pre">TIME_STEP_INCREMENT</span></code>. The increment over which the angles are updated can be reduced from
 <span class="math notranslate nohighlight">\(\mf 5\)</span> with the integer called <code class="docutils literal notranslate"><span class="pre">ANGLE_INCREMENT</span></code>. If <code class="docutils literal notranslate"><span class="pre">TIME_STEP_INCREMENT</span></code> and <code class="docutils literal notranslate"><span class="pre">ANGLE_INCREMENT</span></code> are
@@ -710,12 +732,12 @@ from the heat source, but because of the finite number of solid angles along whi
 <code class="docutils literal notranslate"><span class="pre">SMOKE3D</span> <span class="pre">=</span> <span class="pre">.FALSE.</span></code> does not produce an animation of the smoke and fire. <code class="docutils literal notranslate"><span class="pre">DT_PL3D</span></code> is the time between Plot3D file output. <code class="docutils literal notranslate"><span class="pre">DT_DEVC</span></code> works like <code class="docutils literal notranslate"><span class="pre">NFRAMES</span></code>, but only controls the output of devices. For more detailed description refer to section 21.1 <a class="reference external" href="https://github.com/firemodels/fds/releases/download/FDS6.7.5/FDS_User_Guide.pdf">FDS User’s Guide</a></p>
 </section>
 <section id="solution">
-<h3>Solution<a class="headerlink" href="#solution" title="Permalink to this heading">#</a></h3>
+<h3>Solution<a class="headerlink" href="#solution" title="Link to this heading">#</a></h3>
 <section id="analytical-results-for-both-device-lines">
-<h4>Analytical results for both device lines<a class="headerlink" href="#analytical-results-for-both-device-lines" title="Permalink to this heading">#</a></h4>
+<h4>Analytical results for both device lines<a class="headerlink" href="#analytical-results-for-both-device-lines" title="Link to this heading">#</a></h4>
 </section>
 <section id="single-device">
-<h4>Single device<a class="headerlink" href="#single-device" title="Permalink to this heading">#</a></h4>
+<h4>Single device<a class="headerlink" href="#single-device" title="Link to this heading">#</a></h4>
 <p>Here is the calculation of the incident and radiative heat fluxes for one of the devices at x = 1, y = 0.333 and z = 0.667 using analytical formulas.</p>
 <p>First calculate a and b for each subsurface.</p>
 <div class="math notranslate nohighlight">
@@ -783,63 +805,63 @@ from the heat source, but because of the finite number of solid angles along whi
 </div>
 </section>
 <section id="plotting-the-results">
-<h4>Plotting the results<a class="headerlink" href="#plotting-the-results" title="Permalink to this heading">#</a></h4>
+<h4>Plotting the results<a class="headerlink" href="#plotting-the-results" title="Link to this heading">#</a></h4>
 <figure class="align-default" id="id6">
 <a class="reference internal image-reference" href="../../../_images/incident_flux_front.svg"><img alt="../../../_images/incident_flux_front.svg" src="../../../_images/incident_flux_front.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.31 </span><span class="caption-text">Incident heat flux front</span><a class="headerlink" href="#id6" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.31 </span><span class="caption-text">Incident heat flux front</span><a class="headerlink" href="#id6" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="id7">
 <a class="reference internal image-reference" href="../../../_images/incident_flux_side.svg"><img alt="../../../_images/incident_flux_side.svg" src="../../../_images/incident_flux_side.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.32 </span><span class="caption-text">Incident heat flux side</span><a class="headerlink" href="#id7" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.32 </span><span class="caption-text">Incident heat flux side</span><a class="headerlink" href="#id7" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="id8">
 <a class="reference internal image-reference" href="../../../_images/radiative_flux_front.svg"><img alt="../../../_images/radiative_flux_front.svg" src="../../../_images/radiative_flux_front.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.33 </span><span class="caption-text">Radiative heat flux front</span><a class="headerlink" href="#id8" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.33 </span><span class="caption-text">Radiative heat flux front</span><a class="headerlink" href="#id8" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="id9">
 <a class="reference internal image-reference" href="../../../_images/radiative_flux_side.svg"><img alt="../../../_images/radiative_flux_side.svg" src="../../../_images/radiative_flux_side.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.34 </span><span class="caption-text">Radiative heat flux side</span><a class="headerlink" href="#id9" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.34 </span><span class="caption-text">Radiative heat flux side</span><a class="headerlink" href="#id9" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="id10">
 <a class="reference internal image-reference" href="../../../_images/gauge_flux_front.svg"><img alt="../../../_images/gauge_flux_front.svg" src="../../../_images/gauge_flux_front.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.35 </span><span class="caption-text">Gauge heat flux front, <span class="math notranslate nohighlight">\(\sf T_{gauge}=-100°C\)</span></span><a class="headerlink" href="#id10" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.35 </span><span class="caption-text">Gauge heat flux front, <span class="math notranslate nohighlight">\(\sf T_{gauge}=-100°C\)</span></span><a class="headerlink" href="#id10" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="id11">
 <a class="reference internal image-reference" href="../../../_images/gauge_flux_side.svg"><img alt="../../../_images/gauge_flux_side.svg" src="../../../_images/gauge_flux_side.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.36 </span><span class="caption-text">Gauge heat flux side, <span class="math notranslate nohighlight">\(\sf T_{gauge}=-100°C\)</span></span><a class="headerlink" href="#id11" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.36 </span><span class="caption-text">Gauge heat flux side, <span class="math notranslate nohighlight">\(\sf T_{gauge}=-100°C\)</span></span><a class="headerlink" href="#id11" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="higher-value-for-number-radiation-angles">
-<h4>Higher value for <code class="docutils literal notranslate"><span class="pre">NUMBER_RADIATION_ANGLES</span></code><a class="headerlink" href="#higher-value-for-number-radiation-angles" title="Permalink to this heading">#</a></h4>
+<h4>Higher value for <code class="docutils literal notranslate"><span class="pre">NUMBER_RADIATION_ANGLES</span></code><a class="headerlink" href="#higher-value-for-number-radiation-angles" title="Link to this heading">#</a></h4>
 <figure class="align-default" id="fig-validation-heatflux-rad-angles">
 <a class="reference internal image-reference" href="../../../_images/rad_angle.png"><img alt="../../../_images/rad_angle.png" src="../../../_images/rad_angle.png" style="width: 100%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.37 </span><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">SLCF</span></code> file in <code class="docutils literal notranslate"><span class="pre">PBX</span> <span class="pre">=</span> <span class="pre">0.98</span></code> for radiation intensity. From left to right, the <code class="docutils literal notranslate"><span class="pre">NUMBER_RADIATION_ANGLES</span></code> is set to <span class="math notranslate nohighlight">\(\sf 100\)</span>, <span class="math notranslate nohighlight">\(\sf 200\)</span> and <span class="math notranslate nohighlight">\(\sf 500\)</span>.</span><a class="headerlink" href="#fig-validation-heatflux-rad-angles" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.37 </span><span class="caption-text"><code class="docutils literal notranslate"><span class="pre">SLCF</span></code> file in <code class="docutils literal notranslate"><span class="pre">PBX</span> <span class="pre">=</span> <span class="pre">0.98</span></code> for radiation intensity. From left to right, the <code class="docutils literal notranslate"><span class="pre">NUMBER_RADIATION_ANGLES</span></code> is set to <span class="math notranslate nohighlight">\(\sf 100\)</span>, <span class="math notranslate nohighlight">\(\sf 200\)</span> and <span class="math notranslate nohighlight">\(\sf 500\)</span>.</span><a class="headerlink" href="#fig-validation-heatflux-rad-angles" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Comparing the <code class="docutils literal notranslate"><span class="pre">incident</span> <span class="pre">heat</span> <span class="pre">flux</span></code> results, when <code class="docutils literal notranslate"><span class="pre">NUMBER_RADIATION_ANGLES</span> <span class="pre">=</span> <span class="pre">500</span></code>.</p>
 <figure class="align-default" id="fig-validation-heatflux-rad-angles-front">
 <a class="reference internal image-reference" href="../../../_images/incident_front_500.svg"><img alt="../../../_images/incident_front_500.svg" src="../../../_images/incident_front_500.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.38 </span><span class="caption-text">Incident heat flux front</span><a class="headerlink" href="#fig-validation-heatflux-rad-angles-front" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.38 </span><span class="caption-text">Incident heat flux front</span><a class="headerlink" href="#fig-validation-heatflux-rad-angles-front" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-validation-heatflux-rad-angles-side">
 <a class="reference internal image-reference" href="../../../_images/incident_side_500.svg"><img alt="../../../_images/incident_side_500.svg" src="../../../_images/incident_side_500.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 6.39 </span><span class="caption-text">Radiative heat flux front</span><a class="headerlink" href="#fig-validation-heatflux-rad-angles-side" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 6.39 </span><span class="caption-text">Radiative heat flux front</span><a class="headerlink" href="#fig-validation-heatflux-rad-angles-side" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -872,11 +894,10 @@ from the heat source, but because of the finite number of solid angles along whi
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="02_heat_transfer_example.html"
@@ -896,10 +917,7 @@ from the heat source, but because of the finite number of solid angles along whi
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -907,6 +925,7 @@ from the heat source, but because of the finite number of solid angles along whi
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -964,6 +983,7 @@ from the heat source, but because of the finite number of solid angles along whi
   
   <div class="footer-item">
     
+
   </div>
   
   <div class="footer-item">
@@ -991,8 +1011,8 @@ from the heat source, but because of the finite number of solid angles along whi
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

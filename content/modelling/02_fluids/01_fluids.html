@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>2.1. Fluids &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
   
@@ -19,54 +18,51 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=ed0cee17" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>window.MathJax = {"tex": {"macros": {"vv": "\\vec{v}", "vu": "\\vec{u}", "mf": "\\small\\sf", "dQ": "\\dot{Q}", "dq": "\\dot{q}", "dm": "\\dot{m}", "du": "\\dot{u}"}}, "options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/modelling/02_fluids/01_fluids';</script>
     <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/modelling/02_fluids/01_fluids.html" />
-    <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
+    <link rel="icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="2.2. Computational Fluid Dynamics" href="02_cfd.html" />
@@ -80,7 +76,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -115,11 +119,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -134,9 +141,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../overview/01_overview.html">
+  
   
   
   
@@ -146,12 +155,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../../_static/cce_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../../_static/cce_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../../_static/cce_logo.png" class="logo__image only-light" alt="Fire Simulation <br> Lecture Notes - Home"/>
+    <script>document.write(`<img src="../../../_static/cce_logo.png" class="logo__image only-dark" alt="Fire Simulation <br> Lecture Notes - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -450,20 +470,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -524,12 +546,12 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="fluids">
-<h1><span class="section-number">2.1. </span>Fluids<a class="headerlink" href="#fluids" title="Permalink to this heading">#</a></h1>
+<h1><span class="section-number">2.1. </span>Fluids<a class="headerlink" href="#fluids" title="Link to this heading">#</a></h1>
 <section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this heading">#</a></h2>
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading">#</a></h2>
 <p>Fluid dynamics describes the movement of liquids or gases. The following aspects may be needed to be taken into account:</p>
 <ul class="simple">
 <li><p>compressibility</p></li>
@@ -548,7 +570,7 @@ document.write(`
 <iframe width="60%" src="https://www.youtube-nocookie.com/embed/E9ZSAX56m0E" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </section>
 <section id="fundamentals">
-<h2>Fundamentals<a class="headerlink" href="#fundamentals" title="Permalink to this heading">#</a></h2>
+<h2>Fundamentals<a class="headerlink" href="#fundamentals" title="Link to this heading">#</a></h2>
 <p>In fluid dynamics, the following processes represent the most fundamental ones:</p>
 <ul class="simple">
 <li><p><strong>Flow</strong> describes the movement of the medium. It is a vector field and describes the velocity of the fluid at every point in space and time: <span class="math notranslate nohighlight">\(\mf \vv = \vv(x,t)\)</span>. The velocity components are denoted as <span class="math notranslate nohighlight">\(\mf \vv = (v_x,v_y,v_z) = (u,v,w)\)</span>.</p></li>
@@ -558,9 +580,9 @@ smoke) due to the flow. Convection is the advection of the velocity.</p></li>
 <li><p><strong>Diffusion</strong> is a process that drives a balancing process to equilibrate differences in flow properties (velocity, temperature, smoke density).</p></li>
 </ul>
 <section id="flow-quantities">
-<h3>Flow Quantities<a class="headerlink" href="#flow-quantities" title="Permalink to this heading">#</a></h3>
+<h3>Flow Quantities<a class="headerlink" href="#flow-quantities" title="Link to this heading">#</a></h3>
 <table class="table" id="tab-flow-quantities">
-<caption><span class="caption-number">Table 2.1 </span><span class="caption-text">Flow quantities.</span><a class="headerlink" href="#tab-flow-quantities" title="Permalink to this table">#</a></caption>
+<caption><span class="caption-number">Table 2.1 </span><span class="caption-text">Flow quantities.</span><a class="headerlink" href="#tab-flow-quantities" title="Link to this table">#</a></caption>
 <thead>
 <tr class="row-odd"><th class="head"><p>Name</p></th>
 <th class="head"><p>Symbol</p></th>
@@ -609,25 +631,25 @@ smoke) due to the flow. Convection is the advection of the velocity.</p></li>
 <p>Where <span class="math notranslate nohighlight">\(\mf c_p(T)\)</span> is the heat capacity at temperature <span class="math notranslate nohighlight">\(\mf T\)</span> and <span class="math notranslate nohighlight">\(\mf \Delta h_f^0\)</span> is the heat of formation.</p>
 </section>
 <section id="speed-of-sound">
-<h3>Speed of Sound<a class="headerlink" href="#speed-of-sound" title="Permalink to this heading">#</a></h3>
+<h3>Speed of Sound<a class="headerlink" href="#speed-of-sound" title="Link to this heading">#</a></h3>
 <p>In fluids and solids, information (flow changes, perturbations) propagates with a finite speed: the speed of sound. Sound waves are longitudinal compression waves. Typical travel speeds are <span class="math notranslate nohighlight">\(\mf 343~m/s\)</span> in air, <span class="math notranslate nohighlight">\(\mf 1484~m/s\)</span> in water and <span class="math notranslate nohighlight">\(\mf 5120~m/s\)</span> in steel.
 In general the speed of sound <span class="math notranslate nohighlight">\(\mf c_s\)</span> in an ideal gas is given by:</p>
 <div class="math notranslate nohighlight" id="equation-eq-speed-of-sound">
-<span class="eqno">(2.1)<a class="headerlink" href="#equation-eq-speed-of-sound" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(2.1)<a class="headerlink" href="#equation-eq-speed-of-sound" title="Link to this equation">#</a></span>\[
 \mf c_s = \sqrt{\frac{\gamma k_B T}{m}}
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(\mf \gamma\)</span> is the heat capacity ratio <span class="math notranslate nohighlight">\(\mf \gamma=c_P/c_V\)</span>, <span class="math notranslate nohighlight">\(\mf k_B\)</span> is the Boltzmann constant (<span class="math notranslate nohighlight">\(\mf \sim\!1.381\cdot 10^{−23}~J/K\)</span>), T the gas temperature, and <span class="math notranslate nohighlight">\(\mf m\)</span> the mass of a single gas molecule. In general, for a given gas species, the speed of sound depends only on the temperature. For dry air, it can be approximated as:</p>
 <div class="math notranslate nohighlight" id="equation-eq-c-in-air">
-<span class="eqno">(2.2)<a class="headerlink" href="#equation-eq-c-in-air" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(2.2)<a class="headerlink" href="#equation-eq-c-in-air" title="Link to this equation">#</a></span>\[
 \mf c_{s, air} =(331.3+0.606\cdot \Theta) m/s 
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(\mf \Theta\)</span> is the air temperature in <span class="math notranslate nohighlight">\(\mf ^\circ C\)</span>.</p>
 </section>
 <section id="equation-of-state">
-<h3>Equation of State<a class="headerlink" href="#equation-of-state" title="Permalink to this heading">#</a></h3>
+<h3>Equation of State<a class="headerlink" href="#equation-of-state" title="Link to this heading">#</a></h3>
 <p>For an ideal or perfect gas the state can usually be described in terms of two thermodynamic variables (<span class="math notranslate nohighlight">\(\mf n\)</span>, <span class="math notranslate nohighlight">\(\mf\rho\)</span>, <span class="math notranslate nohighlight">\(\mf p\)</span>, <span class="math notranslate nohighlight">\(\mf e\)</span>, <span class="math notranslate nohighlight">\(\mf T\)</span>, <span class="math notranslate nohighlight">\(\mf V\)</span>, <span class="math notranslate nohighlight">\(\mf m\)</span>, <span class="math notranslate nohighlight">\(\mf h\)</span>). Following the combination of Boyle’s and Charles’ laws in a thermodynamical equilibrium, the equation of state follows as:</p>
 <div class="math notranslate nohighlight" id="equation-eq-equation-of-state">
-<span class="eqno">(2.3)<a class="headerlink" href="#equation-eq-equation-of-state" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(2.3)<a class="headerlink" href="#equation-eq-equation-of-state" title="Link to this equation">#</a></span>\[
 \mf pV = nRT
 \]</div>
 <p>where <span class="math notranslate nohighlight">\(\mf R = 8.314~J/(mol~K)\)</span> is the universal gas constant and <span class="math notranslate nohighlight">\(\mf n\)</span> is the number of particles. Reactive flows are mostly a compound of a number of different species. Thus the equation of state for a system in equilibrium with <span class="math notranslate nohighlight">\(\mf N\)</span> species becomes</p>
@@ -643,50 +665,50 @@ In general the speed of sound <span class="math notranslate nohighlight">\(\mf c
 </section>
 </section>
 <section id="characterisation-of-flows">
-<h2>Characterisation of Flows<a class="headerlink" href="#characterisation-of-flows" title="Permalink to this heading">#</a></h2>
+<h2>Characterisation of Flows<a class="headerlink" href="#characterisation-of-flows" title="Link to this heading">#</a></h2>
 <p>Flows of fluids (liquids and gases) follow the same principal characteristics. In the following there will be no difference in liquid or gas flows. They will only differ in material properties. Examples for a fluid flow:</p>
 <figure class="align-default" id="fig-fluid-vortex-island">
 <a class="rotate90 reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/2/2c/Vortex-street-1.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/2/2c/Vortex-street-1.jpg" class="rotate90" src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Vortex-street-1.jpg" style="width: 40%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.1 </span><span class="caption-text">Von Kármán vortex street observed in nature. Soruce: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Vortex-street-1.jpg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-vortex-island" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.1 </span><span class="caption-text">Von Kármán vortex street observed in nature. Soruce: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Vortex-street-1.jpg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-vortex-island" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-fluid-vortex-lab">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/f/fe/VortexStreet01.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/f/fe/VortexStreet01.jpg" src="https://upload.wikimedia.org/wikipedia/commons/f/fe/VortexStreet01.jpg" style="width: 80%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.2 </span><span class="caption-text">Von Kármán vortex street in a lab. Soruce: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:VortexStreet01.jpg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-vortex-lab" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.2 </span><span class="caption-text">Von Kármán vortex street in a lab. Soruce: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:VortexStreet01.jpg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-vortex-lab" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <section id="compressible-flows">
-<h3>Compressible Flows<a class="headerlink" href="#compressible-flows" title="Permalink to this heading">#</a></h3>
+<h3>Compressible Flows<a class="headerlink" href="#compressible-flows" title="Link to this heading">#</a></h3>
 <p>Flows with velocities much slower (<span class="math notranslate nohighlight">\(\mf \ll c_s\)</span>) than the speed of sound are incompressible, i.e. the sound waves are infinitely fast on the scale of the involved processes. Thus, all changes in density are quickly balanced. Objects traveling with a speed of at least <span class="math notranslate nohighlight">\(\mf 0.3c_s\)</span> start to introduce fluctuations in density. Flow patterns of supersonic phenomena (explosion, supersonic airplanes) and the corresponding engineering approaches are completely different to those in case of sub sonic flows.</p>
 <p>Note: Temperature changes, like in a fire, lead to density changes and therefore to so called weakly compressible flows.</p>
 <figure class="align-default" id="fig-fluid-laminar">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/b/b9/Aerodynamics_of_model_car.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/b/b9/Aerodynamics_of_model_car.jpg" src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Aerodynamics_of_model_car.jpg" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.3 </span><span class="caption-text">Incompressilbe flow around a model car. Soruce: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Aerodynamics_of_model_car.jpg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-laminar" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.3 </span><span class="caption-text">Incompressilbe flow around a model car. Soruce: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Aerodynamics_of_model_car.jpg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-laminar" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-fluid-supersonic">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/0/06/X-15_Model_in_Supersonic_Tunnel_-_GPN-2000-001272.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/0/06/X-15_Model_in_Supersonic_Tunnel_-_GPN-2000-001272.jpg" src="https://upload.wikimedia.org/wikipedia/commons/0/06/X-15_Model_in_Supersonic_Tunnel_-_GPN-2000-001272.jpg" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.4 </span><span class="caption-text">Supersonic airplane model in a tunnel with at approximately <span class="math notranslate nohighlight">\(\mf 3.5 c\)</span>. Soruce: <a class="reference external" href="https://en.wikipedia.org/wiki/Compressible_flow#/media/File:X-15_Model_in_Supersonic_Tunnel_-_GPN-2000-001272.jpg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-supersonic" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.4 </span><span class="caption-text">Supersonic airplane model in a tunnel with at approximately <span class="math notranslate nohighlight">\(\mf 3.5 c\)</span>. Soruce: <a class="reference external" href="https://en.wikipedia.org/wiki/Compressible_flow#/media/File:X-15_Model_in_Supersonic_Tunnel_-_GPN-2000-001272.jpg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-supersonic" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 <section id="turbulent-flows">
-<h3>Turbulent Flows<a class="headerlink" href="#turbulent-flows" title="Permalink to this heading">#</a></h3>
+<h3>Turbulent Flows<a class="headerlink" href="#turbulent-flows" title="Link to this heading">#</a></h3>
 <p>Depending on how smooth (continuous) a flow is, one can distinguish between laminar and turbulent flows. Flows related to fires are typically turbulent.</p>
 <figure class="align-default" id="fig-fluid-turbulence-separation">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/2/2f/1915ca_abger_fluegel.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/2/2f/1915ca_abger_fluegel.jpg" src="https://upload.wikimedia.org/wikipedia/commons/2/2f/1915ca_abger_fluegel.jpg" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.5 </span><span class="caption-text">Flow around an airfoil with a flow separation. Soruce: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:1915ca_abger_fluegel.jpg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-turbulence-separation" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.5 </span><span class="caption-text">Flow around an airfoil with a flow separation. Soruce: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:1915ca_abger_fluegel.jpg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-turbulence-separation" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <iframe width="60%" src="https://www.youtube.com/embed/QzuzbwJWlYs" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </section>
 <section id="material-parameters">
-<h3>Material Parameters<a class="headerlink" href="#material-parameters" title="Permalink to this heading">#</a></h3>
+<h3>Material Parameters<a class="headerlink" href="#material-parameters" title="Link to this heading">#</a></h3>
 <p>The following material properties are of fundamental interest:</p>
 <ul class="simple">
 <li><p><strong>density</strong> <span class="math notranslate nohighlight">\(\mf\rho\)</span> is the mass per given volume</p>
@@ -721,30 +743,30 @@ In general the speed of sound <span class="math notranslate nohighlight">\(\mf c
 <figure class="align-default" id="fig-fluid-honey">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/c/cc/Runny_hunny.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/c/cc/Runny_hunny.jpg" src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Runny_hunny.jpg" style="width: 40%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.6 </span><span class="caption-text">Honey running down a spoon. Soruce: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Runny_hunny.jpg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-honey" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.6 </span><span class="caption-text">Honey running down a spoon. Soruce: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Runny_hunny.jpg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-honey" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>In a simple two dimensional setup, with a stationary wall and a moving wall, see <a class="reference internal" href="#fig-fluid-viscosity"><span class="std std-numref">Fig. 2.7</span></a>, the dynamic viscosity describes the relation of the forces on the walls and the velocity gradient. If the velocity gradient <span class="math notranslate nohighlight">\(\mf u/y\)</span> is constant, this results in the following friction force per area:</p>
 <div class="math notranslate nohighlight" id="equation-eq-dyn-vis">
-<span class="eqno">(2.4)<a class="headerlink" href="#equation-eq-dyn-vis" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(2.4)<a class="headerlink" href="#equation-eq-dyn-vis" title="Link to this equation">#</a></span>\[
 \mf \frac{F}{A} = \mu \cdot \frac{u}{y} 
 \]</div>
 <figure class="align-default" id="fig-fluid-viscosity">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/9/93/Laminar_shear.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/9/93/Laminar_shear.svg" src="https://upload.wikimedia.org/wikipedia/commons/9/93/Laminar_shear.svg" width="60%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.7 </span><span class="caption-text">Visualisation of the viscosity concepte. Soruce: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Laminar_shear.svg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-viscosity" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.7 </span><span class="caption-text">Visualisation of the viscosity concepte. Soruce: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Laminar_shear.svg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-viscosity" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>Relation <a class="reference internal" href="#equation-eq-dyn-vis">(2.4)</a> is the definition of the <em>dynamic viscosity</em> <span class="math notranslate nohighlight">\(\mf \mu\)</span>. Yet, in some cases the <em>kinematic viscosity</em> <span class="math notranslate nohighlight">\(\mf \nu\)</span> (or momentum diffusivity) is a more convenient quantity. It is given by the ratio of the dynamic viscosity and the density</p>
 <div class="math notranslate nohighlight" id="equation-eq-kin-vis">
-<span class="eqno">(2.5)<a class="headerlink" href="#equation-eq-kin-vis" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(2.5)<a class="headerlink" href="#equation-eq-kin-vis" title="Link to this equation">#</a></span>\[
 \mf \nu = \frac{\mu}{\rho} \quad .
 \]</div>
 <p>Fluids for which viscosity does not depend on the stress state are called Newtonian fluids, all gases are Newtonian fluids. However, there exist also <a class="reference external" href="https://en.wikipedia.org/wiki/Non-Newtonian_fluid">non-Newtonian fluids</a>, like blood, tomato ketchup and water mixed with corn starch.</p>
 <iframe width="60%" src="https://www.youtube-nocookie.com/embed/B6h5pVETbd8" title="YouTube video player" frameborder="0" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </section>
 <section id="dimensionless-numbers">
-<h3>Dimensionless numbers<a class="headerlink" href="#dimensionless-numbers" title="Permalink to this heading">#</a></h3>
+<h3>Dimensionless numbers<a class="headerlink" href="#dimensionless-numbers" title="Link to this heading">#</a></h3>
 <p>Many flow phenomena and types may be characterised by dimensionless numbers. It is assumed, that flows with similar characteristics are comparable, although e.g. the spatial scales are different. Some of the commonly used dimensionless numbers are:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Mach_number">Mach number</a> <span class="math notranslate nohighlight">\(\mf Ma\)</span></p></li>
@@ -758,7 +780,7 @@ In general the speed of sound <span class="math notranslate nohighlight">\(\mf c
 <p><strong>Mach number</strong></p>
 <p>The Mach number is defined as the relation of a velocity to the speed of sound, i.e.</p>
 <div class="math notranslate nohighlight" id="equation-eq-mach-number">
-<span class="eqno">(2.6)<a class="headerlink" href="#equation-eq-mach-number" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(2.6)<a class="headerlink" href="#equation-eq-mach-number" title="Link to this equation">#</a></span>\[
 \mf Ma = \frac{v}{c_s}
 \]</div>
 <p>This number characterises the compressibility of a flow:</p>
@@ -779,15 +801,15 @@ This number is a classical example for scaling. Flow phenomena having the same R
 <figure class="align-default" id="fig-fluid-re-table">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/9/99/Reynoldsflugrpd.png"><img alt="https://upload.wikimedia.org/wikipedia/commons/9/99/Reynoldsflugrpd.png" src="https://upload.wikimedia.org/wikipedia/commons/9/99/Reynoldsflugrpd.png" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.8 </span><span class="caption-text">Velocity and Reynolds numbers for some flying objects (in German). (Staub:Dust, Insekt:Insect, Modellflugzeug/Vogel:Aeroplane model/Bird, Windrad:Windmill, Drachenflieger:Hang glider, Flugzeug:Aeroplane, Luftschiff:Airship) Source: <a class="reference external" href="https://de.wikipedia.org/wiki/Reynolds-Zahl#/media/Datei:Reynoldsflugrpd.png">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-re-table" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.8 </span><span class="caption-text">Velocity and Reynolds numbers for some flying objects (in German). (Staub:Dust, Insekt:Insect, Modellflugzeug/Vogel:Aeroplane model/Bird, Windrad:Windmill, Drachenflieger:Hang glider, Flugzeug:Aeroplane, Luftschiff:Airship) Source: <a class="reference external" href="https://de.wikipedia.org/wiki/Reynolds-Zahl#/media/Datei:Reynoldsflugrpd.png">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-re-table" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
 </section>
 <section id="fluid-equations">
-<h2>Fluid Equations<a class="headerlink" href="#fluid-equations" title="Permalink to this heading">#</a></h2>
+<h2>Fluid Equations<a class="headerlink" href="#fluid-equations" title="Link to this heading">#</a></h2>
 <section id="conservation-laws">
-<h3>Conservation laws<a class="headerlink" href="#conservation-laws" title="Permalink to this heading">#</a></h3>
+<h3>Conservation laws<a class="headerlink" href="#conservation-laws" title="Link to this heading">#</a></h3>
 <p>Fluid dynamics is based on the following three physical conservation laws:</p>
 <ul class="simple">
 <li><p>mass conservation</p></li>
@@ -823,7 +845,7 @@ This number is a classical example for scaling. Flow phenomena having the same R
 <p>In combination with the conservation of energy, an equation of state is needed to determine the gas temperature.</p>
 </section>
 <section id="partial-differential-equations">
-<h3>Partial Differential Equations<a class="headerlink" href="#partial-differential-equations" title="Permalink to this heading">#</a></h3>
+<h3>Partial Differential Equations<a class="headerlink" href="#partial-differential-equations" title="Link to this heading">#</a></h3>
 <p>Partial differential equations (PDE) are one of the most powerful tools in science and engineering. Most technical, mathematical, physical, chemical and even biological models are based on differential equations. The solutions of differential equations may describe:</p>
 <ul class="simple">
 <li><p>gas flows and combustion processes</p></li>
@@ -877,10 +899,10 @@ This number is a classical example for scaling. Flow phenomena having the same R
 <p>The first term (<span class="math notranslate nohighlight">\(\mf \partial_t \phi\)</span>) represents intrinsic changes and the second one (<span class="math notranslate nohighlight">\(\mf\vv\cdot(\nabla\phi)\)</span>) describes the changes due to the advection in the velocity field <span class="math notranslate nohighlight">\(\mf\vv\)</span>.</p>
 </section>
 <section id="continuity-equation">
-<h3>Continuity Equation<a class="headerlink" href="#continuity-equation" title="Permalink to this heading">#</a></h3>
+<h3>Continuity Equation<a class="headerlink" href="#continuity-equation" title="Link to this heading">#</a></h3>
 <p>The continuity equation for a single species flow is</p>
 <div class="math notranslate nohighlight" id="equation-eq-fluid-cont">
-<span class="eqno">(2.7)<a class="headerlink" href="#equation-eq-fluid-cont" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(2.7)<a class="headerlink" href="#equation-eq-fluid-cont" title="Link to this equation">#</a></span>\[
 \mf \frac{d\rho}{dt} = \underbrace{-\rho\nabla\cdot\vec{v}}_{A}
 \]</div>
 <ul class="simple">
@@ -888,15 +910,15 @@ This number is a classical example for scaling. Flow phenomena having the same R
 </ul>
 <p>Taking into account the convective derivative, the commonly used formulation may be derived as</p>
 <div class="math notranslate nohighlight" id="equation-eq-fluid-cont-conservative">
-<span class="eqno">(2.8)<a class="headerlink" href="#equation-eq-fluid-cont-conservative" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(2.8)<a class="headerlink" href="#equation-eq-fluid-cont-conservative" title="Link to this equation">#</a></span>\[
 \mf \partial_t \rho = -\nabla\cdot(\rho\vec{v})\quad .
 \]</div>
 </section>
 <section id="equation-of-motion">
-<h3>Equation of motion<a class="headerlink" href="#equation-of-motion" title="Permalink to this heading">#</a></h3>
+<h3>Equation of motion<a class="headerlink" href="#equation-of-motion" title="Link to this heading">#</a></h3>
 <p>Taking into account the conservation of momentum, the following simple form of the equation of motion may be formulated</p>
 <div class="math notranslate nohighlight" id="equation-eq-fluid-momentum">
-<span class="eqno">(2.9)<a class="headerlink" href="#equation-eq-fluid-momentum" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(2.9)<a class="headerlink" href="#equation-eq-fluid-momentum" title="Link to this equation">#</a></span>\[
 \mf \partial_t \rho\vec{v} + \nabla\cdot(\rho\vec{v}\vec{v}) = \underbrace{-\nabla p}_{A} + \underbrace{\mu\nabla^2\vec{v}}_{B} + \underbrace{\vec{f}}_{C}
 \]</div>
 <ul class="simple">
@@ -907,10 +929,10 @@ This number is a classical example for scaling. Flow phenomena having the same R
 <p>These equation is commonly known as the Navier-Stokes equation.</p>
 </section>
 <section id="energy-equation">
-<h3>Energy equation<a class="headerlink" href="#energy-equation" title="Permalink to this heading">#</a></h3>
+<h3>Energy equation<a class="headerlink" href="#energy-equation" title="Link to this heading">#</a></h3>
 <p>The equation for the energy <span class="math notranslate nohighlight">\(E = e + \frac{1}{2}\vv^2\)</span> is given by</p>
 <div class="math notranslate nohighlight" id="equation-eq-fluid-energy">
-<span class="eqno">(2.10)<a class="headerlink" href="#equation-eq-fluid-energy" title="Permalink to this equation">#</a></span>\[
+<span class="eqno">(2.10)<a class="headerlink" href="#equation-eq-fluid-energy" title="Link to this equation">#</a></span>\[
 \mf \partial_t (\rho E) + \nabla\cdot(\vec{v}\rho E) = \underbrace{-\nabla\cdot(\vec{v}p)}_{A} + \underbrace{\nabla\cdot(\mu\vec{v}\nabla\vec{v})}_{B} + \underbrace{\nabla\cdot(k\nabla T)}_{C}+ \underbrace{\vec{v}\cdot\vec{f}}_{D}+\underbrace{\dot{Q_s}}_{E}
 \]</div>
 <ul class="simple">
@@ -923,7 +945,7 @@ This number is a classical example for scaling. Flow phenomena having the same R
 <p>Note: Sometimes a formulation in terms of enthalpy is preferred. This is the case for the equations solved by FDS.</p>
 </section>
 <section id="incompressible-equations">
-<h3>Incompressible equations<a class="headerlink" href="#incompressible-equations" title="Permalink to this heading">#</a></h3>
+<h3>Incompressible equations<a class="headerlink" href="#incompressible-equations" title="Link to this heading">#</a></h3>
 <p>If the flow is incompressible and assumed to be isothermal, the remaining equations to be solved are:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -932,7 +954,7 @@ This number is a classical example for scaling. Flow phenomena having the same R
 \end{split}\]</div>
 </section>
 <section id="weakly-compressible-regime">
-<h3>Weakly compressible regime<a class="headerlink" href="#weakly-compressible-regime" title="Permalink to this heading">#</a></h3>
+<h3>Weakly compressible regime<a class="headerlink" href="#weakly-compressible-regime" title="Link to this heading">#</a></h3>
 <p>In fully <em>incompressible</em> flows the pressure instantly balances all divergences and keeps therefore the density constant.</p>
 <p>In the <em>compressible</em> regime, the ideal gas law provides the linkage between the energy conservation and the conservation of mass and momentum.</p>
 <p>For low speed flows, like in fires, but with substantial temperature variations the density may change. This is not due to pressure variations, as the pressure remains relatively unperturbed. This is the so called <em>weakly compressible</em> regime.</p>
@@ -945,7 +967,7 @@ This number is a classical example for scaling. Flow phenomena having the same R
 </section>
 </section>
 <section id="boundary-conditions">
-<h2>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Permalink to this heading">#</a></h2>
+<h2>Boundary Conditions<a class="headerlink" href="#boundary-conditions" title="Link to this heading">#</a></h2>
 <p>Besides the fluid equations, the boundary conditions are an other important aspect. In many applications, the impact of boundary conditions is crucial and a proper treatment of those essential.</p>
 <p>In general there exist a few types of boundary conditions:</p>
 <ul>
@@ -1006,13 +1028,13 @@ This number is a classical example for scaling. Flow phenomena having the same R
 <figure class="align-default" id="fig-fluid-bnd-open">
 <a class="reference internal image-reference" href="../../../_images/boundaries_open_plume.svg"><img alt="../../../_images/boundaries_open_plume.svg" src="../../../_images/boundaries_open_plume.svg" width="60%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.9 </span><span class="caption-text">Example for a boundary setup for a open plume.</span><a class="headerlink" href="#fig-fluid-bnd-open" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.9 </span><span class="caption-text">Example for a boundary setup for a open plume.</span><a class="headerlink" href="#fig-fluid-bnd-open" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-fluid-bnd-compartment">
 <a class="reference internal image-reference" href="../../../_images/boundaries_compartment.svg"><img alt="../../../_images/boundaries_compartment.svg" src="../../../_images/boundaries_compartment.svg" width="60%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.10 </span><span class="caption-text">Example for a boundary setup for a simple compartment.</span><a class="headerlink" href="#fig-fluid-bnd-compartment" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.10 </span><span class="caption-text">Example for a boundary setup for a simple compartment.</span><a class="headerlink" href="#fig-fluid-bnd-compartment" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -1043,11 +1065,10 @@ This number is a classical example for scaling. Flow phenomena having the same R
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="00_overview.html"
@@ -1067,10 +1088,7 @@ This number is a classical example for scaling. Flow phenomena having the same R
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1078,6 +1096,7 @@ This number is a classical example for scaling. Flow phenomena having the same R
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1127,6 +1146,7 @@ This number is a classical example for scaling. Flow phenomena having the same R
   
   <div class="footer-item">
     
+
   </div>
   
   <div class="footer-item">
@@ -1154,8 +1174,8 @@ This number is a classical example for scaling. Flow phenomena having the same R
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>

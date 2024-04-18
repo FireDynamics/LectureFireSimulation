@@ -1,13 +1,12 @@
 
-
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="../../../" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <title>Linux &#8212; Fire Simulation &lt;br&gt; Lecture Notes</title>
   
@@ -19,52 +18,49 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../../../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
 
   
-  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+  <link href="../../../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=ed0cee17" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
+  <script src="../../../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
-    <script src="../../../_static/doctools.js"></script>
-    <script src="../../../_static/clipboard.min.js"></script>
-    <script src="../../../_static/copybutton.js"></script>
-    <script src="../../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../../../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
-    <script src="../../../_static/togglebutton.js"></script>
+    <script src="../../../_static/togglebutton.js?v=4a39c7ea"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../../../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
-    <script async="async" src="../../../_static/sphinx-thebe.js"></script>
+    <script src="../../../_static/design-tabs.js?v=36754332"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../../../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'content/tools/02_hpc/01_linux';</script>
     <link rel="canonical" href="https://firedynamics.github.io/LectureFireSimulation/content/tools/02_hpc/01_linux.html" />
-    <link rel="shortcut icon" href="../../../_static/cce_logo_standalone_icon.png"/>
+    <link rel="icon" href="../../../_static/cce_logo_standalone_icon.png"/>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
     <link rel="next" title="High Performance Computing" href="02_hpc.html" />
@@ -78,7 +74,15 @@ const thebe_selector_output = ".output, .cell_output"
 
   
   
-  <a class="skip-link" href="#main-content">Skip to main content</a>
+  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
   
   <input type="checkbox"
           class="sidebar-toggle"
@@ -113,11 +117,14 @@ const thebe_selector_output = ".output, .cell_output"
 </form></div>
   </div>
   
-    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
-    </nav>
+    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    </header>
   
+
   <div class="bd-container">
     <div class="bd-container__inner bd-page-width">
+      
+      
       
       <div class="bd-sidebar-primary bd-sidebar">
         
@@ -132,9 +139,11 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="../../overview/01_overview.html">
+  
   
   
   
@@ -144,12 +153,23 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="../../../_static/cce_logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="../../../_static/cce_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="../../../_static/cce_logo.png" class="logo__image only-light" alt="Fire Simulation <br> Lecture Notes - Home"/>
+    <script>document.write(`<img src="../../../_static/cce_logo.png" class="logo__image only-dark" alt="Fire Simulation <br> Lecture Notes - Home"/>`);</script>
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
@@ -479,20 +499,22 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
-  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
-    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
-    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
   </button>
 `);
 </script>
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
   </button>
 `);
 </script>
@@ -549,14 +571,14 @@ document.write(`
               
                 
 <div id="searchbox"></div>
-                <article class="bd-article" role="main">
+                <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="linux">
-<h1>Linux<a class="headerlink" href="#linux" title="Permalink to this heading">#</a></h1>
+<h1>Linux<a class="headerlink" href="#linux" title="Link to this heading">#</a></h1>
 <figure class="align-default" id="fig-tux">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" src="https://upload.wikimedia.org/wikipedia/commons/3/35/Tux.svg" width="20%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Tux the penguin. Source: <a class="reference external" href="https://en.wikipedia.org/wiki/Linux#/media/File:Tux.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-tux" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text">Tux the penguin. Source: <a class="reference external" href="https://en.wikipedia.org/wiki/Linux#/media/File:Tux.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-tux" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>In scientific computing, the <a class="reference external" href="https://en.wikipedia.org/wiki/Linux">Linux</a> operating system (OS) is commonly used. Linux is an open-source OS, which was first released in 1991 as a UNIX-like system.</p>
@@ -564,11 +586,11 @@ document.write(`
 <figure class="align-default" id="fig-unix-history">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/7/77/Unix_history-simple.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/7/77/Unix_history-simple.svg" src="https://upload.wikimedia.org/wikipedia/commons/7/77/Unix_history-simple.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 19 </span><span class="caption-text">Unix and Unix-like operating systems. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Unix_history-simple.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-unix-history" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 19 </span><span class="caption-text">Unix and Unix-like operating systems. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Unix_history-simple.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-unix-history" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <section id="philosophy">
-<h2>Philosophy<a class="headerlink" href="#philosophy" title="Permalink to this heading">#</a></h2>
+<h2>Philosophy<a class="headerlink" href="#philosophy" title="Link to this heading">#</a></h2>
 <p>The UNIX and UNIX-like based operating systems have the following philosophy:</p>
 <ol class="arabic simple">
 <li><p>write computer programs, that solve a single task, but very efficient</p></li>
@@ -579,20 +601,20 @@ document.write(`
 <p>Unlike desktop systems, most high performance computing (HPC) systems are operated in a command line based way. Therefore, the main content of this section focusses on the usage of command line tools.</p>
 </section>
 <section id="directories">
-<h2>Directories<a class="headerlink" href="#directories" title="Permalink to this heading">#</a></h2>
+<h2>Directories<a class="headerlink" href="#directories" title="Link to this heading">#</a></h2>
 <p>Linux uses a tree directory structure, which originates at the so called root <code class="docutils literal notranslate"><span class="pre">/</span></code>. All subdirectories are located in the same directory tree.</p>
 <p>A path, i.e. the location of a file or directory, is a sequence of directories starting at the root and which are separated with <code class="docutils literal notranslate"><span class="pre">/</span></code>. Figure <a class="reference internal" href="#fig-linux-directory-comparison"><span class="std std-numref">Fig. 20</span></a> illustrates the differences and common aspects of the three most popular types of operating systems for desktop computers.</p>
 <figure class="align-default" id="fig-linux-directory-comparison">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/de/1/1f/Filesystem.svg"><img alt="https://upload.wikimedia.org/wikipedia/de/1/1f/Filesystem.svg" src="https://upload.wikimedia.org/wikipedia/de/1/1f/Filesystem.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 20 </span><span class="caption-text">(In German) Overview of commonly used file system approaches. Source: <a class="reference external" href="https://de.wikipedia.org/wiki/Verzeichnisstruktur#/media/Datei:Filesystem.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-linux-directory-comparison" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text">(In German) Overview of commonly used file system approaches. Source: <a class="reference external" href="https://de.wikipedia.org/wiki/Verzeichnisstruktur#/media/Datei:Filesystem.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-linux-directory-comparison" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>There exists a <a class="reference external" href="https://en.wikipedia.org/wiki/Filesystem_Hierarchy_Standard">file system hierarchy</a> in Linux, which prescribes the usage of special directories, see figure <a class="reference internal" href="#fig-linux-fsh"><span class="std std-numref">Fig. 21</span></a>.</p>
 <figure class="align-default" id="fig-linux-fsh">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/f/f3/Standard-unix-filesystem-hierarchy.svg"><img alt="https://upload.wikimedia.org/wikipedia/commons/f/f3/Standard-unix-filesystem-hierarchy.svg" src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Standard-unix-filesystem-hierarchy.svg" width="80%" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 21 </span><span class="caption-text">Illustration of the Linux’s file system hierarchy. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Standard-unix-filesystem-hierarchy.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-linux-fsh" title="Permalink to this image">#</a></p>
+<p><span class="caption-number">Fig. 21 </span><span class="caption-text">Illustration of the Linux’s file system hierarchy. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Standard-unix-filesystem-hierarchy.svg">Wikimedia Commons</a>.</span><a class="headerlink" href="#fig-linux-fsh" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <p>There are two types of paths:</p>
@@ -603,7 +625,7 @@ document.write(`
 <p>In order to express paths which are located towards the root, each level above can be adressed with a <code class="docutils literal notranslate"><span class="pre">..</span></code>.</p>
 </section>
 <section id="terminal-shell">
-<h2>Terminal &amp; Shell<a class="headerlink" href="#terminal-shell" title="Permalink to this heading">#</a></h2>
+<h2>Terminal &amp; Shell<a class="headerlink" href="#terminal-shell" title="Link to this heading">#</a></h2>
 <p>A terminal is a device or (nowadays) a computer program that allows the user to interact with a computer. Besides the physical attendence at a terminal, terminal emulators allow to detach that requirement. There are terminal emulator applications that run locally, like Xterm or Konsole, but it is also possible to remotely connect terminals, e.g. with ssh. A command-line shell, or just shell, is a user interface to the terminal and thus the operating system.</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -619,7 +641,7 @@ document.write(`
 </ul>
 </section>
 <section id="bash-basics">
-<h2>Bash Basics<a class="headerlink" href="#bash-basics" title="Permalink to this heading">#</a></h2>
+<h2>Bash Basics<a class="headerlink" href="#bash-basics" title="Link to this heading">#</a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>In the following, some examples within a directory structure are used. The directory contents are stored in the archive <a class="reference download internal" download="" href="../../../_downloads/e48e9d53422a7d02f13b1af6717ab9b8/dir_structure_01.tar"><code class="xref download docutils literal notranslate"><span class="pre">dir_structure_01.tar</span></code></a>, which can be extracted after download by <code class="docutils literal notranslate"><span class="pre">tar</span> <span class="pre">-xf</span> <span class="pre">dir_structure_01.tar</span></code>.</p>
@@ -627,7 +649,7 @@ document.write(`
 <p>The shell keeps track of commands that have been used in its history. Individual entries can be accessed with the up/down arrow keys. A general overview over the history can be shown when using the <code class="docutils literal notranslate"><span class="pre">history</span></code> command. Hitting the “Cmd” and “R” keys, the user can search for commands in the history. Furthermore, the shell provides functionality to auto-complete commands by hitting the “tab” key during typing in of a command.
 The command <code class="docutils literal notranslate"><span class="pre">echo</span> <span class="pre">$SHELL</span></code> allows the user to get information about which shell they are working with right now. The shell behaviour can be individualised, by setting up configuration files like the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>, <code class="docutils literal notranslate"><span class="pre">.bash_profile</span></code> or <code class="docutils literal notranslate"><span class="pre">.bash_aliases</span></code>. Note on Pleiades it is the <code class="docutils literal notranslate"><span class="pre">.profile</span></code> instead.</p>
 <section id="environment-variables">
-<h3>Environment variables<a class="headerlink" href="#environment-variables" title="Permalink to this heading">#</a></h3>
+<h3>Environment variables<a class="headerlink" href="#environment-variables" title="Link to this heading">#</a></h3>
 <p>Most, probably all, shells offer environment variables. They store information, which can be used during the execution of the issued commands. In Bash the syntax for reading the content of a variable with the name <code class="docutils literal notranslate"><span class="pre">AVAR</span></code> is <code class="docutils literal notranslate"><span class="pre">$AVAR</span></code>, i.e. the <code class="docutils literal notranslate"><span class="pre">$</span></code> character is prepended. To define the variable or change its value, the sole variable name is used.</p>
 <p>There exist many environment variables, depending on the operating system and the used shell. Some common ones are:</p>
 <ul class="simple">
@@ -639,7 +661,7 @@ The command <code class="docutils literal notranslate"><span class="pre">echo</s
 </ul>
 </section>
 <section id="command-execution">
-<h3>Command execution<a class="headerlink" href="#command-execution" title="Permalink to this heading">#</a></h3>
+<h3>Command execution<a class="headerlink" href="#command-execution" title="Link to this heading">#</a></h3>
 <p>A command or program is executed by typing its name:</p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
@@ -682,7 +704,7 @@ larnold
 </div>
 </section>
 <section id="basic-interaction-with-the-file-system">
-<h3>Basic interaction with the file system<a class="headerlink" href="#basic-interaction-with-the-file-system" title="Permalink to this heading">#</a></h3>
+<h3>Basic interaction with the file system<a class="headerlink" href="#basic-interaction-with-the-file-system" title="Link to this heading">#</a></h3>
 <p><strong>Changing directories</strong></p>
 <p>The current directory is changed via the <code class="docutils literal notranslate"><span class="pre">cd</span></code> command. Invoking no arguments changes to the user’s home directory, otherwise the
 target directory is specified. There exist a couple of special directories, which can also be used with other commands:</p>
@@ -748,7 +770,7 @@ You can list them:</p>
 </div>
 </section>
 <section id="configure-your-terminal">
-<h3>Configure your terminal<a class="headerlink" href="#configure-your-terminal" title="Permalink to this heading">#</a></h3>
+<h3>Configure your terminal<a class="headerlink" href="#configure-your-terminal" title="Link to this heading">#</a></h3>
 <p>The user can adjust their shell by setting up a configuration file that is called <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code>. This is a basic text file, which is stored in the user’s home directory as a hidden file (indicated by the leading period in the file name). Typically this file does not exist right away, using for example the command<code class="docutils literal notranslate"><span class="pre">vim</span> <span class="pre">~/.bashrc</span></code> the file will be created otherwise it will just be opened for editing in the text editor <a class="reference external" href="https://www.vim.org/docs.php">Vim</a>. In the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> default settings can be stored. For instance, the command prompt can be changed from the generic default to show <code class="docutils literal notranslate"><span class="pre">user_name&#64;host</span></code> or often used modules could be pre-loaded, see section “Environment modules (Lmod)” below.</p>
 <p>Let’s try it out. First we create/open the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> file in Vim, assuming we are in the users home directory.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">vim</span> <span class="o">~/.</span><span class="n">bashrc</span>
@@ -763,7 +785,7 @@ You can list them:</p>
 <p>This changes the command prompt to show the user and host names.</p>
 </section>
 <section id="arguments">
-<h3>Arguments<a class="headerlink" href="#arguments" title="Permalink to this heading">#</a></h3>
+<h3>Arguments<a class="headerlink" href="#arguments" title="Link to this heading">#</a></h3>
 <p>In general, issued commands accept arguments. These can be either named arguments, which need to be explicitly indicated, or positional arguments, which are identified by their position.</p>
 <p>Arguments are separated by a space character.</p>
 <p>Further information about the accepted arguments is either available by using the <code class="docutils literal notranslate"><span class="pre">man</span></code> command, which prints the manual for a command. The name of the command is passed as an argument. In the following example, the manual page for <code class="docutils literal notranslate"><span class="pre">grep</span></code> is shown. This application searches files or given input for a given search pattern.</p>
@@ -1099,7 +1121,7 @@ usage: grep [-abcDEFGHhIiJLlmnOoqRSsUVvwxZ] [-A num] [-B num] [-C[num]]
 <p>Besides the named arguments, there are two positional arguments: <code class="docutils literal notranslate"><span class="pre">pattern</span></code> and <code class="docutils literal notranslate"><span class="pre">file</span> <span class="pre">...</span></code>. The first one defines the search pattern and the second one defines one or multiple files to be searched in.</p>
 </section>
 <section id="listing-directories">
-<h3>Listing directories<a class="headerlink" href="#listing-directories" title="Permalink to this heading">#</a></h3>
+<h3>Listing directories<a class="headerlink" href="#listing-directories" title="Link to this heading">#</a></h3>
 <p>The content of a directory is displayed with <code class="docutils literal notranslate"><span class="pre">ls</span></code>. Without arguments it shows the current directory, otherwise the target directory.</p>
 <p>Some common options:</p>
 <ul class="simple">
@@ -1216,7 +1238,7 @@ drwxr-xr-x  3 larnold  staff    96 Apr 25 17:11 rundir_01
 </div>
 </section>
 <section id="aliases">
-<h3>Aliases<a class="headerlink" href="#aliases" title="Permalink to this heading">#</a></h3>
+<h3>Aliases<a class="headerlink" href="#aliases" title="Link to this heading">#</a></h3>
 <p>The user can personalise their environment in different ways. For example it is possible to define so-called “aliases”. An “alias” allows the user to set up individualised short form commands. For example, a command to call a program with an often used set of parameters could be attached to an alias. Assume we were to use the <code class="docutils literal notranslate"><span class="pre">ls</span></code> command often, together with the parameters to give the long output (<code class="docutils literal notranslate"><span class="pre">-l</span></code>) for all file in a directory (<code class="docutils literal notranslate"><span class="pre">-a</span></code>) in human-readable form (<code class="docutils literal notranslate"><span class="pre">-h</span></code>), i.e. <code class="docutils literal notranslate"><span class="pre">ls</span> <span class="pre">-lah</span></code>. We could give it a short form command, for example <code class="docutils literal notranslate"><span class="pre">lsa</span></code>, by typing <code class="docutils literal notranslate"><span class="pre">alias</span> <span class="pre">lsa='ls</span> <span class="pre">-lah'</span></code> in the command line. However, this definition will only exist as long as the session is active. To make it permanent, it needs to be stored in a script which is loaded when a new session is started. Typically, these definitions are stored in files within the user home directory, specifically the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> or better the <code class="docutils literal notranslate"><span class="pre">.bash_aliases</span></code> files. These are simple text files, if they don’t exist they can be easily created. For example using <code class="docutils literal notranslate"><span class="pre">vim</span> <span class="pre">~/.bash_aliases</span></code>. In the <code class="docutils literal notranslate"><span class="pre">.bashrc</span></code> a command needs then to be written to read the <code class="docutils literal notranslate"><span class="pre">.bash_aliases</span></code>.</p>
 <p>Let’s try it out. First we navigate to the users home directory.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">cd</span> <span class="o">~</span>
@@ -1258,7 +1280,7 @@ drwxr-xr-x  3 larnold  staff    96 Apr 25 17:11 rundir_01
 <p>When on a computer that uses the SLURM scheduler (see subsection “SLURM” in the “Parallel Execution of FDS”), it shows all queued jobs of the user (<code class="docutils literal notranslate"><span class="pre">$USER</span></code>).</p>
 </section>
 <section id="wildcards">
-<h3>Wildcards<a class="headerlink" href="#wildcards" title="Permalink to this heading">#</a></h3>
+<h3>Wildcards<a class="headerlink" href="#wildcards" title="Link to this heading">#</a></h3>
 <p>Wildcards are used to provide a matching pattern for the shell, which are generally called <a class="reference external" href="https://en.wikipedia.org/wiki/Glob_(programming)">glob patterns</a>. First, the shell will evaluate the pattern and search for matching paths. Then it will expand the wildcard pattern with the explicit list of the results, which typically is passed to an applicaiton.</p>
 <p>Some common wildcards are:</p>
 <ul class="simple">
@@ -1338,7 +1360,7 @@ Run Time: 20714
 </div>
 </section>
 <section id="output-redirection">
-<h3>Output Redirection<a class="headerlink" href="#output-redirection" title="Permalink to this heading">#</a></h3>
+<h3>Output Redirection<a class="headerlink" href="#output-redirection" title="Link to this heading">#</a></h3>
 <p>The output of programs is either to</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">stdout</span></code>: the normal program output</p></li>
@@ -1412,7 +1434,7 @@ Run Time: 20714
 </section>
 </section>
 <section id="bash-programming">
-<h2>Bash Programming<a class="headerlink" href="#bash-programming" title="Permalink to this heading">#</a></h2>
+<h2>Bash Programming<a class="headerlink" href="#bash-programming" title="Link to this heading">#</a></h2>
 <p>Just as a starting point, a few examples on how to do looping and branchig in a bash script are shown here.</p>
 <p>A shell script can be executed either</p>
 <ul class="simple">
@@ -1482,9 +1504,9 @@ File exists
 </div>
 </section>
 <section id="advanced">
-<h2>Advanced<a class="headerlink" href="#advanced" title="Permalink to this heading">#</a></h2>
+<h2>Advanced<a class="headerlink" href="#advanced" title="Link to this heading">#</a></h2>
 <section id="git-and-github">
-<h3>Git and GitHub<a class="headerlink" href="#git-and-github" title="Permalink to this heading">#</a></h3>
+<h3>Git and GitHub<a class="headerlink" href="#git-and-github" title="Link to this heading">#</a></h3>
 <p>GitHub is a web hosting service for distributed version control using Git. Git allows collaborative software development, while keeping track of changes to the code. This code can be hosted in open-access repositories via GitHub, like the <a class="reference external" href="https://github.com/firemodels/fds">FDS repository</a> for example. Operating systems like Linux or MacOS often come with Git integrated and can directly be used from the terminal. Windows users might need to install an application, for example the graphical user interface <a class="reference external" href="https://desktop.github.com/">GitHub Desktop</a> or the lightweight <a class="reference external" href="https://gitforwindows.org/">git for windows</a>.</p>
 <p>Version control systems allow the creation of <a class="reference external" href="https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell">branches</a> to the code base, as well as keeping track of <a class="reference external" href="https://git-scm.com/docs/git-commit">individual changes</a>. Branches can be used to implement new features, solve bugs or further the development of new software versions, without affecting the stable version. Commits are incremental changes to the code itself. At any given time the user can change the branches and commits to work with specific versions of the software. On the web page of the repository there are a couple of tabs at the top of the page. On the right hand side is the tab “Insights”. Clicking on it and then on the left hand side “Network” gives a brief graphical overview over commits and branches.
 Typically, the user would clone the repository to their computer, work on the software locally, collect changes into commits and push these changes to the online repository later on. One can also download the repository as a zip archive.</p>
@@ -1492,7 +1514,7 @@ Typically, the user would clone the repository to their computer, work on the so
 With <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">branch_label</span></code> one can change to a different branch. When only <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span></code> is typed and one hits the Tab-key all available branch labels are shown. Furthermore, individual commits can be loaded by using the commit instead of the branch <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">commit_id</span></code>.</p>
 </section>
 <section id="compile-software-from-git-repo">
-<h3>Compile software from Git repo<a class="headerlink" href="#compile-software-from-git-repo" title="Permalink to this heading">#</a></h3>
+<h3>Compile software from Git repo<a class="headerlink" href="#compile-software-from-git-repo" title="Link to this heading">#</a></h3>
 <p>It may be necessary for users to compile necessary software themselves. For example, to account for the pre-installed libraries and dependencies on the target system. It also happens that one might need a specific software version that is not available in a package or with an installer. Consider the ongoing development of FDS. New functionality could be added that you might want to try out or a change is implemented that might be beneficial for your work. Or maybe you want to compare simulation results to older versions.</p>
 <p>The source code of FDS can be downloaded from the <a class="reference external" href="https://github.com/firemodels/fds">FDS GitHub repository</a>, following the green button at the top right on the main page of the git repo. One can download it as a compressed archive or clone the repo directly to disk, using <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">address/of/repo</span></code> in the command line.</p>
 <p>In the directory <code class="docutils literal notranslate"><span class="pre">Build</span></code> is a <code class="docutils literal notranslate"><span class="pre">README.md</span></code> file located (<code class="docutils literal notranslate"><span class="pre">*.md</span></code> is a plain text file to be interpreted as <a class="reference external" href="https://www.markdownguide.org/">Markdown</a>). It contains some information on the compilation process of FDS. Detailed instructions are given in the <code class="docutils literal notranslate"><span class="pre">makefile</span></code> for different operating systems and MPI versions.</p>
@@ -1525,11 +1547,10 @@ With <code class="docutils literal notranslate"><span class="pre">git</span> <sp
 
               
               
-                <footer class="bd-footer-article">
+              
+              
+                <footer class="prev-next-footer">
                   
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="00_overview.html"
@@ -1549,10 +1570,7 @@ With <code class="docutils literal notranslate"><span class="pre">git</span> <sp
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
-</div></div>
-  
 </div>
-
                 </footer>
               
             </div>
@@ -1560,6 +1578,7 @@ With <code class="docutils literal notranslate"><span class="pre">git</span> <sp
             
               
                 <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
 
   <div class="sidebar-secondary-item">
   <div class="page-toc tocsection onthispage">
@@ -1605,6 +1624,7 @@ With <code class="docutils literal notranslate"><span class="pre">git</span> <sp
   
   <div class="footer-item">
     
+
   </div>
   
   <div class="footer-item">
@@ -1632,8 +1652,8 @@ With <code class="docutils literal notranslate"><span class="pre">git</span> <sp
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
 
   <footer class="bd-footer">
   </footer>
