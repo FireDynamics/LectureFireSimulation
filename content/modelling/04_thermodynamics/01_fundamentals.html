@@ -562,38 +562,42 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="fundamentals">
 <h1><span class="section-number">4.1. </span>Fundamentals<a class="headerlink" href="#fundamentals" title="Link to this heading">#</a></h1>
-<p>Thermodynamics is the branch of physics that focuses on describing the macroscopic changes in energy and work of a system. In classical thermodynamics, the behavior of macroscopic systems is governed by a set of laws, which were derived from empirical observations. At first, the laws of thermodynamics were built on the basis of properties that could be measured (e.g. temperature, volume, pressure), and no connection with theories concerning the molecular nature of the matter existed. Later, however, the approach based on statistical mechanics provided linkages between molecular interactions and their manifestations in the macroscopic observable properties of a system.</p>
+<p>Thermodynamics is the branch of physics that focuses on describing the macroscopic changes in energy and work of a system. In classical thermodynamics, the behaviour of macroscopic systems is governed by a set of laws, which were derived from empirical observations. At first, the laws of thermodynamics were built on the basis of properties of the system that could be measured (e.g. temperature, volume, pressure), and no connection with theories concerning the molecular nature of the matter existed.</p>
+<p>Later, however, the approach based on statistical mechanics provided linkages between molecular interactions and their manifestations in the macroscopic observable properties of a system. This lead to what is referred to as statistical thermodynamics. By means of the statistical approach, it is possible to derive all the laws of thermodynamics as well as all thermodynamic properties based on the description of the microscopic states of a system on a molecular level.</p>
 <!---
 Thermodynamics describes the macroscopic changes of a system of microscopic objects, i.e. particles. It is a statistical description for the e.g. sets of atoms or molecules in solids, liquids and gases. As an individual (quantuum-) mechanical description for large particle counts is not possible or even needed, thermodynamics reduces the description to a few (measurable) quantities in a defined system.
 --><section id="systems">
 <h2>Systems<a class="headerlink" href="#systems" title="Link to this heading">#</a></h2>
-<p>In a thermodynamic analysis it is essential to define the investigated system and its interaction with the ambient environment.</p>
-<!---
-A system is a volume containing a (fixed) number of particles.
--->
-<p>The interaction of systems can be described with the following three process quantities:</p>
+<p>In a thermodynamic analysis it is essential to define the investigated system and its interactions with the surroundings. A system can be any region that is clearly defined in terms of spatial coordinates which can be fixed or moving. The surface delimiting this region is referred to as the boundary. The boundary of a system may be an actual wall or an imaginary surface. The external region to the system boundary is called the environment or surroundings.</p>
+<p>A system can interact with the surroundings through the following three process quantities:</p>
 <ul class="simple">
-<li><p><strong>work</strong>, <span class="math notranslate nohighlight">\(\mf W\)</span>, e.g. mechanical or electrical work, like the compression of a volume due to a moving pistion,</p></li>
+<li><p><strong>work</strong>, <span class="math notranslate nohighlight">\(\mf W\)</span>, e.g. mechanical or electrical work, like the compression or expansion of a volume due to a moving piston,</p></li>
 <li><p><strong>heat</strong>, <span class="math notranslate nohighlight">\(\mf Q\)</span>, e.g. energy transfer due to a temperature difference, and</p></li>
 <li><p><strong>mass flow</strong>, e.g. addition of mass into a system.</p></li>
 </ul>
-<p>There are four definitions of system boundaries / interactions of systems (including the ambient environment):</p>
+<p>The interactions between a system and the environment is determined by the nature of the system boundary. There are four definitions of system boundaries / interactions between systems and surroundings:</p>
 <ul class="simple">
-<li><p><strong>isolated</strong>: no mass flow, no heat flow (<span class="math notranslate nohighlight">\(\mf \Delta Q=0\)</span>) and no work done (<span class="math notranslate nohighlight">\(\mf \Delta W=0\)</span>),</p></li>
-<li><p><strong>closed</strong>: no mass flow, possibility for heat flow (<span class="math notranslate nohighlight">\(\mf \Delta Q\neq 0\)</span>) and / or work to be done (<span class="math notranslate nohighlight">\(\mf \Delta W\neq 0\)</span>)</p></li>
+<li><p><strong>isolated</strong>: no mass flow, no heat flow (<span class="math notranslate nohighlight">\(\mf \Delta Q=0\)</span>) and no work done (<span class="math notranslate nohighlight">\(\mf \Delta W=0\)</span>);</p></li>
+<li><p><strong>closed</strong>: no mass flow, possibility for heat flow (<span class="math notranslate nohighlight">\(\mf \Delta Q\neq 0\)</span>) and / or work to be done (<span class="math notranslate nohighlight">\(\mf \Delta W\neq 0\)</span>);</p></li>
 <li><p><strong>adiabatic</strong>: no mass and no heat flow (<span class="math notranslate nohighlight">\(\mf \Delta Q=0\)</span>), yet work can to be done (<span class="math notranslate nohighlight">\(\mf \Delta W\neq 0\)</span>), and</p></li>
 <li><p><strong>open</strong>: possibility for mass and heat flow, as well as for work to be done.</p></li>
 </ul>
-</section>
+<!---
+A system is a volume containing a (fixed) number of particles.
+
+
+
+
+--></section>
 <section id="state-quantities">
 <h2>State Quantities<a class="headerlink" href="#state-quantities" title="Link to this heading">#</a></h2>
-<p>The state of a thermodynamic system can be expressed with these measurable quantities like</p>
+<p>The state of a thermodynamic system can be expressed with the following primitive properties like</p>
 <ul class="simple">
 <li><p><strong>pressure</strong>, <span class="math notranslate nohighlight">\(\mf p\)</span>,</p></li>
 <li><p><strong>volume</strong>, <span class="math notranslate nohighlight">\(\mf V\)</span>, and</p></li>
 <li><p><strong>temperature</strong>, <span class="math notranslate nohighlight">\(\mf T\)</span>,</p></li>
 </ul>
-<p>and the deduced quantites like</p>
+<p>and the derived properties like</p>
 <ul class="simple">
 <li><p><strong>internal energy</strong>, <span class="math notranslate nohighlight">\(\mf U\)</span>,</p></li>
 <li><p><strong>enthalpy</strong>, <span class="math notranslate nohighlight">\(\mf H\)</span>, and</p></li>
@@ -601,7 +605,7 @@ A system is a volume containing a (fixed) number of particles.
 </ul>
 <p>These quantities describe a system directly with their values. I.e. if a system changes from one state to another, then the way it changes does not matter, just the state quantities values at the new state define it.</p>
 <p>In contrast to that, the process quantites (heat and work) do depend on the way the system changes.</p>
-<p>Some of the quantities depend on the system size, e.g. the system’s mass, and are called extensive quantities. Examples are the inner energy or enthalpy.</p>
+<p>Some of the quantities depend on the system size, e.g. the system’s mass, and are called extensive quantities. Examples are the internal energy or enthalpy.</p>
 <p>Intensive quantities, like pressure or temperature, do not depend on the system’s size.</p>
 <p>In order to transform extensive quantities to intensive quantites, (mass) specific values can be used. This way, any extensive quantity <span class="math notranslate nohighlight">\(\mf A\)</span> of a system with the mass <span class="math notranslate nohighlight">\(\mf M\)</span> is expressed as <span class="math notranslate nohighlight">\(\mf a\)</span> being an intensive quantity:</p>
 <div class="math notranslate nohighlight">
@@ -614,7 +618,7 @@ A system is a volume containing a (fixed) number of particles.
 <p><a class="reference external" href="https://en.wikipedia.org/wiki/Thermodynamic_temperature">Thermodynamic temperature</a> is an expression to characterise the random (thermal) motion of the particles. In general all interacting thermodynamic systems try to equal their temperatures by an energy flow, i.e. heat. This means, that if two systems with different temperatures are brought togehter, the induced heat flow will reduce the temperature of the warmer system and increase the temperature of the colder system. The heat flux is always from the higher to the lower temperature.</p>
 <p>In a thermodynamic equilibrium, there are no heat or mass flows between interacting systems, i.e. the state quatities do not change in time. This leads to a thermal equilibrium, where the systems have the same temperature. A single system is in thermal equilibrium if the temperature is homogenous and does not change with time.</p>
 <p>The SI-unit of temperature is Kelvin, where <span class="math notranslate nohighlight">\(\mf 0~K\)</span> is the absolute lowest temperature and <span class="math notranslate nohighlight">\(\mf 0~^\circ C\)</span> corresponds to <span class="math notranslate nohighlight">\(\mf 273.15~K\)</span>. Temperature differences have the same values in Kelvin as in Celsius.</p>
-<p>At finite temperatre, the particles in a gas have not a single velocity, but a distributed over a broad range. This is an important aspect, as many chemical reactions require the involved particles to overcome the activation energy. Thus, there is always a probability that a particle has the needed kinetic energy. This velocitiy distribution, the Maxwell distribution, depends only on the temperature and the gas properties:</p>
+<p>At finite temperature, the particles in a gas have not a single velocity, but a distributed over a broad range. This is an important aspect, as many chemical reactions require the involved particles to overcome the activation energy. Thus, there is always a probability that a particle has the needed kinetic energy. This velocitiy distribution, the Maxwell-Boltzmann distribution, depends only on the temperature and the gas properties:</p>
 <div class="math notranslate nohighlight">
 \[
 \mf f(v) = 4\pi v^2 \left(\frac{m_M}{2\pi k_B T}\right)^{\frac{3}{2}} \cdot e^{\left(-\frac{m_M v^2}{2 k_B T}\right)}\quad ,
