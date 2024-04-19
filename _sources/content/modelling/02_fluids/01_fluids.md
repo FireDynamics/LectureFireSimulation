@@ -47,7 +47,7 @@ smoke) due to the flow. Convection is the advection of the velocity.
    - Type
 * - density 
    - $\mf \rho$
-   - $\mf kg/m$
+   - $\mf kg/m^3$
    - scalar field
 * - velocity 
    - $\mf \vv$
@@ -80,7 +80,7 @@ Where $\mf c_p(T)$ is the heat capacity at temperature $\mf T$ and $\mf \Delta h
 ### Speed of Sound
 
 In fluids and solids, information (flow changes, perturbations) propagates with a finite speed: the speed of sound. Sound waves are longitudinal compression waves. Typical travel speeds are $\mf 343~m/s$ in air, $\mf 1484~m/s$ in water and $\mf 5120~m/s$ in steel.
-In general the speed of sound $\mf c_s$ in an ideal gas is given by:
+In general, the speed of sound $\mf c_s$ in an ideal gas is given by:
 
 $$
 \mf c_s = \sqrt{\frac{\gamma k_B T}{m}}
@@ -96,13 +96,13 @@ where $\mf \Theta$ is the air temperature in $\mf ^\circ C$.
 
 ### Equation of State
 
-For an ideal or perfect gas the state can usually be described in terms of two thermodynamic variables ($\mf n$, $\mf\rho$, $\mf p$, $\mf e$, $\mf T$, $\mf V$, $\mf m$, $\mf h$). Following the combination of Boyle’s and Charles’ laws in a thermodynamical equilibrium, the equation of state follows as:
+For an ideal, or perfect, gas the state can usually be described in terms of two thermodynamic variables ($\mf n$, $\mf\rho$, $\mf p$, $\mf e$, $\mf T$, $\mf V$, $\mf m$, $\mf h$). Following the combination of Boyle’s and Charles’ laws in a thermodynamical equilibrium, the equation of state follows as:
 
 $$
 \mf pV = nRT
 $$(eq-equation-of-state)
 
-where $\mf R = 8.314~J/(mol~K)$ is the universal gas constant and $\mf n$ is the number of particles. Reactive flows are mostly a compound of a number of different species. Thus the equation of state for a system in equilibrium with $\mf N$ species becomes
+where $\mf R = 8.314~J/(mol~K)$ is the universal gas constant and $\mf n$ is the number of particles. Reactive flows are mostly a compound of a number of different species. Thus, the equation of state for a system in equilibrium with $\mf N$ species becomes
 
 $$
 \mf p = f(V, T, n_1 , \dots , n_N)\quad .
@@ -115,7 +115,7 @@ $$
 $$
 
 ## Characterisation of Flows
-Flows of fluids (liquids and gases) follow the same principal characteristics. In the following there will be no difference in liquid or gas flows. They will only differ in material properties. Examples for a fluid flow:
+Flows of fluids (liquids and gases) follow the same principal characteristics. In the following, there will be no difference in liquid or gas flows. They will only differ in material properties. Examples for a fluid flow:
 
 
 :::{figure-md} fig-fluid-vortex-island
@@ -135,7 +135,7 @@ Von Kármán vortex street in a lab. Soruce: [Wikkimedia Commons](https://common
 
 ### Compressible Flows
 
-Flows with velocities much slower ($\mf \ll c_s$) than the speed of sound are incompressible, i.e. the sound waves are infinitely fast on the scale of the involved processes. Thus, all changes in density are quickly balanced. Objects traveling with a speed of at least $\mf 0.3c_s$ start to introduce fluctuations in density. Flow patterns of supersonic phenomena (explosion, supersonic airplanes) and the corresponding engineering approaches are completely different to those in case of sub sonic flows.
+For flows with velocities much slower ($\mf \ll c_s$) than the speed of sound, pressure variations are very small and the fluid can be considered incompressible. the sound waves are infinitely fast on the scale of the involved processes. Thus, all changes in density are quickly balanced. For modelling, this is important because the pressure and density equations can be decoupled due to the assumed incompressibility. Objects traveling with a speed of at least $\mf 0.3c_s$ start to introduce fluctuations in density. Flow patterns of super-sonic phenomena (explosions/detonations, supersonic airplanes, space craft re-entry) and the corresponding engineering approaches are completely different to those in case of sub-sonic flows.
 
 Note: Temperature changes, like in a fire, lead to density changes and therefore to so called weakly compressible flows.
 
@@ -143,7 +143,7 @@ Note: Temperature changes, like in a fire, lead to density changes and therefore
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Aerodynamics_of_model_car.jpg" width="60%">
 
-Incompressilbe flow around a model car. Soruce: [Wikkimedia Commons](https://commons.wikimedia.org/wiki/File:Aerodynamics_of_model_car.jpg).
+Incompressilbe flow around a model car. Source: [Wikkimedia Commons](https://commons.wikimedia.org/wiki/File:Aerodynamics_of_model_car.jpg).
 :::
 
 
@@ -151,7 +151,7 @@ Incompressilbe flow around a model car. Soruce: [Wikkimedia Commons](https://com
 
 <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/X-15_Model_in_Supersonic_Tunnel_-_GPN-2000-001272.jpg" width="60%">
 
-Supersonic airplane model in a tunnel with at approximately $\mf 3.5 c$. Soruce: [Wikkimedia Commons](https://en.wikipedia.org/wiki/Compressible_flow#/media/File:X-15_Model_in_Supersonic_Tunnel_-_GPN-2000-001272.jpg).
+Super-sonic airplane model in a tunnel with at approximately $\mf 3.5 c$. Source: [Wikkimedia Commons](https://en.wikipedia.org/wiki/Compressible_flow#/media/File:X-15_Model_in_Supersonic_Tunnel_-_GPN-2000-001272.jpg).
 :::
 
 ### Turbulent Flows
@@ -229,14 +229,14 @@ Fluids for which viscosity does not depend on the stress state are called Newton
 
 ### Dimensionless numbers
 
-Many flow phenomena and types may be characterised by dimensionless numbers. It is assumed, that flows with similar characteristics are comparable, although e.g. the spatial scales are different. Some of the commonly used dimensionless numbers are:
+Many flow phenomena and types may be characterised by dimensionless numbers. It is assumed, that flows with similar characteristics are comparable, although for example the spatial scales are different. Some of the commonly used dimensionless numbers are:
 * [Mach number](https://en.wikipedia.org/wiki/Mach_number) $\mf Ma$
 * [Reynolds number](https://en.wikipedia.org/wiki/Reynolds_number) $\mf Re$
 * Grashof number $\mf Gr$
 * Prandtl number $\mf Pr$
 * Archimedes number $\mf Ar$
 * Richardson number $\mf Ri$
-* Nussel number $\mf Nu$
+* Nusselt number $\mf Nu$
 
 
 **Mach number**
@@ -290,7 +290,7 @@ From these laws the basic fluid flow equations may be derived:
 * equation of motion
 * energy equation
 
-In general, beside these equations a closure, e.g. via an equation of state, is needed. In many cases the ideal gas law can be used.
+In general, beside these equations a closure is needed, for example via an equation of state. In many cases the ideal gas law can be used.
 
 **Conservation of mass**
 

@@ -593,7 +593,7 @@ smoke) due to the flow. Convection is the advection of the velocity.</p></li>
 <tbody>
 <tr class="row-even"><td><p>density</p></td>
 <td><p><span class="math notranslate nohighlight">\(\mf \rho\)</span></p></td>
-<td><p><span class="math notranslate nohighlight">\(\mf kg/m\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\mf kg/m^3\)</span></p></td>
 <td><p>scalar field</p></td>
 </tr>
 <tr class="row-odd"><td><p>velocity</p></td>
@@ -633,7 +633,7 @@ smoke) due to the flow. Convection is the advection of the velocity.</p></li>
 <section id="speed-of-sound">
 <h3>Speed of Sound<a class="headerlink" href="#speed-of-sound" title="Link to this heading">#</a></h3>
 <p>In fluids and solids, information (flow changes, perturbations) propagates with a finite speed: the speed of sound. Sound waves are longitudinal compression waves. Typical travel speeds are <span class="math notranslate nohighlight">\(\mf 343~m/s\)</span> in air, <span class="math notranslate nohighlight">\(\mf 1484~m/s\)</span> in water and <span class="math notranslate nohighlight">\(\mf 5120~m/s\)</span> in steel.
-In general the speed of sound <span class="math notranslate nohighlight">\(\mf c_s\)</span> in an ideal gas is given by:</p>
+In general, the speed of sound <span class="math notranslate nohighlight">\(\mf c_s\)</span> in an ideal gas is given by:</p>
 <div class="math notranslate nohighlight" id="equation-eq-speed-of-sound">
 <span class="eqno">(2.1)<a class="headerlink" href="#equation-eq-speed-of-sound" title="Link to this equation">#</a></span>\[
 \mf c_s = \sqrt{\frac{\gamma k_B T}{m}}
@@ -647,12 +647,12 @@ In general the speed of sound <span class="math notranslate nohighlight">\(\mf c
 </section>
 <section id="equation-of-state">
 <h3>Equation of State<a class="headerlink" href="#equation-of-state" title="Link to this heading">#</a></h3>
-<p>For an ideal or perfect gas the state can usually be described in terms of two thermodynamic variables (<span class="math notranslate nohighlight">\(\mf n\)</span>, <span class="math notranslate nohighlight">\(\mf\rho\)</span>, <span class="math notranslate nohighlight">\(\mf p\)</span>, <span class="math notranslate nohighlight">\(\mf e\)</span>, <span class="math notranslate nohighlight">\(\mf T\)</span>, <span class="math notranslate nohighlight">\(\mf V\)</span>, <span class="math notranslate nohighlight">\(\mf m\)</span>, <span class="math notranslate nohighlight">\(\mf h\)</span>). Following the combination of Boyle’s and Charles’ laws in a thermodynamical equilibrium, the equation of state follows as:</p>
+<p>For an ideal, or perfect, gas the state can usually be described in terms of two thermodynamic variables (<span class="math notranslate nohighlight">\(\mf n\)</span>, <span class="math notranslate nohighlight">\(\mf\rho\)</span>, <span class="math notranslate nohighlight">\(\mf p\)</span>, <span class="math notranslate nohighlight">\(\mf e\)</span>, <span class="math notranslate nohighlight">\(\mf T\)</span>, <span class="math notranslate nohighlight">\(\mf V\)</span>, <span class="math notranslate nohighlight">\(\mf m\)</span>, <span class="math notranslate nohighlight">\(\mf h\)</span>). Following the combination of Boyle’s and Charles’ laws in a thermodynamical equilibrium, the equation of state follows as:</p>
 <div class="math notranslate nohighlight" id="equation-eq-equation-of-state">
 <span class="eqno">(2.3)<a class="headerlink" href="#equation-eq-equation-of-state" title="Link to this equation">#</a></span>\[
 \mf pV = nRT
 \]</div>
-<p>where <span class="math notranslate nohighlight">\(\mf R = 8.314~J/(mol~K)\)</span> is the universal gas constant and <span class="math notranslate nohighlight">\(\mf n\)</span> is the number of particles. Reactive flows are mostly a compound of a number of different species. Thus the equation of state for a system in equilibrium with <span class="math notranslate nohighlight">\(\mf N\)</span> species becomes</p>
+<p>where <span class="math notranslate nohighlight">\(\mf R = 8.314~J/(mol~K)\)</span> is the universal gas constant and <span class="math notranslate nohighlight">\(\mf n\)</span> is the number of particles. Reactive flows are mostly a compound of a number of different species. Thus, the equation of state for a system in equilibrium with <span class="math notranslate nohighlight">\(\mf N\)</span> species becomes</p>
 <div class="math notranslate nohighlight">
 \[
 \mf p = f(V, T, n_1 , \dots , n_N)\quad .
@@ -666,7 +666,7 @@ In general the speed of sound <span class="math notranslate nohighlight">\(\mf c
 </section>
 <section id="characterisation-of-flows">
 <h2>Characterisation of Flows<a class="headerlink" href="#characterisation-of-flows" title="Link to this heading">#</a></h2>
-<p>Flows of fluids (liquids and gases) follow the same principal characteristics. In the following there will be no difference in liquid or gas flows. They will only differ in material properties. Examples for a fluid flow:</p>
+<p>Flows of fluids (liquids and gases) follow the same principal characteristics. In the following, there will be no difference in liquid or gas flows. They will only differ in material properties. Examples for a fluid flow:</p>
 <figure class="align-default" id="fig-fluid-vortex-island">
 <a class="rotate90 reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/2/2c/Vortex-street-1.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/2/2c/Vortex-street-1.jpg" class="rotate90" src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Vortex-street-1.jpg" style="width: 40%;" /></a>
 <figcaption>
@@ -681,18 +681,18 @@ In general the speed of sound <span class="math notranslate nohighlight">\(\mf c
 </figure>
 <section id="compressible-flows">
 <h3>Compressible Flows<a class="headerlink" href="#compressible-flows" title="Link to this heading">#</a></h3>
-<p>Flows with velocities much slower (<span class="math notranslate nohighlight">\(\mf \ll c_s\)</span>) than the speed of sound are incompressible, i.e. the sound waves are infinitely fast on the scale of the involved processes. Thus, all changes in density are quickly balanced. Objects traveling with a speed of at least <span class="math notranslate nohighlight">\(\mf 0.3c_s\)</span> start to introduce fluctuations in density. Flow patterns of supersonic phenomena (explosion, supersonic airplanes) and the corresponding engineering approaches are completely different to those in case of sub sonic flows.</p>
+<p>For flows with velocities much slower (<span class="math notranslate nohighlight">\(\mf \ll c_s\)</span>) than the speed of sound, pressure variations are very small and the fluid can be considered incompressible. the sound waves are infinitely fast on the scale of the involved processes. Thus, all changes in density are quickly balanced. For modelling, this is important because the pressure and density equations can be decoupled due to the assumed incompressibility. Objects traveling with a speed of at least <span class="math notranslate nohighlight">\(\mf 0.3c_s\)</span> start to introduce fluctuations in density. Flow patterns of super-sonic phenomena (explosions/detonations, supersonic airplanes, space craft re-entry) and the corresponding engineering approaches are completely different to those in case of sub-sonic flows.</p>
 <p>Note: Temperature changes, like in a fire, lead to density changes and therefore to so called weakly compressible flows.</p>
 <figure class="align-default" id="fig-fluid-laminar">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/b/b9/Aerodynamics_of_model_car.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/b/b9/Aerodynamics_of_model_car.jpg" src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Aerodynamics_of_model_car.jpg" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.3 </span><span class="caption-text">Incompressilbe flow around a model car. Soruce: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Aerodynamics_of_model_car.jpg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-laminar" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.3 </span><span class="caption-text">Incompressilbe flow around a model car. Source: <a class="reference external" href="https://commons.wikimedia.org/wiki/File:Aerodynamics_of_model_car.jpg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-laminar" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <figure class="align-default" id="fig-fluid-supersonic">
 <a class="reference internal image-reference" href="https://upload.wikimedia.org/wikipedia/commons/0/06/X-15_Model_in_Supersonic_Tunnel_-_GPN-2000-001272.jpg"><img alt="https://upload.wikimedia.org/wikipedia/commons/0/06/X-15_Model_in_Supersonic_Tunnel_-_GPN-2000-001272.jpg" src="https://upload.wikimedia.org/wikipedia/commons/0/06/X-15_Model_in_Supersonic_Tunnel_-_GPN-2000-001272.jpg" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 2.4 </span><span class="caption-text">Supersonic airplane model in a tunnel with at approximately <span class="math notranslate nohighlight">\(\mf 3.5 c\)</span>. Soruce: <a class="reference external" href="https://en.wikipedia.org/wiki/Compressible_flow#/media/File:X-15_Model_in_Supersonic_Tunnel_-_GPN-2000-001272.jpg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-supersonic" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.4 </span><span class="caption-text">Super-sonic airplane model in a tunnel with at approximately <span class="math notranslate nohighlight">\(\mf 3.5 c\)</span>. Source: <a class="reference external" href="https://en.wikipedia.org/wiki/Compressible_flow#/media/File:X-15_Model_in_Supersonic_Tunnel_-_GPN-2000-001272.jpg">Wikkimedia Commons</a>.</span><a class="headerlink" href="#fig-fluid-supersonic" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 </section>
@@ -767,7 +767,7 @@ In general the speed of sound <span class="math notranslate nohighlight">\(\mf c
 </section>
 <section id="dimensionless-numbers">
 <h3>Dimensionless numbers<a class="headerlink" href="#dimensionless-numbers" title="Link to this heading">#</a></h3>
-<p>Many flow phenomena and types may be characterised by dimensionless numbers. It is assumed, that flows with similar characteristics are comparable, although e.g. the spatial scales are different. Some of the commonly used dimensionless numbers are:</p>
+<p>Many flow phenomena and types may be characterised by dimensionless numbers. It is assumed, that flows with similar characteristics are comparable, although for example the spatial scales are different. Some of the commonly used dimensionless numbers are:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Mach_number">Mach number</a> <span class="math notranslate nohighlight">\(\mf Ma\)</span></p></li>
 <li><p><a class="reference external" href="https://en.wikipedia.org/wiki/Reynolds_number">Reynolds number</a> <span class="math notranslate nohighlight">\(\mf Re\)</span></p></li>
@@ -775,7 +775,7 @@ In general the speed of sound <span class="math notranslate nohighlight">\(\mf c
 <li><p>Prandtl number <span class="math notranslate nohighlight">\(\mf Pr\)</span></p></li>
 <li><p>Archimedes number <span class="math notranslate nohighlight">\(\mf Ar\)</span></p></li>
 <li><p>Richardson number <span class="math notranslate nohighlight">\(\mf Ri\)</span></p></li>
-<li><p>Nussel number <span class="math notranslate nohighlight">\(\mf Nu\)</span></p></li>
+<li><p>Nusselt number <span class="math notranslate nohighlight">\(\mf Nu\)</span></p></li>
 </ul>
 <p><strong>Mach number</strong></p>
 <p>The Mach number is defined as the relation of a velocity to the speed of sound, i.e.</p>
@@ -822,7 +822,7 @@ This number is a classical example for scaling. Flow phenomena having the same R
 <li><p>equation of motion</p></li>
 <li><p>energy equation</p></li>
 </ul>
-<p>In general, beside these equations a closure, e.g. via an equation of state, is needed. In many cases the ideal gas law can be used.</p>
+<p>In general, beside these equations a closure is needed, for example via an equation of state. In many cases the ideal gas law can be used.</p>
 <p><strong>Conservation of mass</strong></p>
 <p>The conservation of mass predicts, that the total mass of a control volume only changes if there is a net flow (non balanced in and out flow) across the boundaries. Incompressible flows have always zero net flows.</p>
 <p>In fire simulations, multiple species have to be considered (e.g. oxygen, fuel and carbon dioxide). Their masses are individually conserved. However, they are strongly coupled to each other via source terms. E.g. during combustion, oxygen and fuel are consumed to produce carbon dioxide.</p>

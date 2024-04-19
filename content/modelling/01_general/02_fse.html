@@ -538,7 +538,7 @@ document.write(`
 <li><p>every person shall have the right to life and the right for physical integrity, and</p></li>
 <li><p>property entails obligations.</p></li>
 </ul>
-<p>Based on this fundamental law, four protection goals, w.r.t. fire safety, are formulated in the  <a class="reference external" href="https://www.bauministerkonferenz.de/Dokumente/42323097.pdf">Pattern Building Code (Musterbauordnung)</a>. This code is specified for each federal state in Germany as the state-individual Building Code (Bauordnung).</p>
+<p>Based on this fundamental law, four protection goals, with respect to fire safety, are formulated in the  <a class="reference external" href="https://www.bauministerkonferenz.de/Dokumente/42323097.pdf">Pattern Building Code (Musterbauordnung)</a>. This code is specified for each federal state in Germany as the state-individual Building Code (Bauordnung).</p>
 <p>The protection goals are:</p>
 <ol class="arabic simple">
 <li><p>prevent the outbreak of a fire</p></li>
@@ -557,11 +557,11 @@ document.write(`
 <li><p>fire safety design can be conducted by <em>semi-qualified</em> persons</p></li>
 <li><p>legal certainity</p></li>
 </ul>
-<p>However, this design approach has also some flows, like</p>
+<p>However, this design approach has also some flaws, like</p>
 <ul class="simple">
 <li><p>descriptive designs are prone for individuality and complexity</p></li>
 <li><p>the application of <em>deemed-to-satisfy</em> strategies can be inappropriate, uneconomic or even impossible</p></li>
-<li><p>under certain circumstances nonconformities to applicable regulations and standards are unavoidable</p></li>
+<li><p>under certain circumstances non-conformities to applicable regulations and standards are unavoidable</p></li>
 <li><p>restrictions for international harmonisation and standardisation</p></li>
 </ul>
 <p>An alternative to prescriptive designs is the application of performance based designs.</p>
@@ -589,7 +589,7 @@ document.write(`
 <ul>
 <li><p>fundamental construction</p></li>
 <li><p>building materials</p></li>
-<li><p>fire and smoke sectioning</p></li>
+<li><p>fire and smoke compartmentalisation</p></li>
 <li><p>topology and separation of the escape routes</p></li>
 </ul>
 </li>
@@ -617,7 +617,7 @@ document.write(`
 <p>For a quantitatve analysis, models or empirical data is used for the evaluation of:</p>
 <ul class="simple">
 <li><p>fire scenarios and design fires</p></li>
-<li><p>fire effects, smoke propagation and exhausting</p></li>
+<li><p>fire effects, smoke propagation and smoke extraction/management</p></li>
 <li><p>building components and bearing structure</p></li>
 <li><p>assessment of technical and defensive measures</p></li>
 <li><p>life safety during fire exposure</p></li>
@@ -626,30 +626,20 @@ document.write(`
 </section>
 <section id="fire-scenario">
 <h2>Fire Scenario<a class="headerlink" href="#fire-scenario" title="Link to this heading">#</a></h2>
-<p>In order to evaluate an individual fire incident, an explicit fire scenario must be defined. In general it needs to consider:</p>
+<p>In order to evaluate an individual fire incident, an explicit fire scenario must be defined. In general, it needs to consider:</p>
 <ul class="simple">
 <li><p>the location of the seat of fire</p></li>
 <li><p>the fire load</p></li>
 <li><p>the fire development</p></li>
 <li><p>the ventilation conditions</p></li>
 <li><p>the impact of technical measures</p></li>
-<li><p>the influence of firefighting measures</p></li>
+<li><p>the influence of fire fighting measures</p></li>
 </ul>
-<p>In a fire scenario, the fire development – especially the rate at which it releases heat – must be specified. A common approach is to define a time-dependent heat release rate, <span class="math notranslate nohighlight">\(\mf HRR(t)\)</span>, which is based on a so called natural fire. A natural fire curve is an empirical approximation to real compartment fires, see <a class="reference internal" href="#fig-natural-design-fire"><span class="std std-numref">Fig. 1.12</span></a>, which can be represented in three phases:</p>
-<ol class="arabic">
-<li><p><strong>Growth</strong>: After ignition, the fire increases the rate at which it releases heat until it reaches the flashover. In this phase the heat release rate follows a quadratic function, i.e.</p>
-<div class="math notranslate nohighlight">
-\[\mf HRR(t) = \alpha\cdot t^2\quad,\]</div>
-<p>where <span class="math notranslate nohighlight">\(\mf \alpha\)</span> is the fire intensity coefficient.</p>
-</li>
-<li><p><strong>Fully developed</strong>: After the flashover all material that is capable to burn is participating in the fire. During this phase the heat release rate reaches its maximal value <span class="math notranslate nohighlight">\(\mf HRR_{max}\)</span> and stays constant, i.e.</p>
-<div class="math notranslate nohighlight">
-\[\mf HRR(t) = HRR_{max}\quad.\]</div>
-</li>
-<li><p><strong>Decay</strong>: When about 70% of the fire load is consumed, the decay phase starts. During that phase the heat release rate linearly decays and reaches a value of zero at time <span class="math notranslate nohighlight">\(\mf t_{end}\)</span>, i.e.</p>
-<div class="math notranslate nohighlight">
-\[\mf \frac{HRR(t)}{dt} = const \quad.\]</div>
-</li>
+<p>In a fire scenario, the fire development – especially the rate at which it releases heat – must be specified. Remember: The HRR is “<a class="reference external" href="https://doi.org/10.1016/0379-7112(92)90019-9">The single most important variable in fire hazard</a>”, since it drives the smoke propagation and also heat transfer to the building structure. A common approach is to define a time-dependent heat release rate, <span class="math notranslate nohighlight">\(\mf HRR(t)\)</span>, which is based on a so called natural fire. A natural fire curve is an empirical approximation to real compartment fires, see <a class="reference internal" href="#fig-natural-design-fire"><span class="std std-numref">Fig. 1.12</span></a>, which can be represented in three phases:</p>
+<ol class="arabic simple">
+<li><p>Growth</p></li>
+<li><p>Fully developed</p></li>
+<li><p>Decay</p></li>
 </ol>
 <figure class="align-default" id="fig-natural-design-fire">
 <a class="reference internal image-reference" href="../../../_images/natural_design_fire.svg"><img alt="../../../_images/natural_design_fire.svg" src="../../../_images/natural_design_fire.svg" width="60%" /></a>
@@ -657,7 +647,40 @@ document.write(`
 <p><span class="caption-number">Fig. 1.12 </span><span class="caption-text">Heat release rate curve based on the natural fire approximation.</span><a class="headerlink" href="#fig-natural-design-fire" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Following tables presents selected values for the fire load and fire intensity coefficient, see <span id="id5">[<a class="reference internal" href="../../overview/03_references.html#id20" title="VDI. VDI 6019 – Part 1 – Engineering methods for the dimensioning of systems for the removal of smoke from buildings. Technical Report, VDI, 2006.">VDI06</a>]</span>.</p>
+<ol class="arabic">
+<li><p><strong>Growth</strong>: Typically, a fire needs some initial time take hold. This time can be called the virtual ignition time <span class="math notranslate nohighlight">\(t_0\)</span>. The following growth period is often approximated by a <a class="reference external" href="https://doi.org/10.1016/0379-7112(84)90005-5">parabolic raise of the heat release rate</a>, scaled by the fire-growth coefficient <span class="math notranslate nohighlight">\(\alpha * t^2\)</span>, leading to:</p>
+<div class="math notranslate nohighlight">
+\[\mf HRR(t) = \alpha\cdot (t - t_0)^2\quad,\]</div>
+<p>The relationship of the “t-squared” design fire can be observed from experiments. <a class="reference internal" href="#fig-furniturecalorimeter"><span class="std std-numref">Fig. 1.13</span></a> shows the HRR curves of three pieces of furniture, taken from <a class="reference external" href="https://www.nist.gov/publications/upholstered-furniture-heat-release-rates-measured-furniture-calorimeter">Babrauskas and Lawson</a>. The data series are shifted in time, such that the intervals of the sudden increase in HRR align. A t-squared design fire was fitted to the data series, with a fire-growth coefficient of 0.19 kW/s<span class="math notranslate nohighlight">\(^{-2}\)</span> and a virtual ignition time of 90s.</p>
+</li>
+</ol>
+<figure class="align-default" id="fig-furniturecalorimeter">
+<a class="reference internal image-reference" href="../../../_images/FurnitureCalorimeter.svg"><img alt="../../../_images/FurnitureCalorimeter.svg" src="../../../_images/FurnitureCalorimeter.svg" width="60%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1.13 </span><span class="caption-text">Heat release rate of different pieces of furniture, taken from <a class="reference external" href="https://www.nist.gov/publications/upholstered-furniture-heat-release-rates-measured-furniture-calorimeter">Babrauskas and Lawson</a>. A t-squared approximation is applied with a virtual ignition time of 90s.</span><a class="headerlink" href="#fig-furniturecalorimeter" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<ol class="arabic" start="2">
+<li><p><strong>Fully developed</strong>: After the flashover, all material that is capable to burn is participating in the fire. Depending on the ventilation conditions and fire load distribution, the profile of the recorded HRR can vary. For comparatively small individual items, the HRR may reach a peak value and drop again shortly after, see “Single Chair (F21)” in <a class="reference internal" href="#fig-furniturecalorimeter"><span class="std std-numref">Fig. 1.13</span></a>. Larger items, which may not be engulfed in flames immediately, can show a constant (averaged) HRR before the decay starts, see “Sofa (F32)” and “Love Seat (F31)” in <a class="reference internal" href="#fig-furniturecalorimeter"><span class="std std-numref">Fig. 1.13</span></a>. Overall, <a class="reference external" href="https://www.nist.gov/el/fcd/fire-barriers-full-scale-chair-mock-ups">individual items</a> or smaller <a class="reference external" href="https://www.nist.gov/el/fcd/cross-laminated-timber-compartments">configurations of items (CornerTest1/2)</a> tend to raise to a peak HRR and start to decay shortly after, when burning without confinement. These cases would be considered “fuel controlled”. Situations with confinement, where the oxygen supply is limited, lead to constant heat release over prolonged periods of time. Consider cases where different fire loads are burning in the same room geometry and with different ventilation openings, see <a class="reference external" href="https://www.nist.gov/el/fcd/cross-laminated-timber-compartments/cltroomtest1-2">CLT_Room_Test_1-2</a> and <a class="reference external" href="https://www.nist.gov/el/fcd/cross-laminated-timber-compartments/cltroomtest1-6">CLT_Room_Test_1-6</a> in <a class="reference internal" href="#fig-crosslaminatedtimbercompartments"><span class="std std-numref">Fig. 1.14</span></a>. They reach a peak HRR, limited by the available oxygen, which stays on average constant. Another example is the <a class="reference external" href="https://www.nist.gov/el/fcd/structure-separation-experiments-shed-burns-without-wind/1b-svsh0-5r1">Steel Closet</a> experiment. These cases would be considerd “ventilation controlled”.</p>
+<p>This part of the design fire is thus often modelled as a constant HRR at about its maximum value (<span class="math notranslate nohighlight">\(\mf HRR_{max}\)</span>), i.e.:</p>
+<div class="math notranslate nohighlight">
+\[\mf HRR(t) = HRR_{max}\quad.\]</div>
+</li>
+</ol>
+<figure class="align-default" id="fig-crosslaminatedtimbercompartments">
+<a class="reference internal image-reference" href="../../../_images/CrossLaminatedTimberCompartments.svg"><img alt="../../../_images/CrossLaminatedTimberCompartments.svg" src="../../../_images/CrossLaminatedTimberCompartments.svg" width="60%" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 1.14 </span><span class="caption-text">Heat release rates of different fuel loads and ventilation openings in a room of the same geometry, taken from the <a class="reference external" href="https://www.nist.gov/el/fcd/cross-laminated-timber-compartments">NIST Fire Calorimetry Database (FCD)</a>.</span><a class="headerlink" href="#fig-crosslaminatedtimbercompartments" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<ol class="arabic" start="3">
+<li><p><strong>Decay</strong>: The fire decay can be a somewhat drawn out process and depends on the fuel source. Once volatile components of the combustible material are mostly consumed and the objects collapsed, the flames shrink and most of the the combustion takes place at the solid (char oxidation). For example see the endings of <a class="reference external" href="https://www.nist.gov/el/fcd/cross-laminated-timber-compartments/cornertest2">corner test 2</a>, a <a class="reference external" href="https://www.nist.gov/el/fcd/structure-separation-experiments-shed-burns-without-wind/1b-wcl0">wooden shed</a> or the <a class="reference external" href="https://www.nist.gov/el/fcd/room-flashover-experiments-demonstrate-effectiveness-barrier-fabrics">room flashover experiments</a>.The fire decay is typically not of large importance for a design fire due to fire fighting measures. In Germany, the fire brigade is expected to arrive on site within 8 min to 15 min after they receive a call, depending on the geography and population density (see “<a class="reference external" href="https://de.wikipedia.org/wiki/Hilfsfrist">Hilfsfrist</a>”). Consider again <a class="reference internal" href="#fig-crosslaminatedtimbercompartments"><span class="std std-numref">Fig. 1.14</span></a>, the fire brigade would likely have already started intervening. The actions of the fire brigade may have a notable impact, depending on fire size and employed measures, see for example the end of <a class="reference external" href="https://www.nist.gov/el/fcd/cross-laminated-timber-compartments/cltroomtest1-6">CLT_Room_Test_1-6</a>.</p>
+<p>Thus, one can make the assumption that when about 70% of the fire load is consumed, the decay phase starts. During that phase the heat release rate could be assumed to decay linearly and reaches a value of zero at time <span class="math notranslate nohighlight">\(\mf t_{end}\)</span>, i.e.</p>
+<div class="math notranslate nohighlight">
+\[\mf \frac{HRR(t)}{dt} = const \quad.\]</div>
+</li>
+</ol>
+<p>The following tables present a selected set of values for the fire load and fire-growth coefficient, see <span id="id5">[<a class="reference internal" href="../../overview/03_references.html#id20" title="VDI. VDI 6019 – Part 1 – Engineering methods for the dimensioning of systems for the removal of smoke from buildings. Technical Report, VDI, 2006.">VDI06</a>]</span>.</p>
 <table class="table table-right" id="tab-alpha">
 <caption><span class="caption-number">Table 1.1 </span><span class="caption-text">Fire intensity coefficients</span><a class="headerlink" href="#tab-alpha" title="Link to this table">#</a></caption>
 <thead>
