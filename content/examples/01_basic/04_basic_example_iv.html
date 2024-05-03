@@ -542,6 +542,7 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-description">Setup Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task">Task</a></li>
 </ul>
             </nav>
         </div>
@@ -576,7 +577,24 @@ document.write(`
 <h1>Basic Example IV<a class="headerlink" href="#basic-example-iv" title="Link to this heading">#</a></h1>
 <section id="setup-description">
 <h2>Setup Description<a class="headerlink" href="#setup-description" title="Link to this heading">#</a></h2>
-<p>We give an introduction to the <a class="reference external" href="https://automeris.io/WebPlotDigitizer/">WebPlotDigitizer</a>. This tool enables the user to extract data points from plots that are images. For example, when reading old scientific articles the document might only be able as a scan. One might also not be able to contact the author anymore or even if it is possible the data might be lost.</p>
+<p>We give an introduction to the <a class="reference external" href="https://automeris.io/WebPlotDigitizer/">WebPlotDigitizer</a>. This tool enables the user to extract data points from plots that are images. For example, when reading old scientific articles the document might only be available as a scan. One might also not be able to contact the author anymore or even if it is possible the data might be lost.</p>
+<p>Let’s assume we would like to investigate purely buoyant diffusion flames, where many experiments have been conducted in the past. For example, Bernard J. McCaffrey published results from <a class="reference external" href="https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nbsir79-1910.pdf">experiments</a> in 1979 with the National Bureau of Standards. Part of this investigation was to determine the gas velocity in the flame region. This information is provided in figure 8 in the report linked above.</p>
+</section>
+<section id="task">
+<h2>Task<a class="headerlink" href="#task" title="Link to this heading">#</a></h2>
+<p>The task is to extract the data points from figure 8, save them as a CSV (comma separated value) file and reproduce the figure as plot in Python, or another plotting software of your choice.</p>
+<ul class="simple">
+<li><p>Download the PDF from the link above.</p></li>
+<li><p>Take a screen capture from figure 8.</p></li>
+<li><p>Navigate to the webplotdigitizer webpage.</p></li>
+</ul>
+<p>On the webplotdigitizer webpage, start the online version. The image can be uploaded either from the right hand side using the “Load image” button, or at the top left “File” and “Load Image” or by drag-and-drop.</p>
+<p>Afterwards, a menu appears to where you provide basic information about the plot to be investigated. In our case it is a simple 2D (x/y) plot.</p>
+<p>One the plot type is identified, the axis need to be aligned. Clicking the “Align” button, a new window appears that gives a brief description about the alignment process. Clicking on “Proceed”, you we are presented with our uploaded image. Now, we have to introduce four points to identify the x- and y-axis. They are simply introduced by clicking on the image, in the order: x1, x2, y1 and y2. It makes sense to click on the axis ticks such that the two x-points are as far apart as possible on a known location, same for the y-points. After the four points are positioned, you can click on them and use the arrow keys to finely adjust their location. There is a zoomed-in view in the top right. Below this vies there are also coordinates displayed that can be used to help with the alignment process.Once you are satisfied, click the “Complete!”button on the right hand side.</p>
+<p>In the next menu, the values for the point locations are to be entered. For the x-points the values from the respective x-ticks and the y-points the values from the respective y-ticks. If the axis would be logarithmically scaled, one can identify this by checking the “Log Scale” box for the appropriate axis. This would be the case for figure 1 or figure 2 from the same report, for example.</p>
+<p>Look at the right hand side, “Add Point” should be selected. Now, new points can be positioned by clicking into the image. Once you have loced a couple of points, you can click on “Adjust Points” and move them around with the arrow keys as before. Activating the “Delete Point” functionality points can be deleted by clicking on them.</p>
+<p>Once satisfied, you can click on the left hand side on “View Data”. Often it makes sense to sort the points by x. You can then either copy the numbers to the clipboard or download the CSV directly.</p>
+<p>If you want to extract lines instead of points, you can use the automatic extraction on the right hand side (where we had the “Add Point” selected before in  the manual selection). A color needs to be selected, for the program to look for. Then you can draw lines on the image. When clicking on “Run” at the bottom right, points will automatically be placed with distance of delta x/y.</p>
 <p>Example McCaffrey figure 1 or figure 2 (or both). Iso-lines of figure 10?</p>
 </section>
 </section>
@@ -646,6 +664,7 @@ document.write(`
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup-description">Setup Description</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#task">Task</a></li>
 </ul>
   </nav></div>
 
