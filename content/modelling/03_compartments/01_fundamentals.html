@@ -520,9 +520,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -538,17 +536,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pressure">Pressure</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flow">Flow</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-quantities">Other Quantities</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -560,414 +547,63 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="fundamentals">
 <h1><span class="section-number">3.1. </span>Fundamentals<a class="headerlink" href="#fundamentals" title="Link to this heading">#</a></h1>
-<p>In fire safety engineering compartment fires are an important topic. The development of a fire in a compartment determines the energy release and the spread of smoke through a building.   This has direct on the safety of the occupants and how effective the fire brigade can deal with the fire. A good overview on modelling principles of compartment fires is given in the book “Enclosure Fire Dynamics” by Karlsson and Quinitere <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id25" title="Bjorn Karlsson and James Quintiere. Enclosure Fire Dynamics. CRC Press LLC, 1999. doi:10.1201/9781420050219-12.">KQ99</a>]</span>. We take some of the aspect described in this book and discuss them here in context of the lecture. The simulations themselves are built around some experiments that are fundamental to the field of fire safety engineering.</p>
-<p>At first, we look into plume models and experiment data from McCaffrey <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id26" title="Bernard J. McCaffrey. Purely Buoyant Diffusion Flames. Technical Report, NIST, 1979. URL: https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nbsir79-1910.pdf.">McC79</a>]</span>, which are described in the report about <a class="reference external" href="https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nbsir79-1910.pdf">“Purely Buoyant Diffusion Flames”</a>. These plume experiments and respective models are a good starting point to modelling compartment fires. Using gas burners at different locations, Steckler et al. performed a number of experiments in a regular-sized compartment  <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id7" title="K.D. Steckler, J.G. Quintiere, and W.J. Rinkinen. Flow induced by fire in a compartment. Symposium (International) on Combustion, 19(1):913–920, 1982. URL: https://www.nist.gov/publications/flow-induced-fire-compartment, doi:10.1016/s0082-0784(82)80267-1.">SQR82</a>]</span> (<span class="math notranslate nohighlight">\(\mf 2.8~m \times 2.8~m \times 2.18~m\)</span>). The results are provided in the report <a class="reference external" href="https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nbsir82-2520.pdf">“Flow Induced by Fire in a Compartment”</a>.</p>
-<p>This brief introduction into the fluid dynamics in a compartment fire is based on a characteristic setup and simulations carried out.</p>
-<figure class="align-default" id="fig-steckler02">
-<a class="reference internal image-reference" href="../../../_images/Steckler02.png"><img alt="../../../_images/Steckler02.png" src="../../../_images/Steckler02.png" style="width: 60%;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 3.1 </span><span class="caption-text">Overview over the experimental setup used by Steckler et al. <span id="id4">[<a class="reference internal" href="../../overview/03_references.html#id7" title="K.D. Steckler, J.G. Quintiere, and W.J. Rinkinen. Flow induced by fire in a compartment. Symposium (International) on Combustion, 19(1):913–920, 1982. URL: https://www.nist.gov/publications/flow-induced-fire-compartment, doi:10.1016/s0082-0784(82)80267-1.">SQR82</a>]</span>.</span><a class="headerlink" href="#fig-steckler02" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
+<p>In fire safety engineering, compartment fires are a very important topic. The development of a fire in a compartment determines the energy release and the spread of smoke through a building.</p>
+<p>The spread of smoke has a direct impact on the safety of the occupants.
+It blocks peoples view, preventing them from seeing exit sign and make them loose their orientation, thus hindereing them to leave the building. Reduced oxygen levels and toxic substances in the smoke can incapacitate people. High gas temperatures lead to injuries and eventually death.</p>
+<p>The smoke impacts also the intervention measures taken by the fire brigade. Despite wearing protective clothing and breathing apparatuses, their orientation is impacted and high temperatures are affecting them.</p>
+<p>The high temperature gases are furthermore instrumental in spreading the fire to combustible objects nearby. Phenomena like the flashover lead to rapid fire growth inside compartments (see video from <a class="reference external" href="https://www.nist.gov/el/fire-research-division-73300/flammability-reduction-73304/low-heat-release-upholstered-1">NIST</a> below).</p>
+<p>The structure of a building will loose its integrity, when subjected to long periods of high temperatures. Loss of the structural integrity will eventually lead to the collapse of the building.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">IFrame</span>
+<span class="c1"># Video from NIST.</span>
+<span class="n">IFrame</span><span class="p">(</span><span class="s1">&#39;https://cdnapisec.kaltura.com/p/684682/sp/68468200/embedIframeJs/uiconf_id/31013851/partner_id/684682?iframeembed=true&amp;playerId=iframeVid&amp;entry_id=0_nm11i0l0&amp;flashvars[streamerType]=auto&#39;</span><span class="p">,</span> 
+       <span class="mi">560</span><span class="p">,</span> <span class="mi">315</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+        <iframe
+            width="560"
+            height="315"
+            src="https://cdnapisec.kaltura.com/p/684682/sp/68468200/embedIframeJs/uiconf_id/31013851/partner_id/684682?iframeembed=true&playerId=iframeVid&entry_id=0_nm11i0l0&flashvars[streamerType]=auto"
+            frameborder="0"
+            allowfullscreen
+            
+        ></iframe>
+        </div></div>
+</div>
+<p>Deeper understanding of various phenomena involved in compartment fires  can help to create better building designs. Therefore, compartment fires are subject of scientific research since many decades.</p>
+<p>Aspects that are of importance here, are:</p>
+<ul class="simple">
+<li><p>how fast a fire can grow</p></li>
+<li><p>how much energy it releases</p></li>
+<li><p>how far the smoke layer extents from the ceiling into the room</p></li>
+<li><p>the temperatures in the smoke layer</p></li>
+<li><p>how the builing structure heats up</p></li>
+</ul>
+<p>A good overview of the modelling principles of compartment fires is given in the book “Enclosure Fire Dynamics” by Karlsson and Quinitere <span id="id1">[<a class="reference internal" href="../../overview/03_references.html#id25" title="Bjorn Karlsson and James Quintiere. Enclosure Fire Dynamics. CRC Press LLC, 1999. doi:10.1201/9781420050219-12.">KQ99</a>]</span>. We take some of the aspects described in this book, as well as some fundamental experiments in the field of fire safety engineering, and discuss them in context of this lecture.</p>
+<p>At first, we look fire plumes, since fires are the driving force of the whole process. In 1979, McCaffrey conducted a campaign of fire plume experiments in the open <span id="id2">[<a class="reference internal" href="../../overview/03_references.html#id26" title="Bernard J. McCaffrey. Purely Buoyant Diffusion Flames. Technical Report, NIST, 1979. URL: https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nbsir79-1910.pdf.">McC79</a>]</span>, which are described in the report about <a class="reference external" href="https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nbsir79-1910.pdf">“Purely Buoyant Diffusion Flames”</a>. From these experiments, a plume model was derived, the “McCaffrey plume”.
+These plume experiments and respective models are a good starting point to modelling compartment fires. The provide an overview the of gas mass flow and gas temperatures at different distances to the burner surface.</p>
+<p>Secondly, we look at the fire dynamics inside a room. In 1982, Steckler et al. performed a number of experiments inside a regular-sized compartment (<span class="math notranslate nohighlight">\(\mf 2.8~m \times 2.8~m \times 2.18~m\)</span>) <span id="id3">[<a class="reference internal" href="../../overview/03_references.html#id7" title="K.D. Steckler, J.G. Quintiere, and W.J. Rinkinen. Flow induced by fire in a compartment. Symposium (International) on Combustion, 19(1):913–920, 1982. URL: https://www.nist.gov/publications/flow-induced-fire-compartment, doi:10.1016/s0082-0784(82)80267-1.">SQR82</a>]</span>.
+Using gas burners at different locations, they investigated the flow field.
+Their findings are recorded in the report <a class="reference external" href="https://nvlpubs.nist.gov/nistpubs/Legacy/IR/nbsir82-2520.pdf">“Flow Induced by Fire in a Compartment”</a>.
+This work provides information about the formtion of gas layers inside a room, gas exchange rates across openings and temperature distribution over the height of the room.</p>
 <figure class="align-default" id="fig-steckler01">
 <a class="reference internal image-reference" href="../../../_images/Steckler01.png"><img alt="../../../_images/Steckler01.png" src="../../../_images/Steckler01.png" style="width: 60%;" /></a>
 <figcaption>
-<p><span class="caption-number">Fig. 3.2 </span><span class="caption-text">Overview over the experimental setup used by Steckler et al. <span id="id5">[<a class="reference internal" href="../../overview/03_references.html#id7" title="K.D. Steckler, J.G. Quintiere, and W.J. Rinkinen. Flow induced by fire in a compartment. Symposium (International) on Combustion, 19(1):913–920, 1982. URL: https://www.nist.gov/publications/flow-induced-fire-compartment, doi:10.1016/s0082-0784(82)80267-1.">SQR82</a>]</span>.</span><a class="headerlink" href="#fig-steckler01" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 3.1 </span><span class="caption-text">Overview over the experimental setup used by Steckler et al. <span id="id4">[<a class="reference internal" href="../../overview/03_references.html#id7" title="K.D. Steckler, J.G. Quintiere, and W.J. Rinkinen. Flow induced by fire in a compartment. Symposium (International) on Combustion, 19(1):913–920, 1982. URL: https://www.nist.gov/publications/flow-induced-fire-compartment, doi:10.1016/s0082-0784(82)80267-1.">SQR82</a>]</span>.</span><a class="headerlink" href="#fig-steckler01" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<section id="setup">
-<h2>Setup<a class="headerlink" href="#setup" title="Link to this heading">#</a></h2>
-<p>The compartment has an extension of</p>
-<div class="math notranslate nohighlight">
-\[
-\mf I_{compartment} = [0.20~m, 2.70~m] \times [-1.40~m, 1.40~m] \times [0.05~m, 2.00~m]
-\]</div>
-<p>and is embeded in a computational domain of</p>
-<div class="math notranslate nohighlight">
-\[
-\mf I_{domain} = [0.00~m, 4.80~m] \times [-1.80~m, 1.80~m] \times [0.00~m, 3.00~m] \quad .
-\]</div>
-<aside class="margin sidebar">
-<p class="sidebar-title"></p>
-<p>See the <a class="reference internal" href="../../tools/01_fds_smv/02_fds_tutorial.html"><span class="doc std std-doc">FDS introduction section</span></a> for a quick introduction on how to define a computational domain and obstacles.</p>
-</aside>
-<p>The compartment is build out of individual obstacles, creating the walls, the floor and the ceiling. One of the walls contains an opening, see <a class="reference internal" href="#fig-compartment-setup"><span class="std std-numref">Fig. 3.3</span></a>. The domain boundaries are defined as open boundaries.</p>
-<figure class="align-default" id="fig-compartment-setup">
-<a class="reference internal image-reference" href="../../../_images/compartment_fire_setup_01.png"><img alt="../../../_images/compartment_fire_setup_01.png" src="../../../_images/compartment_fire_setup_01.png" style="width: 60%;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 3.3 </span><span class="caption-text">Setup for the compartment fire example. There is only a single opening, i.e. the door. The surface with a predefined heat release rate is indicated in red.</span><a class="headerlink" href="#fig-compartment-setup" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<p>The heat release rate is defined as a constant value of <span class="math notranslate nohighlight">\(\mf 10~kW\)</span> and the patch emitting the fuel has a surface temperature of <span class="math notranslate nohighlight">\(\mf 100~^\circ C\)</span>.</p>
-<p>For demonstration purposes, all quantities are visualised in the symmetry plane at <span class="math notranslate nohighlight">\(\mf y=0\)</span>, see <a class="reference internal" href="#fig-compartment-slcf-temp"><span class="std std-numref">Fig. 3.4</span></a>.</p>
-<figure class="align-default" id="fig-compartment-slcf-temp">
-<a class="reference internal image-reference" href="../../../_images/compartment_fire_slcf_temp_01.png"><img alt="../../../_images/compartment_fire_slcf_temp_01.png" src="../../../_images/compartment_fire_slcf_temp_01.png" style="width: 60%;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 3.4 </span><span class="caption-text">Temperature field in the <span class="math notranslate nohighlight">\(\mf y=0~m\)</span> plane.</span><a class="headerlink" href="#fig-compartment-slcf-temp" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<div class="dropdown admonition">
-<p class="admonition-title">Full FDS input file</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&amp;HEAD CHID=&#39;out_compartment&#39;, TITLE=&#39;Compartment Fire Example&#39;/
+<p>Firgure <a class="reference internal" href="#fig-steckler01"><span class="std std-numref">Fig. 3.1</span></a> provides an overview of the gas flows in a compartment. Indicated are a fire plume feeding a hot gas layer, gas exchange through an opening on the right hand side and a temperature profile over the room height on the left hand side.</p>
+<!-- 
+:::{figure-md} fig-Steckler02
 
-!! &amp;MESH IJK=96,72,60, XB=0.00,4.80,-1.80,1.80,0.00,3.00 /
+<img src="figs/Steckler02.png" width="60%">
 
-&amp;MESH ID=&#39;1&#39; IJK=48,36,30 XB=0.0000,2.4000,-1.8000,0.0000,0.0000,1.5000 /
-&amp;MESH ID=&#39;2&#39; IJK=48,36,30 XB=0.0000,2.4000,-1.8000,0.0000,1.5000,3.0000 /
-&amp;MESH ID=&#39;3&#39; IJK=48,36,30 XB=0.0000,2.4000,0.0000,1.8000,0.0000,1.5000 /
-&amp;MESH ID=&#39;4&#39; IJK=48,36,30 XB=0.0000,2.4000,0.0000,1.8000,1.5000,3.0000 /
-&amp;MESH ID=&#39;5&#39; IJK=48,36,30 XB=2.4000,4.8000,-1.8000,0.0000,0.0000,1.5000 /
-&amp;MESH ID=&#39;6&#39; IJK=48,36,30 XB=2.4000,4.8000,-1.8000,0.0000,1.5000,3.0000 /
-&amp;MESH ID=&#39;7&#39; IJK=48,36,30 XB=2.4000,4.8000,0.0000,1.8000,0.0000,1.5000 /
-&amp;MESH ID=&#39;8&#39; IJK=48,36,30 XB=2.4000,4.8000,0.0000,1.8000,1.5000,3.0000 /
-
-&amp;TIME T_END=100.0 /
-
-&amp;MISC TMPA=22. /
-
-&amp;SURF ID=&#39;BURNER&#39;, HRRPUA=250, TMP_FRONT=100., COLOR=&#39;FIREBRICK&#39; /
-&amp;VENT XB=1.30,1.50,-0.10,0.10,0.05,0.05, SURF_ID=&#39;BURNER&#39; /
-&amp;REAC FUEL=&#39;METHANE&#39;,SOOT_YIELD=0.15 /
-
-&amp;OBST XB=2.70,2.75, -1.40,1.40,  0.05,2.00, COLOR=&#39;GRAY&#39;, TRANSPARENCY=0.5 / Wall with door or window
-&amp;OBST XB=0.20,0.25, -1.40,1.40,  0.05,2.00, COLOR=&#39;GRAY&#39;, TRANSPARENCY=0.5 / Wall
-&amp;OBST XB=0.00,4.80, -1.80,1.80,  0.00,0.05, COLOR=&#39;GRAY&#39; / Floor
-&amp;OBST XB=0.20,2.75, -1.40,1.40,  2.00,2.05, COLOR=&#39;GRAY&#39;, TRANSPARENCY=0.5 / Ceiling
-&amp;OBST XB=0.20,2.75, -1.46,-1.40, 0.05,2.05, COLOR=&#39;GRAY&#39;, TRANSPARENCY=0.5 / Wall
-&amp;OBST XB=0.20,2.75,  1.40,1.46,  0.05,2.05, COLOR=&#39;GRAY&#39;, TRANSPARENCY=0.5 / Wall
-
-&amp;HOLE XB=2.65,2.85,-0.20,0.20, 0.05,1.80 / Door Opening
-
-&amp;VENT DB=&#39;XMIN&#39;,SURF_ID=&#39;OPEN&#39;/
-&amp;VENT DB=&#39;XMAX&#39;,SURF_ID=&#39;OPEN&#39;/
-&amp;VENT DB=&#39;YMIN&#39;,SURF_ID=&#39;OPEN&#39;/
-&amp;VENT DB=&#39;YMAX&#39;,SURF_ID=&#39;OPEN&#39;/
-&amp;VENT DB=&#39;ZMIN&#39;,SURF_ID=&#39;OPEN&#39;/
-&amp;VENT DB=&#39;ZMAX&#39;,SURF_ID=&#39;OPEN&#39;/
-
-&amp;SLCF PBY=0.0, QUANTITY=&#39;TEMPERATURE&#39;,             CELL_CENTERED=.TRUE. /
-&amp;SLCF PBY=0.0, QUANTITY=&#39;PRESSURE&#39;,                CELL_CENTERED=.TRUE. /
-&amp;SLCF PBY=0.0, QUANTITY=&#39;VELOCITY&#39;,                CELL_CENTERED=.TRUE. /
-&amp;SLCF PBY=0.0, QUANTITY=&#39;U-VELOCITY&#39;,              CELL_CENTERED=.TRUE. /
-&amp;SLCF PBY=0.0, QUANTITY=&#39;V-VELOCITY&#39;,              CELL_CENTERED=.TRUE. /
-&amp;SLCF PBY=0.0, QUANTITY=&#39;W-VELOCITY&#39;,              CELL_CENTERED=.TRUE. /
-&amp;SLCF PBY=0.0, QUANTITY=&#39;BACKGROUND PRESSURE&#39;,     CELL_CENTERED=.TRUE. /
-&amp;SLCF PBY=0.0, QUANTITY=&#39;DENSITY&#39;,                 CELL_CENTERED=.TRUE. /
-&amp;SLCF PBY=0.0, QUANTITY=&#39;ENTHALPY&#39;,                CELL_CENTERED=.TRUE. /
-&amp;SLCF PBY=0.0, QUANTITY=&#39;HRRPUV&#39;,                  CELL_CENTERED=.TRUE. /
-&amp;SLCF PBY=0.0, QUANTITY=&#39;INTERNAL ENERGY&#39;,         CELL_CENTERED=.TRUE. /
-&amp;SLCF PBY=0.0, QUANTITY=&#39;SENSIBLE ENTHALPY&#39;,       CELL_CENTERED=.TRUE. /
-&amp;SLCF PBY=0.0, QUANTITY=&#39;SPECIFIC ENTHALPY&#39;,       CELL_CENTERED=.TRUE. /
-&amp;SLCF PBY=0.0, QUANTITY=&#39;SPECIFIC HEAT&#39;,           CELL_CENTERED=.TRUE. /
-&amp;SLCF PBY=0.0, QUANTITY=&#39;VISCOSITY&#39;,               CELL_CENTERED=.TRUE. /
-&amp;SLCF PBY=0.0, QUANTITY=&#39;IDEAL GAS PRESSURE&#39;,      CELL_CENTERED=.TRUE. /
-&amp;SLCF PBY=0.0, QUANTITY=&#39;KOLMOGOROV LENGTH SCALE&#39;, CELL_CENTERED=.TRUE. /
-&amp;SLCF PBY=0.0, QUANTITY=&#39;MOLECULAR VISCOSITY&#39;,     CELL_CENTERED=.TRUE. /
-&amp;SLCF PBY=0.0, QUANTITY=&#39;SUBGRID KINETIC ENERGY&#39;,  CELL_CENTERED=.TRUE. /
-&amp;SLCF PBY=0.0, QUANTITY=&#39;VORTICITY X&#39;,             CELL_CENTERED=.TRUE. /
-&amp;SLCF PBY=0.0, QUANTITY=&#39;VORTICITY Y&#39;,             CELL_CENTERED=.TRUE. /
-&amp;SLCF PBY=0.0, QUANTITY=&#39;VORTICITY Z&#39;,             CELL_CENTERED=.TRUE. /
-
-&amp;TAIL /
-</pre></div>
-</div>
-</div>
-</section>
-<section id="pressure">
-<h2>Pressure<a class="headerlink" href="#pressure" title="Link to this heading">#</a></h2>
-<p>Thermal expansion and differences in gas densities lead to pressure differences. These in turn are driving the gas flow in and out of the compartment. One can compare the pressuere differences inside and outside of a compartment, as well as changes with height. During different phases of a developing fire the pressure profiles change. In the very early phase it is considerd that there is mostly overpressure inside the room with respect to outside.</p>
-<figure class="align-default" id="fig-initial-fire-pressure-profile">
-<a class="reference internal image-reference" href="../../../_images/InitialFire.png"><img alt="../../../_images/InitialFire.png" src="../../../_images/InitialFire.png" style="width: 60%;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 3.5 </span><span class="caption-text">Pressure profile in a compartment during the initial stage of a fire.</span><a class="headerlink" href="#fig-initial-fire-pressure-profile" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<p>When the fire developes a bit further a more pronounced pressure profile is generated. The height where the two graphs cross is considered the location of the “neutral plane” that spans the compartment. This is also highlighted in the plots further down, with the pressure slices. In the figure shown, it can be seen that the pressure inside the room starts out lower than outside. They run parallel for some distance and then the pressure inside increases notably. Around the bend, below the neutral plane, is typically the height of a relatively stable interface between the cold and hot gas layers. These observations form the basis for the zone models.</p>
-<figure class="align-default" id="fig-intermediate-fire-pressure-profile">
-<a class="reference internal image-reference" href="../../../_images/IntermediateFire.png"><img alt="../../../_images/IntermediateFire.png" src="../../../_images/IntermediateFire.png" style="width: 60%;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 3.6 </span><span class="caption-text">Pressure profile in a compartment in an intermediate stage of a fire.</span><a class="headerlink" href="#fig-intermediate-fire-pressure-profile" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<p>The further the fire in a compartment can develop, the further the height of the cold gas layer drops. At some point there are no gas layers left to speak of and the room is considered fully envolved in the fire. Furthermore, it is visible that parts of the smoke get mixed into the air that flows into the compartment. Thus, over time the relatively smoke free lower layer get more and more enriched with smoke.</p>
-<figure class="align-default" id="fig-developed-fire-pressure-profile">
-<a class="reference internal image-reference" href="../../../_images/DevelopedFire.png"><img alt="../../../_images/DevelopedFire.png" src="../../../_images/DevelopedFire.png" style="width: 60%;" /></a>
-<figcaption>
-<p><span class="caption-number">Fig. 3.7 </span><span class="caption-text">Pressure profile in a compartment a a developed stage of a fire.</span><a class="headerlink" href="#fig-developed-fire-pressure-profile" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-<div class="cell tag_hide_input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_q</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;PRESSURE&#39;</span><span class="p">,</span> <span class="s1">&#39;BACKGROUND PRESSURE&#39;</span><span class="p">]</span>
-
-<span class="n">it</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">slices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_nearest_timestep</span><span class="p">(</span><span class="mi">250</span><span class="p">)</span>
-
-<span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">list_q</span><span class="p">:</span>
-    <span class="nb">slice</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">slices</span><span class="o">.</span><span class="n">filter_by_quantity</span><span class="p">(</span><span class="n">q</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-    
-<span class="c1">#     print(slice)</span>
-    <span class="c1">### fds / fdsreader BUG workaround BEGIN</span>
-    <span class="c1">### Issue due to SLCF located at MESH boundary</span>
-    <span class="n">to_del</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">slice</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">extent</span><span class="o">.</span><span class="n">_extents</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">to_del</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">mesh</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">to_del</span><span class="p">:</span>
-        <span class="k">del</span> <span class="nb">slice</span><span class="o">.</span><span class="n">_subslices</span><span class="p">[</span><span class="n">m</span><span class="p">]</span>
-        
-    <span class="n">extent</span> <span class="o">=</span> <span class="p">(</span><span class="nb">slice</span><span class="o">.</span><span class="n">extent</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="nb">slice</span><span class="o">.</span><span class="n">extent</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> 
-              <span class="nb">slice</span><span class="o">.</span><span class="n">extent</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="nb">slice</span><span class="o">.</span><span class="n">extent</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
-<span class="c1">#     print(extent)</span>
-    <span class="c1">### fds / fdsreader BUG workaround END</span>
-    
-    <span class="n">slice_data</span> <span class="o">=</span> <span class="nb">slice</span><span class="o">.</span><span class="n">to_global</span><span class="p">()</span>
-    
-    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">slice_data</span><span class="p">[</span><span class="n">it</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">v_abs_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">slice_data</span><span class="p">[</span><span class="n">it</span><span class="p">]))</span>
-        <span class="n">vmin</span> <span class="o">=</span> <span class="o">-</span><span class="n">v_abs_max</span>
-        <span class="n">vmax</span> <span class="o">=</span> <span class="n">v_abs_max</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">vmin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">slice_data</span><span class="p">[</span><span class="n">it</span><span class="p">])</span>
-        <span class="n">vmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">slice_data</span><span class="p">[</span><span class="n">it</span><span class="p">])</span>
-    
-    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">slice_data</span><span class="p">[</span><span class="n">it</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
-               <span class="n">vmin</span> <span class="o">=</span> <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="n">vmax</span><span class="p">,</span>
-               <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> 
-               <span class="n">extent</span><span class="o">=</span><span class="n">extent</span><span class="p">,</span>
-               <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;seismic&#39;</span><span class="p">)</span>
-    <span class="n">q</span> <span class="o">=</span> <span class="nb">slice</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">quantity</span>
-    <span class="n">u</span> <span class="o">=</span> <span class="nb">slice</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">unit</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">q</span><span class="si">}</span><span class="s2"> / </span><span class="si">{</span><span class="n">u</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">NameError</span><span class="g g-Whitespace">                                 </span>Traceback (most recent call last)
-<span class="nn">Input In [1],</span> in <span class="ni">&lt;cell line: 3&gt;</span><span class="nt">()</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">list_q</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;PRESSURE&#39;</span><span class="p">,</span> <span class="s1">&#39;BACKGROUND PRESSURE&#39;</span><span class="p">]</span>
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">it</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">slices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_nearest_timestep</span><span class="p">(</span><span class="mi">250</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">list_q</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="nb">slice</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">slices</span><span class="o">.</span><span class="n">filter_by_quantity</span><span class="p">(</span><span class="n">q</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-
-<span class="ne">NameError</span>: name &#39;sim&#39; is not defined
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="flow">
-<h2>Flow<a class="headerlink" href="#flow" title="Link to this heading">#</a></h2>
-<aside class="margin sidebar">
-<p class="sidebar-title"></p>
-<p>See <a class="reference internal" href="../../tools/03_analysis/02_fdsreader.html"><span class="doc std std-doc">introduction to the fdsreader module section</span></a> for a quick introduction on how to read in FDS data in Python.</p>
-</aside>
-<div class="cell tag_hide_input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">fdsreader</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.dpi&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">150</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell tag_hide_input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">path_to_data</span> <span class="o">=</span> <span class="s1">&#39;../../../../data/compartment/pressure_01/rundir/&#39;</span>
-
-<span class="n">sim</span> <span class="o">=</span> <span class="n">fdsreader</span><span class="o">.</span><span class="n">Simulation</span><span class="p">(</span><span class="n">path_to_data</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell tag_hide_input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_q</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;U-VELOCITY&#39;</span><span class="p">,</span> <span class="s1">&#39;V-VELOCITY&#39;</span><span class="p">,</span> <span class="s1">&#39;W-VELOCITY&#39;</span><span class="p">]</span>
-<span class="n">it</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">slices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_nearest_timestep</span><span class="p">(</span><span class="mi">250</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">list_q</span><span class="p">:</span>
-    <span class="nb">slice</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">slices</span><span class="o">.</span><span class="n">filter_by_quantity</span><span class="p">(</span><span class="n">q</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-    
-    <span class="nb">print</span><span class="p">(</span><span class="nb">slice</span><span class="p">)</span>
-    <span class="c1">### fds / fdsreader BUG workaround BEGIN</span>
-    <span class="c1">### Issue due to SLCF located at MESH boundary</span>
-    <span class="n">to_del</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">slice</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">extent</span><span class="o">.</span><span class="n">_extents</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">to_del</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">mesh</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">to_del</span><span class="p">:</span>
-        <span class="k">del</span> <span class="nb">slice</span><span class="o">.</span><span class="n">_subslices</span><span class="p">[</span><span class="n">m</span><span class="p">]</span>
-        
-    <span class="n">extent</span> <span class="o">=</span> <span class="p">(</span><span class="nb">slice</span><span class="o">.</span><span class="n">extent</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="nb">slice</span><span class="o">.</span><span class="n">extent</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> 
-              <span class="nb">slice</span><span class="o">.</span><span class="n">extent</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="nb">slice</span><span class="o">.</span><span class="n">extent</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
-<span class="c1">#     print(extent)</span>
-    <span class="c1">### fds / fdsreader BUG workaround END</span>
-    
-    <span class="n">slice_data</span> <span class="o">=</span> <span class="nb">slice</span><span class="o">.</span><span class="n">to_global</span><span class="p">()</span>
-    
-    <span class="n">v_abs_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">slice_data</span><span class="p">[</span><span class="n">it</span><span class="p">]))</span>
-    
-    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">slice_data</span><span class="p">[</span><span class="n">it</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
-               <span class="n">vmin</span> <span class="o">=</span> <span class="o">-</span><span class="n">v_abs_max</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="n">v_abs_max</span><span class="p">,</span>
-               <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> 
-               <span class="n">extent</span><span class="o">=</span><span class="n">extent</span><span class="p">,</span>
-               <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;seismic&#39;</span><span class="p">)</span>
-    <span class="n">q</span> <span class="o">=</span> <span class="nb">slice</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">quantity</span>
-    <span class="n">u</span> <span class="o">=</span> <span class="nb">slice</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">unit</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">q</span><span class="si">}</span><span class="s2"> / </span><span class="si">{</span><span class="n">u</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Slice([3D] cell_centered=True, extent=Extent([0.00, 4.80] x [0.00, 0.05] x [0.00, 3.00]))
-</pre></div>
-</div>
-<img alt="../../../_images/bfd214d5f309f4e701b50a48b9e864c93b733eccabf7be19e7806652cd3aef6b.png" src="../../../_images/bfd214d5f309f4e701b50a48b9e864c93b733eccabf7be19e7806652cd3aef6b.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Slice([3D] cell_centered=True, extent=Extent([0.00, 4.80] x [0.00, 0.05] x [0.00, 3.00]))
-</pre></div>
-</div>
-<img alt="../../../_images/8b66ec81ea1eb650a8bff3d0bb52cacdea98e706abfed953d381c88e49206362.png" src="../../../_images/8b66ec81ea1eb650a8bff3d0bb52cacdea98e706abfed953d381c88e49206362.png" />
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Slice([3D] cell_centered=True, extent=Extent([0.00, 4.80] x [0.00, 0.05] x [0.00, 3.00]))
-</pre></div>
-</div>
-<img alt="../../../_images/24dbde025d60ea230dcb5e770dbf7a026327092cd18a092dd74102c707d1c576.png" src="../../../_images/24dbde025d60ea230dcb5e770dbf7a026327092cd18a092dd74102c707d1c576.png" />
-</div>
-</div>
-<div class="cell tag_hide_input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u_slice</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">slices</span><span class="o">.</span><span class="n">filter_by_quantity</span><span class="p">(</span><span class="s1">&#39;U-VELOCITY&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">slice_data</span> <span class="o">=</span> <span class="n">u_slice</span><span class="o">.</span><span class="n">to_global</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell tag_hide_input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x0</span> <span class="o">=</span> <span class="mf">2.7</span>
-<span class="n">ix</span> <span class="o">=</span> <span class="n">u_slice</span><span class="o">.</span><span class="n">get_nearest_index</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">x0</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Index in x-direction next to x=</span><span class="si">{</span><span class="n">x0</span><span class="si">}</span><span class="s1"> is </span><span class="si">{</span><span class="n">ix</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
-
-<span class="n">z0</span> <span class="o">=</span> <span class="mf">1.5</span>
-<span class="n">iy</span> <span class="o">=</span> <span class="n">u_slice</span><span class="o">.</span><span class="n">get_nearest_index</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">z0</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Index in z-direction next to z=</span><span class="si">{</span><span class="n">z0</span><span class="si">}</span><span class="s1"> is </span><span class="si">{</span><span class="n">iy</span><span class="si">}</span><span class="s1">.&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index in x-direction next to x=2.7 is 54.
-Index in z-direction next to z=1.5 is 35.
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell tag_hide_input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">instant_values</span> <span class="o">=</span> <span class="n">slice_data</span><span class="p">[:,</span> <span class="n">ix</span><span class="p">,</span> <span class="n">iy</span><span class="p">]</span>
-<span class="n">n_a</span> <span class="o">=</span> <span class="mi">51</span>
-<span class="n">average_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span><span class="n">instant_values</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_a</span><span class="p">)</span><span class="o">/</span><span class="n">n_a</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;valid&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">u_slice</span><span class="o">.</span><span class="n">times</span><span class="p">,</span> <span class="n">instant_values</span><span class="p">,</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;instanteneous values&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">u_slice</span><span class="o">.</span><span class="n">times</span><span class="p">[</span><span class="n">n_a</span><span class="o">//</span><span class="mi">2</span><span class="p">:</span><span class="o">-</span><span class="p">(</span><span class="n">n_a</span><span class="o">//</span><span class="mi">2</span><span class="p">)],</span> <span class="n">average_values</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;moving average&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Time / s&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Velocity Component $\sf v_x$ / m/s&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Values at position (x,z)=(</span><span class="si">{</span><span class="n">x0</span><span class="si">}</span><span class="s1"> m, </span><span class="si">{</span><span class="n">z0</span><span class="si">}</span><span class="s1"> m)&#39;</span><span class="p">);</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../../_images/0c8f5275b4628d7caa07c9b6b503e78e4103b3cee52a7b4c7558a7592c92d37f.png" src="../../../_images/0c8f5275b4628d7caa07c9b6b503e78e4103b3cee52a7b4c7558a7592c92d37f.png" />
-</div>
-</div>
-<div class="cell tag_hide_input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">z_max</span> <span class="o">=</span> <span class="mf">2.0</span>
-<span class="n">iz_max</span> <span class="o">=</span> <span class="n">u_slice</span><span class="o">.</span><span class="n">get_nearest_index</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="n">z_max</span><span class="p">)</span> 
-
-<span class="c1">### TODO: quick solution, needs fix</span>
-<span class="n">h</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">z_max</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>
-
-<span class="n">list_t</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">250</span><span class="p">]</span>
-
-<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">list_t</span><span class="p">:</span>
-    <span class="n">it</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">slices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_nearest_timestep</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">slice_data</span><span class="p">[</span><span class="n">it</span><span class="p">,</span> <span class="n">ix</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="n">iz_max</span><span class="o">+</span><span class="mi">5</span><span class="p">],</span> <span class="n">h</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;t=</span><span class="si">{</span><span class="n">t</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Velocity Component $\sf v_x$ / m/s&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Height / m&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x118679d90&gt;
-</pre></div>
-</div>
-<img alt="../../../_images/9b1dc99ad0980724c3a284f6f0a738d734425532dc368cac9980caefa8014054.png" src="../../../_images/9b1dc99ad0980724c3a284f6f0a738d734425532dc368cac9980caefa8014054.png" />
-</div>
-</div>
-</section>
-<section id="other-quantities">
-<h2>Other Quantities<a class="headerlink" href="#other-quantities" title="Link to this heading">#</a></h2>
-<div class="cell tag_hide_input docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_q</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;TEMPERATURE&#39;</span><span class="p">,</span> <span class="s1">&#39;DENSITY&#39;</span><span class="p">,</span> <span class="s1">&#39;KOLMOGOROV LENGTH SCALE&#39;</span><span class="p">,</span> <span class="s1">&#39;SUBGRID KINETIC ENERGY&#39;</span><span class="p">,</span> <span class="s1">&#39;VORTICITY Y&#39;</span><span class="p">]</span>
-<span class="n">it</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">slices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get_nearest_timestep</span><span class="p">(</span><span class="mi">250</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">q</span> <span class="ow">in</span> <span class="n">list_q</span><span class="p">:</span>
-    <span class="nb">slice</span> <span class="o">=</span> <span class="n">sim</span><span class="o">.</span><span class="n">slices</span><span class="o">.</span><span class="n">filter_by_quantity</span><span class="p">(</span><span class="n">q</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-    
-<span class="c1">#     print(slice)</span>
-    <span class="c1">### fds / fdsreader BUG workaround BEGIN</span>
-    <span class="c1">### Issue due to SLCF located at MESH boundary</span>
-    <span class="n">to_del</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="nb">slice</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">s</span><span class="o">.</span><span class="n">extent</span><span class="o">.</span><span class="n">_extents</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">to_del</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">mesh</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">to_del</span><span class="p">:</span>
-        <span class="k">del</span> <span class="nb">slice</span><span class="o">.</span><span class="n">_subslices</span><span class="p">[</span><span class="n">m</span><span class="p">]</span>
-        
-    <span class="n">extent</span> <span class="o">=</span> <span class="p">(</span><span class="nb">slice</span><span class="o">.</span><span class="n">extent</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="nb">slice</span><span class="o">.</span><span class="n">extent</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">],</span> 
-              <span class="nb">slice</span><span class="o">.</span><span class="n">extent</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="nb">slice</span><span class="o">.</span><span class="n">extent</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
-<span class="c1">#     print(extent)</span>
-    <span class="c1">### fds / fdsreader BUG workaround END</span>
-    
-    <span class="n">slice_data</span> <span class="o">=</span> <span class="nb">slice</span><span class="o">.</span><span class="n">to_global</span><span class="p">()</span>
-    
-    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">slice_data</span><span class="p">[</span><span class="n">it</span><span class="p">])</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">v_abs_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">slice_data</span><span class="p">[</span><span class="n">it</span><span class="p">]))</span>
-        <span class="n">vmin</span> <span class="o">=</span> <span class="o">-</span><span class="n">v_abs_max</span>
-        <span class="n">vmax</span> <span class="o">=</span> <span class="n">v_abs_max</span>
-        <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;seismic&#39;</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">vmin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">slice_data</span><span class="p">[</span><span class="n">it</span><span class="p">])</span>
-        <span class="n">vmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">slice_data</span><span class="p">[</span><span class="n">it</span><span class="p">])</span>
-        <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;viridis&#39;</span>
-    
-    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">slice_data</span><span class="p">[</span><span class="n">it</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
-               <span class="n">vmin</span> <span class="o">=</span> <span class="n">vmin</span><span class="p">,</span> <span class="n">vmax</span> <span class="o">=</span> <span class="n">vmax</span><span class="p">,</span>
-               <span class="n">origin</span><span class="o">=</span><span class="s1">&#39;lower&#39;</span><span class="p">,</span> 
-               <span class="n">extent</span><span class="o">=</span><span class="n">extent</span><span class="p">,</span>
-               <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">)</span>
-    <span class="n">q</span> <span class="o">=</span> <span class="nb">slice</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">quantity</span>
-    <span class="n">u</span> <span class="o">=</span> <span class="nb">slice</span><span class="o">.</span><span class="n">quantity</span><span class="o">.</span><span class="n">unit</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">q</span><span class="si">}</span><span class="s2"> / </span><span class="si">{</span><span class="n">u</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../../_images/880309353ed966f048f1f7dd0ab4fa9bae8f79085024695ef260015822a3c612.png" src="../../../_images/880309353ed966f048f1f7dd0ab4fa9bae8f79085024695ef260015822a3c612.png" />
-<img alt="../../../_images/4505f242759a323dd313d971509f13edee25f664db68090a7eb02c7182aa867a.png" src="../../../_images/4505f242759a323dd313d971509f13edee25f664db68090a7eb02c7182aa867a.png" />
-<img alt="../../../_images/f831ec037bf12d17b0bf92e0311bf7efe3aa1401b5626af730ed8c5f28b9aa8f.png" src="../../../_images/f831ec037bf12d17b0bf92e0311bf7efe3aa1401b5626af730ed8c5f28b9aa8f.png" />
-<img alt="../../../_images/60b889823e090e4a33600599441c2a37d10cd5e3e58d77d67463786464ad679a.png" src="../../../_images/60b889823e090e4a33600599441c2a37d10cd5e3e58d77d67463786464ad679a.png" />
-<img alt="../../../_images/ab9979f63125e3591dc68eb7b64d564e88f1bd66c348970df193fd987845dc71.png" src="../../../_images/ab9979f63125e3591dc68eb7b64d564e88f1bd66c348970df193fd987845dc71.png" />
-</div>
-</div>
-</section>
+Overview over the experimental setup used by Steckler et al. {cite}`Steckler.1982`.
+::: -->
 </section>
 
     <script type="text/x-thebe-config">
@@ -1025,23 +661,7 @@ Index in z-direction next to z=1.5 is 35.
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setup">Setup</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pressure">Pressure</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#flow">Flow</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-quantities">Other Quantities</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
+                <div class="bd-sidebar-secondary bd-toc"></div>
               
             
           </div>
