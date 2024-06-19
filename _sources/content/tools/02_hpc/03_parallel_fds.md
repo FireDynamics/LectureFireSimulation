@@ -215,7 +215,7 @@ The SLURM keywords in the individual lines are described in more detail below.
 * **Wall Clock Time**
 
   ```
-  #SBATCH --time=00:30:00  # days-hours:minutes:seconds
+  #SBATCH --time=00-00:30:00  # days-hours:minutes:seconds
   ```
 
   This line specifies the maximum time the job can run on the requested resource. The maximal wall clock time is stated in the documentation for the individual partitions. The `cd-cpu` partition has a limit of 24 hours (JURECA). Different rules apply for Pleiades where multiple days can be requested. The general syntax is `days-hours:minutes:seconds`.
@@ -232,8 +232,10 @@ The SLURM keywords in the individual lines are described in more detail below.
 
   Available Lmod modules are stored in different locations on both computers. On JURECA use:
   ```
-  module use -a ~arnold1/modules_fire/
-  module load FDS/6.7.5-IntelComp2020.2_ParaStationMPI_5.4.7
+  # Add firesim modules
+  module use -a /p/project1/cias-7/modules_fire
+  # Load FDS in the version 6.9.1
+  module load FDS/6.9.1-IntelCompiler_2023.2.1_IntelMPI_2021.10.0
   ```
   On Pleiades use:
   ```
@@ -372,7 +374,7 @@ Modules offer a flexible environment to manage multiple versions of software. Th
 As the FDS (and some other) modules are not globally installed, they need to be added to the user's environment. This can be done with
 
 ```
-> module use -a ~arnold1/modules_fire/
+> module use -a /p/project1/cias-7/modules_fire
 ```
 
 Thus, adding this line to your batch scripts and startup script (`~/.bashrc`) will automatically add the related modules to the module environment.

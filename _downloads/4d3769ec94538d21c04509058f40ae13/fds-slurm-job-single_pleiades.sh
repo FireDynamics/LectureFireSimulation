@@ -7,7 +7,7 @@
 #SBATCH --ntasks=16
 #SBATCH --output=stdout.%j
 #SBATCH --error=stderr.%j
-#SBATCH --time=00:30:00  # days-hours:minutes:seconds
+#SBATCH --time=00-00:30:00  # days-hours:minutes:seconds
 
 # Add firesim modules
 module use -a ~larnold/modules/
