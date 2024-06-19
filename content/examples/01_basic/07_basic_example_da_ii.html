@@ -609,20 +609,6 @@ The values to be plotted have been extracted from <a class="reference external" 
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">folder_path</span><span class="o">=</span><span class="s1">&#39;data/Furniture_calorimetry&#39;</span>
-<span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">folder_path</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Fig16_LoveSeat.txt&#39;, &#39;Fig16_Sofa.txt&#39;, &#39;Fig16_SingleChair.txt&#39;]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Function for growth of fire from section 1.2 Fire Safety Engineering, Fire Scenario: </span>
 <span class="k">def</span> <span class="nf">alpha_t_squared</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
     
@@ -638,8 +624,23 @@ The values to be plotted have been extracted from <a class="reference external" 
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Describe the Design fire HRR:</span>
 <span class="n">time_series</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">130</span><span class="p">)</span><span class="c1">#creating time series</span>
-<span class="n">alpha</span><span class="o">=</span><span class="mf">0.19</span>
+<span class="n">alpha</span><span class="o">=</span><span class="mf">0.19</span>  <span class="c1"># ultra fast</span>
 <span class="n">HRR</span> <span class="o">=</span> <span class="n">alpha_t_squared</span><span class="p">(</span><span class="n">time_series</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check files with experiment data.</span>
+<span class="n">folder_path</span><span class="o">=</span><span class="s1">&#39;./data/Furniture_calorimetry&#39;</span>
+<span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">folder_path</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Fig16_LoveSeat.txt&#39;, &#39;Fig16_Sofa.txt&#39;, &#39;Fig16_SingleChair.txt&#39;]
 </pre></div>
 </div>
 </div>
@@ -648,26 +649,42 @@ The values to be plotted have been extracted from <a class="reference external" 
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the data from the experiments.</span>
 <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+    <span class="c1"># Filter out specific type of files.</span>
     <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.txt&#39;</span><span class="p">):</span>
-        <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder_path</span><span class="p">,</span><span class="n">file</span><span class="p">)</span>
+        <span class="c1"># Create data series label.</span>
         <span class="n">label</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">file</span> <span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Extract label from filename</span>
-        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        
+        <span class="c1"># Read file.</span>
+        <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder_path</span><span class="p">,</span><span class="n">file</span><span class="p">)</span>
+        <span class="n">furniture_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        
         <span class="k">if</span> <span class="s2">&quot;Chair&quot;</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
             <span class="c1"># Shift data series such that the increasing slopes align.</span>
-            <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="mi">60</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;HRR&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="o">.</span><span class="n">capitalize</span><span class="p">())</span>
+            <span class="n">time_shift</span> <span class="o">=</span> <span class="mi">60</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;HRR&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="o">.</span><span class="n">capitalize</span><span class="p">())</span>
+            <span class="n">time_shift</span> <span class="o">=</span> <span class="mi">0</span>
+            
+        <span class="c1"># Plot data series.</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">furniture_df</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">time_shift</span><span class="p">,</span> 
+                 <span class="n">furniture_df</span><span class="p">[</span><span class="s1">&#39;HRR&#39;</span><span class="p">],</span> 
+                 <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="o">.</span><span class="n">capitalize</span><span class="p">())</span>
 
-<span class="c1"># Assuming alpha_t_squared function results are stored in variables time_series and HRR</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_series</span> <span class="o">+</span> <span class="mi">90</span><span class="p">,</span> <span class="n">HRR</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Ultra fast&quot;</span><span class="p">)</span>
+<span class="c1"># Plot alpha_t_squared function results.</span>
+<span class="n">virtual_ignition_time</span> <span class="o">=</span> <span class="mi">90</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_series</span> <span class="o">+</span> <span class="n">virtual_ignition_time</span><span class="p">,</span> 
+         <span class="n">HRR</span><span class="p">,</span> 
+         <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-.&#39;</span><span class="p">,</span> 
+         <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Ultra fast&quot;</span><span class="p">)</span>
 
 
 <span class="c1"># Plot meta data.</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time / s&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Heat Release Rate / kW&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="c1"># Show plot.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> 
 </pre></div>
 </div>
 </div>

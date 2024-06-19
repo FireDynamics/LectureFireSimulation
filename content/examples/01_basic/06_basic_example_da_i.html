@@ -579,67 +579,35 @@ document.write(`
 <h1>Basic Example, Data Analysis I<a class="headerlink" href="#basic-example-data-analysis-i" title="Link to this heading">#</a></h1>
 <section id="setup-description">
 <h2>Setup Description<a class="headerlink" href="#setup-description" title="Link to this heading">#</a></h2>
-<p>The goal here is to plot Figure 1.13, which shows the heat release rates (HRR) of different pieces of furniture, as documented by <a class="reference external" href="https://www.nist.gov/publications/upholstered-furniture-heat-release-rates-measured-furniture-calorimeter">Babrauskas and Lawson</a>. We aim to fit the ‘t-squared’ design fire with a fire-growth coefficient of 0.19 kW/s² and a virtual ignition time of 90 seconds to the experimental data.</p>
+<p>The task here is to create the plot, which depicts the heat release rates (HRR) of different fuel loads and ventilation openings in a room of the same geometry, taken from the NIST Fire Calorimetry Database (FCD) for <a class="reference external" href="https://www.nist.gov/el/fcd/cross-laminated-timber-compartments">Cross Laminated Timber Compartment Fire Tests</a>.</p>
 <p>We will follow these steps:</p>
 <ol class="arabic simple">
-<li><p><strong>Download the CSV files</strong>:
-The values to be plotted have been extracted from <a class="reference external" href="https://www.nist.gov/publications/upholstered-furniture-heat-release-rates-measured-furniture-calorimeter">figure 16 in the article</a> using <a class="reference internal" href="04_basic_example_iv.html"><span class="std std-doc">WebPlotDigitizer</span></a> and can be downloaded as text files for:</p>
-<ul class="simple">
-<li><p><a class="reference download internal" download="" href="../../../_downloads/03dcd8527bb3021af5d6b6593e82088c/Fig16_Sofa.txt"><span class="xref download myst">Sofa</span></a></p></li>
-<li><p><a class="reference download internal" download="" href="../../../_downloads/bea3a9f121ecd1089cff7b58adfcdfb9/Fig16_LoveSeat.txt"><span class="xref download myst">Love seat</span></a></p></li>
-<li><p><a class="reference download internal" download="" href="../../../_downloads/e02f222e97fb5b1bab5c55a025c45e5a/Fig16_SingleChair.txt"><span class="xref download myst">Single chair</span></a></p></li>
-</ul>
-</li>
-<li><p><strong>Read the files</strong>.</p></li>
-<li><p><strong>Define a function for the design fire</strong>.</p></li>
-<li><p><strong>Use the function to describe the design fire HRR</strong>.</p></li>
-<li><p><strong>Plot the HRR curves</strong>.</p></li>
+<li><p><strong>Download the data (CSV files)</strong>:
+The CSV files can be found at: <a class="reference external" href="https://www.nist.gov/el/fcd/cross-laminated-timber-compartments/cltroomtest1-2">CLT_Room_Test_1-2</a> and <a class="reference external" href="https://www.nist.gov/el/fcd/cross-laminated-timber-compartments/cltroomtest1-6">CLT_Room_Test_1-6</a>.</p></li>
+<li><p><strong>Read and plot the HRR values</strong>:
+We will use the Python libraries <code class="docutils literal notranslate"><span class="pre">os</span></code> and <code class="docutils literal notranslate"><span class="pre">pandas</span></code> to access the file location and read the CSV files. <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code> will be used to plot the values.</p></li>
 </ol>
-<p>Following the previous example, we will use the Python libraries <code class="docutils literal notranslate"><span class="pre">os</span></code>, <code class="docutils literal notranslate"><span class="pre">pandas</span></code>, <code class="docutils literal notranslate"><span class="pre">numpy</span></code> and <code class="docutils literal notranslate"><span class="pre">matplotlib</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import libraries</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Import the libraries:</span>
 <span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">folder_path</span><span class="o">=</span><span class="s1">&#39;data/Furniture_calorimetry&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Check files with experiment data.</span>
+<span class="n">folder_path</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;./data/Fire_calorimetry&quot;</span><span class="p">)</span>
 <span class="n">files</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">folder_path</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">files</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;Fig16_LoveSeat.txt&#39;, &#39;Fig16_Sofa.txt&#39;, &#39;Fig16_SingleChair.txt&#39;]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Function for growth of fire from section 1.2 Fire Safety Engineering, Fire Scenario: </span>
-<span class="k">def</span> <span class="nf">alpha_t_squared</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
-    
-    <span class="c1">#HRR = α×time^2</span>
-    <span class="n">HRR</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
-    
-    <span class="k">return</span> <span class="n">HRR</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Describe the Design fire HRR:</span>
-<span class="n">time_series</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">130</span><span class="p">)</span><span class="c1">#creating time series</span>
-<span class="n">alpha</span><span class="o">=</span><span class="mf">0.19</span>
-<span class="n">HRR</span> <span class="o">=</span> <span class="n">alpha_t_squared</span><span class="p">(</span><span class="n">time_series</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[&#39;1487904718_CLT_Room_Test_1-2.csv&#39;, &#39;1492523586_CLT_Room_Test_1-6.csv&#39;]
 </pre></div>
 </div>
 </div>
@@ -648,31 +616,33 @@ The values to be plotted have been extracted from <a class="reference external" 
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the data from the experiments.</span>
 <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.txt&#39;</span><span class="p">):</span>
-        <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder_path</span><span class="p">,</span><span class="n">file</span><span class="p">)</span>
-        <span class="n">label</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">file</span> <span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># Extract label from filename</span>
-        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-        <span class="k">if</span> <span class="s2">&quot;Chair&quot;</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
-            <span class="c1"># Shift data series such that the increasing slopes align.</span>
-            <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="mi">60</span><span class="p">,</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;HRR&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="o">.</span><span class="n">capitalize</span><span class="p">())</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;HRR&#39;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">label</span><span class="o">.</span><span class="n">capitalize</span><span class="p">())</span>
-
-<span class="c1"># Assuming alpha_t_squared function results are stored in variables time_series and HRR</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time_series</span> <span class="o">+</span> <span class="mi">90</span><span class="p">,</span> <span class="n">HRR</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-.&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Ultra fast&quot;</span><span class="p">)</span>
-
+    <span class="c1"># Filter out specific type of files.</span>
+    <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.csv&#39;</span><span class="p">):</span>
+        <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">folder_path</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+        
+        <span class="c1"># Read file.</span>
+        <span class="n">calorimeter_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span><span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        
+        <span class="c1"># Plot data series.</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">calorimeter_df</span><span class="p">[</span><span class="s1">&#39;Time (s)&#39;</span><span class="p">],</span> 
+                 <span class="n">calorimeter_df</span><span class="p">[</span><span class="s1">&#39;Heat Release Rate (kW)&#39;</span><span class="p">],</span> 
+                 <span class="n">label</span><span class="o">=</span><span class="s2">&quot;_&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]))</span>
+        
 
 <span class="c1"># Plot meta data.</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time / s&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Heat Release Rate / kW&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
+
+<span class="c1"># Show plot.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span> 
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/894b9e80f366dacb287e52d753a5929620c0f9a5cc91e31b7e1014e4a1833ba9.png" src="../../../_images/894b9e80f366dacb287e52d753a5929620c0f9a5cc91e31b7e1014e4a1833ba9.png" />
+<img alt="../../../_images/563a6f6652460303ce422f016e620c5c15df0d4a98130c76ef0533344588aa94.png" src="../../../_images/563a6f6652460303ce422f016e620c5c15df0d4a98130c76ef0533344588aa94.png" />
 </div>
 </div>
 </section>
