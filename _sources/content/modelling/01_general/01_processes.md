@@ -2,9 +2,9 @@
 
 ## What is a Fire?
 
-In general: A fire is an exothermic chemical reaction.
+In general: A natural fire is a process, where combustible material is oxidising and releasing energy. Via heat transfer, part of this energy is used to power the generation of fuel, e.g. via pyrolysis. 
 
-**Technical Combustion -- Wanted Fires**
+**Technical Combustion -- "Wanted Fires"**
 
 :::{figure-md} fig-wanted-fire
 
@@ -23,7 +23,7 @@ Bonfires are wanted fires, e.g. for preparing a meal.
 :::
 
 
-**Unwanted Fires**
+**"Unwanted Fires"**
 
 :::{figure-md} fig-unwanted-fire
 
@@ -44,7 +44,7 @@ Unwanted fires, are **not controlled and not wanted** processes. These are mostl
     * [Indonesia Peat Fires](https://youtu.be/2qYzTU0q9XE)
 * Compartment fires
     * [Compartment Fire Flashover](https://youtu.be/w4W82HIzUcc)
-    * [Storage Fire](https://youtu.be/xzuNVFn0U48)
+    * [Storage Fire](https://youtu.be/MSNj1YpaljA)
 
 ## Processes Overview
 
