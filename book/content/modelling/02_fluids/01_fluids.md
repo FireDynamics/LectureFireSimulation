@@ -120,7 +120,7 @@ Flows of fluids (liquids and gases) follow the same principal characteristics. I
 
 :::{figure-md} fig-fluid-vortex-island
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Vortex-street-1.jpg" width="40%" class="rotate90">
+<img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Vortex-street-1.jpg" width="40%" class="rotate-90">
 
 Von Kármán vortex street observed in nature. Soruce: [Wikkimedia Commons](https://commons.wikimedia.org/wiki/File:Vortex-street-1.jpg).
 :::
